@@ -1,0 +1,1 @@
+console.warn(`Scripts Initialized`);
