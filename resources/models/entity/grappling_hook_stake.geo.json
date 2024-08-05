@@ -1,0 +1,44 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.grappling_hook_stake",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "body",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [0, -2.5, -4],
+							"size": [1, 5, 16],
+							"pivot": [0, 0, 0],
+							"rotation": [0, 0, 45],
+							"uv": {
+								"east": {"uv": [0, 0], "uv_size": [16, 5]}
+							}
+						},
+						{
+							"origin": [0, -2.5, -4],
+							"size": [1, 5, 16],
+							"pivot": [0, 0, 0],
+							"rotation": [0, 0, 135],
+							"uv": {
+								"east": {"uv": [0, 0], "uv_size": [16, 5]}
+							}
+						}
+					],
+					"locators": {
+						"lead": [0, 0, 8]
+					}
+				}
+			]
+		}
+	]
+}

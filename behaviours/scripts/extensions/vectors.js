@@ -361,6 +361,10 @@ export function normalize(v) {
     return div(v, length(v));
 }
 
+export function distance(u, v) {
+    return length(sub(u, v));
+}
+
 export function project(u, v) {
     return mul(v, dot(u, v) / dot(v, v));
 }

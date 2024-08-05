@@ -1,0 +1,95 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "tcsmp:grappling_hook_seat",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "tcsmp:is_retracting": {
+        "minecraft:physics": {
+          "has_collision": true,
+          "has_gravity": false
+        },
+        "minecraft:collision_box": {
+          "height": 1.8,
+          "width": 0.6
+        },
+        "minecraft:spell_effects": {
+          "add_effects": [{
+            "effect": "slow_falling",
+            "duration": 999999,
+            "amplifier": 0,
+            "visible": 0
+          }]
+        },
+        "minecraft:leashable": {
+          "can_be_stolen": false,
+          "soft_distance": 0,
+          "hard_distance": 1,
+          "max_distance": 256
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["technical"]
+      },
+      "minecraft:collision_box": {
+        "height": 0.0,
+        "width": 0.0
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [{
+          "height": 0.0,
+          "width": 0.0,
+          "pivot": [0.0, 0.0, 0.0]
+        }]
+      },
+      "minecraft:health": {
+        "value": 1,
+        "min": 1,
+        "max": 1
+      },
+      "minecraft:physics": {
+        "has_collision": false,
+        "has_gravity": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:damage_sensor": {
+				"triggers": [{
+          "cause": "all",
+          "deals_damage": false
+        }]
+			},
+      "minecraft:leashable": {
+        "can_be_stolen": false,
+        "hard_distance": 128,
+        "soft_distance": 128,
+        "max_distance": 256
+      },
+      "minecraft:rideable": {
+        "family_types": ["player", "technical"],
+        "pull_in_entities": false,
+        "crouching_skip_interact": false,
+        "rider_can_interact": false,
+        "seat_count": 1,
+        "seats": [{
+          "position": [0, 0.1875, 0]
+        }]
+      }
+    },
+    "events": {
+      "tcsmp:retract": {
+        "add": {
+          "component_groups": ["tcsmp:is_retracting"]
+        }
+      }
+    }
+  }
+}

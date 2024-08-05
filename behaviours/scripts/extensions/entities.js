@@ -1,4 +1,4 @@
-import { Entity, EntityEquippableComponent, EntityHealthComponent, EntityInventoryComponent } from "@minecraft/server";
+import { Entity, EntityEquippableComponent, EntityHealthComponent, EntityInventoryComponent, Player } from "@minecraft/server";
 
 Object.defineProperties(Entity.prototype, {
     health: {
@@ -25,3 +25,8 @@ Object.defineProperties(Entity.prototype, {
         }
     }
 });
+
+Player.prototype.applyImpulse = function (vector) {
+    const {x, y, z} = vector;
+    this.applyKnockback(x, z, Math.hypot(x, z), y);
+}

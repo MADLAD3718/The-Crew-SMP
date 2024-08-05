@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.grappling_hook": {
+      "arrays": {
+        "textures": {
+          "array.grappling_hook_texture_frames": [
+            "texture.default",
+            "texture.pulling_0",
+            "texture.pulling_1",
+            "texture.pulling_2"
+          ]
+        },
+        "geometries": {
+          "array.grappling_hook_geo_frames": [
+            "geometry.default",
+            "geometry.pulling_0",
+            "geometry.pulling_1",
+            "geometry.pulling_2"
+          ]
+        }
+      },
+      "geometry": "array.grappling_hook_geo_frames[variable.grappling_hook_animation_frame]",
+      "materials": [ { "*": "variable.is_enchanted ? material.enchanted : material.default" } ],
+      "textures": [ "array.grappling_hook_texture_frames[variable.grappling_hook_animation_frame]", "texture.enchanted" ]
+    }
+  }
+}

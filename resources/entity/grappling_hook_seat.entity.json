@@ -1,0 +1,23 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tcsmp:grappling_hook_seat",
+      "materials": {
+        "default": "entity"
+      },
+      "textures": {
+        "default": "textures/entity/grappling_hook_stake"
+      },
+      "geometry": {
+        "default": "geometry.grappling_hook_seat"
+      },
+      "scripts": {
+        "should_update_bones_and_effects_offscreen": true
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

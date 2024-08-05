@@ -1,0 +1,29 @@
+{
+    "format_version": "1.21.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "tcsmp:empty_grappling_hook",
+            "menu_category": {
+                "category": "none"
+            }
+        },
+        "components": {
+            "minecraft:max_stack_size": 1,
+            "minecraft:display_name": {
+                "value": "item.tcsmp:empty_grappling_hook.name"
+            },
+            "minecraft:icon": {
+                "textures": {
+                    "default": "empty_grappling_hook"
+                }
+            },
+            "minecraft:durability": {
+                "max_durability": 128
+            },
+            "minecraft:enchantable": {
+                "slot": "shield",
+                "value": 10
+            }
+        }
+    }
+}

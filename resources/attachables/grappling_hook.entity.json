@@ -1,0 +1,44 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "tcsmp:grappling_hook",
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "entity_alphatest_glint"
+      },
+      "textures": {
+        "default": "textures/items/grappling_hook",
+        "pulling_0": "textures/items/grappling_hook_pulled_0",
+        "pulling_1": "textures/items/grappling_hook_pulled_1",
+        "pulling_2": "textures/items/grappling_hook_pulled_2",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.grappling_hook",
+        "pulling_0": "geometry.grappling_hook_pulling_0",
+        "pulling_1": "geometry.grappling_hook_pulling_1",
+        "pulling_2": "geometry.grappling_hook_pulling_2"
+      },
+      "animations": {
+        "wield": "animation.grappling_hook.wield",
+        "wield_first_person_pull": "animation.grappling_hook.wield_first_person_pull"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.charge_amount = math.clamp((query.main_hand_item_max_duration - (query.main_hand_item_use_duration - query.frame_alpha + 1.0)) / 10.0, 0.0, 1.0f);",
+          "variable.grappling_hook_max_duration = 20 * 1.0;",
+          "variable.grappling_hook_use_normalized = math.max((query.main_hand_item_use_duration - query.main_hand_item_max_duration) / variable.grappling_hook_max_duration + 1, 0.0);",
+          "variable.grappling_hook_animation_frame = (query.main_hand_item_use_duration != 0.0 && variable.grappling_hook_use_normalized == 0.0) ? 3 : math.floor(4.0 * (1.0 - variable.grappling_hook_use_normalized));"
+        ],
+        "animate": [
+          "wield",
+          {
+            "wield_first_person_pull": "query.main_hand_item_use_duration > 0.0f && c.is_first_person"
+          }
+        ]
+      },
+      "render_controllers": [ "controller.render.grappling_hook" ]
+    }
+  }
+}

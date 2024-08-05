@@ -1,0 +1,43 @@
+{
+    "format_version": "1.21.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "tcsmp:grappling_hook",
+            "menu_category": {
+                "category": "equipment"
+            }
+        },
+        "components": {
+            "minecraft:custom_components": ["tcsmp:grappling_hook"],
+            "minecraft:max_stack_size": 1,
+            "minecraft:display_name": {
+                "value": "item.tcsmp:grappling_hook.name"
+            },
+            "minecraft:icon": {
+                "textures": {
+                    "default": "grappling_hook"
+                }
+            },
+            "minecraft:use_modifiers": {
+                "use_duration": 99999
+            },
+            "minecraft:shooter": {
+                "charge_on_draw": false,
+                "max_draw_duration": 99999
+            },
+            "minecraft:repairable": {
+                "repair_items": [{
+                    "items": ["minecraft:copper_ingot"],
+                    "repair_amount": 128
+                }]
+            },
+            "minecraft:durability": {
+                "max_durability": 128
+            },
+            "minecraft:enchantable": {
+                "slot": "shield",
+                "value": 10
+            }
+        }
+    }
+}
