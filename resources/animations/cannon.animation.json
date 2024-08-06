@@ -7,8 +7,8 @@
 				"barrel": {
 					"rotation": ["q.has_rider ? math.min(q.rider_body_x_rotation(0), 0) : 0", 0, 0]
 				},
-				"carriage": {
-					"rotation": [0, "q.has_rider ? q.rider_head_y_rotation(0) : 0", 0]
+				"body": {
+					"rotation": [0, "180 - this + (q.has_rider ? q.rider_head_y_rotation(0) - q.rider_body_y_rotation(0) : 0)", 0]
 				}
 			}
 		}
