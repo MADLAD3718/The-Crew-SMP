@@ -10,6 +10,12 @@
     },
     "hook": {
       "textures": "textures/items/hook"
+    },
+    "cannon": {
+      "textures": "textures/items/cannon"
+    },
+    "cannonball": {
+      "textures": "textures/items/cannonball"
     }
   }
 }

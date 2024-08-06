@@ -1,0 +1,13 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.cannon.root": {
+			"loop": true,
+			"bones": {
+				"barrel": {
+					"rotation": ["q.has_rider ? math.min(q.rider_body_x_rotation(0), 10) : 0", 0, 0]
+				}
+			}
+		}
+	}
+}

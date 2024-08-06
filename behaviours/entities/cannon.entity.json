@@ -3,28 +3,38 @@
     "minecraft:entity": {
         "description": {
             "identifier": "tcsmp:cannon",
-            "is_spawnable": true,
+            "is_spawnable": false,
             "is_summonable": true,
             "is_experimental": false
+        },
+        "component_groups": {
+            "tcsmp:no_rider": {
+                "minecraft:environment_sensor": {
+                    "triggers": [{
+                        "filters": {
+                            "test": "rider_count",
+                            "value": 1
+                        },
+                        "event": "tcsmp:control_cannon"
+                    }]
+                }
+            },
+            "tcsmp:has_rider": {
+                "minecraft:environment_sensor": {
+                    "triggers": [{
+                        "filters": {
+                            "test": "rider_count",
+                            "value": 0
+                        },
+                        "event": "tcsmp:dismount_cannon"
+                    }]
+                }
+            }
         },
         "components": {
             "minecraft:collision_box": {
                 "width": 1.0,
-                "height": 1.0
-            },
-            "minecraft:custom_hit_test": {
-                "hitboxes": [
-                    {
-                        "width": 1.0,
-                        "height": 1.0,
-                        "pivot": [0.0, 0.0, 0.0]
-                    },
-                    {
-                        "width": 1.0,
-                        "height": 1.0,
-                        "pivot": [0.0, 0.0, 1.0]
-                    }
-                ]
+                "height": 1.5
             },
             "minecraft:physics": {
                 "has_collision": true,
@@ -36,6 +46,48 @@
             "minecraft:inventory": {
                 "container_type": "inventory",
                 "inventory_size": 9
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                    "cause": "all",
+                    "deals_damage": false
+                }]
+            },
+            "minecraft:health": {
+                "value": 1,
+                "min": 1,
+                "max": 1
+            },
+            "minecraft:rideable": {
+                "rider_can_interact": true,
+                "seats": [{
+                    "lock_rider_rotation": 30,
+                    "position": [0.0, 0.0, 0.75],
+                    "rotate_rider_by": 180
+                }]
+            }
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": ["tcsmp:no_rider"]
+                }
+            },
+            "tcsmp:control_cannon": {
+                "remove": {
+                    "component_groups": ["tcsmp:no_rider"]
+                },
+                "add": {
+                    "component_groups": ["tcsmp:has_rider"]
+                }
+            },
+            "tcsmp:dismount_cannon": {
+                "remove": {
+                    "component_groups": ["tcsmp:has_rider"]
+                },
+                "add": {
+                    "component_groups": ["tcsmp:no_rider"]
+                }
             }
         }
     }

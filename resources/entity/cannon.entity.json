@@ -12,7 +12,11 @@
       "geometry": {
         "default": "geometry.cannon"
       },
+      "animations": {
+        "root": "animation.cannon.root"
+      },
       "scripts": {
+        "animate": ["root"],
         "should_update_bones_and_effects_offscreen": true
       },
       "render_controllers": [

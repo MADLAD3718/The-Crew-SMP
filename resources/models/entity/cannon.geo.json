@@ -6,14 +6,15 @@
 				"identifier": "geometry.cannon",
 				"texture_width": 48,
 				"texture_height": 48,
-				"visible_bounds_width": 3,
+				"visible_bounds_width": 4,
 				"visible_bounds_height": 2.5,
 				"visible_bounds_offset": [0, 0.75, 0]
 			},
 			"bones": [
 				{
 					"name": "body",
-					"pivot": [0, 0, 0]
+					"pivot": [0, 0, 0],
+					"rotation": [0, 180, 0]
 				},
 				{
 					"name": "carriage",

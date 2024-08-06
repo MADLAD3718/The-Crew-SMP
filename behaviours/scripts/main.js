@@ -1,4 +1,5 @@
 import "./extensions/export";
+import "./entities/cannon";
 import { world } from "@minecraft/server";
 import { grapplingHookComponent } from "./items/grappling_hook";
 
