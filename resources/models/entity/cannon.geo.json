@@ -53,9 +53,9 @@
 				},
 				{
 					"name": "barrel",
-					"parent": "body",
+					"parent": "carriage",
 					"pivot": [0, 8, 2],
-					"rotation": [-10, 0, 0],
+					"rotation": [-7.5, 0, 0],
 					"cubes": [
 						{
 							"origin": [-10, 5, -4],

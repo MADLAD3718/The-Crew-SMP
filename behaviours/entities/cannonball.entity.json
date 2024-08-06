@@ -1,0 +1,50 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "tcsmp:cannonball",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "runtime_identifier": "minecraft:egg"
+        },
+        "component_groups": {
+            "tcsmp:has_hit": {
+                "minecraft:explode": {
+                    "breaks_blocks": false,
+                    "fuse_lit": true,
+                    "power": 10
+                }
+            }
+        },
+        "components": {
+            "minecraft:physics": {
+                "has_collision": false,
+                "has_gravity": false
+            },
+            "minecraft:collision_box": {
+                "width": 0.375,
+                "height": 0.375
+            },
+            "minecraft:projectile": {
+                "gravity": 0.03,
+                "is_dangerous": true,
+                "inertia": 1.0,
+                "on_hit": {
+                    "definition_event": {
+                        "event_trigger": {
+                            "affect_projectile": true,
+                            "event": "tcsmp:hit_ground"
+                        }
+                    }
+                }
+            }
+        },
+        "events": {
+            "tcsmp:hit_ground": {
+                "add": {
+                    "component_groups": ["tcsmp:has_hit"]
+                }
+            }
+        }
+    }
+}

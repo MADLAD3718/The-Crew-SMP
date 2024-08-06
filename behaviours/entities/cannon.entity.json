@@ -40,6 +40,9 @@
                 "has_collision": true,
                 "has_gravity": true
             },
+            "minecraft:knockback_resistance": {
+                "value": 1.0
+            },
             "minecraft:scale": {
                 "value": 1.2
             },
