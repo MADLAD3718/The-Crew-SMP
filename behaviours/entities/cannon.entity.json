@@ -64,7 +64,7 @@
             "minecraft:rideable": {
                 "rider_can_interact": true,
                 "seats": [{
-                    "lock_rider_rotation": 30,
+                    "lock_rider_rotation": 45,
                     "position": [0.0, 0.0, 0.75],
                     "rotate_rider_by": 180
                 }]
