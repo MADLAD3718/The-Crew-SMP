@@ -1,0 +1,23 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tcsmp:wither_cannonball",
+      "materials": {
+        "default": "entity"
+      },
+      "textures": {
+        "default": "textures/entity/wither_cannonball"
+      },
+      "geometry": {
+        "default": "geometry.cannonball"
+      },
+      "scripts": {
+        "should_update_bones_and_effects_offscreen": true
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

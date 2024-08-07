@@ -1,0 +1,25 @@
+{
+    "format_version": "1.21.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "tcsmp:wither_cannonball",
+            "menu_category": {
+                "category": "equipment"
+            }
+        },
+        "components": {
+            "minecraft:max_stack_size": 8,
+            "minecraft:display_name": {
+                "value": "item.tcsmp:wither_cannonball.name"
+            },
+            "minecraft:icon": {
+                "textures": {
+                    "default": "wither_cannonball"
+                }
+            },
+            "minecraft:tags": {
+                "tags": ["cannon_ammo"]
+            }
+        }
+    }
+}
