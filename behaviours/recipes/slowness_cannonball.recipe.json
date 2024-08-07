@@ -1,0 +1,35 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "tcsmp:slowness_cannonball"
+        },
+        "tags": ["crafting_table"],
+        "pattern": [
+            "CCC",
+            "CPC",
+            "CCC"
+        ],
+        "key": {
+            "C": {
+                "item": "tcsmp:cannonball"
+            },
+            "P": {
+                "item": "minecraft:potion",
+                "data": 17
+            }
+        },
+        "unlock": [{
+            "item": "tcsmp:cannonball"
+        }],
+        "result": [
+            {
+                "item": "tcsmp:slowness_cannonball",
+                "count": 8
+            },
+            {
+                "item": "minecraft:glass_bottle"
+            }
+        ]
+    }
+}

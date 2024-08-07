@@ -22,6 +22,9 @@
     },
     "wither_cannonball": {
       "textures": "textures/items/wither_cannonball"
+    },
+    "slowness_cannonball": {
+      "textures": "textures/items/slowness_cannonball"
     }
   }
 }
