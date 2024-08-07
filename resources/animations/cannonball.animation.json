@@ -1,0 +1,13 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.cannonball.root": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": ["2 * 360 * q.life_time", "360 * q.life_time", 0]
+				}
+			}
+		}
+	}
+}
