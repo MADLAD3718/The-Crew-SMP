@@ -2,6 +2,11 @@ import { EntityComponentTypes, GameMode, ItemLockMode, ItemStack, Player, system
 import { add, distance, mul } from "../extensions/vectors";
 
 const USE_TIME = 1.0 * TicksPerSecond;
+const GRAPPLE_SOUNDS = [
+    "grappling_hook.retract.short",
+    "grappling_hook.retract.medium",
+    "grappling_hook.retract.long",
+]
 
 /** @type {import("@minecraft/server").ItemCustomComponent} */
 export const grapplingHookComponent = {
@@ -72,8 +77,12 @@ world.afterEvents.projectileHitBlock.subscribe(({projectile: stake}) => {
     const player = stake.getComponent(EntityComponentTypes.Projectile).owner;
     const seat2 = seat.getComponent(EntityComponentTypes.Rideable).getRiders()[0];
     seat2.getComponent(EntityComponentTypes.Rideable).addRider(player);
-    player.dimension.playSound("leashknot.place", player.getHeadLocation());
+    const head = player.getHeadLocation();
+    player.dimension.playSound("leashknot.place", head);
     seat.triggerEvent("tcsmp:retract");
+
+    const dist = distance(stake.location, head);
+    player.playSound(GRAPPLE_SOUNDS[Math.floor(3 * dist / 48)]);
 
     // Dismount Check
     const dismountCheck = system.runInterval(() => {

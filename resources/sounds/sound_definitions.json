@@ -30,6 +30,27 @@
             "name": "sounds/cannon/fire",
             "volume": 1.0
          }]
+      },
+      "grappling_hook.retract.long": {
+         "category" : "ui",
+         "sounds" : [{
+            "name": "sounds/grappling_hook/retract_long",
+            "volume": 1.0
+         }]
+      },
+      "grappling_hook.retract.medium": {
+         "category" : "ui",
+         "sounds" : [{
+            "name": "sounds/grappling_hook/retract_medium",
+            "volume": 1.0
+         }]
+      },
+      "grappling_hook.retract.short": {
+         "category" : "ui",
+         "sounds" : [{
+            "name": "sounds/grappling_hook/retract_short",
+            "volume": 1.0
+         }]
       }
    }
 }
