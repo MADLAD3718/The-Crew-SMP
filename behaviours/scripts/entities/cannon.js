@@ -3,6 +3,11 @@ import { add, Directions, length, mul } from "../extensions/vectors";
 
 const CANNON_DELAY = 1.0 * TicksPerSecond;
 
+world.afterEvents.entitySpawn.subscribe(event => {
+    if (event.entity.typeId !== "tcsmp:cannon") return;
+    event.entity.dimension.playSound("cannon.place", event.entity.location);
+});
+
 world.afterEvents.entityHitEntity.subscribe(event => {
     const {hitEntity: cannon, damagingEntity} = event;
     if (cannon.typeId !== "tcsmp:cannon" || !(damagingEntity instanceof Player)) return;
@@ -26,6 +31,7 @@ world.afterEvents.entityHitEntity.subscribe(event => {
             const projectile = ball.getComponent(EntityComponentTypes.Projectile);
             projectile.owner = rider;
             projectile.shoot(velocity);
+            cannon.dimension.playSound("cannon.fire", cannon.location, {pitch: 0.5 * Math.random() + 0.75});
 
             rider.setDynamicProperty("cannon_fire_time", system.currentTick);
         }
@@ -33,6 +39,7 @@ world.afterEvents.entityHitEntity.subscribe(event => {
         if (damagingEntity?.getGameMode() !== GameMode.creative)
             cannon.dimension.spawnItem(new ItemStack("tcsmp:cannon"), cannon.location);
         dropInventory(cannon);
+        cannon.dimension.playSound("cannon.break", cannon.location);
         cannon.remove();
     }
 });

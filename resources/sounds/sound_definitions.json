@@ -1,0 +1,35 @@
+{
+   "format_version": "1.20.20",
+   "sound_definitions": {
+      "cannon.place": {
+         "__use_legacy_max_distance" : "true",
+         "category" : "player",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [{
+            "name": "sounds/cannon/place",
+            "volume": 1.0
+         }]
+      },
+      "cannon.break": {
+         "__use_legacy_max_distance" : "true",
+         "category" : "player",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [{
+            "name": "sounds/cannon/break",
+            "volume": 1.0
+         }]
+      },
+      "cannon.fire": {
+         "__use_legacy_max_distance" : "true",
+         "category" : "player",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [{
+            "name": "sounds/cannon/fire",
+            "volume": 1.0
+         }]
+      }
+   }
+}
