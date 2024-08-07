@@ -23,7 +23,9 @@ world.afterEvents.entityHitEntity.subscribe(event => {
             const velocity = mul(direction, 3 / length(direction));
 
             const ball = cannon.dimension.spawnEntity(ball_item.typeId, add(velocity, origin));
-            ball.getComponent(EntityComponentTypes.Projectile).shoot(velocity);
+            const projectile = ball.getComponent(EntityComponentTypes.Projectile);
+            projectile.owner = rider;
+            projectile.shoot(velocity);
 
             rider.setDynamicProperty("cannon_fire_time", system.currentTick);
         }

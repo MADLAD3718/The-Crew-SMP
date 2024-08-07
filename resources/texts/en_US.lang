@@ -9,6 +9,7 @@ item.tcsmp:cannonball.name=Cannonball
 entity.tcsmp:grappling_hook_stake.name=Grappling Hook Stake
 entity.tcsmp:grappling_hook_seat.name=Grappling Hook Seat
 entity.tcsmp:cannon.name=Cannon
+entity.tcsmp:cannonball.name=Cannonball
 
 ## Actions
 action.hint.exit.tcsmp:grappling_hook_seat=Crouch or jump to detach
