@@ -16,6 +16,9 @@
     },
     "cannonball": {
       "textures": "textures/items/cannonball"
+    },
+    "poison_cannonball": {
+      "textures": "textures/items/poison_cannonball"
     }
   }
 }

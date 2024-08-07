@@ -1,0 +1,62 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "tcsmp:poison_cannonball",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "runtime_identifier": "minecraft:egg"
+        },
+        "component_groups": {
+            "tcsmp:has_hit": {
+                "minecraft:explode": {
+                    "breaks_blocks": false,
+                    "fuse_lit": true,
+                    "fuse_length": 0.05,
+                    "power": 5
+                },
+                "minecraft:mob_effect": {
+                    "effect_range": 10,
+                    "effect_time": 10,
+                    "mob_effect": "poison",
+                    "entity_filter": {
+                        "test": "is_owner",
+                        "subject": "self",
+                        "value": false
+                    }
+                }
+            }
+        },
+        "components": {
+            "minecraft:physics": {
+                "has_collision": false,
+                "has_gravity": false
+            },
+            "minecraft:collision_box": {
+                "width": 0.375,
+                "height": 0.375
+            },
+            "minecraft:projectile": {
+                "gravity": 0.03,
+                "is_dangerous": true,
+                "inertia": 1.0,
+                "on_hit": {
+                    "stick_in_ground": {},
+                    "definition_event": {
+                        "event_trigger": {
+                            "affect_projectile": true,
+                            "event": "tcsmp:hit_ground"
+                        }
+                    }
+                }
+            }
+        },
+        "events": {
+            "tcsmp:hit_ground": {
+                "add": {
+                    "component_groups": ["tcsmp:has_hit"]
+                }
+            }
+        }
+    }
+}
