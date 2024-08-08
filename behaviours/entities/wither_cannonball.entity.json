@@ -20,9 +20,10 @@
                     "effect_time": 10,
                     "mob_effect": "wither",
                     "entity_filter": {
-                        "test": "is_owner",
-                        "subject": "self",
-                        "value": false
+                        "test": "is_family",
+                        "subject": "other",
+                        "operator": "!=",
+                        "value": "cannon"
                     }
                 }
             }
