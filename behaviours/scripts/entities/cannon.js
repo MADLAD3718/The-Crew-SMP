@@ -48,7 +48,7 @@ world.afterEvents.entityHitEntity.subscribe(event => {
 });
 
 /**
- * 
+ * Spawns the cannon smoke particles according to the given parameters.
  * @param {Dimension} dimension 
  * @param {Vector3} location 
  * @param {Vector3} direction 

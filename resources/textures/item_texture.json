@@ -25,6 +25,9 @@
     },
     "slowness_cannonball": {
       "textures": "textures/items/slowness_cannonball"
+    },
+    "fire_cannonball": {
+      "textures": "textures/items/fire_cannonball"
     }
   }
 }
