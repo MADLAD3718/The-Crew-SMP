@@ -1,20 +1,13 @@
-import { add, cross, Directions, dot, mul, normalize } from "./vectors";
+import { add, cross, Directions, mul, normalize } from "./vectors";
 
 export class Matrix3 {
     u = {x: 1, y: 0, z: 0};
     v = {x: 0, y: 1, z: 0};
     w = {x: 0, y: 0, z: 1};
-    mul(x) {
-        if (typeof x == "number") {
-            const m = new Matrix3;
-            m.u = mul(this.u, x);
-            m.v = mul(this.v, x);
-            m.w = mul(this.w, x);
-            return m;
-        }
-        const a = mul(this.u, x.x);
-        const b = mul(this.v, x.y);
-        const c = mul(this.w, x.z);
+    mul(v) {
+        const a = mul(this.u, v.x);
+        const b = mul(this.v, v.y);
+        const c = mul(this.w, v.z);
         return add(a, add(b, c));
     }
 }

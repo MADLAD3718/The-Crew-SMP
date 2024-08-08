@@ -13,7 +13,7 @@ export class Matrix3 {
      * @param x The specified value.
      * @returns The result of a matrix multiplication with `x`.
      */
-    mul(x: Vector3 | Number): Vector3;
+    mul(x: Vector3): Vector3;
 }
 
 /**

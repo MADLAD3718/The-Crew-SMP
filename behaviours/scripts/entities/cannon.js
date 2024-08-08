@@ -1,5 +1,6 @@
-import { Container, Entity, EntityComponentTypes, GameMode, ItemStack, Player, system, TicksPerSecond, world } from "@minecraft/server";
-import { add, Directions, length, mul } from "../extensions/vectors";
+import { Container, Dimension, Entity, EntityComponentTypes, GameMode, ItemStack, MolangVariableMap, Player, system, TicksPerSecond, world } from "@minecraft/server";
+import { add, Directions, mul, normalize } from "../extensions/vectors";
+import { buildTNB } from "../extensions/matrices";
 
 const CANNON_DELAY = 1.0 * TicksPerSecond;
 
@@ -24,14 +25,16 @@ world.afterEvents.entityHitEntity.subscribe(event => {
             decrementSlot(cannon.inventory.container, cannonball);
             
             const view = rider.getViewDirection(), origin = add(cannon.location, Directions.Up);
-            const direction = {x: view.x, y: Math.max(view.y, 0), z: view.z};
-            const velocity = mul(direction, 3 / length(direction));
+            const direction = normalize({x: view.x, y: Math.max(view.y, 0), z: view.z});
+            const velocity = mul(direction, 3);
 
             const ball = cannon.dimension.spawnEntity(ball_item.typeId, add(velocity, origin));
             const projectile = ball.getComponent(EntityComponentTypes.Projectile);
             projectile.owner = rider;
-            projectile.shoot(velocity);
+
+            spawnCannonParticles(cannon.dimension, add(origin, mul(direction, 2)), direction);
             cannon.dimension.playSound("cannon.fire", cannon.location, {pitch: 0.5 * Math.random() + 0.75});
+            projectile.shoot(velocity);
 
             rider.setDynamicProperty("cannon_fire_time", system.currentTick);
         }
@@ -43,6 +46,37 @@ world.afterEvents.entityHitEntity.subscribe(event => {
         cannon.remove();
     }
 });
+
+/**
+ * 
+ * @param {Dimension} dimension 
+ * @param {Vector3} location 
+ * @param {Vector3} direction 
+ */
+function spawnCannonParticles(dimension, location, direction) {
+    const molang_map = new MolangVariableMap;
+    const tnb = buildTNB(direction);
+    for (let i = 0; i < 3; ++i) {
+        molang_map.setVector3("direction", tnb.mul(randCap(0.5)));
+        dimension.spawnParticle("tcsmp:cannon_smoke", location, molang_map);
+    }
+}
+
+/**
+ * Generates a random direction within a spherical cap distribution.
+ * @param {Number} r The radius of the cap.
+ * @returns {Vector3}
+ */
+export function randCap(r) {
+    const u = Math.random() * (1 - Math.sqrt(1 - r * r));
+    const sint = Math.sqrt(u * (2 - u));
+    const phi = 2 * Math.PI * Math.random();
+    return {
+        x: Math.cos(phi) * sint,
+        y: 1 - u,
+        z: Math.sin(phi) * sint
+    };
+}
 
 /**
  * Finds the first instance of an item in a container.
