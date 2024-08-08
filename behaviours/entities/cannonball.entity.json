@@ -12,7 +12,7 @@
                 "minecraft:explode": {
                     "breaks_blocks": false,
                     "fuse_lit": true,
-                    "power": 10
+                    "power": 6
                 }
             }
         },
