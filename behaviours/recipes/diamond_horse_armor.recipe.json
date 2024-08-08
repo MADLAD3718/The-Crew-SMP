@@ -1,0 +1,26 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "tcsmp:diamond_horse_armor"
+        },
+        "tags": ["crafting_table"],
+        "assume_symmetry": false,
+        "pattern": [
+            "D D",
+            "DDD",
+            "D D"
+        ],
+        "key": {
+            "D": {
+                "item": "minecraft:diamond"
+            }
+        },
+        "unlock": [{
+            "item": "minecraft:diamond"
+        }],
+        "result": {
+            "item": "minecraft:diamond_horse_armor"
+        }
+    }
+}

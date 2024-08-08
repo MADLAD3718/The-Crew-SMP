@@ -1,0 +1,31 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "tcsmp:saddle"
+        },
+        "tags": ["crafting_table"],
+        "pattern": [
+            "LLL",
+            "TST"
+        ],
+        "key": {
+            "L": {
+                "item": "minecraft:leather"
+            },
+            "T": {
+                "item": "minecraft:tripwire_hook"
+            },
+            "S": {
+                "item": "minecraft:string"
+            }
+        },
+        "unlock": [
+            { "item": "minecraft:leather" },
+            { "item": "minecraft:tripwire_hook" }
+        ],
+        "result": {
+            "item": "minecraft:saddle"
+        }
+    }
+}
