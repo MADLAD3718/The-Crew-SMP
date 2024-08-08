@@ -16,7 +16,7 @@
             }
         },
         "unlock": [{
-            "item": "tcsmp:cannon"
+            "item": "tcsmp:cannon_item"
         }],
         "result": {
             "item": "tcsmp:cannonball",

@@ -40,7 +40,7 @@ world.afterEvents.entityHitEntity.subscribe(event => {
         }
     } else {
         if (damagingEntity?.getGameMode() !== GameMode.creative)
-            cannon.dimension.spawnItem(new ItemStack("tcsmp:cannon"), cannon.location);
+            cannon.dimension.spawnItem(new ItemStack("tcsmp:cannon_item"), cannon.location);
         dropInventory(cannon);
         cannon.dimension.playSound("cannon.break", cannon.location);
         cannon.remove();

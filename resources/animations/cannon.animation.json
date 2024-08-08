@@ -11,6 +11,29 @@
 					"rotation": [0, "180 - this + (q.has_rider ? q.rider_head_y_rotation(0) - q.rider_body_y_rotation(0) : 0)", 0]
 				}
 			}
+		},
+		"animation.cannon.hold_first_person": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"relative_to": {
+						"rotation": "entity"
+					},
+					"rotation": [0, 180, 0],
+					"position": [-7, 29, -2],
+					"scale": 0.5
+				}
+			}
+		},
+		"animation.cannon.hold": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": [90, 0, 0],
+					"position": [0, 22, -2.5],
+					"scale": 0.45
+				}
+			}
 		}
 	}
 }
