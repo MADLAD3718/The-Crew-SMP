@@ -69,6 +69,7 @@ world.afterEvents.itemReleaseUse.subscribe(({itemStack: hook, source: player}) =
 
 world.afterEvents.projectileHitBlock.subscribe(({projectile: stake}) => {
     if (stake.typeId !== "tcsmp:grappling_hook_stake") return;
+    if (!stake?.isValid()) return;
     system.clearRun(stake.getDynamicProperty("dist_check"));
 
     // Setup Retracttion
