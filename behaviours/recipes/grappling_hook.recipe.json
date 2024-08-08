@@ -15,7 +15,7 @@
                 "item": "minecraft:copper_ingot"
             },
             "H": {
-                "item": "tcsmp:hook"
+                "item": "minecraft:tripwire_hook"
             },
             "S": {
                 "item": "minecraft:string"
@@ -25,7 +25,7 @@
             }
         },
         "unlock": [{
-            "item": "tcsmp:hook"
+            "item": "minecraft:lead"
         }],
         "result": {
             "item": "tcsmp:grappling_hook"

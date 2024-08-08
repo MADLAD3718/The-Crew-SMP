@@ -8,9 +8,6 @@
     "empty_grappling_hook": {
       "textures": "textures/items/grappling_hook_empty"
     },
-    "hook": {
-      "textures": "textures/items/hook"
-    },
     "cannon": {
       "textures": "textures/items/cannon"
     },
