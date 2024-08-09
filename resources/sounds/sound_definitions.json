@@ -51,6 +51,30 @@
             "name": "sounds/grappling_hook/retract_short",
             "volume": 1.0
          }]
+      },
+      "waystone.place": {
+         "category": "block",
+         "sounds": [
+            "sounds/waystone/place1",
+            "sounds/waystone/place2",
+            "sounds/waystone/place3"
+         ]
+      },
+      "waystone.interact": {
+         "category": "block",
+         "sounds": [
+            "sounds/waystone/interact1",
+            "sounds/waystone/interact2",
+            "sounds/waystone/interact3"
+         ]
+      },
+      "waystone.break": {
+         "category": "block",
+         "sounds": ["sounds/waystone/break"]
+      },
+      "waystone.teleport": {
+         "category": "ui",
+         "sounds": ["sounds/waystone/teleport"]
       }
    }
 }

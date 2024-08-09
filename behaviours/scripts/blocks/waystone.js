@@ -22,8 +22,9 @@ world.beforeEvents.itemUseOn.subscribe(event => {
 });
 
 world.afterEvents.playerPlaceBlock.subscribe(event => {
-    const {block, player} = event;
+    const {block, player, dimension} = event;
     if (block.typeId !== "tcsmp:waystone") return;
+    dimension.playSound("waystone.place", block.center());
 
     const above = block.above();
     if (isWater(above)) {
@@ -34,7 +35,8 @@ world.afterEvents.playerPlaceBlock.subscribe(event => {
 
 /** @param {BlockComponentPlayerDestroyEvent} event */
 function breakWaystone(event) {
-    const {block, player, destroyedBlockPermutation} = event;
+    const {block, player, destroyedBlockPermutation, dimension} = event;
+    dimension.playSound("waystone.break", block.center());
     const top = destroyedBlockPermutation.getState("tcsmp:top");
     block.offset(top ? Directions.Down : Directions.Up).setType("minecraft:air");
     const location = top ? add(block.location, Directions.Down) : block.location;
@@ -46,7 +48,8 @@ function breakWaystone(event) {
 
 /** @param {BlockComponentPlayerInteractEvent} event */
 function interactWaystone(event) {
-    const {player} = event;
+    const {player, dimension} = event;
+    dimension.playSound("waystone.interact", event.block.center());
     const top = event.block.permutation.getState("tcsmp:top")
     const block = top ? event.block.below() : event.block;
     if (block.permutation.getState("tcsmp:active")) {
@@ -65,6 +68,7 @@ function interactWaystone(event) {
             form.show(player).then(response => {
                 if (response.canceled) return;
                 const target = waystones[response.selection];
+                player.playSound("waystone.teleport");
                 player.teleport(target.location);
             });
         } else editWaystone(block, player);
