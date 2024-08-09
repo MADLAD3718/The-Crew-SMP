@@ -56,7 +56,7 @@
 								"north": {"uv": [3, 9], "uv_size": [2, 7], "material_instance": "side_top"},
 								"east": {"uv": [11, 9], "uv_size": [2, 7], "material_instance": "side_top"},
 								"south": {"uv": [11, 9], "uv_size": [2, 7], "material_instance": "side_top"},
-								"west": {"uv": [3, 16], "uv_size": [2, -7], "material_instance": "side_top"}
+								"west": {"uv": [3, 9], "uv_size": [2, 7], "material_instance": "side_top"}
 							}
 						},
 						{

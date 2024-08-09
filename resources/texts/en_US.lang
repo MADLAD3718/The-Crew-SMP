@@ -29,4 +29,8 @@ action.setup.waystone.global=Global Waystone
 action.setup.waystone.name=Waystone Name:
 action.setup.waystone.placeholder=%s's Waystone
 
+action.edit.waystone.title=Edit Waystone
+
+action.interact.waystone.title=Waystone Network
+
 info.waystone.preexists=Waystone "%s" already exists
