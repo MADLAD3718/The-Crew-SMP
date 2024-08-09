@@ -1,4 +1,4 @@
-import { Block, BlockComponentPlayerDestroyEvent, BlockComponentPlayerInteractEvent, Direction, Player, World, world } from "@minecraft/server";
+import { Block, BlockComponentPlayerDestroyEvent, BlockComponentPlayerInteractEvent, Direction, Player, system, World, world } from "@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import { add, Directions, equal } from "../extensions/vectors";
 
@@ -11,14 +11,24 @@ export const waystoneComponent = {
 world.beforeEvents.itemUseOn.subscribe(event => {
     const {itemStack, blockFace, block} = event;
     if (itemStack.typeId !== "tcsmp:waystone" || blockFace !== Direction.Up) return;
-    event.cancel = block.above(2)?.typeId !== "minecraft:air";
+    const target = block.above();
+    if (isWater(target)) {
+        if (!isWater(target.above()) && target.above().typeId !== "minecraft:air")
+            return event.cancel = true;
+        system.run(() => {
+            world.structureManager.place(`waterlogged/waystone/bottom`, target.dimension, target.location);
+        });
+    } else event.cancel = target.above()?.typeId !== "minecraft:air";
 });
 
 world.afterEvents.playerPlaceBlock.subscribe(event => {
     const {block, player} = event;
     if (block.typeId !== "tcsmp:waystone") return;
 
-    block.above().setPermutation(block.permutation.withState("tcsmp:top", true));
+    const above = block.above();
+    if (isWater(above)) {
+        world.structureManager.place(`waterlogged/waystone/top`, block.dimension, above.location);
+    } else above.setPermutation(block.permutation.withState("tcsmp:top", true));
     setupWaystone(block, player);
 });
 
@@ -129,6 +139,11 @@ function editWaystone(block, player) {
 
         addWaystone(context, new_waystone);
     });
+}
+
+/** @param {Block} block */
+function isWater(block) {
+    return block?.typeId == "minecraft:water" || block?.typeId == "minecraft:flowing_water";
 }
 
 /** @typedef {{x: Number, y: Number, z: Number}} Vector3 */
