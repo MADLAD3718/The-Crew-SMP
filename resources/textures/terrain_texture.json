@@ -1,0 +1,15 @@
+{
+  "resource_pack_name": "tcsmp",
+  "texture_name": "atlas.terrain",
+  "texture_data": {
+    "waystone_side_top": {
+      "textures": "textures/blocks/waystone_side_top"
+    },
+    "waystone_side_bottom": {
+      "textures": "textures/blocks/waystone_side_bottom"
+    },
+    "waystone_interior": {
+      "textures": "textures/blocks/waystone_interior"
+    }
+  }
+}

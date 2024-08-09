@@ -22,3 +22,11 @@ entity.tcsmp:fire_cannonball.name=Fire Cannonball
 ## Actions
 action.hint.exit.tcsmp:grappling_hook_seat=Crouch or jump to detach
 action.hint.exit.tcsmp:cannon=Crouch or jump to stop aiming
+
+## Waystone Dialogue
+action.setup.waystone.title=Waystone Setup
+action.setup.waystone.global=Global Waystone
+action.setup.waystone.name=Waystone Name:
+action.setup.waystone.placeholder=%s's Waystone
+
+info.waystone.preexists=Waystone "%s" already exists
