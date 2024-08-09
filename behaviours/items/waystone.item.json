@@ -1,0 +1,25 @@
+{
+    "format_version": "1.21.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "tcsmp:waystone",
+            "menu_category": {
+                "category": "construction"
+            }
+        },
+        "components": {
+            "minecraft:max_stack_size": 1,
+            "minecraft:display_name": {
+                "value": "item.tcsmp:waystone.name"
+            },
+            "minecraft:icon": {
+                "textures": {
+                    "default": "waystone"
+                }
+            },
+            "minecraft:block_placer": {
+                "block": "tcsmp:waystone"
+            }
+        }
+    }
+}

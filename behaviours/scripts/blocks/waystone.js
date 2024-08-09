@@ -84,7 +84,9 @@ function setupWaystone(block, player) {
             return player.onScreenDisplay.setActionBar({translate: "info.waystone.preexists", with: [name]});
 
         addWaystone(context, waystone);
+        const above = block.above();
         block.setPermutation(block.permutation.withState("tcsmp:active", true));
+        above.setPermutation(above.permutation.withState("tcsmp:active", true));
     });
 }
 
@@ -119,7 +121,10 @@ function editWaystone(block, player) {
         const context = global ? world : player;
         if (hasWaystone(context, new_waystone)) {
             player.onScreenDisplay.setActionBar({translate: "info.waystone.preexists", with: [name]});
-            return block.setPermutation(block.permutation.withState("tcsmp:active", false))
+            const above = block.above();
+            block.setPermutation(block.permutation.withState("tcsmp:active", false))
+            above.setPermutation(above.permutation.withState("tcsmp:active", false))
+            return;
         }
 
         addWaystone(context, new_waystone);

@@ -25,6 +25,9 @@
     },
     "fire_cannonball": {
       "textures": "textures/items/fire_cannonball"
+    },
+    "waystone": {
+      "textures": "textures/items/waystone"
     }
   }
 }

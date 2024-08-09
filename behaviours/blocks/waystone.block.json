@@ -4,7 +4,7 @@
         "description": {
             "identifier": "tcsmp:waystone",
             "menu_category": {
-                "category": "items"
+                "category": "none"
             },
             "states": {
                 "tcsmp:top": [false, true],
@@ -16,6 +16,29 @@
                 "condition": "q.block_state('tcsmp:top')",
                 "components": {
                     "minecraft:geometry": "geometry.waystone_top"
+                }
+            },
+            {
+                "condition": "q.block_state('tcsmp:active')",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "render_method": "opaque"
+                        },
+                        "side_top": {
+                            "texture": "waystone_side_top_active"
+                        },
+                        "side_bottom": {
+                            "texture": "waystone_side_bottom_active"
+                        },
+                        "up": {
+                            "texture": "waystone_interior"
+                        },
+                        "down": {
+                            "texture": "chiseled_tuff_top"
+                        }
+                    },
+                    "minecraft:light_emission": 10
                 }
             }
         ],
@@ -43,7 +66,14 @@
                 "conditions": [{
                     "allowed_faces": ["up"]
                 }]
-            }
+            },
+            "minecraft:loot": "loot_tables/blocks/waystone.json",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 10.0
+            },
+            "minecraft:map_color": "#85837A",
+            "minecraft:light_dampening": 7
         }
     }
 }
