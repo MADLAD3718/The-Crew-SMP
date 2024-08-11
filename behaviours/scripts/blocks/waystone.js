@@ -1,4 +1,4 @@
-import { Block, BlockComponentPlayerDestroyEvent, BlockComponentPlayerInteractEvent, Direction, Player, system, World, world } from "@minecraft/server";
+import { Block, BlockComponentPlayerDestroyEvent, BlockComponentPlayerInteractEvent, BlockPermutation, Direction, Player, system, World, world } from "@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import { add, Directions, equal } from "../extensions/vectors";
 
@@ -30,6 +30,7 @@ world.afterEvents.playerPlaceBlock.subscribe(event => {
     if (isWater(above)) {
         world.structureManager.place(`waterlogged/waystone/top`, block.dimension, above.location);
     } else above.setPermutation(block.permutation.withState("tcsmp:top", true));
+    dimension.spawnEntity("tcsmp:warp_crystal", above.bottomCenter());
     setupWaystone(block, player);
 });
 
@@ -37,6 +38,7 @@ world.afterEvents.playerPlaceBlock.subscribe(event => {
 function breakWaystone(event) {
     const {block, player, destroyedBlockPermutation, dimension} = event;
     dimension.playSound("waystone.break", block.center());
+    removeCrystal(block, destroyedBlockPermutation);
     const top = destroyedBlockPermutation.getState("tcsmp:top");
     block.offset(top ? Directions.Down : Directions.Up).setType("minecraft:air");
     const location = top ? add(block.location, Directions.Down) : block.location;
@@ -53,30 +55,8 @@ function interactWaystone(event) {
     const top = event.block.permutation.getState("tcsmp:top")
     const block = top ? event.block.below() : event.block;
     if (block.permutation.getState("tcsmp:active")) {
-        if (!player.isSneaking) {
-            const home = findWaystone(world, block.location) ?? findWaystone(player, block.location);
-
-            const waystones = [];
-            const form = new ActionFormData().title({translate: "action.interact.waystone.title"});
-            for (const waystone of getWayStones(world)) {
-                if (waystone.name === home.name) continue;
-                form.button(waystone.name, "textures/ui/waystone_global_glyph");
-                waystones.push(waystone);
-            }
-            for (const waystone of getWayStones(player)) {
-                if (waystone.name === home.name) continue;
-                form.button(waystone.name, "textures/ui/waystone_private_glypth");
-                waystones.push(waystone);
-            }
-
-            if (waystones.length == 0) return;
-            form.show(player).then(response => {
-                if (response.canceled) return;
-                const target = waystones[response.selection];
-                player.playSound("waystone.teleport");
-                player.teleport(target.location);
-            });
-        } else editWaystone(block, player);
+        if (player.isSneaking) editWaystone(block, player);
+        else useWaystone(block, player);
     } else setupWaystone(block, player);
 }
 
@@ -141,13 +121,52 @@ function editWaystone(block, player) {
         if (hasWaystone(context, new_waystone)) {
             player.onScreenDisplay.setActionBar({translate: "info.waystone.preexists", with: [name]});
             const above = block.above();
-            block.setPermutation(block.permutation.withState("tcsmp:active", false))
-            above.setPermutation(above.permutation.withState("tcsmp:active", false))
+            block.setPermutation(block.permutation.withState("tcsmp:active", false));
+            above.setPermutation(above.permutation.withState("tcsmp:active", false));
             return;
         }
 
         addWaystone(context, new_waystone);
     });
+}
+
+/**
+ * @param {Block} block
+ * @param {Player} player
+ */
+function useWaystone(block, player) {
+    const home = findWaystone(world, block.location) ?? findWaystone(player, block.location);
+
+    const waystones = [];
+    const form = new ActionFormData().title({translate: "action.interact.waystone.title"});
+    for (const waystone of getWayStones(world)) {
+        if (waystone.name === home.name) continue;
+        form.button(waystone.name, "textures/ui/waystone_global_glyph");
+        waystones.push(waystone);
+    }
+    for (const waystone of getWayStones(player)) {
+        if (waystone.name === home.name) continue;
+        form.button(waystone.name, "textures/ui/waystone_private_glypth");
+        waystones.push(waystone);
+    }
+
+    if (waystones.length == 0) return;
+    form.show(player).then(response => {
+        if (response.canceled) return;
+        const target = waystones[response.selection];
+        player.playSound("waystone.teleport");
+        player.teleport(target.location);
+    });
+}
+
+/**
+ * @param {Block} block
+ * @param {BlockPermutation} permutation
+ */
+function removeCrystal(block, permutation) {
+    const top = permutation.getState('tcsmp:top');
+    const location = top ? block.location : add(block.location, Directions.Up);
+    block.dimension.getEntitiesAtBlockLocation(location)[0]?.remove();
 }
 
 /** @param {Block} block */

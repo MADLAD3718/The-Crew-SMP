@@ -1,0 +1,14 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.warp_crystal.root": {
+			"loop": true,
+			"bones": {
+				"crystal": {
+					"rotation": [0, "q.life_time * 360", 0],
+					"position": [0, "math.sin(q.life_time * 180)", 0]
+				}
+			}
+		}
+	}
+}

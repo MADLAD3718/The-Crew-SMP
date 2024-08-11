@@ -28,6 +28,9 @@
     },
     "waystone": {
       "textures": "textures/items/waystone"
+    },
+    "warp_crystal": {
+      "textures": "textures/items/warp_crystal"
     }
   }
 }

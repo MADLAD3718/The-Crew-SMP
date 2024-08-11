@@ -9,6 +9,7 @@ item.tcsmp:wither_cannonball.name=Wither Cannonball
 item.tcsmp:slowness_cannonball.name=Slowness Cannonball
 item.tcsmp:fire_cannonball.name=Fire Cannonball
 item.tcsmp:waystone.name=Waystone
+item.tcsmp:warp_crystal.name=Warp Crystal
 
 ## Blocks
 tile.tcsmp:waystone.name=Waystone
@@ -22,6 +23,7 @@ entity.tcsmp:poison_cannonball.name=Poison Cannonball
 entity.tcsmp:wither_cannonball.name=Wither Cannonball
 entity.tcsmp:slowness_cannonball.name=Slowness Cannonball
 entity.tcsmp:fire_cannonball.name=Fire Cannonball
+entity.tcsmp:warp_crystal.name=Warp Crystal
 
 ## Actions
 action.hint.exit.tcsmp:grappling_hook_seat=Crouch or jump to detach
