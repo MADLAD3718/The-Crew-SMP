@@ -58,9 +58,14 @@ function interactWaystone(event) {
 
             const waystones = [];
             const form = new ActionFormData().title({translate: "action.interact.waystone.title"});
-            for (const waystone of [...getWayStones(world), ...getWayStones(player)]) {
+            for (const waystone of getWayStones(world)) {
                 if (waystone.name === home.name) continue;
-                form.button(waystone.name);
+                form.button(waystone.name, "textures/ui/waystone_global_glyph");
+                waystones.push(waystone);
+            }
+            for (const waystone of getWayStones(player)) {
+                if (waystone.name === home.name) continue;
+                form.button(waystone.name, "textures/ui/waystone_private_glypth");
                 waystones.push(waystone);
             }
 
