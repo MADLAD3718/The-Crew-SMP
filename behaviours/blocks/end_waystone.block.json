@@ -2,7 +2,7 @@
     "format_version": "1.21.20",
     "minecraft:block": {
         "description": {
-            "identifier": "tcsmp:nether_waystone",
+            "identifier": "tcsmp:end_waystone",
             "menu_category": {
                 "category": "none"
             },
@@ -26,16 +26,16 @@
                             "render_method": "opaque"
                         },
                         "side_top": {
-                            "texture": "nether_waystone_side_top_active"
+                            "texture": "end_waystone_side_top_active"
                         },
                         "side_bottom": {
-                            "texture": "nether_waystone_side_bottom_active"
+                            "texture": "end_waystone_side_bottom_active"
                         },
                         "up": {
-                            "texture": "nether_waystone_interior"
+                            "texture": "end_waystone_interior"
                         },
                         "down": {
-                            "texture": "nether_waystone_exterior"
+                            "texture": "end_waystone_exterior"
                         }
                     },
                     "minecraft:light_emission": 10
@@ -50,16 +50,16 @@
                     "render_method": "opaque"
                 },
                 "side_top": {
-                    "texture": "nether_waystone_side_top"
+                    "texture": "end_waystone_side_top"
                 },
                 "side_bottom": {
-                    "texture": "nether_waystone_side_bottom"
+                    "texture": "end_waystone_side_bottom"
                 },
                 "up": {
-                    "texture": "nether_waystone_interior"
+                    "texture": "end_waystone_interior"
                 },
                 "down": {
-                    "texture": "nether_waystone_exterior"
+                    "texture": "end_waystone_exterior"
                 }
             },
             "minecraft:placement_filter": {
@@ -67,12 +67,12 @@
                     "allowed_faces": ["up"]
                 }]
             },
-            "minecraft:loot": "loot_tables/blocks/nether_waystone.json",
+            "minecraft:loot": "loot_tables/blocks/end_waystone.json",
             "minecraft:destructible_by_explosion": false,
             "minecraft:destructible_by_mining": {
                 "seconds_to_destroy": 15.0
             },
-            "minecraft:map_color": "#3C3947",
+            "minecraft:map_color": "#E8F4B2",
             "minecraft:light_dampening": 7,
             "tag:tcsmp:waystone": {}
         }

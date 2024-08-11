@@ -35,7 +35,7 @@
                             "texture": "overworld_waystone_interior"
                         },
                         "down": {
-                            "texture": "chiseled_tuff_top"
+                            "texture": "overworld_waystone_exterior"
                         }
                     },
                     "minecraft:light_emission": 10
@@ -59,7 +59,7 @@
                     "texture": "overworld_waystone_interior"
                 },
                 "down": {
-                    "texture": "chiseled_tuff_top"
+                    "texture": "overworld_waystone_exterior"
                 }
             },
             "minecraft:placement_filter": {

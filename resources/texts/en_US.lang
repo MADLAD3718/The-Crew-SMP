@@ -11,10 +11,12 @@ item.tcsmp:fire_cannonball.name=Fire Cannonball
 item.tcsmp:warp_crystal.name=Warp Crystal
 item.tcsmp:overworld_waystone.name=Overworld Waystone
 item.tcsmp:nether_waystone.name=Nether Waystone
+item.tcsmp:end_waystone.name=End Waystone
 
 ## Blocks
 tile.tcsmp:overworld_waystone.name=Overworld Waystone
 tile.tcsmp:nether_waystone.name=Nether Waystone
+tile.tcsmp:end_waystone.name=End Waystone
 
 ## Entities
 entity.tcsmp:grappling_hook_stake.name=Grappling Hook Stake
