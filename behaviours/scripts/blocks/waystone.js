@@ -23,7 +23,7 @@ world.beforeEvents.itemUseOn.subscribe(event => {
 });
 
 world.afterEvents.playerPlaceBlock.subscribe(event => {
-    const {block, player, dimension} = event;
+    const {block, dimension} = event;
     if (!block.hasTag("tcsmp:waystone")) return;
     dimension.playSound("waystone.place", block.center());
     const type = block.typeId.substring(6);
@@ -33,7 +33,6 @@ world.afterEvents.playerPlaceBlock.subscribe(event => {
         world.structureManager.place(`waterlogged/${type}/top`, block.dimension, above.location);
     } else above.setPermutation(block.permutation.withState("tcsmp:top", true));
     dimension.spawnEntity("tcsmp:warp_crystal", above.bottomCenter());
-    if (validDimension(dimension, type)) setupWaystone(block, player);
 });
 
 /** @param {BlockComponentPlayerDestroyEvent} event */
@@ -172,7 +171,7 @@ function useWaystone(block, player) {
  * @param {String} type 
  */
 function validDimension(dimension, type) {
-    return dimension.id.substring(10) === type.substring(0, type.indexOf('_'));
+    return dimension.id.substring(10) === type.substring(0, type.indexOf("_waystone"));
 }
 
 /**

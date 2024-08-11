@@ -1,0 +1,80 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:block": {
+        "description": {
+            "identifier": "tcsmp:nether_waystone",
+            "menu_category": {
+                "category": "none"
+            },
+            "states": {
+                "tcsmp:top": [false, true],
+                "tcsmp:active": [false, true]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "q.block_state('tcsmp:top')",
+                "components": {
+                    "minecraft:geometry": "geometry.waystone_top"
+                }
+            },
+            {
+                "condition": "q.block_state('tcsmp:active')",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "render_method": "opaque"
+                        },
+                        "side_top": {
+                            "texture": "nether_waystone_side_top_active"
+                        },
+                        "side_bottom": {
+                            "texture": "nether_waystone_side_bottom_active"
+                        },
+                        "up": {
+                            "texture": "nether_waystone_interior"
+                        },
+                        "down": {
+                            "texture": "chiseled_polished_blackstone"
+                        }
+                    },
+                    "minecraft:light_emission": 10
+                }
+            }
+        ],
+        "components": {
+            "minecraft:custom_components": ["tcsmp:waystone"],
+            "minecraft:geometry": "geometry.waystone_bottom",
+            "minecraft:material_instances": {
+                "*": {
+                    "render_method": "opaque"
+                },
+                "side_top": {
+                    "texture": "nether_waystone_side_top"
+                },
+                "side_bottom": {
+                    "texture": "nether_waystone_side_bottom"
+                },
+                "up": {
+                    "texture": "nether_waystone_interior"
+                },
+                "down": {
+                    "texture": "chiseled_polished_blackstone"
+                }
+            },
+            "minecraft:placement_filter": {
+                "conditions": [{
+                    "allowed_faces": ["up"]
+                }]
+            },
+            "minecraft:loot": "loot_tables/blocks/nether_waystone.json",
+            "minecraft:destructible_by_explosion": false,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 15.0
+            },
+            "minecraft:map_color": "#85837A",
+            "minecraft:light_dampening": 7,
+            "tag:tcsmp:waystone": {}
+        }
+    }
+}

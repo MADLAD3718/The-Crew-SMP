@@ -1,0 +1,8 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:texture_set": {
+		"color": "nether_waystone_side_top_active",
+		"metalness_emissive_roughness": "nether_waystone_side_top_active_mer",
+		"heightmap": "waystone_side_top_heightmap"
+	}
+}

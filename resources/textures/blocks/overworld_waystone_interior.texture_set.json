@@ -3,6 +3,6 @@
 	"minecraft:texture_set": {
 		"color": "overworld_waystone_interior",
 		"metalness_emissive_roughness": "overworld_waystone_interior_mer",
-		"heightmap": "overworld_waystone_interior_heightmap"
+		"heightmap": "waystone_interior_heightmap"
 	}
 }

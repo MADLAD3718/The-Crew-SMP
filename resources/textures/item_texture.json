@@ -31,6 +31,9 @@
     },
     "overworld_waystone": {
       "textures": "textures/items/overworld_waystone"
+    },
+    "nether_waystone": {
+      "textures": "textures/items/nether_waystone"
     }
   }
 }

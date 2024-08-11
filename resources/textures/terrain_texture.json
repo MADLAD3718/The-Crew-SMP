@@ -16,6 +16,21 @@
     },
     "overworld_waystone_side_bottom_active": {
       "textures": "textures/blocks/overworld_waystone_side_bottom_active"
+    },
+    "nether_waystone_interior": {
+      "textures": "textures/blocks/nether_waystone_interior"
+    },
+    "nether_waystone_side_top": {
+      "textures": "textures/blocks/nether_waystone_side_top"
+    },
+    "nether_waystone_side_bottom": {
+      "textures": "textures/blocks/nether_waystone_side_bottom"
+    },
+    "nether_waystone_side_top_active": {
+      "textures": "textures/blocks/nether_waystone_side_top_active"
+    },
+    "nether_waystone_side_bottom_active": {
+      "textures": "textures/blocks/nether_waystone_side_bottom_active"
     }
   }
 }
