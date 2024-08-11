@@ -26,11 +26,11 @@
     "fire_cannonball": {
       "textures": "textures/items/fire_cannonball"
     },
-    "waystone": {
-      "textures": "textures/items/waystone"
-    },
     "warp_crystal": {
       "textures": "textures/items/warp_crystal"
+    },
+    "overworld_waystone": {
+      "textures": "textures/items/overworld_waystone"
     }
   }
 }

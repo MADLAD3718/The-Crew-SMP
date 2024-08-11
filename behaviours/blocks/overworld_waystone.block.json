@@ -2,7 +2,7 @@
     "format_version": "1.21.20",
     "minecraft:block": {
         "description": {
-            "identifier": "tcsmp:waystone",
+            "identifier": "tcsmp:overworld_waystone",
             "menu_category": {
                 "category": "none"
             },
@@ -26,13 +26,13 @@
                             "render_method": "opaque"
                         },
                         "side_top": {
-                            "texture": "waystone_side_top_active"
+                            "texture": "overworld_waystone_side_top_active"
                         },
                         "side_bottom": {
-                            "texture": "waystone_side_bottom_active"
+                            "texture": "overworld_waystone_side_bottom_active"
                         },
                         "up": {
-                            "texture": "waystone_interior"
+                            "texture": "overworld_waystone_interior"
                         },
                         "down": {
                             "texture": "chiseled_tuff_top"
@@ -50,13 +50,13 @@
                     "render_method": "opaque"
                 },
                 "side_top": {
-                    "texture": "waystone_side_top"
+                    "texture": "overworld_waystone_side_top"
                 },
                 "side_bottom": {
-                    "texture": "waystone_side_bottom"
+                    "texture": "overworld_waystone_side_bottom"
                 },
                 "up": {
-                    "texture": "waystone_interior"
+                    "texture": "overworld_waystone_interior"
                 },
                 "down": {
                     "texture": "chiseled_tuff_top"
@@ -67,13 +67,14 @@
                     "allowed_faces": ["up"]
                 }]
             },
-            "minecraft:loot": "loot_tables/blocks/waystone.json",
+            "minecraft:loot": "loot_tables/blocks/overworld_waystone.json",
             "minecraft:destructible_by_explosion": false,
             "minecraft:destructible_by_mining": {
-                "seconds_to_destroy": 10.0
+                "seconds_to_destroy": 15.0
             },
             "minecraft:map_color": "#85837A",
-            "minecraft:light_dampening": 7
+            "minecraft:light_dampening": 7,
+            "tag:tcsmp:waystone": {}
         }
     }
 }

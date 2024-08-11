@@ -2,20 +2,20 @@
   "resource_pack_name": "tcsmp",
   "texture_name": "atlas.terrain",
   "texture_data": {
-    "waystone_interior": {
-      "textures": "textures/blocks/waystone_interior"
+    "overworld_waystone_interior": {
+      "textures": "textures/blocks/overworld_waystone_interior"
     },
-    "waystone_side_top": {
-      "textures": "textures/blocks/waystone_side_top"
+    "overworld_waystone_side_top": {
+      "textures": "textures/blocks/overworld_waystone_side_top"
     },
-    "waystone_side_bottom": {
-      "textures": "textures/blocks/waystone_side_bottom"
+    "overworld_waystone_side_bottom": {
+      "textures": "textures/blocks/overworld_waystone_side_bottom"
     },
-    "waystone_side_top_active": {
-      "textures": "textures/blocks/waystone_side_top_active"
+    "overworld_waystone_side_top_active": {
+      "textures": "textures/blocks/overworld_waystone_side_top_active"
     },
-    "waystone_side_bottom_active": {
-      "textures": "textures/blocks/waystone_side_bottom_active"
+    "overworld_waystone_side_bottom_active": {
+      "textures": "textures/blocks/overworld_waystone_side_bottom_active"
     }
   }
 }

@@ -2,7 +2,7 @@
     "format_version": "1.21.20",
     "minecraft:recipe_shaped": {
         "description": {
-            "identifier": "tcsmp:waystone"
+            "identifier": "tcsmp:overworld_waystone"
         },
         "tags": ["crafting_table"],
         "pattern": [
@@ -25,7 +25,7 @@
             "item": "tcsmp:warp_crystal"
         }],
         "result": {
-            "item": "tcsmp:waystone"
+            "item": "tcsmp:overworld_waystone"
         }
     }
 }
