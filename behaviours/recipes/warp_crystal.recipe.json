@@ -1,0 +1,36 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "tcsmp:warp_crystal"
+        },
+        "tags": ["crafting_table"],
+        "pattern": [
+            "PEP",
+            "ESE",
+            "PEP"
+        ],
+        "key": {
+            "P": {
+                "item": "minecraft:popped_chorus_fruit"
+            },
+            "E": {
+                "item": "minecraft:ender_pearl"
+            },
+            "S": {
+                "item": "minecraft:echo_shard"
+            }
+        },
+        "unlock": [
+            {
+                "item": "minecraft:popped_chorus_fruit"
+            },
+            {
+                "item": "minecraft:ender_pearl"
+            }
+        ],
+        "result": {
+            "item": "tcsmp:warp_crystal"
+        }
+    }
+}
