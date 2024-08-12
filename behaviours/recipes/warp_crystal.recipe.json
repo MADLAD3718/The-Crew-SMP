@@ -6,13 +6,13 @@
         },
         "tags": ["crafting_table"],
         "pattern": [
-            "PEP",
+            "AEA",
             "ESE",
-            "PEP"
+            "AEA"
         ],
         "key": {
-            "P": {
-                "item": "minecraft:popped_chorus_fruit"
+            "A": {
+                "item": "minecraft:amethyst_shard"
             },
             "E": {
                 "item": "minecraft:ender_pearl"
