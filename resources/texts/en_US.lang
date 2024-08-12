@@ -12,6 +12,7 @@ item.tcsmp:warp_crystal.name=Warp Crystal
 item.tcsmp:overworld_waystone.name=Overworld Waystone
 item.tcsmp:nether_waystone.name=Nether Waystone
 item.tcsmp:end_waystone.name=End Waystone
+item.tcsmp:spell_scroll.name=Spell Scroll
 
 ## Blocks
 tile.tcsmp:overworld_waystone.name=Overworld Waystone

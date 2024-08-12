@@ -1,0 +1,22 @@
+{
+    "format_version": "1.21.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "tcsmp:spell_scroll",
+            "menu_category": {
+                "category": "equipment"
+            }
+        },
+        "components": {
+            "minecraft:max_stack_size": 8,
+            "minecraft:display_name": {
+                "value": "item.tcsmp:spell_scroll.name"
+            },
+            "minecraft:icon": {
+                "textures": {
+                    "default": "spell_scroll"
+                }
+            }
+        }
+    }
+}

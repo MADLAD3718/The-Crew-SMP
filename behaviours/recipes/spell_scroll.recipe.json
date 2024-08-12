@@ -1,0 +1,33 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "tcsmp:spell_scroll"
+        },
+        "tags": ["crafting_table"],
+        "pattern": [
+            " L ",
+            "LPL",
+            " L "
+        ],
+        "key": {
+            "L": {
+                "item": "minecraft:lapis_lazuli"
+            },
+            "P": {
+                "item": "minecraft:paper"
+            }
+        },
+        "unlock": [
+            {
+                "item": "minecraft:paper"
+            },
+            {
+                "item": "minecraft:lapis_lazuli"
+            }
+        ],
+        "result": {
+            "item": "tcsmp:spell_scroll"
+        }
+    }
+}

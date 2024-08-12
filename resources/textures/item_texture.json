@@ -37,6 +37,9 @@
     },
     "end_waystone": {
       "textures": "textures/items/end_waystone"
+    },
+    "spell_scroll": {
+      "textures": "textures/items/spell_scroll"
     }
   }
 }
