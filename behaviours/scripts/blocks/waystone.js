@@ -89,7 +89,7 @@ function setupWaystone(block, player) {
         const global = response.formValues[1];
         const context = global ? world : player;
         if (hasWaystone(context, waystone))
-            return player.onScreenDisplay.setActionBar({translate: "info.waystone.preexists", with: [name]});
+            return player.sendMessage({translate: "info.waystone.preexists", with: [name]});
 
         addWaystone(context, waystone);
 
@@ -114,7 +114,7 @@ function editWaystone(block, player) {
         {translate: "action.setup.waystone.placeholder", with: [player.name]},
         old_waystone.name
     );
-    form.toggle({translate: "action.setup.waystone.global"}, is_global);
+    if (!is_global) form.toggle({translate: "action.setup.waystone.global"}, false);
     form.show(player).then(response => {
         if (response.canceled) return;
         removeWaystone(is_global ? world : player, old_waystone);
@@ -122,11 +122,11 @@ function editWaystone(block, player) {
         const name = response.formValues[0] || `${player.name}'s Waystone`;
         const new_waystone = {type: old_waystone.type, name: name, location: block.location};
         
-        const global = response.formValues[1];
+        const global = response.formValues[1] ?? true;
         const context = global ? world : player;
 
         if (hasWaystone(context, new_waystone)) {
-            player.onScreenDisplay.setActionBar({translate: "info.waystone.preexists", with: [name]});
+            player.sendMessage({translate: "info.waystone.preexists", with: [name]});
             const above = block.above();
             block.setPermutation(block.permutation.withState("tcsmp:active", false));
             above.setPermutation(above.permutation.withState("tcsmp:active", false));
@@ -214,6 +214,7 @@ function findWaystone(context, location, typeId) {
         if (!id.startsWith(`${type}:`)) continue;
         if (equal(location, context.getDynamicProperty(id)))
             return {
+                type: type,
                 name: id.substring(type.length + 1),
                 location: location
             };
