@@ -1,8 +1,8 @@
-import { Block, BlockComponentPlayerDestroyEvent, BlockComponentPlayerInteractEvent, BlockPermutation, Dimension, Direction, Player, system, World, world } from "@minecraft/server";
+import { Block, BlockComponentPlayerDestroyEvent, BlockComponentPlayerInteractEvent, BlockPermutation, Direction, Player, system, World, world } from "@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import { add, Directions, equal } from "../extensions/vectors";
 
-const WAYSTONE_TYPES = {
+const WAYSTONE_TYPEIDS = {
     "minecraft:overworld": "tcsmp:overworld_waystone",
     "minecraft:nether": "tcsmp:nether_waystone",
     "minecraft:the_end": "tcsmp:end_waystone"
@@ -53,13 +53,13 @@ function breakWaystone(event) {
 
     const waystone = findWaystone(world, location, typeId) ?? findWaystone(player, location, typeId);
     if (!waystone) return;
-    removeWaystone(hasWaystone(world, waystone, typeId) ? world : player, waystone, typeId);
+    removeWaystone(hasWaystone(world, waystone) ? world : player, waystone);
 }
 
 /** @param {BlockComponentPlayerInteractEvent} event */
 function interactWaystone(event) {
     const {player, dimension} = event;
-    if (WAYSTONE_TYPES[dimension.id] !== event.block.typeId) return;
+    if (WAYSTONE_TYPEIDS[dimension.id] !== event.block.typeId) return;
     dimension.playSound("waystone.interact", event.block.center());
     const top = event.block.permutation.getState("tcsmp:top")
     const block = top ? event.block.below() : event.block;
@@ -84,14 +84,14 @@ function setupWaystone(block, player) {
         if (response.canceled) return;
 
         const name = response.formValues[0] || `${player.name}'s Waystone`;
-        const waystone = {name: name, location: block.location};
+        const waystone = {type: block.typeId.substring(6), name: name, location: block.location};
         
         const global = response.formValues[1];
         const context = global ? world : player;
-        if (hasWaystone(context, waystone, block.typeId))
+        if (hasWaystone(context, waystone))
             return player.onScreenDisplay.setActionBar({translate: "info.waystone.preexists", with: [name]});
 
-        addWaystone(context, waystone, block.typeId);
+        addWaystone(context, waystone);
 
         const above = block.above();
         block.setPermutation(block.permutation.withState("tcsmp:active", true));
@@ -104,12 +104,9 @@ function setupWaystone(block, player) {
  * @param {Player} player 
  */
 function editWaystone(block, player) {
-    let is_global = true;
-    let old_waystone = findWaystone(world, block.location, block.typeId);
-    if (!old_waystone) {
-        old_waystone = findWaystone(player, block.location, block.typeId);
-        is_global = false;
-    }
+    const old_waystone = findWaystone(world, block.location, block.typeId) ?? findWaystone(player, block.location, block.typeId);
+    const is_global = hasWaystone(world, old_waystone);
+    if (!is_global && !hasWaystone(player, old_waystone)) return useWaystone(block, player);
 
     const form = new ModalFormData().title({translate: "action.edit.waystone.title"});
     form.textField(
@@ -120,20 +117,20 @@ function editWaystone(block, player) {
     form.toggle({translate: "action.setup.waystone.global"}, is_global);
     form.show(player).then(response => {
         if (response.canceled) return;
-        removeWaystone(is_global ? world : player, old_waystone, block.typeId);
+        removeWaystone(is_global ? world : player, old_waystone);
 
         const name = response.formValues[0] || `${player.name}'s Waystone`;
-        const new_waystone = {name: name, location: block.location};
+        const new_waystone = {type: old_waystone.type, name: name, location: block.location};
         
         const global = response.formValues[1];
         const context = global ? world : player;
 
-        if (hasWaystone(context, new_waystone, block.typeId)) {
+        if (hasWaystone(context, new_waystone)) {
             player.onScreenDisplay.setActionBar({translate: "info.waystone.preexists", with: [name]});
             const above = block.above();
             block.setPermutation(block.permutation.withState("tcsmp:active", false));
             above.setPermutation(above.permutation.withState("tcsmp:active", false));
-        } else addWaystone(context, new_waystone, block.typeId);
+        } else addWaystone(context, new_waystone);
     });
 }
 
@@ -146,12 +143,12 @@ function useWaystone(block, player) {
 
     const waystones = [];
     const form = new ActionFormData().title({translate: "action.interact.waystone.title"});
-    for (const waystone of getWayStones(world, block.typeId)) {
+    for (const waystone of getWayStones(world, home.type)) {
         if (equal(waystone.location, home.location)) continue;
         form.button(waystone.name, "textures/ui/waystone_global_glyph");
         waystones.push(waystone);
     }
-    for (const waystone of getWayStones(player, block.typeId)) {
+    for (const waystone of getWayStones(player, home.type)) {
         if (equal(waystone.location, home.location)) continue;
         form.button(waystone.name, "textures/ui/waystone_private_glypth");
         waystones.push(waystone);
@@ -187,20 +184,20 @@ function isWater(block) {
 }
 
 /** @typedef {{x: Number, y: Number, z: Number}} Vector3 */
-/** @typedef {{name: String, location: Vector3}} Waystone */
+/** @typedef {{type: String, name: String, location: Vector3}} Waystone */
 
 /**
  * @param {World | Player} context 
- * @param {String} typeId 
+ * @param {String} type 
  * @returns {Waystone[]}
  */
-function getWayStones(context, typeId) {
-    const waystones = [], type = typeId.substring(6);
+function getWayStones(context, type) {
+    const waystones = [];
     for (const id of context.getDynamicPropertyIds()) {
         if (!id.startsWith(`${type}:`)) continue;
         const name = id.substring(type.length + 1);
         const location = context.getDynamicProperty(id);
-        waystones.push({name: name, location: location});
+        waystones.push({type: type, name: name, location: location});
     }
     return waystones;
 }
@@ -227,14 +224,12 @@ function findWaystone(context, location, typeId) {
 /**
  * @param {World | Player} context 
  * @param {Waystone} waystone 
- * @param {String} typeId
  * @returns {Boolean}
  */
-function hasWaystone(context, waystone, typeId) {
-    const type = typeId.substring(6);
+function hasWaystone(context, waystone) {
     for (const id of context.getDynamicPropertyIds()) {
-        if (!id.startsWith(`${type}:`)) continue;
-        if (id.substring(type.length + 1) === waystone.name) return true;
+        if (!id.startsWith(`${waystone.type}:`)) continue;
+        if (id.substring(waystone.type.length + 1) === waystone.name) return true;
     }
     return false;
 }
@@ -242,19 +237,15 @@ function hasWaystone(context, waystone, typeId) {
 /**
  * @param {World | Player} context
  * @param {Waystone} waystone
- * @param {String} typeId
  */
-function removeWaystone(context, waystone, typeId) {
-    const type = typeId.substring(6);
-    context.setDynamicProperty(`${type}:${waystone.name}`);
+function removeWaystone(context, waystone) {
+    context.setDynamicProperty(`${waystone.type}:${waystone.name}`);
 }
 
 /**
  * @param {World | Player} context
  * @param {Waystone} waystone
- * @param {String} typeId
  */
-function addWaystone(context, waystone, typeId) {
-    const type = typeId.substring(6);
-    context.setDynamicProperty(`${type}:${waystone.name}`, waystone.location);
+function addWaystone(context, waystone) {
+    context.setDynamicProperty(`${waystone.type}:${waystone.name}`, waystone.location);
 }
