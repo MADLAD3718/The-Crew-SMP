@@ -1,5 +1,6 @@
 import { Block, ItemComponentUseEvent, TicksPerSecond } from "@minecraft/server";
 import { add, div, dot, mul, sub, toVec } from "../extensions/vectors";
+import { isWater } from "../common";
 
 const GROWTH_RANGE = {x: 15, y: 8, z: 15};
 const SHORT_PLANTS = [
@@ -24,6 +25,20 @@ const TALL_PLANTS = [
     "minecraft:lilac",
     "minecraft:rose_bush",
     "minecraft:peony"
+]
+const WATER_PLANTS = [
+    "minecraft:seagrass",
+    "minecraft:sea_pickle",
+    "minecraft:fire_coral",
+    "minecraft:fire_coral_fan",
+    "minecraft:brain_coral",
+    "minecraft:brain_coral_fan",
+    "minecraft:bubble_coral",
+    "minecraft:bubble_coral_fan",
+    "minecraft:tube_coral",
+    "minecraft:tube_coral_fan",
+    "minecraft:horn_coral",
+    "minecraft:horn_coral_fan",
 ]
 const REGEN_IMMUNE = [
     "tcsmp:cannon",
@@ -76,22 +91,38 @@ function useGrowthSpell(event) {
  */
 function applyGrowth(block, value) {
     const {dimension, permutation} = block;
+    const place = value * Math.random() < 0.5;
+    const tall = value * Math.random() < 0.1 && block.y < dimension.heightRange.max;
+    const variant = Math.random() < 0.5;
     switch (block.typeId) {
         case "minecraft:air":
+            if (!place) break;
             if (block.y == dimension.heightRange.min) break;
-            if (block.below().typeId == "minecraft:grass_block") {
-                const place = value * Math.random() < 0.5;
-                if (place) {
-                    const tall = value * Math.random() < 0.1;
-                    const grass = Math.random() < 0.5;
-                    if (grass) {
-                        block.setType(`minecraft:${tall ? "tall" : "short"}_grass`);
-                    } else {
-                        const typeId = tall ? randElement(TALL_PLANTS) : randElement(SHORT_PLANTS);
-                        block.setType(typeId);
-                    }
+            if (block.below().typeId !== "minecraft:grass_block") break;
+
+            if (variant) {
+                const typeId = tall ? randElement(TALL_PLANTS) : randElement(SHORT_PLANTS);
+                block.setType(typeId);
+            } else block.setType(`minecraft:${tall ? "tall" : "short"}_grass`);
+
+            break;
+        case "minecraft:water":
+        case "minecraft:flowing_water":
+            if (!place) break;
+            if (block.y == dimension.heightRange.min) break;
+            const below = block.below();
+            if (below.typeId !== "minecraft:gravel" && below.typeId !== "minecraft:sand") break;
+
+
+            if (tall) {
+                block.setType("minecraft:seagrass");
+                const above = block.above();
+                if (isWater(above)) {
+                    block.setPermutation(block.permutation.withState("sea_grass_type", "double_bot"));
+                    above.setPermutation(block.permutation.withState("sea_grass_type", "double_top"));
                 }
-            }
+            } else block.setType(variant ? randElement(WATER_PLANTS) : "minecraft:seagrass");
+
             break;
         case "minecraft:short_grass":
             block.setType("minecraft:tall_grass");

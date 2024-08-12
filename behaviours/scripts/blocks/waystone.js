@@ -1,6 +1,7 @@
 import { Block, BlockComponentPlayerDestroyEvent, BlockComponentPlayerInteractEvent, BlockPermutation, Direction, Player, system, World, world } from "@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import { add, Directions, equal } from "../extensions/vectors";
+import { isWater } from "../common";
 
 const WAYSTONE_TYPEIDS = {
     "minecraft:overworld": "tcsmp:overworld_waystone",
@@ -176,11 +177,6 @@ function removeCrystal(block, permutation) {
     const top = permutation.getState('tcsmp:top');
     const location = top ? block.location : add(block.location, Directions.Up);
     block.dimension.getEntitiesAtBlockLocation(location)[0]?.remove();
-}
-
-/** @param {Block} block */
-function isWater(block) {
-    return block?.typeId == "minecraft:water" || block?.typeId == "minecraft:flowing_water";
 }
 
 /** @typedef {{x: Number, y: Number, z: Number}} Vector3 */
