@@ -40,6 +40,9 @@
     },
     "spell_scroll": {
       "textures": "textures/items/spell_scroll"
+    },
+    "scroll_of_growth": {
+      "textures": "textures/items/scroll_of_growth"
     }
   }
 }

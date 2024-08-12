@@ -7,7 +7,7 @@
         "tags": ["crafting_table"],
         "pattern": [
             "LLL",
-            "TST"
+            "T T"
         ],
         "key": {
             "L": {
@@ -15,9 +15,6 @@
             },
             "T": {
                 "item": "minecraft:tripwire_hook"
-            },
-            "S": {
-                "item": "minecraft:string"
             }
         },
         "unlock": [

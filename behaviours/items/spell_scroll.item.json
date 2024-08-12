@@ -4,7 +4,7 @@
         "description": {
             "identifier": "tcsmp:spell_scroll",
             "menu_category": {
-                "category": "equipment"
+                "category": "items"
             }
         },
         "components": {
