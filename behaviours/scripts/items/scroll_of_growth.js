@@ -1,8 +1,8 @@
 import { Block, ItemComponentUseEvent, TicksPerSecond } from "@minecraft/server";
 import { add, div, dot, mul, sub, toVec } from "../extensions/vectors";
-import { isWater } from "../common";
+import { isWater, randElement, withinRange } from "../common";
 
-const GROWTH_RANGE = {x: 15, y: 8, z: 15};
+const GROWTH_RANGE = {x: 15, y: 5, z: 15};
 const SHORT_PLANTS = [
     "minecraft:short_grass",
     "minecraft:fern",
@@ -90,26 +90,35 @@ function useGrowthSpell(event) {
  * @param {Number} value 
  */
 function applyGrowth(block, value) {
-    const {dimension, permutation} = block;
+    const {dimension, permutation} = block, {heightRange} = dimension;
+    if (Math.random() < 0.025)
+        dimension.spawnParticle("minecraft:crop_growth_area_emitter", block.center());
+
     const place = value * Math.random() < 0.5;
-    const tall = value * Math.random() < 0.1 && block.y < dimension.heightRange.max;
+    const tall = value * Math.random() < 0.08 && block.y < heightRange.max;
     const variant = Math.random() < 0.5;
     switch (block.typeId) {
+        case "minecraft:dirt":
+            if (block.y !== heightRange.max && block.above().typeId !== "minecraft:air") break;
+            block.setType("minecraft:grass_block");
+            break;
         case "minecraft:air":
             if (!place) break;
-            if (block.y == dimension.heightRange.min) break;
+            if (block.y == heightRange.min) break;
             if (block.below().typeId !== "minecraft:grass_block") break;
 
             if (variant) {
                 const typeId = tall ? randElement(TALL_PLANTS) : randElement(SHORT_PLANTS);
                 block.setType(typeId);
             } else block.setType(`minecraft:${tall ? "tall" : "short"}_grass`);
+            if (Math.random() < 0.05)
+                dimension.spawnParticle("minecraft:crop_growth_area_emitter", block.center());
 
             break;
         case "minecraft:water":
         case "minecraft:flowing_water":
             if (!place) break;
-            if (block.y == dimension.heightRange.min) break;
+            if (block.y == heightRange.min) break;
             const below = block.below();
             if (below.typeId !== "minecraft:gravel" && below.typeId !== "minecraft:sand") break;
 
@@ -125,12 +134,15 @@ function applyGrowth(block, value) {
 
             break;
         case "minecraft:short_grass":
+            dimension.spawnParticle("minecraft:crop_growth_emitter", block.center());
             block.setType("minecraft:tall_grass");
             break;
         case "minecraft:fern":
+            dimension.spawnParticle("minecraft:crop_growth_emitter", block.center());
             block.setType("minecraft:large_fern");
             break;
         case "minecraft:pitcher_crop":
+            dimension.spawnParticle("minecraft:crop_growth_emitter", block.center());
             block.setPermutation(permutation.withState("growth", 2));
             break;
         case "minecraft:wheat":
@@ -141,25 +153,10 @@ function applyGrowth(block, value) {
         case "minecraft:beetroot":
         case "minecraft:sweet_berry_bush":
         case "minecraft:torchflower_crop":
+            dimension.spawnParticle("minecraft:crop_growth_emitter", block.center());
             block.setPermutation(permutation.withState("growth", 7));
             break;
     }
-}
-
-/** @typedef {{min: Number, max: Number}} NumberRange */
-/** @typedef {{x: Number, y: Number, z: Number}} Vector3 */
-
-/**
- * @param {Number} x 
- * @param {NumberRange} range 
- */
-function withinRange(x, range) {
-    return x >= range.min && x <= range.max;
-}
-
-/** @param {*[]} array */
-function randElement(array) {
-    return array[Math.floor(Math.random() * array.length)];
 }
 
 /**
