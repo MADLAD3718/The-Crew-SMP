@@ -162,6 +162,11 @@ function useWaystone(block, player) {
         if (response.canceled) return;
         const target = waystones[response.selection];
         player.playSound("waystone.teleport");
+        player.camera.fade({fadeColor: {red: 0.914, green: 0.882, blue: 0.851}, fadeTime: {
+            fadeInTime: 0.0,
+            holdTime: 1.0,
+            fadeOutTime: 0.8
+        }});
         player.teleport(target.location);
     });
 }
