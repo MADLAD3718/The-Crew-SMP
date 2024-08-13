@@ -56,9 +56,6 @@ function useGrowthSpell(event) {
     const vars = new MolangVariableMap();
     vars.setColorRGB("colour", {red: 0.8, green: 1.0, blue: 0.8});
     dimension.spawnParticle("tcsmp:spell_cast", head, vars);
-
-    if (source.getGameMode() !== GameMode.creative)
-        decrementSlot(source.inventory.container, source.selectedSlotIndex);
     
     for (const offset of getRectPrism(GROWTH_RANGE)) {
         const value = ellipsoidValue(GROWTH_RANGE, offset);
