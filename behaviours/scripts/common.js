@@ -1,4 +1,4 @@
-import { Block } from "@minecraft/server";
+import { Block, Container } from "@minecraft/server";
 
 /** @typedef {{min: Number, max: Number}} NumberRange */
 
@@ -28,4 +28,18 @@ export function randElement(array) {
  */
 export function isWater(block) {
     return block?.typeId == "minecraft:water" || block?.typeId == "minecraft:flowing_water";
+}
+
+/**
+ * Decrements the itemstack count in the provided slot.
+ * @param {Container} container The specified inventory container.
+ * @param {Number} slot The specified container slot.
+ */
+export function decrementSlot(container, slot) {
+    if (slot >= container.size) return;
+    const item = container.getItem(slot);
+    if (item.amount > 1) {
+        item.amount--;
+        container.setItem(slot, item);
+    } else container.setItem(slot);
 }

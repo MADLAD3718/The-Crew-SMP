@@ -1,6 +1,6 @@
-import { Block, ItemComponentUseEvent, TicksPerSecond } from "@minecraft/server";
+import { Block, GameMode, ItemComponentUseEvent, MolangVariableMap } from "@minecraft/server";
 import { add, div, dot, mul, sub, toVec } from "../extensions/vectors";
-import { isWater, randElement, withinRange } from "../common";
+import { decrementSlot, isWater, randElement, withinRange } from "../common";
 
 const GROWTH_RANGE = {x: 15, y: 5, z: 15};
 const SHORT_PLANTS = [
@@ -40,17 +40,6 @@ const WATER_PLANTS = [
     "minecraft:horn_coral",
     "minecraft:horn_coral_fan",
 ]
-const REGEN_IMMUNE = [
-    "tcsmp:cannon",
-    "tcsmp:cannonball",
-    "tcsmp:fire_cannonball",
-    "tcsmp:grappling_hook_seat",
-    "tcsmp:grappling_hook_stake",
-    "tcsmp:poison_cannonball",
-    "tcsmp:slowness_cannonball",
-    "tcsmp:warp_crystal",
-    "tcsmp:wither_cannonball"
-]
 
 /** @type {import("@minecraft/server").ItemCustomComponent} */
 export const growthSpellComponent = {
@@ -60,6 +49,16 @@ export const growthSpellComponent = {
 /** @param {ItemComponentUseEvent} event  */
 function useGrowthSpell(event) {
     const {source} = event, {dimension, location} = source;
+    const head = source.getHeadLocation();
+    dimension.playSound("scroll.cast", head);
+
+    const vars = new MolangVariableMap();
+    vars.setColorRGB("colour", {red: 0.8, green: 1.0, blue: 0.8});
+    dimension.spawnParticle("tcsmp:spell_cast", head, vars);
+
+    if (source.getGameMode() !== GameMode.creative)
+        decrementSlot(source.inventory.container, source.selectedSlotIndex);
+    
     for (const offset of getRectPrism(GROWTH_RANGE)) {
         const value = ellipsoidValue(GROWTH_RANGE, offset);
         if (value > 1) continue;
@@ -70,19 +69,6 @@ function useGrowthSpell(event) {
         const block = dimension.getBlock(target);
         applyGrowth(block, value);
     }
-    const nearby_entities = dimension.getEntities({
-        volume: add(mul(GROWTH_RANGE, 2), toVec(1)),
-        location: sub(source.location, GROWTH_RANGE)
-    });
-    for (const entity of nearby_entities) {
-        const offset = sub(entity.location, location);
-        if (ellipsoidValue(GROWTH_RANGE, offset) > 1) continue;
-        if (REGEN_IMMUNE.includes(entity.typeId)) continue;
-        entity.addEffect("regeneration", 15 * TicksPerSecond);
-        try {
-            entity.triggerEvent("minecraft:ageable_grow_up");
-        } catch {}
-    }
 }
 
 /**
@@ -91,12 +77,14 @@ function useGrowthSpell(event) {
  */
 function applyGrowth(block, value) {
     const {dimension, permutation} = block, {heightRange} = dimension;
-    if (Math.random() < 0.025)
-        dimension.spawnParticle("minecraft:crop_growth_area_emitter", block.center());
+    const rand = Math.random();
 
-    const place = value * Math.random() < 0.5;
-    const tall = value * Math.random() < 0.08 && block.y < heightRange.max;
-    const variant = Math.random() < 0.5;
+    const place = value * rand < 0.5;
+    const tall = value * rand < 0.08 && block.y < heightRange.max;
+    const variant = rand < 0.5;
+
+    if (rand < 0.015)
+        dimension.spawnParticle("minecraft:crop_growth_area_emitter", block.center());
     switch (block.typeId) {
         case "minecraft:dirt":
             if (block.y !== heightRange.max && block.above().typeId !== "minecraft:air") break;
@@ -111,8 +99,6 @@ function applyGrowth(block, value) {
                 const typeId = tall ? randElement(TALL_PLANTS) : randElement(SHORT_PLANTS);
                 block.setType(typeId);
             } else block.setType(`minecraft:${tall ? "tall" : "short"}_grass`);
-            if (Math.random() < 0.05)
-                dimension.spawnParticle("minecraft:crop_growth_area_emitter", block.center());
 
             break;
         case "minecraft:water":
@@ -159,17 +145,22 @@ function applyGrowth(block, value) {
     }
 }
 
+/** @typedef {{x: Number, y: Number, z: Number}} Vector3 */
+
 /**
  * Generates a list of locations bounded by a rectangular prism.
  * @param {Vector3} range The length of each semi-axis.
  * @returns {Vector3[]} A list of locations within a rectangular prism centered about the origin.
  */
 function getRectPrism(range) {
-    const locations = [];
-    for (let x = -range.x; x <= range.x; ++x)
-    for (let y = -range.y; y <= range.y; ++y)
-    for (let z = -range.z; z <= range.z; ++z)
-        locations.push({x: x, y: y, z: z});
+    const span = add(mul(range, 2), toVec(1));
+    const locations = new Array(span.x * span.y * span.z);
+    let i = 0;
+    for (let x = 0; x <= 2 * range.x; ++x)
+    for (let y = 0; y <= 2 * range.y; ++y)
+    for (let z = 0; z <= 2 * range.z; ++z, ++i) {
+        locations[i] = sub({x: x, y: y, z: z}, range);
+    }
     return locations;
 }
 
@@ -180,5 +171,6 @@ function getRectPrism(range) {
 function ellipsoidValue(range, position) {
     const pos2 = mul(position, position);
     const ran2 = mul(range, range);
-    return dot(div(pos2, ran2), toVec(1));
+    const quo = div(pos2, ran2);
+    return quo.x + quo.y + quo.z;
 }

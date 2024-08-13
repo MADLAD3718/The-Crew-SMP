@@ -1,6 +1,7 @@
 import { Container, Dimension, Entity, EntityComponentTypes, GameMode, ItemStack, MolangVariableMap, Player, system, TicksPerSecond, world } from "@minecraft/server";
 import { add, Directions, mul, normalize } from "../extensions/vectors";
 import { buildTNB } from "../extensions/matrices";
+import { decrementSlot } from "../common";
 
 const CANNON_DELAY = 1.0 * TicksPerSecond;
 
@@ -103,22 +104,6 @@ function findAmmo(container) {
         if (item?.getTags().includes("cannon_ammo")) return i;
     }
     return undefined;
-}
-
-/**
- * Decrements the itemstack count in the provided slot.
- * @param {Container} container 
- * @param {Number} slot 
- */
-function decrementSlot(container, slot) {
-    if (slot >= container.size) return;
-    const item = container.getItem(slot);
-    if (item.amount == 1) {
-        container.setItem(slot);
-    } else {
-        item.amount--;
-        container.setItem(slot, item);
-    }
 }
 
 /**

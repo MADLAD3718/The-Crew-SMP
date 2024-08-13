@@ -75,6 +75,16 @@
       "waystone.teleport": {
          "category": "ui",
          "sounds": ["sounds/waystone/teleport"]
+      },
+      "scroll.cast": {
+         "__use_legacy_max_distance" : "true",
+         "category" : "player",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [{
+            "name": "sounds/spell_scroll/cast",
+            "volume": 1.0
+         }]
       }
    }
 }

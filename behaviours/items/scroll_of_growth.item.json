@@ -17,7 +17,8 @@
                 "textures": {
                     "default": "scroll_of_growth"
                 }
-            }
+            },
+            "minecraft:glint": true
         }
     }
 }
