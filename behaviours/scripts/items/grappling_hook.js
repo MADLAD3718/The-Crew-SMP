@@ -25,6 +25,7 @@ world.afterEvents.itemReleaseUse.subscribe(({itemStack: hook, source: player}) =
 
     // Replace Item
     const empty_hook = new ItemStack("tcsmp:empty_grappling_hook");
+    empty_hook.nameTag = hook.nameTag;
     empty_hook.durability.damage = hook.durability.damage;
     empty_hook.lockMode = ItemLockMode.slot;
     const enchantments = hook.enchantments.getEnchantments();
@@ -62,6 +63,7 @@ world.afterEvents.itemReleaseUse.subscribe(({itemStack: hook, source: player}) =
         const slot = player.getDynamicProperty("grapple_slot");
         const empty_hook = player.inventory.container.getItem(slot);
         const hook = new ItemStack("tcsmp:grappling_hook");
+        hook.nameTag = empty_hook.nameTag;
         hook.durability.damage = empty_hook.durability.damage;
         const enchantments = empty_hook.enchantments.getEnchantments();
         hook.enchantments.addEnchantments(enchantments);
@@ -108,6 +110,7 @@ world.afterEvents.projectileHitBlock.subscribe(({projectile: stake}) => {
             player.dimension.playSound("random.break", player.getHeadLocation());
         } else {
             let hook = new ItemStack("tcsmp:grappling_hook");
+            hook.nameTag = empty_hook.nameTag;
             const enchantments = empty_hook.enchantments.getEnchantments();
             hook.enchantments.addEnchantments(enchantments);
             hook.durability.damage = empty_hook.durability.damage
