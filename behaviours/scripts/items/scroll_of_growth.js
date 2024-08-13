@@ -1,6 +1,6 @@
-import { Block, GameMode, ItemComponentUseEvent, MolangVariableMap } from "@minecraft/server";
+import { Block, ItemComponentUseEvent, MolangVariableMap } from "@minecraft/server";
 import { add, div, mul, sub, toVec } from "../extensions/vectors";
-import { decrementSlot, isWater, randElement, withinRange } from "../common";
+import { isWater, randElement, withinRange } from "../common";
 
 const GROWTH_RANGE = {x: 15, y: 5, z: 15};
 const SHORT_PLANTS = [

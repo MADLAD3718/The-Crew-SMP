@@ -1,5 +1,4 @@
 import "@minecraft/server"
-import { Dimension } from "@minecraft/server";
 
 declare module "@minecraft/server" {
     interface Entity {

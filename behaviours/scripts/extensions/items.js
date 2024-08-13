@@ -5,5 +5,10 @@ Object.defineProperties(ItemStack.prototype, {
         get() {
             return this.getComponent(ItemComponentTypes.Durability);
         }
+    },
+    enchantments: {
+        get() {
+            return this.getComponent(ItemComponentTypes.Enchantable);
+        }
     }
 });

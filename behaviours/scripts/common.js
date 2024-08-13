@@ -1,4 +1,5 @@
-import { Block, Container } from "@minecraft/server";
+import { Block, Container, ItemStack } from "@minecraft/server";
+import "./extensions/items";
 
 /** @typedef {{min: Number, max: Number}} NumberRange */
 
@@ -42,4 +43,17 @@ export function decrementSlot(container, slot) {
         item.amount--;
         container.setItem(slot, item);
     } else container.setItem(slot);
+}
+
+/**
+ * Decrements the durability of an item.
+ * @param {ItemStack} item The specified item.
+ * @returns {ItemStack | undefined}
+ */
+export function decrementDurability(item) {
+    if (item.durability.damage == item.durability.maxDurability) return undefined;
+    const level = item.enchantments.getEnchantment("unbreaking")?.level ?? 0;
+    if (Math.random() >= 1 / (level + 1)) return item;
+    item.durability.damage++;
+    return item;
 }

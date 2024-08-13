@@ -1,5 +1,7 @@
 import { EntityComponentTypes, GameMode, ItemLockMode, ItemStack, Player, system, TicksPerSecond, world } from "@minecraft/server";
-import { add, distance, mul } from "../extensions/vectors";
+import { add, Directions, distance, mul } from "../extensions/vectors";
+import { decrementDurability } from "../common";
+import "../extensions/entities";
 
 const USE_TIME = 1.0 * TicksPerSecond;
 const GRAPPLE_SOUNDS = [
@@ -25,6 +27,8 @@ world.afterEvents.itemReleaseUse.subscribe(({itemStack: hook, source: player}) =
     const empty_hook = new ItemStack("tcsmp:empty_grappling_hook");
     empty_hook.durability.damage = hook.durability.damage;
     empty_hook.lockMode = ItemLockMode.slot;
+    const enchantments = hook.enchantments.getEnchantments();
+    empty_hook.enchantments.addEnchantments(enchantments);
     player.inventory.container.setItem(player.selectedSlotIndex, empty_hook);
     player.setDynamicProperty("grapple_slot", player.selectedSlotIndex);
 
@@ -59,6 +63,8 @@ world.afterEvents.itemReleaseUse.subscribe(({itemStack: hook, source: player}) =
         const empty_hook = player.inventory.container.getItem(slot);
         const hook = new ItemStack("tcsmp:grappling_hook");
         hook.durability.damage = empty_hook.durability.damage;
+        const enchantments = empty_hook.enchantments.getEnchantments();
+        hook.enchantments.addEnchantments(enchantments);
         player.inventory.container.setItem(slot, hook);
         player.dimension.playSound("leashknot.break", player.getHeadLocation());
 
@@ -74,6 +80,7 @@ world.afterEvents.projectileHitBlock.subscribe(({projectile: stake}) => {
 
     // Setup Retracttion
     const seat = world.getEntity(stake.getDynamicProperty("seat"));
+    seat.teleport(add(seat.location, mul(Directions.Up, 0.1)));
     /** @type {Player} */
     const player = stake.getComponent(EntityComponentTypes.Projectile).owner;
     const seat2 = seat.getComponent(EntityComponentTypes.Rideable).getRiders()[0];
@@ -100,9 +107,13 @@ world.afterEvents.projectileHitBlock.subscribe(({projectile: stake}) => {
             player.inventory.container.setItem(slot);
             player.dimension.playSound("random.break", player.getHeadLocation());
         } else {
-            const hook = new ItemStack("tcsmp:grappling_hook");
-            if (player.getGameMode() != GameMode.creative) 
-                hook.durability.damage = empty_hook.durability.damage + 1;
+            let hook = new ItemStack("tcsmp:grappling_hook");
+            const enchantments = empty_hook.enchantments.getEnchantments();
+            hook.enchantments.addEnchantments(enchantments);
+            hook.durability.damage = empty_hook.durability.damage
+
+            if (player.getGameMode() != GameMode.creative) hook = decrementDurability(hook);
+
             player.inventory.container.setItem(slot, hook);
             player.dimension.playSound("leashknot.break", player.getHeadLocation());
         }
