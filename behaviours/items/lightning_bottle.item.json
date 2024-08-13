@@ -1,0 +1,22 @@
+{
+    "format_version": "1.21.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "tcsmp:lightning_bottle",
+            "menu_category": {
+                "category": "equipment"
+            }
+        },
+        "components": {
+            "minecraft:display_name": {
+                "value": "item.tcsmp:lightning_bottle.name"
+            },
+            "minecraft:icon": {
+                "textures": {
+                    "default": "lightning_bottle"
+                }
+            },
+            "minecraft:glint": true
+        }
+    }
+}

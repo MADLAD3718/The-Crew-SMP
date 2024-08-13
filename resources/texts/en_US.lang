@@ -14,6 +14,7 @@ item.tcsmp:nether_waystone.name=Nether Waystone
 item.tcsmp:end_waystone.name=End Waystone
 item.tcsmp:spell_scroll.name=Spell Scroll
 item.tcsmp:scroll_of_growth.name=Scroll of Growth
+item.tcsmp:lightning_bottle.name=Bottle o' Lightning
 
 ## Blocks
 tile.tcsmp:overworld_waystone.name=Overworld Waystone

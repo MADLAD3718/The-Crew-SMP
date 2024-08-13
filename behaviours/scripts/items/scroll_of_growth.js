@@ -106,7 +106,6 @@ function applyGrowth(block, value) {
             const below = block.below();
             if (below.typeId !== "minecraft:gravel" && below.typeId !== "minecraft:sand") break;
 
-
             if (tall) {
                 block.setType("minecraft:seagrass");
                 const above = block.above();

@@ -43,6 +43,9 @@
     },
     "scroll_of_growth": {
       "textures": "textures/items/scroll_of_growth"
+    },
+    "lightning_bottle": {
+      "textures": "textures/items/lightning_bottle"
     }
   }
 }

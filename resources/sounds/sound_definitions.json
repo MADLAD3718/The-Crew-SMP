@@ -86,6 +86,21 @@
             "is3D": false,
             "volume": 1.0
          }]
+      },
+      "bottle.lightning": {
+         "category" : "bottle",
+         "max_distance" : 16.0,
+         "min_distance" : 0.0,
+         "sounds" : [
+            {
+               "name": "sounds/bottle/fill_lightning1",
+               "volume": 3.0
+            },
+            {
+               "name": "sounds/bottle/fill_lightning2",
+               "volume": 3.0
+            }
+         ]
       }
    }
 }
