@@ -9,7 +9,7 @@
         },
         "components": {
             "minecraft:custom_components": ["tcsmp:growth_spell"],
-            "minecraft:max_stack_size": 1,
+            "minecraft:max_stack_size": 8,
             "minecraft:display_name": {
                 "value": "item.tcsmp:scroll_of_growth.name"
             },
@@ -17,6 +17,16 @@
                 "textures": {
                     "default": "scroll_of_growth"
                 }
+            },
+            "minecraft:throwable": {
+                "do_swing_animation": true
+            },
+            "minecraft:projectile": {
+                "projectile_entity": "none"
+            },
+            "minecraft:cooldown": {
+                "category": "spell",
+                "duration": 1.0
             },
             "minecraft:glint": true
         }

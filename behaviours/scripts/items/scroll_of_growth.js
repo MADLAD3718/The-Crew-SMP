@@ -1,5 +1,5 @@
 import { Block, GameMode, ItemComponentUseEvent, MolangVariableMap } from "@minecraft/server";
-import { add, div, dot, mul, sub, toVec } from "../extensions/vectors";
+import { add, div, mul, sub, toVec } from "../extensions/vectors";
 import { decrementSlot, isWater, randElement, withinRange } from "../common";
 
 const GROWTH_RANGE = {x: 15, y: 5, z: 15};
@@ -49,6 +49,7 @@ export const growthSpellComponent = {
 /** @param {ItemComponentUseEvent} event  */
 function useGrowthSpell(event) {
     const {source} = event, {dimension, location} = source;
+    source.stopSound("random.bow");
     const head = source.getHeadLocation();
     dimension.playSound("scroll.cast", head);
 

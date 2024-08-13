@@ -83,6 +83,7 @@
          "min_distance" : null,
          "sounds" : [{
             "name": "sounds/spell_scroll/cast",
+            "is3D": false,
             "volume": 1.0
          }]
       }

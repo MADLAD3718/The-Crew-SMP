@@ -30,3 +30,7 @@ Player.prototype.applyImpulse = function (vector) {
     const {x, y, z} = vector;
     this.applyKnockback(x, z, Math.hypot(x, z), y);
 }
+
+Player.prototype.stopSound = function (sound = "") {
+    this.runCommand("stopsound @s " + sound);
+}
