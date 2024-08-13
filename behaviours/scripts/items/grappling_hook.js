@@ -1,6 +1,6 @@
 import { EntityComponentTypes, GameMode, ItemLockMode, ItemStack, Player, system, TicksPerSecond, world } from "@minecraft/server";
 import { add, Directions, distance, mul } from "../extensions/vectors";
-import { decrementDurability } from "../common";
+import { decrementDurability, duplicateItem, findItem } from "../common";
 import "../extensions/entities";
 
 const USE_TIME = 1.0 * TicksPerSecond;
@@ -24,14 +24,9 @@ world.afterEvents.itemReleaseUse.subscribe(({itemStack: hook, source: player}) =
     if (system.currentTick - time < USE_TIME) return;
 
     // Replace Item
-    const empty_hook = new ItemStack("tcsmp:empty_grappling_hook");
-    empty_hook.nameTag = hook.nameTag;
-    empty_hook.durability.damage = hook.durability.damage;
+    const empty_hook = duplicateItem(hook, "tcsmp:empty_grappling_hook");
     empty_hook.lockMode = ItemLockMode.slot;
-    const enchantments = hook.enchantments.getEnchantments();
-    empty_hook.enchantments.addEnchantments(enchantments);
     player.inventory.container.setItem(player.selectedSlotIndex, empty_hook);
-    player.setDynamicProperty("grapple_slot", player.selectedSlotIndex);
 
     // Instantiate Entities
     const view = player.getViewDirection(), head = player.getHeadLocation();
@@ -60,7 +55,7 @@ world.afterEvents.itemReleaseUse.subscribe(({itemStack: hook, source: player}) =
         seat.remove();
         stake.remove();
 
-        const slot = player.getDynamicProperty("grapple_slot");
+        const slot = findItem(player.inventory.container, "tcsmp:empty_grappling_hook");
         const empty_hook = player.inventory.container.getItem(slot);
         const hook = new ItemStack("tcsmp:grappling_hook");
         hook.nameTag = empty_hook.nameTag;
@@ -103,23 +98,16 @@ world.afterEvents.projectileHitBlock.subscribe(({projectile: stake}) => {
         stake.remove();
 
         // Decrement Durability
-        const slot = player.getDynamicProperty("grapple_slot");
+        const slot = findItem(player.inventory.container, "tcsmp:empty_grappling_hook");
         const empty_hook = player.inventory.container.getItem(slot);
-        if (empty_hook.durability.damage == empty_hook.durability.maxDurability) {
-            player.inventory.container.setItem(slot);
-            player.dimension.playSound("random.break", player.getHeadLocation());
-        } else {
-            let hook = new ItemStack("tcsmp:grappling_hook");
-            hook.nameTag = empty_hook.nameTag;
-            const enchantments = empty_hook.enchantments.getEnchantments();
-            hook.enchantments.addEnchantments(enchantments);
-            hook.durability.damage = empty_hook.durability.damage
 
-            if (player.getGameMode() != GameMode.creative) hook = decrementDurability(hook);
+        const creative = player.getGameMode() === GameMode.creative;
+        const duplicate = duplicateItem(empty_hook, "tcsmp:grappling_hook");
+        const hook = creative ? duplicate : decrementDurability(duplicate);
 
-            player.inventory.container.setItem(slot, hook);
-            player.dimension.playSound("leashknot.break", player.getHeadLocation());
-        }
+        player.inventory.container.setItem(slot, hook);
+        if (!hook) player.dimension.playSound("random.break", player.getHeadLocation());
+        else player.dimension.playSound("leashknot.break", player.getHeadLocation());
 
         system.clearRun(dismountCheck);
     });

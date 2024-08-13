@@ -46,6 +46,20 @@ export function decrementSlot(container, slot) {
 }
 
 /**
+ * Finds the first instance of an ItemStack with a speified typeId.
+ * @param {Container} container 
+ * @param {String} typeId 
+ * @returns {Number | undefined} The slot index the item was found at.
+ */
+export function findItem(container, typeId) {
+    for (let i = 0; i < container.size; ++i) {
+        const item = container.getItem(i);
+        if (item?.typeId == typeId) return i;
+    }
+    return undefined;
+}
+
+/**
  * Decrements the durability of an item.
  * @param {ItemStack} item The specified item.
  * @returns {ItemStack | undefined}
@@ -55,5 +69,24 @@ export function decrementDurability(item) {
     const level = item.enchantments.getEnchantment("unbreaking")?.level ?? 0;
     if (Math.random() >= 1 / (level + 1)) return item;
     item.durability.damage++;
+    return item;
+}
+
+/**
+ * Duplicates an item and optionally changes its typeId.
+ * If a new typeId is provided, the new item must have 
+ * the same components and values in its definition.
+ * @param {ItemStack} itemStack The specified item.
+ * @param {String} [typeId] The typeId of the resulting item.
+ * @returns {ItemStack} A duplicate item with the optionally provided typeId.
+ */
+export function duplicateItem(itemStack, typeId) {
+    const item = new ItemStack(typeId ?? itemStack.typeId);
+    item.amount = itemStack.amount;
+    item.nameTag = itemStack.nameTag;
+    const damage = itemStack.durability?.damage;
+    if (damage) item.durability.damage = damage;
+    const enchantments = itemStack.enchantments?.getEnchantments();
+    if (enchantments) item.enchantments.addEnchantments(enchantments);
     return item;
 }
