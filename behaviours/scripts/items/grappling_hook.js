@@ -57,11 +57,7 @@ world.afterEvents.itemReleaseUse.subscribe(({itemStack: hook, source: player}) =
 
         const slot = findItem(player.inventory.container, "tcsmp:empty_grappling_hook");
         const empty_hook = player.inventory.container.getItem(slot);
-        const hook = new ItemStack("tcsmp:grappling_hook");
-        hook.nameTag = empty_hook.nameTag;
-        hook.durability.damage = empty_hook.durability.damage;
-        const enchantments = empty_hook.enchantments.getEnchantments();
-        hook.enchantments.addEnchantments(enchantments);
+        const hook = duplicateItem(empty_hook, "tcsmp:grappling_hook");
         player.inventory.container.setItem(slot, hook);
         player.dimension.playSound("leashknot.break", player.getHeadLocation());
 
