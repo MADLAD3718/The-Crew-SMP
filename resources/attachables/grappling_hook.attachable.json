@@ -8,10 +8,10 @@
         "enchanted": "entity_alphatest_glint"
       },
       "textures": {
-        "default": "textures/items/grappling_hook",
-        "pulling_0": "textures/items/grappling_hook_pulled_0",
-        "pulling_1": "textures/items/grappling_hook_pulled_1",
-        "pulling_2": "textures/items/grappling_hook_pulled_2",
+        "default": "textures/items/grappling_hook/grappling_hook",
+        "pulling_0": "textures/items/grappling_hook/grappling_hook_pulled_0",
+        "pulling_1": "textures/items/grappling_hook/grappling_hook_pulled_1",
+        "pulling_2": "textures/items/grappling_hook/grappling_hook_pulled_2",
         "enchanted": "textures/misc/enchanted_item_glint"
       },
       "geometry": {

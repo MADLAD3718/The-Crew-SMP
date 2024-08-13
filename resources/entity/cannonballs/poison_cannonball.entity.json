@@ -7,7 +7,7 @@
         "default": "entity"
       },
       "textures": {
-        "default": "textures/entity/poison_cannonball"
+        "default": "textures/entity/cannonballs/poison_cannonball"
       },
       "geometry": {
         "default": "geometry.cannonball"

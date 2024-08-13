@@ -7,7 +7,7 @@
         "default": "entity"
       },
       "textures": {
-        "default": "textures/entity/cannonball"
+        "default": "textures/entity/cannonballs/cannonball"
       },
       "geometry": {
         "default": "geometry.cannonball"

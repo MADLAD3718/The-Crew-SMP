@@ -3,49 +3,49 @@
   "texture_name": "atlas.items",
   "texture_data": {
     "grappling_hook": {
-      "textures": "textures/items/grappling_hook"
+      "textures": "textures/items/grappling_hook/grappling_hook"
     },
     "empty_grappling_hook": {
-      "textures": "textures/items/grappling_hook_empty"
+      "textures": "textures/items/grappling_hook/grappling_hook_empty"
     },
     "cannon": {
       "textures": "textures/items/cannon"
     },
     "cannonball": {
-      "textures": "textures/items/cannonball"
+      "textures": "textures/items/cannonballs/cannonball"
     },
     "poison_cannonball": {
-      "textures": "textures/items/poison_cannonball"
+      "textures": "textures/items/cannonballs/poison_cannonball"
     },
     "wither_cannonball": {
-      "textures": "textures/items/wither_cannonball"
+      "textures": "textures/items/cannonballs/wither_cannonball"
     },
     "slowness_cannonball": {
-      "textures": "textures/items/slowness_cannonball"
+      "textures": "textures/items/cannonballs/slowness_cannonball"
     },
     "fire_cannonball": {
-      "textures": "textures/items/fire_cannonball"
+      "textures": "textures/items/cannonballs/fire_cannonball"
     },
     "warp_crystal": {
       "textures": "textures/items/warp_crystal"
     },
     "overworld_waystone": {
-      "textures": "textures/items/overworld_waystone"
+      "textures": "textures/items/waystones/overworld_waystone"
     },
     "nether_waystone": {
-      "textures": "textures/items/nether_waystone"
+      "textures": "textures/items/waystones/nether_waystone"
     },
     "end_waystone": {
-      "textures": "textures/items/end_waystone"
-    },
-    "spell_scroll": {
-      "textures": "textures/items/spell_scroll"
-    },
-    "scroll_of_growth": {
-      "textures": "textures/items/scroll_of_growth"
+      "textures": "textures/items/waystones/end_waystone"
     },
     "lightning_bottle": {
       "textures": "textures/items/lightning_bottle"
+    },
+    "spell_scroll": {
+      "textures": "textures/items/spell_scrolls/spell_scroll"
+    },
+    "scroll_of_growth": {
+      "textures": "textures/items/spell_scrolls/scroll_of_growth"
     }
   }
 }

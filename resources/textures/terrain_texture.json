@@ -3,58 +3,58 @@
   "texture_name": "atlas.terrain",
   "texture_data": {
     "overworld_waystone_interior": {
-      "textures": "textures/blocks/overworld_waystone_interior"
+      "textures": "textures/blocks/waystones/overworld_waystone_interior"
     },
     "overworld_waystone_exterior": {
-      "textures": "textures/blocks/overworld_waystone_exterior"
+      "textures": "textures/blocks/waystones/overworld_waystone_exterior"
     },
     "overworld_waystone_side_top": {
-      "textures": "textures/blocks/overworld_waystone_side_top"
+      "textures": "textures/blocks/waystones/overworld_waystone_side_top"
     },
     "overworld_waystone_side_bottom": {
-      "textures": "textures/blocks/overworld_waystone_side_bottom"
+      "textures": "textures/blocks/waystones/overworld_waystone_side_bottom"
     },
     "overworld_waystone_side_top_active": {
-      "textures": "textures/blocks/overworld_waystone_side_top_active"
+      "textures": "textures/blocks/waystones/overworld_waystone_side_top_active"
     },
     "overworld_waystone_side_bottom_active": {
-      "textures": "textures/blocks/overworld_waystone_side_bottom_active"
+      "textures": "textures/blocks/waystones/overworld_waystone_side_bottom_active"
     },
     "nether_waystone_interior": {
-      "textures": "textures/blocks/nether_waystone_interior"
+      "textures": "textures/blocks/waystones/nether_waystone_interior"
     },
     "nether_waystone_exterior": {
-      "textures": "textures/blocks/nether_waystone_exterior"
+      "textures": "textures/blocks/waystones/nether_waystone_exterior"
     },
     "nether_waystone_side_top": {
-      "textures": "textures/blocks/nether_waystone_side_top"
+      "textures": "textures/blocks/waystones/nether_waystone_side_top"
     },
     "nether_waystone_side_bottom": {
-      "textures": "textures/blocks/nether_waystone_side_bottom"
+      "textures": "textures/blocks/waystones/nether_waystone_side_bottom"
     },
     "nether_waystone_side_top_active": {
-      "textures": "textures/blocks/nether_waystone_side_top_active"
+      "textures": "textures/blocks/waystones/nether_waystone_side_top_active"
     },
     "nether_waystone_side_bottom_active": {
-      "textures": "textures/blocks/nether_waystone_side_bottom_active"
+      "textures": "textures/blocks/waystones/nether_waystone_side_bottom_active"
     },
     "end_waystone_interior": {
-      "textures": "textures/blocks/end_waystone_interior"
+      "textures": "textures/blocks/waystones/end_waystone_interior"
     },
     "end_waystone_exterior": {
-      "textures": "textures/blocks/end_waystone_exterior"
+      "textures": "textures/blocks/waystones/end_waystone_exterior"
     },
     "end_waystone_side_top": {
-      "textures": "textures/blocks/end_waystone_side_top"
+      "textures": "textures/blocks/waystones/end_waystone_side_top"
     },
     "end_waystone_side_bottom": {
-      "textures": "textures/blocks/end_waystone_side_bottom"
+      "textures": "textures/blocks/waystones/end_waystone_side_bottom"
     },
     "end_waystone_side_top_active": {
-      "textures": "textures/blocks/end_waystone_side_top_active"
+      "textures": "textures/blocks/waystones/end_waystone_side_top_active"
     },
     "end_waystone_side_bottom_active": {
-      "textures": "textures/blocks/end_waystone_side_bottom_active"
+      "textures": "textures/blocks/waystones/end_waystone_side_bottom_active"
     }
   }
 }
