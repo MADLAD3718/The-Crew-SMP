@@ -1,0 +1,27 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tcsmp:lightning_cannonball",
+      "materials": {
+        "default": "entity"
+      },
+      "textures": {
+        "default": "textures/entity/cannonballs/lightning_cannonball"
+      },
+      "geometry": {
+        "default": "geometry.cannonball"
+      },
+      "animations": {
+        "root": "animation.cannonball.root"
+      },
+      "scripts": {
+        "animate": ["root"],
+        "should_update_bones_and_effects_offscreen": true
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

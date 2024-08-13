@@ -46,6 +46,9 @@
     },
     "scroll_of_growth": {
       "textures": "textures/items/spell_scrolls/scroll_of_growth"
+    },
+    "lightning_cannonball": {
+      "textures": "textures/items/cannonballs/lightning_cannonball"
     }
   }
 }
