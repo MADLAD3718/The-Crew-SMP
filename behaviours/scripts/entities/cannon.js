@@ -1,8 +1,9 @@
-import { Container, Dimension, Entity, GameMode, ItemStack, MolangVariableMap, Player, system, TicksPerSecond, world } from "@minecraft/server";
+import { Dimension, Entity, GameMode, ItemStack, MolangVariableMap, Player, system, TicksPerSecond, world } from "@minecraft/server";
 import { add, Directions, mul, normalize } from "../extensions/vectors";
 import { buildTNB } from "../extensions/matrices";
 import { decrementSlot } from "../common";
 import "../extensions/entities";
+import "../extensions/classes";
 
 const CANNON_DELAY = 1.0 * TicksPerSecond;
 
@@ -20,9 +21,9 @@ world.afterEvents.entityHitEntity.subscribe(event => {
     if (rider?.id === damagingEntity.id) {
         const time = cannon.getDynamicProperty("cannon_fire_time") ?? 0;
         if (system.currentTick - time < CANNON_DELAY) return;
-        const gunpowder = findItem("minecraft:gunpowder", cannon.inventory.container);
-        const cannonball = findAmmo(cannon.inventory.container);
-        if (gunpowder !== undefined && cannonball !== undefined) {
+        const gunpowder = cannon.inventory.container.findIndex(isGunpowder);
+        const cannonball = cannon.inventory.container.findIndex(isAmmo);
+        if (gunpowder !== -1 && cannonball !== -1) {
             const ball_item = cannon.inventory.container.getItem(cannonball);
             decrementSlot(cannon.inventory.container, gunpowder);
             decrementSlot(cannon.inventory.container, cannonball);
@@ -37,9 +38,8 @@ world.afterEvents.entityHitEntity.subscribe(event => {
             spawnCannonParticles(cannon.dimension, add(origin, mul(direction, 2)), direction);
             cannon.dimension.playSound("cannon.fire", cannon.location, {pitch: 0.5 * Math.random() + 0.75});
             ball.projectile.shoot(velocity);
-
-            cannon.setDynamicProperty("cannon_fire_time", system.currentTick);
-        }
+        } else cannon.dimension.playSound("cannon.light", cannon.location);
+        cannon.setDynamicProperty("cannon_fire_time", system.currentTick);
     } else {
         if (damagingEntity?.getGameMode() !== GameMode.creative)
             cannon.dimension.spawnItem(new ItemStack("tcsmp:cannon_item"), cannon.location);
@@ -48,6 +48,20 @@ world.afterEvents.entityHitEntity.subscribe(event => {
         cannon.remove();
     }
 });
+
+/**
+ * Determines if an item is valid ammo for the cannon.
+ * @param {ItemStack} item 
+ * @returns {Boolean} True if the item is cannon ammo.
+ */
+function isAmmo(item) {
+    return item?.hasTag("tcsmp:cannon_ammo") ?? false;
+}
+
+/** @param {ItemStack} item  */
+function isGunpowder(item) {
+    return item?.typeId == "minecraft:gunpowder";
+}
 
 /**
  * Spawns the cannon smoke particles according to the given parameters.
@@ -78,33 +92,6 @@ export function randCap(r) {
         y: 1 - u,
         z: Math.sin(phi) * sint
     };
-}
-
-/**
- * Finds the first instance of an item in a container.
- * @param {String} itemId
- * @param {Container} container 
- * @returns {Number | undefined}
- */
-function findItem(itemId, container) {
-    for (let i = 0; i < container.size; ++i) {
-        const item = container.getItem(i);
-        if (item?.typeId === itemId) return i;
-    }
-    return undefined;
-}
-
-/**
- * Finds the first instance of a cannon ammo item in a container.
- * @param {Container} container 
- * @returns {Number | undefined}
- */
-function findAmmo(container) {
-    for (let i = 0; i < container.size; ++i) {
-        const item = container.getItem(i);
-        if (item?.getTags().includes("cannon_ammo")) return i;
-    }
-    return undefined;
 }
 
 /**

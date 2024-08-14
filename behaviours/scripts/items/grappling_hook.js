@@ -1,6 +1,6 @@
-import { GameMode, ItemLockMode, system, TicksPerSecond, world } from "@minecraft/server";
+import { GameMode, ItemLockMode, ItemStack, system, TicksPerSecond, world } from "@minecraft/server";
 import { add, Directions, distance, mul } from "../extensions/vectors";
-import { decrementDurability, duplicateItem, findItem } from "../common";
+import { decrementDurability, duplicateItem } from "../common";
 import "../extensions/entities";
 
 const USE_TIME = 1.0 * TicksPerSecond;
@@ -60,7 +60,7 @@ world.afterEvents.itemReleaseUse.subscribe(({itemStack: hook, source: player}) =
         seat.remove();
         stake.remove();
 
-        const slot = findItem(player.inventory.container, "tcsmp:empty_grappling_hook");
+        const slot = player.inventory.container.findIndex(isEmptyHook);
         const empty_hook = player.inventory.container.getItem(slot);
         const hook = duplicateItem(empty_hook, "tcsmp:grappling_hook");
         player.inventory.container.setItem(slot, hook);
@@ -97,7 +97,7 @@ world.afterEvents.projectileHitBlock.subscribe(({projectile: stake}) => {
         stake.remove();
 
         // Decrement Durability
-        const slot = findItem(player.inventory.container, "tcsmp:empty_grappling_hook");
+        const slot = player.inventory.container.findIndex(isEmptyHook);
         const empty_hook = player.inventory.container.getItem(slot);
 
         const creative = player.getGameMode() == GameMode.creative;
@@ -111,3 +111,8 @@ world.afterEvents.projectileHitBlock.subscribe(({projectile: stake}) => {
         system.clearRun(dismountCheck);
     });
 });
+
+/** @param {ItemStack} item */
+function isEmptyHook(item) {
+    return item?.typeId == "tcsmp:empty_grappling_hook";
+}

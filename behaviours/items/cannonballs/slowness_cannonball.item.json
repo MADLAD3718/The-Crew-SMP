@@ -18,7 +18,7 @@
                 }
             },
             "minecraft:tags": {
-                "tags": ["cannon_ammo"]
+                "tags": ["tcsmp:cannon_ammo"]
             }
         }
     }

@@ -46,20 +46,6 @@ export function decrementSlot(container, slot) {
 }
 
 /**
- * Finds the first instance of an ItemStack with a speified typeId.
- * @param {Container} container 
- * @param {String} typeId 
- * @returns {Number | undefined} The slot index the item was found at.
- */
-export function findItem(container, typeId) {
-    for (let i = 0; i < container.size; ++i) {
-        const item = container.getItem(i);
-        if (item?.typeId == typeId) return i;
-    }
-    return undefined;
-}
-
-/**
  * Decrements the durability of an item.
  * @param {ItemStack} item The specified item.
  * @returns {ItemStack | undefined}
