@@ -40,6 +40,8 @@ declare module "@minecraft/server" {
         readonly projectile?: EntityProjectileComponent;
         /** The entity this entity is currently riding on. */
         readonly entityRidingOn?: Entity;
+        /** The XZ coordinates of this entity. */
+        readonly locationXZ: VectorXZ;
     }
     interface Player {
         /** Stops a specified sound. If no sound is specified all sounds are stopped. */

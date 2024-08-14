@@ -1,6 +1,6 @@
 import { Block, ItemComponentUseEvent, MolangVariableMap } from "@minecraft/server";
-import { add, div, mul, sub, toVec } from "../extensions/vectors";
-import { isWater, randElement, withinRange } from "../common";
+import { ellipsoidValue, getRectPrism, isWater, randElement, withinRange } from "../common";
+import { add } from "../extensions/vectors";
 
 const GROWTH_RANGE = {x: 15, y: 5, z: 15};
 const SHORT_PLANTS = [
@@ -140,34 +140,4 @@ function applyGrowth(block, value) {
             block.setPermutation(permutation.withState("growth", 7));
             break;
     }
-}
-
-/** @typedef {{x: Number, y: Number, z: Number}} Vector3 */
-
-/**
- * Generates a list of locations bounded by a rectangular prism.
- * @param {Vector3} range The length of each semi-axis.
- * @returns {Vector3[]} A list of locations within a rectangular prism centered about the origin.
- */
-function getRectPrism(range) {
-    const span = add(mul(range, 2), toVec(1));
-    const locations = new Array(span.x * span.y * span.z);
-    let i = 0;
-    for (let x = 0; x <= 2 * range.x; ++x)
-    for (let y = 0; y <= 2 * range.y; ++y)
-    for (let z = 0; z <= 2 * range.z; ++z, ++i) {
-        locations[i] = sub({x: x, y: y, z: z}, range);
-    }
-    return locations;
-}
-
-/**
- * @param {Vector3} range 
- * @param {Vector3} position 
- */
-function ellipsoidValue(range, position) {
-    const pos2 = mul(position, position);
-    const ran2 = mul(range, range);
-    const quo = div(pos2, ran2);
-    return quo.x + quo.y + quo.z;
 }

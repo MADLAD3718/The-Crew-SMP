@@ -45,6 +45,11 @@ Object.defineProperties(Entity.prototype, {
         get() {
             return this.getComponent(EntityComponentTypes.Riding)?.entityRidingOn;
         }
+    },
+    locationXZ: {
+        get() {
+            return {x: this.location.x, z: this.location.z};
+        }
     }
 });
 

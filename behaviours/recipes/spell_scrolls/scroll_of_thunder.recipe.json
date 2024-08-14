@@ -1,0 +1,24 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "tcsmp:scroll_of_thunder"
+        },
+        "tags": [ "crafting_table" ],
+        "priority": 0,
+        "ingredients": [
+            {
+                "item": "tcsmp:spell_scroll"
+            },
+            {
+                "item": "tcsmp:lightning_bottle"
+            }
+        ],
+        "unlock": [{
+            "item": "tcsmp:spell_scroll"
+        }],
+        "result": {
+            "item": "tcsmp:scroll_of_thunder"
+        }
+    }
+}

@@ -6,6 +6,7 @@ import { system, world } from "@minecraft/server";
 import { grapplingHookComponent } from "./items/grappling_hook";
 import { waystoneComponent } from "./blocks/waystone";
 import { growthSpellComponent } from "./items/scroll_of_growth";
+import { thunderSpellComponent } from "./items/scroll_of_thunder";
 
 system.afterEvents.scriptEventReceive.subscribe(event => {
     switch (event.id) {
@@ -19,7 +20,9 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
 });
 
 world.beforeEvents.worldInitialize.subscribe(event => {
-    event.itemComponentRegistry.registerCustomComponent("tcsmp:grappling_hook", grapplingHookComponent);
-    event.blockComponentRegistry.registerCustomComponent("tcsmp:waystone", waystoneComponent);
-    event.itemComponentRegistry.registerCustomComponent("tcsmp:growth_spell", growthSpellComponent);
+    const {itemComponentRegistry, blockComponentRegistry} = event;
+    itemComponentRegistry.registerCustomComponent("tcsmp:grappling_hook", grapplingHookComponent);
+    blockComponentRegistry.registerCustomComponent("tcsmp:waystone", waystoneComponent);
+    itemComponentRegistry.registerCustomComponent("tcsmp:growth_spell", growthSpellComponent);
+    itemComponentRegistry.registerCustomComponent("tcsmp:thunder_spell", thunderSpellComponent);
 });

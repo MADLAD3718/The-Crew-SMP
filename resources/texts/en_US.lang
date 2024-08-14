@@ -16,6 +16,7 @@ item.tcsmp:spell_scroll.name=Spell Scroll
 item.tcsmp:scroll_of_growth.name=Scroll of Growth
 item.tcsmp:lightning_bottle.name=Bottle o' Lightning
 item.tcsmp:lightning_cannonball.name=Lightning Cannonball
+item.tcsmp:scroll_of_thunder.name=Scroll of Thunder
 
 ## Blocks
 tile.tcsmp:overworld_waystone.name=Overworld Waystone

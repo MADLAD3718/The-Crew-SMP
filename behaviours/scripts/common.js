@@ -1,7 +1,9 @@
 import { Block, Container, ItemStack } from "@minecraft/server";
+import { add, div, mul, sub, toVec } from "./extensions/vectors";
 import "./extensions/items";
 
 /** @typedef {{min: Number, max: Number}} NumberRange */
+/** @typedef {{x: Number, y: Number, z: Number}} Vector3 */
 
 /**
  * Tests if a number is within a number range, inclusive.
@@ -75,4 +77,33 @@ export function duplicateItem(itemStack, typeId) {
     const enchantments = itemStack.enchantments?.getEnchantments();
     if (enchantments) item.enchantments.addEnchantments(enchantments);
     return item;
+}
+
+
+/**
+ * Generates a list of locations bounded by a rectangular prism.
+ * @param {Vector3} range The length of each semi-axis.
+ * @returns {Vector3[]} A list of locations within a rectangular prism centered about the origin.
+ */
+export function getRectPrism(range) {
+    const span = add(mul(range, 2), toVec(1));
+    const locations = new Array(span.x * span.y * span.z);
+    let i = 0;
+    for (let x = 0; x <= 2 * range.x; ++x)
+    for (let y = 0; y <= 2 * range.y; ++y)
+    for (let z = 0; z <= 2 * range.z; ++z, ++i) {
+        locations[i] = sub({x: x, y: y, z: z}, range);
+    }
+    return locations;
+}
+
+/**
+ * @param {Vector3} range 
+ * @param {Vector3} position 
+ */
+export function ellipsoidValue(range, position) {
+    const pos2 = mul(position, position);
+    const ran2 = mul(range, range);
+    const quo = div(pos2, ran2);
+    return quo.x + quo.y + quo.z;
 }
