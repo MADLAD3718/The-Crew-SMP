@@ -1,30 +1,102 @@
-import { Entity, EntityEquippableComponent, EntityHealthComponent, EntityInventoryComponent, Player } from "@minecraft/server";
+import { Entity, EntityComponentTypes, Player } from "@minecraft/server";
 
 Object.defineProperties(Entity.prototype, {
     health: {
         get() {
-            return this.getComponent(EntityHealthComponent.componentId)?.currentValue;
+            return this.getComponent(EntityComponentTypes.Health)?.currentValue;
         },
         set(v) {
-            this.getComponent(EntityHealthComponent.componentId)?.setCurrentValue(v);
+            this.getComponent(EntityComponentTypes.Health)?.setCurrentValue(v);
         }
     },
     maxHealth: {
         get() {
-            return this.getComponent(EntityHealthComponent.componentId)?.effectiveMax;
+            return this.getComponent(EntityComponentTypes.Health)?.effectiveMax;
         }
     },
     inventory: {
         get() {
-            return this.getComponent(EntityInventoryComponent.componentId);
+            return this.getComponent(EntityComponentTypes.Inventory);
         }
     },
     equipment: {
         get() {
-            return this.getComponent(EntityEquippableComponent.componentId);
+            return this.getComponent(EntityComponentTypes.Equippable);
+        }
+    },
+    isLeashed: {
+        get() {
+            const leashable = this.getComponent(EntityComponentTypes.Leashable);
+            return leashable?.isLeashed ?? false;
+        }
+    },
+    seatCount: {
+        get() {
+            const rideable = this.getComponent(EntityComponentTypes.Rideable);
+            return rideable?.seatCount ?? 0;
+        }
+    },
+    projectile: {
+        get() {
+            return this.getComponent(EntityComponentTypes.Projectile);
+        }
+    },
+    entityRidingOn: {
+        get() {
+            return this.getComponent(EntityComponentTypes.Riding)?.entityRidingOn;
         }
     }
 });
+
+/** Thrown when an entity is missing a component whose values were accessed. */
+class EntityMissingComponentError extends Error {
+    /** @param {String} componentId The id of the missing component. */
+    constructor(componentId) {
+        super(`Entity does not have component "${componentId}".`);
+    }
+}
+
+Entity.prototype.leashTo = function (leashHolder) {
+    const leashable = this.getComponent(EntityComponentTypes.Leashable);
+    if (!leashable) throw new EntityMissingComponentError(EntityComponentTypes.Leashable);
+
+    return leashable.leashTo(leashHolder);
+}
+
+Entity.prototype.unleash = function () {
+    const leashable = this.getComponent(EntityComponentTypes.Leashable);
+    if (!leashable) throw new EntityMissingComponentError(EntityComponentTypes.Leashable);
+
+    return leashable.unleash();
+}
+
+Entity.prototype.addRider = function (rider) {
+    const rideable = this.getComponent(EntityComponentTypes.Rideable);
+    if (!rideable) throw new EntityMissingComponentError(EntityComponentTypes.Rideable);
+
+    return rideable.addRider(rider);
+}
+
+Entity.prototype.getRiders = function () {
+    const rideable = this.getComponent(EntityComponentTypes.Rideable);
+    if (!rideable) throw new EntityMissingComponentError(EntityComponentTypes.Rideable);
+
+    return rideable.getRiders();
+}
+
+Entity.prototype.ejectRider = function (rider) {
+    const rideable = this.getComponent(EntityComponentTypes.Rideable);
+    if (!rideable) throw new EntityMissingComponentError(EntityComponentTypes.Rideable);
+
+    return rideable.ejectRider(rider);
+}
+
+Entity.prototype.ejectRiders = function () {
+    const rideable = this.getComponent(EntityComponentTypes.Rideable);
+    if (!rideable) throw new EntityMissingComponentError(EntityComponentTypes.Rideable);
+
+    return rideable.ejectRiders();
+}
 
 Player.prototype.applyImpulse = function (vector) {
     const {x, y, z} = vector;

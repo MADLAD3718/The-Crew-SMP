@@ -1,7 +1,6 @@
-import "./extensions/export";
+import "./items/lightning_bottle";
 import "./entities/cannon";
 import "./entities/fire_cannonball";
-import "./items/lightning_bottle";
 import "./entities/lightning_cannonball";
 import { system, world } from "@minecraft/server";
 import { grapplingHookComponent } from "./items/grappling_hook";

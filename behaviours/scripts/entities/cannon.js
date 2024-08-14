@@ -1,22 +1,24 @@
-import { Container, Dimension, Entity, EntityComponentTypes, GameMode, ItemStack, MolangVariableMap, Player, system, TicksPerSecond, world } from "@minecraft/server";
+import { Container, Dimension, Entity, GameMode, ItemStack, MolangVariableMap, Player, system, TicksPerSecond, world } from "@minecraft/server";
 import { add, Directions, mul, normalize } from "../extensions/vectors";
 import { buildTNB } from "../extensions/matrices";
 import { decrementSlot } from "../common";
+import "../extensions/entities";
 
 const CANNON_DELAY = 1.0 * TicksPerSecond;
 
 world.afterEvents.entitySpawn.subscribe(event => {
-    if (event.entity.typeId !== "tcsmp:cannon") return;
-    event.entity.dimension.playSound("cannon.place", event.entity.location);
+    const {entity} = event;
+    if (entity.typeId !== "tcsmp:cannon") return;
+    entity.dimension.playSound("cannon.place", entity.location);
 });
 
 world.afterEvents.entityHitEntity.subscribe(event => {
     const {hitEntity: cannon, damagingEntity} = event;
     if (cannon.typeId !== "tcsmp:cannon" || !(damagingEntity instanceof Player)) return;
 
-    const rider = cannon.getComponent(EntityComponentTypes.Rideable).getRiders()[0];
+    const rider = cannon.getRiders()?.[0];
     if (rider?.id === damagingEntity.id) {
-        const time = rider.getDynamicProperty("cannon_fire_time") ?? 0;
+        const time = cannon.getDynamicProperty("cannon_fire_time") ?? 0;
         if (system.currentTick - time < CANNON_DELAY) return;
         const gunpowder = findItem("minecraft:gunpowder", cannon.inventory.container);
         const cannonball = findAmmo(cannon.inventory.container);
@@ -30,14 +32,13 @@ world.afterEvents.entityHitEntity.subscribe(event => {
             const velocity = mul(direction, 3);
 
             const ball = cannon.dimension.spawnEntity(ball_item.typeId, add(velocity, origin));
-            const projectile = ball.getComponent(EntityComponentTypes.Projectile);
-            projectile.owner = rider;
+            ball.projectile.owner = rider;
 
             spawnCannonParticles(cannon.dimension, add(origin, mul(direction, 2)), direction);
             cannon.dimension.playSound("cannon.fire", cannon.location, {pitch: 0.5 * Math.random() + 0.75});
-            projectile.shoot(velocity);
+            ball.projectile.shoot(velocity);
 
-            rider.setDynamicProperty("cannon_fire_time", system.currentTick);
+            cannon.setDynamicProperty("cannon_fire_time", system.currentTick);
         }
     } else {
         if (damagingEntity?.getGameMode() !== GameMode.creative)
