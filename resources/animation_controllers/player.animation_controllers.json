@@ -8,6 +8,9 @@
 					"animations" : [ "third_person_crossbow_equipped" ],
 					"transitions" : [
 						{
+							"hook_default": "query.get_equipped_item_name == 'grappling_hook'"
+						},
+						{
 							"default" : "query.get_equipped_item_name != 'crossbow' || (query.item_remaining_use_duration <= 0.0 && !query.item_is_charged)"
 						},
 						{
@@ -18,16 +21,22 @@
 				"default" : {
 					"transitions" : [
 						{
-							"hold" : "query.item_is_charged"
+							"hook_default": "query.get_equipped_item_name == 'grappling_hook'"
 						},
 						{
-							"charge" : "query.item_remaining_use_duration > 0.0"
+							"hold" : "query.item_is_charged && query.get_equipped_item_name == 'crossbow'"
+						},
+						{
+							"charge" : "query.item_remaining_use_duration > 0.0 && query.get_equipped_item_name == 'crossbow'"
 						}
 					]
 				},
 				"hold" : {
 					"animations" : [ "crossbow_hold" ],
 					"transitions" : [
+						{
+							"hook_default": "query.get_equipped_item_name == 'grappling_hook'"
+						},
 						{
 							"default" : "query.get_equipped_item_name != 'crossbow' || (query.item_remaining_use_duration <= 0.0 && !query.item_is_charged)"
 						},
@@ -35,32 +44,36 @@
 							"charge" : "query.item_remaining_use_duration > 0.0"
 						}
 					]
-				}
-			}
-		},
-		"controller.animation.player.grappling_hook" : {
-			"initial_state" : "default",
-			"states" : {
-				"default": {
+				},
+				"hook_default": {
 					"transitions": [
 						{
-							"charge": "variable.grappling_hook_use_normalized != 0.0"
+							"default": "query.get_equipped_item_name == 'crossbow'"
+						},
+						{
+							"hook_charge": "math.clamp((q.main_hand_item_use_duration - q.main_hand_item_max_duration) / 20 + 1, 0.0, 1.0) != 0.0"
 						}
 					]
 				},
-				"charge" : {
-					"animations" : [ "third_person_grappling_hook_equipped" ],
+				"hook_charge": {
+					"animations" : [ "third_person_crossbow_equipped" ],
 					"transitions" : [
 						{
-							"hold" : "variable.grappling_hook_use_normalized <= 0.0"
+							"default": "query.get_equipped_item_name == 'crossbow'"
+						},
+						{
+							"hook_hold" : "math.clamp((q.main_hand_item_use_duration - q.main_hand_item_max_duration) / 20 + 1, 0.0, 1.0) <= 0.0"
 						}
 					]
 				},
-				"hold" : {
+				"hook_hold": {
 					"animations" : [ "crossbow_hold" ],
 					"transitions" : [
 						{
-							"default" : "query.main_hand_item_use_duration == 0.0"
+							"default": "query.get_equipped_item_name == 'crossbow'"
+						},
+						{
+							"hook_default" : "query.main_hand_item_use_duration == 0.0"
 						}
 					]
 				}
@@ -156,10 +169,7 @@
 							"first_person_map_controller" : "(query.get_equipped_item_name(0, 1) == 'filled_map' || query.get_equipped_item_name('off_hand') == 'filled_map')"
 						},
 						{
-							"first_person_crossbow_equipped": "query.get_equipped_item_name == 'crossbow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"
-						},
-						{
-							"first_person_grappling_hook_equipped": "query.get_equipped_item_name == 'grappling_hook' && (variable.grappling_hook_use_normalized > 0.0 && variable.grappling_hook_use_normalized < 1.0)"
+							"first_person_crossbow_equipped": "(q.get_equipped_item_name == 'crossbow' && (v.item_use_normalized > 0 && v.item_use_normalized < 1.0)) || (q.get_equipped_item_name == 'grappling_hook' && (math.clamp((q.main_hand_item_use_duration - q.main_hand_item_max_duration) / 20 + 1, 0.0, 1.0) > 0.0 && math.clamp((q.main_hand_item_use_duration - q.main_hand_item_max_duration) / 20 + 1, 0.0, 1.0) < 1.0))"
 						},
 						{
 							"first_person_breathing_bob": "variable.attack_time <= 0.0"
@@ -269,11 +279,11 @@
 							"shield_block_off_hand" : "query.blocking && query.get_equipped_item_name('off_hand') == 'shield'"
 						},
 						{
-							"crossbow_controller" : "query.get_equipped_item_name == 'crossbow'"
+							"crossbow_controller" : "query.get_equipped_item_name == 'crossbow' || query.get_equipped_item_name == 'grappling_hook'"
 						},
-						{
-							"grappling_hook_controller": "query.get_equipped_item_name == 'grappling_hook'"
-						},
+						// {
+						// 	"grappling_hook_controller": "query.get_equipped_item_name == 'grappling_hook'"
+						// },
 						{
 							"crossbow_hold": "query.get_equipped_item_name == 'empty_grappling_hook'"
 						},

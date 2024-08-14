@@ -26,10 +26,10 @@
       },
       "scripts": {
         "pre_animation": [
-          "variable.charge_amount = math.clamp((query.main_hand_item_max_duration - (query.main_hand_item_use_duration - query.frame_alpha + 1.0)) / 10.0, 0.0, 1.0f);",
+          "variable.charge_amount = math.clamp((q.main_hand_item_max_duration - (q.main_hand_item_use_duration - q.frame_alpha + 1.0)) / 10.0, 0.0, 1.0f);",
           "variable.grappling_hook_max_duration = 20 * 1.0;",
-          "variable.grappling_hook_use_normalized = math.max((query.main_hand_item_use_duration - query.main_hand_item_max_duration) / variable.grappling_hook_max_duration + 1, 0.0);",
-          "variable.grappling_hook_animation_frame = (query.main_hand_item_use_duration != 0.0 && variable.grappling_hook_use_normalized == 0.0) ? 3 : math.floor(4.0 * (1.0 - variable.grappling_hook_use_normalized));"
+          "variable.grappling_hook_use_normalized = math.max((q.main_hand_item_use_duration - q.main_hand_item_max_duration) / v.grappling_hook_max_duration + 1, 0.0);",
+          "variable.grappling_hook_animation_frame = (q.main_hand_item_use_duration != 0.0 && v.grappling_hook_use_normalized == 0.0) ? 3 : math.floor(4.0 * (1.0 - v.grappling_hook_use_normalized));"
         ],
         "animate": [
           "wield",
