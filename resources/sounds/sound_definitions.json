@@ -102,6 +102,16 @@
             "sounds/bottle/fill_lightning1",
             "sounds/bottle/fill_lightning2"
          ]
+      },
+      "scroll.link": {
+         "__use_legacy_max_distance" : "true",
+         "category" : "player",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [{
+            "name": "sounds/spell_scroll/link",
+            "volume": 1.0
+         }]
       }
    }
 }

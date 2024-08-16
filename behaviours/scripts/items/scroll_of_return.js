@@ -1,5 +1,6 @@
 import { ItemComponentUseEvent, ItemComponentUseOnEvent, MolangVariableMap, world } from "@minecraft/server";
 import { findWaystone, WAYSTONE_TYPEIDS } from "../waystone_util";
+import "../extensions/entities";
 
 world.beforeEvents.itemUse.subscribe(event => {
     const {itemStack, source} = event, {dimension} = source;
@@ -51,12 +52,14 @@ function useReturnSpell(event) {
 
 /** @param {ItemComponentUseOnEvent} event */
 function linkReturnSpell(event) {
-    const {block, source} = event, {location, typeId} = block;
+    const {block, source} = event, {dimension, location, typeId} = block;
     if (!block.hasTag("tcsmp:waystone")) return;
     const waystone = findWaystone(world, location, typeId) ?? findWaystone(source, location, typeId);
     if (!waystone) return source.sendMessage({translate: "info.return_scroll.private_waystone"});
     const item = source.inventory.container.getSlot(source.selectedSlotIndex);
-    item.setLore([waystone.name]);
+    item.setLore([`Waystone "${waystone.name}"`]);
+    item.clearDynamicProperties();
     item.setDynamicProperty(typeId, location);
+    dimension.playSound("scroll.link", source.getHeadLocation());
     source.sendMessage({translate: "info.return_scroll.linked", with: [waystone.name]});
 }

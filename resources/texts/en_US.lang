@@ -60,5 +60,5 @@ info.waystone.preexists=Waystone "%s" already exists
 ## Return Scroll Dialogue
 info.return_scroll.private_waystone=Cannot link scroll to a private waystone
 info.return_scroll.unlinked=Scroll is not linked to any waystone
-info.return_scroll.wrong_dimension=Waystone "%s" is not in this dimension
-info.return_scroll.linked=Scroll linked to "%s"
+info.return_scroll.wrong_dimension=%s is not in this dimension
+info.return_scroll.linked=Scroll linked to waystone "%s"
