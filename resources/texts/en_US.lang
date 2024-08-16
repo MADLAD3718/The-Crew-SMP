@@ -17,11 +17,13 @@ item.tcsmp:scroll_of_growth.name=Scroll of Growth
 item.tcsmp:lightning_bottle.name=Bottle o' Lightning
 item.tcsmp:lightning_cannonball.name=Lightning Cannonball
 item.tcsmp:scroll_of_thunder.name=Scroll of Thunder
+item.tcsmp:scroll_of_decay.name=Scroll of Decay
 
 ## Blocks
 tile.tcsmp:overworld_waystone.name=Overworld Waystone
 tile.tcsmp:nether_waystone.name=Nether Waystone
 tile.tcsmp:end_waystone.name=End Waystone
+tile.tcsmp:inscription_table.name=Inscription Table
 
 ## Entities
 entity.tcsmp:grappling_hook_stake.name=Grappling Hook Stake
@@ -38,6 +40,9 @@ entity.tcsmp:lightning_cannonball.name=Lightning Cannonball
 ## Actions
 action.hint.exit.tcsmp:grappling_hook_seat=Crouch or jump to detach
 action.hint.exit.tcsmp:cannon=Crouch or jump to stop aiming
+
+## Containers
+container.inscription_table=Inscription
 
 ## Waystone Dialogue
 action.setup.waystone.title=Waystone Setup

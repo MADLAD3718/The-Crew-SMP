@@ -2,7 +2,7 @@ import { Block, ItemComponentUseEvent, MolangVariableMap } from "@minecraft/serv
 import { ellipsoidValue, getRectPrism, isWater, randElement, withinRange } from "../common";
 import { add } from "../extensions/vectors";
 
-const GROWTH_RANGE = {x: 15, y: 5, z: 15};
+const GROWTH_RANGE = {x: 15, y: 7, z: 15};
 const SHORT_PLANTS = [
     "minecraft:short_grass",
     "minecraft:fern",
@@ -51,7 +51,8 @@ function useGrowthSpell(event) {
     const {source} = event, {dimension, location} = source;
     source.stopSound("random.bow");
     const head = source.getHeadLocation();
-    dimension.playSound("scroll.cast", head);
+    const soundOptions = {pitch: 0.95 + 0.1 * Math.random()};
+    dimension.playSound("scroll.cast", head, soundOptions);
 
     const vars = new MolangVariableMap();
     vars.setColorRGB("colour", {red: 0.8, green: 1.0, blue: 0.8});
@@ -85,8 +86,17 @@ function applyGrowth(block, value) {
         dimension.spawnParticle("minecraft:crop_growth_area_emitter", block.center());
     switch (block.typeId) {
         case "minecraft:dirt":
-            if (block.y !== heightRange.max && block.above().typeId !== "minecraft:air") break;
+            if (block.y == heightRange.max) break;
+            const above = block.above(), is_deadbush = above.typeId == "minecraft:deadbush";
+            if (above.typeId !== "minecraft:air" && !is_deadbush) break;
             block.setType("minecraft:grass_block");
+            if (is_deadbush) above.setType("minecraft:short_grass");
+            break;
+        case "minecraft:coarse_dirt":
+            block.setType("minecraft:dirt");
+            if (block.y == heightRange.max) break;
+            if (block.above().typeId == "minecraft:deadbush")
+                block.above().setType("minecraft:air");
             break;
         case "minecraft:air":
             if (!place) break;
@@ -115,10 +125,6 @@ function applyGrowth(block, value) {
                 }
             } else block.setType(variant ? randElement(WATER_PLANTS) : "minecraft:seagrass");
 
-            break;
-        case "minecraft:short_grass":
-            dimension.spawnParticle("minecraft:crop_growth_emitter", block.center());
-            block.setType("minecraft:tall_grass");
             break;
         case "minecraft:fern":
             dimension.spawnParticle("minecraft:crop_growth_emitter", block.center());

@@ -1,0 +1,78 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:block": {
+        "description": {
+            "identifier": "tcsmp:inscription_table",
+            "menu_category": {
+                "category": "items"
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": ["minecraft:cardinal_direction"]
+                }
+            }
+        },
+        "permutations": [
+            {
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, 180, 0]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, 270, 0]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, 90, 0]
+                    }
+                }
+            }
+        ],
+        "components": {
+            "minecraft:geometry": "geometry.inscription_table",
+            "minecraft:material_instances": {
+                "*": {
+                    "render_method": "opaque"
+                },
+                "north": "side_0",
+                "south": "side_0",
+                "east": "side_1",
+                "west": "side_1",
+                "side_0": {
+                    "texture": "inscription_table_side_0"
+                },
+                "side_1": {
+                    "texture": "inscription_table_side_1"
+                },
+                "up": {
+                    "texture": "inscription_table_top"
+                },
+                "down": {
+                    "texture": "inscription_table_bottom"
+                }
+            },
+            "minecraft:collision_box": {
+                "origin": [-8, 0, -8],
+                "size": [16, 12, 16]
+            },
+            "minecraft:selection_box": {
+                "origin": [-8, 0, -8],
+                "size": [16, 12, 16]
+            },
+            "minecraft:crafting_table": {
+                "crafting_tags": ["inscription_table"],
+                "table_name": "container.inscription_table"
+            }
+        }
+    }
+}

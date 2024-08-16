@@ -1,0 +1,8 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "inscription_table_side_0",
+        "metalness_emissive_roughness": "inscription_table_side_0_mer",
+        "heightmap": "inscription_table_side_0_heightmap"
+    }
+}

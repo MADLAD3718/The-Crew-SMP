@@ -2,7 +2,7 @@ import { ItemComponentUseEvent, MolangVariableMap, WeatherType } from "@minecraf
 import { add, Directions } from "../extensions/vectors";
 import "../extensions/entities";
 
-const LIGHTNING_COUNT = 16;
+const LIGHTNING_COUNT = 12;
 
 /** @type {import("@minecraft/server").ItemCustomComponent} */
 export const thunderSpellComponent = {
@@ -14,7 +14,8 @@ function useThunderSpell(event) {
     const {source} = event, {dimension, locationXZ} = source;
     source.stopSound("random.bow");
     const head = source.getHeadLocation();
-    dimension.playSound("scroll.cast", head);
+    const soundOptions = {pitch: 0.95 + 0.1 * Math.random()};
+    dimension.playSound("scroll.cast", head, soundOptions);
 
     const vars = new MolangVariableMap();
     vars.setColorRGB("colour", {red: 0.9, green: 0.9, blue: 1.0});

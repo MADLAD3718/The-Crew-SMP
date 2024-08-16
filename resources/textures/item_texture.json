@@ -52,6 +52,9 @@
     },
     "scroll_of_thunder": {
       "textures": "textures/items/spell_scrolls/scroll_of_thunder"
+    },
+    "scroll_of_decay": {
+      "textures": "textures/items/spell_scrolls/scroll_of_decay"
     }
   }
 }

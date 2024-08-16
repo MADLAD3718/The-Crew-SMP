@@ -1,0 +1,31 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "tcsmp:inscription_table"
+        },
+        "tags": ["crafting_table"],
+        "pattern": [
+            "PPP",
+            "AOA",
+            "OOO"
+        ],
+        "key": {
+            "P": {
+                "item": "minecraft:paper"
+            },
+            "A": {
+                "item": "minecraft:amethyst_shard"
+            },
+            "O": {
+                "item": "minecraft:obsidian"
+            }
+        },
+        "unlock": [{
+            "item": "minecraft:obsidian"
+        }],
+        "result": {
+            "item": "tcsmp:inscription_table"
+        }
+    }
+}

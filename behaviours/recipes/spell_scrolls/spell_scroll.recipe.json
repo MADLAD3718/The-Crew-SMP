@@ -4,11 +4,11 @@
         "description": {
             "identifier": "tcsmp:spell_scroll"
         },
-        "tags": ["crafting_table"],
+        "tags": ["inscription_table"],
         "pattern": [
-            " L ",
+            "LLL",
             "LPL",
-            " L "
+            "LLL"
         ],
         "key": {
             "L": {
@@ -18,14 +18,9 @@
                 "item": "minecraft:paper"
             }
         },
-        "unlock": [
-            {
-                "item": "minecraft:paper"
-            },
-            {
-                "item": "minecraft:lapis_lazuli"
-            }
-        ],
+        "unlock": [{
+            "item": "tcsmp:inscription_table"
+        }],
         "result": {
             "item": "tcsmp:spell_scroll"
         }

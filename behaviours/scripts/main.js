@@ -7,6 +7,7 @@ import { grapplingHookComponent } from "./items/grappling_hook";
 import { waystoneComponent } from "./blocks/waystone";
 import { growthSpellComponent } from "./items/scroll_of_growth";
 import { thunderSpellComponent } from "./items/scroll_of_thunder";
+import { decaySpellComponent } from "./items/scroll_of_decay";
 
 system.afterEvents.scriptEventReceive.subscribe(event => {
     switch (event.id) {
@@ -25,4 +26,5 @@ world.beforeEvents.worldInitialize.subscribe(event => {
     blockComponentRegistry.registerCustomComponent("tcsmp:waystone", waystoneComponent);
     itemComponentRegistry.registerCustomComponent("tcsmp:growth_spell", growthSpellComponent);
     itemComponentRegistry.registerCustomComponent("tcsmp:thunder_spell", thunderSpellComponent);
+    itemComponentRegistry.registerCustomComponent("tcsmp:decay_spell", decaySpellComponent);
 });

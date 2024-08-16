@@ -55,6 +55,18 @@
     },
     "end_waystone_side_bottom_active": {
       "textures": "textures/blocks/waystones/end_waystone_side_bottom_active"
+    },
+    "inscription_table_side_0": {
+      "textures": "textures/blocks/inscription_table_side_0"
+    },
+    "inscription_table_side_1": {
+      "textures": "textures/blocks/inscription_table_side_1"
+    },
+    "inscription_table_top": {
+      "textures": "textures/blocks/inscription_table_top"
+    },
+    "inscription_table_bottom": {
+      "textures": "textures/blocks/inscription_table_bottom"
     }
   }
 }
