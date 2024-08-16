@@ -18,6 +18,7 @@ item.tcsmp:lightning_bottle.name=Bottle o' Lightning
 item.tcsmp:lightning_cannonball.name=Lightning Cannonball
 item.tcsmp:scroll_of_thunder.name=Scroll of Thunder
 item.tcsmp:scroll_of_decay.name=Scroll of Decay
+item.tcsmp:scroll_of_return.name=Scroll of Return
 
 ## Blocks
 tile.tcsmp:overworld_waystone.name=Overworld Waystone
@@ -55,3 +56,9 @@ action.edit.waystone.title=Edit Waystone
 action.interact.waystone.title=Waystone Network
 
 info.waystone.preexists=Waystone "%s" already exists
+
+## Return Scroll Dialogue
+info.return_scroll.private_waystone=Cannot link scroll to a private waystone
+info.return_scroll.unlinked=Scroll is not linked to any waystone
+info.return_scroll.wrong_dimension=Waystone "%s" is not in this dimension
+info.return_scroll.linked=Scroll linked to "%s"

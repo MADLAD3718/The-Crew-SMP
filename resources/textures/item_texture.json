@@ -55,6 +55,9 @@
     },
     "scroll_of_decay": {
       "textures": "textures/items/spell_scrolls/scroll_of_decay"
+    },
+    "scroll_of_return": {
+      "textures": "textures/items/spell_scrolls/scroll_of_return"
     }
   }
 }

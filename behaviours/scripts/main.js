@@ -8,6 +8,7 @@ import { waystoneComponent } from "./blocks/waystone";
 import { growthSpellComponent } from "./items/scroll_of_growth";
 import { thunderSpellComponent } from "./items/scroll_of_thunder";
 import { decaySpellComponent } from "./items/scroll_of_decay";
+import { returnSpellComponent } from "./items/scroll_of_return";
 
 system.afterEvents.scriptEventReceive.subscribe(event => {
     switch (event.id) {
@@ -27,4 +28,5 @@ world.beforeEvents.worldInitialize.subscribe(event => {
     itemComponentRegistry.registerCustomComponent("tcsmp:growth_spell", growthSpellComponent);
     itemComponentRegistry.registerCustomComponent("tcsmp:thunder_spell", thunderSpellComponent);
     itemComponentRegistry.registerCustomComponent("tcsmp:decay_spell", decaySpellComponent);
+    itemComponentRegistry.registerCustomComponent("tcsmp:return_spell", returnSpellComponent);
 });
