@@ -19,6 +19,7 @@ item.tcsmp:lightning_cannonball.name=Lightning Cannonball
 item.tcsmp:scroll_of_thunder.name=Scroll of Thunder
 item.tcsmp:scroll_of_decay.name=Scroll of Decay
 item.tcsmp:scroll_of_return.name=Scroll of Return
+item.tcsmp:katana.name=Katana
 
 ## Blocks
 tile.tcsmp:overworld_waystone.name=Overworld Waystone

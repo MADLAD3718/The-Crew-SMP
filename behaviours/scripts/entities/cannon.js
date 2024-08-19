@@ -1,5 +1,5 @@
 import { Dimension, Entity, GameMode, ItemStack, MolangVariableMap, Player, system, TicksPerSecond, world } from "@minecraft/server";
-import { add, Directions, mul, normalize } from "../extensions/vectors";
+import { add, Unit, mul, normalize } from "../extensions/vectors";
 import { buildTNB } from "../extensions/matrices";
 import { decrementSlot } from "../common";
 import "../extensions/entities";
@@ -28,7 +28,7 @@ world.afterEvents.entityHitEntity.subscribe(event => {
             decrementSlot(cannon.inventory.container, gunpowder);
             decrementSlot(cannon.inventory.container, cannonball);
             
-            const view = rider.getViewDirection(), origin = add(cannon.location, Directions.Up);
+            const view = rider.getViewDirection(), origin = add(cannon.location, Unit.Up);
             const direction = normalize({x: view.x, y: Math.max(view.y, 0), z: view.z});
             const velocity = mul(direction, 3);
 

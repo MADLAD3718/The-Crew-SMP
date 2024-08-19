@@ -1,5 +1,5 @@
 import { ItemComponentUseEvent, MolangVariableMap, WeatherType } from "@minecraft/server";
-import { add, Directions } from "../extensions/vectors";
+import { add, Unit } from "../extensions/vectors";
 import "../extensions/entities";
 
 const LIGHTNING_COUNT = 12;
@@ -26,7 +26,7 @@ function useThunderSpell(event) {
         const posXZ = addXZ(sample, locationXZ);
         const block = dimension.getTopmostBlock(posXZ, head.y + 2);
         if (!block) continue;
-        const spawn_location = add(block.bottomCenter(), Directions.Up);
+        const spawn_location = add(block.bottomCenter(), Unit.Up);
         dimension.spawnEntity("minecraft:lightning_bolt", spawn_location);
     }
 

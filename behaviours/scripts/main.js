@@ -1,3 +1,4 @@
+import "./items/katana";
 import "./items/lightning_bottle";
 import "./entities/cannon";
 import "./entities/fire_cannonball";

@@ -1,4 +1,4 @@
-export const Directions = Object.freeze({
+export const Unit = Object.freeze({
     Up: { x: 0, y: 1, z: 0 },
     Down: { x: 0, y: -1, z: 0 },
     North: { x: 0, y: 0, z: -1 },
@@ -9,22 +9,22 @@ export const Directions = Object.freeze({
 
 export function strToDir(dir) {
     switch (dir.toLowerCase()) {
-        case "up": return Directions.Up;
-        case "down": return Directions.Down;
-        case "north": return Directions.North;
-        case "south": return Directions.South;
-        case "east": return Directions.East;
-        case "west": return Directions.West;
+        case "up": return Unit.Up;
+        case "down": return Unit.Down;
+        case "north": return Unit.North;
+        case "south": return Unit.South;
+        case "east": return Unit.East;
+        case "west": return Unit.West;
     }
 }
 
 export function dirToStr(dir) {
-    if (equal(dir, Directions.Up)) return "up";
-    if (equal(dir, Directions.Down)) return "down";
-    if (equal(dir, Directions.North)) return "north";
-    if (equal(dir, Directions.South)) return "south";
-    if (equal(dir, Directions.East)) return "east";
-    if (equal(dir, Directions.West)) return "west";
+    if (equal(dir, Unit.Up)) return "up";
+    if (equal(dir, Unit.Down)) return "down";
+    if (equal(dir, Unit.North)) return "north";
+    if (equal(dir, Unit.South)) return "south";
+    if (equal(dir, Unit.East)) return "east";
+    if (equal(dir, Unit.West)) return "west";
 }
 
 export function toVec(x) {
@@ -403,7 +403,7 @@ export function slerp(u, v, t) {
 }
 
 export function cardinalAngle(v) {
-    const cos = dot(v, Directions.South);
-    const sin = dot(cross(v, Directions.South), Directions.Up);
+    const cos = dot(v, Unit.South);
+    const sin = dot(cross(v, Unit.South), Unit.Up);
     return Math.atan2(sin, cos);
 }

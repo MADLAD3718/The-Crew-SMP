@@ -1,7 +1,7 @@
 import { Block, BlockComponentPlayerDestroyEvent, BlockComponentPlayerInteractEvent, BlockPermutation, Direction, Player, system, World, world } from "@minecraft/server";
 import { addWaystone, findWaystone, getWayStones, hasWaystone, removeWaystone, WAYSTONE_TYPEIDS } from "../waystone_util";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
-import { add, Directions, equal } from "../extensions/vectors";
+import { add, Unit, equal } from "../extensions/vectors";
 import { isWater } from "../common";
 
 /** @type {import("@minecraft/server").BlockCustomComponent} */
@@ -43,8 +43,8 @@ function breakWaystone(event) {
     dimension.playSound("waystone.break", block.center());
     removeCrystal(block, destroyedBlockPermutation);
     const top = destroyedBlockPermutation.getState("tcsmp:top");
-    block.offset(top ? Directions.Down : Directions.Up).setType("minecraft:air");
-    const location = top ? add(block.location, Directions.Down) : block.location;
+    block.offset(top ? Unit.Down : Unit.Up).setType("minecraft:air");
+    const location = top ? add(block.location, Unit.Down) : block.location;
     const typeId = destroyedBlockPermutation.type.id;
 
     const waystone = findWaystone(world, location, typeId) ?? findWaystone(player, location, typeId);
@@ -173,6 +173,6 @@ function useWaystone(block, player) {
  */
 function removeCrystal(block, permutation) {
     const top = permutation.getState('tcsmp:top');
-    const location = top ? block.location : add(block.location, Directions.Up);
+    const location = top ? block.location : add(block.location, Unit.Up);
     block.dimension.getEntitiesAtBlockLocation(location)[0]?.remove();
 }

@@ -1,28 +1,28 @@
 import { GameMode, ItemLockMode, ItemStack, system, TicksPerSecond, world } from "@minecraft/server";
-import { add, Directions, distance, mul } from "../extensions/vectors";
+import { add, Unit, distance, mul } from "../extensions/vectors";
 import { decrementDurability, duplicateItem } from "../common";
 import "../extensions/entities";
 
-const USE_TIME = 1.0 * TicksPerSecond;
+const USE_TIME = TicksPerSecond * 1.0;
+const MAX_DURATION = TicksPerSecond * 500;
 const GRAPPLE_SOUNDS = [
     "grappling_hook.retract.short",
     "grappling_hook.retract.medium",
     "grappling_hook.retract.long",
 ]
-const PLAYER_GRAPPLE_TIMES = new Map();
 
 /** @type {import("@minecraft/server").ItemCustomComponent} */
 export const grapplingHookComponent = {
     onUse: ({source: player}) => {
-        PLAYER_GRAPPLE_TIMES.set(player.id, system.currentTick);
         player.dimension.playSound("crossbow.loading.start", player.getHeadLocation());
     }
 }
 
-world.afterEvents.itemReleaseUse.subscribe(({itemStack: hook, source: player}) => {
+world.afterEvents.itemReleaseUse.subscribe(event => {
+    const {itemStack: hook, source: player, useDuration} = event;
     if (hook.typeId !== "tcsmp:grappling_hook") return;
-    const time = PLAYER_GRAPPLE_TIMES.get(player.id) ?? system.currentTick;
-    if (system.currentTick - time < USE_TIME) return;
+    player.stopSound("crossbow.loading.start");
+    if (MAX_DURATION - useDuration < USE_TIME) return;
 
     // Kick Off Current Ride
     player.entityRidingOn?.ejectRider(player);
@@ -78,7 +78,7 @@ world.afterEvents.projectileHitBlock.subscribe(({projectile: stake}) => {
 
     // Setup Retracttion
     const seat = world.getEntity(stake.getDynamicProperty("seat"));
-    seat.teleport(add(seat.location, mul(Directions.Up, 0.1)));
+    seat.teleport(add(seat.location, mul(Unit.Up, 0.1)));
     const player = stake.projectile.owner;
     const seat2 = seat.getRiders()[0];
     seat2.addRider(player);

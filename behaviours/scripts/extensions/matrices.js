@@ -1,4 +1,4 @@
-import { add, cross, Directions, mul, normalize } from "./vectors";
+import { add, cross, Unit, mul, normalize } from "./vectors";
 
 export class Matrix3 {
     u = {x: 1, y: 0, z: 0};
@@ -15,7 +15,7 @@ export class Matrix3 {
 export function buildTNB(n) {
     const m = new Matrix3;
     m.v = n;
-    if (Math.abs(n.y) == 1) m.u = Directions.West;
+    if (Math.abs(n.y) == 1) m.u = Unit.West;
     else m.u = normalize({x: n.z, y: 0, z: -n.x});
     m.w = cross(n, m.u);
     return m;

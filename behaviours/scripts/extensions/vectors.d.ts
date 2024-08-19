@@ -1,6 +1,7 @@
 export type Vector3 = {x: Number, y: Number, z: Number}
 
-export enum Directions {
+/** An enumeration of unit directions. */
+export enum Unit {
     Up = { x: 0, y: 1, z: 0 },
     Down = { x: 0, y: -1, z: 0 },
     North = { x: 0, y: 0, z: -1 },

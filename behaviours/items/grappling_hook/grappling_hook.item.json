@@ -19,11 +19,11 @@
                 }
             },
             "minecraft:use_modifiers": {
-                "use_duration": 99999
+                "use_duration": 500
             },
             "minecraft:shooter": {
                 "charge_on_draw": false,
-                "max_draw_duration": 99999
+                "max_draw_duration": 500
             },
             "minecraft:repairable": {
                 "repair_items": [{

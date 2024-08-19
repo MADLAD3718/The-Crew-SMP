@@ -103,6 +103,11 @@ Entity.prototype.ejectRiders = function () {
     return rideable.ejectRiders();
 }
 
+Entity.prototype.getBlockStandingOn = function () {
+    if (!this.isOnGround) return this.dimension.getBlock(this.location);
+    return this.dimension.getTopmostBlock(this.locationXZ);
+}
+
 Player.prototype.applyImpulse = function (vector) {
     const {x, y, z} = vector;
     this.applyKnockback(x, z, Math.hypot(x, z), y);

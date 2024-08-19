@@ -42,6 +42,8 @@ declare module "@minecraft/server" {
         readonly entityRidingOn?: Entity;
         /** The XZ coordinates of this entity. */
         readonly locationXZ: VectorXZ;
+        /** Returns the block this entity is standing on, if they are on the ground. */
+        getBlockStandingOn(): Block;
     }
     interface Player {
         /** Stops a specified sound. If no sound is specified all sounds are stopped. */
