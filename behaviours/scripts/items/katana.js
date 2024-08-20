@@ -28,9 +28,8 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
         for (const entity of player.dimension.getEntities(query)) {
             if (entityIds.includes(entity.id)) continue;
             const to_entity = sub(entity.location, player.location);
-            const dist = length(to_entity);
             const move_dir = normalize(player.getVelocity());
-            if (dot(move_dir, div(to_entity, dist)) < 0.0) continue;
+            if (dot(move_dir, to_entity) < 0.0) continue;
             entityIds.push(entity.id);
             const damage_options = {
                 cause: EntityDamageCause.entityAttack,
