@@ -1,0 +1,45 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.katana.wield": {
+			"loop": true,
+			"bones": {
+				"rightitem": {
+					"rotation": ["c.is_first_person ? 38.0 : -170", "c.is_first_person ? -120.0 : 0.0", "c.is_first_person ? -63.0 : 180"],
+					"position": ["c.is_first_person ? 1.61285 : 0.0", "c.is_first_person ? 21.84454: 0.0", "c.is_first_person ? 12.21534 : 0.0"]
+				}
+			}
+		},
+		"animation.katana.charge": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"rightitem": {
+					"rotation": [-82.5, 0, 0],
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.5": [-3.80818, 5.48715, 0.71325]
+					}
+				}
+			}
+		},
+		"animation.katana.hold": {
+			"loop": true,
+			"bones": {
+				"rightitem": {
+					"rotation": [-82.5, 0, 0],
+					"position": [-3.80818, "5.3872 + math.sin(q.life_time * 1000.0 * 1.3) * 0.1 - math.sin(q.life_time * 45.0) * 0.5", 0.71325]
+				}
+			}
+		},
+		"animation.katana.dash": {
+			"animation_length": 0.44,
+			"bones": {
+				"rightitem": {
+					"rotation": [-82.5, 0, 0],
+					"position": [1.56, -1.84, 0]
+				}
+			}
+		}
+	}
+}

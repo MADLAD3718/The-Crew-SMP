@@ -19,6 +19,7 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
         case "tcsmp:cleardp":
             console.warn(`Cleared all world-specific dynamic properties.`);
             world.clearDynamicProperties();
+            break;
     }
 });
 
