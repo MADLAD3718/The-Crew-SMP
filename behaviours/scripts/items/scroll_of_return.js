@@ -1,10 +1,16 @@
-import { ItemComponentUseEvent, ItemComponentUseOnEvent, MolangVariableMap, world } from "@minecraft/server";
+import { ItemComponentUseEvent, ItemComponentUseOnEvent, MolangVariableMap, system, TicksPerSecond, world } from "@minecraft/server";
 import { findWaystone, WAYSTONE_TYPEIDS } from "../waystone_util";
 import "../extensions/entities";
+
+const USE_TIMES = new Map();
+const COOLDOWN = TicksPerSecond * 1.0;
 
 world.beforeEvents.itemUse.subscribe(event => {
     const {itemStack, source} = event, {dimension} = source;
     if (itemStack.typeId !== "tcsmp:scroll_of_return") return;
+    const use_time = USE_TIMES.get(source.id) ?? 0;
+    if (system.currentTick - use_time < COOLDOWN) return event.cancel = true;
+    USE_TIMES.set(source.id, system.currentTick);
 
     event.cancel = itemStack.getDynamicPropertyIds().length == 0;
     if (event.cancel)
