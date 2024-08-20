@@ -1,15 +1,14 @@
 import { EntityDamageCause, ItemStack, system, TicksPerSecond, world } from "@minecraft/server";
-import { div, dot, length, mul, normalize, reject, sub, Unit } from "../extensions/vectors";
+import { add, div, dot, length, mul, normalize, reject, sub, Unit } from "../extensions/vectors";
 import "../extensions/entities";
 import "../extensions/items";
 
 const USE_TIME = TicksPerSecond * 0.5;
 const MAX_DURATION = TicksPerSecond * 500;
-const DASH_DISTANCE = 15.0;
-const DASH_DAMAGE_BONUS = 3;
+const DASH_DISTANCE = 10.0;
 
 world.afterEvents.itemReleaseUse.subscribe(event => {
-    const {itemStack, useDuration, source: player} = event;
+    const {itemStack, useDuration, source: player} = event, {dimension} = player;
     if (itemStack.typeId !== "tcsmp:katana") return;
     if (MAX_DURATION - useDuration <= USE_TIME) return;
     if (!player.isOnGround) return;
@@ -25,7 +24,7 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
     const task = system.runInterval(() => {
         const ticks = system.currentTick - start_tick;
         if (ticks >= time) return system.clearRun(task);
-        const query = {location: player.location, maxDistance: 5.0};
+        const query = {location: player.location, maxDistance: 4.5};
         for (const entity of player.dimension.getEntities(query)) {
             if (entityIds.includes(entity.id)) continue;
             const to_entity = sub(entity.location, player.location);
@@ -37,7 +36,8 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
                 cause: EntityDamageCause.entityAttack,
                 damagingEntity: player
             }
-            entity.applyDamage(getKatanaDamage(itemStack) + DASH_DAMAGE_BONUS, damage_options);
+            entity.applyDamage(getKatanaDamage(itemStack) * 1.5, damage_options);
+            dimension.spawnParticle("minecraft:critical_hit_emitter", add(entity.location, Unit.Up));
         }
     });
 });
@@ -46,5 +46,5 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
 function getKatanaDamage(katana) {
     const sharpness = katana.enchantments.getEnchantment("minecraft:sharpness");
     const level = sharpness?.level ?? 0;
-    return 6 + Math.floor(1.25 * level);
+    return 6 + Math.floor(1.25 * level) + 1;
 }

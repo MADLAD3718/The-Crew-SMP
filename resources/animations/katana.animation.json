@@ -33,7 +33,7 @@
 			}
 		},
 		"animation.katana.dash": {
-			"animation_length": 0.44,
+			"animation_length": 0.4,
 			"bones": {
 				"rightitem": {
 					"rotation": [-82.5, 0, 0],
