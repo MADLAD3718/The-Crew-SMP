@@ -7,6 +7,9 @@
             "is_summonable": true
         },
         "components": {
+            "minecraft:type_family": {
+                "family": ["display"]
+            },
             "minecraft:physics": {
                 "has_collision": false,
                 "has_gravity": false

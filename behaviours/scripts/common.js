@@ -37,12 +37,14 @@ export function isWater(block) {
  * Decrements the itemstack count in the provided slot.
  * @param {Container} container The specified inventory container.
  * @param {Number} slot The specified container slot.
+ * @param {number} [amount=1] The amount of items to remove.
  */
-export function decrementSlot(container, slot) {
+export function decrementSlot(container, slot, amount = 1) {
     if (slot >= container.size) return;
     const item = container.getItem(slot);
-    if (item.amount > 1) {
-        item.amount--;
+    if (item.amount < amount) throw new Error("Cannot remove more then item amount.");
+    if (item.amount > amount) {
+        item.amount -= amount;
         container.setItem(slot, item);
     } else container.setItem(slot);
 }

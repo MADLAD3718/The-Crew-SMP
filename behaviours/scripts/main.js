@@ -4,8 +4,8 @@ import "./entities/cannon";
 import "./entities/fire_cannonball";
 import "./entities/lightning_cannonball";
 import { system, world } from "@minecraft/server";
-import { grapplingHookComponent } from "./items/grappling_hook";
 import { waystoneComponent } from "./blocks/waystone";
+import { grapplingHookComponent } from "./items/grappling_hook";
 import { growthSpellComponent } from "./items/scroll_of_growth";
 import { thunderSpellComponent } from "./items/scroll_of_thunder";
 import { decaySpellComponent } from "./items/scroll_of_decay";
@@ -25,8 +25,8 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
 
 world.beforeEvents.worldInitialize.subscribe(event => {
     const {itemComponentRegistry, blockComponentRegistry} = event;
-    itemComponentRegistry.registerCustomComponent("tcsmp:grappling_hook", grapplingHookComponent);
     blockComponentRegistry.registerCustomComponent("tcsmp:waystone", waystoneComponent);
+    itemComponentRegistry.registerCustomComponent("tcsmp:grappling_hook", grapplingHookComponent);
     itemComponentRegistry.registerCustomComponent("tcsmp:growth_spell", growthSpellComponent);
     itemComponentRegistry.registerCustomComponent("tcsmp:thunder_spell", thunderSpellComponent);
     itemComponentRegistry.registerCustomComponent("tcsmp:decay_spell", decaySpellComponent);

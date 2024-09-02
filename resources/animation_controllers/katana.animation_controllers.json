@@ -8,7 +8,7 @@
 					"blend_transition": 0.15,
 					"transitions" : [
 						{
-							"charge" : "q.main_hand_item_use_duration > 0.0f && c.is_first_person"
+							"charge" : "q.main_hand_item_use_duration > 0.0f"
 						}
 					]
 				},
@@ -17,7 +17,7 @@
 					"animations" : [ "charge" ],
 					"transitions" : [
 						{
-							"default" : "q.main_hand_item_use_duration <= 0.0f || !c.is_first_person"
+							"default" : "q.main_hand_item_use_duration <= 0.0f"
 						},
 						{
 							"hold": "v.charge_amount >= 1.0"
@@ -29,7 +29,7 @@
 					"animations": [ "hold" ],
 					"transitions": [
 						{
-							"default": "q.get_equipped_item_name != 'katana' || !c.is_first_person"
+							"default": "q.get_equipped_item_name != 'katana'"
 						},
 						{
 							"dash": "q.main_hand_item_use_duration <= 0.0f && q.get_equipped_item_name == 'katana'"
@@ -40,7 +40,7 @@
 					"animations": [ "dash" ],
 					"transitions": [
 						{
-							"default": "q.any_animation_finished || q.get_equipped_item_name != 'katana' || !c.is_first_person"
+							"default": "q.any_animation_finished || q.get_equipped_item_name != 'katana'"
 						}
 					]
 				}

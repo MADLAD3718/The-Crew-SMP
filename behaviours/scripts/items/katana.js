@@ -20,11 +20,16 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
     const direction = normalize(reject(player.getViewDirection(), Unit.Up));
     player.applyImpulse(mul(direction, initial_speed));
 
-    const start_tick = system.currentTick, entityIds = [];
+    const start_tick = system.currentTick, entityIds = [player.id];
     const task = system.runInterval(() => {
         const ticks = system.currentTick - start_tick;
         if (ticks >= time) return system.clearRun(task);
-        const query = {location: player.location, maxDistance: 4.5};
+        const query = {
+            location: player.location,
+            maxDistance: 4.5,
+            excludeTypes: ["minecraft:xp_orb"],
+            excludeFamilies: ["display"]
+        };
         for (const entity of player.dimension.getEntities(query)) {
             if (entityIds.includes(entity.id)) continue;
             const to_entity = sub(entity.location, player.location);
@@ -35,8 +40,8 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
                 cause: EntityDamageCause.entityAttack,
                 damagingEntity: player
             }
-            entity.applyDamage(getKatanaDamage(itemStack) * 1.5, damage_options);
             dimension.spawnParticle("minecraft:critical_hit_emitter", add(entity.location, Unit.Up));
+            entity.applyDamage(getKatanaDamage(itemStack) * 1.5, damage_options);
         }
     });
 });

@@ -21,6 +21,9 @@
 				"default" : {
 					"transitions" : [
 						{
+							"katana_default": "query.get_equipped_item_name == 'katana'"
+						},
+						{
 							"hook_default": "query.get_equipped_item_name == 'grappling_hook'"
 						},
 						{
@@ -74,6 +77,17 @@
 						},
 						{
 							"hook_default" : "query.main_hand_item_use_duration == 0.0"
+						}
+					]
+				},
+				"katana_default": {
+					"animations" : [ "third_person_bow_equipped" ],
+					"transitions": [
+						{
+							"default": "query.get_equipped_item_name == 'crossbow'"
+						},
+						{
+							"hook_default" : "query.get_equipped_item_name == 'grappling_hook'"
 						}
 					]
 				}
@@ -279,16 +293,13 @@
 							"shield_block_off_hand" : "query.blocking && query.get_equipped_item_name('off_hand') == 'shield'"
 						},
 						{
-							"crossbow_controller" : "query.get_equipped_item_name == 'crossbow' || query.get_equipped_item_name == 'grappling_hook'"
+							"crossbow_controller" : "query.get_equipped_item_name == 'crossbow' || query.get_equipped_item_name == 'grappling_hook' || query.get_equipped_item_name == 'katana'"
 						},
-						// {
-						// 	"grappling_hook_controller": "query.get_equipped_item_name == 'grappling_hook'"
-						// },
 						{
 							"crossbow_hold": "query.get_equipped_item_name == 'empty_grappling_hook'"
 						},
 						{
-							"third_person_bow_equipped" : "query.get_equipped_item_name == 'bow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"
+							"third_person_bow_equipped" : "query.get_equipped_item_name == 'bow' || query.get_equipped_item_name == 'cannabis_bow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"
 						},
 						{
 							"tooting_goat_horn": "variable.is_tooting_goat_horn"
