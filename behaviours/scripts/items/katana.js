@@ -1,5 +1,5 @@
 import { EntityDamageCause, ItemStack, system, TicksPerSecond, world } from "@minecraft/server";
-import { add, div, dot, length, mul, normalize, reject, sub, Unit } from "../extensions/vectors";
+import { add, dot, mul, normalize, reject, sub, Unit } from "../extensions/vectors";
 import "../extensions/entities";
 import "../extensions/items";
 
@@ -24,13 +24,13 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
     const task = system.runInterval(() => {
         const ticks = system.currentTick - start_tick;
         if (ticks >= time) return system.clearRun(task);
-        const query = {
+        const entities = dimension.getEntities({
             location: player.location,
             maxDistance: 4.5,
             excludeTypes: ["minecraft:xp_orb"],
             excludeFamilies: ["display"]
-        };
-        for (const entity of player.dimension.getEntities(query)) {
+        });
+        for (const entity of entities) {
             if (entityIds.includes(entity.id)) continue;
             const to_entity = sub(entity.location, player.location);
             const move_dir = normalize(player.getVelocity());

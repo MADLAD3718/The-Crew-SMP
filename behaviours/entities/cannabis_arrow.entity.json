@@ -1,0 +1,63 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "tcsmp:cannabis_arrow",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "runtime_identifier": "minecraft:arrow"
+        },
+        "components": {
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:collision_box": {
+                "width": 0.25,
+                "height": 0.25
+            },
+            "minecraft:hurt_on_condition": {
+                "damage_conditions": [{
+                    "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+                    "cause": "lava",
+                    "damage_per_tick": 4
+                }]
+            },
+            "minecraft:projectile": {
+                "on_hit": {
+                    "impact_damage": {
+                        "damage": 1,
+                        "knockback": true,
+                        "semi_random_diff_damage": true,
+                        "destroy_on_hit": true,
+                        "max_critical_damage": 10,
+                        "min_critical_damage": 9,
+                        "power_multiplier": 0.97
+                    },
+                    "stick_in_ground": {
+                        "shake_time": 0.35
+                    },
+                    "mob_effect": {
+                        "duration": 15.0,
+                        "effect": "nausea",
+                        "visible": true
+                    },
+                    "hurt_owner": {
+                        "owner_damage": 1,
+                        "knockback": true,
+                        "ignite": false
+                    }
+                },
+                "hit_sound": "bow.hit",
+                "power": 5.0,
+                "gravity": 0.05,
+                "uncertainty_base": 1,
+                "uncertainty_multiplier": 0,
+                "anchor": 1,
+                "should_bounce": true,
+                "offset": [0, -0.1, 0]
+            }
+        }
+    }
+}

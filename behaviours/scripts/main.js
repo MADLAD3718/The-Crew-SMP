@@ -1,6 +1,8 @@
 import "./items/katana";
+import "./items/cannabis_bow";
 import "./items/lightning_bottle";
 import "./entities/cannon";
+import "./entities/cannabis_arrow";
 import "./entities/fire_cannonball";
 import "./entities/lightning_cannonball";
 import { system, world } from "@minecraft/server";

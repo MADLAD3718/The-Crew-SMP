@@ -61,6 +61,18 @@
     },
     "katana": {
       "textures": "textures/items/katana"
+    },
+    "cannabis": {
+      "textures": "textures/items/cannabis_leaf"
+    },
+    "cannabis_buds": {
+      "textures": "textures/items/cannabis_buds"
+    },
+    "dried_cannabis": {
+      "textures": "textures/items/dried_cannabis_leaf"
+    },
+    "cannabis_bow": {
+      "textures": "textures/items/cannabis_bow_standby"
     }
   }
 }
