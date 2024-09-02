@@ -1,0 +1,81 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:block": {
+        "description": {
+            "identifier": "tcsmp:cannabis_plant",
+            "menu_category": {
+                "category": "none"
+            },
+            "states": {
+                "tcsmp:growth": {
+                    "values": {
+                        "min": 0,
+                        "max": 7
+                    }
+                }
+            }
+        },
+        "permutations": [
+            {
+                "condition": "q.block_state('tcsmp:growth') > 3 && q.block_state('tcsmp:growth') != 7",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "render_method": "alpha_test",
+                            "texture": "cannabis_plant_1",
+                            "ambient_occlusion": false,
+                            "face_dimming": false
+                        }
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [-5, 0, -5],
+                        "size": [10, 13, 10]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_state('tcsmp:growth') == 7",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "render_method": "alpha_test",
+                            "texture": "cannabis_plant_2",
+                            "ambient_occlusion": false,
+                            "face_dimming": false
+                        }
+                    },
+                    "minecraft:selection_box": {
+                        "origin": [-6, 0, -6],
+                        "size": [12, 16, 12]
+                    },
+                    "minecraft:loot": "loot_tables/blocks/cannabis_plant_grown.json"
+                }
+            }
+        ],
+        "components": {
+            "minecraft:custom_components": ["tcsmp:cannabis_plant"],
+            "minecraft:geometry": "minecraft:geometry.cross",
+            "minecraft:material_instances": {
+                "*": {
+                    "render_method": "alpha_test",
+                    "texture": "cannabis_plant_0",
+                    "ambient_occlusion": false,
+                    "face_dimming": false
+                }
+            },
+            "minecraft:collision_box": false,
+            "minecraft:selection_box": {
+                "origin": [-4, 0, -4],
+                "size": [8, 10, 8]
+            },
+            "minecraft:placement_filter": {
+                "conditions": [{
+                    "allowed_faces": ["up"],
+                    "block_filter": ["grass", "farmland"]
+                }]
+            },
+            "minecraft:light_dampening": 0,
+            "minecraft:loot": "loot_tables/blocks/cannabis_plant.json"
+        }
+    }
+}

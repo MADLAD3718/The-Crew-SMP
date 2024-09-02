@@ -17,6 +17,9 @@
                 "textures": {
                     "default": "cannabis_buds"
                 }
+            },
+            "minecraft:block_placer": {
+                "block": "tcsmp:cannabis_plant"
             }
         }
     }

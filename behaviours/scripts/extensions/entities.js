@@ -116,3 +116,7 @@ Player.prototype.applyImpulse = function (vector) {
 Player.prototype.stopSound = function (sound = "") {
     this.runCommand("stopsound @s " + sound);
 }
+
+Player.prototype.getHeldItem = function () {
+    return this.inventory.container.getItem(this.selectedSlotIndex);
+}

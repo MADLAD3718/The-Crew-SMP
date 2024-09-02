@@ -48,5 +48,7 @@ declare module "@minecraft/server" {
     interface Player {
         /** Stops a specified sound. If no sound is specified all sounds are stopped. */
         stopSound(sound?: string): void;
+        /** Returns the item this player is currently holding. */
+        getHeldItem(): ItemStack | undefined;
     }
 }

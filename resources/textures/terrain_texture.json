@@ -67,6 +67,15 @@
     },
     "inscription_table_bottom": {
       "textures": "textures/blocks/inscription_table_bottom"
+    },
+    "cannabis_plant_0": {
+      "textures": "textures/blocks/cannabis_plant_0"
+    },
+    "cannabis_plant_1": {
+      "textures": "textures/blocks/cannabis_plant_1"
+    },
+    "cannabis_plant_2": {
+      "textures": "textures/blocks/cannabis_plant_2"
     }
   }
 }

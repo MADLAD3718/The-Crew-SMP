@@ -145,5 +145,9 @@ function applyGrowth(block, value) {
             dimension.spawnParticle("minecraft:crop_growth_emitter", block.center());
             block.setPermutation(permutation.withState("growth", 7));
             break;
+        case "tcsmp:cannabis_plant":
+            dimension.spawnParticle("minecraft:crop_growth_emitter", block.center());
+            block.setPermutation(permutation.withState("tcsmp:growth", 7));
+            break;
     }
 }

@@ -30,6 +30,7 @@ tile.tcsmp:overworld_waystone.name=Overworld Waystone
 tile.tcsmp:nether_waystone.name=Nether Waystone
 tile.tcsmp:end_waystone.name=End Waystone
 tile.tcsmp:inscription_table.name=Inscription Table
+tile.tcsmp:cannabis_plant.name=Cannabis Plant
 
 ## Entities
 entity.tcsmp:grappling_hook_stake.name=Grappling Hook Stake
