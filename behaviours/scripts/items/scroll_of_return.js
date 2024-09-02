@@ -58,7 +58,9 @@ function useReturnSpell(event) {
 
 /** @param {ItemComponentUseOnEvent} event */
 function linkReturnSpell(event) {
-    const {block, source} = event, {dimension, location, typeId} = block;
+    const top = event.block.permutation.getState("tcsmp:top");
+    const block = top ? event.block.below() : event.block;
+    const {source} = event, {dimension, location, typeId} = block;
     if (!block.hasTag("tcsmp:waystone")) return;
     const waystone = findWaystone(world, location, typeId) ?? findWaystone(source, location, typeId);
     if (!waystone) return source.sendMessage({translate: "info.return_scroll.private_waystone"});
