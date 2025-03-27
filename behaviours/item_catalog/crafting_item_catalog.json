@@ -1,0 +1,73 @@
+{
+    "format_version": "1.21.60",
+    "minecraft:crafting_items_catalog": {
+        "categories": [
+            {
+                "category_name": "items",
+                "groups": [
+                    {
+                        "items": [
+                            "tcsmp:inscription_table",
+                            "tcsmp:warp_crystal"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "tcsmp:overworld_waystone",
+                            "name": "itemGroup.tcsmp:waystones"
+                        },
+                        "items": [
+                            "tcsmp:overworld_waystone",
+                            "tcsmp:nether_waystone",
+                            "tcsmp:end_waystone"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "items": [
+                            "tcsmp:katana",
+                            "tcsmp:grappling_hook",
+                            "tcsmp:cannon_item"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "tcsmp:cannonball",
+                            "name": "itemGroup.tcsmp:cannon_balls"
+                        },
+                        "items": [
+                            "tcsmp:cannonball",
+                            "tcsmp:slowness_cannonball",
+                            "tcsmp:poison_cannonball",
+                            "tcsmp:wither_cannonball",
+                            "tcsmp:fire_cannonball",
+                            "tcsmp:lightning_cannonball"
+                        ]
+                    },
+                    {
+                        "items": [
+                            "tcsmp:lightning_bottle"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "tcsmp:spell_scroll",
+                            "name": "itemGroup.tcsmp:spell_scrolls"
+                        },
+                        "items": [
+                            "tcsmp:spell_scroll",
+                            "tcsmp:scroll_of_growth",
+                            "tcsmp:scroll_of_decay",
+                            "tcsmp:scroll_of_thunder",
+                            "tcsmp:scroll_of_return"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

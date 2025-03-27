@@ -1,3 +1,8 @@
 
 /resources/sounds/music
 /resources/textures/items/old
+
+*.map
+*.mcworld
+*.mcaddon
+node_modules

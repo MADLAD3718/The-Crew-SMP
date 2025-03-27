@@ -1,5 +1,5 @@
 {
-    "format_version": "1.21.20",
+    "format_version": "1.21.60",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "tcsmp:spell_scroll"

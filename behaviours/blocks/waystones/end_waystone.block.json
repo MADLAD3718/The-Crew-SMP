@@ -1,49 +1,19 @@
 {
-    "format_version": "1.21.20",
+    "format_version": "1.21.60",
     "minecraft:block": {
         "description": {
             "identifier": "tcsmp:end_waystone",
-            "menu_category": {
-                "category": "none"
-            },
             "states": {
                 "tcsmp:top": [false, true],
                 "tcsmp:active": [false, true]
             }
         },
-        "permutations": [
-            {
-                "condition": "q.block_state('tcsmp:top')",
-                "components": {
-                    "minecraft:geometry": "geometry.waystone_top"
-                }
-            },
-            {
-                "condition": "q.block_state('tcsmp:active')",
-                "components": {
-                    "minecraft:material_instances": {
-                        "*": {
-                            "render_method": "opaque"
-                        },
-                        "side_top": {
-                            "texture": "end_waystone_side_top_active"
-                        },
-                        "side_bottom": {
-                            "texture": "end_waystone_side_bottom_active"
-                        },
-                        "up": {
-                            "texture": "end_waystone_interior"
-                        },
-                        "down": {
-                            "texture": "end_waystone_exterior"
-                        }
-                    },
-                    "minecraft:light_emission": 10
-                }
-            }
-        ],
         "components": {
-            "minecraft:custom_components": ["tcsmp:waystone"],
+            "minecraft:custom_components": [
+                "tcsmp:double_block",
+                "tcsmp:waystone"
+            ],
+            "tag:dimension:minecraft:the_end": {},
             "minecraft:geometry": "geometry.waystone_bottom",
             "minecraft:material_instances": {
                 "*": {
@@ -74,7 +44,61 @@
             },
             "minecraft:map_color": "#E8F4B2",
             "minecraft:light_dampening": 7,
-            "tag:tcsmp:waystone": {}
-        }
+            "minecraft:liquid_detection": {
+                "detection_rules": [{
+                    "liquid_type": "water",
+                    "can_contain_liquid": true
+                }]
+            },
+            "minecraft:selection_box": {
+                "origin": [-8.0, 0.0, -8.0],
+                "size": [16.0, 16.0, 16.0]
+            },
+            "minecraft:transformation": {
+                "scale_pivot": [0.0, -0.5, 0.0],
+                "scale": [1.0, 2.0, 1.0]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "q.block_state('tcsmp:top')",
+                "components": {
+                    "minecraft:geometry": "geometry.waystone_top",
+                    "minecraft:transformation": {
+                        "scale_pivot": [0.0, 0.5, 0.0],
+                        "scale": [1.0, 2.0, 1.0]
+                    },
+                    "minecraft:custom_components": [
+                        "tcsmp:double_block",
+                        "tcsmp:block_entity",
+                        "tcsmp:waystone"
+                    ],
+                    "tag:entity:tcsmp:warp_crystal": {}
+                }
+            },
+            {
+                "condition": "q.block_state('tcsmp:active')",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "render_method": "opaque"
+                        },
+                        "side_top": {
+                            "texture": "end_waystone_side_top_active"
+                        },
+                        "side_bottom": {
+                            "texture": "end_waystone_side_bottom_active"
+                        },
+                        "up": {
+                            "texture": "end_waystone_interior"
+                        },
+                        "down": {
+                            "texture": "end_waystone_exterior"
+                        }
+                    },
+                    "minecraft:light_emission": 10
+                }
+            }
+        ]
     }
 }

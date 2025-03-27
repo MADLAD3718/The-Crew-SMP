@@ -1,16 +1,13 @@
 {
-    "format_version": "1.21.10",
+    "format_version": "1.21.60",
     "minecraft:item": {
         "description": {
-            "identifier": "tcsmp:cannon_item",
-            "menu_category": {
-                "category": "equipment"
-            }
+            "identifier": "tcsmp:cannon_item"
         },
         "components": {
             "minecraft:max_stack_size": 1,
             "minecraft:display_name": {
-                "value": "item.tcsmp:cannon_item.name"
+                "value": "item.tcsmp:cannon.name"
             },
             "minecraft:icon": {
                 "textures": {

@@ -1,11 +1,8 @@
 {
-    "format_version": "1.21.10",
+    "format_version": "1.21.60",
     "minecraft:item": {
         "description": {
-            "identifier": "tcsmp:lightning_bottle",
-            "menu_category": {
-                "category": "equipment"
-            }
+            "identifier": "tcsmp:lightning_bottle"
         },
         "components": {
             "minecraft:display_name": {
@@ -16,7 +13,14 @@
                     "default": "lightning_bottle"
                 }
             },
-            "minecraft:glint": true
+            "minecraft:throwable": {
+                "do_swing_animation": true
+            },
+            "minecraft:projectile": {
+                "projectile_entity": "tcsmp:lightning_bottle"
+            },
+            "minecraft:glint": true,
+            "minecraft:rarity": "uncommon"
         }
     }
 }

@@ -1,35 +1,10 @@
 {
-    "format_version": "1.21.20",
+    "format_version": "1.21.60",
     "minecraft:entity": {
         "description": {
             "identifier": "tcsmp:cannon",
             "is_spawnable": false,
-            "is_summonable": true,
-            "is_experimental": false
-        },
-        "component_groups": {
-            "tcsmp:no_rider": {
-                "minecraft:environment_sensor": {
-                    "triggers": [{
-                        "filters": {
-                            "test": "rider_count",
-                            "value": 1
-                        },
-                        "event": "tcsmp:control_cannon"
-                    }]
-                }
-            },
-            "tcsmp:has_rider": {
-                "minecraft:environment_sensor": {
-                    "triggers": [{
-                        "filters": {
-                            "test": "rider_count",
-                            "value": 0
-                        },
-                        "event": "tcsmp:dismount_cannon"
-                    }]
-                }
-            }
+            "is_summonable": true
         },
         "components": {
             "minecraft:type_family": {
@@ -56,7 +31,7 @@
             "minecraft:damage_sensor": {
                 "triggers": [{
                     "cause": "all",
-                    "deals_damage": false
+                    "deals_damage": "no"
                 }]
             },
             "minecraft:health": {
@@ -71,30 +46,8 @@
                     "lock_rider_rotation": 45,
                     "position": [0.0, 0.0, 0.75],
                     "rotate_rider_by": 180
-                }]
-            }
-        },
-        "events": {
-            "minecraft:entity_spawned": {
-                "add": {
-                    "component_groups": ["tcsmp:no_rider"]
-                }
-            },
-            "tcsmp:control_cannon": {
-                "remove": {
-                    "component_groups": ["tcsmp:no_rider"]
-                },
-                "add": {
-                    "component_groups": ["tcsmp:has_rider"]
-                }
-            },
-            "tcsmp:dismount_cannon": {
-                "remove": {
-                    "component_groups": ["tcsmp:has_rider"]
-                },
-                "add": {
-                    "component_groups": ["tcsmp:no_rider"]
-                }
+                }],
+                "controlling_seat": 1
             }
         }
     }

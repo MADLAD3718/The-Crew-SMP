@@ -2,7 +2,7 @@
 item.tcsmp:grappling_hook.name=Grappling Hook
 item.tcsmp:empty_grappling_hook.name=Empty Grappling Hook
 item.tcsmp:hook.name=Hook
-item.tcsmp:cannon_item.name=Cannon
+item.tcsmp:cannon.name=Cannon
 item.tcsmp:cannonball.name=Cannonball
 item.tcsmp:poison_cannonball.name=Poison Cannonball
 item.tcsmp:wither_cannonball.name=Wither Cannonball
@@ -53,7 +53,7 @@ container.inscription_table=Inscription
 
 ## Waystone Dialogue
 action.setup.waystone.title=Waystone Setup
-action.setup.waystone.global=Global Waystone
+action.setup.waystone.private=Private Waystone
 action.setup.waystone.name=Waystone Name:
 action.setup.waystone.placeholder=%s's Waystone
 
@@ -61,10 +61,13 @@ action.edit.waystone.title=Edit Waystone
 
 action.interact.waystone.title=Waystone Network
 
+info.waystone.invalid="%s" is not a valid waystone name
 info.waystone.preexists=Waystone "%s" already exists
 
 ## Return Scroll Dialogue
-info.return_scroll.private_waystone=Cannot link scroll to a private waystone
-info.return_scroll.unlinked=Scroll is not linked to any waystone
-info.return_scroll.wrong_dimension=%s is not in this dimension
-info.return_scroll.linked=Scroll linked to waystone "%s"
+info.return_scroll.no_waystones=You have no available waystones to return to
+
+## Item Groups
+itemGroup.tcsmp:waystones=Waystones
+itemGroup.tcsmp:spell_scrolls=Spell Scrolls
+itemGroup.tcsmp:cannon_balls=Cannon Balls

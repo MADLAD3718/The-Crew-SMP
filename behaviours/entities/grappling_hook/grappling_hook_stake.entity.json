@@ -1,11 +1,10 @@
 {
-  "format_version": "1.21.20",
+  "format_version": "1.21.60",
   "minecraft:entity": {
     "description": {
       "identifier": "tcsmp:grappling_hook_stake",
       "is_spawnable": false,
       "is_summonable": true,
-      "is_experimental": false,
       "runtime_identifier": "minecraft:egg"
     },
     "components": {
@@ -16,18 +15,13 @@
       "minecraft:damage_sensor": {
 				"triggers": [{
           "cause": "all",
-          "deals_damage": false
+          "deals_damage": "no"
         }]
 			},
       "minecraft:projectile": {
         "on_hit": {
           "stick_in_ground": {
             "shake_time": 0.35
-          },
-          "definition_event": {
-            "event_trigger": {
-              "event": "tcsmp:on_hit"
-            }
           }
         },
         "hit_sound": "bow.hit",
@@ -45,7 +39,6 @@
         "is_pushable": false,
         "is_pushable_by_piston": true
       }
-    },
-    "events": {}
+    }
   }
 }

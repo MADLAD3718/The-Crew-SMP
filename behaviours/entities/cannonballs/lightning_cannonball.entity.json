@@ -1,5 +1,5 @@
 {
-    "format_version": "1.21.20",
+    "format_version": "1.21.60",
     "minecraft:entity": {
         "description": {
             "identifier": "tcsmp:lightning_cannonball",
@@ -9,10 +9,18 @@
         },
         "component_groups": {
             "tcsmp:has_hit": {
+                "minecraft:spawn_entity": {
+                    "entities": {
+                        "min_wait_time": 0,
+                        "max_wait_time": 0,
+                        "spawn_entity": "lightning_bolt"
+                    }
+                },
                 "minecraft:explode": {
                     "breaks_blocks": false,
                     "causes_fire": false,
                     "fuse_lit": true,
+                    "fuse_length": 0.05,
                     "power": 3
                 }
             }

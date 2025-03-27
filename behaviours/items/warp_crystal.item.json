@@ -1,11 +1,8 @@
 {
-    "format_version": "1.21.10",
+    "format_version": "1.21.60",
     "minecraft:item": {
         "description": {
-            "identifier": "tcsmp:warp_crystal",
-            "menu_category": {
-                "category": "items"
-            }
+            "identifier": "tcsmp:warp_crystal"
         },
         "components": {
             "minecraft:max_stack_size": 1,
@@ -16,7 +13,8 @@
                 "textures": {
                     "default": "warp_crystal"
                 }
-            }
+            },
+            "minecraft:rarity": "rare"
         }
     }
 }

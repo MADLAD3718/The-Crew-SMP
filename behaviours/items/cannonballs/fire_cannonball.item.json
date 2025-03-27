@@ -1,11 +1,8 @@
 {
-    "format_version": "1.21.10",
+    "format_version": "1.21.60",
     "minecraft:item": {
         "description": {
-            "identifier": "tcsmp:fire_cannonball",
-            "menu_category": {
-                "category": "equipment"
-            }
+            "identifier": "tcsmp:fire_cannonball"
         },
         "components": {
             "minecraft:max_stack_size": 8,

@@ -1,11 +1,8 @@
 {
-    "format_version": "1.21.10",
+    "format_version": "1.21.60",
     "minecraft:item": {
         "description": {
-            "identifier": "tcsmp:spell_scroll",
-            "menu_category": {
-                "category": "equipment"
-            }
+            "identifier": "tcsmp:spell_scroll"
         },
         "components": {
             "minecraft:max_stack_size": 8,
@@ -17,7 +14,8 @@
                     "default": "spell_scroll"
                 }
             },
-            "minecraft:glint": true
+            "minecraft:glint": true,
+            "minecraft:rarity": "uncommon"
         }
     }
 }

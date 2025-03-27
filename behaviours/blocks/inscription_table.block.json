@@ -1,5 +1,5 @@
 {
-    "format_version": "1.21.20",
+    "format_version": "1.21.60",
     "minecraft:block": {
         "description": {
             "identifier": "tcsmp:inscription_table",
@@ -12,33 +12,14 @@
                 }
             }
         },
-        "permutations": [
-            {
-                "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
-                "components": {
-                    "minecraft:transformation": {
-                        "rotation": [0, 180, 0]
-                    }
-                }
-            },
-            {
-                "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
-                "components": {
-                    "minecraft:transformation": {
-                        "rotation": [0, 270, 0]
-                    }
-                }
-            },
-            {
-                "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
-                "components": {
-                    "minecraft:transformation": {
-                        "rotation": [0, 90, 0]
-                    }
-                }
-            }
-        ],
         "components": {
+            "minecraft:custom_components": [
+                "tcsmp:tick_particle"
+            ],
+            "tag:particle:tcsmp:inscription_rune": {},
+            "minecraft:tick": {
+                "interval_range": [20, 20]
+            },
             "minecraft:geometry": "geometry.inscription_table",
             "minecraft:material_instances": {
                 "*": {
@@ -72,7 +53,39 @@
             "minecraft:crafting_table": {
                 "crafting_tags": ["inscription_table"],
                 "table_name": "container.inscription_table"
+            },
+            "minecraft:liquid_detection": {
+                "detection_rules": [{
+                    "liquid_type": "water",
+                    "can_contain_liquid": true
+                }]
             }
-        }
+        },
+        "permutations": [
+            {
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, 180, 0]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, 270, 0]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, 90, 0]
+                    }
+                }
+            }
+        ]
     }
 }

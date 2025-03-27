@@ -4,7 +4,7 @@
     "controller.render.grappling_hook": {
       "arrays": {
         "textures": {
-          "array.grappling_hook_texture_frames": [
+          "array.textures": [
             "texture.default",
             "texture.pulling_0",
             "texture.pulling_1",
@@ -12,7 +12,7 @@
           ]
         },
         "geometries": {
-          "array.grappling_hook_geo_frames": [
+          "array.geos": [
             "geometry.default",
             "geometry.pulling_0",
             "geometry.pulling_1",
@@ -20,9 +20,9 @@
           ]
         }
       },
-      "geometry": "array.grappling_hook_geo_frames[variable.grappling_hook_animation_frame]",
+      "geometry": "array.geos[variable.animation_frame]",
       "materials": [ { "*": "variable.is_enchanted ? material.enchanted : material.default" } ],
-      "textures": [ "array.grappling_hook_texture_frames[variable.grappling_hook_animation_frame]", "texture.enchanted" ]
+      "textures": [ "array.textures[variable.animation_frame]", "texture.enchanted" ]
     }
   }
 }

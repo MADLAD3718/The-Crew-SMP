@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.20",
+  "format_version": "1.21.60",
   "minecraft:entity": {
     "description": {
       "identifier": "tcsmp:grappling_hook_seat",
@@ -64,7 +64,7 @@
       "minecraft:damage_sensor": {
 				"triggers": [{
           "cause": "all",
-          "deals_damage": false
+          "deals_damage": "no"
         }]
 			},
       "minecraft:leashable": {

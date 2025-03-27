@@ -1,5 +1,5 @@
 {
-   "format_version": "1.20.20",
+   "format_version": "1.21.70",
    "sound_definitions": {
       "cannon.place": {
          "__use_legacy_max_distance" : "true",
@@ -110,6 +110,27 @@
          "min_distance" : null,
          "sounds" : [{
             "name": "sounds/spell_scroll/link",
+            "volume": 1.0
+         }]
+      },
+      "katana.dash": {
+         "category" : "player",
+         "max_distance" : 20.0,
+         "min_distance" : 10.0,
+         "sounds" : [
+            "sounds/katana/dash_0",
+            "sounds/katana/dash_1",
+            "sounds/katana/dash_2",
+            "sounds/katana/dash_3",
+            "sounds/katana/dash_4",
+            "sounds/katana/dash_5"
+         ]
+      },
+      "katana.draw": {
+         "category" : "player",
+         "is3D" : false,
+         "sounds" : [{
+            "name": "sounds/katana/draw",
             "volume": 1.0
          }]
       }
