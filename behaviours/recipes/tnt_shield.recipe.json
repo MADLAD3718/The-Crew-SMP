@@ -1,0 +1,28 @@
+{
+    "format_version": "1.21.70",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "tcsmp:tnt_shield"
+        },
+        "tags": ["crafting_table"],
+        "pattern": [
+            "TTT",
+            "TST",
+            "TTT"
+        ],
+        "key": {
+            "S": {
+                "item": "minecraft:shield"
+            },
+            "T": {
+                "item": "minecraft:tnt"
+            }
+        },
+        "unlock": [{
+            "item": "minecraft:tnt"
+        }],
+        "result": [{
+            "item": "tcsmp:tnt_shield"
+        }]
+    }
+}

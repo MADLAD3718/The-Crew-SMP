@@ -7,6 +7,7 @@ import decaySpellComponent from "./decay_spell";
 import grapplingHookComponent from "./grappling_hook";
 import katanaComponent from "./katana";
 import "./double_block_placer";
+import "./tnt_shield";
 
 type ItemComponentRegister = {
     name: string

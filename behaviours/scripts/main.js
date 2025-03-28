@@ -1,5 +1,5 @@
 // scripts/main.ts
-import { system as system5, world as world11 } from "@minecraft/server";
+import { system as system5, world as world12 } from "@minecraft/server";
 
 // node_modules/@madlad3718/mcveclib/dist/index.js
 import { Direction } from "@minecraft/server";
@@ -5231,6 +5231,45 @@ world7.beforeEvents.playerInteractWithBlock.subscribe((event) => {
   event.cancel = !(above == null ? void 0 : above.isAir) && !(above == null ? void 0 : above.isLiquid);
 });
 
+// scripts/item_components/tnt_shield.ts
+import { EquipmentSlot, GameMode as GameMode3, Player as Player3, world as world8 } from "@minecraft/server";
+world8.afterEvents.projectileHitEntity.subscribe((event) => {
+  const hitEntity = event.getEntityHit().entity;
+  if (!(hitEntity instanceof Player3)) return;
+  if (!isUsingTNTShield(hitEntity)) return;
+  hitTNTShield(hitEntity, event.hitVector);
+});
+world8.afterEvents.entityHitEntity.subscribe((event) => {
+  const { hitEntity, damagingEntity } = event;
+  if (!(hitEntity instanceof Player3)) return;
+  if (!isUsingTNTShield(hitEntity)) return;
+  const toHolder = Vec3.normalize(Vec3.sub(hitEntity.location, damagingEntity.location));
+  hitTNTShield(hitEntity, toHolder);
+});
+function isUsingTNTShield(holder) {
+  if (!holder.isSneaking) return false;
+  const mainhand = holder.equipment.getEquipment(EquipmentSlot.Mainhand);
+  const offhand = holder.equipment.getEquipment(EquipmentSlot.Offhand);
+  if ((offhand == null ? void 0 : offhand.typeId) == "minecraft:shield") return false;
+  return (offhand == null ? void 0 : offhand.typeId) == "tcsmp:tnt_shield" || (mainhand == null ? void 0 : mainhand.typeId) == "tcsmp:tnt_shield";
+}
+function hitTNTShield(holder, direction) {
+  var _a;
+  const { dimension } = holder, view = holder.getViewDirection();
+  if (Vec3.dot(direction, view) > -0.5 || !holder.isSneaking) return;
+  dimension.createExplosion(holder.location, 8, {
+    breaksBlocks: false,
+    source: holder
+  });
+  if (holder.getGameMode() == GameMode3.creative) return;
+  const mainhand = holder.equipment.getEquipmentSlot(EquipmentSlot.Mainhand);
+  const offhand = holder.equipment.getEquipmentSlot(EquipmentSlot.Offhand);
+  const usingOffhand = offhand.hasItem() && offhand.typeId == "tcsmp:tnt_shield";
+  const slot = usingOffhand ? offhand : mainhand;
+  const item = (_a = slot == null ? void 0 : slot.getItem()) == null ? void 0 : _a.damage();
+  slot == null ? void 0 : slot.setItem(item);
+}
+
 // scripts/item_components/export.ts
 var ItemComponents = [
   {
@@ -5265,13 +5304,13 @@ var ItemComponents = [
 var export_default2 = ItemComponents;
 
 // scripts/entity_events/cannon.ts
-import { GameMode as GameMode3, MolangVariableMap as MolangVariableMap2, world as world8 } from "@minecraft/server";
-world8.afterEvents.entitySpawn.subscribe(({ entity }) => {
+import { GameMode as GameMode4, MolangVariableMap as MolangVariableMap2, world as world9 } from "@minecraft/server";
+world9.afterEvents.entitySpawn.subscribe(({ entity }) => {
   if (!entity.isValid()) return;
   if (!entity.matches({ type: "tcsmp:cannon" })) return;
   entity.dimension.playSound("cannon.place", entity.location);
 });
-world8.afterEvents.entityHitEntity.subscribe((event) => {
+world9.afterEvents.entityHitEntity.subscribe((event) => {
   var _a;
   if (!event.hitEntity.matches({ type: "tcsmp:cannon" })) return;
   const cannon = event.hitEntity, player = event.damagingEntity;
@@ -5279,7 +5318,7 @@ world8.afterEvents.entityHitEntity.subscribe((event) => {
   const { dimension } = cannon;
   if (!rider) {
     dimension.playSound("cannon.break", cannon.location);
-    if (player.getGameMode() == GameMode3.survival)
+    if (player.getGameMode() == GameMode4.survival)
       player.dimension.spawnLoot(cannon.location, "blocks/cannon");
     cannon.dropInventory();
     cannon.remove();
@@ -5312,12 +5351,12 @@ function spawnSmoke(origin, direction) {
 }
 
 // scripts/entity_events/fire_cannonball.ts
-import { world as world9 } from "@minecraft/server";
-world9.afterEvents.projectileHitBlock.subscribe((event) => {
+import { world as world10 } from "@minecraft/server";
+world10.afterEvents.projectileHitBlock.subscribe((event) => {
   if (!event.projectile.isValid()) return;
   if (event.projectile.matches({ type: "tcsmp:fire_cannonball" })) hit(event);
 });
-world9.afterEvents.projectileHitEntity.subscribe((event) => {
+world10.afterEvents.projectileHitEntity.subscribe((event) => {
   if (!event.projectile.isValid()) return;
   if (event.projectile.matches({ type: "tcsmp:fire_cannonball" })) hit(event);
 });
@@ -5327,23 +5366,28 @@ function hit(event) {
 }
 
 // scripts/entity_events/creeper.ts
-import { world as world10 } from "@minecraft/server";
-world10.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity }) => {
+import { world as world11 } from "@minecraft/server";
+world11.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity }) => {
   entity.dimension.playSound("bottle.lightning", entity.location);
 }, { eventTypes: ["tcsmp:remove_charge"] });
 
 // scripts/extensions/entities.ts
-import { Entity as Entity4, EntityComponentTypes, Player as Player4 } from "@minecraft/server";
-Player4.prototype.stopSound = function(sound) {
+import { Entity as Entity4, EntityComponentTypes, Player as Player5 } from "@minecraft/server";
+Player5.prototype.stopSound = function(sound) {
   this.runCommand("stopsound @s " + sound);
 };
-Player4.prototype.applyImpulse = function(vector) {
+Player5.prototype.applyImpulse = function(vector) {
   return this.applyKnockback(vector.x, vector.z, Math.hypot(vector.x, vector.z), vector.y);
 };
 Object.defineProperties(Entity4.prototype, {
   inventory: {
     get() {
       return this.getComponent(EntityComponentTypes.Inventory);
+    }
+  },
+  equipment: {
+    get() {
+      return this.getComponent(EntityComponentTypes.Equippable);
     }
   },
   projectile: {
@@ -5486,7 +5530,7 @@ ContainerSlot.prototype.decrement = function() {
 };
 
 // scripts/main.ts
-world11.beforeEvents.worldInitialize.subscribe(({ blockComponentRegistry, itemComponentRegistry }) => {
+world12.beforeEvents.worldInitialize.subscribe(({ blockComponentRegistry, itemComponentRegistry }) => {
   for (const register of export_default2)
     itemComponentRegistry.registerCustomComponent(register.name, register.component);
   for (const register of export_default)
@@ -5496,12 +5540,12 @@ system5.afterEvents.scriptEventReceive.subscribe((event) => {
   var _a, _b;
   switch (event.id) {
     case "tcsmp:showdp":
-      for (const id of world11.getDynamicPropertyIds())
-        console.warn(`${id}: ${Vec3.toString(world11.getDynamicProperty(id))}`);
+      for (const id of world12.getDynamicPropertyIds())
+        console.warn(`${id}: ${Vec3.toString(world12.getDynamicProperty(id))}`);
       break;
     case "tcsmp:cleardp":
-      for (const id of world11.getDynamicPropertyIds())
-        world11.setDynamicProperty(id);
+      for (const id of world12.getDynamicPropertyIds())
+        world12.setDynamicProperty(id);
       break;
     case "tcsmp:showdim":
       console.warn((_a = event.sourceEntity) == null ? void 0 : _a.dimension.id);

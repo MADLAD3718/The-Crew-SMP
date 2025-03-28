@@ -30,6 +30,7 @@
                     {
                         "items": [
                             "tcsmp:katana",
+                            "tcsmp:tnt_shield",
                             "tcsmp:grappling_hook",
                             "tcsmp:cannon_item"
                         ]

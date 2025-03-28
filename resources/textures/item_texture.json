@@ -73,6 +73,9 @@
     },
     "cannabis_bow": {
       "textures": "textures/items/cannabis_bow_standby"
+    },
+    "tnt_shield": {
+      "textures": "textures/items/tnt_shield"
     }
   }
 }

@@ -20,10 +20,7 @@ item.tcsmp:scroll_of_thunder.name=Scroll of Thunder
 item.tcsmp:scroll_of_decay.name=Scroll of Decay
 item.tcsmp:scroll_of_return.name=Scroll of Return
 item.tcsmp:katana.name=Katana
-item.tcsmp:cannabis.name=Cannabis
-item.tcsmp:cannabis_buds.name=Cannabis Buds
-item.tcsmp:dried_cannabis.name=Dried Cannabis
-item.tcsmp:cannabis_bow.name=Cannabis Bow
+item.tcsmp:tnt_shield.name=TNT Shield
 
 ## Blocks
 tile.tcsmp:overworld_waystone.name=Overworld Waystone

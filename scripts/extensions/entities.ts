@@ -12,12 +12,20 @@ declare module "@minecraft/server" {
          * Defines this player's inventory properties.
          */
         readonly inventory: EntityInventoryComponent;
+        /**
+         * Provides access to this player's equipment slots.
+         */
+        readonly equipment: EntityEquippableComponent;
     }
     interface Entity {
         /**
          * Defines this entity's inventory properties.
          */
         readonly inventory?: EntityInventoryComponent;
+        /**
+         * Provides access to a mob's equipment slots.
+         */
+        readonly equipment: EntityEquippableComponent;
         /**
          * Controls the properties of a projectile entity and allows it to be shot in a given direction.
          */
@@ -108,6 +116,11 @@ Object.defineProperties(Entity.prototype, {
     inventory: {
         get() {
             return this.getComponent(EntityComponentTypes.Inventory);
+        }
+    },
+    equipment: {
+        get() {
+            return this.getComponent(EntityComponentTypes.Equippable);
         }
     },
     projectile: {
