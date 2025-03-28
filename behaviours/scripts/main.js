@@ -1,5 +1,5 @@
 // scripts/main.ts
-import { system as system5, world as world12 } from "@minecraft/server";
+import { system as system5, world as world13 } from "@minecraft/server";
 
 // node_modules/@madlad3718/mcveclib/dist/index.js
 import { Direction } from "@minecraft/server";
@@ -5371,8 +5371,22 @@ world11.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity }) => {
   entity.dimension.playSound("bottle.lightning", entity.location);
 }, { eventTypes: ["tcsmp:remove_charge"] });
 
+// scripts/entity_events/wolf.ts
+import { EntityComponentTypes, EquipmentSlot as EquipmentSlot2, world as world12 } from "@minecraft/server";
+world12.afterEvents.playerInteractWithEntity.subscribe((event) => {
+  const { player, target } = event;
+  if (!target.matches({ type: MinecraftEntityTypes.Wolf }) || !target.hasComponent(EntityComponentTypes.IsTamed) || player.equipment.getEquipment(EquipmentSlot2.Mainhand) || Vec3.distance(player.location, target.location) > 1.5 || !player.isSneaking) return;
+  const { dimension } = player;
+  dimension.playSound("wolf.pet", target.location);
+  const variant = target.getProperty("minecraft:sound_variant");
+  const sound = variant == "default" ? "mob.wolf.bark" : `mob.wolf.${variant}.bark`;
+  dimension.playSound(sound, target.location);
+  dimension.spawnParticle("minecraft:heart_particle", Vec3.above(target.location));
+  player.playAnimation("animation.player.pet");
+});
+
 // scripts/extensions/entities.ts
-import { Entity as Entity4, EntityComponentTypes, Player as Player5 } from "@minecraft/server";
+import { Entity as Entity4, EntityComponentTypes as EntityComponentTypes2, Player as Player5 } from "@minecraft/server";
 Player5.prototype.stopSound = function(sound) {
   this.runCommand("stopsound @s " + sound);
 };
@@ -5382,55 +5396,55 @@ Player5.prototype.applyImpulse = function(vector) {
 Object.defineProperties(Entity4.prototype, {
   inventory: {
     get() {
-      return this.getComponent(EntityComponentTypes.Inventory);
+      return this.getComponent(EntityComponentTypes2.Inventory);
     }
   },
   equipment: {
     get() {
-      return this.getComponent(EntityComponentTypes.Equippable);
+      return this.getComponent(EntityComponentTypes2.Equippable);
     }
   },
   projectile: {
     get() {
-      return this.getComponent(EntityComponentTypes.Projectile);
+      return this.getComponent(EntityComponentTypes2.Projectile);
     }
   },
   entityRidingOn: {
     get() {
       var _a;
-      return (_a = this.getComponent(EntityComponentTypes.Riding)) == null ? void 0 : _a.entityRidingOn;
+      return (_a = this.getComponent(EntityComponentTypes2.Riding)) == null ? void 0 : _a.entityRidingOn;
     }
   },
   leashHolder: {
     get() {
       var _a;
-      return (_a = this.getComponent(EntityComponentTypes.Leashable)) == null ? void 0 : _a.leashHolder;
+      return (_a = this.getComponent(EntityComponentTypes2.Leashable)) == null ? void 0 : _a.leashHolder;
     }
   }
 });
 Entity4.prototype.addRider = function(rider) {
-  const component = this.getComponent(EntityComponentTypes.Rideable);
-  if (!component) throw new MissingComponentError(EntityComponentTypes.Rideable);
+  const component = this.getComponent(EntityComponentTypes2.Rideable);
+  if (!component) throw new MissingComponentError(EntityComponentTypes2.Rideable);
   return component.addRider(rider);
 };
 Entity4.prototype.ejectRider = function(rider) {
-  const component = this.getComponent(EntityComponentTypes.Rideable);
-  if (!component) throw new MissingComponentError(EntityComponentTypes.Rideable);
+  const component = this.getComponent(EntityComponentTypes2.Rideable);
+  if (!component) throw new MissingComponentError(EntityComponentTypes2.Rideable);
   return component.ejectRider(rider);
 };
 Entity4.prototype.ejectRiders = function() {
-  const component = this.getComponent(EntityComponentTypes.Rideable);
-  if (!component) throw new MissingComponentError(EntityComponentTypes.Rideable);
+  const component = this.getComponent(EntityComponentTypes2.Rideable);
+  if (!component) throw new MissingComponentError(EntityComponentTypes2.Rideable);
   return component.ejectRiders();
 };
 Entity4.prototype.getRiders = function() {
-  const component = this.getComponent(EntityComponentTypes.Rideable);
-  if (!component) throw new MissingComponentError(EntityComponentTypes.Rideable);
+  const component = this.getComponent(EntityComponentTypes2.Rideable);
+  if (!component) throw new MissingComponentError(EntityComponentTypes2.Rideable);
   return component.getRiders();
 };
 Entity4.prototype.dropInventory = function() {
-  const component = this.getComponent(EntityComponentTypes.Inventory);
-  if (!component) throw new MissingComponentError(EntityComponentTypes.Inventory);
+  const component = this.getComponent(EntityComponentTypes2.Inventory);
+  if (!component) throw new MissingComponentError(EntityComponentTypes2.Inventory);
   const { container, inventorySize } = component;
   for (let i = 0; i < inventorySize; ++i) {
     const slot = container == null ? void 0 : container.getSlot(i);
@@ -5440,13 +5454,13 @@ Entity4.prototype.dropInventory = function() {
   }
 };
 Entity4.prototype.leashTo = function(leashHolder) {
-  const component = this.getComponent(EntityComponentTypes.Leashable);
-  if (!component) throw new MissingComponentError(EntityComponentTypes.Leashable);
+  const component = this.getComponent(EntityComponentTypes2.Leashable);
+  if (!component) throw new MissingComponentError(EntityComponentTypes2.Leashable);
   return component.leashTo(leashHolder);
 };
 Entity4.prototype.unleash = function() {
-  const component = this.getComponent(EntityComponentTypes.Leashable);
-  if (!component) throw new MissingComponentError(EntityComponentTypes.Leashable);
+  const component = this.getComponent(EntityComponentTypes2.Leashable);
+  if (!component) throw new MissingComponentError(EntityComponentTypes2.Leashable);
   return component.unleash();
 };
 
@@ -5530,7 +5544,7 @@ ContainerSlot.prototype.decrement = function() {
 };
 
 // scripts/main.ts
-world12.beforeEvents.worldInitialize.subscribe(({ blockComponentRegistry, itemComponentRegistry }) => {
+world13.beforeEvents.worldInitialize.subscribe(({ blockComponentRegistry, itemComponentRegistry }) => {
   for (const register of export_default2)
     itemComponentRegistry.registerCustomComponent(register.name, register.component);
   for (const register of export_default)
@@ -5540,12 +5554,12 @@ system5.afterEvents.scriptEventReceive.subscribe((event) => {
   var _a, _b;
   switch (event.id) {
     case "tcsmp:showdp":
-      for (const id of world12.getDynamicPropertyIds())
-        console.warn(`${id}: ${Vec3.toString(world12.getDynamicProperty(id))}`);
+      for (const id of world13.getDynamicPropertyIds())
+        console.warn(`${id}: ${Vec3.toString(world13.getDynamicProperty(id))}`);
       break;
     case "tcsmp:cleardp":
-      for (const id of world12.getDynamicPropertyIds())
-        world12.setDynamicProperty(id);
+      for (const id of world13.getDynamicPropertyIds())
+        world13.setDynamicProperty(id);
       break;
     case "tcsmp:showdim":
       console.warn((_a = event.sourceEntity) == null ? void 0 : _a.dimension.id);

@@ -133,6 +133,19 @@
             "name": "sounds/katana/draw",
             "volume": 1.0
          }]
+      },
+      "wolf.pet": {
+         "category" : "neutral",
+         "sounds" : [
+            {
+               "name": "sounds/wolf/pet_0",
+               "volume": 1.5
+            },
+            {
+               "name": "sounds/wolf/pet_1",
+               "volume": 1.5
+            }
+         ]
       }
    }
 }

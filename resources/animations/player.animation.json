@@ -560,6 +560,19 @@
 					"position": [0, 0, -3]
 				}
 			}
+		},
+		"animation.player.pet": {
+			"animation_length": 0.6,
+			"bones": {
+				"rightArm": {
+					"rotation": {
+						"0.0": ["v.is_first_person ? 0 : -80", "v.is_first_person ? 0 : -20", "v.is_first_person ? -45 : 0"],
+						"0.2": ["v.is_first_person ? 0 : -80", "v.is_first_person ? 0 : -50", "v.is_first_person ? -22.5 : 0"],
+						"0.4": ["v.is_first_person ? 0 : -80", "v.is_first_person ? 0 : -20", "v.is_first_person ? -45 : 0"],
+						"0.6": ["v.is_first_person ? 0 : -80", "v.is_first_person ? 0 : -50", "v.is_first_person ? -22.5 : 0"]
+					}
+				}
+			}
 		}
 	}
 }
