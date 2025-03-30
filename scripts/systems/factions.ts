@@ -21,7 +21,7 @@ export namespace FactionRegistry {
         return factions;
     }
 
-    export function getFaction(name: string): FactionRegister | undefined 
+    export function getFaction(name: string): FactionRegister | undefined;
     export function getFaction(player: Player): FactionRegister | undefined;
     export function getFaction(arg: Player | string): FactionRegister | undefined {
         for (const id of world.getDynamicPropertyIds()) {

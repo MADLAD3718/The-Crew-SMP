@@ -92,6 +92,10 @@ action.manage.faction.confirm=Confirm
 action.manage.faction.info=Faction: %s\nOwner: %s\nMembers: %s
 action.manage.faction.leave=Leave "%s"
 
+action.message.faction.title=Send Message
+action.message.faction.message=Message:
+action.message.faction.submit=Send
+
 action.edit.waystone.title=Edit Waystone
 
 action.interact.waystone.title=Waystone Network

@@ -1,5 +1,5 @@
 // scripts/main.ts
-import { system as system5, world as world15 } from "@minecraft/server";
+import { system as system5, world as world16 } from "@minecraft/server";
 
 // node_modules/@madlad3718/mcveclib/dist/index.js
 import { Direction } from "@minecraft/server";
@@ -4713,6 +4713,7 @@ var tickParticleComponent = {
 var tick_particle_default = tickParticleComponent;
 
 // scripts/block_components/faction_register.ts
+import { world as world5 } from "@minecraft/server";
 import { ActionFormData as ActionFormData2, ModalFormData as ModalFormData2 } from "@minecraft/server-ui";
 
 // scripts/systems/factions.ts
@@ -4777,7 +4778,7 @@ ${faction.name}`;
       faction.players.join("/")
     );
     const player = world3.getEntity(playerId);
-    player.nameTag = player.name + `
+    if (player) player.nameTag = player.name + `
 ${faction.name}`;
   }
   FactionRegistry2.addPlayer = addPlayer;
@@ -4790,7 +4791,7 @@ ${faction.name}`;
       faction.players.join("/")
     );
     const player = world3.getEntity(playerId);
-    player.nameTag = player.name;
+    if (player) player.nameTag = player.name;
   }
   FactionRegistry2.removePlayer = removePlayer;
 })(FactionRegistry || (FactionRegistry = {}));
@@ -4855,20 +4856,40 @@ function viewFaction(player, faction) {
         return NameRegistry.getName(id);
       }).join(", ")
     ]
-  }).button({ translate: "action.manage.faction.leave", with: [faction.name] }).show(player).then((response) => {
-    if (!response.canceled)
-      FactionRegistry.removePlayer(faction, player.id);
+  }).button({ translate: "action.message.faction.title" }).button({ translate: "action.manage.faction.leave", with: [faction.name] }).show(player).then((response) => {
+    if (response.canceled) return;
+    if (response.selection == 0) messageFaction(player, faction);
+    else FactionRegistry.removePlayer(faction, player.id);
+  });
+}
+function messageFaction(player, faction) {
+  new ModalFormData2().title({ translate: "action.message.faction.title" }).textField({ translate: "action.message.faction.message" }, "").submitButton({ translate: "action.message.faction.submit" }).show(player).then((response) => {
+    var _a;
+    if (response.canceled) return;
+    const message = ((_a = response.formValues) == null ? void 0 : _a[0]) ?? "";
+    if (message.length) for (const id of faction.players) {
+      const player2 = world5.getEntity(id);
+      player2 == null ? void 0 : player2.sendMessage(`[${faction.name}] <${player2.name}> ${message}`);
+    }
   });
 }
 function editFaction(owner, faction) {
-  new ActionFormData2().title({ translate: "action.manage.faction.title" }).body({ translate: "action.manage.faction.body", with: [faction.name] }).button({ translate: "action.manage.faction.edit_name" }).button({ translate: "action.manage.faction.edit_players" }).button({ translate: "action.manage.faction.delete" }).button({ translate: "action.manage.faction.confirm" }).show(owner).then((response) => {
+  new ActionFormData2().title({ translate: "action.manage.faction.title" }).body({ translate: "action.manage.faction.body", with: [faction.name] }).button({ translate: "action.manage.faction.edit_name" }).button({ translate: "action.manage.faction.edit_players" }).button({ translate: "action.message.faction.title" }).button({ translate: "action.manage.faction.delete" }).button({ translate: "action.manage.faction.confirm" }).show(owner).then((response) => {
     if (response.canceled) return;
-    if (response.selection == 0)
-      editFactionName(owner, faction);
-    else if (response.selection == 1)
-      editFactionPlayers(owner, faction);
-    else if (response.selection == 2)
-      deleteFaction(owner, faction);
+    switch (response.selection) {
+      case 0:
+        editFactionName(owner, faction);
+        break;
+      case 1:
+        editFactionPlayers(owner, faction);
+        break;
+      case 2:
+        messageFaction(owner, faction);
+        break;
+      case 3:
+        deleteFaction(owner, faction);
+        break;
+    }
   });
 }
 function editFactionName(owner, faction) {
@@ -4963,8 +4984,8 @@ var spellScrollComponent = {
 var spell_scroll_default = spellScrollComponent;
 
 // scripts/item_components/return_spell.ts
-import { world as world5 } from "@minecraft/server";
-world5.beforeEvents.itemUse.subscribe((event) => {
+import { world as world6 } from "@minecraft/server";
+world6.beforeEvents.itemUse.subscribe((event) => {
   const { itemStack, source } = event;
   if (itemStack.typeId != "tcsmp:scroll_of_return") return;
   const waystones = WaystoneRegistry.get(source);
@@ -4995,9 +5016,9 @@ var returnSpellComponent = {
 var return_spell_default = returnSpellComponent;
 
 // scripts/item_components/thunder_spell.ts
-import { MinecraftDimensionTypes as MinecraftDimensionTypes2, WeatherType, world as world6 } from "@minecraft/server";
+import { MinecraftDimensionTypes as MinecraftDimensionTypes2, WeatherType, world as world7 } from "@minecraft/server";
 var BOLT_COUNT = 12;
-world6.beforeEvents.itemUse.subscribe((event) => {
+world7.beforeEvents.itemUse.subscribe((event) => {
   const { source, itemStack } = event, { dimension } = source;
   if (itemStack.typeId != "tcsmp:scroll_of_thunder") return;
   event.cancel = dimension.id != MinecraftDimensionTypes2.overworld;
@@ -5247,7 +5268,7 @@ function applyDecay(block, value) {
 }
 
 // scripts/item_components/grappling_hook.ts
-import { GameMode, ItemLockMode, system as system3, TicksPerSecond, world as world7 } from "@minecraft/server";
+import { GameMode, ItemLockMode, system as system3, TicksPerSecond, world as world8 } from "@minecraft/server";
 var USE_TIME = TicksPerSecond * 1;
 var MAX_DURATION = TicksPerSecond * 500;
 var GRAPPLE_SOUNDS = [
@@ -5255,7 +5276,7 @@ var GRAPPLE_SOUNDS = [
   "grappling_hook.retract.medium",
   "grappling_hook.retract.long"
 ];
-world7.afterEvents.itemReleaseUse.subscribe((event) => {
+world8.afterEvents.itemReleaseUse.subscribe((event) => {
   var _a, _b;
   const { itemStack, source, useDuration } = event;
   if ((itemStack == null ? void 0 : itemStack.typeId) != "tcsmp:grappling_hook") return;
@@ -5293,12 +5314,12 @@ world7.afterEvents.itemReleaseUse.subscribe((event) => {
   });
   stake.setDynamicProperty("interval", interval);
 });
-world7.afterEvents.projectileHitBlock.subscribe(({ projectile: stake }) => {
+world8.afterEvents.projectileHitBlock.subscribe(({ projectile: stake }) => {
   var _a;
   if (!stake.isValid()) return;
   if (!stake.matches({ type: "tcsmp:grappling_hook_stake" })) return;
   system3.clearRun(stake.getDynamicProperty("interval"));
-  const seat = world7.getEntity(stake.getDynamicProperty("seat"));
+  const seat = world8.getEntity(stake.getDynamicProperty("seat"));
   seat == null ? void 0 : seat.teleport(Vec3.above(seat.location, 0.1));
   const player = (_a = stake.projectile) == null ? void 0 : _a.owner;
   const seat2 = seat == null ? void 0 : seat.getRiders()[0];
@@ -5327,7 +5348,7 @@ world7.afterEvents.projectileHitBlock.subscribe(({ projectile: stake }) => {
     system3.clearRun(interval);
   });
 });
-world7.afterEvents.playerSpawn.subscribe((event) => {
+world8.afterEvents.playerSpawn.subscribe((event) => {
   const { player, initialSpawn } = event;
   if (!initialSpawn) return;
   system3.runTimeout(() => {
@@ -5396,12 +5417,12 @@ var factionInviteComponent = {
 var faction_invite_default = factionInviteComponent;
 
 // scripts/item_components/katana.ts
-import { EntityDamageCause, GameMode as GameMode2, system as system4, TicksPerSecond as TicksPerSecond2, world as world8 } from "@minecraft/server";
+import { EntityDamageCause, GameMode as GameMode2, system as system4, TicksPerSecond as TicksPerSecond2, world as world9 } from "@minecraft/server";
 var USE_TIME2 = TicksPerSecond2 * 0.5;
 var MAX_DURATION2 = TicksPerSecond2 * 500;
 var DASH_SPEED = 10;
 var DASH_TIME = TicksPerSecond2 * 0.2;
-world8.afterEvents.itemReleaseUse.subscribe((event) => {
+world9.afterEvents.itemReleaseUse.subscribe((event) => {
   var _a;
   const { source, itemStack, useDuration } = event;
   const { dimension } = source;
@@ -5470,8 +5491,8 @@ var katanaComponent = {
 var katana_default = katanaComponent;
 
 // scripts/item_components/double_block_placer.ts
-import { world as world9 } from "@minecraft/server";
-world9.beforeEvents.playerInteractWithBlock.subscribe((event) => {
+import { world as world10 } from "@minecraft/server";
+world10.beforeEvents.playerInteractWithBlock.subscribe((event) => {
   const { itemStack, block, blockFace } = event;
   const { dimension } = block, { heightRange } = dimension;
   if (!(itemStack == null ? void 0 : itemStack.hasTag("tcsmp:double_block_placer"))) return;
@@ -5482,16 +5503,16 @@ world9.beforeEvents.playerInteractWithBlock.subscribe((event) => {
 });
 
 // scripts/item_components/tnt_shield.ts
-import { EquipmentSlot as EquipmentSlot2, GameMode as GameMode3, Player as Player4, world as world10 } from "@minecraft/server";
-world10.afterEvents.projectileHitEntity.subscribe((event) => {
+import { EquipmentSlot as EquipmentSlot2, GameMode as GameMode3, Player as Player5, world as world11 } from "@minecraft/server";
+world11.afterEvents.projectileHitEntity.subscribe((event) => {
   const hitEntity = event.getEntityHit().entity;
-  if (!(hitEntity instanceof Player4)) return;
+  if (!(hitEntity instanceof Player5)) return;
   if (!isUsingTNTShield(hitEntity)) return;
   hitTNTShield(hitEntity, event.hitVector);
 });
-world10.afterEvents.entityHitEntity.subscribe((event) => {
+world11.afterEvents.entityHitEntity.subscribe((event) => {
   const { hitEntity, damagingEntity } = event;
-  if (!(hitEntity instanceof Player4)) return;
+  if (!(hitEntity instanceof Player5)) return;
   if (!isUsingTNTShield(hitEntity)) return;
   const toHolder = Vec3.normalize(Vec3.sub(hitEntity.location, damagingEntity.location));
   hitTNTShield(hitEntity, toHolder);
@@ -5558,13 +5579,13 @@ var ItemComponents = [
 var export_default2 = ItemComponents;
 
 // scripts/entity_events/cannon.ts
-import { GameMode as GameMode4, MolangVariableMap as MolangVariableMap2, world as world11 } from "@minecraft/server";
-world11.afterEvents.entitySpawn.subscribe(({ entity }) => {
+import { GameMode as GameMode4, MolangVariableMap as MolangVariableMap2, world as world12 } from "@minecraft/server";
+world12.afterEvents.entitySpawn.subscribe(({ entity }) => {
   if (!entity.isValid()) return;
   if (!entity.matches({ type: "tcsmp:cannon" })) return;
   entity.dimension.playSound("cannon.place", entity.location);
 });
-world11.afterEvents.entityHitEntity.subscribe((event) => {
+world12.afterEvents.entityHitEntity.subscribe((event) => {
   var _a;
   if (!event.hitEntity.matches({ type: "tcsmp:cannon" })) return;
   const cannon = event.hitEntity, player = event.damagingEntity;
@@ -5605,12 +5626,12 @@ function spawnSmoke(origin, direction) {
 }
 
 // scripts/entity_events/fire_cannonball.ts
-import { world as world12 } from "@minecraft/server";
-world12.afterEvents.projectileHitBlock.subscribe((event) => {
+import { world as world13 } from "@minecraft/server";
+world13.afterEvents.projectileHitBlock.subscribe((event) => {
   if (!event.projectile.isValid()) return;
   if (event.projectile.matches({ type: "tcsmp:fire_cannonball" })) hit(event);
 });
-world12.afterEvents.projectileHitEntity.subscribe((event) => {
+world13.afterEvents.projectileHitEntity.subscribe((event) => {
   if (!event.projectile.isValid()) return;
   if (event.projectile.matches({ type: "tcsmp:fire_cannonball" })) hit(event);
 });
@@ -5620,14 +5641,14 @@ function hit(event) {
 }
 
 // scripts/entity_events/creeper.ts
-import { world as world13 } from "@minecraft/server";
-world13.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity }) => {
+import { world as world14 } from "@minecraft/server";
+world14.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity }) => {
   entity.dimension.playSound("bottle.lightning", entity.location);
 }, { eventTypes: ["tcsmp:remove_charge"] });
 
 // scripts/entity_events/wolf.ts
-import { EntityComponentTypes, EquipmentSlot as EquipmentSlot3, world as world14 } from "@minecraft/server";
-world14.afterEvents.playerInteractWithEntity.subscribe((event) => {
+import { EntityComponentTypes, EquipmentSlot as EquipmentSlot3, world as world15 } from "@minecraft/server";
+world15.afterEvents.playerInteractWithEntity.subscribe((event) => {
   const { player, target } = event;
   if (!target.matches({ type: MinecraftEntityTypes.Wolf }) || !target.hasComponent(EntityComponentTypes.IsTamed) || player.equipment.getEquipment(EquipmentSlot3.Mainhand) || Vec3.distance(player.location, target.location) > 1.5 || !player.isSneaking) return;
   const { dimension } = player;
@@ -5640,11 +5661,11 @@ world14.afterEvents.playerInteractWithEntity.subscribe((event) => {
 });
 
 // scripts/extensions/entities.ts
-import { Entity as Entity4, EntityComponentTypes as EntityComponentTypes2, Player as Player6 } from "@minecraft/server";
-Player6.prototype.stopSound = function(sound) {
+import { Entity as Entity4, EntityComponentTypes as EntityComponentTypes2, Player as Player7 } from "@minecraft/server";
+Player7.prototype.stopSound = function(sound) {
   this.runCommand("stopsound @s " + sound);
 };
-Player6.prototype.applyImpulse = function(vector) {
+Player7.prototype.applyImpulse = function(vector) {
   return this.applyKnockback(vector.x, vector.z, Math.hypot(vector.x, vector.z), vector.y);
 };
 Object.defineProperties(Entity4.prototype, {
@@ -5798,13 +5819,13 @@ ContainerSlot.prototype.decrement = function() {
 };
 
 // scripts/main.ts
-world15.beforeEvents.worldInitialize.subscribe(({ blockComponentRegistry, itemComponentRegistry }) => {
+world16.beforeEvents.worldInitialize.subscribe(({ blockComponentRegistry, itemComponentRegistry }) => {
   for (const register of export_default2)
     itemComponentRegistry.registerCustomComponent(register.name, register.component);
   for (const register of export_default)
     blockComponentRegistry.registerCustomComponent(register.name, register.component);
 });
-world15.afterEvents.playerSpawn.subscribe((event) => {
+world16.afterEvents.playerSpawn.subscribe((event) => {
   const { initialSpawn, player } = event;
   if (!initialSpawn) return;
   NameRegistry.setName(player.id, player.name);
@@ -5818,16 +5839,16 @@ system5.afterEvents.scriptEventReceive.subscribe((event) => {
   var _a, _b;
   switch (event.id) {
     case "tcsmp:showdp":
-      for (const id of world15.getDynamicPropertyIds()) {
-        let output = world15.getDynamicProperty(id);
+      for (const id of world16.getDynamicPropertyIds()) {
+        let output = world16.getDynamicProperty(id);
         if (Vec3.isVector3(output))
           output = Vec3.toString(output);
         console.warn(`${id}: ${output}`);
       }
       break;
     case "tcsmp:cleardp":
-      for (const id of world15.getDynamicPropertyIds())
-        world15.setDynamicProperty(id);
+      for (const id of world16.getDynamicPropertyIds())
+        world16.setDynamicProperty(id);
       break;
     case "tcsmp:showdim":
       console.warn((_a = event.sourceEntity) == null ? void 0 : _a.dimension.id);

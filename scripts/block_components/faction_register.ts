@@ -1,4 +1,4 @@
-import { BlockCustomComponent, Player } from "@minecraft/server";
+import { BlockCustomComponent, Player, world } from "@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import { FactionRegister, FactionRegistry } from "../systems/factions";
 import { NameRegistry } from "../systems/names";
@@ -59,10 +59,30 @@ function viewFaction(player: Player, faction: FactionRegister) {
                 }).join(", ")
             ]
         })
+        .button({translate: "action.message.faction.title"})
         .button({translate: "action.manage.faction.leave", with: [faction.name]})
         .show(player).then(response => {
-            if (!response.canceled)
-                FactionRegistry.removePlayer(faction, player.id);
+            if (response.canceled) return;
+            
+            if (response.selection == 0) messageFaction(player, faction);
+            else FactionRegistry.removePlayer(faction, player.id);
+        });
+}
+
+function messageFaction(player: Player, faction: FactionRegister) {
+    new ModalFormData()
+        .title({translate: "action.message.faction.title"})
+        .textField({translate: "action.message.faction.message"}, "")
+        .submitButton({translate: "action.message.faction.submit"})
+        .show(player).then(response => {
+            if (response.canceled) return;
+            
+            const message = response.formValues?.[0] as string ?? "";
+
+            if (message.length) for (const id of faction.players) {
+                const player = world.getEntity(id) as Player | undefined;
+                player?.sendMessage(`[${faction.name}] <${player.name}> ${message}`);
+            }
         });
 }
 
@@ -72,17 +92,26 @@ function editFaction(owner: Player, faction: FactionRegister) {
         .body({translate: "action.manage.faction.body", with: [faction.name]})
         .button({translate: "action.manage.faction.edit_name"})
         .button({translate: "action.manage.faction.edit_players"})
+        .button({translate: "action.message.faction.title"})
         .button({translate: "action.manage.faction.delete"})
         .button({translate: "action.manage.faction.confirm"})
         .show(owner).then(response => {
             if (response.canceled) return;
 
-            if (response.selection == 0)
-                editFactionName(owner, faction);
-            else if (response.selection == 1)
-                editFactionPlayers(owner, faction);
-            else if (response.selection == 2)
-                deleteFaction(owner, faction);
+            switch (response.selection) {
+                case 0:
+                    editFactionName(owner, faction);
+                    break;
+                case 1:
+                    editFactionPlayers(owner, faction);
+                    break;
+                case 2:
+                    messageFaction(owner, faction);
+                    break;
+                case 3:
+                    deleteFaction(owner, faction);
+                    break;
+            }
         });
 }
 
