@@ -5,6 +5,7 @@ import thunderSpellComponent from "./thunder_spell";
 import growthSpellComponent from "./growth_spell";
 import decaySpellComponent from "./decay_spell";
 import grapplingHookComponent from "./grappling_hook";
+import factionInviteComponent from "./faction_invite";
 import katanaComponent from "./katana";
 import "./double_block_placer";
 import "./tnt_shield";
@@ -43,6 +44,10 @@ const ItemComponents: ItemComponentRegister[] = [
     {
         name: "tcsmp:katana",
         component: katanaComponent
+    },
+    {
+        name: "tcsmp:faction_invite",
+        component: factionInviteComponent
     }
 ]
 

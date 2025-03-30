@@ -7,6 +7,8 @@
                 "groups": [
                     {
                         "items": [
+                            "tcsmp:faction_invite",
+                            "tcsmp:faction_register",
                             "tcsmp:inscription_table",
                             "tcsmp:warp_crystal"
                         ]
@@ -27,6 +29,14 @@
             {
                 "category_name": "equipment",
                 "groups": [
+                    {
+                        "group_identifier": {
+                            "name": "minecraft:itemGroup.name.miscFood"
+                        },
+                        "items": [
+                            "tcsmp:big_sandwich"
+                        ]
+                    },
                     {
                         "items": [
                             "tcsmp:katana",

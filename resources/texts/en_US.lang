@@ -21,6 +21,8 @@ item.tcsmp:scroll_of_decay.name=Scroll of Decay
 item.tcsmp:scroll_of_return.name=Scroll of Return
 item.tcsmp:katana.name=Katana
 item.tcsmp:tnt_shield.name=TNT Shield
+item.tcsmp:faction_invite.name=Faction Invite
+item.tcsmp:big_sandwich.name=Big Sandwich
 
 ## Blocks
 tile.tcsmp:overworld_waystone.name=Overworld Waystone
@@ -28,6 +30,7 @@ tile.tcsmp:nether_waystone.name=Nether Waystone
 tile.tcsmp:end_waystone.name=End Waystone
 tile.tcsmp:inscription_table.name=Inscription Table
 tile.tcsmp:cannabis_plant.name=Cannabis Plant
+tile.tcsmp:faction_register.name=Faction Register
 
 ## Entities
 entity.tcsmp:grappling_hook_stake.name=Grappling Hook Stake
@@ -53,6 +56,41 @@ action.setup.waystone.title=Waystone Setup
 action.setup.waystone.private=Private Waystone
 action.setup.waystone.name=Waystone Name:
 action.setup.waystone.placeholder=%s's Waystone
+
+## Faction Invites
+action.setup.faction_invite.title=Setup Faction Invite
+action.setup.faction_invite.no_factions=You are not part of any faction!
+action.setup.faction_invite.message=Invite Message
+action.setup.faction_invite.message_placeholder=Come join %s!
+action.setup.faction_invite.submit=Confirm
+action.setup.faction_invite.cancel=Cancel
+
+action.join.faction.fail=You are already in a faction!
+action.join.faction.title=Faction Invite
+action.join.faction.accept=Join "%s"
+action.join.faction.reject=Reject
+
+## Faction Creation
+action.create.faction.title=Create Faction
+action.create.faction.name=Faction Name
+action.create.faction.name_placeholder=%s's Faction
+action.create.faction.submit=Create
+action.create.faction.success=Faction "%s" successfully created!
+action.create.faction.fail=Faction "%s" is invalid, failed to create faction.
+
+## Faction Management
+action.manage.faction.title=Manage Faction
+action.manage.faction.body=Manage "%s":
+action.manage.faction.edit_name=Edit Name
+action.manage.faction.edit_players=Edit Players
+action.manage.faction.kick=Kick %s
+action.manage.faction.kick_success=Kicked %s from "%s".
+action.manage.faction.delete=Delete Faction
+action.manage.faction.delete_success=Faction "%s" has been deleted!
+action.manage.faction.confirm=Confirm
+
+action.manage.faction.info=Faction: %s\nOwner: %s\nMembers: %s
+action.manage.faction.leave=Leave "%s"
 
 action.edit.waystone.title=Edit Waystone
 

@@ -6,9 +6,9 @@
         },
         "tags": ["crafting_table"],
         "pattern": [
-            "TTT",
+            "TOT",
             "WCW",
-            "TTT"
+            "TOT"
         ],
         "key": {
             "T": {
@@ -20,6 +20,9 @@
             },
             "C": {
                 "item": "tcsmp:warp_crystal"
+            },
+            "O": {
+                "item": "minecraft:obsidian"
             }
         },
         "unlock": [{

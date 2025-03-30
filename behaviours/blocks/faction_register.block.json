@@ -1,8 +1,8 @@
 {
-    "format_version": "1.21.60",
+    "format_version": "1.21.70",
     "minecraft:block": {
         "description": {
-            "identifier": "tcsmp:inscription_table",
+            "identifier": "tcsmp:faction_register",
             "traits": {
                 "minecraft:placement_direction": {
                     "enabled_states": ["minecraft:cardinal_direction"]
@@ -10,46 +10,41 @@
             }
         },
         "components": {
-            "minecraft:custom_components": [
-                "tcsmp:tick_particle"
-            ],
-            "tag:particle:tcsmp:inscription_rune": {},
-            "minecraft:tick": {
-                "interval_range": [20, 20]
-            },
-            "minecraft:geometry": "geometry.inscription_table",
+            "minecraft:custom_components": ["tcsmp:faction_register"],
+            "minecraft:geometry": "geometry.register",
             "minecraft:material_instances": {
                 "*": {
-                    "render_method": "opaque"
+                    "texture": "lectern_bottom",
+                    "render_method": "alpha_test"
                 },
-                "north": "side_0",
-                "south": "side_0",
-                "east": "side_1",
-                "west": "side_1",
-                "side_0": {
-                    "texture": "inscription_table_side_0"
+                "side": {
+                    "texture": "lectern_sides",
+                    "render_method": "alpha_test"
                 },
-                "side_1": {
-                    "texture": "inscription_table_side_1"
+                "front": {
+                    "texture": "lectern_front",
+                    "render_method": "alpha_test"
                 },
-                "up": {
-                    "texture": "inscription_table_top"
+                "base": {
+                    "texture": "lectern_base",
+                    "render_method": "alpha_test"
                 },
-                "down": {
-                    "texture": "inscription_table_bottom"
+                "top": {
+                    "texture": "lectern_top",
+                    "render_method": "alpha_test"
+                },
+                "ledger": {
+                    "texture": "faction_register_ledger",
+                    "render_method": "alpha_test"
                 }
             },
             "minecraft:collision_box": {
                 "origin": [-8, 0, -8],
-                "size": [16, 12, 16]
+                "size": [16, 14.4, 16]
             },
             "minecraft:selection_box": {
                 "origin": [-8, 0, -8],
-                "size": [16, 12, 16]
-            },
-            "minecraft:crafting_table": {
-                "crafting_tags": ["inscription_table"],
-                "table_name": "container.inscription_table"
+                "size": [16, 14.4, 16]
             },
             "minecraft:liquid_detection": {
                 "detection_rules": [{
@@ -60,7 +55,7 @@
         },
         "permutations": [
             {
-                "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
                 "components": {
                     "minecraft:transformation": {
                         "rotation": [0, 180, 0]
@@ -68,7 +63,7 @@
                 }
             },
             {
-                "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
                 "components": {
                     "minecraft:transformation": {
                         "rotation": [0, 270, 0]
@@ -76,7 +71,7 @@
                 }
             },
             {
-                "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
                 "components": {
                     "minecraft:transformation": {
                         "rotation": [0, 90, 0]

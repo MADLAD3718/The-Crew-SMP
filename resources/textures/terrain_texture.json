@@ -76,6 +76,9 @@
     },
     "cannabis_plant_2": {
       "textures": "textures/blocks/cannabis_plant_2"
+    },
+    "faction_register_ledger": {
+      "textures": "textures/blocks/ledger"
     }
   }
 }

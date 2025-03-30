@@ -3,6 +3,7 @@ import doubleBlockComponent from "./double_block";
 import waystoneComponent from "./waystone";
 import blockEntityComponent from "./block_entity";
 import tickParticleComponent from "./tick_particle";
+import factionRegisterComponent from "./faction_register";
 
 type BlockComponentRegister = {
     name: string
@@ -26,6 +27,10 @@ const BlockComponents: BlockComponentRegister[] = [
     {
         name: "tcsmp:tick_particle",
         component: tickParticleComponent
+    },
+    {
+        name: "tcsmp:faction_register",
+        component: factionRegisterComponent
     }
 ]
 

@@ -1,7 +1,9 @@
-import { system, Vector3, world } from "@minecraft/server";
+import { system, world } from "@minecraft/server";
 import { Vec3 } from "@madlad3718/mcveclib";
 import block_components from "./block_components/export";
 import item_components from "./item_components/export";
+import { FactionRegistry } from "./systems/factions";
+import { NameRegistry } from "./systems/names";
 import "./entity_events/export";
 import "./extensions/export";
 
@@ -13,11 +15,27 @@ world.beforeEvents.worldInitialize.subscribe(({blockComponentRegistry, itemCompo
         blockComponentRegistry.registerCustomComponent(register.name, register.component);
 });
 
+world.afterEvents.playerSpawn.subscribe(event => {
+    const { initialSpawn, player } = event;
+    if (!initialSpawn) return;
+    
+    NameRegistry.setName(player.id, player.name);
+
+    const faction = FactionRegistry.getFaction(player);
+    if (faction)
+        player.nameTag = player.name + `\n${faction.name}`;
+    else player.nameTag = player.name;
+});
+
 system.afterEvents.scriptEventReceive.subscribe(event => {
     switch (event.id) {
         case "tcsmp:showdp":
-            for (const id of world.getDynamicPropertyIds())
-                console.warn(`${id}: ${Vec3.toString(world.getDynamicProperty(id) as Vector3)}`);
+            for (const id of world.getDynamicPropertyIds()) {
+                let output = world.getDynamicProperty(id);
+                if (Vec3.isVector3(output))
+                    output = Vec3.toString(output);
+                console.warn(`${id}: ${output}`);
+            }
             break;
         case "tcsmp:cleardp":
             for (const id of world.getDynamicPropertyIds())
