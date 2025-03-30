@@ -39,6 +39,7 @@
                     },
                     {
                         "items": [
+                            "tcsmp:lucks_bane",
                             "tcsmp:katana",
                             "tcsmp:tnt_shield",
                             "tcsmp:grappling_hook",

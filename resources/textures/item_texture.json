@@ -82,6 +82,9 @@
     },
     "big_sandwich": {
       "textures": "textures/items/big_sandwich"
+    },
+    "lucks_bane": {
+      "textures": "textures/items/lucks_bane"
     }
   }
 }

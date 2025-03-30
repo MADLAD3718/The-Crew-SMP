@@ -58,3 +58,7 @@ export function getRectPrism(range: Vector3): Vector3[] {
         locations[i] = Vec3.sub(Vec3.from(x, y, z), range);
     return locations;
 }
+
+export function randomExp(lambda: number): number {
+    return - (1/lambda) * Math.log(1 - Math.random());
+}

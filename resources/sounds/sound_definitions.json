@@ -146,6 +146,18 @@
                "volume": 1.5
             }
          ]
+      },
+      "lucks_bane.big_hit": {
+         "category": "player",
+         "sounds": [ "sounds/lucks_bane/big_hit_2" ]
+      },
+      "lucks_bane.coins": {
+         "category": "player",
+         "sounds": [
+            "sounds/lucks_bane/coins_0",
+            "sounds/lucks_bane/coins_1",
+            "sounds/lucks_bane/coins_2"
+         ]
       }
    }
 }

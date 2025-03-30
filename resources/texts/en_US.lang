@@ -23,6 +23,7 @@ item.tcsmp:katana.name=Katana
 item.tcsmp:tnt_shield.name=TNT Shield
 item.tcsmp:faction_invite.name=Faction Invite
 item.tcsmp:big_sandwich.name=Big Sandwich
+item.tcsmp:lucks_bane.name=Luck's Bane
 
 ## Blocks
 tile.tcsmp:overworld_waystone.name=Overworld Waystone
