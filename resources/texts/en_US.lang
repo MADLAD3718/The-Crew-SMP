@@ -83,10 +83,27 @@ action.manage.faction.title=Manage Faction
 action.manage.faction.body=Manage "%s":
 action.manage.faction.edit_name=Edit Name
 action.manage.faction.edit_players=Edit Players
+action.manage.faction.edit_colour=Edit Colour
+
+action.manage.faction.colour=Faction Colour
+faction_colour.amethyst.name=Amethyst
+faction_colour.copper.name=Copper
+faction_colour.diamond.name=Diamond
+faction_colour.emerald.name=Emerald
+faction_colour.gold.name=Gold
+faction_colour.iron.name=Iron
+faction_colour.lapis.name=Lapis
+faction_colour.netherite.name=Netherite
+faction_colour.quartz.name=Quartz
+faction_colour.redstone.name=Redstone
+faction_colour.resin.name=Resin
+
 action.manage.faction.kick=Kick %s
 action.manage.faction.kick_success=Kicked %s from "%s".
+
 action.manage.faction.delete=Delete Faction
 action.manage.faction.delete_success=Faction "%s" has been deleted!
+
 action.manage.faction.confirm=Confirm
 
 action.manage.faction.info=Faction: %s\nOwner: %s\nMembers: %s

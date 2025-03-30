@@ -1,6 +1,6 @@
 import { BlockCustomComponent, Player, world } from "@minecraft/server";
 import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
-import { FactionRegister, FactionRegistry } from "../systems/factions";
+import { FactionColour, FactionRegister, FactionRegistry } from "../systems/factions";
 import { NameRegistry } from "../systems/names";
 
 const factionRegisterComponent: BlockCustomComponent = {
@@ -32,14 +32,34 @@ function createFaction(owner: Player) {
                 with: [owner.name]
             }
         )
+        .dropdown(
+            {translate: "action.manage.faction.colour"},
+            [
+                {translate: "faction_colour.quartz.name"},
+                {translate: "faction_colour.iron.name"},
+                {translate: "faction_colour.netherite.name"},
+                {translate: "faction_colour.redstone.name"},
+                {translate: "faction_colour.copper.name"},
+                {translate: "faction_colour.gold.name"},
+                {translate: "faction_colour.emerald.name"},
+                {translate: "faction_colour.diamond.name"},
+                {translate: "faction_colour.lapis.name"},
+                {translate: "faction_colour.amethyst.name"},
+                {translate: "faction_colour.resin.name"}
+            ]
+        )
         .submitButton({translate: "action.create.faction.submit"})
         .show(owner).then(response => {
             if (response.canceled) return;
 
             const name = response.formValues?.[0] as string ?? "";
+            const colour = response.formValues?.[1] as number ?? 0;
 
             if (name.length && FactionRegistry.addFaction({
-                name, owner: owner.id, players: [owner.id]
+                name,
+                colour: Object.values(FactionColour)[colour],
+                owner: owner.id,
+                players: [owner.id]
             }))
                 owner.sendMessage({translate: "action.create.faction.success", with: [name]});
             else owner.sendMessage({translate: "action.create.faction.fail", with: [name]});
@@ -81,7 +101,7 @@ function messageFaction(player: Player, faction: FactionRegister) {
 
             if (message.length) for (const id of faction.players) {
                 const player = world.getEntity(id) as Player | undefined;
-                player?.sendMessage(`[${faction.name}] <${player.name}> ${message}`);
+                player?.sendMessage(`§${faction.colour}[${faction.name}]§r <${player.name}> ${message}`);
             }
         });
 }
@@ -92,6 +112,7 @@ function editFaction(owner: Player, faction: FactionRegister) {
         .body({translate: "action.manage.faction.body", with: [faction.name]})
         .button({translate: "action.manage.faction.edit_name"})
         .button({translate: "action.manage.faction.edit_players"})
+        .button({translate: "action.manage.faction.edit_colour"})
         .button({translate: "action.message.faction.title"})
         .button({translate: "action.manage.faction.delete"})
         .button({translate: "action.manage.faction.confirm"})
@@ -106,9 +127,12 @@ function editFaction(owner: Player, faction: FactionRegister) {
                     editFactionPlayers(owner, faction);
                     break;
                 case 2:
-                    messageFaction(owner, faction);
+                    editFactionColour(owner, faction);
                     break;
                 case 3:
+                    messageFaction(owner, faction);
+                    break;
+                case 4:
                     deleteFaction(owner, faction);
                     break;
             }
@@ -137,11 +161,48 @@ function editFactionName(owner: Player, faction: FactionRegister) {
                 FactionRegistry.removeFaction(faction);
                 FactionRegistry.addFaction({
                     name: name,
+                    colour: faction.colour,
                     owner: owner.id,
                     players: faction.players
                 });
             }
             else owner.sendMessage({translate: "action.create.faction.fail", with: [name]});
+        });
+}
+
+function editFactionColour(owner: Player, faction: FactionRegister) {
+    new ModalFormData()
+        .title({translate: "action.manage.faction.edit_colour"})
+        .dropdown(
+            {translate: "action.manage.faction.colour"},
+            [
+                {translate: "faction_colour.quartz.name"},
+                {translate: "faction_colour.iron.name"},
+                {translate: "faction_colour.netherite.name"},
+                {translate: "faction_colour.redstone.name"},
+                {translate: "faction_colour.copper.name"},
+                {translate: "faction_colour.gold.name"},
+                {translate: "faction_colour.emerald.name"},
+                {translate: "faction_colour.diamond.name"},
+                {translate: "faction_colour.lapis.name"},
+                {translate: "faction_colour.amethyst.name"},
+                {translate: "faction_colour.resin.name"}
+            ]
+        )
+        .submitButton({translate: "action.manage.faction.confirm"})
+        .show(owner).then(response => {
+            if (response.canceled) return;
+
+            const colour = response.formValues?.[0] as number ?? 0;
+            if (Object.values(FactionColour)[colour] == faction.colour) return;
+
+            FactionRegistry.removeFaction(faction);
+            FactionRegistry.addFaction({
+                name: faction.name,
+                colour: Object.values(FactionColour)[colour],
+                owner: owner.id,
+                players: faction.players
+            });
         });
 }
 

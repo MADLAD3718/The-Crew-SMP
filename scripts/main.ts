@@ -23,7 +23,7 @@ world.afterEvents.playerSpawn.subscribe(event => {
 
     const faction = FactionRegistry.getFaction(player);
     if (faction)
-        player.nameTag = player.name + `\n${faction.name}`;
+        player.nameTag = player.name + `\n§${faction.colour}${faction.name}§r`;
     else player.nameTag = player.name;
 });
 
