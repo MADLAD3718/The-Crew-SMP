@@ -158,6 +158,12 @@
             "sounds/lucks_bane/coins_1",
             "sounds/lucks_bane/coins_2"
          ]
+      },
+      "knife.backstab": {
+         "category": "player",
+         "sounds": [
+            "sounds/knife/backstab"
+         ]
       }
    }
 }

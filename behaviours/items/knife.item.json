@@ -2,23 +2,22 @@
     "format_version": "1.21.70",
     "minecraft:item": {
         "description": {
-            "identifier": "tcsmp:lucks_bane"
+            "identifier": "tcsmp:knife"
         },
         "components": {
             "minecraft:custom_components": [
-                "tcsmp:random_exp_damage",
-                "tcsmp:lucks_bane"
+                "tcsmp:backstabber"
             ],
             "minecraft:tags": {
-                "tags": ["mean_damage:5"]
+                "tags": ["backstab_damage:15"]
             },
             "minecraft:max_stack_size": 1,
             "minecraft:display_name": {
-                "value": "item.tcsmp:lucks_bane.name"
+                "value": "item.tcsmp:knife.name"
             },
             "minecraft:icon": {
                 "textures": {
-                    "default": "lucks_bane"
+                    "default": "knife"
                 }
             },
             "minecraft:hand_equipped": {
@@ -28,7 +27,7 @@
                 "value": false
             },
             "minecraft:damage": {
-                "value": 1
+                "value": 4
             },
             "minecraft:enchantable": {
                 "slot": "sword",

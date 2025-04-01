@@ -1,5 +1,5 @@
 // scripts/main.ts
-import { system as system7, world as world18 } from "@minecraft/server";
+import { system as system8, world as world18 } from "@minecraft/server";
 
 // node_modules/@madlad3718/mcveclib/dist/index.js
 import { Direction } from "@minecraft/server";
@@ -5616,6 +5616,38 @@ var lucksBaneComponent = {
 };
 var lucks_bane_default = lucksBaneComponent;
 
+// scripts/item_components/backstabber.ts
+import { EntityDamageCause as EntityDamageCause4, system as system7, TicksPerSecond as TicksPerSecond5 } from "@minecraft/server";
+var DAMAGE_TIMES3 = /* @__PURE__ */ new Map();
+var INVUNERABILITY_DELAY3 = 1.5 * TicksPerSecond5;
+var ENTITY_ANGLE = Math.PI / 3;
+var COSE = Math.cos(ENTITY_ANGLE);
+var LOOK_ANGLE = 3 * Math.PI / 5;
+var COSL = Math.cos(LOOK_ANGLE);
+var backstabberComponent = {
+  onHitEntity(event) {
+    const { attackingEntity, hitEntity, itemStack } = event, { dimension } = hitEntity;
+    const lastHitTime = DAMAGE_TIMES3.get(hitEntity.id) ?? 0;
+    if (system7.currentTick - lastHitTime < INVUNERABILITY_DELAY3) return;
+    const view = attackingEntity.getViewDirection();
+    const head = attackingEntity.getHeadLocation();
+    const targetView = hitEntity.getViewDirection();
+    const targetHead = hitEntity.getHeadLocation();
+    const toEntity = Vec3.normalize(Vec3.sub(targetHead, head));
+    if (Vec3.dot(toEntity, view) < COSE) return;
+    if (Vec3.dot(targetView, view) < COSL) return;
+    const backstabDamage = parseInt(itemStack == null ? void 0 : itemStack.getTagProperty("backstab_damage"));
+    hitEntity.applyDamage(backstabDamage, {
+      cause: EntityDamageCause4.entityAttack,
+      damagingEntity: attackingEntity
+    });
+    dimension.playSound("knife.backstab", hitEntity.location);
+    dimension.spawnParticle("tcsmp:backstab", Vec3.sub(targetHead, toEntity));
+    DAMAGE_TIMES3.set(hitEntity.id, system7.currentTick);
+  }
+};
+var backstabber_default = backstabberComponent;
+
 // scripts/item_components/double_block_placer.ts
 import { world as world12 } from "@minecraft/server";
 world12.beforeEvents.playerInteractWithBlock.subscribe((event) => {
@@ -5708,6 +5740,10 @@ var ItemComponents = [
   {
     name: "tcsmp:lucks_bane",
     component: lucks_bane_default
+  },
+  {
+    name: "tcsmp:backstabber",
+    component: backstabber_default
   }
 ];
 var export_default2 = ItemComponents;
@@ -5969,7 +6005,7 @@ world18.afterEvents.playerSpawn.subscribe((event) => {
 \xA7${faction.colour}${faction.name}\xA7r`;
   else player.nameTag = player.name;
 });
-system7.afterEvents.scriptEventReceive.subscribe((event) => {
+system8.afterEvents.scriptEventReceive.subscribe((event) => {
   var _a, _b;
   switch (event.id) {
     case "tcsmp:showdp":

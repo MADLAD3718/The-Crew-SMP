@@ -39,6 +39,7 @@
                     },
                     {
                         "items": [
+                            "tcsmp:knife",
                             "tcsmp:lucks_bane",
                             "tcsmp:katana",
                             "tcsmp:tnt_shield",

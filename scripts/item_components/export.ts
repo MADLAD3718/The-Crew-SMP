@@ -9,6 +9,7 @@ import katanaComponent from "./katana";
 import factionInviteComponent from "./faction_invite";
 import randomExpDamageComponent from "./random_exp_damage";
 import lucksBaneComponent from "./lucks_bane";
+import backstabberComponent from "./backstabber";
 import "./double_block_placer";
 import "./tnt_shield";
 
@@ -58,6 +59,10 @@ const ItemComponents: ItemComponentRegister[] = [
     {
         name: "tcsmp:lucks_bane",
         component: lucksBaneComponent
+    },
+    {
+        name: "tcsmp:backstabber",
+        component: backstabberComponent
     }
 ]
 

@@ -85,6 +85,9 @@
     },
     "lucks_bane": {
       "textures": "textures/items/lucks_bane"
+    },
+    "knife": {
+      "textures": "textures/items/knife"
     }
   }
 }
