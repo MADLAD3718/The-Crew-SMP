@@ -15,7 +15,7 @@
                 }
             },
             "minecraft:record": {
-				"comparator_signal": 13,
+				"comparator_signal": 10,
 				"duration": 252,
 				"sound_event": "balloonpop"
 			},
