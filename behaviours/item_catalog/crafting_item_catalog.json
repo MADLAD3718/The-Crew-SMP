@@ -93,6 +93,19 @@
                         ]
                     }
                 ]
+            },
+            {
+                "category_name": "nature",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "name": "minecraft:itemGroup.name.crop"
+                        },
+                        "items": [
+                            "tcsmp:tomato"
+                        ]
+                    }
+                ]
             }
         ]
     }

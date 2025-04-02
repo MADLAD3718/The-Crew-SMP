@@ -15,14 +15,19 @@
         },
         "component_groups": {
             "tcsmp:wild": {
-                "minecraft:behavior.random_sitting": {
+                "minecraft:behavior.tempt": {
                     "priority": 0,
+                    "speed_multiplier": 1.0,
+                    "items": ["tcsmp:tomato"]
+                },
+                "minecraft:behavior.random_sitting": {
+                    "priority": 1,
                     "min_sit_time": 2.0,
                     "start_chance": 0.75,
                     "stop_chance": 0.2
                 },
                 "minecraft:behavior.random_stroll": {
-                    "priority": 1,
+                    "priority": 2,
                     "speed_multiplier": 1
                 },
                 "minecraft:despawn": {
@@ -35,6 +40,27 @@
                     "can_teleport": false,
                     "start_distance": 3,
                     "stop_distance": 2
+                },
+                "minecraft:interact": {
+                    "interactions": [{
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other"
+                                    },
+                                    {
+                                        "test": "all_slots_empty",
+                                        "subject": "other",
+                                        "value": "hand"
+                                    }
+                                ]
+                            },
+                            "interact_text": "action.interact.gerbil"
+                        },
+                        "swing": true
+                    }]
                 }
             },
             "tcsmp:cartwheeling": {
@@ -80,28 +106,9 @@
                 "suffocate_time": 0
             },
             "minecraft:nameable": {},
-            "minecraft:interact": {
-                "interactions": [{
-                    "on_interact": {
-                        "filters": {
-                            "all_of": [
-                                {
-                                    "test": "is_family",
-                                    "subject": "other",
-                                    "value": "player"
-                                },
-                                {
-                                    "test": "is_sneak_held",
-                                    "subject": "other",
-                                    "value": true
-                                }
-                            ]
-                        },
-                        "interact_text": "action.interact.gerbil"
-                    }
-                }]
-            },
             "minecraft:tameable": {
+                "probability": 1.0,
+                "tame_items": "tcsmp:tomato",
                 "tame_event": {
                     "event": "tcsmp:on_tame",
                     "target": "self"

@@ -112,6 +112,9 @@
     },
     "record_straight_facts": {
       "textures": "textures/items/records/record_straight_facts"
+    },
+    "tomato": {
+      "textures": "textures/items/tomato"
     }
   }
 }

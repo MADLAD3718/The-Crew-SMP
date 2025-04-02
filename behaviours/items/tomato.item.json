@@ -1,0 +1,33 @@
+{
+    "format_version": "1.21.70",
+    "minecraft:item": {
+        "description": {
+            "identifier": "tcsmp:tomato"
+        },
+        "components": {
+            "minecraft:max_stack_size": 64,
+            "minecraft:display_name": {
+                "value": "item.tcsmp:tomato.name"
+            },
+            "minecraft:icon": {
+                "textures": {
+                    "default": "tomato"
+                }
+            },
+            "minecraft:food": {
+                "can_always_eat": false,
+                "nutrition": 4
+            },
+            "minecraft:use_modifiers": {
+                "use_duration": 1.6,
+                "movement_modifier": 0.35
+            },
+            "minecraft:use_animation": "eat",
+            "minecraft:block_placer": {
+                "replace_block_item": true,
+                "block": "tcsmp:tomato",
+                "use_on": ["minecraft:farmland"]
+            }
+        }
+    }
+}
