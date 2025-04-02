@@ -5,6 +5,7 @@ import item_components from "./item_components/export";
 import { FactionRegistry } from "./systems/factions";
 import { NameRegistry } from "./systems/names";
 import "./entity_events/export";
+import "./block_events/export";
 import "./extensions/export";
 
 world.beforeEvents.worldInitialize.subscribe(({blockComponentRegistry, itemComponentRegistry}) => {

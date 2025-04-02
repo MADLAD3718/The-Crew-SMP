@@ -2,3 +2,4 @@
 *.mcworld
 *.mcaddon
 node_modules
+/behaviours/scripts

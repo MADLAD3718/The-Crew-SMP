@@ -6,6 +6,19 @@
                 "category_name": "items",
                 "groups": [
                     {
+                        "group_identifier": {
+                            "name": "minecraft:itemGroup.name.record"
+                        },
+                        "items": [
+                            "tcsmp:music_disc_crackas",
+                            "tcsmp:music_disc_puma_pants",
+                            "tcsmp:music_disc_drop_it",
+                            "tcsmp:music_disc_based_boys",
+                            "tcsmp:music_disc_obama",
+                            "tcsmp:music_disc_straight_facts"
+                        ]
+                    },
+                    {
                         "items": [
                             "tcsmp:faction_invite",
                             "tcsmp:faction_register",

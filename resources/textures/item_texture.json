@@ -94,6 +94,24 @@
     },
     "gerbil": {
       "textures": "textures/items/gerbil"
+    },
+    "record_drop_it": {
+      "textures": "textures/items/records/record_drop_it"
+    },
+    "record_crackas": {
+      "textures": "textures/items/records/record_crackas"
+    },
+    "record_puma_pants": {
+      "textures": "textures/items/records/record_puma_pants"
+    },
+    "record_based_boys": {
+      "textures": "textures/items/records/record_based_boys"
+    },
+    "record_obama": {
+      "textures": "textures/items/records/record_obama"
+    },
+    "record_straight_facts": {
+      "textures": "textures/items/records/record_straight_facts"
     }
   }
 }

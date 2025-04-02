@@ -27,6 +27,14 @@ item.tcsmp:lucks_bane.name=Luck's Bane
 item.tcsmp:knife.name=Knife
 item.tcsmp:gerbil.name=Gerbil
 
+## Record Descriptions
+item.record_balloonpop.desc=George Vide - CRAcK@$
+item.record_open.desc=George Vide - Puma Pants
+item.record_take_picture.desc=George Vide - DROP IT
+item.record_hit.desc=George Vide - BA$ED BOY$
+item.record_reaction.icebomb.desc=George Vide - Obama
+item.record_reaction.bleach.desc=George Vide - Straight Facts
+
 ## Spawn Eggs
 item.spawn_egg.entity.tcsmp:gerbil.name=Gerbil Spawn Egg
 

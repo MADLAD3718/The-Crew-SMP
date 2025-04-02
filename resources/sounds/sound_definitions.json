@@ -194,6 +194,90 @@
          "sounds": [
             "sounds/gerbil/hurt"
          ]
+      },
+      "record.drop_it": {
+         "__use_legacy_max_distance" : "true",
+         "category" : "record",
+         "max_distance" : 64.0,
+         "min_distance" : null,
+         "sounds" : [
+            {
+               "load_on_low_memory" : true,
+               "name" : "sounds/records/drop_it",
+               "stream" : true,
+               "volume" : 0.50
+            }
+         ]
+      },
+      "record.crackas": {
+         "__use_legacy_max_distance" : "true",
+         "category" : "record",
+         "max_distance" : 64.0,
+         "min_distance" : null,
+         "sounds" : [
+            {
+               "load_on_low_memory" : true,
+               "name" : "sounds/records/crackas",
+               "stream" : true,
+               "volume" : 0.50
+            }
+         ]
+      },
+      "record.puma_pants": {
+         "__use_legacy_max_distance" : "true",
+         "category" : "record",
+         "max_distance" : 64.0,
+         "min_distance" : null,
+         "sounds" : [
+            {
+               "load_on_low_memory" : true,
+               "name" : "sounds/records/puma_pants",
+               "stream" : true,
+               "volume" : 0.50
+            }
+         ]
+      },
+      "record.based_boys": {
+         "__use_legacy_max_distance" : "true",
+         "category" : "record",
+         "max_distance" : 64.0,
+         "min_distance" : null,
+         "sounds" : [
+            {
+               "load_on_low_memory" : true,
+               "name" : "sounds/records/based_boys",
+               "stream" : true,
+               "volume" : 0.50
+            }
+         ]
+      },
+      "record.obama": {
+         "__use_legacy_max_distance" : "true",
+         "category" : "record",
+         "max_distance" : 64.0,
+         "min_distance" : null,
+         "sounds" : [
+            {
+               "load_on_low_memory" : true,
+               "name" : "sounds/records/obama",
+               "stream" : true,
+               "volume" : 0.50
+            }
+         ]
+      },
+      "record.straight_facts": {
+         "__use_legacy_max_distance" : "true",
+         "category" : "record",
+         "max_distance" : 64.0,
+         "min_distance" : null,
+         "sounds" : [
+            {
+               "load_on_low_memory" : true,
+               "name" : "sounds/records/straight_facts",
+               "stream" : true,
+               "volume" : 0.50
+            }
+         ]
       }
    }
 }

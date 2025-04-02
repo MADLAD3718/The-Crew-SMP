@@ -18,5 +18,39 @@
                 "volume": 1.0
             }
         }
+    },
+    "individual_event_sounds": {
+        "events": {
+            "camera.take_picture": {
+                "sound": "record.drop_it",
+                "pitch": 1.0,
+                "volume": 1.0
+            },
+            "balloonpop" : {
+                "sound" : "record.crackas",
+                "pitch" : 1.0,
+                "volume" : 1.0
+            },
+            "elemconstruct.open": {
+                "sound": "record.puma_pants",
+                "pitch": 1.0,
+                "volume": 1.0
+            },
+            "icebomb.hit": {
+                "sound": "record.based_boys",
+                "pitch": 1.0,
+                "volume": 1.0
+            },
+            "lt.reaction.icebomb": {
+                "sound": "record.obama",
+                "pitch": 1.0,
+                "volume": 1.0
+            },
+            "lt.reaction.bleach": {
+                "sound": "record.straight_facts",
+                "pitch": 1.0,
+                "volume": 1.0
+            }
+        }
     }
 }
