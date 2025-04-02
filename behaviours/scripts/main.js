@@ -1,5 +1,5 @@
 // scripts/main.ts
-import { system as system8, world as world18 } from "@minecraft/server";
+import { system as system9, world as world19 } from "@minecraft/server";
 
 // node_modules/@madlad3718/mcveclib/dist/index.js
 import { Direction } from "@minecraft/server";
@@ -5586,9 +5586,10 @@ import { EntityDamageCause as EntityDamageCause3, EquipmentSlot as EquipmentSlot
 var DAMAGE_TIMES2 = /* @__PURE__ */ new Map();
 var INVUNERABILITY_DELAY2 = 0.5 * TicksPerSecond4;
 world11.afterEvents.entityHurt.subscribe((event) => {
+  var _a;
   const { damage, damageSource, hurtEntity } = event;
   const { damagingEntity } = damageSource, { dimension } = hurtEntity;
-  const weapon = damagingEntity == null ? void 0 : damagingEntity.equipment.getEquipment(EquipmentSlot2.Mainhand);
+  const weapon = (_a = damagingEntity == null ? void 0 : damagingEntity.equipment) == null ? void 0 : _a.getEquipment(EquipmentSlot2.Mainhand);
   if ((weapon == null ? void 0 : weapon.typeId) != "tcsmp:lucks_bane") return;
   const toEntity = Vec3.normalize(Vec3.sub(
     hurtEntity.getHeadLocation(),
@@ -5648,9 +5649,52 @@ var backstabberComponent = {
 };
 var backstabber_default = backstabberComponent;
 
+// scripts/item_components/gerbil.ts
+import { EntityComponentTypes, EquipmentSlot as EquipmentSlot3, ItemStack as ItemStack3, Player as Player5, system as system8, TicksPerSecond as TicksPerSecond6, world as world12 } from "@minecraft/server";
+var PICKUP_TIMES = /* @__PURE__ */ new Map();
+var PICKUP_DELAY = 0.25 * TicksPerSecond6;
+world12.afterEvents.playerInteractWithEntity.subscribe((event) => {
+  const { player, target, itemStack } = event;
+  if (!target.matches({ type: "tcsmp:gerbil" })) return;
+  if (!player.isSneaking) return;
+  if (!itemStack) {
+    if (!target.nameTag) return;
+    const tameable = target.getComponent(EntityComponentTypes.Tameable);
+    if ((tameable == null ? void 0 : tameable.isTamed) && tameable.tamedToPlayerId != player.id) return;
+    const item = new ItemStack3("tcsmp:gerbil");
+    item.nameTag = target.nameTag;
+    target.remove();
+    player.equipment.getEquipmentSlot(EquipmentSlot3.Mainhand).setItem(item);
+    const head = player.getHeadLocation();
+    player.dimension.playSound("random.pop", head);
+    player.dimension.playSound("mob.gerbil.chirp", head);
+    PICKUP_TIMES.set(player.id, system8.currentTick);
+  } else if (itemStack.typeId == MinecraftItemTypes.NameTag) {
+    if (target.nameTag) return;
+    const tameable = target.getComponent(EntityComponentTypes.Tameable);
+    if (!(tameable == null ? void 0 : tameable.isTamed)) tameable == null ? void 0 : tameable.tame(player);
+  }
+});
+var gerbilComponent = {
+  onUseOn(event) {
+    const { source, itemStack } = event;
+    if (!(source instanceof Player5 && source.isSneaking)) return;
+    const lastPickedUpTime = PICKUP_TIMES.get(source.id) ?? 0;
+    if (system8.currentTick - lastPickedUpTime < PICKUP_DELAY) return;
+    const raycast = source.getBlockFromViewDirection();
+    const target = Vec3.add(raycast.block, raycast.faceLocation);
+    const gerbil = source.dimension.spawnEntity("tcsmp:gerbil", target);
+    if (itemStack.nameTag) gerbil.nameTag = itemStack.nameTag;
+    const tameable = gerbil.getComponent(EntityComponentTypes.Tameable);
+    tameable == null ? void 0 : tameable.tame(source);
+    source.equipment.getEquipmentSlot(EquipmentSlot3.Mainhand).setItem();
+  }
+};
+var gerbil_default = gerbilComponent;
+
 // scripts/item_components/double_block_placer.ts
-import { world as world12 } from "@minecraft/server";
-world12.beforeEvents.playerInteractWithBlock.subscribe((event) => {
+import { world as world13 } from "@minecraft/server";
+world13.beforeEvents.playerInteractWithBlock.subscribe((event) => {
   const { itemStack, block, blockFace } = event;
   const { dimension } = block, { heightRange } = dimension;
   if (!(itemStack == null ? void 0 : itemStack.hasTag("tcsmp:double_block_placer"))) return;
@@ -5661,24 +5705,24 @@ world12.beforeEvents.playerInteractWithBlock.subscribe((event) => {
 });
 
 // scripts/item_components/tnt_shield.ts
-import { EquipmentSlot as EquipmentSlot3, GameMode as GameMode3, Player as Player5, world as world13 } from "@minecraft/server";
-world13.afterEvents.projectileHitEntity.subscribe((event) => {
+import { EquipmentSlot as EquipmentSlot4, GameMode as GameMode3, Player as Player6, world as world14 } from "@minecraft/server";
+world14.afterEvents.projectileHitEntity.subscribe((event) => {
   const hitEntity = event.getEntityHit().entity;
-  if (!(hitEntity instanceof Player5)) return;
+  if (!(hitEntity instanceof Player6)) return;
   if (!isUsingTNTShield(hitEntity)) return;
   hitTNTShield(hitEntity, event.hitVector);
 });
-world13.afterEvents.entityHitEntity.subscribe((event) => {
+world14.afterEvents.entityHitEntity.subscribe((event) => {
   const { hitEntity, damagingEntity } = event;
-  if (!(hitEntity instanceof Player5)) return;
+  if (!(hitEntity instanceof Player6)) return;
   if (!isUsingTNTShield(hitEntity)) return;
   const toHolder = Vec3.normalize(Vec3.sub(hitEntity.location, damagingEntity.location));
   hitTNTShield(hitEntity, toHolder);
 });
 function isUsingTNTShield(holder) {
   if (!holder.isSneaking) return false;
-  const mainhand = holder.equipment.getEquipment(EquipmentSlot3.Mainhand);
-  const offhand = holder.equipment.getEquipment(EquipmentSlot3.Offhand);
+  const mainhand = holder.equipment.getEquipment(EquipmentSlot4.Mainhand);
+  const offhand = holder.equipment.getEquipment(EquipmentSlot4.Offhand);
   if ((offhand == null ? void 0 : offhand.typeId) == "minecraft:shield") return false;
   return (offhand == null ? void 0 : offhand.typeId) == "tcsmp:tnt_shield" || (mainhand == null ? void 0 : mainhand.typeId) == "tcsmp:tnt_shield";
 }
@@ -5691,8 +5735,8 @@ function hitTNTShield(holder, direction) {
     source: holder
   });
   if (holder.getGameMode() == GameMode3.creative) return;
-  const mainhand = holder.equipment.getEquipmentSlot(EquipmentSlot3.Mainhand);
-  const offhand = holder.equipment.getEquipmentSlot(EquipmentSlot3.Offhand);
+  const mainhand = holder.equipment.getEquipmentSlot(EquipmentSlot4.Mainhand);
+  const offhand = holder.equipment.getEquipmentSlot(EquipmentSlot4.Offhand);
   const usingOffhand = offhand.hasItem() && offhand.typeId == "tcsmp:tnt_shield";
   const slot = usingOffhand ? offhand : mainhand;
   const item = (_a = slot == null ? void 0 : slot.getItem()) == null ? void 0 : _a.damage();
@@ -5744,18 +5788,22 @@ var ItemComponents = [
   {
     name: "tcsmp:backstabber",
     component: backstabber_default
+  },
+  {
+    name: "tcsmp:gerbil",
+    component: gerbil_default
   }
 ];
 var export_default2 = ItemComponents;
 
 // scripts/entity_events/cannon.ts
-import { GameMode as GameMode4, MolangVariableMap as MolangVariableMap3, world as world14 } from "@minecraft/server";
-world14.afterEvents.entitySpawn.subscribe(({ entity }) => {
+import { GameMode as GameMode4, MolangVariableMap as MolangVariableMap3, world as world15 } from "@minecraft/server";
+world15.afterEvents.entitySpawn.subscribe(({ entity }) => {
   if (!entity.isValid()) return;
   if (!entity.matches({ type: "tcsmp:cannon" })) return;
   entity.dimension.playSound("cannon.place", entity.location);
 });
-world14.afterEvents.entityHitEntity.subscribe((event) => {
+world15.afterEvents.entityHitEntity.subscribe((event) => {
   var _a;
   if (!event.hitEntity.matches({ type: "tcsmp:cannon" })) return;
   const cannon = event.hitEntity, player = event.damagingEntity;
@@ -5796,12 +5844,12 @@ function spawnSmoke(origin, direction) {
 }
 
 // scripts/entity_events/fire_cannonball.ts
-import { world as world15 } from "@minecraft/server";
-world15.afterEvents.projectileHitBlock.subscribe((event) => {
+import { world as world16 } from "@minecraft/server";
+world16.afterEvents.projectileHitBlock.subscribe((event) => {
   if (!event.projectile.isValid()) return;
   if (event.projectile.matches({ type: "tcsmp:fire_cannonball" })) hit(event);
 });
-world15.afterEvents.projectileHitEntity.subscribe((event) => {
+world16.afterEvents.projectileHitEntity.subscribe((event) => {
   if (!event.projectile.isValid()) return;
   if (event.projectile.matches({ type: "tcsmp:fire_cannonball" })) hit(event);
 });
@@ -5811,16 +5859,16 @@ function hit(event) {
 }
 
 // scripts/entity_events/creeper.ts
-import { world as world16 } from "@minecraft/server";
-world16.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity }) => {
+import { world as world17 } from "@minecraft/server";
+world17.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity }) => {
   entity.dimension.playSound("bottle.lightning", entity.location);
 }, { eventTypes: ["tcsmp:remove_charge"] });
 
 // scripts/entity_events/wolf.ts
-import { EntityComponentTypes, EquipmentSlot as EquipmentSlot4, world as world17 } from "@minecraft/server";
-world17.afterEvents.playerInteractWithEntity.subscribe((event) => {
+import { EntityComponentTypes as EntityComponentTypes2, EquipmentSlot as EquipmentSlot5, world as world18 } from "@minecraft/server";
+world18.afterEvents.playerInteractWithEntity.subscribe((event) => {
   const { player, target } = event;
-  if (!target.matches({ type: MinecraftEntityTypes.Wolf }) || !target.hasComponent(EntityComponentTypes.IsTamed) || player.equipment.getEquipment(EquipmentSlot4.Mainhand) || Vec3.distance(player.location, target.location) > 1.5 || !player.isSneaking) return;
+  if (!target.isValid() || !target.matches({ type: MinecraftEntityTypes.Wolf }) || !target.hasComponent(EntityComponentTypes2.IsTamed) || player.equipment.getEquipment(EquipmentSlot5.Mainhand) || Vec3.distance(player.location, target.location) > 1.5 || !player.isSneaking) return;
   const { dimension } = player;
   dimension.playSound("wolf.pet", target.location);
   const variant = target.getProperty("minecraft:sound_variant");
@@ -5831,65 +5879,65 @@ world17.afterEvents.playerInteractWithEntity.subscribe((event) => {
 });
 
 // scripts/extensions/entities.ts
-import { Entity as Entity4, EntityComponentTypes as EntityComponentTypes2, Player as Player7 } from "@minecraft/server";
-Player7.prototype.stopSound = function(sound) {
+import { Entity as Entity4, EntityComponentTypes as EntityComponentTypes3, Player as Player8 } from "@minecraft/server";
+Player8.prototype.stopSound = function(sound) {
   this.runCommand("stopsound @s " + sound);
 };
-Player7.prototype.applyImpulse = function(vector) {
+Player8.prototype.applyImpulse = function(vector) {
   return this.applyKnockback(vector.x, vector.z, Math.hypot(vector.x, vector.z), vector.y);
 };
 Object.defineProperties(Entity4.prototype, {
   inventory: {
     get() {
-      return this.getComponent(EntityComponentTypes2.Inventory);
+      return this.getComponent(EntityComponentTypes3.Inventory);
     }
   },
   equipment: {
     get() {
-      return this.getComponent(EntityComponentTypes2.Equippable);
+      return this.getComponent(EntityComponentTypes3.Equippable);
     }
   },
   projectile: {
     get() {
-      return this.getComponent(EntityComponentTypes2.Projectile);
+      return this.getComponent(EntityComponentTypes3.Projectile);
     }
   },
   entityRidingOn: {
     get() {
       var _a;
-      return (_a = this.getComponent(EntityComponentTypes2.Riding)) == null ? void 0 : _a.entityRidingOn;
+      return (_a = this.getComponent(EntityComponentTypes3.Riding)) == null ? void 0 : _a.entityRidingOn;
     }
   },
   leashHolder: {
     get() {
       var _a;
-      return (_a = this.getComponent(EntityComponentTypes2.Leashable)) == null ? void 0 : _a.leashHolder;
+      return (_a = this.getComponent(EntityComponentTypes3.Leashable)) == null ? void 0 : _a.leashHolder;
     }
   }
 });
 Entity4.prototype.addRider = function(rider) {
-  const component = this.getComponent(EntityComponentTypes2.Rideable);
-  if (!component) throw new MissingComponentError(EntityComponentTypes2.Rideable);
+  const component = this.getComponent(EntityComponentTypes3.Rideable);
+  if (!component) throw new MissingComponentError(EntityComponentTypes3.Rideable);
   return component.addRider(rider);
 };
 Entity4.prototype.ejectRider = function(rider) {
-  const component = this.getComponent(EntityComponentTypes2.Rideable);
-  if (!component) throw new MissingComponentError(EntityComponentTypes2.Rideable);
+  const component = this.getComponent(EntityComponentTypes3.Rideable);
+  if (!component) throw new MissingComponentError(EntityComponentTypes3.Rideable);
   return component.ejectRider(rider);
 };
 Entity4.prototype.ejectRiders = function() {
-  const component = this.getComponent(EntityComponentTypes2.Rideable);
-  if (!component) throw new MissingComponentError(EntityComponentTypes2.Rideable);
+  const component = this.getComponent(EntityComponentTypes3.Rideable);
+  if (!component) throw new MissingComponentError(EntityComponentTypes3.Rideable);
   return component.ejectRiders();
 };
 Entity4.prototype.getRiders = function() {
-  const component = this.getComponent(EntityComponentTypes2.Rideable);
-  if (!component) throw new MissingComponentError(EntityComponentTypes2.Rideable);
+  const component = this.getComponent(EntityComponentTypes3.Rideable);
+  if (!component) throw new MissingComponentError(EntityComponentTypes3.Rideable);
   return component.getRiders();
 };
 Entity4.prototype.dropInventory = function() {
-  const component = this.getComponent(EntityComponentTypes2.Inventory);
-  if (!component) throw new MissingComponentError(EntityComponentTypes2.Inventory);
+  const component = this.getComponent(EntityComponentTypes3.Inventory);
+  if (!component) throw new MissingComponentError(EntityComponentTypes3.Inventory);
   const { container, inventorySize } = component;
   for (let i = 0; i < inventorySize; ++i) {
     const slot = container == null ? void 0 : container.getSlot(i);
@@ -5899,19 +5947,19 @@ Entity4.prototype.dropInventory = function() {
   }
 };
 Entity4.prototype.leashTo = function(leashHolder) {
-  const component = this.getComponent(EntityComponentTypes2.Leashable);
-  if (!component) throw new MissingComponentError(EntityComponentTypes2.Leashable);
+  const component = this.getComponent(EntityComponentTypes3.Leashable);
+  if (!component) throw new MissingComponentError(EntityComponentTypes3.Leashable);
   return component.leashTo(leashHolder);
 };
 Entity4.prototype.unleash = function() {
-  const component = this.getComponent(EntityComponentTypes2.Leashable);
-  if (!component) throw new MissingComponentError(EntityComponentTypes2.Leashable);
+  const component = this.getComponent(EntityComponentTypes3.Leashable);
+  if (!component) throw new MissingComponentError(EntityComponentTypes3.Leashable);
   return component.unleash();
 };
 
 // scripts/extensions/items.ts
-import { ItemComponentTypes, ItemStack as ItemStack4 } from "@minecraft/server";
-Object.defineProperties(ItemStack4.prototype, {
+import { ItemComponentTypes, ItemStack as ItemStack5 } from "@minecraft/server";
+Object.defineProperties(ItemStack5.prototype, {
   durability: {
     get() {
       return this.getComponent(ItemComponentTypes.Durability);
@@ -5923,12 +5971,12 @@ Object.defineProperties(ItemStack4.prototype, {
     }
   }
 });
-ItemStack4.prototype.getTagProperty = function(id) {
+ItemStack5.prototype.getTagProperty = function(id) {
   var _a;
   return (_a = this.getTags().find((tag) => tag.startsWith(id + ":"))) == null ? void 0 : _a.slice(id.length + 1);
 };
-ItemStack4.prototype.clone = function(type) {
-  const item = new ItemStack4(type ?? this.type);
+ItemStack5.prototype.clone = function(type) {
+  const item = new ItemStack5(type ?? this.type);
   item.amount = this.amount;
   item.nameTag = this.nameTag;
   item.lockMode = this.lockMode;
@@ -5943,7 +5991,7 @@ ItemStack4.prototype.clone = function(type) {
   }
   return item;
 };
-ItemStack4.prototype.damage = function() {
+ItemStack5.prototype.damage = function() {
   var _a, _b;
   const item = this.clone();
   if (!item.durability) throw new MissingComponentError(ItemComponentTypes.Durability);
@@ -5989,13 +6037,13 @@ ContainerSlot.prototype.decrement = function() {
 };
 
 // scripts/main.ts
-world18.beforeEvents.worldInitialize.subscribe(({ blockComponentRegistry, itemComponentRegistry }) => {
+world19.beforeEvents.worldInitialize.subscribe(({ blockComponentRegistry, itemComponentRegistry }) => {
   for (const register of export_default2)
     itemComponentRegistry.registerCustomComponent(register.name, register.component);
   for (const register of export_default)
     blockComponentRegistry.registerCustomComponent(register.name, register.component);
 });
-world18.afterEvents.playerSpawn.subscribe((event) => {
+world19.afterEvents.playerSpawn.subscribe((event) => {
   const { initialSpawn, player } = event;
   if (!initialSpawn) return;
   NameRegistry.setName(player.id, player.name);
@@ -6005,20 +6053,20 @@ world18.afterEvents.playerSpawn.subscribe((event) => {
 \xA7${faction.colour}${faction.name}\xA7r`;
   else player.nameTag = player.name;
 });
-system8.afterEvents.scriptEventReceive.subscribe((event) => {
+system9.afterEvents.scriptEventReceive.subscribe((event) => {
   var _a, _b;
   switch (event.id) {
     case "tcsmp:showdp":
-      for (const id of world18.getDynamicPropertyIds()) {
-        let output = world18.getDynamicProperty(id);
+      for (const id of world19.getDynamicPropertyIds()) {
+        let output = world19.getDynamicProperty(id);
         if (Vec3.isVector3(output))
           output = Vec3.toString(output);
         console.warn(`${id}: ${output}`);
       }
       break;
     case "tcsmp:cleardp":
-      for (const id of world18.getDynamicPropertyIds())
-        world18.setDynamicProperty(id);
+      for (const id of world19.getDynamicPropertyIds())
+        world19.setDynamicProperty(id);
       break;
     case "tcsmp:showdim":
       console.warn((_a = event.sourceEntity) == null ? void 0 : _a.dimension.id);

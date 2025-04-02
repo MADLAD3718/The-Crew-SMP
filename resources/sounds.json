@@ -1,0 +1,22 @@
+{
+    "entity_sounds": {
+        "entities": {
+            "tcsmp:gerbil": {
+                "events": {
+                    "ambient": "mob.gerbil.chirp",
+                    "death": "mob.gerbil.hurt",
+                    "eat": "mob.gerbil.chirp",
+                    "hurt": "mob.gerbil.hurt"
+                },
+                "pitch": [
+                    0.80,
+                    1.20
+                ],
+                "variants": {
+                    "key": null
+                },
+                "volume": 1.0
+            }
+        }
+    }
+}

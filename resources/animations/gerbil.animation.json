@@ -1,0 +1,206 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.gerbil.run": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"head": {
+					"rotation": {
+						"0.0": {
+							"post": [0, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": {
+							"post": [5, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.5": {
+							"post": [0, 0, 0],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				},
+				"arms": {
+					"rotation": [60, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [10, 0, 0],
+						"0.25": [0, 0, 0],
+						"0.5": [10, 0, 0]
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [10, 0, 0],
+						"0.5": [0, 0, 0]
+					}
+				},
+				"legs": {
+					"rotation": [60, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [10, 0, 0],
+						"0.5": [0, 0, 0]
+					}
+				},
+				"leftLeg": {
+					"rotation": {
+						"0.0": [10, 0, 0],
+						"0.25": [0, 0, 0],
+						"0.5": [10, 0, 0]
+					}
+				},
+				"tail": {
+					"rotation": {
+						"0.0": {
+							"post": [0, 10, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": {
+							"post": [0, -10, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.5": {
+							"post": [0, 10, 0],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				},
+				"tip": {
+					"rotation": {
+						"0.0": {
+							"post": [0, 10, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": {
+							"post": [0, -10, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.5": {
+							"post": [0, 10, 0],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.gerbil.stand": {
+			"loop": true,
+			"animation_length": 4,
+			"bones": {
+				"body": {
+					"position": [0, 0, -2]
+				},
+				"torso": {
+					"rotation": {
+						"0.0": {
+							"post": [-65, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.8333": {
+							"post": [-62.5, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"1.3333": {
+							"post": [-65, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"2.0": {
+							"post": [-62.5, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"2.5417": {
+							"post": [-65, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"3.4167": {
+							"post": [-62.5, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"4.0": {
+							"post": [-65, 0, 0],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				},
+				"head": {
+					"rotation": {
+						"1.1667": [60, 0, 0],
+						"1.2083": [58.81061, -15.09492, 8.95891],
+						"2.5417": [58.81061, -15.09492, 8.95891],
+						"2.5833": [60, 0, 0]
+					}
+				},
+				"arms": {
+					"rotation": [60, 0, 0]
+				},
+				"legs": {
+					"rotation": [57.5, 0, 0]
+				},
+				"tail": {
+					"rotation": {
+						"0.0": {
+							"post": [0, 20, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"2.2917": {
+							"post": [0, 10, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"4.0": {
+							"post": [0, 20, 0],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				},
+				"tip": {
+					"rotation": {
+						"0.0": {
+							"post": [0, 42.5, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"1.8333": {
+							"post": [0, 55, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"4.0": {
+							"post": [0, 42.5, 0],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		},
+		"animation.gerbil.cartwheel": {
+			"animation_length": 0.5,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [13.10579, 0, 0],
+						"0.0833": [39.23009, 0, 0],
+						"0.125": [71.07561, 0, 0],
+						"0.1667": [106.00426, 0, 0],
+						"0.2083": [142.62186, 0, 0],
+						"0.2917": [217.37814, 0, 0],
+						"0.3333": [253.99574, 0, 0],
+						"0.375": [288.92439, 0, 0],
+						"0.4167": [320.76991, 0, 0],
+						"0.4583": [346.89421, 0, 0],
+						"0.5": [360, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 2, 0],
+						"0.5": [0, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

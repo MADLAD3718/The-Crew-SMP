@@ -15,6 +15,7 @@
                 }
             },
             "minecraft:food": {
+                "can_always_eat": false,
                 "nutrition": 12
             },
             "minecraft:use_modifiers": {

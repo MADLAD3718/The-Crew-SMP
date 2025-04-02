@@ -149,7 +149,10 @@
       },
       "lucks_bane.big_hit": {
          "category": "player",
-         "sounds": [ "sounds/lucks_bane/big_hit_2" ]
+         "sounds": [{
+            "name": "sounds/lucks_bane/big_hit_2",
+            "volume": 0.75
+         }]
       },
       "lucks_bane.coins": {
          "category": "player",
@@ -163,6 +166,33 @@
          "category": "player",
          "sounds": [
             "sounds/knife/backstab"
+         ]
+      },
+      "mob.gerbil.chirp": {
+         "category": "neutral",
+         "sounds": [
+            {
+               "name": "sounds/gerbil/chirp_0",
+               "volume": 0.1
+            },
+            {
+               "name": "sounds/gerbil/chirp_1",
+               "volume": 0.1
+            },
+            {
+               "name": "sounds/gerbil/chirp_2",
+               "volume": 0.1
+            },
+            {
+               "name": "sounds/gerbil/chirp_3",
+               "volume": 0.1
+            }
+         ]
+      },
+      "mob.gerbil.hurt": {
+         "category": "neutral",
+         "sounds": [
+            "sounds/gerbil/hurt"
          ]
       }
    }

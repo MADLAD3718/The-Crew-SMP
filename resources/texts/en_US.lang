@@ -25,6 +25,10 @@ item.tcsmp:faction_invite.name=Faction Invite
 item.tcsmp:big_sandwich.name=Big Sandwich
 item.tcsmp:lucks_bane.name=Luck's Bane
 item.tcsmp:knife.name=Knife
+item.tcsmp:gerbil.name=Gerbil
+
+## Spawn Eggs
+item.spawn_egg.entity.tcsmp:gerbil.name=Gerbil Spawn Egg
 
 ## Blocks
 tile.tcsmp:overworld_waystone.name=Overworld Waystone
@@ -45,10 +49,12 @@ entity.tcsmp:slowness_cannonball.name=Slowness Cannonball
 entity.tcsmp:fire_cannonball.name=Fire Cannonball
 entity.tcsmp:warp_crystal.name=Warp Crystal
 entity.tcsmp:lightning_cannonball.name=Lightning Cannonball
+entity.tcsmp:gerbil.name=Gerbil
 
 ## Actions
 action.hint.exit.tcsmp:grappling_hook_seat=Crouch or jump to detach
 action.hint.exit.tcsmp:cannon=Crouch or jump to stop aiming
+action.interact.gerbil=Interact to pick up
 
 ## Containers
 container.inscription_table=Inscription

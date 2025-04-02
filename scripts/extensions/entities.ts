@@ -25,7 +25,7 @@ declare module "@minecraft/server" {
         /**
          * Provides access to a mob's equipment slots.
          */
-        readonly equipment: EntityEquippableComponent;
+        readonly equipment?: EntityEquippableComponent;
         /**
          * Controls the properties of a projectile entity and allows it to be shot in a given direction.
          */

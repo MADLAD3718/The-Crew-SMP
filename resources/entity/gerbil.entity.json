@@ -1,0 +1,31 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tcsmp:gerbil",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/gerbil"
+      },
+      "geometry": {
+        "default": "geometry.gerbil"
+      },
+      "animations": {
+        "stand": "animation.gerbil.stand",
+        "run": "animation.gerbil.run",
+        "cartwheel": "animation.gerbil.cartwheel",
+        "root": "controller.animation.gerbil.root"
+      },
+      "scripts": {
+        "animate": ["root"],
+        "should_update_bones_and_effects_offscreen": true
+      },
+      "render_controllers": [ "controller.render.default" ],
+      "spawn_egg": {
+        "texture": "spawn_egg_gerbil"
+      }
+    }
+  }
+}

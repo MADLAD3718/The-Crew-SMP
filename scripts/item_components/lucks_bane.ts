@@ -8,7 +8,7 @@ world.afterEvents.entityHurt.subscribe(event => {
     const { damage, damageSource, hurtEntity } = event;
 
     const { damagingEntity } = damageSource, { dimension } = hurtEntity;
-    const weapon = damagingEntity?.equipment.getEquipment(EquipmentSlot.Mainhand);
+    const weapon = damagingEntity?.equipment?.getEquipment(EquipmentSlot.Mainhand);
     if (weapon?.typeId != "tcsmp:lucks_bane") return;
 
     const toEntity = Vec3.normalize(Vec3.sub(

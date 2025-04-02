@@ -88,6 +88,12 @@
     },
     "knife": {
       "textures": "textures/items/knife"
+    },
+    "spawn_egg_gerbil": {
+      "textures": "textures/items/spawn_eggs/spawn_egg_gerbil"
+    },
+    "gerbil": {
+      "textures": "textures/items/gerbil"
     }
   }
 }

@@ -1,0 +1,32 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.gerbil.root": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"animations": ["stand"],
+					"transitions": [
+						{"running": "q.ground_speed > 1.0 || q.is_in_water"},
+						{"cartwheeling": "q.property('tcsmp:cartwheeling')"}
+					],
+					"blend_transition": 0.2
+				},
+				"running": {
+					"animations": ["run"],
+					"transitions": [
+						{"idle": "q.ground_speed < 0.5 && !q.is_in_water"}
+					],
+					"blend_transition": 0.2
+				},
+				"cartwheeling": {
+					"animations": ["cartwheel"],
+					"transitions": [
+						{"idle": "!q.property('tcsmp:cartwheeling')"}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		}
+	}
+}

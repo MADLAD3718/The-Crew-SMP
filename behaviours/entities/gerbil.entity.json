@@ -1,0 +1,176 @@
+{ 
+    "format_version": "1.21.70",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "tcsmp:gerbil",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "properties": {
+                "tcsmp:cartwheeling": {
+                    "type": "bool",
+                    "default": false,
+                    "client_sync": true
+                }
+            }
+        },
+        "component_groups": {
+            "tcsmp:wild": {
+                "minecraft:behavior.random_sitting": {
+                    "priority": 0,
+                    "min_sit_time": 2.0,
+                    "start_chance": 0.75,
+                    "stop_chance": 0.2
+                },
+                "minecraft:behavior.random_stroll": {
+                    "priority": 1,
+                    "speed_multiplier": 1
+                },
+                "minecraft:despawn": {
+                    "despawn_from_distance": {}
+                }
+            },
+            "tcsmp:tamed": {
+                "minecraft:behavior.follow_owner": {
+                    "priority": 0,
+                    "can_teleport": false,
+                    "start_distance": 3,
+                    "stop_distance": 2
+                }
+            },
+            "tcsmp:cartwheeling": {
+                "minecraft:timer": {
+                    "time": 0.5,
+                    "time_down_event": {
+                        "event": "tcsmp:stop_cartwheel"
+                    }
+                }
+            },
+            "tcsmp:idle": {
+                "minecraft:timer": {
+                    "randomInterval": true,
+                    "looping": true,
+                    "time": [15, 60],
+                    "time_down_event": {
+                        "event": "tcsmp:start_cartwheel"
+                    }
+                }
+            }
+        },
+        "components": {
+            "minecraft:type_family": {
+                "family": ["mob", "gerbil"]
+            },
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:conditional_bandwidth_optimization": {},
+            "minecraft:collision_box": {
+                "width": 0.1875,
+                "height": 0.125
+            },
+            "minecraft:health": {
+                "value": 6,
+                "max": 6
+            },
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:breathable": {
+                "total_supply": 15,
+                "suffocate_time": 0
+            },
+            "minecraft:nameable": {},
+            "minecraft:interact": {
+                "interactions": [{
+                    "on_interact": {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "player"
+                                },
+                                {
+                                    "test": "is_sneak_held",
+                                    "subject": "other",
+                                    "value": true
+                                }
+                            ]
+                        },
+                        "interact_text": "action.interact.gerbil"
+                    }
+                }]
+            },
+            "minecraft:tameable": {
+                "tame_event": {
+                    "event": "tcsmp:on_tame",
+                    "target": "self"
+                }
+            },
+            "minecraft:movement": {
+                "value": 0.3
+            },
+            "minecraft:movement.basic": {},
+            "minecraft:jump.static": {
+                "jump_power": 0.48
+            },
+            "minecraft:navigation.walk": {
+                "avoid_portals": true,
+                "avoid_damage_blocks": true,
+                "avoid_water": true,
+                "can_path_over_water": false,
+                "can_sink": true,
+                "can_float": false,
+                "blocks_to_avoid": [
+                    {
+                        "name": "minecraft:water"
+                    },
+                    {
+                        "name": "minecraft:flowing_water"
+                    }
+                ]
+            },
+            "minecraft:vibration_damper": {}
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "tcsmp:wild",
+                        "tcsmp:idle"
+                    ]
+                }
+            },
+            "tcsmp:on_tame": {
+                "remove": {
+                    "component_groups": ["tcsmp:wild"]
+                },
+                "add": {
+                    "component_groups": ["tcsmp:tamed"]
+                }
+            },
+            "tcsmp:start_cartwheel": {
+                "add": {
+                    "component_groups": ["tcsmp:cartwheeling"]
+                },
+                "remove": {
+                    "component_groups": ["tcsmp:idle"]
+                },
+                "set_property": {
+                    "tcsmp:cartwheeling": true
+                }
+            },
+            "tcsmp:stop_cartwheel": {
+                "add": {
+                    "component_groups": ["tcsmp:idle"]
+                },
+                "remove": {
+                    "component_groups": ["tcsmp:cartwheeling"]
+                },
+                "set_property": {
+                    "tcsmp:cartwheeling": false
+                }
+            }
+        }
+    }
+}

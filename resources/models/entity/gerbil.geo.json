@@ -1,0 +1,185 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.gerbil",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "body",
+					"pivot": [0, 0, 1]
+				},
+				{
+					"name": "torso",
+					"parent": "body",
+					"pivot": [0, 0.5, 2.5],
+					"cubes": [
+						{
+							"origin": [-1.5, 0, -1],
+							"size": [3, 2, 4],
+							"uv": {
+								"north": {"uv": [11, 14], "uv_size": [3, 2]},
+								"east": {"uv": [0, 14], "uv_size": [4, 2]},
+								"south": {"uv": [4, 14], "uv_size": [3, 2]},
+								"west": {"uv": [7, 14], "uv_size": [4, 2]},
+								"up": {"uv": [7, 14], "uv_size": [-3, -4]},
+								"down": {"uv": [10, 14], "uv_size": [-3, -4]}
+							}
+						}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "torso",
+					"pivot": [0, 1.1, -1.2],
+					"cubes": [
+						{
+							"origin": [-1, 0, -3],
+							"size": [2, 2, 2],
+							"uv": {
+								"north": {"uv": [2, 0], "uv_size": [2, 2]},
+								"east": {"uv": [0, 2], "uv_size": [2, 2]},
+								"south": {"uv": [4, 0], "uv_size": [2, 2]},
+								"west": {"uv": [2, 2], "uv_size": [2, 2]},
+								"up": {"uv": [6, 4], "uv_size": [-2, -2]},
+								"down": {"uv": [8, 4], "uv_size": [-2, -2]}
+							}
+						},
+						{
+							"origin": [0.5, 1.7, -2],
+							"size": [1, 1, 0],
+							"pivot": [1, 2.2, -2],
+							"rotation": [0, 0, 15],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [1, 1]},
+								"east": {"uv": [0, 0], "uv_size": [0, 1]},
+								"south": {"uv": [0, 0], "uv_size": [1, 1]},
+								"west": {"uv": [0, 0], "uv_size": [0, 1]},
+								"up": {"uv": [1, 0], "uv_size": [-1, 0]},
+								"down": {"uv": [1, 0], "uv_size": [-1, 0]}
+							}
+						},
+						{
+							"origin": [-1.5, 1.7, -2],
+							"size": [1, 1, 0],
+							"pivot": [-1, 2.2, -2],
+							"rotation": [0, 0, -15],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [1, 1]},
+								"east": {"uv": [0, 0], "uv_size": [0, 1]},
+								"south": {"uv": [0, 0], "uv_size": [1, 1]},
+								"west": {"uv": [0, 0], "uv_size": [0, 1]},
+								"up": {"uv": [1, 0], "uv_size": [-1, 0]},
+								"down": {"uv": [1, 0], "uv_size": [-1, 0]}
+							}
+						}
+					]
+				},
+				{
+					"name": "arms",
+					"parent": "torso",
+					"pivot": [0, 0, -0.1]
+				},
+				{
+					"name": "rightArm",
+					"parent": "arms",
+					"pivot": [-0.9, 0, -0.1],
+					"cubes": [
+						{
+							"origin": [-1.4, -0.9, 0],
+							"size": [1, 1, 0],
+							"inflate": -0.1,
+							"uv": {
+								"south": {"uv": [12, 1], "uv_size": [1, 1]}
+							}
+						}
+					]
+				},
+				{
+					"name": "leftArm",
+					"parent": "arms",
+					"pivot": [0.9, 0, -0.1],
+					"cubes": [
+						{
+							"origin": [0.4, -0.9, 0],
+							"size": [1, 1, 0],
+							"inflate": -0.1,
+							"uv": {
+								"south": {"uv": [14, 1], "uv_size": [1, 1]}
+							}
+						}
+					]
+				},
+				{
+					"name": "legs",
+					"parent": "torso",
+					"pivot": [0, 0, 1.9]
+				},
+				{
+					"name": "rightLeg",
+					"parent": "legs",
+					"pivot": [-0.9, 0, 1.9],
+					"cubes": [
+						{
+							"origin": [-1.4, -0.9, 2],
+							"size": [1, 1, 0],
+							"inflate": -0.1,
+							"uv": {
+								"south": {"uv": [12, 3], "uv_size": [1, 1]}
+							}
+						}
+					]
+				},
+				{
+					"name": "leftLeg",
+					"parent": "legs",
+					"pivot": [0.9, 0, 1.9],
+					"cubes": [
+						{
+							"origin": [0.4, -0.9, 2],
+							"size": [1, 1, 0],
+							"inflate": -0.1,
+							"uv": {
+								"south": {"uv": [14, 3], "uv_size": [1, 1]}
+							}
+						}
+					]
+				},
+				{
+					"name": "tail",
+					"parent": "body",
+					"pivot": [0, 0.5, 3],
+					"cubes": [
+						{
+							"origin": [0, 0, 3],
+							"size": [0, 1, 2],
+							"uv": {
+								"west": {"uv": [8, 7], "uv_size": [2, 1]}
+							}
+						}
+					]
+				},
+				{
+					"name": "tip",
+					"parent": "tail",
+					"pivot": [0, 0.5, 5],
+					"cubes": [
+						{
+							"origin": [0, 0, 5],
+							"size": [0, 1, 2],
+							"uv": {
+								"west": {"uv": [10, 7], "uv_size": [2, 1]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}
