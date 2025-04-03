@@ -14,7 +14,8 @@
                     "minecraft:material_instances": {
                         "*": {
                             "texture": "tomato_stage_0",
-                            "render_method": "alpha_test"
+                            "render_method": "alpha_test",
+                            "face_dimming": false
                         }
                     },
                     "minecraft:selection_box": {
@@ -29,7 +30,8 @@
                     "minecraft:material_instances": {
                         "*": {
                             "texture": "tomato_stage_1",
-                            "render_method": "alpha_test"
+                            "render_method": "alpha_test",
+                            "face_dimming": false
                         }
                     },
                     "minecraft:selection_box": {
@@ -44,17 +46,20 @@
                     "minecraft:material_instances": {
                         "*": {
                             "texture": "tomato_stage_2",
-                            "render_method": "alpha_test"
+                            "render_method": "alpha_test",
+                            "face_dimming": false
                         }
                     },
                     "minecraft:selection_box": {
                         "origin": [-5, 0, -5],
                         "size": [10, 14, 10]
-                    }
+                    },
+                    "minecraft:loot": "loot_tables/blocks/tomato_grown.json"
                 }
             }
         ],
         "components": {
+            "minecraft:custom_components": ["tcsmp:crop"],
             "minecraft:map_color": "#6f8b3a",
             "minecraft:collision_box": false,
             "minecraft:geometry": "geometry.cross_crop",
@@ -71,7 +76,8 @@
                     "allowed_faces": ["up"],
                     "block_filter": [{"name": "minecraft:farmland"}]
                 }]
-            }
+            },
+            "tag:minecraft:crop": {}
         }
     }
 }

@@ -14,21 +14,56 @@
             }
         },
         "component_groups": {
+            "tcsmp:baby": {
+                "minecraft:is_baby": {},
+                "minecraft:scale": {
+                    "value": 0.5
+                },
+                "minecraft:ageable": {
+                    "duration": 600,
+                    "feed_items": ["tcsmp:tomato"],
+                    "grow_up": {
+                        "event": "tcsmp:grow_up",
+                        "target": "self"
+                    }
+                },
+                "minecraft:behavior.panic": {
+                    "priority": 0,
+                    "speed_multiplier": 1.25
+                },
+                "minecraft:behavior.follow_parent": {
+                    "priority": 1,
+                    "speed_multiplier": 1.25
+                }
+            },
+            "tcsmp:adult": {
+                "minecraft:breedable": {
+                    "require_tame": true,
+                    "require_full_health": true,
+                    "breeds_with": {
+                        "mate_type": "tcsmp:gerbil",
+                        "baby_type": "tcsmp:gerbil",
+                        "breed_event": {
+                            "event": "minecraft:entity_born",
+                            "target": "baby"
+                        }
+                    },
+                    "breed_items": ["tcsmp:tomato"]
+                },
+                "minecraft:behavior.panic": {
+                    "priority": 0,
+                    "speed_multiplier": 1.0
+                },
+                "minecraft:behavior.breed": {
+                    "priority": 1,
+                    "speed_multiplier": 1
+                }
+            },
             "tcsmp:wild": {
                 "minecraft:behavior.tempt": {
-                    "priority": 0,
+                    "priority": 2,
                     "speed_multiplier": 1.0,
                     "items": ["tcsmp:tomato"]
-                },
-                "minecraft:behavior.random_sitting": {
-                    "priority": 1,
-                    "min_sit_time": 2.0,
-                    "start_chance": 0.75,
-                    "stop_chance": 0.2
-                },
-                "minecraft:behavior.random_stroll": {
-                    "priority": 2,
-                    "speed_multiplier": 1
                 },
                 "minecraft:despawn": {
                     "despawn_from_distance": {}
@@ -36,10 +71,11 @@
             },
             "tcsmp:tamed": {
                 "minecraft:behavior.follow_owner": {
-                    "priority": 0,
+                    "priority": 2,
                     "can_teleport": false,
                     "start_distance": 3,
-                    "stop_distance": 2
+                    "stop_distance": 2,
+                    "speed_multiplier": 1.25
                 },
                 "minecraft:interact": {
                     "interactions": [{
@@ -48,11 +84,11 @@
                                 "all_of": [
                                     {
                                         "test": "is_owner",
-                                        "subject": "other"
+                                        "subject": "player"
                                     },
                                     {
                                         "test": "all_slots_empty",
-                                        "subject": "other",
+                                        "subject": "player",
                                         "value": "hand"
                                     }
                                 ]
@@ -93,7 +129,7 @@
             },
             "minecraft:conditional_bandwidth_optimization": {},
             "minecraft:collision_box": {
-                "width": 0.1875,
+                "width": 0.25,
                 "height": 0.125
             },
             "minecraft:health": {
@@ -117,35 +153,148 @@
             "minecraft:movement": {
                 "value": 0.3
             },
+            "minecraft:can_climb": {},
+            "minecraft:jump.static": {},
             "minecraft:movement.basic": {},
-            "minecraft:jump.static": {
-                "jump_power": 0.48
-            },
             "minecraft:navigation.walk": {
                 "avoid_portals": true,
                 "avoid_damage_blocks": true,
                 "avoid_water": true,
                 "can_path_over_water": false,
-                "can_sink": true,
+                "can_sink": false,
                 "can_float": false,
+                "can_jump": true,
+                "can_climb": true,
                 "blocks_to_avoid": [
-                    {
-                        "name": "minecraft:water"
-                    },
-                    {
-                        "name": "minecraft:flowing_water"
-                    }
+                    "minecraft:water",
+                    "minecraft:flowing_water",
+                    "minecraft:dead_brain_coral",
+                    "minecraft:dead_brain_coral_block",
+                    "minecraft:dead_brain_coral_fan",
+                    "minecraft:dead_brain_coral_wall_fan",
+                    "minecraft:dead_bubble_coral",
+                    "minecraft:dead_bubble_coral_block",
+                    "minecraft:dead_bubble_coral_fan",
+                    "minecraft:dead_bubble_coral_wall_fan",
+                    "minecraft:dead_fire_coral",
+                    "minecraft:dead_fire_coral_block",
+                    "minecraft:dead_fire_coral_fan",
+                    "minecraft:dead_fire_coral_wall_fan",
+                    "minecraft:dead_horn_coral",
+                    "minecraft:dead_horn_coral_block",
+                    "minecraft:dead_horn_coral_fan",
+                    "minecraft:dead_horn_coral_wall_fan",
+                    "minecraft:dead_tube_coral",
+                    "minecraft:dead_tube_coral_block",
+                    "minecraft:dead_tube_coral_fan",
+                    "minecraft:dead_tube_coral_wall_fan",
+                    "minecraft:brain_coral",
+                    "minecraft:brain_coral_block",
+                    "minecraft:brain_coral_fan",
+                    "minecraft:brain_coral_wall_fan",
+                    "minecraft:bubble_coral",
+                    "minecraft:bubble_coral_block",
+                    "minecraft:bubble_coral_fan",
+                    "minecraft:bubble_coral_wall_fan",
+                    "minecraft:fire_coral",
+                    "minecraft:fire_coral_block",
+                    "minecraft:fire_coral_fan",
+                    "minecraft:fire_coral_wall_fan",
+                    "minecraft:horn_coral",
+                    "minecraft:horn_coral_block",
+                    "minecraft:horn_coral_fan",
+                    "minecraft:horn_coral_wall_fan",
+                    "minecraft:tube_coral",
+                    "minecraft:tube_coral_block",
+                    "minecraft:tube_coral_fan",
+                    "minecraft:tube_coral_wall_fan",
+                    "minecraft:seagrass",
+                    "minecraft:sea_pickle",
+                    "minecraft:kelp"
                 ]
             },
-            "minecraft:vibration_damper": {}
+            "minecraft:vibration_damper": {},
+            "minecraft:hurt_on_condition": {
+                "damage_conditions": [{
+                    "filters": {
+                        "test": "in_lava",
+                        "subject": "self",
+                        "operator": "==",
+                        "value": true
+                    },
+                    "cause": "lava",
+                    "damage_per_tick": 4
+                }]
+            },
+            "minecraft:behavior.random_sitting": {
+                "priority": 3,
+                "min_sit_time": 2.0,
+                "start_chance": 0.75,
+                "stop_chance": 0.2
+            },
+            "minecraft:behavior.random_stroll": {
+                "priority": 4,
+                "speed_multiplier": 1
+            }
         },
         "events": {
             "minecraft:entity_spawned": {
+                "trigger": "tcsmp:spawn_wild_baby_or_adult"
+            },
+            "minecraft:entity_born": {
+                "trigger": "tcsmp:spawn_tame_baby"
+            },
+            "tcsmp:spawn_wild_baby_or_adult": {
+                "sequence": [
+                    {
+                        "randomize": [
+                            {
+                                "weight": 9,
+                                "trigger": "tcsmp:spawn_wild_adult"
+                            },
+                            {
+                                "weight": 1,
+                                "trigger": "tcsmp:spawn_wild_baby"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "tcsmp:spawn_wild_adult": {
                 "add": {
                     "component_groups": [
                         "tcsmp:wild",
-                        "tcsmp:idle"
+                        "tcsmp:idle",
+                        "tcsmp:adult"
                     ]
+                }
+            },
+            "tcsmp:spawn_wild_baby": {
+                "add": {
+                    "component_groups": [
+                        "tcsmp:wild",
+                        "tcsmp:idle",
+                        "tcsmp:baby"
+                    ]
+                }
+            },
+            "tcsmp:spawn_tame_baby": {
+                "remove": {
+                    "component_groups": ["tcsmp:wild"]
+                },
+                "add": {
+                    "component_groups": [
+                        "tcsmp:baby",
+                        "tcsmp:tamed"
+                    ]
+                }
+            },
+            "tcsmp:grow_up": {
+                "remove": {
+                    "component_groups": ["tcsmp:baby"]
+                },
+                "add": {
+                    "component_groups": ["tcsmp:adult"]
                 }
             },
             "tcsmp:on_tame": {

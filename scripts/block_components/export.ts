@@ -4,6 +4,7 @@ import waystoneComponent from "./waystone";
 import blockEntityComponent from "./block_entity";
 import tickParticleComponent from "./tick_particle";
 import factionRegisterComponent from "./faction_register";
+import cropComponent from "./crop";
 
 type BlockComponentRegister = {
     name: string
@@ -31,6 +32,10 @@ const BlockComponents: BlockComponentRegister[] = [
     {
         name: "tcsmp:faction_register",
         component: factionRegisterComponent
+    },
+    {
+        name: "tcsmp:crop",
+        component: cropComponent
     }
 ]
 

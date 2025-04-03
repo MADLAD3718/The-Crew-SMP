@@ -27,6 +27,9 @@
                 "replace_block_item": true,
                 "block": "tcsmp:tomato",
                 "use_on": ["minecraft:farmland"]
+            },
+            "minecraft:compostable": {
+                "composting_chance": 65
             }
         }
     }

@@ -7,7 +7,8 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/entity/gerbil"
+        "default": "textures/entity/gerbil",
+        "tamed": "textures/entity/gerbil_tame"
       },
       "geometry": {
         "default": "geometry.gerbil"
@@ -22,7 +23,7 @@
         "animate": ["root"],
         "should_update_bones_and_effects_offscreen": true
       },
-      "render_controllers": [ "controller.render.default" ],
+      "render_controllers": [ "controller.render.gerbil" ],
       "spawn_egg": {
         "texture": "spawn_egg_gerbil"
       }
