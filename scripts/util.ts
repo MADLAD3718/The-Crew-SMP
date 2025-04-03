@@ -1,4 +1,4 @@
-import { Vector2, Vector3 } from "@minecraft/server";
+import { system, Vector2, Vector3 } from "@minecraft/server";
 import { NumberRange } from "@minecraft/common"
 import { Vec3 } from "@madlad3718/mcveclib";
 
@@ -61,4 +61,25 @@ export function getRectPrism(range: Vector3): Vector3[] {
 
 export function randomExp(lambda: number): number {
     return - (1/lambda) * Math.log(1 - Math.random());
+}
+
+export function repeatJob(generator: Generator<void, void, void>): void {
+    jobPromise(generator).then(() => repeatJob(generator));
+}
+
+function jobPromise(generator: Generator<void, void, void>): Promise<void> {
+    return new Promise((resolve, reject) => {
+        system.runJob(function* () {
+            while (true) {
+                try {
+                    const { done } = generator.next();
+                    if (done) return resolve();
+                    else yield;
+                }
+                catch (error) {
+                    return reject(error);
+                }
+            }
+        }());
+    });
 }

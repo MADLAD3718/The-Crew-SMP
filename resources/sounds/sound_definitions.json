@@ -278,6 +278,12 @@
                "volume" : 0.50
             }
          ]
+      },
+      "player.wall_jump": {
+         "category": "player",
+         "sounds": [
+            "sounds/player/wall_jump"
+         ]
       }
    }
 }

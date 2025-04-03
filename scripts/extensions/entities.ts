@@ -1,5 +1,6 @@
 import { Entity, EntityComponentTypes, EntityInventoryComponent, EntityLeashableComponent, EntityRideableComponent, ItemStack, Player, Vector3 } from "@minecraft/server";
 import { MissingComponentError } from "../util";
+import { Mat3, Matrix3, Vec3 } from "@madlad3718/mcveclib";
 
 declare module "@minecraft/server" {
     interface Player {
@@ -16,6 +17,10 @@ declare module "@minecraft/server" {
          * Provides access to this player's equipment slots.
          */
         readonly equipment: EntityEquippableComponent;
+        /**
+         * Gets this player's view matrix, in TBN format.
+         */
+        getViewMatrix(): Matrix3;
     }
     interface Entity {
         /**
@@ -110,6 +115,13 @@ Player.prototype.stopSound = function (sound?: string) {
 
 Player.prototype.applyImpulse = function (vector: Vector3): void {
     return this.applyKnockback(vector.x, vector.z, Math.hypot(vector.x, vector.z), vector.y);
+}
+
+Player.prototype.getViewMatrix = function () {
+    const n = this.getViewDirection();
+    const t = Math.abs(n.y) === 1 ? Vec3.East : Vec3.normalize(Vec3.from(n.z, 0, -n.x));
+    const b = Vec3.cross(n, t);
+    return Mat3.from(t, b, n);
 }
 
 Object.defineProperties(Entity.prototype, {
