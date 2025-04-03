@@ -1,5 +1,6 @@
 import { Block, Player, Vector3, world } from "@minecraft/server";
 import { Vec3 } from "@madlad3718/mcveclib";
+import { FactionRegistry } from "./factions";
 import { within } from "../util";
 
 export type WaystoneRegister = {
@@ -14,9 +15,13 @@ export namespace WaystoneRegistry {
         const waystones: WaystoneRegister[] = [];
         for (const id of world.getDynamicPropertyIds()) {
             const [type, owner, dimension, name] = id.split('/');
+
+            const faction = FactionRegistry.getFaction(context);
+
             if (type != "waystone" ||
                 dimension != context.dimension.id ||
-                owner != "" && owner != context.id
+                (owner != "" && owner != context.id &&
+                    !faction?.players.includes(owner))
             ) continue;
 
             waystones.push({
@@ -52,9 +57,13 @@ export namespace WaystoneRegistry {
     export function has(context: Player, waystone: WaystoneRegister): boolean {
         for (const id of world.getDynamicPropertyIds()) {
             const [type, owner, dimension, name] = id.split('/');
+
+            const faction = FactionRegistry.getFaction(context);
+
             if (type != "waystone" ||
                 dimension != context.dimension.id ||
-                owner != "" && owner != context.id
+                (owner != "" && owner != context.id &&
+                    !faction?.players.includes(owner))
             ) continue;
 
             if (waystone.name == name ||
