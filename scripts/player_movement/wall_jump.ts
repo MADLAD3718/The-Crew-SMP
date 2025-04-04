@@ -29,6 +29,7 @@ world.afterEvents.playerButtonInput.subscribe(event => {
         "player.wall_jump", location,
         {pitch: 1.0 + 0.1 * jumps}
     );
+    dimension.spawnParticle("tcsmp:wall_jump", location);
 
     JUMP_COUNTS.set(player.id, jumps + 1);
 });

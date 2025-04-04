@@ -1,4 +1,4 @@
-import { Player, system, TicksPerSecond, world } from "@minecraft/server";
+import { GameMode, Player, system, TicksPerSecond, world } from "@minecraft/server";
 import { Mat3, Vec2, Vec3 } from "@madlad3718/mcveclib";
 
 const SLIDE_TIMER: Map<string, number> = new Map();
@@ -20,6 +20,7 @@ system.runInterval(() => {
 
 function isSliding(player: Player): boolean {
     const { dimension, location, inputInfo } = player;
+    if (player.getGameMode() == GameMode.creative) return false;
     if (!player.isFalling) return false;
 
     const movement = inputInfo.getMovementVector();
