@@ -117,13 +117,6 @@ Player.prototype.applyImpulse = function (vector: Vector3): void {
     return this.applyKnockback(vector.x, vector.z, Math.hypot(vector.x, vector.z), vector.y);
 }
 
-Player.prototype.getViewMatrix = function () {
-    const n = this.getViewDirection();
-    const t = Math.abs(n.y) === 1 ? Vec3.East : Vec3.normalize(Vec3.from(n.z, 0, -n.x));
-    const b = Vec3.cross(n, t);
-    return Mat3.from(t, b, n);
-}
-
 Object.defineProperties(Entity.prototype, {
     inventory: {
         get() {

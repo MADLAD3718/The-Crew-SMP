@@ -1,14 +1,11 @@
 import { BlockRaycastHit, ButtonState, GameMode, InputButton, Player, Vector3, world } from "@minecraft/server";
 import { Vec3 } from "@madlad3718/mcveclib";
 
-const JUMP_COUNTS: Map<string, number> = new Map();
-
 world.afterEvents.playerButtonInput.subscribe(event => {
     const { player, button, newButtonState } = event, { dimension, location } = player;
-    if (!dimension.getBlock(Vec3.below(location, 0.5))?.isAir)
-        return JUMP_COUNTS.set(player.id, 0);
-    if (button != InputButton.Jump || newButtonState != ButtonState.Pressed) return;
     if (player.getGameMode() == GameMode.creative) return;
+    if (button != InputButton.Jump || newButtonState != ButtonState.Pressed) return;
+    if (!player.isSneaking || getHeightFromSurface(player) < 0.25) return;
 
     const wall = getClosestWall(player);
     if (!wall) return;
@@ -17,22 +14,30 @@ world.afterEvents.playerButtonInput.subscribe(event => {
     if (distance > 0.31) return;
 
     const view = player.getViewDirection();
+    const viewXZ = Vec3.normalize(Vec3.from(view.x, 0, view.z));
     const normal = Vec3.fromDirection(wall.face);
-    if (Vec3.dot(view, normal) >= 0) return;
-
-    const jumps = JUMP_COUNTS.get(player.id) ?? 0;
+    if (-Vec3.dot(viewXZ, normal) < 0.5) return;
 
     const jumpdir = Vec3.normalize(Vec3.above(normal));
     player.applyImpulse(Vec3.mul(jumpdir, 0.8));
 
     dimension.playSound(
         "player.wall_jump", location,
-        {pitch: 1.0 + 0.1 * jumps}
+        {pitch: 0.9 + 0.2 * Math.random()}
     );
     dimension.spawnParticle("tcsmp:wall_jump", location);
-
-    JUMP_COUNTS.set(player.id, jumps + 1);
 });
+
+function getHeightFromSurface(player: Player): number {
+    const { dimension, location } = player;
+    const raycast = dimension.getBlockFromRay(
+        location, Vec3.Down,
+        { includeLiquidBlocks: true, includePassableBlocks: false }
+    );
+    if (!raycast) return Infinity;
+
+    return Vec3.distance(location, Vec3.add(raycast.block, raycast.faceLocation));
+}
 
 function getClosestWall(player: Player): BlockRaycastHit | undefined {
     const { dimension, location } = player;
