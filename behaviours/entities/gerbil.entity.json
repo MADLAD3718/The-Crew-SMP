@@ -67,6 +67,16 @@
                 },
                 "minecraft:despawn": {
                     "despawn_from_distance": {}
+                },
+                "minecraft:behavior.random_sitting": {
+                    "priority": 3,
+                    "min_sit_time": 2.0,
+                    "start_chance": 0.75,
+                    "stop_chance": 0.2
+                },
+                "minecraft:behavior.random_stroll": {
+                    "priority": 4,
+                    "speed_multiplier": 1
                 }
             },
             "tcsmp:tamed": {
@@ -225,16 +235,6 @@
                     "cause": "lava",
                     "damage_per_tick": 4
                 }]
-            },
-            "minecraft:behavior.random_sitting": {
-                "priority": 3,
-                "min_sit_time": 2.0,
-                "start_chance": 0.75,
-                "stop_chance": 0.2
-            },
-            "minecraft:behavior.random_stroll": {
-                "priority": 4,
-                "speed_multiplier": 1
             }
         },
         "events": {
