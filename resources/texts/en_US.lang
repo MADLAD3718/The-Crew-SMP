@@ -63,6 +63,7 @@ entity.tcsmp:gerbil.name=Gerbil
 ## Actions
 action.hint.exit.tcsmp:grappling_hook_seat=Crouch or jump to detach
 action.hint.exit.tcsmp:cannon=Crouch or jump to stop aiming
+action.hint.exit.tcsmp:stair_seat=Crouch or jump to stand
 action.interact.gerbil=Interact to pick up
 
 ## Containers

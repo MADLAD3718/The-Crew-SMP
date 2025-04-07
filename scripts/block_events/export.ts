@@ -1,1 +1,2 @@
 import "./jukebox";
+import "./stairs";
