@@ -44,6 +44,22 @@
                 "groups": [
                     {
                         "group_identifier": {
+                            "name": "minecraft:itemGroup.name.boots"
+                        },
+                        "items": [
+                            "tcsmp:slime_boots"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "name": "minecraft:itemGroup.name.sword"
+                        },
+                        "items": [
+                            "tcsmp:lucks_bane"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
                             "name": "minecraft:itemGroup.name.miscFood"
                         },
                         "items": [
@@ -53,7 +69,6 @@
                     {
                         "items": [
                             "tcsmp:knife",
-                            "tcsmp:lucks_bane",
                             "tcsmp:katana",
                             "tcsmp:tnt_shield",
                             "tcsmp:grappling_hook",

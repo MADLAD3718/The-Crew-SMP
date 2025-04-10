@@ -1,0 +1,29 @@
+{
+    "format_version": "1.21.70",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "tcsmp:slime_boots"
+        },
+        "tags": ["crafting_table"],
+        "pattern": [
+            "SSS",
+            "SBS",
+            "SSS"
+        ],
+        "key": {
+            "S": {
+                "item": "minecraft:slime_ball"
+            },
+            "B": {
+                "item": "minecraft:iron_boots"
+            }
+        },
+        "unlock": [
+            { "item": "minecraft:iron_boots" },
+            { "item": "minecraft:slime_ball" }
+        ],
+        "result": {
+            "item": "tcsmp:slime_boots"
+        }
+    }
+}

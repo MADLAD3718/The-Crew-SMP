@@ -118,6 +118,9 @@
     },
     "spawn_egg_unicorn": {
       "textures": "textures/items/spawn_eggs/spawn_egg_unicorn"
-    }
+    },
+    "slime_boots": {
+			"textures": "textures/items/slime_boots"
+		}
   }
 }
