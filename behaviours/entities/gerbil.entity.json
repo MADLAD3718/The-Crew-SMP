@@ -3,6 +3,7 @@
     "minecraft:entity": {
         "description": {
             "identifier": "tcsmp:gerbil",
+            "spawn_category": "creature",
             "is_spawnable": true,
             "is_summonable": true,
             "properties": {

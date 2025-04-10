@@ -38,6 +38,7 @@ item.record_reaction.bleach.desc=George Vide - Straight Facts
 
 ## Spawn Eggs
 item.spawn_egg.entity.tcsmp:gerbil.name=Gerbil Spawn Egg
+item.spawn_egg.entity.tcsmp:unicorn.name=Unicorn Spawn Egg
 
 ## Blocks
 tile.tcsmp:overworld_waystone.name=Overworld Waystone
@@ -59,11 +60,14 @@ entity.tcsmp:fire_cannonball.name=Fire Cannonball
 entity.tcsmp:warp_crystal.name=Warp Crystal
 entity.tcsmp:lightning_cannonball.name=Lightning Cannonball
 entity.tcsmp:gerbil.name=Gerbil
+entity.tcsmp:unicorn.name=Unicorn
 
 ## Actions
 action.hint.exit.tcsmp:grappling_hook_seat=Crouch or jump to detach
 action.hint.exit.tcsmp:cannon=Crouch or jump to stop aiming
 action.hint.exit.tcsmp:stair_seat=Crouch or jump to stand
+action.hint.exit.tcsmp:unicorn=Tap sneak to dismount
+action.interact.ride.tcsmp:unicorn=Ride
 action.interact.gerbil=Interact to pick up
 
 ## Containers

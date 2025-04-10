@@ -1,0 +1,83 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tcsmp:unicorn",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/unicorn"
+      },
+      "geometry": {
+        "default": "geometry.unicorn"
+      },
+      "animations": {
+        "baby_transform": "animation.unicorn.baby_transform",
+        "idle": "animation.unicorn.idle",
+				"walk": "animation.unicorn.walk",
+				"eat": "animation.unicorn.eat",
+				"rear": "animation.unicorn.rear",
+				"tail": "animation.unicorn.tail",
+        "trail": "animation.unicorn.trail",
+				"look_at_player": "animation.unicorn.look_at_player",
+        "gallop": "animation.unicorn.gallop",
+        "trail_sound": "animation.unicorn.trail_sound"
+      },
+      "particle_effects": {
+        "horn": "tcsmp:unicorn_horn",
+        "trail": "tcsmp:unicorn_trail"
+      },
+      "sound_effects": {
+        "gallop": "mob.unicorn.gallop",
+        "trail": "mob.unicorn.trail"
+      },
+      "scripts": {
+        "initialize": [
+          "variable.eat_anim = 0;",
+          "variable.stand_anim = 0;",
+          "variable.leg_stand_factor = 0;",
+          "variable.leg_x_rot_anim = 0;"
+        ],
+        "pre_animation": [
+          "variable.armor_texture_slot = query.armor_texture_slot(4);",
+					"variable.eat_anim = math.clamp(variable.eat_anim + (query.is_grazing ? ((1.0 - variable.eat_anim) * 0.4 + 0.05) : -variable.eat_anim * 0.4 - 0.05) * query.delta_time * 20.0, 0.0, 1.0);",
+					"variable.head_x_rot = query.target_x_rotation + (query.modified_move_speed > 0.2 ? (math.cos(query.modified_distance_moved * 22.92) * 11.46 * query.modified_move_speed + query.modified_move_speed * 11.46) : 0.0);",
+					"variable.inverse_max_stand_eat = (1.0 - math.max(variable.stand_anim, variable.eat_anim));",
+					"variable.leg_stand_factor = math.cos((query.modified_distance_moved * 38.38) + 180.0);",
+					"variable.leg_x_rot_anim = variable.leg_stand_factor * 45.8 * query.modified_move_speed;"
+        ],
+        "animate": [
+          {
+						"baby_transform": "query.is_baby"
+					},
+          "idle",
+					"walk",
+					"look_at_player",
+					{
+						"rear": "variable.stand_anim > 0.0"
+					},
+					{
+						"eat": "!query.is_standing"
+					},
+					{
+						"tail": "Math.mod(q.life_time, 10) < 0.5"
+					},
+          {
+            "gallop": "q.ground_speed > 2.0 && math.abs(q.vertical_speed) < 1.0 && q.has_rider && q.is_saddled && !q.is_in_water"
+          },
+          {
+            "trail": "q.modified_move_speed > 0.99 && !q.is_baby"
+          },
+          {
+            "trail_sound": "q.modified_move_speed > 0.99 && !q.is_baby"
+          }
+        ]
+      },
+      "render_controllers": [ "controller.render.unicorn" ],
+      "spawn_egg": {
+        "texture": "spawn_egg_unicorn"
+      }
+    }
+  }
+}

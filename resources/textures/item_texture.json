@@ -115,6 +115,9 @@
     },
     "tomato": {
       "textures": "textures/items/tomato"
+    },
+    "spawn_egg_unicorn": {
+      "textures": "textures/items/spawn_eggs/spawn_egg_unicorn"
     }
   }
 }
