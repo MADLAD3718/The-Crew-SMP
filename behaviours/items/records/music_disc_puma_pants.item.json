@@ -19,7 +19,10 @@
 				"duration": 222,
 				"sound_event": "elemconstruct.open"
 			},
-			"minecraft:rarity": "uncommon"
+			"minecraft:rarity": "uncommon",
+            "minecraft:tags": {
+                "tags": ["minecraft:music_disc"]
+            }
         }
     }
 }

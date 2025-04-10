@@ -19,7 +19,10 @@
 				"duration": 153,
 				"sound_event": "icebomb.hit"
 			},
-			"minecraft:rarity": "uncommon"
+			"minecraft:rarity": "uncommon",
+            "minecraft:tags": {
+                "tags": ["minecraft:music_disc"]
+            }
         }
     }
 }
