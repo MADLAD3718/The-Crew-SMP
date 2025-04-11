@@ -77,7 +77,8 @@
                     "block_filter": [{"name": "minecraft:farmland"}]
                 }]
             },
-            "tag:minecraft:crop": {}
+            "tag:minecraft:crop": {},
+            "tag:one_way_collidable": {}
         }
     }
 }

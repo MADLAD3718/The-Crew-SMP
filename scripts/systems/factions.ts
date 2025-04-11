@@ -56,6 +56,7 @@ export namespace FactionRegistry {
     }
 
     export function nameIsValid(name: string): boolean {
+        if (name.length > 16 || name.length == 0) return false;
         if (name.includes('/') || name.includes('§')) return false;
         for (const faction of getFactions())
             if (faction.name == name) return false;

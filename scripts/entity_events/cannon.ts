@@ -10,6 +10,7 @@ world.afterEvents.entitySpawn.subscribe(({ entity }) => {
 });
 
 world.afterEvents.entityHitEntity.subscribe(event => {
+    if (!event.hitEntity.isValid()) return;
     if (!event.hitEntity.matches({type: "tcsmp:cannon"})) return;
     
     const cannon = event.hitEntity, player = event.damagingEntity as Player;

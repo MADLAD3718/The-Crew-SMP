@@ -27,10 +27,7 @@ function createFaction(owner: Player) {
         .title({translate: "action.create.faction.title"})
         .textField(
             { translate: "action.create.faction.name" },
-            {
-                translate: "action.create.faction.name_placeholder",
-                with: [owner.name]
-            }
+            { translate: "action.create.faction.name_placeholder" }
         )
         .dropdown(
             {translate: "action.manage.faction.colour"},
@@ -61,8 +58,14 @@ function createFaction(owner: Player) {
                 owner: owner.id,
                 players: [owner.id]
             }))
-                owner.sendMessage({translate: "action.create.faction.success", with: [name]});
-            else owner.sendMessage({translate: "action.create.faction.fail", with: [name]});
+                owner.sendMessage({
+                    translate: "action.create.faction.success",
+                    with: [Object.values(FactionColour)[colour], name]
+                });
+            else owner.sendMessage({
+                translate: "action.create.faction.fail",
+                with: [Object.values(FactionColour)[colour], name]
+            });
         });
 }
 
@@ -80,12 +83,28 @@ function viewFaction(player: Player, faction: FactionRegister) {
             ]
         })
         .button({translate: "action.message.faction.title"})
-        .button({translate: "action.manage.faction.leave", with: [faction.name]})
+        .button({
+            translate: "action.manage.faction.leave",
+            with: [faction.colour, faction.name]
+        })
         .show(player).then(response => {
             if (response.canceled) return;
             
-            if (response.selection == 0) messageFaction(player, faction);
-            else FactionRegistry.removePlayer(faction, player.id);
+            if (response.selection == 0) return messageFaction(player, faction);
+            FactionRegistry.removePlayer(faction, player.id);
+            player.sendMessage({
+                translate: "action.manage.faction.leave_success",
+                with: [faction.colour, faction.name]
+            });
+
+            for (const id of faction.players) {
+                if (player.id == id) continue;
+                const otherPlayer = world.getEntity(id) as Player | undefined;
+                otherPlayer?.sendMessage({
+                    translate: "action.manage.faction.leave_message", 
+                    with: [faction.colour, faction.name, player.name]
+                });
+            }
         });
 }
 
@@ -100,8 +119,8 @@ function messageFaction(player: Player, faction: FactionRegister) {
             const message = response.formValues?.[0] as string ?? "";
 
             if (message.length) for (const id of faction.players) {
-                const player = world.getEntity(id) as Player | undefined;
-                player?.sendMessage(`§${faction.colour}[${faction.name}]§r <${player.name}> ${message}`);
+                const otherPlayer = world.getEntity(id) as Player | undefined;
+                otherPlayer?.sendMessage(`§${faction.colour}[${faction.name}]§r <${player.name}> ${message}`);
             }
         });
 }
@@ -109,7 +128,10 @@ function messageFaction(player: Player, faction: FactionRegister) {
 function editFaction(owner: Player, faction: FactionRegister) {
     new ActionFormData()
         .title({translate: "action.manage.faction.title"})
-        .body({translate: "action.manage.faction.body", with: [faction.name]})
+        .body({
+            translate: "action.manage.faction.body",
+            with: [faction.colour, faction.name]
+        })
         .button({translate: "action.manage.faction.edit_name"})
         .button({translate: "action.manage.faction.edit_players"})
         .button({translate: "action.manage.faction.edit_colour"})
@@ -144,10 +166,7 @@ function editFactionName(owner: Player, faction: FactionRegister) {
         .title({translate: "action.manage.faction.edit_name"})
         .textField(
             { translate: "action.create.faction.name" },
-            {
-                translate: "action.create.faction.name_placeholder",
-                with: [owner.name]
-            },
+            { translate: "action.create.faction.name_placeholder" },
             faction.name
         )
         .submitButton({translate: "action.manage.faction.confirm"})
@@ -166,7 +185,10 @@ function editFactionName(owner: Player, faction: FactionRegister) {
                     players: faction.players
                 });
             }
-            else owner.sendMessage({translate: "action.create.faction.fail", with: [name]});
+            else owner.sendMessage({
+                translate: "action.create.faction.fail",
+                with: [faction.colour, name]
+            });
         });
 }
 
@@ -226,7 +248,7 @@ function editFactionPlayers(owner: Player, faction: FactionRegister) {
                     translate: "action.manage.faction.kick_success",
                     with: [
                         NameRegistry.getName(players[response.selection as number]) as string,
-                        faction.name
+                        faction.colour, faction.name
                     ]
                 });
             }
@@ -236,5 +258,11 @@ function editFactionPlayers(owner: Player, faction: FactionRegister) {
 
 function deleteFaction(owner: Player, faction: FactionRegister) {
     FactionRegistry.removeFaction(faction);
-    owner.sendMessage({translate: "action.manage.faction.delete_success", with: [faction.name]});
+    for (const id of faction.players) {
+        const player = world.getEntity(id) as Player | undefined;
+        player?.sendMessage({
+            translate: "action.manage.faction.delete_success",
+            with: [faction.colour, faction.name]
+        });
+    }
 }

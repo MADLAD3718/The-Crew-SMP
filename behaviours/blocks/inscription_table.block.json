@@ -56,7 +56,12 @@
                     "liquid_type": "water",
                     "can_contain_liquid": true
                 }]
-            }
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 5
+            },
+            "tag:minecraft:is_pickaxe_item_destructible": {},
+            "minecraft:loot": "loot_tables/blocks/inscription_table.json"
         },
         "permutations": [
             {

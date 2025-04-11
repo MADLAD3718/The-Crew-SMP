@@ -8,8 +8,6 @@ const RIDDEN_TIME = 0.5 * TicksPerSecond;
 system.runInterval(() => {
     for (const player of world.getAllPlayers()) {
         const { dimension, equipment, location } = player;
-        const boots = equipment.getEquipment(EquipmentSlot.Feet);
-        if (boots?.typeId != "tcsmp:slime_boots" || player.isSneaking) return;
 
         const lastVelocity = VELOCITIES.get(player.id) ?? 0;
         const thisVelocity = player.getVelocity();
@@ -17,9 +15,12 @@ system.runInterval(() => {
         const lastRidingTime = RIDING_TIMES.get(player.id) ?? 0;
         const wasRiding = system.currentTick - lastRidingTime < RIDDEN_TIME;
 
-        if (player.isOnGround && lastVelocity < -0.5 && !wasRiding) {
-            dimension.playSound("land.slime", location, {volume: 0.22});
-            player.applyImpulse(Vec3.from(thisVelocity.x, -0.95 * lastVelocity, thisVelocity.z));
+        if (!player.isSneaking && player.isOnGround && !player.isInWater && lastVelocity < -0.375 && !wasRiding) {
+            const boots = equipment.getEquipment(EquipmentSlot.Feet);
+            if (boots?.typeId == "tcsmp:slime_boots") {
+                dimension.playSound("land.slime", location, {volume: 0.22});
+                    player.applyImpulse(Vec3.from(thisVelocity.x, -0.95 * lastVelocity, thisVelocity.z));
+            }
         }
 
         VELOCITIES.set(player.id, thisVelocity.y);

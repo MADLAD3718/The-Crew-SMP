@@ -2,20 +2,35 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
+			"label": "compile",
 			"type": "npm",
 			"script": "build",
-			"label": "build",
 			"detail": "tsup",
 			"problemMatcher": [],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "presentation": {
-                "showReuseMessage": false,
-                "clear": true,
-                "close": true
-            }
+			"presentation": {
+				"showReuseMessage": false,
+				"clear": true,
+				"close": true
+			}
+		},
+		{
+			"label": "reload",
+			"type": "process",
+			"command": "echo ${command:minecraft-debugger.minecraftReload}",
+			"problemMatcher": []
+		},
+		{
+			"label": "build",
+			"dependsOn": [
+				"compile",
+				"reload"
+			],
+			"dependsOrder": "sequence",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
 		}
 	]
 }

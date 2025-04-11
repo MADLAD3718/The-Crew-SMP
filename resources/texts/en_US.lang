@@ -89,21 +89,22 @@ action.setup.faction_invite.submit=Confirm
 action.setup.faction_invite.cancel=Cancel
 
 action.join.faction.fail=You are already in a faction!
+action.join.faction.invalid=%s no longer exists!
 action.join.faction.title=Faction Invite
-action.join.faction.accept=Join "%s"
+action.join.faction.accept=Join §%s%s§r
 action.join.faction.reject=Reject
 
 ## Faction Creation
 action.create.faction.title=Create Faction
 action.create.faction.name=Faction Name
-action.create.faction.name_placeholder=%s's Faction
+action.create.faction.name_placeholder=Max 16 characters...
 action.create.faction.submit=Create
-action.create.faction.success=Faction "%s" successfully created!
-action.create.faction.fail=Faction "%s" is invalid, failed to create faction.
+action.create.faction.success=Faction §%s%s§r successfully created!
+action.create.faction.fail=Faction "§%s%s§r" is invalid, failed to create faction
 
 ## Faction Management
 action.manage.faction.title=Manage Faction
-action.manage.faction.body=Manage "%s":
+action.manage.faction.body=Manage §%s%s§r:
 action.manage.faction.edit_name=Edit Name
 action.manage.faction.edit_players=Edit Players
 action.manage.faction.edit_colour=Edit Colour
@@ -122,20 +123,26 @@ faction_colour.redstone.name=Redstone
 faction_colour.resin.name=Resin
 
 action.manage.faction.kick=Kick %s
-action.manage.faction.kick_success=Kicked %s from "%s".
+action.manage.faction.kick_success=Kicked %s from §%s%s§r.
 
 action.manage.faction.delete=Delete Faction
-action.manage.faction.delete_success=Faction "%s" has been deleted!
+action.manage.faction.delete_success=§%s%s§r has been deleted!
 
 action.manage.faction.confirm=Confirm
 
 action.manage.faction.info=Faction: %s\nOwner: %s\nMembers: %s
-action.manage.faction.leave=Leave "%s"
+action.manage.faction.leave=Leave §%s%s§r
+action.manage.faction.leave_success=You have left §%s%s§r
+action.manage.faction.leave_message=§%s[%s]§r %s has left the faction
 
 action.message.faction.title=Send Message
 action.message.faction.message=Message:
 action.message.faction.submit=Send
+action.message.faction.message_text=§%s[%s]§r <%s> %s
 
+info.faction.no_longer_member=You are no longer in %s
+
+## Waystone Dialogue
 action.edit.waystone.title=Edit Waystone
 
 action.interact.waystone.title=Waystone Network

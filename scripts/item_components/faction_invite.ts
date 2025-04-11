@@ -29,6 +29,14 @@ const factionInviteComponent: ItemCustomComponent = {
             if (faction) return source.sendMessage({translate: "action.join.faction.fail"});
 
             const name = itemStack.getLore()[0].slice(12);
+            const invitedFaction = FactionRegistry.getFaction(name);
+            if (!invitedFaction) {
+                source.sendMessage({
+                    translate: "action.join.faction.invalid",
+                    with: [name]
+                });
+                return source.equipment.getEquipmentSlot(EquipmentSlot.Mainhand).setItem();
+            }
 
             const form = new ActionFormData()
                 .title({translate: "action.join.faction.title"});
@@ -37,14 +45,16 @@ const factionInviteComponent: ItemCustomComponent = {
 
             if (message) form.body(message);
 
-            form.button({translate: "action.join.faction.accept", with: [name]})
+            form.button({
+                    translate: "action.join.faction.accept",
+                    with: [invitedFaction.colour, invitedFaction.name]
+                })
                 .button({translate: "action.join.faction.reject"})
                 .show(source).then(response => {
                     if (response.canceled) return;
 
                     slot.setItem();
                     if (response.selection == 0) {
-                        const invitedFaction = FactionRegistry.getFaction(name);
                         FactionRegistry.addPlayer(invitedFaction as FactionRegister, source.id);
                     }
                 });

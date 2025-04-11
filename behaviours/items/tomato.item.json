@@ -30,6 +30,12 @@
             },
             "minecraft:compostable": {
                 "composting_chance": 65
+            },
+            "minecraft:tags": {
+                "tags": [
+                    "minecraft:is_food",
+                    "minecraft:crop"
+                ]
             }
         }
     }

@@ -9,7 +9,10 @@
                 "tcsmp:backstabber"
             ],
             "minecraft:tags": {
-                "tags": ["backstab_damage:15"]
+                "tags": [
+                    "backstab_damage:15",
+                    "minecraft:is_sword"
+                ]
             },
             "minecraft:max_stack_size": 1,
             "minecraft:display_name": {
