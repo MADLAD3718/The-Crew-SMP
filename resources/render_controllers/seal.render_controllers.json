@@ -1,0 +1,10 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.seal": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "q.is_sitting ? Texture.sleeping : Texture.default" ]
+    }
+  }
+}

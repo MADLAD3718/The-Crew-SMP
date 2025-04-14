@@ -121,6 +121,9 @@
     },
     "slime_boots": {
 			"textures": "textures/items/slime_boots"
-		}
+		},
+    "spawn_egg_seal": {
+      "textures": "textures/items/spawn_eggs/spawn_egg_seal"
+    }
   }
 }

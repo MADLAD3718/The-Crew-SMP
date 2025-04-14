@@ -1,0 +1,51 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tcsmp:seal",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/seal",
+        "sleeping": "textures/entity/seal_sleeping"
+      },
+      "geometry": {
+        "default": "geometry.seal"
+      },
+      "animations": {
+        "base_pose": "animation.seal.base_pose",
+        "treading": "animation.seal.treading",
+        "swimming": "animation.seal.swimming",
+        "swim_controller": "controller.animation.seal.swim",
+        "go_to_sleep": "animation.seal.go_to_sleep",
+        "sleeping": "animation.seal.sleeping",
+        "land_controller": "controller.animation.seal.land"
+      },
+      "scripts": {
+        "pre_animation": [
+          "t.s = 0; t.k = 1; loop(10, {t.s = t.s + math.sin(360 * t.k * (q.life_time + 0.0)) / (t.k * t.k); t.k = t.k + 1;}); v.left_fin_period = t.s;",
+          "t.s = 0; t.k = 1; loop(10, {t.s = t.s + math.sin(360 * t.k * (q.life_time + 0.5)) / (t.k * t.k); t.k = t.k + 1;}); v.right_fin_period = t.s;",
+          "t.s = 0; t.k = 1; loop(10, {t.s = t.s + math.sin(360 * t.k * (q.life_time + 0.25)) / (t.k * t.k); t.k = t.k + 1;}); v.left_flipper_period = t.s;",
+          "t.s = 0; t.k = 1; loop(10, {t.s = t.s + math.sin(360 * t.k * (q.life_time + 0.75)) / (t.k * t.k); t.k = t.k + 1;}); v.right_flipper_period = t.s;"
+        ],
+        "animate": [
+          "base_pose",
+          {
+            "swimming": "q.is_in_water"
+          },
+          {
+            "land_controller": "!q.is_in_water"
+          }
+        ],
+        "should_update_bones_and_effects_offscreen": true
+      },
+      "render_controllers": [
+        "controller.render.seal"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg_seal"
+      }
+    }
+  }
+}

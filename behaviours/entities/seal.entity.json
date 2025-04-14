@@ -1,0 +1,191 @@
+{
+  "format_version": "1.21.70",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "tcsmp:seal",
+      "spawn_category": "water_creature",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "tcsmp:in_water": {
+        "minecraft:behavior.random_stroll": {
+          "priority": 3,
+          "interval": 50
+        },
+        "minecraft:environment_sensor": {
+          "triggers": [{
+            "filters": {
+              "test": "in_water",
+              "value": false
+            },
+            "event": "tcsmp:surface"
+          }]
+        }
+      },
+      "tcsmp:in_air": {
+        "minecraft:sittable": {},
+        "minecraft:behavior.random_stroll": {
+          "priority": 4,
+          "interval": 100
+        },
+        "minecraft:behavior.random_look_around_and_sit": {
+          "priority": 3,
+          "continue_sitting_on_reload": true,
+          "min_angle_of_view_horizontal": 0,
+          "max_angle_of_view_horizontal": 0,
+          "max_look_count": 1,
+          "min_look_count": 1,
+          "min_look_time": 600,
+          "max_look_time": 1200,
+          "probability": 1.0,
+          "random_look_around_cooldown": 120
+        },
+        "minecraft:behavior.move_to_water": {
+          "priority": 10
+        },
+        "minecraft:environment_sensor": {
+          "triggers": [{
+            "filters": {
+              "test": "in_water",
+              "value": true
+            },
+            "event": "tcsmp:submerge"
+          }]
+        }
+      }
+    },
+    "components": {
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? Math.Random(1,3) : 0"
+      },
+      "minecraft:type_family": {
+        "family": [
+          "aquatic",
+          "seal",
+          "mob"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 1.0,
+        "height": 0.6
+      },
+      "minecraft:health": {
+        "value": 14,
+        "max": 14
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/dolphin.json"
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0,
+        "breathes_water": true,
+        "breathes_air": true,
+        "generates_bubbles": false
+      },
+      "minecraft:can_climb": {},
+      "minecraft:despawn": {
+        "despawn_from_distance": {
+          "min_distance": 32,
+          "max_distance": 40
+        }
+      },
+      "minecraft:nameable": {},
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:leashable": {
+        "soft_distance": 4.0,
+        "hard_distance": 6.0,
+        "max_distance": 10.0
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:navigation.generic": {
+        "is_amphibious": true,
+        "can_path_over_water": true,
+        "can_swim": true,
+        "can_walk": true,
+        "can_sink": false,
+        "can_breach": true,
+        "can_path_from_air": true
+      },
+      "minecraft:movement.amphibious": {
+        "max_turn": 15.0
+      },
+      "minecraft:movement": {
+        "value": 0.25
+      },
+      "minecraft:underwater_movement": {
+        "value": 0.2
+      },
+      "minecraft:jump.static": {},
+      "minecraft:scale": {
+        "value": 1.2
+      },
+      "minecraft:attack": {
+        "damage": 2
+      },
+      "minecraft:behavior.tempt": {
+        "priority": 1,
+        "speed_multiplier": 1.1,
+        "can_tempt_vertically": true,
+        "items": [
+          "minecraft:cod",
+          "minecraft:salmon"
+        ]
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "tcsmp:in_water"
+          ]
+        }
+      },
+      "tcsmp:submerge": {
+        "remove": {
+          "component_groups": [
+            "tcsmp:in_air"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "tcsmp:in_water"
+          ]
+        }
+      },
+      "tcsmp:surface": {
+        "remove": {
+          "component_groups": [
+            "tcsmp:in_water"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "tcsmp:in_air"
+          ]
+        }
+      }
+    }
+  }
+}
