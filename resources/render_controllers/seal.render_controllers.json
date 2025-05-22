@@ -4,7 +4,7 @@
     "controller.render.seal": {
       "geometry": "Geometry.default",
       "materials": [ { "*": "Material.default" } ],
-      "textures": [ "q.is_sitting ? Texture.sleeping : Texture.default" ]
+      "textures": [ "(q.is_sitting || math.mod(q.life_time, 15) < 0.1) ? Texture.sleeping : Texture.default" ]
     }
   }
 }

@@ -252,12 +252,17 @@
 						},
 						"move.arms",
 						"move.legs",
-						"cape",
 						{
-							"riding.arms" : "query.is_riding"
+							"cape": "!query.is_riding || query.property('tcsmp:ride_anim') == 'default'"
 						},
 						{
-							"riding.legs" : "query.is_riding"
+							"riding.arms" : "query.is_riding && query.property('tcsmp:ride_anim') == 'default'"
+						},
+						{
+							"riding.legs" : "query.is_riding && query.property('tcsmp:ride_anim') == 'default'"
+						},
+						{
+							"riding.seal" : "query.is_riding && query.property('tcsmp:ride_anim') == 'seal'"
 						},
 						"holding",
 						{

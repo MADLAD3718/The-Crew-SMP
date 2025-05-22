@@ -17,10 +17,13 @@
         "base_pose": "animation.seal.base_pose",
         "treading": "animation.seal.treading",
         "swimming": "animation.seal.swimming",
-        "swim_controller": "controller.animation.seal.swim",
-        "go_to_sleep": "animation.seal.go_to_sleep",
+        "water_controller": "controller.animation.seal.water",
         "sleeping": "animation.seal.sleeping",
-        "land_controller": "controller.animation.seal.land"
+        "galumphing": "animation.seal.galumphing",
+        "basking": "animation.seal.basking",
+        "land_controller": "controller.animation.seal.land",
+        "hungry": "animation.seal.hungry",
+        "beg_controller": "controller.animation.seal.beg"
       },
       "scripts": {
         "pre_animation": [
@@ -31,6 +34,7 @@
         ],
         "animate": [
           "base_pose",
+          "beg_controller",
           {
             "swimming": "q.is_in_water"
           },

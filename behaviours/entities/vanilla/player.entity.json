@@ -5,7 +5,15 @@
       "identifier": "minecraft:player",
       "spawn_category": "creature",
       "is_spawnable": false,
-      "is_summonable": false
+      "is_summonable": false,
+      "properties": {
+        "tcsmp:ride_anim": {
+          "type": "enum",
+          "client_sync": true,
+          "values": ["default", "seal"],
+          "default": "default"
+        }
+      }
     },
 
     "component_groups": {

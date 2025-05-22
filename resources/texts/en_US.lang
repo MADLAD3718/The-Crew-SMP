@@ -72,6 +72,8 @@ action.hint.exit.tcsmp:stair_seat=Crouch or jump to stand
 action.hint.exit.tcsmp:unicorn=Tap sneak to dismount
 action.interact.ride.tcsmp:unicorn=Ride
 action.interact.gerbil=Interact to pick up
+action.interact.ride.seal=Ride
+action.hint.exit.tcsmp:seal=Crouch or jump to dismount
 
 ## Containers
 container.inscription_table=Inscription

@@ -89,7 +89,7 @@
 					"rotation": [-22.5, -5, 50]
 				},
 				"rightFlipper": {
-					"rotation": [-12.5, 2.5, 32.5]
+					"rotation": [0, 10, 32.5]
 				},
 				"head": {
 					"rotation": [0, 0.5, -8],
@@ -111,15 +111,70 @@
 				}
 			}
 		},
-		"animation.seal.hopping": {
+		"animation.seal.galumphing": {
 			"loop": true,
 			"bones": {
 				"torso": {
 					"rotation": ["10 * math.sin(q.life_time * 360 / 0.375)", 0, 0],
-					"position": [0, "2 * math.pow(math.sin(q.life_time * 360 / 0.75), 4)", 0]
+					"position": [0, "3 * math.pow(math.sin(q.life_time * 360 / 0.75), 4)", 0]
 				},
 				"head": {
-					"rotation": ["-7.5 * math.sin(q.life_time * 360 / 0.375)", 0, 0]
+					"rotation": ["7.5 * math.sin((q.life_time - 0.1) * 360 / 0.375)", 0, 0]
+				},
+				"flank": {
+					"rotation": ["5 - 19 * math.pow(math.cos(q.life_time * 360 / 0.75), 6)", 0, 0]
+				},
+				"leftFlipper": {
+					"rotation": ["10 - 22 * math.pow(math.cos((q.life_time - 0.1) * 360 / 0.75), 4)", -15, 0]
+				},
+				"rightFlipper": {
+					"rotation": ["10 - 22 * math.pow(math.cos((q.life_time - 0.1) * 360 / 0.75), 4)", 15, 0]
+				},
+				"fins": {
+					"rotation": ["20 * math.pow(math.sin(q.life_time * 360 / 0.75), 4)", 0, 0]
+				},
+				"leftFin": {
+					"rotation": [0, "20 - 40 * math.pow(math.sin((q.life_time + 0.09375) * 360 / 0.75), 4)", "15 - 25 * math.pow(math.sin(q.life_time * 360 / 0.75), 4)"]
+				},
+				"rightFin": {
+					"rotation": [0, "-20 + 40 * math.pow(math.sin((q.life_time + 0.09375) * 360 / 0.75), 4)", "-15 + 25 * math.pow(math.sin(q.life_time * 360 / 0.75), 4)"]
+				}
+			}
+		},
+		"animation.seal.basking": {
+			"loop": true,
+			"bones": {
+				"torso": {
+					"position": [0, -0.25, 0]
+				},
+				"blubber": {
+					"scale": "1.01 - 0.01 * math.cos(q.life_time * 90) / 2"
+				},
+				"flank": {
+					"rotation": ["10 + math.cos(q.life_time * 90) / 2", 0, 0]
+				},
+				"leftFlipper": {
+					"rotation": [12.5, -18, 0]
+				},
+				"rightFlipper": {
+					"rotation": [12.5, 18, 0]
+				},
+				"head": {
+					"rotation": ["q.target_x_rotation", "q.target_y_rotation", 0]
+				},
+				"leftFin": {
+					"rotation": [-7, -32, 15]
+				},
+				"rightFin": {
+					"rotation": [-7, 32, -15]
+				}
+			}
+		},
+		"animation.seal.hungry": {
+			"loop": true,
+			"bones": {
+				"mouth": {
+					"rotation": ["12 + 2 * math.sin(q.life_time * 90)", 0, 0]
 				}
 			}
 		}
