@@ -5,7 +5,7 @@ import { Vec3 } from "@madlad3718/mcveclib";
 world.afterEvents.playerInteractWithEntity.subscribe(event => {
     const { player, target } = event;
 
-    if (!target.isValid() ||
+    if (!target.isValid ||
         !target.matches({type: MinecraftEntityTypes.Wolf}) ||
         !target.hasComponent(EntityComponentTypes.IsTamed) ||
         player.equipment.getEquipment(EquipmentSlot.Mainhand) ||

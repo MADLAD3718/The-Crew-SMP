@@ -2,7 +2,6 @@
 	"format_version": "1.16.100",
 	"minecraft:texture_set": {
 		"color": "nether_waystone_side_bottom",
-		"metalness_emissive_roughness": "nether_waystone_side_bottom_mer",
-		"heightmap": "waystone_side_bottom_heightmap"
+		"metalness_emissive_roughness": "nether_waystone_side_bottom_mer"
 	}
 }

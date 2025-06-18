@@ -1,5 +1,5 @@
 {
-    "format_version": "1.21.60",
+    "format_version": "1.21.90",
     "minecraft:block": {
         "description": {
             "identifier": "tcsmp:end_waystone",
@@ -9,11 +9,10 @@
             }
         },
         "components": {
-            "minecraft:custom_components": [
-                "tcsmp:double_block",
-                "tcsmp:waystone"
-            ],
-            "tag:dimension:minecraft:the_end": {},
+            "tcsmp:double_block": {},
+            "tcsmp:waystone": {
+                "dimension": "minecraft:the_end"
+            },
             "tag:minecraft:is_pickaxe_item_destructible": {},
             "minecraft:geometry": "geometry.waystone_bottom",
             "minecraft:material_instances": {
@@ -69,12 +68,12 @@
                         "scale_pivot": [0.0, 0.5, 0.0],
                         "scale": [1.0, 2.0, 1.0]
                     },
-                    "minecraft:custom_components": [
-                        "tcsmp:double_block",
-                        "tcsmp:block_entity",
-                        "tcsmp:waystone"
-                    ],
-                    "tag:entity:tcsmp:warp_crystal": {}
+                    "tcsmp:block_entity": {
+                        "entity": "tcsmp:warp_crystal"
+                    },
+                    "tcsmp:waystone": {
+                        "dimension": "minecraft:the_end"
+                    }
                 }
             },
             {

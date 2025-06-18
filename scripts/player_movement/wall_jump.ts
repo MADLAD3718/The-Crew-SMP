@@ -3,7 +3,7 @@ import { Vec3 } from "@madlad3718/mcveclib";
 
 world.afterEvents.playerButtonInput.subscribe(event => {
     const { player, button, newButtonState } = event, { dimension, location } = player;
-    if (player.getGameMode() == GameMode.creative) return;
+    if (player.getGameMode() == GameMode.Creative) return;
     if (button != InputButton.Jump || newButtonState != ButtonState.Pressed) return;
     if (!player.isSneaking || getHeightFromSurface(player) < 0.25) return;
 

@@ -3,14 +3,14 @@ import { MinecraftItemTypes } from "@minecraft/vanilla-data";
 import { Mat3, RandVec, Vec3 } from "@madlad3718/mcveclib";
 
 world.afterEvents.entitySpawn.subscribe(({ entity }) => {
-    if (!entity.isValid()) return;
+    if (!entity.isValid) return;
     if (!entity.matches({type: "tcsmp:cannon"})) return;
 
     entity.dimension.playSound("cannon.place", entity.location);
 });
 
 world.afterEvents.entityHitEntity.subscribe(event => {
-    if (!event.hitEntity.isValid()) return;
+    if (!event.hitEntity.isValid) return;
     if (!event.hitEntity.matches({type: "tcsmp:cannon"})) return;
     
     const cannon = event.hitEntity, player = event.damagingEntity as Player;
@@ -19,7 +19,7 @@ world.afterEvents.entityHitEntity.subscribe(event => {
 
     if (!rider) {
         dimension.playSound("cannon.break", cannon.location);
-        if (player.getGameMode() == GameMode.survival)
+        if (player.getGameMode() == GameMode.Survival)
             player.dimension.spawnLoot(cannon.location, "blocks/cannon");
         cannon.dropInventory();
         cannon.remove();

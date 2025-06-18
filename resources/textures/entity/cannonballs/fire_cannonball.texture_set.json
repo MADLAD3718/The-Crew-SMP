@@ -1,0 +1,7 @@
+{
+    "format_version": "1.21.30",
+    "minecraft:texture_set": {
+        "color": "fire_cannonball",
+        "metalness_emissive_roughness": "fire_cannonball_mer"
+    }
+}

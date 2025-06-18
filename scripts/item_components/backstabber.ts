@@ -10,10 +10,15 @@ const COSE = Math.cos(ENTITY_ANGLE);
 const LOOK_ANGLE = 3 * Math.PI / 5;
 const COSL = Math.cos(LOOK_ANGLE);
 
+type BackstabberParameters = {
+    backstab_damage: number
+}
+
 const backstabberComponent: ItemCustomComponent = {
-    onHitEntity(event) {
-        const { attackingEntity, hitEntity, itemStack } = event, { dimension } = hitEntity;
-        
+    onHitEntity(event, parameters) {
+        const { attackingEntity, hitEntity } = event, { dimension } = hitEntity;
+        const { params } = parameters as { params: BackstabberParameters };
+
         const lastHitTime = DAMAGE_TIMES.get(hitEntity.id) ?? 0;
         if (system.currentTick - lastHitTime < INVUNERABILITY_DELAY) return;
 
@@ -27,8 +32,7 @@ const backstabberComponent: ItemCustomComponent = {
 
         if (Vec3.dot(targetView, view) < COSL) return;
 
-        const backstabDamage = parseInt(itemStack?.getTagProperty("backstab_damage") as string);
-        hitEntity.applyDamage(backstabDamage, {
+        hitEntity.applyDamage(params.backstab_damage, {
             cause: EntityDamageCause.entityAttack,
             damagingEntity: attackingEntity
         });

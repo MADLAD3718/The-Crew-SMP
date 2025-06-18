@@ -1,4 +1,5 @@
-import { ItemCustomComponent, MinecraftDimensionTypes, WeatherType, world } from "@minecraft/server";
+import { ItemCustomComponent, WeatherType, world } from "@minecraft/server";
+import { MinecraftDimensionTypes } from "@minecraft/vanilla-data";
 import { Vec2, Vec3 } from "@madlad3718/mcveclib";
 import { randBoundedDisk } from "../util";
 
@@ -6,9 +7,9 @@ const BOLT_COUNT = 12;
 
 world.beforeEvents.itemUse.subscribe(event => {
     const { source, itemStack } = event, { dimension } = source;
-    if (itemStack.typeId != "tcsmp:scroll_of_thunder") return;
+    if (!itemStack.getComponent("tcsmp:thunder_spell")?.isValid) return;
     
-    event.cancel = dimension.id != MinecraftDimensionTypes.overworld;
+    event.cancel = dimension.id != MinecraftDimensionTypes.Overworld;
 });
 
 const thunderSpellComponent: ItemCustomComponent = {

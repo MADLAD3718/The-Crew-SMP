@@ -6,7 +6,7 @@ const INVUNERABILITY_DELAY = 0.5 * TicksPerSecond;
 
 world.afterEvents.entityHurt.subscribe(event => {
     const { damage, damageSource, hurtEntity } = event;
-    if (!hurtEntity.isValid()) return;
+    if (!hurtEntity.isValid) return;
 
     const { damagingEntity } = damageSource, { dimension } = hurtEntity;
     const weapon = damagingEntity?.equipment?.getEquipment(EquipmentSlot.Mainhand);

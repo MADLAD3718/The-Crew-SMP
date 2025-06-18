@@ -57,7 +57,7 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
         }
 
         if (ticks == DASH_TIME) {
-            if (source.getGameMode() != GameMode.creative && hits) {
+            if (source.getGameMode() != GameMode.Creative && hits) {
                 for (let i = 0; i < hits; ++i)
                     item = item?.damage();
                 slot?.setItem(item);

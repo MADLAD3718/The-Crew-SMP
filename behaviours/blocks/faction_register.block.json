@@ -1,5 +1,5 @@
 {
-    "format_version": "1.21.70",
+    "format_version": "1.21.90",
     "minecraft:block": {
         "description": {
             "identifier": "tcsmp:faction_register",
@@ -10,7 +10,7 @@
             }
         },
         "components": {
-            "minecraft:custom_components": ["tcsmp:faction_register"],
+            "tcsmp:faction_register": {},
             "tag:minecraft:is_axe_item_destructible": {},
             "minecraft:geometry": "geometry.register",
             "minecraft:material_instances": {

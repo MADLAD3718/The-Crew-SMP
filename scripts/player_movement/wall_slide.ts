@@ -20,7 +20,7 @@ system.runInterval(() => {
 
 function isSliding(player: Player): boolean {
     const { dimension, location, inputInfo } = player;
-    if (player.getGameMode() == GameMode.creative) return false;
+    if (player.getGameMode() == GameMode.Creative) return false;
     if (!player.isFalling || !player.isSneaking || player.isSwimming) return false;
 
     const movement = inputInfo.getMovementVector();

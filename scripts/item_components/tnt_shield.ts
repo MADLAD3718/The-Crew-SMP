@@ -35,7 +35,7 @@ function hitTNTShield(holder: Player, direction: Vector3) {
     dimension.createExplosion(holder.location, 8, {
         breaksBlocks: false, source: holder
     });
-    if (holder.getGameMode() == GameMode.creative) return;
+    if (holder.getGameMode() == GameMode.Creative) return;
 
     const mainhand = holder.equipment.getEquipmentSlot(EquipmentSlot.Mainhand);
     const offhand = holder.equipment.getEquipmentSlot(EquipmentSlot.Offhand);

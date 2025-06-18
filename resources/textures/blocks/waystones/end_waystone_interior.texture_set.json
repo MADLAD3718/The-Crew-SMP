@@ -2,7 +2,6 @@
 	"format_version": "1.16.100",
 	"minecraft:texture_set": {
 		"color": "end_waystone_interior",
-		"metalness_emissive_roughness": "end_waystone_interior_mer",
-		"heightmap": "waystone_interior_heightmap"
+		"metalness_emissive_roughness": "end_waystone_interior_mer"
 	}
 }

@@ -2,7 +2,6 @@
 	"format_version": "1.16.100",
 	"minecraft:texture_set": {
 		"color": "overworld_waystone_side_top",
-		"metalness_emissive_roughness": "overworld_waystone_side_top_mer",
-		"heightmap": "waystone_side_top_heightmap"
+		"metalness_emissive_roughness": "overworld_waystone_side_top_mer"
 	}
 }

@@ -1,0 +1,7 @@
+{
+    "format_version": "1.21.30",
+    "minecraft:texture_set": {
+        "color": "katana_ash",
+        "metalness_emissive_roughness": [0, 128, 255]
+    }
+}

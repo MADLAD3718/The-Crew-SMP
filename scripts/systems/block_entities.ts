@@ -17,10 +17,9 @@ export namespace BlockEntityRegistry {
         return undefined;
     }
 
-    export function spawn(block: Block) {
+    export function spawn(block: Block, typeId: string) {
         const { dimension, location } = block;
-        const identifier = block.getTags().find(tag => tag.startsWith("entity:"))?.slice(7);
-        const entity = dimension.spawnEntity(identifier as string, block.bottomCenter());
+        const entity = dimension.spawnEntity(typeId, block.bottomCenter());
         world.setDynamicProperty(`block_entity/${dimension.id}/${entity.id}`, location);
     }
 

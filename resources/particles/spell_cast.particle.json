@@ -5,7 +5,7 @@
 			"identifier": "tcsmp:spell_cast",
 			"basic_render_parameters": {
 				"material": "particles_add",
-				"texture": "textures/particle/particles"
+				"texture": "textures/particle/glyphs"
 			}
 		},
 		"components": {
@@ -30,10 +30,10 @@
 				"size": [0.2, 0.2],
 				"facing_camera_mode": "rotate_xyz",
 				"uv": {
-					"texture_width": 128,
-					"texture_height": 128,
-					"uv": ["8 * math.floor(v.particle_random_1 * (16 - 5 * math.floor(v.particle_random_2 * 2)))", "112 + 8 * math.floor(v.particle_random_2 * 2)"],
-					"uv_size": [8, 8]
+					"texture_width": 104,
+					"texture_height": 16,
+					"uv": ["8 * math.floor(v.particle_random_1 * 13)", "8 * math.floor(v.particle_random_2 * 2)"],
+					"uv_size": [7, 7]
 				}
 			},
 			"minecraft:particle_appearance_tinting": {

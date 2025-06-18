@@ -8,6 +8,7 @@ world.beforeEvents.playerInteractWithBlock.subscribe(event => {
 
     const states = block.permutation.getAllStates();
     if (states["upside_down_bit"]) return;
+    
     const { dimension } = block, { heightRange } = dimension;
 
     const above = block.location.y < heightRange.max ? block.above() : undefined;

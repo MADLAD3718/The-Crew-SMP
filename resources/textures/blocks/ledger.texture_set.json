@@ -2,7 +2,6 @@
     "format_version": "1.16.100",
     "minecraft:texture_set": {
         "color": "ledger",
-        "metalness_emissive_roughness": "ledger_mer",
-        "heightmap": "ledger_heightmap"
+        "metalness_emissive_roughness": "ledger_mer"
     }
 }

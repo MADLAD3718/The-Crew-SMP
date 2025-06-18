@@ -5,7 +5,7 @@
 			"identifier": "tcsmp:katana_dash",
 			"basic_render_parameters": {
 				"material": "particles_add",
-				"texture": "textures/particle/particles"
+				"texture": "textures/particle/katana_ash"
 			}
 		},
 		"components": {
@@ -33,13 +33,7 @@
 			},
 			"minecraft:particle_appearance_billboard": {
 				"size": [0.03, 0.03],
-				"facing_camera_mode": "rotate_xyz",
-				"uv": {
-					"texture_width": 128,
-					"texture_height": 128,
-					"uv": [4, 4],
-					"uv_size": [1, 1]
-				}
+				"facing_camera_mode": "rotate_xyz"
 			},
 			"minecraft:particle_motion_collision": {
 				"collision_radius": 0.025

@@ -9,7 +9,7 @@ import "./block_events/export";
 import "./player_movement/export";
 import "./extensions/export";
 
-world.beforeEvents.worldInitialize.subscribe(({blockComponentRegistry, itemComponentRegistry}) => {
+system.beforeEvents.startup.subscribe(({blockComponentRegistry, itemComponentRegistry}) => {
     for (const register of item_components)
         itemComponentRegistry.registerCustomComponent(register.name, register.component);
     

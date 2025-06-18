@@ -4,13 +4,19 @@ import { Vec3 } from "@madlad3718/mcveclib";
 
 import { WaystoneRegister, WaystoneRegistry } from "../systems/waystones";
 
+type WaystoneParameters = {
+    dimension: string
+}
+
 const waystoneComponent: BlockCustomComponent = {
     onPlace({ block, dimension }) {
         dimension.playSound("waystone.place", block.center());
     },
 
-    onPlayerInteract({ block, player, dimension }) {
-        if (dimension.id != block.getTagProperty("dimension")) return;
+    onPlayerInteract({ block, player, dimension }, parameters) {
+        const { params } = parameters as { params: WaystoneParameters };
+
+        if (dimension.id != params.dimension) return;
         const { permutation } = block;
 
         dimension.playSound("waystone.interact", block.center());
@@ -26,12 +32,14 @@ const waystoneComponent: BlockCustomComponent = {
         else editWaystone(WaystoneRegistry.find(base) as WaystoneRegister, player as Player);
     },
 
-    onPlayerDestroy({ block, destroyedBlockPermutation, dimension }) {
-        if (dimension.id != destroyedBlockPermutation.getTagProperty("dimension")) return;
+    onPlayerBreak({ block, brokenBlockPermutation, dimension }, parameters) {
+        const { params } = parameters as { params: WaystoneParameters };
+
+        if (dimension.id != params.dimension) return;
 
         dimension.playSound("waystone.break", block.center());
 
-        const states = destroyedBlockPermutation.getAllStates();
+        const states = brokenBlockPermutation.getAllStates();
         if (!states["tcsmp:active"]) return;
 
         const base = states["tcsmp:top"] ? block.below() as Block : block;
@@ -122,7 +130,7 @@ function editWaystone(waystone: WaystoneRegister, player: Player) {
             {translate: "action.setup.waystone.name"},
             waystone.name
         )
-        .toggle({translate: "action.setup.waystone.private"}, waystone.owner != "")
+        .toggle({translate: "action.setup.waystone.private"}, { defaultValue: waystone.owner != "" })
         .show(player).then(response => {
             if (response.canceled) return;
 

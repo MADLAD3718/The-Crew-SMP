@@ -114,7 +114,7 @@ Player.prototype.stopSound = function (sound?: string) {
 }
 
 Player.prototype.applyImpulse = function (vector: Vector3): void {
-    return this.applyKnockback(vector.x, vector.z, Math.hypot(vector.x, vector.z), vector.y);
+    return this.applyKnockback(vector, vector.y);
 }
 
 Object.defineProperties(Entity.prototype, {

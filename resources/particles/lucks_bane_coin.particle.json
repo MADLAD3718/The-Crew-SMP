@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "tcsmp:lucks_bane_coin",
 			"basic_render_parameters": {
-				"material": "particles_blend",
+				"material": "particles_alpha_nocull",
 				"texture": "textures/particle/minecoin"
 			}
 		},

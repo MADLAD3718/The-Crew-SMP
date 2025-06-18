@@ -58,7 +58,7 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
 });
 
 world.afterEvents.projectileHitBlock.subscribe(({projectile: stake}) => {
-    if (!stake.isValid()) return;
+    if (!stake.isValid) return;
     if (!stake.matches({type: "tcsmp:grappling_hook_stake"})) return;
     system.clearRun(stake.getDynamicProperty("interval") as number);
 
@@ -89,7 +89,7 @@ world.afterEvents.projectileHitBlock.subscribe(({projectile: stake}) => {
         const hook = slot?.getItem()?.clone("tcsmp:grappling_hook") as ItemStack;
         hook.lockMode = ItemLockMode.none;
         slot?.setItem(hook);
-        slot?.setItem(player.getGameMode() == GameMode.creative ? hook : hook.damage());
+        slot?.setItem(player.getGameMode() == GameMode.Creative ? hook : hook.damage());
 
         if (!slot?.hasItem())
             player.dimension.playSound("random.break", player.getHeadLocation());
@@ -119,7 +119,7 @@ world.afterEvents.playerSpawn.subscribe(event => {
     
         let hook = slot?.getItem()?.clone("tcsmp:grappling_hook") as ItemStack;
         hook.lockMode = ItemLockMode.none;
-        slot?.setItem(player.getGameMode() == GameMode.creative ? hook : hook.damage());
+        slot?.setItem(player.getGameMode() == GameMode.Creative ? hook : hook.damage());
     
         if (!slot?.hasItem())
             player.dimension.playSound("random.break", player.getHeadLocation());

@@ -1,6 +1,4 @@
-import { Container, ContainerSlot, ItemComponentTypes, ItemStack } from "@minecraft/server";
-import { MinecraftEnchantmentTypes } from "@minecraft/vanilla-data";
-import { MissingComponentError } from "../util";
+import { Container, ContainerSlot, ItemStack } from "@minecraft/server";
 
 declare module "@minecraft/server" {
     interface Container {

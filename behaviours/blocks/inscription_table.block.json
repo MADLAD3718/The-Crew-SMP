@@ -1,5 +1,5 @@
 {
-    "format_version": "1.21.60",
+    "format_version": "1.21.90",
     "minecraft:block": {
         "description": {
             "identifier": "tcsmp:inscription_table",
@@ -10,10 +10,9 @@
             }
         },
         "components": {
-            "minecraft:custom_components": [
-                "tcsmp:tick_particle"
-            ],
-            "tag:particle:tcsmp:inscription_rune": {},
+            "tcsmp:tick_particle": {
+                "particle": "tcsmp:inscription_rune"
+            },
             "minecraft:tick": {
                 "interval_range": [20, 20]
             },

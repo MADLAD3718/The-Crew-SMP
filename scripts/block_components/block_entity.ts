@@ -1,12 +1,17 @@
 import { BlockCustomComponent } from "@minecraft/server";
 import { BlockEntityRegistry } from "../systems/block_entities";
 
+type BlockEntityParameters = {
+    entity: string
+}
+
 const blockEntityComponent: BlockCustomComponent = {
-    onPlace(event) {
-        BlockEntityRegistry.spawn(event.block);
+    onPlace(event, parameters) {
+        const { params } = parameters as { params: BlockEntityParameters };
+        BlockEntityRegistry.spawn(event.block, params.entity);
     },
 
-    onPlayerDestroy(event) {
+    onPlayerBreak(event) {
         BlockEntityRegistry.remove(event.block);
     }
 }

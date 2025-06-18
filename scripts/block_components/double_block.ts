@@ -1,4 +1,4 @@
-import { Block, BlockCustomComponent } from "@minecraft/server";
+import { BlockCustomComponent, world } from "@minecraft/server";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 import { BlockEntityRegistry } from "../systems/block_entities";
 
@@ -9,13 +9,13 @@ const doubleBlockComponent: BlockCustomComponent = {
             block.above()?.setPermutation(permutation.withState("tcsmp:top", true));
     },
 
-    onPlayerDestroy(event) {
-        const {block, destroyedBlockPermutation} = event;
-        
-        const other = destroyedBlockPermutation.getState("tcsmp:top") ? block.below() : block.above();
+    onPlayerBreak(event) {
+        const { block, brokenBlockPermutation } = event;
 
-        if (other?.getTags().find(tag => tag.startsWith("entity:")))
-            BlockEntityRegistry.remove(other as Block);
+        const other = brokenBlockPermutation.getState("tcsmp:top") ? block.below() : block.above();
+
+        if (other?.getComponent("tcsmp:block_entity")?.isValid)
+            BlockEntityRegistry.remove(other);
 
         other?.setType(MinecraftBlockTypes.Air);
     }

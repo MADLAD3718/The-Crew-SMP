@@ -1,17 +1,14 @@
 {
-    "format_version": "1.21.60",
+    "format_version": "1.21.90",
     "minecraft:item": {
         "description": {
             "identifier": "tcsmp:scroll_of_return"
         },
         "components": {
-            "minecraft:custom_components": [
-                "tcsmp:spell_scroll",
-                "tcsmp:return_spell"
-            ],
-            "minecraft:tags": {
-                "tags": ["colour:0.094 0.658 0.564"]
+            "tcsmp:spell_scroll": {
+                "spell_colour": [0.094, 0.658, 0.564]
             },
+            "tcsmp:return_spell": {},
             "minecraft:max_stack_size": 8,
             "minecraft:display_name": {
                 "value": "item.tcsmp:scroll_of_return.name"

@@ -1,5 +1,5 @@
 {
-    "format_version": "1.21.70",
+    "format_version": "1.21.90",
     "minecraft:block": {
         "description": {
             "identifier": "tcsmp:tomato",
@@ -59,10 +59,13 @@
             }
         ],
         "components": {
-            "minecraft:custom_components": ["tcsmp:crop"],
+            "tcsmp:crop": {},
             "minecraft:map_color": "#6f8b3a",
             "minecraft:collision_box": false,
             "minecraft:geometry": "geometry.cross_crop",
+            "minecraft:material_instances": {
+                "*": { "texture": "tomato_stage_0" }
+            },
             "minecraft:light_dampening": 0,
             "minecraft:liquid_detection": {
                 "detection_rules": [{

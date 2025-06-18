@@ -5,12 +5,6 @@ import { MissingComponentError } from "../util";
 declare module "@minecraft/server" {
     interface ItemStack {
         /**
-         * Gets a property associated with a tag on the item.
-         * @param id The identifier of the tag property.
-         * @returns The value of the tag property.
-         */
-        getTagProperty(id: string): string | undefined;
-        /**
          * Creates an exact copy of the item stack, including any
          * custom data or properties. Optionally replace the type
          * as well, given the new item type supports the same
@@ -52,10 +46,6 @@ Object.defineProperties(ItemStack.prototype, {
         }
     }
 });
-
-ItemStack.prototype.getTagProperty = function (id: string): string | undefined {
-    return this.getTags().find(tag => tag.startsWith(id + ":"))?.slice(id.length + 1);
-}
 
 ItemStack.prototype.clone = function (type?: string): ItemStack {
     const item = new ItemStack(type ?? this.type);
