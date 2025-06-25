@@ -1,4 +1,4 @@
-import { BlockRaycastHit, EntityComponentTypes, EquipmentSlot, ItemCustomComponent, ItemStack, Player, system, TicksPerSecond, world } from "@minecraft/server";
+import { EntityComponentTypes, EquipmentSlot, ItemCustomComponent, ItemStack, Player, system, TicksPerSecond, world } from "@minecraft/server";
 import { Vec3 } from "@madlad3718/mcveclib";
 
 const PICKUP_TIMES: Map<string, number> = new Map();
@@ -28,16 +28,15 @@ world.afterEvents.playerInteractWithEntity.subscribe(event => {
 
 const gerbilComponent: ItemCustomComponent = {
     onUseOn(event) {
-        const { source, itemStack } = event;
+        const { source, itemStack, faceLocation, block } = event;
         if (!(source instanceof Player)) return;
 
         const lastPickedUpTime = PICKUP_TIMES.get(source.id) ?? 0;
         if (system.currentTick - lastPickedUpTime < PICKUP_DELAY) return;
 
-        const raycast = source.getBlockFromViewDirection() as BlockRaycastHit;
-        const target = Vec3.add(raycast.block, raycast.faceLocation);
-
+        const target = Vec3.add(block, faceLocation, Vec3.Up);
         const gerbil = source.dimension.spawnEntity("tcsmp:gerbil", target);
+        
         if (itemStack.nameTag) gerbil.nameTag = itemStack.nameTag;
         gerbil.triggerEvent("tcsmp:grow_up");
 
