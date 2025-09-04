@@ -1,26 +1,21 @@
 {
   "format_version": "1.20.60",
-  "minecraft:recipe_shaped": {
+  "minecraft:recipe_shapeless": {
     "description": {
       "identifier": "minecraft:flow_armor_trim_smithing_template_duplicate"
     },
     "tags": [ "crafting_table" ],
-    "pattern": [
-      "###",
-      "#S#",
-      "#R#"
-    ],
-    "key": {
-      "S": {
+    "ingredients": [
+      {
         "item": "minecraft:flow_armor_trim_smithing_template"
       },
-      "R": {
-        "item": "minecraft:breeze_rod"
+      {
+        "item": "minecraft:diamond"
       },
-      "#": {
-        "item": "minecraft:copper_block"
+      {
+        "item": "minecraft:breeze_rod"
       }
-    },
+    ],
     "unlock": [
       {
         "item": "minecraft:flow_armor_trim_smithing_template"

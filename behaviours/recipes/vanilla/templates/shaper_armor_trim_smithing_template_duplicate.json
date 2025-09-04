@@ -6,13 +6,16 @@
     },
     "tags": [ "crafting_table" ],
     "pattern": [
-      "###",
       "#S#",
+      "#C#",
       "###"
     ],
     "key": {
       "S": {
         "item": "minecraft:shaper_armor_trim_smithing_template"
+      },
+      "C": {
+        "item": "minecraft:diamond"
       },
       "#": {
         "item": "minecraft:hardened_clay"

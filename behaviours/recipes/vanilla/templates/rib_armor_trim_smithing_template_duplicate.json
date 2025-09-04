@@ -6,13 +6,16 @@
     },
     "tags": [ "crafting_table" ],
     "pattern": [
-      "###",
       "#S#",
+      "#C#",
       "###"
     ],
     "key": {
       "S": {
         "item": "minecraft:rib_armor_trim_smithing_template"
+      },
+      "C": {
+        "item": "minecraft:diamond"
       },
       "#": {
         "item": "minecraft:netherrack"
