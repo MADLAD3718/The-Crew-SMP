@@ -39,7 +39,8 @@ function isSliding(player: Player): boolean {
     );
     if (!raycast) return false;
 
-    const hitpos = Vec3.add(raycast.block, raycast.faceLocation);
+    const offset = Vec3.saturate(Vec3.fromDirection(raycast.face));
+    const hitpos = Vec3.add(raycast.block, raycast.faceLocation, offset);
     const distance = Vec3.distance(location, hitpos);
     if (distance > 0.31) return false;
 

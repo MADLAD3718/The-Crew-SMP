@@ -28,13 +28,14 @@ world.afterEvents.playerInteractWithEntity.subscribe(event => {
 
 const gerbilComponent: ItemCustomComponent = {
     onUseOn(event) {
-        const { source, itemStack, faceLocation, block } = event;
+        const { source, itemStack, faceLocation, block, blockFace } = event;
         if (!(source instanceof Player)) return;
 
         const lastPickedUpTime = PICKUP_TIMES.get(source.id) ?? 0;
         if (system.currentTick - lastPickedUpTime < PICKUP_DELAY) return;
 
-        const target = Vec3.add(block, faceLocation, Vec3.Up);
+        const offset = Vec3.saturate(Vec3.fromDirection(blockFace));
+        const target = Vec3.add(block, faceLocation, offset);
         const gerbil = source.dimension.spawnEntity("tcsmp:gerbil", target);
         
         if (itemStack.nameTag) gerbil.nameTag = itemStack.nameTag;

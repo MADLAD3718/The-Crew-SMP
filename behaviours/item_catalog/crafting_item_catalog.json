@@ -52,6 +52,14 @@
                     },
                     {
                         "group_identifier": {
+                            "name": "minecraft:itemGroup.name.chestplate"
+                        },
+                        "items": [
+                            "tcsmp:roulette_plate"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
                             "name": "minecraft:itemGroup.name.sword"
                         },
                         "items": [

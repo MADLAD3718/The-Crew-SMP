@@ -22,7 +22,7 @@ export function lerp(t: number, a: number, b: number) {
  * @param array The specified array.
  * @returns A random element from the array.
  */
-export function randElement<type>(array: type[]): type {
+export function randomElement<T>(array: T[]): T {
     return array[Math.floor(Math.random() * array.length)];
 }
 

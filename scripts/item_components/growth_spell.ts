@@ -1,7 +1,7 @@
 import { Block, Dimension, ItemCustomComponent, system, Vector3 } from "@minecraft/server";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 import { Vec3 } from "@madlad3718/mcveclib";
-import { ellipsoidValue, getRectPrism, randElement, within } from "../util";
+import { ellipsoidValue, getRectPrism, randomElement, within } from "../util";
 
 const GROWTH_RANGE = Vec3.from(15, 7, 15);
 const GROWTH_VOLUME = getRectPrism(GROWTH_RANGE).filter(u => {
@@ -103,7 +103,7 @@ function applyGrowth(block: Block, value: number) {
             if (!block.below()?.matches(MinecraftBlockTypes.GrassBlock)) break;
 
             if (variant) {
-                const typeId = tall ? randElement(TALL_PLANTS) : randElement(SHORT_PLANTS);
+                const typeId = tall ? randomElement(TALL_PLANTS) : randomElement(SHORT_PLANTS);
                 block.setType(typeId);
             } else block.setType(tall ? MinecraftBlockTypes.TallGrass : MinecraftBlockTypes.ShortGrass);
 
@@ -123,7 +123,7 @@ function applyGrowth(block: Block, value: number) {
                     block.setPermutation(block.permutation.withState("sea_grass_type", "double_bot"));
                     above.setPermutation(block.permutation.withState("sea_grass_type", "double_top"));
                 }
-            } else block.setType(variant ? randElement(WATER_PLANTS) : MinecraftBlockTypes.Seagrass);
+            } else block.setType(variant ? randomElement(WATER_PLANTS) : MinecraftBlockTypes.Seagrass);
 
             break;
         case MinecraftBlockTypes.Fern:

@@ -11,6 +11,7 @@ import randomExpDamageComponent from "./random_exp_damage";
 import lucksBaneComponent from "./lucks_bane";
 import backstabberComponent from "./backstabber";
 import gerbilComponent from "./gerbil";
+import randomEffectOnHitComponent from "./random_effect_on_hit";
 import "./double_block_placer";
 import "./tnt_shield";
 
@@ -68,6 +69,10 @@ const ItemComponents: ItemComponentRegister[] = [
     {
         name: "tcsmp:gerbil",
         component: gerbilComponent
+    },
+    {
+        name: "tcsmp:random_effect_on_hit",
+        component: randomEffectOnHitComponent
     }
 ]
 

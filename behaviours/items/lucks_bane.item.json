@@ -33,8 +33,7 @@
             "minecraft:durability": {
                 "max_durability": 251
             },
-            "minecraft:rarity": "rare",
-            "minecraft:glint": true
+            "minecraft:rarity": "uncommon"
         }
     }
 }

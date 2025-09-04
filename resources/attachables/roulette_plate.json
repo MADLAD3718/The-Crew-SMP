@@ -1,0 +1,42 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "tcsmp:roulette_plate",
+      "materials": {
+        "default": "armor",
+        "enchanted": "armor_enchanted"
+      },
+      "textures": {
+        "default_0": "textures/models/armor/roulette_atlas/roulette_0",
+        "default_1": "textures/models/armor/roulette_atlas/roulette_1",
+        "default_2": "textures/models/armor/roulette_atlas/roulette_2",
+        "default_3": "textures/models/armor/roulette_atlas/roulette_3",
+        "default_4": "textures/models/armor/roulette_atlas/roulette_4",
+        "default_5": "textures/models/armor/roulette_atlas/roulette_5",
+        "default_6": "textures/models/armor/roulette_atlas/roulette_6",
+        "default_7": "textures/models/armor/roulette_atlas/roulette_7",
+        "default_8": "textures/models/armor/roulette_atlas/roulette_8",
+        "default_9": "textures/models/armor/roulette_atlas/roulette_9",
+        "default_10": "textures/models/armor/roulette_atlas/roulette_10",
+        "default_11": "textures/models/armor/roulette_atlas/roulette_11",
+        "default_12": "textures/models/armor/roulette_atlas/roulette_12",
+        "default_13": "textures/models/armor/roulette_atlas/roulette_13",
+        "default_14": "textures/models/armor/roulette_atlas/roulette_14",
+        "default_15": "textures/models/armor/roulette_atlas/roulette_15",
+        "default_16": "textures/models/armor/roulette_atlas/roulette_16",
+        "default_17": "textures/models/armor/roulette_atlas/roulette_17",
+        "default_18": "textures/models/armor/roulette_atlas/roulette_18",
+        "default_19": "textures/models/armor/roulette_atlas/roulette_19",
+        "enchanted": "textures/misc/enchanted_actor_glint"
+      },
+      "geometry": {
+        "default": "geometry.humanoid.armor.chestplate"
+      },
+      "scripts": {
+        "parent_setup": "variable.chest_layer_visible = 0.0;"
+      },
+      "render_controllers": [ "controller.render.roulette_plate" ]
+    }
+  }
+}

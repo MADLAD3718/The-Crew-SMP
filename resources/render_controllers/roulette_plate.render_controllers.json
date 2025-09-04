@@ -1,0 +1,36 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+      "controller.render.roulette_plate": {
+        "arrays": {
+          "textures": {
+            "Array.textures": [
+              "Texture.default_0",
+              "Texture.default_1",
+              "Texture.default_2",
+              "Texture.default_3",
+              "Texture.default_4",
+              "Texture.default_5",
+              "Texture.default_6",
+              "Texture.default_7",
+              "Texture.default_8",
+              "Texture.default_9",
+              "Texture.default_10",
+              "Texture.default_11",
+              "Texture.default_12",
+              "Texture.default_13",
+              "Texture.default_14",
+              "Texture.default_15",
+              "Texture.default_16",
+              "Texture.default_17",
+              "Texture.default_18",
+              "Texture.default_19"
+            ]
+          }
+        },
+        "geometry": "Geometry.default",
+        "materials": [ { "*": "variable.is_enchanted ? Material.enchanted : Material.default" } ],
+        "textures": [ "variable.has_trim ? variable.trim_path : Array.textures[math.mod(math.floor(q.life_time * 20), 20)]", "Texture.enchanted" ]
+      }
+    }
+  }

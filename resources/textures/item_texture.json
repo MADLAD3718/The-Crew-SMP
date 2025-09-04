@@ -124,6 +124,9 @@
 		},
     "spawn_egg_seal": {
       "textures": "textures/items/spawn_eggs/spawn_egg_seal"
+    },
+    "roulette_plate": {
+      "textures": "textures/items/roulette_plate"
     }
   }
 }

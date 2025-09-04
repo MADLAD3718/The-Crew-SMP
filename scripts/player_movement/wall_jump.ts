@@ -1,16 +1,19 @@
-import { BlockRaycastHit, ButtonState, GameMode, InputButton, Player, Vector3, world } from "@minecraft/server";
+import { BlockRaycastHit, ButtonState, Direction, GameMode, InputButton, Player, Vector3, world } from "@minecraft/server";
 import { Vec3 } from "@madlad3718/mcveclib";
 
 world.afterEvents.playerButtonInput.subscribe(event => {
     const { player, button, newButtonState } = event, { dimension, location } = player;
     if (player.getGameMode() == GameMode.Creative) return;
     if (button != InputButton.Jump || newButtonState != ButtonState.Pressed) return;
-    if (!player.isSneaking || getHeightFromSurface(player) < 0.25) return;
+    if (!player.isSneaking || getHeightFromSurface(player) < 0.33) return;
 
     const wall = getClosestWall(player);
     if (!wall) return;
 
     const distance = Vec3.distance(location, Vec3.add(wall.block, wall.faceLocation));
+    console.warn(Vec3.toString(wall.faceLocation));
+    console.warn(`Distance: ${distance}m.`);
+    dimension.spawnParticle("minecraft:candle_flame_particle", Vec3.add(wall.block, wall.faceLocation));
     if (distance > 0.31) return;
 
     const view = player.getViewDirection();
@@ -36,7 +39,9 @@ function getHeightFromSurface(player: Player): number {
     );
     if (!raycast) return Infinity;
 
-    return Vec3.distance(location, Vec3.add(raycast.block, raycast.faceLocation));
+    const offset = Vec3.saturate(Vec3.fromDirection(raycast.face));
+    const surface = Vec3.add(raycast.block, raycast.faceLocation, offset);
+    return Vec3.distance(location, surface);
 }
 
 function getClosestWall(player: Player): BlockRaycastHit | undefined {
@@ -49,7 +54,7 @@ function getClosestWall(player: Player): BlockRaycastHit | undefined {
             { includeLiquidBlocks: false,
                 includePassableBlocks: false }
         );
-        if (raycast) candidates.push(raycast);
+        if (raycast) candidates.push(correctFaceLocation(raycast));
     }
 
     if (!candidates.length) return undefined;
@@ -58,4 +63,10 @@ function getClosestWall(player: Player): BlockRaycastHit | undefined {
         const nextDist = Vec3.distance(location, Vec3.add(next.block, next.faceLocation));
         return nextDist < curDist ? next : current;
     });
+}
+
+function correctFaceLocation(raycast: BlockRaycastHit): BlockRaycastHit {
+    const offset = Vec3.saturate(Vec3.fromDirection(raycast.face));
+    raycast.faceLocation = Vec3.add(raycast.faceLocation, offset);
+    return raycast;
 }
