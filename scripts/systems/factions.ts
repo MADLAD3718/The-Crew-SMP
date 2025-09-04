@@ -1,17 +1,17 @@
 import { Player, world } from "@minecraft/server";
 
 export enum FactionColour {
-    Quartz = 'h',
-    Iron = 'i',
-    Netherite = 'j',
-    Redstone = 'm',
-    Copper = 'n',
-    Gold = 'p',
-    Emerald = 'q',
-    Diamond = 's',
-    Lapis = 't',
-    Amethyst = 'u',
-    Resin = 'v'
+    quartz = 'h',
+    iron = 'i',
+    netherite = 'j',
+    redstone = 'm',
+    copper = 'n',
+    gold = 'p',
+    emerald = 'q',
+    diamond = 's',
+    lapis = 't',
+    amethyst = 'u',
+    resin = 'v'
 }
 
 export type FactionRegister = {
@@ -22,7 +22,7 @@ export type FactionRegister = {
 }
 
 export namespace FactionRegistry {
-    export function getFactions(): FactionRegister[] {
+    export function getAllFactions(): FactionRegister[] {
         const factions: FactionRegister[] = [];
         for (const id of world.getDynamicPropertyIds()) {
             const [type, name, colour, owner] = id.split('/');
@@ -56,9 +56,9 @@ export namespace FactionRegistry {
     }
 
     export function nameIsValid(name: string): boolean {
-        if (name.length > 16 || name.length == 0) return false;
+        if (name.length > 24 || name.length == 0) return false;
         if (name.includes('/') || name.includes('§')) return false;
-        for (const faction of getFactions())
+        for (const faction of getAllFactions())
             if (faction.name == name) return false;
         
         return true;
@@ -105,5 +105,16 @@ export namespace FactionRegistry {
         );
         const player = world.getEntity(playerId) as Player | undefined;
         if (player) player.nameTag = player.name;
+    }
+
+    export function sendMessage(faction: FactionRegister, message: string): void {
+        if (message.length) for (const id of faction.players) {
+            const player = world.getEntity(id) as Player | undefined;
+            player?.sendMessage(`§${faction.colour}[${faction.name}]§r ${message}`);
+        }
+    }
+
+    export function invitePlayer(faction: FactionRegister, player: Player): void {
+        player.setDynamicProperty("tcsmp:faction_invite", faction.name);
     }
 }

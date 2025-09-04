@@ -20,8 +20,6 @@
                     },
                     {
                         "items": [
-                            "tcsmp:faction_invite",
-                            "tcsmp:faction_register",
                             "tcsmp:inscription_table",
                             "tcsmp:warp_crystal"
                         ]

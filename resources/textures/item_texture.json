@@ -77,9 +77,6 @@
     "tnt_shield": {
       "textures": "textures/items/tnt_shield"
     },
-    "faction_invite": {
-      "textures": "textures/items/faction_invite"
-    },
     "big_sandwich": {
       "textures": "textures/items/big_sandwich"
     },

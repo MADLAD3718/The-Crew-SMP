@@ -77,9 +77,6 @@
     "cannabis_plant_2": {
       "textures": "textures/blocks/cannabis_plant_2"
     },
-    "faction_register_ledger": {
-      "textures": "textures/blocks/ledger"
-    },
     "tomato_stage_0": {
       "textures": "textures/blocks/crops/tomato_stage_0"
     },

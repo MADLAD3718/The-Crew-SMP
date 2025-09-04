@@ -6,7 +6,6 @@ import growthSpellComponent from "./growth_spell";
 import decaySpellComponent from "./decay_spell";
 import grapplingHookComponent from "./grappling_hook";
 import katanaComponent from "./katana";
-import factionInviteComponent from "./faction_invite";
 import randomExpDamageComponent from "./random_exp_damage";
 import lucksBaneComponent from "./lucks_bane";
 import backstabberComponent from "./backstabber";
@@ -49,10 +48,6 @@ const ItemComponents: ItemComponentRegister[] = [
     {
         name: "tcsmp:katana",
         component: katanaComponent
-    },
-    {
-        name: "tcsmp:faction_invite",
-        component: factionInviteComponent
     },
     {
         name: "tcsmp:random_exp_damage",
