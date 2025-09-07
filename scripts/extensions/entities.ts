@@ -120,27 +120,32 @@ Player.prototype.applyImpulse = function (vector: Vector3): void {
 Object.defineProperties(Entity.prototype, {
     inventory: {
         get() {
-            return this.getComponent(EntityComponentTypes.Inventory);
+            if (!this.isValid) return undefined;
+            else return this.getComponent(EntityComponentTypes.Inventory);
         }
     },
     equipment: {
         get() {
-            return this.getComponent(EntityComponentTypes.Equippable);
+            if (!this.isValid) return undefined;
+            else return this.getComponent(EntityComponentTypes.Equippable);
         }
     },
     projectile: {
         get() {
-            return this.getComponent(EntityComponentTypes.Projectile);
+            if (!this.isValid) return undefined;
+            else return this.getComponent(EntityComponentTypes.Projectile);
         }
     },
     entityRidingOn: {
         get() {
-            return this.getComponent(EntityComponentTypes.Riding)?.entityRidingOn;
+            if (!this.isValid) return undefined;
+            else return this.getComponent(EntityComponentTypes.Riding)?.entityRidingOn;
         }
     },
     leashHolder: {
         get() {
-            return this.getComponent(EntityComponentTypes.Leashable)?.leashHolder;
+            if (!this.isValid) return undefined;
+            else return this.getComponent(EntityComponentTypes.Leashable)?.leashHolder;
         }
     }
 });

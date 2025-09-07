@@ -1,0 +1,19 @@
+{
+    "format_version": "1.21.100",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "tcsmp:crypt_garden"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "processors": "tcsmp:crypt_garden",
+                    "location": "crypt/garden",
+                    "projection": "rigid"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "format_version": "1.21.100",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "tcsmp:crypt_stairwell"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "location": "crypt/stairwell",
+                    "projection": "rigid"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

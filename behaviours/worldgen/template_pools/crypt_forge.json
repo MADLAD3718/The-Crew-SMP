@@ -1,0 +1,19 @@
+{
+    "format_version": "1.21.100",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "tcsmp:crypt_forge"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "processors": "tcsmp:crypt_forge",
+                    "location": "crypt/forge",
+                    "projection": "rigid"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

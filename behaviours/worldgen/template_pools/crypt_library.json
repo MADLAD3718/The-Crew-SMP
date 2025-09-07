@@ -1,0 +1,19 @@
+{
+    "format_version": "1.21.100",
+    "minecraft:template_pool": {
+        "description": {
+            "identifier": "tcsmp:crypt_library"
+        },
+        "elements": [
+            {
+                "element": {
+                    "element_type": "minecraft:single_pool_element",
+                    "processors": "tcsmp:crypt_library",
+                    "location": "crypt/library",
+                    "projection": "rigid"
+                },
+                "weight": 1
+            }
+        ]
+    }
+}

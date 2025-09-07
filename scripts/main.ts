@@ -1,4 +1,4 @@
-import { system, world } from "@minecraft/server";
+import { Player, system, world } from "@minecraft/server";
 import { Vec3 } from "@madlad3718/mcveclib";
 import block_components from "./block_components/export";
 import item_components from "./item_components/export";
@@ -58,6 +58,10 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
         case "tcsmp:dseats":
             for (const entity of event.sourceEntity?.dimension.getEntities({type: "tcsmp:grappling_hook_seat"}) ?? [])
                 entity.remove();
+            break;
+        case "tcsmp:itemtags":
+            const item = event.sourceEntity?.inventory?.container.getSlot((event.sourceEntity as Player).selectedSlotIndex);
+            console.warn(item?.getTags());
             break;
     }
 });
