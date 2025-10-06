@@ -6,7 +6,6 @@ world.afterEvents.playerButtonInput.subscribe(event => {
     if (player.getGameMode() == GameMode.Creative) return;
     if (button != InputButton.Jump || newButtonState != ButtonState.Pressed) return;
     if (!player.isSneaking || getHeightFromSurface(player) < 0.5) return;
-    console.warn(getHeightFromSurface(player));
 
     const wall = getClosestWall(player);
     if (!wall) return;
@@ -19,8 +18,9 @@ world.afterEvents.playerButtonInput.subscribe(event => {
     const normal = Vec3.fromDirection(wall.face);
     if (-Vec3.dot(viewXZ, normal) < 0.5) return;
 
-    const jumpdir = Vec3.normalize(Vec3.above(normal));
-    player.applyImpulse(Vec3.mul(jumpdir, 0.8));
+    const jumpdir = Vec3.normalize(Vec3.above(normal, 1.5));
+    player.clearVelocity();
+    player.applyImpulse(Vec3.mul(jumpdir, 0.5));
 
     dimension.playSound(
         "player.wall_jump", location,

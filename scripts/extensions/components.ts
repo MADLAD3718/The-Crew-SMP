@@ -7,7 +7,7 @@ declare module "@minecraft/server" {
          * that satisfies the predicate.
          * @param pred A predicate to test each item on.
          */
-        find(pred: (item: ItemStack) => boolean): ContainerSlot | undefined;
+        firstMatch(pred: (item: ItemStack) => boolean): ContainerSlot | undefined;
     }
     interface ContainerSlot {
         /**
@@ -17,7 +17,7 @@ declare module "@minecraft/server" {
     }
 }
 
-Container.prototype.find = function (pred: (item: ItemStack) => boolean): ContainerSlot | undefined {
+Container.prototype.firstMatch = function (pred: (item: ItemStack) => boolean): ContainerSlot | undefined {
     for (let i = 0; i < this.size; ++i) {
         const slot = this.getSlot(i);
         if (!slot.hasItem()) continue;

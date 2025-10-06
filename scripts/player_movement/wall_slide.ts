@@ -14,7 +14,7 @@ system.runInterval(() => {
         const slideStartTime = SLIDE_TIMER.get(player.id) ?? system.currentTick;
         if (system.currentTick - slideStartTime > MAX_SLIDE_TIME) continue;
 
-        player.applyImpulse(Vec3.mul(Vec3.Up, 0.01));
+        player.applyImpulse(Vec3.mul(Vec3.Up, 0.075));
     }
 });
 

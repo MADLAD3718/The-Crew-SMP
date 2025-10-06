@@ -26,8 +26,8 @@ world.afterEvents.entityHitEntity.subscribe(event => {
     }
     else if (rider.id == player.id) {
         const container = cannon.inventory?.container;
-        const ammo = container?.find(item => item.hasTag("tcsmp:cannon_ammo"));
-        const fuel = container?.find(item => item.typeId == MinecraftItemTypes.Gunpowder);
+        const ammo = container?.firstMatch(item => item.hasTag("tcsmp:cannon_ammo"));
+        const fuel = container?.firstMatch(item => item.typeId == MinecraftItemTypes.Gunpowder);
         if (ammo && fuel) {
             dimension.playSound("cannon.fire", cannon.location, {pitch: 0.5 * Math.random() + 0.75});
 

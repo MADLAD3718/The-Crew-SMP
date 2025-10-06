@@ -17,7 +17,6 @@ world.afterEvents.entityHitEntity.subscribe(event => {
     for (const item of armour) {
         if (item?.hasComponent("tcsmp:random_effect_on_hit")) {
             const effect = randomElement(EffectTypes.getAll());
-            console.warn(`There was an interaction! Applying effect ${effect.getName()}!`);
             return damagingEntity.addEffect(effect, TicksPerSecond * 3);
         }
     }
@@ -38,8 +37,8 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
     for (const item of armour) {
         if (item?.hasComponent("tcsmp:random_effect_on_hit")) {
             const effect = randomElement(EffectTypes.getAll());
-            console.warn(`There was an interaction! Applying effect ${effect.getName()}!`);
-            return event.source.addEffect(effect, TicksPerSecond * 3);
+            if (Math.random() <= 0.5)
+                return event.source.addEffect(effect, TicksPerSecond * 3);
         }
     }
 });

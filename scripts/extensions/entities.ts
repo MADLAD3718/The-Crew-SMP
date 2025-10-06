@@ -113,10 +113,6 @@ Player.prototype.stopSound = function (sound?: string) {
     this.runCommand("stopsound @s " + sound);
 }
 
-Player.prototype.applyImpulse = function (vector: Vector3): void {
-    return this.applyKnockback(vector, vector.y);
-}
-
 Object.defineProperties(Entity.prototype, {
     inventory: {
         get() {
