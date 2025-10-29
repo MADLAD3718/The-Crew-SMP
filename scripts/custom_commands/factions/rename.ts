@@ -18,7 +18,7 @@ const renameFactionCommand: CustomCommand = {
     ]
 };
 
-function renameFactionCallback(origin: CustomCommandOrigin, name: string, colour: keyof FactionColour): CustomCommandResult {
+function renameFactionCallback(origin: CustomCommandOrigin, name: string, colour: keyof typeof FactionColour): CustomCommandResult {
     if (!(origin.sourceEntity instanceof Player)) return {
         status: CustomCommandStatus.Failure,
         message: `Non-player entities cannot rename factions.`

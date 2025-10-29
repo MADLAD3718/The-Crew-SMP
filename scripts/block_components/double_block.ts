@@ -1,4 +1,4 @@
-import { BlockCustomComponent, world } from "@minecraft/server";
+import { BlockCustomComponent } from "@minecraft/server";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 import { BlockEntityRegistry } from "../systems/block_entities";
 

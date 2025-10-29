@@ -81,7 +81,11 @@ function setupWaystone(base: Block, top: Block, player: Player) {
     
                 base.setPermutation(base.permutation.withState("tcsmp:active", true));
                 top.setPermutation(top.permutation.withState("tcsmp:active", true));
-            } catch (e) {console.error(e, e.stack);}
+            } 
+            catch (e) {
+                if (e instanceof Error)
+                    console.error(e, e.stack);
+            }
         });
 }
 

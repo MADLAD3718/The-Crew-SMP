@@ -18,7 +18,7 @@ const createFactionCommand: CustomCommand = {
     ]
 };
 
-function createFactionCallback(origin: CustomCommandOrigin, name: string, colour: keyof FactionColour): CustomCommandResult {
+function createFactionCallback(origin: CustomCommandOrigin, name: string, colour: keyof typeof FactionColour): CustomCommandResult {
     if (!(origin.sourceEntity instanceof Player)) return {
         status: CustomCommandStatus.Failure,
         message: `Non-player entities cannot create factions.`

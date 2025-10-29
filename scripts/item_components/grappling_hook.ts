@@ -84,7 +84,7 @@ world.afterEvents.projectileHitBlock.subscribe(({projectile: stake}) => {
         seat?.remove();
         stake.remove();
 
-        const slot = player.inventory.container?.find(item => item.typeId == "tcsmp:empty_grappling_hook");
+        const slot = player.inventory.container?.firstMatch(item => item.typeId == "tcsmp:empty_grappling_hook");
 
         const hook = slot?.getItem()?.clone("tcsmp:grappling_hook") as ItemStack;
         hook.lockMode = ItemLockMode.none;
@@ -115,7 +115,7 @@ world.afterEvents.playerSpawn.subscribe(event => {
         seat?.remove();
         stake?.remove();
     
-        const slot = player.inventory.container?.find(item => item.typeId == "tcsmp:empty_grappling_hook");
+        const slot = player.inventory.container?.firstMatch(item => item.typeId == "tcsmp:empty_grappling_hook");
     
         let hook = slot?.getItem()?.clone("tcsmp:grappling_hook") as ItemStack;
         hook.lockMode = ItemLockMode.none;
