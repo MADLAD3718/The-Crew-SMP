@@ -4,7 +4,8 @@ import { Vec3 } from "@madlad3718/mcveclib";
 
 const USE_TIME = TicksPerSecond * 0.5;
 const MAX_DURATION = TicksPerSecond * 500;
-const DASH_SPEED = 10.0;
+const DASH_SPEED = 4.0;
+const AIR_DASH_SPEED = 0.75;
 const DASH_TIME = TicksPerSecond * 0.2;
 
 const PARTICLE_MAP: Map<string, number> = new Map();
@@ -24,9 +25,9 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
     source.dimension.playSound("katana.dash", head);
 
     const view = source.getViewDirection();
-    const speed = source.isOnGround && !source.isInWater ? DASH_SPEED : 1.0;
+    const speed = source.isOnGround && !source.isInWater ? DASH_SPEED : AIR_DASH_SPEED;
     const direction = Vec3.normalize(Vec3.reject(view, Vec3.Up));
-    if (speed == 1.0) return source.applyImpulse(Vec3.mul(direction, speed));
+    if (speed == AIR_DASH_SPEED) return source.applyImpulse(Vec3.mul(direction, speed));
 
     source.applyImpulse(Vec3.mul(direction, speed));
 

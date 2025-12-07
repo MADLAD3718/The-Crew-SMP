@@ -19,7 +19,7 @@ system.runInterval(() => {
             const boots = equipment.getEquipment(EquipmentSlot.Feet);
             if (boots?.typeId == "tcsmp:slime_boots") {
                 dimension.playSound("land.slime", location, {volume: 0.22});
-                    player.applyImpulse(Vec3.from(thisVelocity.x, -0.95 * lastVelocity, thisVelocity.z));
+                    player.applyImpulse(Vec3.from(0, -0.95 * lastVelocity, 0));
             }
         }
 
