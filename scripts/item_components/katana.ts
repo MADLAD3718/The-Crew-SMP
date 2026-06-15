@@ -1,21 +1,21 @@
 import { Entity, EntityDamageCause, GameMode, ItemComponentTypes, ItemCustomComponent, ItemStack, MolangVariableMap, system, TicksPerSecond, world } from "@minecraft/server";
 import { MinecraftEnchantmentTypes } from "@minecraft/vanilla-data";
+import KatanaDefinition from "../../behaviours/items/katana.item.json";
 import { Vec3 } from "@madlad3718/mcveclib";
 
+const MAX_DURATION = TicksPerSecond * KatanaDefinition["minecraft:item"].components["minecraft:use_modifiers"].use_duration;
 const USE_TIME = TicksPerSecond * 0.5;
-const MAX_DURATION = TicksPerSecond * 500;
 const DASH_SPEED = 4.0;
 const AIR_DASH_SPEED = 0.75;
 const DASH_TIME = TicksPerSecond * 0.2;
 
-const PARTICLE_MAP: Map<string, number> = new Map();
+const ParticleIntervals: Record<string, number> = {};
 
 world.afterEvents.itemReleaseUse.subscribe(event => {
-    const { source, itemStack, useDuration } = event;
-    const { dimension } = source;
-    if (itemStack?.typeId != "tcsmp:katana") return;
+    const { source, itemStack, useDuration } = event, { dimension } = source;
+    if (!itemStack?.hasComponent("tcsmp:katana")) return;
 
-    const particles = PARTICLE_MAP.get(source.id);
+    const particles = ParticleIntervals[source.id];
     if (particles) system.clearRun(particles);
 
     if (MAX_DURATION - useDuration < USE_TIME)
@@ -35,8 +35,8 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
     molang.setVector3("direction", direction);
     dimension.spawnParticle("tcsmp:katana_dash", source.location, molang);
 
-    const slot = source.inventory.container?.getSlot(source.selectedSlotIndex);
-    let item = slot?.getItem();
+    const slot = source.inventory.container.getSlot(source.selectedSlotIndex);
+    let item = slot.getItem();
 
     let ticks = 0, hits = 0;
     const hitEntityIds: string[] = [];
@@ -53,17 +53,20 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
             const to_entity = Vec3.sub(entity.location, source.location);
             if (Vec3.dot(to_entity, direction) < 0) continue;
 
-            hits += applyKatanaDamage(item as ItemStack, source, entity) ? 1 : 0;
+            hits += applyKatanaDamage(item!, source, entity) ? 1 : 0;
             hitEntityIds.push(entity.id);
         }
 
         if (ticks == DASH_TIME) {
             if (source.getGameMode() != GameMode.Creative && hits) {
-                for (let i = 0; i < hits; ++i)
-                    item = item?.damage();
+                item = item!.damage(hits);
                 slot?.setItem(item);
                 
-                if (!item) dimension.playSound("random.break", source.getHeadLocation());
+                if (!item) dimension.playSound(
+                    "random.break",
+                    source.getHeadLocation(),
+                    { pitch: 0.9 }
+                );
             }
             system.clearRun(interval);
         } else ++ticks;
@@ -96,16 +99,17 @@ function applyKatanaDamage(katana: ItemStack, attacker: Entity, target: Entity):
 
 const katanaComponent: ItemCustomComponent = {
     onUse({ source }) {
+        // Why are we stopping this?
         source.stopSound("katana.draw");
         source.playSound("katana.draw");
 
-        const particles = PARTICLE_MAP.get(source.id);
+        const particles = ParticleIntervals[source.id];
         if (particles) system.clearRun(particles);
 
         const { dimension } = source;
-        PARTICLE_MAP.set(source.id, system.runInterval(() => {
+        ParticleIntervals[source.id] = system.runInterval(() => {
             dimension.spawnParticle("tcsmp:katana_charge", source.location);
-        }, 2));
+        }, 2);
     }
 }
 
