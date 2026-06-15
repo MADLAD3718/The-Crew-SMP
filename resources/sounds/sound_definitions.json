@@ -1,5 +1,5 @@
 {
-   "format_version": "1.21.70",
+   "format_version": "1.26.20",
    "sound_definitions": {
       "cannon.place": {
          "__use_legacy_max_distance" : "true",
@@ -7,9 +7,10 @@
          "max_distance" : null,
          "min_distance" : null,
          "sounds" : [{
-            "name": "sounds/cannon/place",
+            "name": "sounds/mob/cannon/place",
             "volume": 1.0
-         }]
+         }],
+         "subtitle": "subtitles.entity.cannon.place"
       },
       "cannon.break": {
          "__use_legacy_max_distance" : "true",
@@ -17,9 +18,10 @@
          "max_distance" : null,
          "min_distance" : null,
          "sounds" : [{
-            "name": "sounds/cannon/break",
+            "name": "sounds/mob/cannon/break",
             "volume": 1.0
-         }]
+         }],
+         "subtitle": "subtitles.entity.cannon.break"
       },
       "cannon.fire": {
          "__use_legacy_max_distance" : "true",
@@ -27,61 +29,87 @@
          "max_distance" : null,
          "min_distance" : null,
          "sounds" : [{
-            "name": "sounds/cannon/fire",
+            "name": "sounds/mob/cannon/fire",
             "volume": 1.0
-         }]
+         }],
+         "subtitle": "subtitles.entity.cannon.fire"
       },
       "cannon.light": {
          "__use_legacy_max_distance" : "true",
          "category" : "player",
          "max_distance" : null,
          "min_distance" : null,
-         "sounds" : [ "sounds/cannon/light" ]
+         "sounds" : [ "sounds/mob/cannon/light" ],
+         "subtitle": "subtitles.entity.cannon.light"
+      },
+      "grappling_hook.loading.start" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "player",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [ "sounds/crossbow/loading_start" ],
+         "subtitle" : "subtitles.item.grappling_hook.charge"
+      },
+      "grappling_hook.shoot" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "player",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [
+            "sounds/crossbow/shoot1",
+            "sounds/crossbow/shoot2",
+            "sounds/crossbow/shoot3"
+         ],
+         "subtitle" : "subtitles.item.grappling_hook.shoot"
       },
       "grappling_hook.retract.long": {
          "category" : "ui",
          "sounds" : [{
-            "name": "sounds/grappling_hook/retract_long",
+            "name": "sounds/item/grappling_hook/retract_long",
             "volume": 1.0
-         }]
+         }],
+         "subtitle": "subtitles.item.grappling_hook.retract"
       },
       "grappling_hook.retract.medium": {
          "category" : "ui",
          "sounds" : [{
-            "name": "sounds/grappling_hook/retract_medium",
+            "name": "sounds/item/grappling_hook/retract_medium",
             "volume": 1.0
-         }]
+         }],
+         "subtitle": "subtitles.item.grappling_hook.retract"
       },
       "grappling_hook.retract.short": {
          "category" : "ui",
          "sounds" : [{
-            "name": "sounds/grappling_hook/retract_short",
+            "name": "sounds/item/grappling_hook/retract_short",
             "volume": 1.0
-         }]
+         }],
+         "subtitle": "subtitles.item.grappling_hook.retract"
       },
-      "waystone.place": {
+      "break.waystone": {
+         "category": "block",
+         "sounds": ["sounds/block/waystone/break"]
+      },
+      "place.waystone": {
          "category": "block",
          "sounds": [
-            "sounds/waystone/place1",
-            "sounds/waystone/place2",
-            "sounds/waystone/place3"
+            "sounds/block/waystone/place1",
+            "sounds/block/waystone/place2",
+            "sounds/block/waystone/place3"
          ]
       },
-      "waystone.interact": {
+      "use.waystone": {
          "category": "block",
          "sounds": [
-            "sounds/waystone/interact1",
-            "sounds/waystone/interact2",
-            "sounds/waystone/interact3"
+            "sounds/block/waystone/interact1",
+            "sounds/block/waystone/interact2",
+            "sounds/block/waystone/interact3"
          ]
-      },
-      "waystone.break": {
-         "category": "block",
-         "sounds": ["sounds/waystone/break"]
       },
       "waystone.teleport": {
          "category": "ui",
-         "sounds": ["sounds/waystone/teleport"]
+         "sounds": ["sounds/block/waystone/teleport"],
+         "subtitle": "subtitles.block.waystone.travel"
       },
       "scroll.cast": {
          "__use_legacy_max_distance" : "true",
@@ -89,19 +117,21 @@
          "max_distance" : null,
          "min_distance" : null,
          "sounds" : [{
-            "name": "sounds/spell_scroll/cast",
+            "name": "sounds/item/spell_scroll/cast",
             "is3D": false,
-            "volume": 1.0
-         }]
+            "volume": 0.5
+         }],
+         "subtitle": "subtitles.item.spell_scroll.cast"
       },
       "bottle.lightning": {
          "category" : "bottle",
-         "max_distance" : 16.0,
-         "min_distance" : 0.0,
+         "max_distance" : null,
+         "min_distance" : null,
          "sounds" : [
-            "sounds/bottle/fill_lightning1",
-            "sounds/bottle/fill_lightning2"
-         ]
+            "sounds/item/bottle/fill_lightning1",
+            "sounds/item/bottle/fill_lightning2"
+         ],
+         "subtitle": "subtitles.item.bottle.fill"
       },
       "scroll.link": {
          "__use_legacy_max_distance" : "true",
@@ -109,7 +139,7 @@
          "max_distance" : null,
          "min_distance" : null,
          "sounds" : [{
-            "name": "sounds/spell_scroll/link",
+            "name": "sounds/item/spell_scroll/link",
             "volume": 1.0
          }]
       },
@@ -118,82 +148,89 @@
          "max_distance" : 20.0,
          "min_distance" : 10.0,
          "sounds" : [
-            "sounds/katana/dash_0",
-            "sounds/katana/dash_1",
-            "sounds/katana/dash_2",
-            "sounds/katana/dash_3",
-            "sounds/katana/dash_4",
-            "sounds/katana/dash_5"
-         ]
+            "sounds/item/katana/dash_0",
+            "sounds/item/katana/dash_1",
+            "sounds/item/katana/dash_2",
+            "sounds/item/katana/dash_3",
+            "sounds/item/katana/dash_4",
+            "sounds/item/katana/dash_5"
+         ],
+         "subtitle": "subtitles.item.katana.dash"
       },
       "katana.draw": {
          "category" : "player",
          "is3D" : false,
          "sounds" : [{
-            "name": "sounds/katana/draw",
+            "name": "sounds/item/katana/draw",
             "volume": 1.0
-         }]
+         }],
+         "subtitle": "subtitles.item.katana.draw"
       },
       "wolf.pet": {
          "category" : "neutral",
          "sounds" : [
             {
-               "name": "sounds/wolf/pet_0",
+               "name": "sounds/mob/wolf/pet_0",
                "volume": 1.5
             },
             {
-               "name": "sounds/wolf/pet_1",
+               "name": "sounds/mob/wolf/pet_1",
                "volume": 1.5
             }
-         ]
+         ],
+         "subtitle": "subtitles.entity.wolf.pet"
       },
       "lucks_bane.big_hit": {
          "category": "player",
          "sounds": [{
-            "name": "sounds/lucks_bane/big_hit_2",
+            "name": "sounds/item/lucks_bane/big_hit_2",
             "volume": 0.5
-         }]
+         }],
+         "subtitle": "subtitles.item.lucks_bane.big_hit"
       },
       "lucks_bane.coins": {
          "category": "player",
          "sounds": [
-            "sounds/lucks_bane/coins_0",
-            "sounds/lucks_bane/coins_1",
-            "sounds/lucks_bane/coins_2"
+            "sounds/item/lucks_bane/coins_0",
+            "sounds/item/lucks_bane/coins_1",
+            "sounds/item/lucks_bane/coins_2"
          ]
       },
       "knife.backstab": {
          "category": "player",
          "sounds": [
-            "sounds/knife/backstab"
-         ]
+            "sounds/item/knife/backstab"
+         ],
+         "subtitle": "subtitles.item.knife.backstab"
       },
       "mob.gerbil.chirp": {
          "category": "neutral",
          "sounds": [
             {
-               "name": "sounds/gerbil/chirp_0",
+               "name": "sounds/mob/gerbil/chirp_0",
                "volume": 0.1
             },
             {
-               "name": "sounds/gerbil/chirp_1",
+               "name": "sounds/mob/gerbil/chirp_1",
                "volume": 0.1
             },
             {
-               "name": "sounds/gerbil/chirp_2",
+               "name": "sounds/mob/gerbil/chirp_2",
                "volume": 0.1
             },
             {
-               "name": "sounds/gerbil/chirp_3",
+               "name": "sounds/mob/gerbil/chirp_3",
                "volume": 0.1
             }
-         ]
+         ],
+         "subtitle": "subtitles.entity.gerbil.chirp"
       },
       "mob.gerbil.hurt": {
          "category": "neutral",
          "sounds": [
-            "sounds/gerbil/hurt"
-         ]
+            "sounds/mob/gerbil/hurt"
+         ],
+         "subtitle": "subtitles.entity.gerbil.hurt"
       },
       "record.drop_it": {
          "__use_legacy_max_distance" : "true",
@@ -282,7 +319,7 @@
       "player.wall_jump": {
          "category": "player",
          "sounds": [
-            "sounds/player/wall_jump"
+            "sounds/mob/player/wall_jump"
          ]
       },
       "mob.unicorn.gallop": {
@@ -311,7 +348,22 @@
                "volume": 0.35,
                "pitch": 1.25
             }
-         ]
+         ],
+         "subtitle": "subtitles.entity.unicorn.gallop"
+      },
+      "mob.unicorn.eat" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "neutral",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [
+            "sounds/mob/horse/eat1",
+            "sounds/mob/horse/eat2",
+            "sounds/mob/horse/eat3",
+            "sounds/mob/horse/eat4",
+            "sounds/mob/horse/eat5"
+         ],
+         "subtitle" : "subtitles.entity.unicorn.eat"
       },
       "mob.unicorn.hit" : {
          "__use_legacy_max_distance" : "true",
@@ -364,21 +416,22 @@
          "min_distance" : null,
          "sounds" : [
             {
-               "name": "sounds/unicorn/trail_0",
+               "name": "sounds/mob/unicorn/trail_0",
                "pitch": 1.5,
                "volume": 0.5
             },
             {
-               "name": "sounds/unicorn/trail_1",
+               "name": "sounds/mob/unicorn/trail_1",
                "pitch": 1.5,
                "volume": 0.5
             },
             {
-               "name": "sounds/unicorn/trail_2",
+               "name": "sounds/mob/unicorn/trail_2",
                "pitch": 1.5,
                "volume": 0.5
             }
-         ]
+         ],
+         "subtitle": "subtitles.entity.unicorn.trail"
       },
       "mob.unicorn.angry" : {
          "__use_legacy_max_distance" : "true",
@@ -389,6 +442,121 @@
             "name": "sounds/mob/horse/angry1",
             "pitch": 1.5
          }]
+      },
+      "mob.unicorn.death" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "neutral",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [ "sounds/mob/horse/death" ],
+         "subtitle" : "subtitles.entity.unicorn.death"
+      },
+      "mob.barnacle.ambient" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "hostile",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [
+            {
+               "name": "sounds/mob/squid/ambient1",
+               "volume": 4.0,
+               "pitch": 0.70
+            },
+            {
+               "name": "sounds/mob/squid/ambient2",
+               "volume": 4.0,
+               "pitch": 0.70
+            },
+            {
+               "name": "sounds/mob/squid/ambient3",
+               "volume": 4.0,
+               "pitch": 0.70
+            },
+            {
+               "name": "sounds/mob/squid/ambient4",
+               "volume": 4.0,
+               "pitch": 0.70
+            },
+            {
+               "name": "sounds/mob/squid/ambient5",
+               "volume": 4.0,
+               "pitch": 0.70
+            }
+         ],
+         "subtitle" : "subtitles.entity.barnacle.ambient"
+      },
+      "mob.barnacle.death" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "hostile",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [
+            {
+               "name": "sounds/mob/squid/death1",
+               "volume": 4.0,
+               "pitch": 0.70
+            },
+            {
+               "name": "sounds/mob/squid/death2",
+               "volume": 4.0,
+               "pitch": 0.70
+            },
+            {
+               "name": "sounds/mob/squid/death3",
+               "volume": 4.0,
+               "pitch": 0.70
+            }
+         ],
+         "subtitle" : "subtitles.entity.barnacle.death"
+      },
+      "mob.barnacle.hurt" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "hostile",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [
+            {
+               "name": "sounds/mob/squid/hurt1",
+               "volume": 4.0,
+               "pitch": 0.70
+            },
+            {
+               "name": "sounds/mob/squid/hurt2",
+               "volume": 4.0,
+               "pitch": 0.70
+            },
+            {
+               "name": "sounds/mob/squid/hurt3",
+               "volume": 4.0,
+               "pitch": 0.70
+            },
+            {
+               "name": "sounds/mob/squid/hurt4",
+               "volume": 4.0,
+               "pitch": 0.70
+            }
+         ],
+         "subtitle" : "subtitles.entity.barnacle.hurt"
+      },
+      "mob.barnacle.attack" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "hostile",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [
+            "sounds/mob/barnacle/attack1",
+            "sounds/mob/barnacle/attack2",
+            "sounds/mob/barnacle/attack3"
+         ],
+         "subtitle" : "subtitles.entity.barnacle.attack"
+      },
+      "tempered_warp_crystal.whoosh" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "block",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [ "sounds/item/tempered_warp_crystal/whoosh" ],
+         "subtitle" : "subtitles.block.portal.travel"
       }
    }
 }

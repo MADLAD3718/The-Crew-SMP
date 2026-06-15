@@ -2,5 +2,14 @@
     "format_version": [1, 21, 40],
     "tcsmp:tomato": {
         "sound" : "grass"
+    },
+    "tcsmp:overworld_waystone": {
+        "sound": "waystone"
+    },
+    "tcsmp:nether_waystone": {
+        "sound": "waystone"
+    },
+    "tcsmp:end_waystone": {
+        "sound": "waystone"
     }
 }
