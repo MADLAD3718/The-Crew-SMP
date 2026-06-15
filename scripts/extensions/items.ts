@@ -29,8 +29,11 @@ declare module "@minecraft/server" {
         readonly enchantable?: ItemEnchantableComponent;
         /**
          * Returns a clone of this itemstack with damaged durability.
+         * 
+         * @param amount The amount of durability damage to be dealt.
+         * Defaults to: 1
          */
-        damage(): ItemStack | undefined;
+        damage(amount?: number): ItemStack | undefined;
     }
 }
 
@@ -67,14 +70,15 @@ ItemStack.prototype.clone = function (type?: string): ItemStack {
     return item;
 }
 
-ItemStack.prototype.damage = function (): ItemStack | undefined {
+ItemStack.prototype.damage = function (amount = 1): ItemStack | undefined {
     const item = this.clone();
     if (!item.durability) throw new MissingComponentError(ItemComponentTypes.Durability);
 
     const unbreaking = item.enchantable?.getEnchantment(MinecraftEnchantmentTypes.Unbreaking)?.level ?? 0;
     if (Math.random() > 1 / (unbreaking + 1)) return;
 
-    if (item.durability.damage == item.durability.maxDurability) return undefined;
-    item.durability.damage++;
+    if ((item.durability.damage + amount) > item.durability.maxDurability)
+        return undefined;
+    item.durability.damage += amount;
     return item;
 }

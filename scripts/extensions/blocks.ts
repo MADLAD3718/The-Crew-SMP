@@ -2,7 +2,6 @@ import { BlockStateSuperset } from "@minecraft/vanilla-data";
 
 type CustomBlockStates = {
     ['tcsmp:growth_stage']?: number;
-    ['tcsmp:top']?: boolean;
     ['tcsmp:active']?: boolean;
     ['tcsmp:growth']?: number;
 }

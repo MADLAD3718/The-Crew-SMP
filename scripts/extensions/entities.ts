@@ -1,6 +1,7 @@
-import { Entity, EntityComponentTypes, EntityInventoryComponent, EntityLeashableComponent, EntityRideableComponent, ItemStack, Player, Vector3 } from "@minecraft/server";
+import { Entity, EntityComponentTypes, EntityInventoryComponent, EntityLeashableComponent, EntityRideableComponent, ItemStack, Player, system, world } from "@minecraft/server";
 import { MissingComponentError } from "../util";
-import { Mat3, Matrix3, Vec3 } from "@madlad3718/mcveclib";
+import { Matrix3 } from "@madlad3718/mcveclib";
+import { worker } from "node:cluster";
 
 declare module "@minecraft/server" {
     interface Player {
@@ -106,12 +107,21 @@ declare module "@minecraft/server" {
          * @throws This property can throw when used.
          */
         readonly leashHolder?: Entity;
+        /**
+         * Whether the entity is invunerable - that is, it has been hurt within the last 10 ticks.
+         */
+        readonly isInvunerable: boolean;
     }
 }
 
 Player.prototype.stopSound = function (sound?: string) {
     this.runCommand("stopsound @s " + sound);
 }
+
+const DamageTimes: Record<string, number> = {};
+world.afterEvents.entityHurt.subscribe(({hurtEntity}) => {
+    DamageTimes[hurtEntity.id] = system.currentTick;
+});
 
 Object.defineProperties(Entity.prototype, {
     inventory: {
@@ -142,6 +152,11 @@ Object.defineProperties(Entity.prototype, {
         get() {
             if (!this.isValid) return undefined;
             else return this.getComponent(EntityComponentTypes.Leashable)?.leashHolder;
+        }
+    },
+    isInvunerable: {
+        get() {
+            return system.currentTick - (DamageTimes[this.id] ?? 0) < 10;
         }
     }
 });
