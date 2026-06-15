@@ -1,5 +1,5 @@
 {
-    "format_version": "1.21.90",
+    "format_version": "1.26.20",
     "minecraft:block": {
         "description": {
             "identifier": "tcsmp:tomato",
@@ -60,7 +60,6 @@
         ],
         "components": {
             "tcsmp:crop": {},
-            "minecraft:map_color": "#6f8b3a",
             "minecraft:collision_box": false,
             "minecraft:geometry": "geometry.cross_crop",
             "minecraft:material_instances": {
@@ -80,8 +79,19 @@
                     "block_filter": [{"name": "minecraft:farmland"}]
                 }]
             },
-            "tag:minecraft:crop": {},
-            "tag:one_way_collidable": {}
+            "minecraft:tags": [
+                "minecraft:crop"
+            ],
+            "minecraft:connection_rule": {
+                "accepts_connections_from": "none"
+            },
+            "minecraft:movable": {
+                "movement_type": "immovable"
+            },
+            "minecraft:support": {
+                "shape": "fence"
+            },
+            "minecraft:flammable": false
         }
     }
 }

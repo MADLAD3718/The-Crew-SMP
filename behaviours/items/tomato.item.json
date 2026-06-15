@@ -1,8 +1,13 @@
 {
-    "format_version": "1.21.70",
+    "format_version": "1.26.20",
     "minecraft:item": {
         "description": {
-            "identifier": "tcsmp:tomato"
+            "identifier": "tcsmp:tomato",
+            "menu_category": {
+                // Currently cut due to low interactivity
+                "category": "none",
+                "is_hidden_in_commands": false
+            }
         },
         "components": {
             "minecraft:max_stack_size": 64,
