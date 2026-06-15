@@ -4,7 +4,7 @@ import { randomElement } from "../util";
 const randomEffectOnHitComponent: ItemCustomComponent = {}
 
 world.afterEvents.entityHitEntity.subscribe(event => {
-    const { damagingEntity, hitEntity } = event;
+    const { hitEntity } = event;
     if (!hitEntity.equipment) return;
     
     const armour = [
@@ -17,14 +17,14 @@ world.afterEvents.entityHitEntity.subscribe(event => {
     for (const item of armour) {
         if (item?.hasComponent("tcsmp:random_effect_on_hit")) {
             const effect = randomElement(EffectTypes.getAll());
-            return damagingEntity.addEffect(effect, TicksPerSecond * 3);
+            return hitEntity.addEffect(effect, TicksPerSecond * 3);
         }
     }
 });
 
 world.afterEvents.projectileHitEntity.subscribe(event => {
     const hitEntity = event.getEntityHit().entity;
-    if (!hitEntity?.isValid || !event.source?.isValid) return;
+    if (!hitEntity?.isValid) return;
 
     if (!hitEntity.equipment) return;
     const armour = [
@@ -38,7 +38,7 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
         if (item?.hasComponent("tcsmp:random_effect_on_hit")) {
             const effect = randomElement(EffectTypes.getAll());
             if (Math.random() <= 0.5)
-                return event.source.addEffect(effect, TicksPerSecond * 3);
+                return hitEntity.addEffect(effect, TicksPerSecond * 3);
         }
     }
 });
