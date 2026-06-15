@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.70",
+  "format_version": "1.26.20",
   "minecraft:entity": {
     "description": {
       "identifier": "tcsmp:stair_seat",
@@ -57,10 +57,6 @@
         "has_collision": false,
         "has_gravity": false
       },
-      "minecraft:pushable": {
-        "is_pushable": false,
-        "is_pushable_by_piston": false
-      },
       "minecraft:damage_sensor": {
         "triggers": [
           {
@@ -77,7 +73,7 @@
         "seat_count": 1,
         "seats": [{ "position": [0, 0, 0] }]
       },
-      "minecraft:body_rotation_axis_aligned": {}
+      "minecraft:rotation_axis_aligned": {}
     },
     "events": {
       "minecraft:entity_spawned": {
