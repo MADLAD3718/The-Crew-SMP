@@ -1,15 +1,18 @@
 {
-    "format_version": "1.21.90",
+    "format_version": "1.26.20",
     "minecraft:item": {
         "description": {
-            "identifier": "tcsmp:scroll_of_return"
+            "identifier": "tcsmp:scroll_of_return",
+            "menu_category": {
+                "category": "equipment"
+            }
         },
         "components": {
             "tcsmp:spell_scroll": {
                 "spell_colour": [0.094, 0.658, 0.564]
             },
             "tcsmp:return_spell": {},
-            "minecraft:max_stack_size": 8,
+            "minecraft:max_stack_size": 1,
             "minecraft:display_name": {
                 "value": "item.tcsmp:scroll_of_return.name"
             },
@@ -22,14 +25,13 @@
                 "do_swing_animation": true
             },
             "minecraft:projectile": {
-                "projectile_entity": "none"
+                "projectile_entity": "tcsmp:spell_dummy"
             },
             "minecraft:cooldown": {
                 "category": "spell",
                 "duration": 1.0
             },
-            "minecraft:glint": true,
-            "minecraft:rarity": "rare"
+            "minecraft:rarity": "uncommon"
         }
     }
 }

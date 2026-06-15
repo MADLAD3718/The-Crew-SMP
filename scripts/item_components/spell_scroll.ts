@@ -1,5 +1,6 @@
-import { ItemCustomComponent, MolangVariableMap, WorldSoundOptions } from "@minecraft/server";
+import { ItemCustomComponent, MolangVariableMap } from "@minecraft/server";
 import { Vec3 } from "@madlad3718/mcveclib";
+import { randomRange } from "../util";
 
 type SpellScrollParameters = {
     spell_colour: number[];
@@ -12,8 +13,9 @@ const spellScrollComponent: ItemCustomComponent = {
 
         source.stopSound("random.bow");
         const head = source.getHeadLocation();
-        const soundOptions: WorldSoundOptions = { pitch: 0.95 + 0.1 * Math.random() };
-        dimension.playSound("scroll.cast", head, soundOptions);
+        dimension.playSound("scroll.cast", head, {
+            pitch: randomRange(0.95, 1.05)
+        });
 
         const vars = new MolangVariableMap();
         const colour = Vec3.toRGB(Vec3.from(params.spell_colour));

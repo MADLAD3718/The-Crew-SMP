@@ -1,7 +1,7 @@
 {
-    "format_version": "1.16.100",
+    "format_version": "1.21.30",
     "minecraft:texture_set": {
         "color": "inscription_table_bottom",
-        "metalness_emissive_roughness": "inscription_table_bottom_mer"
+        "metalness_emissive_roughness_subsurface": "inscription_table_bottom_mers"
     }
 }

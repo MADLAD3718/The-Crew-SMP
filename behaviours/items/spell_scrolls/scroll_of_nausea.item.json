@@ -2,23 +2,23 @@
     "format_version": "1.26.20",
     "minecraft:item": {
         "description": {
-            "identifier": "tcsmp:scroll_of_thunder",
+            "identifier": "tcsmp:scroll_of_nausea",
             "menu_category": {
                 "category": "equipment"
             }
         },
         "components": {
             "tcsmp:spell_scroll": {
-                "spell_colour": [0.9, 0.9, 1.0]
+                "spell_colour": [0.81, 0.82, 0.42]
             },
-            "tcsmp:thunder_spell": {},
+            "tcsmp:nausea_spell": {},
             "minecraft:max_stack_size": 1,
             "minecraft:display_name": {
-                "value": "item.tcsmp:scroll_of_thunder.name"
+                "value": "item.tcsmp:scroll_of_nausea.name"
             },
             "minecraft:icon": {
                 "textures": {
-                    "default": "scroll_of_thunder"
+                    "default": "scroll_of_nausea"
                 }
             },
             "minecraft:throwable": {
@@ -31,7 +31,7 @@
                 "category": "spell",
                 "duration": 1.0
             },
-            "minecraft:rarity": "rare"
+            "minecraft:rarity": "uncommon"
         }
     }
 }

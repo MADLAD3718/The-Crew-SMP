@@ -1,19 +1,26 @@
 {
-    "format_version": "1.21.60",
-    "minecraft:recipe_shapeless": {
+    "format_version": "1.26.20",
+    "minecraft:recipe_shaped": {
         "description": {
             "identifier": "tcsmp:scroll_of_return"
         },
         "tags": [ "inscription_table" ],
-        "priority": 0,
-        "ingredients": [
-            {
-                "item": "tcsmp:spell_scroll"
+        "pattern": [
+            "LLL",
+            "LPL",
+            "LEL"
+        ],
+        "key": {
+            "L": {
+                "item": "minecraft:lapis_lazuli"
             },
-            {
+            "P": {
+                "item": "minecraft:paper"
+            },
+            "E": {
                 "item": "minecraft:ender_pearl"
             }
-        ],
+        },
         "unlock": [{
             "item": "tcsmp:inscription_table"
         }],

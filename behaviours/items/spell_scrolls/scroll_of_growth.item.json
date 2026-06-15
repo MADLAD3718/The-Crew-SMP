@@ -1,15 +1,19 @@
 {
-    "format_version": "1.21.90",
+    "format_version": "1.26.20",
     "minecraft:item": {
         "description": {
-            "identifier": "tcsmp:scroll_of_growth"
+            "identifier": "tcsmp:scroll_of_growth",
+            "menu_category": {
+                // Cut due to just being boring and janky
+                "category": "none"
+            }
         },
         "components": {
             "tcsmp:spell_scroll": {
                 "spell_colour": [0.8, 1.0, 0.8]
             },
             "tcsmp:growth_spell": {},
-            "minecraft:max_stack_size": 8,
+            "minecraft:max_stack_size": 1,
             "minecraft:display_name": {
                 "value": "item.tcsmp:scroll_of_growth.name"
             },
@@ -22,13 +26,12 @@
                 "do_swing_animation": true
             },
             "minecraft:projectile": {
-                "projectile_entity": "none"
+                "projectile_entity": "tcsmp:spell_dummy"
             },
             "minecraft:cooldown": {
                 "category": "spell",
                 "duration": 1.0
             },
-            "minecraft:glint": true,
             "minecraft:rarity": "rare"
         }
     }

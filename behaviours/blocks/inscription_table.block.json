@@ -1,5 +1,5 @@
 {
-    "format_version": "1.21.90",
+    "format_version": "1.26.20",
     "minecraft:block": {
         "description": {
             "identifier": "tcsmp:inscription_table",
@@ -19,7 +19,10 @@
             "minecraft:tick": {
                 "interval_range": [20, 20]
             },
-            "minecraft:geometry": "geometry.inscription_table",
+            "minecraft:geometry": {
+                "identifier": "geometry.inscription_table",
+                "culling": "tcsmp:culling.inscription_table"
+            },
             "minecraft:material_instances": {
                 "*": {
                     "render_method": "opaque"
@@ -62,8 +65,22 @@
             "minecraft:destructible_by_mining": {
                 "seconds_to_destroy": 5
             },
-            "tag:minecraft:is_pickaxe_item_destructible": {},
-            "minecraft:loot": "loot_tables/blocks/inscription_table.json"
+            "minecraft:tags": [
+                "minecraft:is_pickaxe_item_destructible"
+            ],
+            "minecraft:loot": "loot_tables/blocks/inscription_table.json",
+            "minecraft:connection_rule": {
+                "accepts_connections_from": "none"
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 1200
+            },
+            "minecraft:movable": {
+                "movement_type": "immovable"
+            },
+            "minecraft:support": {
+                "shape": "fence"
+            }
         },
         "permutations": [
             {
