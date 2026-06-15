@@ -1,11 +1,11 @@
-import { Block, BlockCustomComponent, EquipmentSlot, GameMode } from "@minecraft/server";
+import { BlockCustomComponent, EquipmentSlot, GameMode } from "@minecraft/server";
 import { MinecraftItemTypes } from "@minecraft/vanilla-data";
 
 const cropComponent: BlockCustomComponent = {
     onRandomTick(event) {
         const { block } = event, { permutation } = block;
 
-        const below = block.below() as Block;
+        const below = block.below()!;
         const hydrated = below.permutation.getState("moisturized_amount") ?? 0 > 0;
         const growth_chance = hydrated ? 1/3 : 1/7;
         if (Math.random() >= growth_chance) return;

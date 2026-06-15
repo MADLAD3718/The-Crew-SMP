@@ -8,10 +8,13 @@ import grapplingHookComponent from "./grappling_hook";
 import katanaComponent from "./katana";
 import randomExpDamageComponent from "./random_exp_damage";
 import lucksBaneComponent from "./lucks_bane";
-import backstabberComponent from "./backstabber";
+import backstabComponent from "./backstab";
 import gerbilComponent from "./gerbil";
 import randomEffectOnHitComponent from "./random_effect_on_hit";
-import "./double_block_placer";
+import globalCooldownComponent from "./global_cooldown";
+import autoLoreComponent from "./auto_lore";
+import durabilityFixComponent from "./durability_fix";
+import nauseaSpellComponent from "./nausea_spell";
 import "./tnt_shield";
 
 type ItemComponentRegister = {
@@ -58,8 +61,8 @@ const ItemComponents: ItemComponentRegister[] = [
         component: lucksBaneComponent
     },
     {
-        name: "tcsmp:backstabber",
-        component: backstabberComponent
+        name: "tcsmp:backstab",
+        component: backstabComponent
     },
     {
         name: "tcsmp:gerbil",
@@ -68,6 +71,22 @@ const ItemComponents: ItemComponentRegister[] = [
     {
         name: "tcsmp:random_effect_on_hit",
         component: randomEffectOnHitComponent
+    },
+    {
+        name: "tcsmp:global_cooldown",
+        component: globalCooldownComponent
+    },
+    {
+        name: "tcsmp:auto_lore",
+        component: autoLoreComponent
+    },
+    {
+        name: "tcsmp:durability_fix",
+        component: durabilityFixComponent
+    },
+    {
+        name: "tcsmp:nausea_spell",
+        component: nauseaSpellComponent
     }
 ]
 
