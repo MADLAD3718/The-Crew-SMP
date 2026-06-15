@@ -1,5 +1,5 @@
 {
-    "format_version": "1.21.10",
+    "format_version": "1.26.20",
     "minecraft:item": {
         "description": {
             "identifier": "tcsmp:empty_grappling_hook",

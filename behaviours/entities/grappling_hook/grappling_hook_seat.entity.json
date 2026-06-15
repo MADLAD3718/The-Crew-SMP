@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.60",
+  "format_version": "1.26.20",
   "minecraft:entity": {
     "description": {
       "identifier": "tcsmp:grappling_hook_seat",
@@ -27,9 +27,12 @@
         },
         "minecraft:leashable": {
           "can_be_stolen": false,
-          "soft_distance": 0,
-          "hard_distance": 1,
-          "max_distance": 256
+          "can_be_cut": false,
+          "presets": [{
+            "soft_distance": 0,
+            "hard_distance": 1,
+            "max_distance": 64
+          }]
         }
       }
     },
@@ -57,10 +60,6 @@
         "has_collision": false,
         "has_gravity": false
       },
-      "minecraft:pushable": {
-        "is_pushable": false,
-        "is_pushable_by_piston": false
-      },
       "minecraft:damage_sensor": {
 				"triggers": [{
           "cause": "all",
@@ -69,9 +68,12 @@
 			},
       "minecraft:leashable": {
         "can_be_stolen": false,
-        "hard_distance": 128,
-        "soft_distance": 128,
-        "max_distance": 256
+        "can_be_cut": false,
+        "presets": [{
+          "hard_distance": 128,
+          "soft_distance": 128,
+          "max_distance": 256
+        }]
       },
       "minecraft:rideable": {
         "family_types": ["player", "technical"],

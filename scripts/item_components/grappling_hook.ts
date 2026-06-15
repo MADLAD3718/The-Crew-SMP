@@ -13,7 +13,7 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
     const { itemStack, source, useDuration } = event;
     if (itemStack?.typeId != "tcsmp:grappling_hook") return;
 
-    source.stopSound("crossbow.loading.start");
+    source.stopSound("grappling_hook.loading.start");
     if (MAX_DURATION - useDuration < USE_TIME) return;
 
     const { inventory, dimension, location } = source;
@@ -27,7 +27,7 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
     slot?.setItem(empty_hook);
 
     const view = source.getViewDirection(), head = source.getHeadLocation();
-    const stake = dimension.spawnEntity("tcsmp:grappling_hook_stake", Vec3.add(head, view));
+    const stake = dimension.spawnEntity("tcsmp:grappling_hook_stake", head);
     const seat = dimension.spawnEntity("tcsmp:grappling_hook_seat", location);
     const seat2 = dimension.spawnEntity("tcsmp:grappling_hook_seat", location);
 
@@ -38,7 +38,7 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
     const projectile = stake.projectile as EntityProjectileComponent;
     projectile.owner = source;
     projectile.shoot(Vec3.mul(view, 2));
-    source.dimension.playSound("crossbow.shoot", head);
+    source.dimension.playSound("grappling_hook.shoot", head);
 
     const interval = system.runInterval(() => {
         if (Vec3.distance(stake.location, source.getHeadLocation()) <= 48) {
@@ -47,6 +47,7 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
         }
         seat.remove();
         stake.remove();
+        seat2.remove();
 
         const hook = slot?.getItem()?.clone("tcsmp:grappling_hook");
         slot?.setItem(hook);
@@ -73,8 +74,10 @@ world.afterEvents.projectileHitBlock.subscribe(({projectile: stake}) => {
     player.dimension.playSound("leashknot.place", head);
     seat?.triggerEvent("tcsmp:retract");
 
-    const dist = Vec3.distance(stake.location, head);
-    const sound = GRAPPLE_SOUNDS[Math.floor(3 * dist / 48)]
+    // New leash mechanics cause the retraction to accelerate much faster, use the shortest sound instead
+    // const dist = Vec3.distance(stake.location, head);
+    // const sound = GRAPPLE_SOUNDS[Math.floor(3 * dist / 48)]
+    const sound = GRAPPLE_SOUNDS[0];
     player.playSound(sound);
 
     const interval = system.runInterval(() => {
@@ -84,15 +87,19 @@ world.afterEvents.projectileHitBlock.subscribe(({projectile: stake}) => {
         seat?.remove();
         stake.remove();
 
-        const slot = player.inventory.container?.firstMatch(item => item.typeId == "tcsmp:empty_grappling_hook");
+        const slot = player.inventory.container.firstMatch(item => item.typeId == "tcsmp:empty_grappling_hook")!;
 
-        const hook = slot?.getItem()?.clone("tcsmp:grappling_hook") as ItemStack;
+        const hook = slot.getItem()!.clone("tcsmp:grappling_hook");
         hook.lockMode = ItemLockMode.none;
-        slot?.setItem(hook);
-        slot?.setItem(player.getGameMode() == GameMode.Creative ? hook : hook.damage());
+        slot.setItem(hook);
+        slot.setItem(player.getGameMode() == GameMode.Creative ? hook : hook.damage());
 
         if (!slot?.hasItem())
-            player.dimension.playSound("random.break", player.getHeadLocation());
+            player.dimension.playSound(
+                "random.break",
+                player.getHeadLocation(),
+                { pitch: 0.9 }
+            );
         else player.dimension.playSound("leashknot.break", player.getHeadLocation());
 
         system.clearRun(interval);
@@ -130,7 +137,7 @@ world.afterEvents.playerSpawn.subscribe(event => {
 const grapplingHookComponent: ItemCustomComponent = {
     onUse({ source }) {
         const { dimension } = source;
-        dimension.playSound("crossbow.loading.start", source.getHeadLocation());
+        dimension.playSound("grappling_hook.loading.start", source.getHeadLocation());
     }
 }
 

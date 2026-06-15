@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.60",
+  "format_version": "1.26.20",
   "minecraft:entity": {
     "description": {
       "identifier": "tcsmp:grappling_hook_stake",
@@ -25,20 +25,13 @@
           }
         },
         "hit_sound": "bow.hit",
-        "power": 1.6,
-        "gravity": 0.05,
-        "anchor": 1,
-        "should_bounce": true,
-        "offset": [0, 0, 0]
+        "power": 1.6
       },
       "minecraft:physics": {
         "has_collision": true,
         "has_gravity": false
       },
-      "minecraft:pushable": {
-        "is_pushable": false,
-        "is_pushable_by_piston": true
-      }
+      "minecraft:pushable_by_block": {}
     }
   }
 }

@@ -15,7 +15,7 @@
 					"name": "body",
 					"pivot": [0, 0, 0],
 					"locators": {
-						"lead": [0, 24, 0]
+						"lead": [0, 23, 0]
 					}
 				}
 			]
