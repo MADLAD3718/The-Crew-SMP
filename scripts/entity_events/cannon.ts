@@ -1,20 +1,19 @@
-import { DimensionLocation, Entity, EntityProjectileComponent, GameMode, MolangVariableMap, Player, Vector3, world } from "@minecraft/server";
+import { DimensionLocation, Entity, GameMode, MolangVariableMap, Player, system, TicksPerSecond, Vector3, world } from "@minecraft/server";
 import { MinecraftItemTypes } from "@minecraft/vanilla-data";
 import { Mat3, RandVec, Vec3 } from "@madlad3718/mcveclib";
 
-world.afterEvents.entitySpawn.subscribe(({ entity }) => {
-    if (!entity.isValid) return;
-    if (!entity.matches({type: "tcsmp:cannon"})) return;
-
-    entity.dimension.playSound("cannon.place", entity.location);
-});
+const UseTimes: Record<string, number> = {};
+const USE_COOLDOWN = 1.0 * TicksPerSecond;
 
 world.afterEvents.entityHitEntity.subscribe(event => {
-    if (!event.hitEntity.isValid) return;
-    if (!event.hitEntity.matches({type: "tcsmp:cannon"})) return;
+    const { hitEntity: cannon, damagingEntity: player } = event;
+    if (!cannon.isValid) return;
+    if (!(player instanceof Player)) return;
+    if (!cannon.matches({type: "tcsmp:cannon"})) return;
     
-    const cannon = event.hitEntity, player = event.damagingEntity as Player;
-    const rider: Entity | undefined = event.hitEntity.getRiders()[0];
+    const lastUsedTime = UseTimes[cannon.id] ?? 0;
+
+    const rider: Entity | undefined = cannon.getRiders()[0];
     const { dimension } = cannon;
 
     if (!rider) {
@@ -24,7 +23,8 @@ world.afterEvents.entityHitEntity.subscribe(event => {
         cannon.dropInventory();
         cannon.remove();
     }
-    else if (rider.id == player.id) {
+    else if (rider.id == player.id && system.currentTick - lastUsedTime >= USE_COOLDOWN) {
+        UseTimes[cannon.id] = system.currentTick;
         const container = cannon.inventory?.container;
         const ammo = container?.firstMatch(item => item.hasTag("tcsmp:cannon_ammo"));
         const fuel = container?.firstMatch(item => item.typeId == MinecraftItemTypes.Gunpowder);
@@ -36,7 +36,7 @@ world.afterEvents.entityHitEntity.subscribe(event => {
             const velocity = Vec3.mul(direction, 2);
 
             const ball = dimension.spawnEntity(ammo.typeId, Vec3.add(origin, velocity));
-            const projectile = ball.projectile as EntityProjectileComponent;
+            const projectile = ball.projectile!;
             projectile.owner = player;
 
             spawnSmoke({dimension, ...ball.location}, direction);

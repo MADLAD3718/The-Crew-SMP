@@ -1,10 +1,16 @@
 {
-    "format_version": "1.21.60",
+    "format_version": "1.26.20",
     "minecraft:item": {
         "description": {
-            "identifier": "tcsmp:lightning_cannonball"
+            "identifier": "tcsmp:lightning_cannonball",
+            "menu_category": {
+                "category": "equipment"
+            }
         },
         "components": {
+            "tcsmp:auto_lore": {
+                "lore": "lore.lightning_cannonball"
+            },
             "minecraft:max_stack_size": 8,
             "minecraft:display_name": {
                 "value": "item.tcsmp:lightning_cannonball.name"

@@ -1,10 +1,16 @@
 {
-    "format_version": "1.21.60",
+    "format_version": "1.26.20",
     "minecraft:item": {
         "description": {
-            "identifier": "tcsmp:slowness_cannonball"
+            "identifier": "tcsmp:slowness_cannonball",
+            "menu_category": {
+                "category": "equipment"
+            }
         },
         "components": {
+            "tcsmp:auto_lore": {
+                "lore": "lore.slowness_cannonball"
+            },
             "minecraft:max_stack_size": 8,
             "minecraft:display_name": {
                 "value": "item.tcsmp:slowness_cannonball.name"

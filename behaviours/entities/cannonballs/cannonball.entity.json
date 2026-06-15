@@ -1,5 +1,5 @@
 {
-    "format_version": "1.21.20",
+    "format_version": "1.26.20",
     "minecraft:entity": {
         "description": {
             "identifier": "tcsmp:cannonball",
@@ -12,7 +12,7 @@
                 "minecraft:explode": {
                     "breaks_blocks": false,
                     "fuse_lit": true,
-                    "power": 6
+                    "power": 4
                 }
             }
         },
