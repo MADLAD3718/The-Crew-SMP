@@ -1,4 +1,21 @@
 import { defineConfig } from 'tsup';
+import { Plugin } from "esbuild";
+import * as fs from "fs";
+import stripJSONComments from "strip-json-comments";
+
+const JSONCommentPlugin: Plugin = {
+    name: "json",
+    setup(build) {
+        build.onLoad({ filter: /\.json$/ }, async (args) => {
+            const rawJSON = await fs.promises.readFile(args.path, "utf-8");
+            const cleanedJSON = stripJSONComments(rawJSON);
+            return {
+                contents: cleanedJSON,
+                loader: "json"
+            }
+        });
+    }
+}
 
 export default defineConfig({
     format: ["esm"],
@@ -11,5 +28,6 @@ export default defineConfig({
         "@minecraft/vanilla-data"
     ],
     sourcemap: true,
-    minify: false
+    minify: false,
+    esbuildPlugins: [JSONCommentPlugin]
 });

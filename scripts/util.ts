@@ -59,8 +59,17 @@ export function getRectPrism(range: Vector3): Vector3[] {
     return locations;
 }
 
-export function randomExp(lambda: number): number {
-    return - (1/lambda) * Math.log(1 - Math.random());
+export function randomExp(mean: number): number {
+    return -mean * Math.log(1 - Math.random());
+}
+
+export function roundTo(x: number, digits: number): number {
+    const factor = 10 ** digits;
+    return Math.round(x * factor) / factor;
+}
+
+export function randomRange(min: number, max: number): number {
+    return min + Math.random() * (max - min);
 }
 
 export function repeatJob(generator: Generator<void, void, void>): void {

@@ -1,0 +1,12 @@
+{
+  "namespace": "pocket_containers",
+
+  "header_area": {
+    "$new_container_title|default": "$container_title"
+  },
+
+  "header_area/container_header": {
+    "$header_label": "$new_container_title"
+  }
+
+}

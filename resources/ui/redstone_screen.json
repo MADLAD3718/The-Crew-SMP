@@ -1,0 +1,9 @@
+{
+  "namespace": "redstone",
+  
+  "item_dropper_label": {
+    "$new_container_title|default": "$container_title",
+    "text": "$new_container_title"
+  }
+
+}
