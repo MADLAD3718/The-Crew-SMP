@@ -1,3 +1,4 @@
+// DEPRECATED
 import { BlockRaycastHit, ButtonState, GameMode, InputButton, Player, Vector3, world } from "@minecraft/server";
 import { Vec3 } from "@madlad3718/mcveclib";
 

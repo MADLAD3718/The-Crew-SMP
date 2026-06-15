@@ -1,0 +1,153 @@
+{
+	"format_version": "1.26.20",
+	"animations": {
+        "animation.player.first_person.crossbow_hold": {
+            "loop": true,
+            "bones": {
+                "rightitem": {
+                    "position": [ "(q.get_equipped_item_name('off_hand') == 'shield' || q.get_equipped_item_name('off_hand') == 'tnt_shield') ? -4.0 : 0.0", 0.0, 0.0 ]
+                }
+            }
+        },
+        "animation.player.first_person.swap_item": {
+            "loop": true,
+            "bones": {
+                "leftarm": {
+                    "position": [ 0.0, "(q.get_equipped_item_name('off_hand') == 'filled_map' || q.get_equipped_item_name('off_hand') == 'shield' || q.get_equipped_item_name('off_hand') == 'tnt_shield') ? 0.0 : -10.0 * (1.0 - c.player_offhand_arm_height)", 0.0 ]
+                },
+                "rightarm": {
+                    "position": [ 0.0, "-10.0 * (1.0 - v.player_arm_height)", 0.0 ]
+                }
+            }
+        },
+        "animation.player.first_person.shield_block": {
+            "loop": true,
+            "bones": {
+                "leftarm": {
+                    "position": [ 0.0, "-10.0 * (1.0 - c.player_offhand_arm_height)", 0.0 ]
+                },
+                "rightarm": {
+                    "position": [ 0.0, "(q.get_equipped_item_name('off_hand') != 'shield' && q.get_equipped_item_name('off_hand') != 'tnt_shield') ? -10.0 * (1.0 - v.player_arm_height) : 0.0", 0.0 ]
+                }
+            }
+        },
+		"animation.player.first_person.grappling_hook_equipped": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"leftarm": {
+					"position": ["1.5 - (1.0 - v.grappling_hook_use_norm) * 3.5", "-3.799999952316284 + v.short_arm_offset_left", "8.25 - v.grappling_hook_use_norm"],
+					"rotation": [165, -60, 45],
+					"scale": [0.4, 0.4, 0.4]
+				},
+				"rightitem": {
+					"position": [0, 2, "2.5 - q.item_remaining_use_duration('main_hand', 1.0) * 1.5"],
+					"rotation": [-20, -15, -30],
+					"scale": [1, "1.15 - q.item_remaining_use_duration('main_hand', 1.0) * 0.15", 1]
+				}
+			}
+		},
+		"animation.player.first_person.katana.weild": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"leftArm": {
+					"rotation": ["145 + 10 * v.katana_use_norm", "-60 - 30 * v.katana_use_norm", 45],
+					"position": ["1.0 - (1.0 - v.katana_use_norm) * 1.5", "-3.5 + v.short_arm_offset_left - v.katana_use_norm", "9.25 - v.katana_use_norm"],
+					"scale": 0.4
+				}
+			}
+		},
+		"animation.player.grappling_hook_equipped": {
+			"loop": true,
+			"bones": {
+				"leftarm": {
+					"position": [0, 0, 0.5],
+					"rotation": [
+						"-this - 65.0 - v.grappling_hook_use_norm * 5.0",
+						"-this + v.grappling_hook_use_norm * 30.0",
+						"-this + 20.0 + v.grappling_hook_use_norm * 10.0"
+					]
+				},
+				"rightarm": {
+					"rotation": ["- 60.0 - this", "- 45.0 - this", "- 2.5 - this"]
+				}
+			}
+		},
+		"animation.player.katana.charge": {
+			"loop": true,
+			"bones": {
+				"leftArm": {
+					"rotation": ["-this - 65.0 + v.katana_use_norm * 50.0", "-this", "-this + 35.0 + v.katana_use_norm * 10.0"],
+					"position": [0, 0, 0.5]
+				},
+				"rightArm": {
+					"rotation": ["- 60.0 - this + v.katana_use_norm * 50", "- 15.0 - this", "- 2.5 - this"]
+				}
+			}
+		},
+		"animation.player.katana.dash": {
+			"loop": true,
+			"animation_length": 0.4,
+			"bones": {
+                "leftarm": {
+                    "rotation": [ "variable.tcos0", 0.0, 0.0 ]
+                },
+				"rightArm": {
+					"rotation": [-40, 0, 0]
+				},
+				"rightItem": {
+					"rotation": [70, 0, 0],
+					"position": [0, 0, -3]
+				}
+			}
+		},
+		"animation.player.pet": {
+			"animation_length": 0.6,
+			"bones": {
+				"rightArm": {
+					"rotation": {
+						"0.0": ["v.is_first_person ? 0 : -80", "v.is_first_person ? 0 : -20", "v.is_first_person ? -45 : 0"],
+						"0.2": ["v.is_first_person ? 0 : -80", "v.is_first_person ? 0 : -50", "v.is_first_person ? -22.5 : 0"],
+						"0.4": ["v.is_first_person ? 0 : -80", "v.is_first_person ? 0 : -20", "v.is_first_person ? -45 : 0"],
+						"0.6": ["v.is_first_person ? 0 : -80", "v.is_first_person ? 0 : -50", "v.is_first_person ? -22.5 : 0"]
+					}
+				}
+			}
+		},
+		"animation.player.riding.seal": {
+			"loop": true,
+			"bones": {
+				"cape": {
+					"rotation": ["math.lerp(0.0, -32.0, q.cape_flap_amount) - 6.0", 0, 0],
+					"position": [0, "q.get_root_locator_offset('armor_offset.default_neck', 1)", 0]
+				},
+				"root": {
+					"rotation": ["90 + q.ride_body_x_rotation - 5 * math.sin((q.life_time + 0.2) * 360)", 0, 0],
+					"position": [
+						0,
+						"7.5 + 17.5 * (1 + math.sin(q.ride_body_x_rotation - 5 * math.sin((q.life_time + 0.2) * 360))) + 2 * math.sin(q.life_time * 360)",
+						"17.5 * math.cos(q.ride_body_x_rotation - 5 * math.sin((q.life_time + 0.2) * 360)) + 8.5 + 1.5 * math.sin((q.life_time + 0.2) * 360)"
+					]
+				},
+				"seal.geo": {
+					"rotation": ["q.ride_body_x_rotation + math.sin((q.life_time - 0.25) * 360) * 12", 0, 0],
+					"position": [0, "10.25 + 2 * math.sin(q.life_time * 360)", 8],
+					"scale": 1.26
+				},
+				"leftArm": {
+					"rotation": ["-115 - q.ride_body_x_rotation - 6.5 * math.sin((q.life_time + 0.2) * 360)", 0, 0]
+				},
+				"rightArm": {
+					"rotation": ["-115 - q.ride_body_x_rotation - 6.5 * math.sin((q.life_time + 0.2) * 360)", 0, 0]
+				},
+				"leftLeg": {
+					"rotation": ["-10 * math.sin((q.life_time - 0.05) * 360)", 0, 0]
+				},
+				"rightLeg": {
+					"rotation": ["-10 * math.sin((q.life_time - 0.0) * 360)", 0, 0]
+				}
+			}
+		}
+	}
+}
