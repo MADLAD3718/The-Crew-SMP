@@ -1,8 +1,11 @@
 {
-    "format_version": "1.21.70",
+    "format_version": "1.26.20",
     "minecraft:item": {
         "description": {
-            "identifier": "tcsmp:music_disc_straight_facts"
+            "identifier": "tcsmp:music_disc_straight_facts",
+            "menu_category": {
+                "category": "items"
+            }
         },
         "components": {
             "minecraft:max_stack_size": 1,

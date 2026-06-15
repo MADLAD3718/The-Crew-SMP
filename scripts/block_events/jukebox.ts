@@ -2,7 +2,7 @@ import { BlockComponentTypes, world } from "@minecraft/server";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 import { Vec3 } from "@madlad3718/mcveclib";
 
-const RECORD_MAP: Map<string, string> = new Map();
+const RecordMap: Record<string, string> = {};
 const RECORD_SOUNDS: Record<string, string> = {
     "tcsmp:music_disc_drop_it": "record.drop_it",
     "tcsmp:music_disc_crackas": "record.crackas",
@@ -19,7 +19,7 @@ world.beforeEvents.playerInteractWithBlock.subscribe(event => {
     const player = block.getComponent(BlockComponentTypes.RecordPlayer);
     if (!player?.isPlaying()) return;
 
-    RECORD_MAP.set(Vec3.toString(location), player.getRecord()?.typeId as string);
+    RecordMap[Vec3.toString(location)] = player.getRecord()!.typeId;
 });
 
 world.afterEvents.playerInteractWithBlock.subscribe(event => {
@@ -30,10 +30,10 @@ world.afterEvents.playerInteractWithBlock.subscribe(event => {
     const player = block.getComponent(BlockComponentTypes.RecordPlayer);
     if (player?.isPlaying()) return;
 
-    const sound = RECORD_SOUNDS[RECORD_MAP.get(stringLocation) ?? "none"];
-    dimension.runCommand(
-        `execute positioned ${stringLocation} run stopsound @a[r=64] ${sound}`
-    );
+    const sound = RECORD_SOUNDS[RecordMap[stringLocation] ?? "none"];
+    for (const player of dimension.getPlayers({
+        location: block.center(), maxDistance: 64
+    })) player.stopSound(sound);
 });
 
 world.beforeEvents.playerBreakBlock.subscribe(event => {
@@ -42,15 +42,15 @@ world.beforeEvents.playerBreakBlock.subscribe(event => {
     const player = block.getComponent(BlockComponentTypes.RecordPlayer);
     if (!player?.isPlaying()) return;
 
-    RECORD_MAP.set(Vec3.toString(location), player.getRecord()?.typeId as string);
+    RecordMap[Vec3.toString(location)] = player.getRecord()!.typeId;
 }, {blockTypes: [MinecraftBlockTypes.Jukebox]});
 
 world.afterEvents.playerBreakBlock.subscribe(event => {
     const { block } = event, { dimension, location } = block;
 
     const stringLocation = Vec3.toString(location);
-    const sound = RECORD_SOUNDS[RECORD_MAP.get(stringLocation) as string];
-    dimension.runCommand(
-        `execute positioned ${stringLocation} run stopsound @a[r=64] ${sound}`
-    );
+    const sound = RECORD_SOUNDS[RecordMap[stringLocation]];
+    for (const player of dimension.getPlayers({
+        location: block.center(), maxDistance: 64
+    })) player.stopSound(sound);
 }, {blockTypes: [MinecraftBlockTypes.Jukebox]});
