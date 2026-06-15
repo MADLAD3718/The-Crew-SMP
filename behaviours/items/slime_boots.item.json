@@ -1,8 +1,11 @@
 {
-	"format_version": "1.21.70",
+	"format_version": "1.26.20",
 	"minecraft:item": {
 		"description": {
-			"identifier": "tcsmp:slime_boots"
+			"identifier": "tcsmp:slime_boots",
+			"menu_category": {
+				"category": "equipment"
+			}
 		},
 		"components": {
 			"minecraft:max_stack_size": 1,
@@ -23,7 +26,7 @@
 				"value": 9
 			},
 			"minecraft:durability": {
-				"max_durability": 251
+				"max_durability": 250
 			},
 			"minecraft:repairable": {
 				"repair_items": [
