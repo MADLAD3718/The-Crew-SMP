@@ -1,0 +1,38 @@
+{
+  "namespace": "horse",
+
+  "horse_label@common.section_heading_label": {
+    "$new_container_title|default": "$container_title",
+    "text": "$new_container_title"
+  },
+  
+  "horse_screen@common.inventory_screen_common": {
+    "$title": "$container_title",
+    "modifications": [
+      {
+        "array_name": "variables",
+        "operation": "replace",
+        "where": {
+          "requires": "$desktop_screen"
+        },
+        "value": {
+          "requires": "($desktop_screen) and (not ($title = '§U§N§I§C§O§R§N'))",
+          "$screen_content": "horse.horse_panel",
+          "$screen_bg_content": "common.screen_background",
+          "$screen_background_alpha": 0.4
+        }
+      },
+      {
+        "array_name": "variables",
+        "operation": "insert_front",
+        "value": {
+          "requires": "($desktop_screen) and ($title = '§U§N§I§C§O§R§N')",
+          "$new_container_title": "entity.tcsmp:unicorn.name",
+          "$screen_content": "horse.horse_panel",
+          "$screen_bg_content": "common.screen_background",
+          "$screen_background_alpha": 0.4
+        }
+      }
+    ]
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.70",
+  "format_version": "1.26.20",
   "minecraft:entity": {
     "description": {
       "identifier": "tcsmp:unicorn",
@@ -36,6 +36,8 @@
               "growth": 0.2
             }
           ],
+          "pause_growth_items": [ "golden_dandelion" ],
+          "reset_growth_items": [ "golden_dandelion" ],
           "grow_up": {
             "event": "tcsmp:ageable_grow_up",
             "target": "self"
@@ -62,7 +64,14 @@
         "minecraft:behavior.breed": {
           "priority": 2,
           "speed_multiplier": 1.0
-        }
+        },
+        "minecraft:leashable_to": {},
+        "minecraft:offspring": {
+          "offspring_pairs": {
+            "tcsmp:unicorn": "tcsmp:unicorn"
+          }
+        },
+        "minecraft:spawn_egg_interaction": {}
       },
 
       "tcsmp:unicorn_wild": {
@@ -82,39 +91,6 @@
           "speed_multiplier": 1.5,
           "target_dist": 0.0,
           "track_target": true
-        },
-        "minecraft:tamemount": {
-          "min_temper": 0,
-          "max_temper": 100,
-          "feed_text": "action.interact.feed",
-          "ride_text": "action.interact.mount",
-          "feed_items": [
-            {
-              "item": "glistering_melon_slice",
-              "temper_mod": 5
-            },
-            {
-              "item": "golden_carrot",
-              "temper_mod": 5
-            },
-            {
-              "item": "golden_apple",
-              "temper_mod": 10
-            },
-            {
-              "item": "enchanted_golden_apple",
-              "temper_mod": 10
-            }
-          ],
-          "auto_reject_items": [
-            {
-              "item": "saddle"
-            }
-          ],
-          "tame_event": {
-            "event": "tcsmp:on_tame",
-            "target": "self"
-          }
         },
         "minecraft:environment_sensor": {
           "triggers": {
@@ -140,8 +116,7 @@
       },
 
       "tcsmp:unicorn_tamed": {
-        "minecraft:is_tamed": {
-        },
+        "minecraft:is_tamed": {},
         "minecraft:rideable": {
           "seat_count": 1,
           "crouching_skip_interact": true,
@@ -157,20 +132,71 @@
         "minecraft:interact": {
           "interactions": [
             {
-              "play_sounds": "saddle",
               "on_interact": {
                 "filters": {
                   "all_of": [
-                    { "test": "has_equipment", "subject": "self", "domain": "inventory", "operator": "not", "value": "saddle" },
-                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "saddle" },
-                    { "test": "is_family", "subject": "other", "value": "player" },
-                    { "test": "is_sneak_held", "subject": "other", "value": false }
+                    {
+                      "test": "has_equipment",
+                      "subject": "self",
+                      "domain": "inventory",
+                      "operator": "not",
+                      "value": "saddle"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "saddle"
+                    },
+                    {
+                      "test": "is_sneak_held",
+                      "subject": "other",
+                      "value": false
+                    }
                   ]
                 },
                 "target": "self"
               },
               "equip_item_slot": "0",
-              "interact_text": "action.interact.saddle"
+              "interact_text": "action.interact.saddle",
+              "play_sounds": "saddle"
+            },
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "rider_count",
+                      "subject": "self",
+                      "operator": "equals",
+                      "value": 0
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "self",
+                      "domain": "inventory",
+                      "value": "saddle"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "shears"
+                    },
+                    {
+                      "test": "is_sneak_held",
+                      "subject": "other",
+                      "value": false
+                    }
+                  ]
+                }
+              },
+              "hurt_item": 1,
+              "drop_item_slot": "0",
+              "drop_item_y_offset": 1.1,
+              "interact_text": "action.interact.removesaddle",
+              "play_sounds": "unsaddle",
+              "vibration": "shear"
             }
           ]
         },
@@ -180,22 +206,20 @@
         },
         "minecraft:breedable": {
           "require_tame": true,
-          "inherit_tamed": false,
-          "breeds_with": [
-            {
-              "mate_type": "tcsmp:unicorn",
-              "baby_type": "tcsmp:unicorn",
-              "breed_event": {
-                "event": "minecraft:entity_born",
-                "target": "baby"
-              }
-            }
-          ],
+          "breeds_with": {
+            "tcsmp:unicorn": {}
+          },
           "breed_items": [
             "golden_carrot",
             "golden_apple",
             "enchanted_golden_apple"
           ]
+        },
+        "minecraft:offspring": {
+          "inherit_tamed": false,
+          "offspring_pairs": {
+            "tcsmp:unicorn": "tcsmp:unicorn"
+          }
         }
       },
 
@@ -212,10 +236,8 @@
     },
 
     "components": {
-      "minecraft:is_hidden_when_invisible": {
-      },
-      "minecraft:ambient_sound_interval": {
-      },
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:ambient_sound_interval": {},
       "minecraft:equippable": {
         "slots": [
           {
@@ -273,12 +295,9 @@
         "avoid_water": true,
         "avoid_damage_blocks": true
       },
-      "minecraft:movement.basic": {
-      },
-      "minecraft:jump.static": {
-      },
-      "minecraft:nameable": {
-      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:nameable": {},
       "minecraft:horse.jump_strength": {
         "value": 1.0
       },
@@ -288,12 +307,18 @@
         "jump_prevented_value": 0.0
       },
       "minecraft:leashable": {
-        "soft_distance": 4.0,
-        "hard_distance": 6.0,
-        "max_distance": 10.0
+        "presets": [
+          {
+            "filter": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "happy_ghast"
+            },
+            "spring_type": "quad_dampened"
+          }
+        ]
       },
-      "minecraft:balloonable": {
-      },
+      "minecraft:balloonable": {},
       "minecraft:healable": {
         "items": [
           {
@@ -334,6 +359,39 @@
           "golden_carrot"
         ]
       },
+      "minecraft:tamemount": {
+        "min_temper": 0,
+        "max_temper": 100,
+        "feed_text": "action.interact.feed",
+        "ride_text": "action.interact.mount",
+        "feed_items": [
+          {
+            "item": "glistering_melon_slice",
+            "temper_mod": 5
+          },
+          {
+            "item": "golden_carrot",
+            "temper_mod": 5
+          },
+          {
+            "item": "golden_apple",
+            "temper_mod": 10
+          },
+          {
+            "item": "enchanted_golden_apple",
+            "temper_mod": 10
+          }
+        ],
+        "auto_reject_items": [
+          {
+            "item": "saddle"
+          }
+        ],
+        "tame_event": {
+          "event": "tcsmp:on_tame",
+          "target": "self"
+        }
+      },
       "minecraft:behavior.random_stroll": {
         "priority": 6,
         "speed_multiplier": 0.7
@@ -346,12 +404,9 @@
       "minecraft:behavior.random_look_around": {
         "priority": 8
       },
-      "minecraft:physics": {
-      },
-      "minecraft:pushable": {
-        "is_pushable": true,
-        "is_pushable_by_piston": true
-      }
+      "minecraft:physics": {},
+      "minecraft:pushable_by_block": {},
+      "minecraft:pushable_by_entity": {}
     },
 
     "events": {

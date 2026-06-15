@@ -1,5 +1,5 @@
 {
-  "format_version": "1.8.0",
+  "format_version": "1.26.20",
   "minecraft:spawn_rules": {
     "description": {
       "identifier": "tcsmp:unicorn",
@@ -12,21 +12,13 @@
         "minecraft:brightness_filter": {
           "min": 7,
           "max": 15,
-          "adjust_for_weather": true
+          "adjust_for_weather": false
         },
         "minecraft:weight": {
-          "default": 1
-        },
-        "minecraft:density_limit": {
-          "surface": 1
-        },
-        "minecraft:distance_filter": {
-          "min": 32,
-          "max": 128
+          "default": 4
         },
         "minecraft:biome_filter": {
-          "test": "has_biome_tag",
-          "value": "birch"
+          "test": "has_biome_tag", "value": "birch"
         }
       }
     ]
