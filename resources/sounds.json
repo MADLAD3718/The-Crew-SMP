@@ -1,4 +1,23 @@
 {
+    "block_sounds": {
+        "waystone": {
+            "events" : {
+                "default" : "",
+                "place" : {
+                    "sound" : "place.waystone"
+                },
+                "break" : {
+                    "sound" : "break.waystone",
+                    "volume" : 0.75
+                },
+                "item.use.on" : {
+                    "sound" : "use.waystone"
+                }
+            },
+            "pitch" : 1.0,
+            "volume" : 1.0
+        }
+    },
     "entity_sounds": {
         "entities": {
             "tcsmp:gerbil": {
@@ -12,70 +31,89 @@
                     0.80,
                     1.20
                 ],
-                "variants": {
-                    "key": null
-                },
                 "volume": 1.0
             },
             "tcsmp:unicorn": {
-                "events": {
-                    "add.chest": {
-                        "pitch": [
-                            0.80,
-                            1.20
-                        ],
-                        "sound": "mob.horse.armor",
-                        "volume": 1.0
+                "events" : {
+                    "ambient" : {
+                        "sound" : "mob.unicorn.idle",
+                        "volume" : 1.0
                     },
-                    "ambient": "mob.unicorn.idle",
-                    "armor": {
-                        "pitch": 1.0,
-                        "sound": "mob.horse.armor",
-                        "volume": 0.60
+                    "breathe" : {
+                        "pitch" : 1.0,
+                        "sound" : "mob.horse.breathe",
+                        "volume" : 1.0
                     },
-                    "breathe": {
-                        "pitch": 1.0,
-                        "sound": "mob.horse.breathe",
-                        "volume": 0.70
+                    "death" : {
+                        "pitch" : 0.90,
+                        "sound" : "mob.unicorn.death",
+                        "volume" : 0.50
                     },
-                    "death": "mob.horse.death",
-                    "eat": {
-                        "pitch": [
-                            0.80,
-                            1.20
-                        ],
-                        "sound": "mob.horse.eat",
-                        "volume": [
-                            0.50,
-                            1.50
-                        ]
+                    "eat" : {
+                        "pitch" : [ 0.80, 1.20 ],
+                        "sound" : "mob.unicorn.eat",
+                        "volume" : [ 0.50, 1.50 ]
                     },
-                    "hurt": "mob.unicorn.hit",
-                    "jump": {
-                        "pitch": 1.0,
-                        "sound": "mob.horse.jump",
-                        "volume": 0.40
+                    "hurt" : {
+                        "sound" : "mob.unicorn.hit",
+                        "volume" : 0.450
                     },
-                    "land": {
-                        "pitch": 1.0,
-                        "sound": "mob.horse.land",
-                        "volume": 0.40
+                    "jump" : {
+                        "pitch" : 1.0,
+                        "sound" : "mob.horse.jump",
+                        "volume" : 0.40
                     },
-                    "mad": "mob.unicorn.angry",
-                    "saddle": {
-                        "pitch": 1.0,
-                        "sound": "mob.horse.leather",
-                        "volume": 0.60
-                    }
+                    "land" : {
+                        "pitch" : 1.0,
+                        "sound" : "mob.horse.land",
+                        "volume" : 0.40
+                    },
+                    "saddle" : {
+                        "pitch" : 1.0,
+                        "sound" : "mob.horse.leather",
+                        "volume" : 0.60
+                    },
+                    "mad" : "mob.unicorn.angry",
+                    "unsaddle" : "mob.unsaddle"
                 },
                 "pitch": [
                     0.80,
                     1.20
                 ],
-                "variants": {
-                    "key": null
-                },
                 "volume": 0.80
+            },
+            "tcsmp:cannon": {
+                "events": {
+                    "ambient": "cannon.place"
+                },
+                "pitch": 1.0,
+                "volume": 1.0
+            },
+            "tcsmp:barnacle" : {
+                "events" : {
+                    "ambient" : {
+                        "sound": "mob.barnacle.ambient",
+                        "pitch": [ 0.60, 0.80 ],
+                        "volume": 1.0
+                    },
+                    "death" : {
+                        "sound": "mob.barnacle.death",
+                        "pitch": [ 0.60, 0.80 ],
+                        "volume": 1.0
+                    },
+                    "hurt" : {
+                        "sound": "mob.barnacle.hurt",
+                        "pitch": [ 0.60, 0.80 ],
+                        "volume": 1.0
+                    },
+                    "attack": {
+                        "sound": "mob.barnacle.attack",
+                        "pitch": [ 0.70, 0.90 ],
+                        "volume": 0.75
+                    }
+                },
+                "pitch" : 1.0,
+                "volume" : 1.0
             }
         }
     },
@@ -108,6 +146,11 @@
             },
             "lt.reaction.bleach": {
                 "sound": "record.straight_facts",
+                "pitch": 1.0,
+                "volume": 1.0
+            },
+            "lt.reaction.epaste": {
+                "sound": "bottle.lightning",
                 "pitch": 1.0,
                 "volume": 1.0
             }

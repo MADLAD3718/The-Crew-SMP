@@ -170,7 +170,9 @@
             },
             "swing": true,
             "use_item": true,
-            "transform_to_item": "tcsmp:lightning_bottle"
+            "play_sounds": "lt.reaction.epaste",
+            "transform_to_item": "tcsmp:lightning_bottle",
+            "interact_text": "action.interact.creeper.lightning"
           }
         ]
       },

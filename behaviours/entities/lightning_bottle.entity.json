@@ -1,17 +1,11 @@
 {
-  "format_version": "1.16.0",
+  "format_version": "1.26.20",
   "minecraft:entity": {
     "description": {
       "identifier": "tcsmp:lightning_bottle",
       "runtime_identifier": "minecraft:egg",
       "is_spawnable": false,
-      "is_summonable": true,
-      "is_experimental": false
-    },
-    "component_groups": {
-      "tcsmp:despawn": {
-        "minecraft:instant_despawn": {}
-      }
+      "is_summonable": true
     },
     "components": {
       "minecraft:collision_box": {
@@ -20,14 +14,7 @@
       },
       "minecraft:projectile": {
         "on_hit": {
-          "stick_in_ground": {},
-          "definition_event": {
-            "affect_projectile": true,
-            "event_trigger": {
-              "event": "tcsmp:shatter",
-              "target": "self"
-            }
-          }
+          "stick_in_ground": {}
         },
         "power": 0.5,
         "gravity": 0.05,
@@ -35,10 +22,8 @@
         "hit_sound": "glass"
       },
       "minecraft:physics": {},
-      "minecraft:pushable": {
-        "is_pushable": true,
-        "is_pushable_by_piston": true
-      },
+      "minecraft:pushable_by_block": {},
+      "minecraft:pushable_by_entity": {},
       "minecraft:conditional_bandwidth_optimization": {
         "default_values": {
           "max_optimized_distance": 80.0,
@@ -47,19 +32,6 @@
         }
       },
       "minecraft:fire_immune": {}
-    },
-    "events": {
-      "tcsmp:shatter": {
-        "queue_command": {
-          "command": [
-            "particle tcsmp:lightning_bottle_shards",
-            "summon lightning_bolt"
-          ]
-        },
-        "add": {
-          "component_groups": ["tcsmp:despawn"]
-        }
-      }
     }
   }
 }
