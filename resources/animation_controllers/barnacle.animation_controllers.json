@@ -1,0 +1,40 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.barnacle": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"hunting": "q.has_target"}
+					],
+					"blend_transition": 0.75
+				},
+				"hunting": {
+					"animations": ["hunting"],
+					"transitions": [
+						{"default": "!q.has_target"},
+						{"bite": "v.attack_time > 0"},
+						{"dragging": "q.is_sheared"}
+					],
+					"blend_transition": 0.05
+				},
+				"bite": {
+					"animations": ["bite"],
+					"transitions": [
+						{"hunting": "v.attack_time <= 0"},
+						{"dragging": "q.is_sheared"}
+					],
+					"blend_transition": 0.15
+				},
+				"dragging": {
+					"animations": ["dragging"],
+					"transitions": [
+						{"default": "!q.has_target"},
+						{"hunting": "!q.is_sheared"}
+					],
+					"blend_transition": 0.25
+				}
+			}
+		}
+	}
+}

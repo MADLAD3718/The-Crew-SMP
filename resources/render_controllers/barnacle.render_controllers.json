@@ -1,0 +1,10 @@
+{
+  "format_version": "1.26.20",
+  "render_controllers": {
+    "controller.render.barnacle": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ]
+    }
+  }
+}

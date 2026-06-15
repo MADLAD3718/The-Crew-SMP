@@ -1,0 +1,21 @@
+{
+    "format_version": "1.26.20",
+    "minecraft:item": {
+        "description": {
+            "identifier": "tcsmp:barnacle_fang",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            "minecraft:display_name": {
+                "value": "item.tcsmp:barnacle_fang.name"
+            },
+            "minecraft:icon": {
+                "textures": {
+                    "default": "barnacle_fang"
+                }
+            }
+        }
+    }
+}

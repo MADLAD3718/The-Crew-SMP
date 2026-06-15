@@ -1,0 +1,34 @@
+{
+  "format_version": "1.26.20",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tcsmp:barnacle",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/barnacle"
+      },
+      "geometry": {
+        "default": "geometry.barnacle"
+      },
+      "animations": {
+        "root": "animation.barnacle.root",
+        "hunting": "animation.barnacle.hunting",
+        "bite": "animation.barnacle.bite",
+        "dragging": "animation.barnacle.dragging",
+        "controller": "controller.animation.barnacle"
+      },
+      "scripts": {
+        "animate": ["root", "controller"],
+        "should_update_bones_and_effects_offscreen": true
+      },
+      "render_controllers": [
+        "controller.render.barnacle"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg_barnacle"
+      }
+    }
+  }
+}
