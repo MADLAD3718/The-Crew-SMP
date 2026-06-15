@@ -7,7 +7,7 @@ type CustomCommandEnum = {
 
 const CustomCommandEnums: CustomCommandEnum[] = [
     {
-        name: "faction:colour",
+        name: "tcsmp:faction_colour",
         values: Object.keys(FactionColour)
     }
 ];

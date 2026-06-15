@@ -1,20 +1,25 @@
-import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomCommandParamType, CustomCommandResult, CustomCommandStatus, Player } from "@minecraft/server";
+import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomCommandParamType, CustomCommandResult, CustomCommandStatus, Player, world } from "@minecraft/server";
 import { FactionRegistry } from "../../systems/factions";
+import Config from "../config";
 
 const factionInviteCommand: CustomCommand = {
-    name: "faction:invite",
+    name: "tcsmp:faction_invite",
     description: "Invites a player to your faction.",
     permissionLevel: CommandPermissionLevel.Any,
     cheatsRequired: false,
     mandatoryParameters: [
         {
-            name: "faction:player",
-            type: CustomCommandParamType.PlayerSelector
+            name: Config.use_string_selectors ? 
+                "playerName" : "player",
+            type: Config.use_string_selectors ?
+                CustomCommandParamType.String :
+                CustomCommandParamType.PlayerSelector
         }
     ]
 };
 
-function factionInviteCallback(origin: CustomCommandOrigin, players: Player[]): CustomCommandResult {
+type SelectorType = (typeof Config.use_string_selectors) extends true ? string : Player[];
+function factionInviteCallback(origin: CustomCommandOrigin, input: SelectorType): CustomCommandResult {
     if (!(origin.sourceEntity instanceof Player)) return {
         status: CustomCommandStatus.Failure,
         message: `Non-player entities cannot send faction invites.`
@@ -26,6 +31,9 @@ function factionInviteCallback(origin: CustomCommandOrigin, players: Player[]): 
         message: `Cannot find faction.`
     };
 
+    const players = (typeof input == "string") ?
+        world.getPlayers({name: input}) : input;
+
     const invited: string[] = [];
     for (const player of players) {
         if (player.id == origin.sourceEntity.id) continue;
@@ -34,7 +42,7 @@ function factionInviteCallback(origin: CustomCommandOrigin, players: Player[]): 
             continue;
         };
 
-        player.sendMessage(`You've been invited to join §${faction.colour}${faction.name}§r. Use §7/faction:join§r to accept.`);
+        player.sendMessage(`You've been invited to join §${faction.colour}${faction.name}§r. Use §7/faction_join§r to accept.`);
         FactionRegistry.invitePlayer(faction, player);
 
         invited.push(player.name);

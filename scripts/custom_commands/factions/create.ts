@@ -2,17 +2,17 @@ import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomComma
 import { FactionColour, FactionRegistry } from "../../systems/factions";
 
 const createFactionCommand: CustomCommand = {
-    name: "faction:create",
+    name: "tcsmp:faction_create",
     description: "Creates a new faction.",
     permissionLevel: CommandPermissionLevel.Any,
     cheatsRequired: false,
     mandatoryParameters: [
         {
-            name: "faction:name",
+            name: "name",
             type: CustomCommandParamType.String
         },
         {
-            name: "faction:colour",
+            name: "tcsmp:faction_colour",
             type: CustomCommandParamType.Enum
         }
     ]

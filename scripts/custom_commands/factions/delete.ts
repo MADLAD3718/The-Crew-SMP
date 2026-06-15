@@ -2,7 +2,7 @@ import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomComma
 import { FactionRegistry } from "../../systems/factions";
 
 const factionDeleteCommand: CustomCommand = {
-    name: "faction:delete",
+    name: "tcsmp:faction_delete",
     description: "Deletes your faction.",
     permissionLevel: CommandPermissionLevel.Any,
     cheatsRequired: false
@@ -19,6 +19,11 @@ function factionDeleteCallback(origin: CustomCommandOrigin): CustomCommandResult
         status: CustomCommandStatus.Failure,
         message: `Cannot find faction.`
     };
+
+    if (faction.owner != origin.sourceEntity.id) return {
+        status: CustomCommandStatus.Failure,
+        message: `Cannot delete faction, ownership required.`
+    }
 
     system.run(() => {
         FactionRegistry.removeFaction(faction);

@@ -2,17 +2,17 @@ import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomComma
 import { FactionColour, FactionRegistry } from "../../systems/factions";
 
 const renameFactionCommand: CustomCommand = {
-    name: "faction:rename",
+    name: "tcsmp:faction_rename",
     description: "Renames your faction.",
     permissionLevel: CommandPermissionLevel.Any,
     cheatsRequired: false,
     mandatoryParameters: [
         {
-            name: "faction:name",
+            name: "name",
             type: CustomCommandParamType.String
         },
         {
-            name: "faction:colour",
+            name: "tcsmp:faction_colour",
             type: CustomCommandParamType.Enum
         }
     ]
@@ -35,9 +35,9 @@ function renameFactionCallback(origin: CustomCommandOrigin, name: string, colour
         message: `Unable to rename faction, ownership required.`
     };
 
-    if (!FactionRegistry.nameIsValid(name)) return {
+    if (name != faction.name && !FactionRegistry.nameIsValid(name)) return {
         status: CustomCommandStatus.Failure,
-        message: `Faction name §${FactionColour[colour]}${name}§r is invalid.`
+        message: `Faction name §${FactionColour[colour]}${name}§c is invalid.`
     };
 
     system.run(() => {

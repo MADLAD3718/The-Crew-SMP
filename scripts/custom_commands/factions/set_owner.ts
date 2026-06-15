@@ -1,24 +1,32 @@
-import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomCommandParamType, CustomCommandResult, CustomCommandStatus, Player, system } from "@minecraft/server";
+import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomCommandParamType, CustomCommandResult, CustomCommandStatus, Player, system, world } from "@minecraft/server";
 import { FactionRegistry } from "../../systems/factions";
+import Config from "../config";
 
 const factionSetOwnerCommand: CustomCommand = {
-    name: "faction:setowner",
+    name: "tcsmp:faction_setowner",
     description: "Transfer ownership of your faction.",
     permissionLevel: CommandPermissionLevel.Any,
     cheatsRequired: false,
     mandatoryParameters: [
         {
-            name: "faction:player",
-            type: CustomCommandParamType.PlayerSelector
+            name: Config.use_string_selectors ? 
+                "playerName" : "player",
+            type: Config.use_string_selectors ?
+                CustomCommandParamType.String :
+                CustomCommandParamType.PlayerSelector
         }
     ]
 };
 
-function factionSetOwnerCallback(origin: CustomCommandOrigin, players: Player[]): CustomCommandResult {
+type SelectorType = (typeof Config.use_string_selectors) extends true ? string : Player[];
+function factionSetOwnerCallback(origin: CustomCommandOrigin, input: SelectorType): CustomCommandResult {
     if (!(origin.sourceEntity instanceof Player)) return {
         status: CustomCommandStatus.Failure,
         message: `Non-player entities cannot transfer faction ownership.`
     };
+
+    const players = (typeof input == "string") ?
+        world.getPlayers({name: input}) : input;
 
     if (players.length > 1) return {
         status: CustomCommandStatus.Failure,

@@ -2,7 +2,7 @@ import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomComma
 import { FactionRegistry } from "../../systems/factions";
 
 const factionLeaveCommand: CustomCommand = {
-    name: "faction:leave",
+    name: "tcsmp:faction_leave",
     description: "Leave your current faction.",
     permissionLevel: CommandPermissionLevel.Any,
     cheatsRequired: false

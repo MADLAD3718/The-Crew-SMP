@@ -1,20 +1,25 @@
-import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomCommandParamType, CustomCommandResult, CustomCommandStatus, Player, system } from "@minecraft/server";
+import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomCommandParamType, CustomCommandResult, CustomCommandStatus, Player, system, world } from "@minecraft/server";
 import { FactionRegistry } from "../../systems/factions";
+import Config from "../config";
 
 const factionKickCommand: CustomCommand = {
-    name: "faction:kick",
+    name: "tcsmp:faction_kick",
     description: "Kicks a player from your faction.",
     permissionLevel: CommandPermissionLevel.Any,
     cheatsRequired: false,
     mandatoryParameters: [
         {
-            name: "faction:player",
-            type: CustomCommandParamType.PlayerSelector
+            name: Config.use_string_selectors ? 
+                "playerName" : "player",
+            type: Config.use_string_selectors ?
+                CustomCommandParamType.String :
+                CustomCommandParamType.PlayerSelector
         }
     ]
 };
 
-function factionKickCallback(origin: CustomCommandOrigin, players: Player[]): CustomCommandResult {
+type SelectorType = (typeof Config.use_string_selectors) extends true ? string : Player[];
+function factionKickCallback(origin: CustomCommandOrigin, input: SelectorType): CustomCommandResult {
     if (!(origin.sourceEntity instanceof Player)) return {
         status: CustomCommandStatus.Failure,
         message: `Non-player entities cannot create factions.`
@@ -31,6 +36,9 @@ function factionKickCallback(origin: CustomCommandOrigin, players: Player[]): Cu
         message: `Cannot kick players, ownership required.`
     }
 
+    const players = (typeof input == "string") ?
+        world.getPlayers({name: input}) : input;
+
     const kicked: string[] = [];
     for (const player of players) {
         if (!(faction.players.includes(player.id))) {
@@ -42,6 +50,8 @@ function factionKickCallback(origin: CustomCommandOrigin, players: Player[]): Cu
             continue;
         }
 
+        player.sendMessage(`You have been kicked from §${faction.colour}${faction.name}§r.`);
+        // Name tags can't be edited in restricted execution mode
         system.run(() => {
             FactionRegistry.removePlayer(faction, player.id);
         });

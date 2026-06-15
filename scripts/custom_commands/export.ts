@@ -8,6 +8,7 @@ import factionDeleteCommand from "./factions/delete";
 import factionLeaveCommand from "./factions/leave";
 import factionJoinCommand from "./factions/join";
 import factionKickCommand from "./factions/kick";
+import factionListCommand from "./factions/list";
 
 type CustomCommandRegister = {
     command: CustomCommand,
@@ -23,7 +24,8 @@ const CustomCommands: CustomCommandRegister[] = [
     factionDeleteCommand,
     factionMessageCommand,
     factionJoinCommand,
-    factionKickCommand
+    factionKickCommand,
+    factionListCommand
 ];
 
 export default CustomCommands;

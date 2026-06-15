@@ -2,7 +2,7 @@ import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomComma
 import { FactionRegistry } from "../../systems/factions";
 
 const factionJoinCommand: CustomCommand = {
-    name: "faction:join",
+    name: "tcsmp:faction_join",
     description: "Accepts the most recent invite to a faction.",
     permissionLevel: CommandPermissionLevel.Any,
     cheatsRequired: false
