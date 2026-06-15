@@ -36,9 +36,13 @@ world.afterEvents.playerSpawn.subscribe(event => {
     if (faction)
         player.nameTag = player.name + `\n§${faction.colour}${faction.name}§r`;
     else player.nameTag = player.name;
+
+    player.removeTag("tcsmp:is_being_dragged");
 });
 
 system.afterEvents.scriptEventReceive.subscribe(event => {
+    const player = event.sourceEntity;
+    if (!(player instanceof Player)) return;
     switch (event.id) {
         case "tcsmp:showdp":
             for (const id of world.getDynamicPropertyIds()) {
@@ -53,15 +57,31 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
                 world.setDynamicProperty(id);
             break;
         case "tcsmp:showdim":
-            console.warn(event.sourceEntity?.dimension.id);
+            console.warn(player.dimension.id);
             break;
         case "tcsmp:dseats":
-            for (const entity of event.sourceEntity?.dimension.getEntities({type: "tcsmp:grappling_hook_seat"}) ?? [])
+            for (const entity of player.dimension.getEntities({type: "tcsmp:grappling_hook_seat"}) ?? [])
                 entity.remove();
             break;
         case "tcsmp:itemtags":
-            const item = event.sourceEntity?.inventory?.container.getSlot((event.sourceEntity as Player).selectedSlotIndex);
+            const item = player.inventory.container.getSlot(player.selectedSlotIndex);
             console.warn(item?.getTags());
+            break;
+        case "tcsmp:blockinfo":
+            const block = player.getBlockFromViewDirection({includeLiquidBlocks: true, includePassableBlocks: true});
+            console.warn(`Tags: ${block?.block.getTags()}`);
+            const components = block?.block.getComponents();
+            const componentIds = components?.map(component => component.typeId);
+            console.warn(`Components: ${componentIds}`);
+            const states = block?.block.permutation.getAllStates();
+            const stateIds = Object.keys(states!);
+            console.warn(`States: ${stateIds}`);
+            break;
+        case "tcsmp:damage":
+            const itemToDamage = player.inventory.container.getSlot(player.selectedSlotIndex);
+            const itemStack = itemToDamage.getItem();
+            itemToDamage.setItem(itemStack?.damage((itemStack.durability?.maxDurability ?? 0) * 6/13));
+            console.warn(`Damaged ${itemStack?.typeId}`);
             break;
     }
 });

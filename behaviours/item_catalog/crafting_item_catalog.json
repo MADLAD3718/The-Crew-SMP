@@ -1,5 +1,5 @@
 {
-    "format_version": "1.21.60",
+    "format_version": "1.26.20",
     "minecraft:crafting_items_catalog": {
         "categories": [
             {
@@ -21,6 +21,7 @@
                     {
                         "items": [
                             "tcsmp:inscription_table",
+                            "tcsmp:barnacle_fang",
                             "tcsmp:warp_crystal"
                         ]
                     },
@@ -61,6 +62,8 @@
                             "name": "minecraft:itemGroup.name.sword"
                         },
                         "items": [
+                            "tcsmp:knife",
+                            "tcsmp:katana",
                             "tcsmp:lucks_bane"
                         ]
                     },
@@ -73,9 +76,18 @@
                         ]
                     },
                     {
+                        "group_identifier": {
+                            "icon": "tcsmp:spell_scroll",
+                            "name": "itemGroup.tcsmp:spell_scrolls"
+                        },
                         "items": [
-                            "tcsmp:knife",
-                            "tcsmp:katana",
+                            "tcsmp:scroll_of_nausea",
+                            "tcsmp:scroll_of_return",
+                            "tcsmp:scroll_of_thunder"
+                        ]
+                    },
+                    {
+                        "items": [
                             "tcsmp:tnt_shield",
                             "tcsmp:grappling_hook",
                             "tcsmp:cannon_item"
@@ -84,7 +96,7 @@
                     {
                         "group_identifier": {
                             "icon": "tcsmp:cannonball",
-                            "name": "itemGroup.tcsmp:cannon_balls"
+                            "name": "itemGroup.tcsmp:cannonballs"
                         },
                         "items": [
                             "tcsmp:cannonball",
@@ -97,33 +109,8 @@
                     },
                     {
                         "items": [
-                            "tcsmp:lightning_bottle"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "icon": "tcsmp:spell_scroll",
-                            "name": "itemGroup.tcsmp:spell_scrolls"
-                        },
-                        "items": [
-                            "tcsmp:spell_scroll",
-                            "tcsmp:scroll_of_growth",
-                            "tcsmp:scroll_of_decay",
-                            "tcsmp:scroll_of_thunder",
-                            "tcsmp:scroll_of_return"
-                        ]
-                    }
-                ]
-            },
-            {
-                "category_name": "nature",
-                "groups": [
-                    {
-                        "group_identifier": {
-                            "name": "minecraft:itemGroup.name.crop"
-                        },
-                        "items": [
-                            "tcsmp:tomato"
+                            "tcsmp:lightning_bottle",
+                            "tcsmp:tempered_warp_crystal"
                         ]
                     }
                 ]

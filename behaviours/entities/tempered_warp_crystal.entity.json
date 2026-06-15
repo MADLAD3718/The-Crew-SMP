@@ -1,0 +1,30 @@
+{
+  "format_version": "1.26.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "tcsmp:tempered_warp_crystal",
+      "runtime_identifier": "minecraft:egg",
+      "is_spawnable": false,
+      "is_summonable": true
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "stick_in_ground": {}
+        },
+        "power": 0.5,
+        "gravity": 0.05,
+        "angle_offset": -20.0,
+        "hit_sound": "glass"
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable_by_block": {},
+      "minecraft:pushable_by_entity": {},
+      "minecraft:fire_immune": {}
+    }
+  }
+}

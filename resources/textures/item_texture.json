@@ -124,6 +124,18 @@
     },
     "roulette_plate": {
       "textures": "textures/items/roulette_plate"
+    },
+    "spawn_egg_barnacle": {
+      "textures": "textures/items/spawn_eggs/spawn_egg_barnacle"
+    },
+    "barnacle_fang": {
+      "textures": "textures/items/barnacle_fang"
+    },
+    "tempered_warp_crystal": {
+      "textures": "textures/items/tempered_warp_crystal"
+    },
+    "scroll_of_nausea": {
+      "textures": "textures/items/spell_scrolls/scroll_of_nausea"
     }
   }
 }
