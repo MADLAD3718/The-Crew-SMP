@@ -1,32 +1,22 @@
-import { EntityDamageCause, ItemCustomComponent, system, TicksPerSecond } from "@minecraft/server";
-import { randomExp } from "../util";
-
-const DAMAGE_TIMES: Map<string, number> = new Map();
-const INVUNERABILITY_DELAY = 0.5 * TicksPerSecond;
+import { EntityDamageCause, EquipmentSlot, ItemCustomComponent, world } from "@minecraft/server";
+import { randomExp, roundTo } from "../util";
 
 type RandomExpDamageParameters = {
     mean_damage: number;
 }
 
-const randomExpDamageComponent: ItemCustomComponent = {
-    onHitEntity(event, parameters) {
-        const { attackingEntity, hitEntity, itemStack } = event;
-        if (!itemStack) return;
+world.beforeEvents.entityHurt.subscribe(event => {
+    const { damageSource } = event, damagingEntity = damageSource.damagingEntity!;
+    const damagingItem = damagingEntity.equipment?.getEquipment(EquipmentSlot.Mainhand);
+    const component = damagingItem?.getComponent("tcsmp:random_exp_damage");
+    if (!component) return;
 
-        const { params } = parameters as { params: RandomExpDamageParameters };
+    const params = component.customComponentParameters.params as RandomExpDamageParameters;
+    let damage = event.damage + roundTo(randomExp(params.mean_damage), 1);
 
-        const lastHitTime = DAMAGE_TIMES.get(hitEntity.id) ?? 0;
-        if (system.currentTick - lastHitTime < INVUNERABILITY_DELAY) return;
+    event.damage = damage;
+}, { allowedDamageCauses: [EntityDamageCause.entityAttack] });
 
-        const damage = Math.floor(randomExp(1 / params.mean_damage));
-
-        hitEntity.applyDamage(damage, {
-            cause: EntityDamageCause.magic,
-            damagingEntity: attackingEntity,
-        });
-
-        DAMAGE_TIMES.set(hitEntity.id, system.currentTick);
-    }
-}
+const randomExpDamageComponent: ItemCustomComponent = {};
 
 export default randomExpDamageComponent;
