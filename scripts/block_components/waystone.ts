@@ -3,14 +3,17 @@ import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import { Vec3 } from "@madlad3718/mcveclib";
 
 import { WaystoneRegister, WaystoneRegistry } from "../systems/waystones";
+import { BlockEntityRegistry } from "../systems/block_entities";
 
 type WaystoneParameters = {
     dimension: string
 }
 
 const waystoneComponent: BlockCustomComponent = {
-    onPlace({ block, dimension }) {
-        dimension.playSound("waystone.place", block.center());
+    // Place is triggered for all multi-block parts
+    onPlace({ block }) {
+        if (block.permutation.getState("minecraft:multi_block_part") == 1)
+            BlockEntityRegistry.spawn(block, "tcsmp:warp_crystal");
     },
 
     onPlayerInteract({ block, player, dimension }, parameters) {
@@ -19,31 +22,29 @@ const waystoneComponent: BlockCustomComponent = {
         if (dimension.id != params.dimension) return;
         const { permutation } = block;
 
-        dimension.playSound("waystone.interact", block.center());
+        dimension.playSound("use.waystone", block.center());
 
         const states = permutation.getAllStates();
-        const base = states["tcsmp:top"] ? block.below() as Block : block;
-        const top = states["tcsmp:top"] ? block : block.above() as Block;
-
+        const base = states["minecraft:multi_block_part"] === 0 ? block : block.below()!;
+        const top = states["minecraft:multi_block_part"] === 0 ? block.above()! : block;
         if (!states["tcsmp:active"])
-            setupWaystone(base, top, player as Player);
+            setupWaystone(base, top, player!);
         else if (!player?.isSneaking)
-            useWaystone(base, player as Player);
-        else editWaystone(WaystoneRegistry.find(base) as WaystoneRegister, player as Player);
+            useWaystone(base, player!);
+        else editWaystone(WaystoneRegistry.find(base) as WaystoneRegister, player!);
     },
 
-    onPlayerBreak({ block, brokenBlockPermutation, dimension }, parameters) {
-        const { params } = parameters as { params: WaystoneParameters };
-
-        if (dimension.id != params.dimension) return;
-
-        dimension.playSound("waystone.break", block.center());
-
+    // Break is just triggered once for the multi-block part the player broke
+    onBreak({ block, brokenBlockPermutation }) {
         const states = brokenBlockPermutation.getAllStates();
+        BlockEntityRegistry.remove(
+            states["minecraft:multi_block_part"] == 0 ? block.above()! : block
+        );
+
         if (!states["tcsmp:active"]) return;
 
-        const base = states["tcsmp:top"] ? block.below() as Block : block;
-        WaystoneRegistry.remove(WaystoneRegistry.find(base) as WaystoneRegister);
+        const base = states["minecraft:multi_block_part"] == 0 ? block : block.below()!;
+        WaystoneRegistry.remove(WaystoneRegistry.find(base)!);
     }
 }
 
@@ -58,34 +59,28 @@ function setupWaystone(base: Block, top: Block, player: Player) {
         )
         .toggle({translate: "action.setup.waystone.private"})
         .show(player).then(response => {
-            try {
-                if (response.canceled) return;
-    
-                const name = response.formValues?.[0] as string || `${player.name}'s Waystone`;
-                const owner = response.formValues?.[1] ? player.id : "";
-    
-                const waystone: WaystoneRegister = {
-                    name,
-                    owner,
-                    dimension: player.dimension.id,
-                    location: base.location
-                };
-    
-                if (!WaystoneRegistry.valid(waystone))
-                    return player.sendMessage({translate: "info.waystone.invalid", with: [name]});
-    
-                if (WaystoneRegistry.has(player, waystone))
-                    return player.sendMessage({translate: "info.waystone.preexists", with: [name]});
-    
-                WaystoneRegistry.add(waystone);
-    
-                base.setPermutation(base.permutation.withState("tcsmp:active", true));
-                top.setPermutation(top.permutation.withState("tcsmp:active", true));
-            } 
-            catch (e) {
-                if (e instanceof Error)
-                    console.error(e, e.stack);
-            }
+            if (response.canceled) return;
+
+            const name = response.formValues?.[0] as string || `${player.name}'s Waystone`;
+            const owner = response.formValues?.[1] ? player.id : "";
+
+            const waystone: WaystoneRegister = {
+                name,
+                owner,
+                dimension: player.dimension.id,
+                location: base.location
+            };
+
+            if (!WaystoneRegistry.valid(waystone))
+                return player.sendMessage({translate: "info.waystone.invalid", with: [name]});
+
+            if (WaystoneRegistry.has(player, waystone))
+                return player.sendMessage({translate: "info.waystone.preexists", with: [name]});
+
+            WaystoneRegistry.add(waystone);
+
+            base.setPermutation(base.permutation.withState("tcsmp:active", true));
+            top.setPermutation(top.permutation.withState("tcsmp:active", true));
         });
 }
 
@@ -107,8 +102,6 @@ function useWaystone(base: Block, player: Player) {
         form.button(waystone.name, "textures/ui/waystone_private_glypth");
         waystones.push(waystone);
     }
-
-    if (waystones.length == 0) return;
 
     form.show(player).then(response => {
         if (response.canceled) return;

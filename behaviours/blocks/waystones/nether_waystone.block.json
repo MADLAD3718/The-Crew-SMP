@@ -1,20 +1,31 @@
 {
-    "format_version": "1.21.90",
+    "format_version": "1.26.20",
     "minecraft:block": {
         "description": {
             "identifier": "tcsmp:nether_waystone",
             "states": {
-                "tcsmp:top": [false, true],
                 "tcsmp:active": [false, true]
+            },
+            "traits": {
+                "minecraft:multi_block": {
+                    "enabled_states": ["minecraft:multi_block_part"],
+                    "parts": 2,
+                    "direction": "up"
+                }
             }
         },
         "components": {
-            "tcsmp:double_block": {},
             "tcsmp:waystone": {
                 "dimension": "minecraft:nether"
             },
-            "tag:minecraft:is_pickaxe_item_destructible": {},
-            "minecraft:geometry": "geometry.waystone_bottom",
+            "minecraft:tags": [
+                "minecraft:is_pickaxe_item_destructible",
+                "minecraft:diamond_tier_destructible"
+            ],
+            "minecraft:geometry": {
+                "identifier": "geometry.waystone_bottom",
+                "culling": "tcsmp:culling.waystone.bottom"
+            },
             "minecraft:material_instances": {
                 "*": {
                     "render_method": "opaque"
@@ -50,29 +61,29 @@
                     "can_contain_liquid": true
                 }]
             },
-            "minecraft:selection_box": {
-                "origin": [-8.0, 0.0, -8.0],
-                "size": [16.0, 16.0, 16.0]
+            "minecraft:precipitation_interactions": {
+                "precipitation_behavior": "obstruct_rain"
             },
-            "minecraft:transformation": {
-                "scale_pivot": [0.0, -0.5, 0.0],
-                "scale": [1.0, 2.0, 1.0]
+            "minecraft:chest_obstruction": {
+                "obstruction_rule": "always"
+            },
+            "minecraft:redstone_conductivity": {
+                "allows_wire_to_step_down": false
+            },
+            "minecraft:movable": {
+                "movement_type": "immovable"
+            },
+            "minecraft:connection_rule": {
+                "accepts_connections_from": "none"
             }
         },
         "permutations": [
             {
-                "condition": "q.block_state('tcsmp:top')",
+                "condition": "q.block_state('minecraft:multi_block_part') == 1",
                 "components": {
-                    "minecraft:geometry": "geometry.waystone_top",
-                    "minecraft:transformation": {
-                        "scale_pivot": [0.0, 0.5, 0.0],
-                        "scale": [1.0, 2.0, 1.0]
-                    },
-                    "tcsmp:block_entity": {
-                        "entity": "tcsmp:warp_crystal"
-                    },
-                    "tcsmp:waystone": {
-                        "dimension": "minecraft:nether"
+                    "minecraft:geometry": {
+                        "identifier": "geometry.waystone_top",
+                        "culling": "tcsmp:culling.waystone.top"
                     }
                 }
             },

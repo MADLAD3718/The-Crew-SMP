@@ -1,8 +1,11 @@
 {
-    "format_version": "1.21.60",
+    "format_version": "1.26.20",
     "minecraft:item": {
         "description": {
-            "identifier": "tcsmp:end_waystone"
+            "identifier": "tcsmp:end_waystone",
+            "menu_category": {
+                "category": "items"
+            }
         },
         "components": {
             "minecraft:max_stack_size": 1,
@@ -16,10 +19,8 @@
             },
             "minecraft:block_placer": {
                 "block": "tcsmp:end_waystone",
-                "replace_block_item": true
-            },
-            "minecraft:tags": {
-                "tags": ["tcsmp:double_block_placer"]
+                "replace_block_item": true,
+                "aligned_placement": true
             },
             "minecraft:rarity": "epic"
         }
