@@ -4,10 +4,10 @@ item.tcsmp:empty_grappling_hook.name=Empty Grappling Hook
 item.tcsmp:hook.name=Hook
 item.tcsmp:cannon.name=Cannon
 item.tcsmp:cannonball.name=Cannonball
-item.tcsmp:poison_cannonball.name=Poison Cannonball
-item.tcsmp:wither_cannonball.name=Wither Cannonball
-item.tcsmp:slowness_cannonball.name=Slowness Cannonball
-item.tcsmp:fire_cannonball.name=Fire Cannonball
+item.tcsmp:poison_cannonball.name=Poisonous Cannonball
+item.tcsmp:wither_cannonball.name=Withering Cannonball
+item.tcsmp:slowness_cannonball.name=Slowing Cannonball
+item.tcsmp:fire_cannonball.name=Firey Cannonball
 item.tcsmp:warp_crystal.name=Warp Crystal
 item.tcsmp:overworld_waystone.name=Overworld Waystone
 item.tcsmp:nether_waystone.name=Nether Waystone
@@ -15,7 +15,7 @@ item.tcsmp:end_waystone.name=End Waystone
 item.tcsmp:spell_scroll.name=Spell Scroll
 item.tcsmp:scroll_of_growth.name=Scroll of Growth
 item.tcsmp:lightning_bottle.name=Bottle o' Lightning
-item.tcsmp:lightning_cannonball.name=Lightning Cannonball
+item.tcsmp:lightning_cannonball.name=Charged Cannonball
 item.tcsmp:scroll_of_thunder.name=Scroll of Thunder
 item.tcsmp:scroll_of_decay.name=Scroll of Decay
 item.tcsmp:scroll_of_return.name=Scroll of Return
@@ -29,6 +29,17 @@ item.tcsmp:gerbil.name=Gerbil
 item.tcsmp:tomato.name=Tomato
 item.tcsmp:slime_boots.name=Slime Boots
 item.tcsmp:roulette_plate.name=Roulette Plate
+item.tcsmp:barnacle_fang.name=Barnacle Fang
+item.tcsmp:tempered_warp_crystal.name=Tempered Warp Crystal
+item.tcsmp:scroll_of_nausea.name=Scroll of Sulfurous Vapor
+
+## Lore Entries
+lore.random_damage=\n§r§9+§kg§r§9 Attack Damage§r
+lore.fire_cannonball=§r§cSets Targets Alight§r
+lore.lightning_cannonball=§r§cStrikes Lightning§r
+lore.poison_cannonball=§r§cApplies Poison (0:10)§r
+lore.slowness_cannonball=§r§cApplies Slowness (0:10)§r
+lore.wither_cannonball=§r§cApplies Decay (0:10)§r
 
 ## Record Descriptions
 item.record_balloonpop.desc=George Vide - CRAcK@$
@@ -42,6 +53,7 @@ item.record_reaction.bleach.desc=George Vide - Straight Facts
 item.spawn_egg.entity.tcsmp:gerbil.name=Gerbil Spawn Egg
 item.spawn_egg.entity.tcsmp:unicorn.name=Unicorn Spawn Egg
 item.spawn_egg.entity.tcsmp:seal.name=Seal Spawn Egg
+item.spawn_egg.entity.tcsmp:barnacle.name=Barnacle Spawn Egg
 
 ## Blocks
 tile.tcsmp:overworld_waystone.name=Overworld Waystone
@@ -50,6 +62,7 @@ tile.tcsmp:end_waystone.name=End Waystone
 tile.tcsmp:inscription_table.name=Inscription Table
 tile.tcsmp:cannabis_plant.name=Cannabis Plant
 tile.tcsmp:faction_register.name=Faction Register
+tile.tcsmp:tomato.name=Tomato
 
 ## Entities
 entity.tcsmp:grappling_hook_stake.name=Grappling Hook Stake
@@ -65,6 +78,9 @@ entity.tcsmp:lightning_cannonball.name=Lightning Cannonball
 entity.tcsmp:gerbil.name=Gerbil
 entity.tcsmp:unicorn.name=Unicorn
 entity.tcsmp:seal.name=Seal
+entity.tcsmp:barnacle.name=Barnacle
+entity.tcsmp:lightning_bottle.name=Bottle o' Lightning
+entity.tcsmp:tempered_warp_crystal.name=Tempered Warp Crystal
 
 ## Actions
 action.hint.exit.tcsmp:grappling_hook_seat=Crouch or jump to detach
@@ -75,9 +91,11 @@ action.interact.ride.tcsmp:unicorn=Ride
 action.interact.gerbil=Interact to pick up
 action.interact.ride.seal=Ride
 action.hint.exit.tcsmp:seal=Crouch or jump to dismount
+action.interact.creeper.lightning=Bottle lightning
 
 ## Containers
-container.inscription_table=Inscription
+## Custom containers are tagged for UI triggers
+container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NInscription
 
 ## Waystone Dialogue
 action.setup.waystone.title=Waystone Setup
@@ -161,4 +179,30 @@ info.return_scroll.no_waystones=You have no available waystones to return to
 ## Item Groups
 itemGroup.tcsmp:waystones=Waystones
 itemGroup.tcsmp:spell_scrolls=Spell Scrolls
-itemGroup.tcsmp:cannon_balls=Cannon Balls
+itemGroup.tcsmp:cannonballs=Cannonballs
+
+## Subtitles
+subtitles.entity.wolf.pet=Fur ruffles
+subtitles.block.waystone.travel=Waystone warbles
+subtitles.item.spell_scroll.cast=Spell triggers
+subtitles.item.katana.draw=Katana draws
+subtitles.item.katana.dash=Katana slashes
+subtitles.item.grappling_hook.retract=Grappling Hook retracts
+subtitles.item.grappling_hook.charge=Grappling Hook charges up
+subtitles.item.grappling_hook.shoot=Grappling Hook fires
+subtitles.entity.cannon.place=Cannon arms
+subtitles.entity.cannon.break=Cannon disarms
+subtitles.entity.cannon.fire=Cannon fires
+subtitles.entity.cannon.light=Cannon lights
+subtitles.entity.gerbil.chirp=Gerbil chirps
+subtitles.entity.gerbil.hurt=Gerbil hurts
+subtitles.item.lucks_bane.big_hit=Slot machine clinks
+subtitles.item.knife.backstab=Knife crits
+subtitles.entity.unicorn.gallop=Unicorn gallops
+subtitles.entity.unicorn.eat=Unicorn eats
+subtitles.entity.unicorn.trail=Unicorn sparkles
+subtitles.entity.unicorn.death=Unicorn dies
+subtitles.entity.barnacle.ambient=Barnacle swims
+subtitles.entity.barnacle.death=Barnacle dies
+subtitles.entity.barnacle.hurt=Barnacle hurts
+subtitles.entity.barnacle.attack=Barnacle bites
