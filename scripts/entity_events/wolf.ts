@@ -1,8 +1,8 @@
-import { EntityComponentTypes, EquipmentSlot, world } from "@minecraft/server";
+import { EntityComponentTypes, EquipmentSlot, system, world } from "@minecraft/server";
 import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
 import { Vec3 } from "@madlad3718/mcveclib";
 
-world.afterEvents.playerInteractWithEntity.subscribe(event => {
+world.beforeEvents.playerInteractWithEntity.subscribe(event => {
     const { player, target } = event;
 
     if (!target.isValid ||
@@ -12,14 +12,16 @@ world.afterEvents.playerInteractWithEntity.subscribe(event => {
         Vec3.distance(player.location, target.location) > 1.5 ||
         !player.isSneaking
     ) return;
-
+    event.cancel = true;
     const { dimension } = player;
-    dimension.playSound("wolf.pet", target.location);
 
-    const variant = target.getProperty("minecraft:sound_variant");
-    const sound = variant == "default" ? "mob.wolf.bark" : `mob.wolf.${variant}.bark`;
-    dimension.playSound(sound, target.location);
-
-    dimension.spawnParticle("minecraft:heart_particle", Vec3.above(target.location));
-    player.playAnimation("animation.player.pet");
+    system.run(() => {
+        dimension.playSound("wolf.pet", target.location);
+        const variant = target.getProperty("minecraft:sound_variant");
+        const sound = variant == "default" ? "mob.wolf.bark" : `mob.wolf.${variant}.bark`;
+        dimension.playSound(sound, target.location);
+    
+        dimension.spawnParticle("minecraft:heart_particle", Vec3.above(target.location));
+        player.playAnimation("animation.player.pet");
+    });
 });
