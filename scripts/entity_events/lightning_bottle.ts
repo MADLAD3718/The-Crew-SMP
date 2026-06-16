@@ -1,5 +1,6 @@
 import { MolangVariableMap, ProjectileHitBlockAfterEvent, ProjectileHitEntityAfterEvent, world } from "@minecraft/server";
 import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+import { Vec3 } from "@madlad3718/mcveclib";
 
 world.afterEvents.projectileHitBlock.subscribe(lightningBottleHit);
 world.afterEvents.projectileHitEntity.subscribe(lightningBottleHit);
@@ -10,7 +11,7 @@ function lightningBottleHit(
     if (!projectile.isValid || !projectile.matches({type: "tcsmp:lightning_bottle"})) return;
     projectile.remove();
     
-    dimension.spawnEntity(MinecraftEntityTypes.LightningBolt, location);
+    dimension.spawnEntity(MinecraftEntityTypes.LightningBolt, Vec3.below(location, 0.5));
 
     const breaking_molang = new MolangVariableMap;
     breaking_molang.setFloat("num_particles", 10);
