@@ -1,8 +1,9 @@
 import { EntityProjectileComponent, GameMode, ItemCustomComponent, ItemLockMode, ItemStack, Player, system, TicksPerSecond, world } from "@minecraft/server";
+import Definition from "../../behaviours/items/grappling_hook/grappling_hook.item.json";
 import { Vec3 } from "@madlad3718/mcveclib";
 
-const USE_TIME = TicksPerSecond * 1.0;
-const MAX_DURATION = TicksPerSecond * 500;
+const USE_TIME = TicksPerSecond * Definition["minecraft:item"].components["minecraft:shooter"].max_draw_duration;
+const MAX_DURATION = TicksPerSecond * Definition["minecraft:item"].components["minecraft:use_modifiers"].use_duration;
 const GRAPPLE_SOUNDS = [
     "grappling_hook.retract.short",
     "grappling_hook.retract.medium",

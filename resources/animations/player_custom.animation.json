@@ -5,7 +5,7 @@
             "loop": true,
             "bones": {
                 "rightitem": {
-                    "position": [ "(q.get_equipped_item_name('off_hand') == 'shield' || q.get_equipped_item_name('off_hand') == 'tnt_shield') ? -4.0 : 0.0", 0.0, 0.0 ]
+                    "position": [ "v.is_holding_shield_offhand ? -4.0 : 0.0", 0.0, 0.0 ]
                 }
             }
         },
@@ -13,7 +13,7 @@
             "loop": true,
             "bones": {
                 "leftarm": {
-                    "position": [ 0.0, "(q.get_equipped_item_name('off_hand') == 'filled_map' || q.get_equipped_item_name('off_hand') == 'shield' || q.get_equipped_item_name('off_hand') == 'tnt_shield') ? 0.0 : -10.0 * (1.0 - c.player_offhand_arm_height)", 0.0 ]
+                    "position": [ 0.0, "(q.get_equipped_item_name('off_hand') == 'filled_map' || v.is_holding_shield_offhand) ? 0.0 : -10.0 * (1.0 - c.player_offhand_arm_height)", 0.0 ]
                 },
                 "rightarm": {
                     "position": [ 0.0, "-10.0 * (1.0 - v.player_arm_height)", 0.0 ]
@@ -27,7 +27,7 @@
                     "position": [ 0.0, "-10.0 * (1.0 - c.player_offhand_arm_height)", 0.0 ]
                 },
                 "rightarm": {
-                    "position": [ 0.0, "(q.get_equipped_item_name('off_hand') != 'shield' && q.get_equipped_item_name('off_hand') != 'tnt_shield') ? -10.0 * (1.0 - v.player_arm_height) : 0.0", 0.0 ]
+                    "position": [ 0.0, "!v.is_holding_shield_offhand ? -10.0 * (1.0 - v.player_arm_height) : 0.0", 0.0 ]
                 }
             }
         },
@@ -91,7 +91,7 @@
 			"animation_length": 0.4,
 			"bones": {
                 "leftarm": {
-                    "rotation": [ "variable.tcos0", 0.0, 0.0 ]
+                    "rotation": [ "v.tcos0", 0.0, 0.0 ]
                 },
 				"rightArm": {
 					"rotation": [-40, 0, 0]

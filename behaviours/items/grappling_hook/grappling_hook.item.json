@@ -1,5 +1,5 @@
 {
-    "format_version": "1.26.20",
+    "format_version": "1.26.30",
     "minecraft:item": {
         "description": {
             "identifier": "tcsmp:grappling_hook",
@@ -19,11 +19,12 @@
                 }
             },
             "minecraft:use_modifiers": {
-                "use_duration": 500
+                "movement_modifier": 0.35,
+                "use_duration": 500.0
             },
             "minecraft:shooter": {
                 "charge_on_draw": false,
-                "max_draw_duration": 500
+                "max_draw_duration": 1.0
             },
             "minecraft:repairable": {
                 "repair_items": [{

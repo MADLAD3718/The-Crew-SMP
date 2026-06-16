@@ -34,7 +34,7 @@
         "animate": [
           "wield",
           {
-            "wield_first_person_pull": "query.main_hand_item_use_duration > 0.0f && c.is_first_person"
+            "wield_first_person_pull": "q.main_hand_item_use_duration > 0.0f && c.is_first_person"
           }
         ]
       },
