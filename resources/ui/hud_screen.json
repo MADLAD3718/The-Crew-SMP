@@ -1,6 +1,89 @@
 {
   "namespace": "hud",
 
+  "root_panel": {
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": [
+          {
+            "overlay_storage@title_text_storage": {
+              "$update_key": "overlay: "
+            }
+          },
+          {
+            "barnacle_tongue_overlay@conditional_screen_overlay": {
+              "$storage_field": "overlay_storage",
+              "$visible_value": "tongue",
+              "texture": "textures/ui/barnacle_effect"
+            }
+          }
+        ]
+      }
+    ]
+  },
+
+  "title_text_storage": {
+    "type": "panel",
+    "property_bag": {
+      "#stored_title_text": "",
+      "#stored_value": ""
+    },
+    "bindings": [
+      {
+        "binding_name": "#hud_title_text_string"
+      },
+      {
+        "binding_name": "#hud_title_text_string",
+        "binding_name_override": "#stored_title_text",
+        "binding_condition": "visibility_changed"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(#stored_title_text - $update_key)",
+        "target_property_name": "#stored_value"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(not (#hud_title_text_string = #stored_title_text) and not ((#hud_title_text_string - $update_key) = #hud_title_text_string))",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "conditional_screen_overlay": {
+    "type": "image",
+    "keep_ratio": false,
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "$storage_field",
+        "source_property_name": "#stored_value",
+        "target_property_name": "#text"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(#text = $visible_value)",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+
+  "hud_title_text/title_frame/title": {
+    "modifications": [
+      {
+        "array_name": "bindings",
+        "operation": "insert_back",
+        "value": {
+          "binding_type": "view",
+          "source_property_name": "((#text - 'overlay: ') = #text)",
+          "target_property_name": "#visible"
+        }
+      }
+    ]
+  },
+
   "chat_label": {
     "modifications": [
       {
@@ -9,12 +92,12 @@
         "value": [
           {
             "binding_type": "view",
-            "source_property_name": "(not (('%.21s' * #text = '§U§N§I§C§O§R§N') or ('%.18s' * #text = '§C§A§N§N§O§N') or ('%.18s' * #text = '§G§E§R§B§I§L')))",
+            "source_property_name": "((#text - '§U§N§I§C§O§R§N' - '§C§A§N§N§O§N' - '§G§E§R§B§I§L') = #text)",
             "target_property_name": "#visible"
           }
         ]
       }
     ]
   }
-  
+
 }

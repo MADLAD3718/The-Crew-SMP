@@ -1,5 +1,5 @@
-import { EntityComponentTypes, EntityDamageCause, system, world } from "@minecraft/server";
 import BarnacleDefinition from "../../behaviours/entities/barnacle.entity.json";
+import { EntityDamageCause, Player, system, world } from "@minecraft/server";
 import { Vec3 } from "@madlad3718/mcveclib";
 
 const EATING_DAMAGE = BarnacleDefinition["minecraft:entity"].component_groups["tcsmp:eating_prey"]["minecraft:attack"].damage;
@@ -8,7 +8,7 @@ world.beforeEvents.entityHurt.subscribe(event => {
     const hurtEntity = event.hurtEntity;
     const damagingEntity = event.damageSource.damagingEntity;
     if (damagingEntity?.matches({type: "tcsmp:barnacle"})) {
-        if (damagingEntity.hasComponent(EntityComponentTypes.Variant)) return;
+        if (damagingEntity.getProperty("tcsmp:barnacle_state") == "consuming") return;
         const block_below = damagingEntity.dimension.getBlockBelow(
             damagingEntity.location, { maxDistance: 3 }
         );
@@ -16,15 +16,14 @@ world.beforeEvents.entityHurt.subscribe(event => {
     }
     else if (hurtEntity.matches({type: "tcsmp:barnacle"})) {
         if (hurtEntity.isInvunerable) return event.cancel = true;
-        // IsSheared marks a dragging Barnacle
-        if (hurtEntity.hasComponent(EntityComponentTypes.IsSheared))
+        if (hurtEntity.getProperty("tcsmp:barnacle_state") == "dragging")
             event.damage *= 0.25;
     }
 }, {allowedDamageCauses: [EntityDamageCause.entityAttack]});
 
 world.afterEvents.entityHitEntity.subscribe(event => {
     const { damagingEntity: barnacle, hitEntity } = event;
-    if (barnacle.hasComponent(EntityComponentTypes.Variant)) return;
+    if (barnacle.getProperty("tcsmp:barnacle_state") == "consuming") return;
     // Prevents incorrect dragging behaviour from sea floor
     const block_below = barnacle.dimension.getBlockBelow(
         barnacle.location, { maxDistance: 3 }
@@ -34,6 +33,10 @@ world.afterEvents.entityHitEntity.subscribe(event => {
         return barnacle.triggerEvent("tcsmp:start_consuming");
 
     const draggedEntity = hitEntity.entityRidingOn ?? hitEntity;
+
+    if (draggedEntity instanceof Player)
+        draggedEntity.onScreenDisplay.setTitle("overlay: tongue");
+
     draggedEntity.addTag("tcsmp:is_being_dragged");
     const interval = system.runInterval(() => {
         // Check if target is still valid (accounts for player leave)
@@ -57,7 +60,12 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(({entity}) => {
     const dragInterval = entity.getDynamicProperty("dragInterval") as number | undefined;
     const draggedEntityId = entity.getDynamicProperty("draggedEntityId") as string | undefined;
     if (dragInterval) system.clearRun(dragInterval);
-    if (draggedEntityId) world.getEntity(draggedEntityId)?.removeTag("tcsmp:is_being_dragged");
+    if (!draggedEntityId) return;
+    const draggedEntity = world.getEntity(draggedEntityId);
+    draggedEntity?.removeTag("tcsmp:is_being_dragged");
+
+    if (draggedEntity instanceof Player)
+        draggedEntity.onScreenDisplay.setTitle("overlay: none");
 }, {
     entityTypes: ["tcsmp:barnacle"],
     eventTypes: ["tcsmp:on_target_dragged"]

@@ -7,17 +7,64 @@
             "is_spawnable": true,
             "spawn_category": "monster",
             // Prevents Barnacle from entering boats
-            "runtime_identifier": "minecraft:warden"
+            "runtime_identifier": "minecraft:warden",
+            "properties": {
+                "tcsmp:barnacle_state": {
+                    "type": "enum",
+                    "values": ["idling", "hunting", "dragging", "consuming"],
+                    "default": "hunting",
+                    "client_sync": true
+                }
+            }
         },
         "component_groups": {
+            "tcsmp:idling": {
+                "minecraft:timer": {
+                    "looping": false,
+                    "randomInterval": false,
+                    "time": 30.0,
+                    "time_down_event": {
+                        "event": "tcsmp:start_hunting"
+                    }
+                },
+                "minecraft:damage_sensor": {
+                    "triggers": {
+                        "cause": "all",
+                        "on_damage": {
+                            "event": "tcsmp:start_hunting"
+                        }
+                    }
+                }
+            },
             "tcsmp:hunting": {
                 "minecraft:attack": {
                     "damage": 1
                 }
             },
+            "tcsmp:chasing": {
+                "minecraft:attack": {
+                    "damage": 1
+                },
+                "minecraft:environment_sensor": {
+                    "triggers": {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_target",
+                                    "value": false
+                                },
+                                {
+                                    "test": "target_distance",
+                                    "operator": ">",
+                                    "value": 32.0
+                                }
+                            ]
+                        },
+                        "event": "tcsmp:on_target_lost"
+                    }
+                }
+            },
             "tcsmp:dragging_target": {
-                // Used to tag dragging Banacles
-                "minecraft:is_sheared": {},
                 // Prevents trajectory from being changed mid-drag
                 "minecraft:knockback_resistance": {
                     "value": 1.0
@@ -28,7 +75,7 @@
                     // to trigger on_ground test filter. If there is 
                     // no sea floor to trigger this then the player
                     // dies with the Barnacle in the void.
-                    "liquid_y_offset": 320.0,
+                    "liquid_y_offset": 384.0,
                     "rise_delta": 0.1,
                     "sink_delta": 0.1
                 },
@@ -59,22 +106,40 @@
                     "value": 0
                 },
                 "minecraft:environment_sensor": {
-                    "triggers": {
-                        "filters": {
-                            "any_of": [
-                                {
-                                    "test": "has_target",
-                                    "value": false
-                                },
-                                {
-                                    "test": "target_distance",
-                                    "operator": ">",
-                                    "value": 4.0
-                                }
-                            ]
+                    "triggers": [
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_target",
+                                        "value": true
+                                    },
+                                    {
+                                        "test": "target_distance",
+                                        "operator": ">",
+                                        "value": 6.0
+                                    }
+                                ]
+                            },
+                            "event": "tcsmp:on_target_escape"
                         },
-                        "event": "tcsmp:on_target_lost"
-                    }
+                        {
+                            "filters": {
+                                "any_of": [
+                                    {
+                                        "test": "has_target",
+                                        "value": false
+                                    },
+                                    {
+                                        "test": "target_distance",
+                                        "operator": ">",
+                                        "value": 16.0
+                                    }
+                                ]
+                            },
+                            "event": "tcsmp:on_target_lost"
+                        }
+                    ]
                 }
             }
         },
@@ -92,7 +157,9 @@
                 "breathes_air": false,
                 "breathes_lava": false,
                 "breathes_water": true,
-                "generates_bubbles": false
+                "generates_bubbles": false,
+                "suffocate_time": 0,
+                "total_supply": 15
             },
             "minecraft:collision_box": {
                 "width": 0.9,
@@ -185,9 +252,9 @@
                     "filters": {
                         "all_of": [
                             {
-                                "test": "has_component",
-                                "operator": "not",
-                                "value": "minecraft:environment_sensor"
+                                "test": "enum_property",
+                                "domain": "tcsmp:barnacle_state",
+                                "value": "hunting"
                             },
                             {
                                 "test": "on_ground",
@@ -210,6 +277,12 @@
                     {
                         "filters": {
                             "all_of": [
+                                {
+                                    "test": "enum_property",
+                                    "domain": "tcsmp:barnacle_state",
+                                    "operator": "not",
+                                    "value": "idling"
+                                },
                                 {
                                     "any_of": [
                                         {
@@ -238,6 +311,12 @@
                     {
                         "filters": {
                             "all_of": [
+                                {
+                                    "test": "enum_property",
+                                    "domain": "tcsmp:barnacle_state",
+                                    "operator": "not",
+                                    "value": "idling"
+                                },
                                 {
                                     "test": "is_family",
                                     "subject": "other",
@@ -318,17 +397,24 @@
             "tcsmp:on_grab_target": {
                 "add": {
                     "component_groups": ["tcsmp:dragging_target"]
+                },
+                "set_property": {
+                    "tcsmp:barnacle_state": "dragging"
                 }
             },
             "tcsmp:start_consuming": {
                 "remove": {
                     "component_groups": [
+                        "tcsmp:idling",
                         "tcsmp:dragging_target",
                         "tcsmp:hunting"
                     ]
                 },
                 "add": {
                     "component_groups": ["tcsmp:eating_prey"]
+                },
+                "set_property": {
+                    "tcsmp:barnacle_state": "consuming"
                 }
             },
             "tcsmp:on_target_dragged": {
@@ -337,16 +423,58 @@
             "tcsmp:start_hunting": {
                 "remove": {
                     "component_groups": [
+                        "tcsmp:idling",
                         "tcsmp:dragging_target",
                         "tcsmp:eating_prey"
                     ]
                 },
                 "add": {
-                    "component_groups": ["tcsmp:hunting"]
+                    "component_groups": [
+                        "tcsmp:hunting"
+                    ]
+                },
+                "set_property": {
+                    "tcsmp:barnacle_state": "hunting"
                 }
             },
+            "tcsmp:on_target_escape": {
+                "trigger": "tcsmp:start_chasing"
+            },
             "tcsmp:on_target_lost": {
-                "trigger": "tcsmp:start_hunting"
+                "trigger": "tcsmp:start_idling",
+                "reset_target": {}
+            },
+            "tcsmp:start_idling": {
+                "remove": {
+                    "component_groups": [
+                        "tcsmp:dragging_target",
+                        "tcsmp:eating_prey",
+                        "tcsmp:hunting"
+                    ]
+                },
+                "add": {
+                    "component_groups": ["tcsmp:idling"]
+                },
+                "set_property": {
+                    "tcsmp:barnacle_state": "idling"
+                }
+            },
+            "tcsmp:start_chasing": {
+                "remove": {
+                    "component_groups": [
+                        "tcsmp:idling",
+                        "tcsmp:dragging_target",
+                        "tcsmp:eating_prey"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "tcsmp:chasing"
+                    ]
+                },
+                "set_property": {
+                    "tcsmp:barnacle_state": "hunting"
+                }
             }
         }
     }

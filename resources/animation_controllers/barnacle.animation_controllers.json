@@ -5,16 +5,16 @@
 			"states": {
 				"default": {
 					"transitions": [
-						{"hunting": "q.has_target"}
+						{"hunting": "q.property('tcsmp:barnacle_state') == 'hunting' && q.has_target"}
 					],
 					"blend_transition": 0.75
 				},
 				"hunting": {
 					"animations": ["hunting"],
 					"transitions": [
-						{"default": "!q.has_target"},
+						{"default": "q.property('tcsmp:barnacle_state') == 'idling' || !q.has_target"},
 						{"bite": "v.attack_time > 0"},
-						{"dragging": "q.is_sheared"}
+						{"dragging": "q.property('tcsmp:barnacle_state') == 'dragging'"}
 					],
 					"blend_transition": 0.05
 				},
@@ -22,15 +22,15 @@
 					"animations": ["bite"],
 					"transitions": [
 						{"hunting": "v.attack_time <= 0"},
-						{"dragging": "q.is_sheared"}
+						{"dragging": "q.property('tcsmp:barnacle_state') == 'dragging'"}
 					],
 					"blend_transition": 0.15
 				},
 				"dragging": {
 					"animations": ["dragging"],
 					"transitions": [
-						{"default": "!q.has_target"},
-						{"hunting": "!q.is_sheared"}
+						{"default": "q.property('tcsmp:barnacle_state') == 'idling'"},
+						{"hunting": "q.property('tcsmp:barnacle_state') != 'dragging'"}
 					],
 					"blend_transition": 0.25
 				}

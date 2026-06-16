@@ -24,6 +24,18 @@
 				},
 				"lower_right": {
 					"rotation": [0, "0.5 * (1 + math.sin(90 * q.anim_time))", 0]
+				},
+				"tail0": {
+					"rotation": [0, "-5 * math.sin(180 * q.anim_time)", 0]
+				},
+				"tail1": {
+					"rotation": ["-5 * math.sin(180 * q.anim_time + 45)", 0, 0]
+				},
+				"tail2": {
+					"rotation": [0, "-5 * math.sin(180 * q.anim_time + 90)", 0]
+				},
+				"tail3": {
+					"rotation": ["-5 * math.sin(180 * q.anim_time + 135)", 0, 0]
 				}
 			}
 		},
@@ -117,6 +129,18 @@
 				},
 				"tongue": {
 					"scale": [1, 1, 1.5]
+				},
+				"tail0": {
+					"rotation": [0, -22.5, 0]
+				},
+				"tail1": {
+					"rotation": [22.5, 0, 0]
+				},
+				"tail2": {
+					"rotation": [0, 22.5, 0]
+				},
+				"tail3": {
+					"rotation": [-22.5, 0, 0]
 				}
 			}
 		}
