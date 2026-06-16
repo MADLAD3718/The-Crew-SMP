@@ -6,6 +6,7 @@ import custom_commands from "./custom_commands/export";
 import custom_command_enums from "./custom_commands/enums";
 import { FactionRegistry } from "./systems/factions";
 import { NameRegistry } from "./systems/names";
+import { PersistentCooldowns } from "./systems/persistent_cooldowns";
 import "./entity_events/export";
 import "./block_events/export";
 import "./player_movement/export";
@@ -23,6 +24,8 @@ system.beforeEvents.startup.subscribe(({blockComponentRegistry, itemComponentReg
 
     for (const register of custom_commands)
         customCommandRegistry.registerCommand(register.command, register.callback);
+
+    PersistentCooldowns.register("spell");
 });
 
 world.afterEvents.playerSpawn.subscribe(event => {
