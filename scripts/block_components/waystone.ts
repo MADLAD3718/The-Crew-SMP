@@ -1,9 +1,10 @@
+import { CustomForm, ObservableString, ObservableBoolean } from "@minecraft/server-ui";
 import { Block, BlockCustomComponent, Player } from "@minecraft/server";
-import { ActionFormData, ModalFormData } from "@minecraft/server-ui";
 import { Vec3 } from "@madlad3718/mcveclib";
 
 import { WaystoneRegister, WaystoneRegistry } from "../systems/waystones";
 import { BlockEntityRegistry } from "../systems/block_entities";
+import { NameRegistry } from "../systems/names";
 
 type WaystoneParameters = {
     dimension: string
@@ -50,19 +51,17 @@ const waystoneComponent: BlockCustomComponent = {
 
 export default waystoneComponent;
 
-function setupWaystone(base: Block, top: Block, player: Player) {
-    new ModalFormData()
-        .title({translate: "action.setup.waystone.title"})
-        .textField(
-            {translate: "action.setup.waystone.name"},
-            {translate: "action.setup.waystone.placeholder", with: [player.name]}
-        )
-        .toggle({translate: "action.setup.waystone.private"})
-        .show(player).then(response => {
-            if (response.canceled) return;
+function setupWaystone(base: Block, top: Block, player: Player): void {
+    const name_input = new ObservableString("", {clientWritable: true});
+    const is_private = new ObservableBoolean(false, {clientWritable: true});
+    const form = new CustomForm(player, {translate: "form.setup.waystone.title"})
+        .textField({translate: "form.setup.waystone.name"}, name_input)
+        .toggle({translate: "form.setup.waystone.private"}, is_private)
+        .divider().button({translate: "form.setup.waystone.submit"}, () => {
+            form.close();
 
-            const name = response.formValues?.[0] as string || `${player.name}'s Waystone`;
-            const owner = response.formValues?.[1] ? player.id : "";
+            const name = name_input.getData();
+            const owner = is_private.getData() ? player.id : "";
 
             const waystone: WaystoneRegister = {
                 name,
@@ -72,67 +71,50 @@ function setupWaystone(base: Block, top: Block, player: Player) {
             };
 
             if (!WaystoneRegistry.valid(waystone))
-                return player.sendMessage({translate: "info.waystone.invalid", with: [name]});
+                return player.onScreenDisplay.setActionBar({translate: "info.waystone.invalid", with: [waystone.name]});
 
             if (WaystoneRegistry.has(player, waystone))
-                return player.sendMessage({translate: "info.waystone.preexists", with: [name]});
+                return player.onScreenDisplay.setActionBar({
+                    translate: waystone.owner ? "info.waystone.preexists.private" : "info.waystone.preexists.global",
+                    with: [waystone.name]
+                });
 
             WaystoneRegistry.add(waystone);
 
             base.setPermutation(base.permutation.withState("tcsmp:active", true));
             top.setPermutation(top.permutation.withState("tcsmp:active", true));
         });
+    form.show();
 }
 
-function useWaystone(base: Block, player: Player) {
-    const waystones: WaystoneRegister[] = [];
-
-    const form = new ActionFormData().title({translate: "action.interact.waystone.title"});
+function useWaystone(base: Block, player: Player): void {
+    const form = new CustomForm(player, {translate: "form.interact.waystone.title"});
 
     const registry = WaystoneRegistry.get(player);
     for (const waystone of registry) {
         if (Vec3.equal(waystone.location, base.location)) continue;
-        if (waystone.owner != "") continue;
-        form.button(waystone.name, "textures/ui/waystone_global_glyph");
-        waystones.push(waystone);
+        form.button(waystone.name, () => {
+            form.close();
+            teleportToWaystone(player, waystone);
+        }, { tooltip: {
+            translate: waystone.owner ? "form.interact.waystone.private" : "form.interact.waystone.global",
+            with: [NameRegistry.getName(waystone.owner) ?? ""]
+        }});
     }
-    for (const waystone of registry) {
-        if (Vec3.equal(waystone.location, base.location)) continue;
-        if (waystone.owner == "") continue;
-        form.button(waystone.name, "textures/ui/waystone_private_glypth");
-        waystones.push(waystone);
-    }
-
-    form.show(player).then(response => {
-        if (response.canceled) return;
-        
-        const target = waystones[response.selection as number];
-        player.playSound("waystone.teleport");
-        player.camera.fade({
-            fadeColor: {red: 0.914, green: 0.882, blue: 0.851},
-            fadeTime: {
-                fadeInTime: 0.0,
-                holdTime: 1.0,
-                fadeOutTime: 0.8
-            }
-        });
-        player.teleport(target.location);
-    });
+    form.show();
 }
 
-function editWaystone(waystone: WaystoneRegister, player: Player) {
-    new ModalFormData()
-        .title({translate: "action.edit.waystone.title"})
-        .textField(
-            {translate: "action.setup.waystone.name"},
-            waystone.name
-        )
-        .toggle({translate: "action.setup.waystone.private"}, { defaultValue: waystone.owner != "" })
-        .show(player).then(response => {
-            if (response.canceled) return;
+function editWaystone(waystone: WaystoneRegister, player: Player): void {
+    const name_input = new ObservableString(waystone.name, {clientWritable: true});
+    const is_private = new ObservableBoolean(!!waystone.owner, {clientWritable: true});
+    const form = new CustomForm(player, {translate: "form.edit.waystone.title"})
+        .textField({translate: "form.setup.waystone.name"}, name_input)
+        .toggle({translate: "form.setup.waystone.private"}, is_private)
+        .divider().button({translate: "form.setup.waystone.submit"}, () => {
+            form.close();
 
-            const name = response.formValues?.[0] as string || waystone.name;
-            const owner = response.formValues?.[1] ? player.id : "";
+            const name = name_input.getData();
+            const owner = is_private.getData() ? player.id : "";
 
             const new_waystone: WaystoneRegister = {
                 name,
@@ -141,13 +123,30 @@ function editWaystone(waystone: WaystoneRegister, player: Player) {
                 location: waystone.location
             };
 
-            if (!WaystoneRegistry.valid(waystone))
-                return player.sendMessage({translate: "info.waystone.invalid", with: [name]});
+            if (!WaystoneRegistry.valid(new_waystone))
+                return player.onScreenDisplay.setActionBar({translate: "info.waystone.invalid", with: [waystone.name]});
 
-            if (name != waystone.name && WaystoneRegistry.has(player, waystone))
-                return player.sendMessage({translate: "info.waystone.preexists", with: [name]});
+            if (WaystoneRegistry.has(player, new_waystone))
+                return player.onScreenDisplay.setActionBar({
+                    translate: waystone.owner ? "info.waystone.preexists.private" : "info.waystone.preexists.global",
+                    with: [waystone.name]
+                });
 
             WaystoneRegistry.remove(waystone);
             WaystoneRegistry.add(new_waystone);
         });
+    form.show();
+}
+
+function teleportToWaystone(player: Player, waystone: WaystoneRegister): void {
+    player.playSound("waystone.teleport");
+    player.camera.fade({
+        fadeColor: {red: 0.914, green: 0.882, blue: 0.851},
+        fadeTime: {
+            fadeInTime: 0.0,
+            holdTime: 1.0,
+            fadeOutTime: 0.8
+        }
+    });
+    player.teleport(waystone.location);
 }

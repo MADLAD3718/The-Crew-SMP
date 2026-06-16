@@ -97,12 +97,6 @@ action.interact.creeper.lightning=Bottle lightning
 ## Custom containers are tagged for UI triggers
 container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NInscription
 
-## Waystone Dialogue
-action.setup.waystone.title=Waystone Setup
-action.setup.waystone.private=Private Waystone
-action.setup.waystone.name=Waystone Name:
-action.setup.waystone.placeholder=%s's Waystone
-
 ## Faction Invites
 action.setup.faction_invite.title=Setup Faction Invite
 action.setup.faction_invite.no_factions=You are not part of any faction!
@@ -166,12 +160,20 @@ action.message.faction.message_text=§%s[%s]§r <%s> %s
 info.faction.no_longer_member=You are no longer in %s
 
 ## Waystone Dialogue
-action.edit.waystone.title=Edit Waystone
+form.setup.waystone.title=Waystone Setup
+form.setup.waystone.private=Private Waystone
+form.setup.waystone.name=Waystone Name:
+form.setup.waystone.submit=Submit
 
-action.interact.waystone.title=Waystone Network
+form.edit.waystone.title=Edit Waystone
+
+form.interact.waystone.title=Waystone Network
+form.interact.waystone.private=Owner: %s
+form.interact.waystone.global=Global
 
 info.waystone.invalid="%s" is not a valid waystone name
-info.waystone.preexists=Waystone "%s" already exists
+info.waystone.preexists.global=Waystone "%s" already exists
+info.waystone.preexists.private=Private Waystone "%s" already exists
 
 ## Return Scroll Dialogue
 info.return_scroll.no_waystones=You have no available waystones to return to

@@ -66,9 +66,9 @@ export namespace WaystoneRegistry {
                     !faction?.players.includes(owner))
             ) continue;
 
-            if (waystone.name == name ||
-                Vec3.equal(waystone.location, world.getDynamicProperty(id) as Vector3)
-            ) return true;
+            if (waystone.owner == owner && waystone.name == name && 
+                Vec3.equal(waystone.location, world.getDynamicProperty(id) as Vector3))
+                return true;
         }
 
         return false;
@@ -90,7 +90,7 @@ export namespace WaystoneRegistry {
     export function valid(waystone: WaystoneRegister): boolean {
         const heightRange = world.getDimension(waystone.dimension).heightRange;
 
-        const validName = !waystone.name.includes('/');
+        const validName = waystone.name.length > 0 && !waystone.name.includes('/');
         const validPosition = within(waystone.location.y, heightRange);
 
         return validName && validPosition;
