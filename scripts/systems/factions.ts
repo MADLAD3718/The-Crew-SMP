@@ -1,5 +1,8 @@
+import { DynamicPropertyDatabase } from "./dynamic_property_database";
 import { Player, world } from "@minecraft/server";
-import { FactionWaypoint } from "./waypoints";
+import { WaypointManager } from "./waypoints";
+
+const FactionDatabase = new DynamicPropertyDatabase(world, "faction", "owner", "name", "colour");
 
 export enum FactionColour {
     quartz = 'h',
@@ -24,50 +27,33 @@ export type FactionRegister = {
 
 export namespace FactionRegistry {
     export function getAllFactions(): FactionRegister[] {
-        const factions: FactionRegister[] = [];
-        for (const id of world.getDynamicPropertyIds()) {
-            const [type, name, colour, owner] = id.split('/');
-            if (type != "faction") continue;
-
-            const players = (world.getDynamicProperty(id) as string).split('/');
-
-            factions.push({ name, colour: colour as FactionColour, owner, players });
-        }
-
-        return factions;
+        return FactionDatabase.findAll().map(match => {
+            return {
+                name: match.field.name,
+                colour: match.field.colour as FactionColour,
+                owner: match.field.owner,
+                players: (match.value as string).split('/')
+            };
+        });
     }
 
     export function getFaction(name: string): FactionRegister | undefined;
     export function getFaction(player: Player): FactionRegister | undefined;
     export function getFaction(arg: Player | string): FactionRegister | undefined {
-        for (const id of world.getDynamicPropertyIds()) {
-            const [type, name, colour, owner] = id.split('/');
-            if (type != "faction") continue;
-
-            const players = (world.getDynamicProperty(id) as string).split('/');
-
+        return FactionDatabase.findAll().filter(match => {
+            const players = (match.value as string).split('/');
             if (arg instanceof Player) {
-                if (owner == arg.id || players.includes(arg.id))
-                    return { name, colour: colour as FactionColour, owner, players };
+                return match.field.owner == arg.id || players.includes(arg.id)
             }
-            else if (name == arg) return { name, colour: colour as FactionColour, owner, players };
-        }
-
-        return undefined;
-    }
-
-    export function getFactionFromId(playerId: string): FactionRegister | undefined {
-        for (const id of world.getDynamicPropertyIds()) {
-            const [type, name, colour, owner] = id.split('/');
-            if (type != "faction") continue;
-
-            const players = (world.getDynamicProperty(id) as string).split('/');
-
-            if (owner == playerId || players.includes(playerId))
-                return { name, colour: colour as FactionColour, owner, players };
-        }
-
-        return undefined;
+            else return (match.field.name == arg);
+        }).map(match => {
+            return {
+                name: match.field.name,
+                colour: match.field.colour as FactionColour,
+                owner: match.field.owner,
+                players: (match.value as string).split('/')
+            };
+        })[0];
     }
 
     export function nameIsValid(name: string): boolean {
@@ -81,49 +67,40 @@ export namespace FactionRegistry {
 
     export function addFaction(faction: FactionRegister): boolean {
         if (!nameIsValid(faction.name)) return false;
-        world.setDynamicProperty(
-            `faction/${faction.name}/${faction.colour}/${faction.owner}`,
-            faction.players.join('/')
-        );
+        FactionDatabase.write(faction, faction.players.join('/'));
         for (const id of faction.players) {
             const player = world.getEntity(id) as Player | undefined;
             if (player) player.nameTag = player.name + `\n§${faction.colour}${faction.name}§r`;
         }
-        updateWaypoints();
+        WaypointManager.refreshFactionWaypoints();
         return true;
     }
 
     export function removeFaction(faction: FactionRegister): void {
-        world.setDynamicProperty(`faction/${faction.name}/${faction.colour}/${faction.owner}`);
+        FactionDatabase.write(faction);
         for (const id of faction.players) {
             const player = world.getEntity(id) as Player | undefined;
             if (player) player.nameTag = player.name;
         }
-        updateWaypoints();
+        WaypointManager.refreshFactionWaypoints();
     }
 
     export function addPlayer(faction: FactionRegister, playerId: string): void {
         faction.players.push(playerId);
-        world.setDynamicProperty(
-            `faction/${faction.name}/${faction.colour}/${faction.owner}`,
-            faction.players.join('/')
-        );
+        FactionDatabase.write(faction, faction.players.join('/'));
         const player = world.getEntity(playerId) as Player | undefined;
         if (player) player.nameTag = player.name + `\n§${faction.colour}${faction.name}§r`;
-        updateWaypoints();
+        WaypointManager.refreshFactionWaypoints();
     }
 
     export function removePlayer(faction: FactionRegister, playerId: string): void {
         faction.players = faction.players.filter(id => {
             return id != playerId;
         });
-        world.setDynamicProperty(
-            `faction/${faction.name}/${faction.colour}/${faction.owner}`,
-            faction.players.join('/')
-        );
+        FactionDatabase.write(faction, faction.players.join('/'));
         const player = world.getEntity(playerId) as Player | undefined;
         if (player) player.nameTag = player.name;
-        updateWaypoints();
+        WaypointManager.refreshFactionWaypoints();
     }
 
     export function sendMessage(faction: FactionRegister, message: string): void {
@@ -135,29 +112,5 @@ export namespace FactionRegistry {
 
     export function invitePlayer(faction: FactionRegister, player: Player): void {
         player.setDynamicProperty("tcsmp:faction_invite", faction.name);
-    }
-
-    export function updateWaypoints(): void {
-        const players = world.getAllPlayers();
-
-        for (const player of players)
-            player.locatorBar.removeAllWaypoints();
-
-        for (const player of players) {
-            const faction = getFaction(player);
-            if (!faction) continue;
-
-            const waypoint = new FactionWaypoint(player);
-
-            for (const memberId of faction.players) {
-                if (memberId == player.id) continue;
-
-                const member = world.getEntity(memberId) as Player;
-                if (!member) continue;
-
-                if (!member.locatorBar.hasWaypoint(waypoint))
-                    member.locatorBar.addWaypoint(waypoint);
-            }
-        }
     }
 }

@@ -1,7 +1,10 @@
+import { DynamicPropertyDatabase } from "./dynamic_property_database";
 import { Block, Player, Vector3, world } from "@minecraft/server";
-import { Vec3 } from "@madlad3718/mcveclib";
 import { FactionRegistry } from "./factions";
+import { Vec3 } from "@madlad3718/mcveclib";
 import { within } from "../util";
+
+const WaystoneDatabase = new DynamicPropertyDatabase(world, "waystone", "owner", "dimension", "name");
 
 export type WaystoneRegister = {
     name: string,
@@ -12,79 +15,57 @@ export type WaystoneRegister = {
 
 export namespace WaystoneRegistry {
     export function get(context: Player): WaystoneRegister[] {
-        const waystones: WaystoneRegister[] = [];
-        for (const id of world.getDynamicPropertyIds()) {
-            const [type, owner, dimension, name] = id.split('/');
+        const faction = FactionRegistry.getFaction(context);
 
-            const faction = FactionRegistry.getFaction(context);
-
-            if (type != "waystone" ||
-                dimension != context.dimension.id ||
-                (owner != "" && owner != context.id &&
-                    !faction?.players.includes(owner))
-            ) continue;
-
-            waystones.push({
-                name,
-                owner,
-                dimension,
-                location: world.getDynamicProperty(id) as Vector3
-            });
-        }
-
-        return waystones;
+        return WaystoneDatabase.findAll(field => {
+            return field.dimension == context.dimension.id &&
+                   (field.owner == "" || field.owner == context.id ||
+                   !!faction?.players.includes(field.owner));
+        }).map(match => {
+            return {
+                name: match.field.name,
+                owner: match.field.owner,
+                dimension: match.field.dimension,
+                location: match.value as Vector3
+            };
+        });
     }
 
     export function find(base: Block): WaystoneRegister | undefined {
-        for (const id of world.getDynamicPropertyIds()) {
-            const [type, owner, dimension, name] = id.split('/');
-            if (type != "waystone" ||
-                dimension != base.dimension.id
-            ) continue;
-
-            const location = world.getDynamicProperty(id) as Vector3;
-            if (Vec3.equal(base.location, location)) return {
-                name,
-                owner,
-                dimension,
-                location: location
+        return WaystoneDatabase.findAll(field => {
+            return field.dimension == base.dimension.id;
+        }).filter(match => {
+            return Vec3.equal(base.location, match.value as Vector3);
+        }).map(match => {
+            return {
+                name: match.field.name,
+                owner: match.field.owner,
+                dimension: match.field.dimension,
+                location: match.value as Vector3
             };
-        }
-
-        return undefined;
+        })[0];
     }
 
     export function has(context: Player, waystone: WaystoneRegister): boolean {
-        for (const id of world.getDynamicPropertyIds()) {
-            const [type, owner, dimension, name] = id.split('/');
+        const faction = FactionRegistry.getFaction(context);
 
-            const faction = FactionRegistry.getFaction(context);
-
-            if (type != "waystone" ||
-                dimension != context.dimension.id ||
-                (owner != "" && owner != context.id &&
-                    !faction?.players.includes(owner))
-            ) continue;
-
-            if (waystone.owner == owner && waystone.name == name && 
-                Vec3.equal(waystone.location, world.getDynamicProperty(id) as Vector3))
-                return true;
-        }
-
-        return false;
+        return WaystoneDatabase.findAll(field => {
+            return field.dimension == context.dimension.id &&
+                   (field.owner == "" || field.owner == context.id &&
+                   !!faction?.players.includes(field.owner));
+        }).filter(match => {
+            return waystone.owner == match.field.owner &&
+                   waystone.name == match.field.name &&
+                   Vec3.equal(waystone.location, match.value as Vector3);
+        }).length > 0;
     }
 
     export function add(waystone: WaystoneRegister) {
-        world.setDynamicProperty(
-            `waystone/${waystone.owner}/${waystone.dimension}/${waystone.name}`,
-            waystone.location
-        );
+        return WaystoneDatabase.write(waystone, waystone.location);
     }
 
     export function remove(waystone: WaystoneRegister) {
-        world.setDynamicProperty(
-            `waystone/${waystone.owner}/${waystone.dimension}/${waystone.name}`
-        );
+        return WaystoneDatabase.write(waystone);
     }
 
     export function valid(waystone: WaystoneRegister): boolean {

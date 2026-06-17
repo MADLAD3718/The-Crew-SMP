@@ -1,40 +1,34 @@
 import { Block, Entity, Vector3, world } from "@minecraft/server";
+import { DynamicPropertyDatabase } from "./dynamic_property_database";
 import { Vec3 } from "@madlad3718/mcveclib";
+
+const BlockEntityDatabase = new DynamicPropertyDatabase(world, "blockentity", "dimension", "entityId");
 
 export namespace BlockEntityRegistry {
     export function get(block: Block): Entity | undefined {
-        for (const id of world.getDynamicPropertyIds()) {
-            const [type, dimension, entityId] = id.split('/');
-            if (type != "block_entity" ||
-                dimension != block.dimension.id
-            ) continue;
-
-            const location = world.getDynamicProperty(id) as Vector3;
-            if (Vec3.equal(block.location, location))
-                return world.getEntity(entityId);
-        }
-
-        return undefined;
+        const entityId = BlockEntityDatabase.findAll(field => {
+            return field.dimension == block.dimension.id;
+        }).find(match => {
+            return Vec3.equal(block.location, match.value as Vector3);
+        })?.field.entityId;
+        return entityId ? world.getEntity(entityId) : undefined;
     }
 
     export function spawn(block: Block, typeId: string) {
         const { dimension, location } = block;
         const entity = dimension.spawnEntity(typeId, block.bottomCenter());
-        world.setDynamicProperty(`block_entity/${dimension.id}/${entity.id}`, location);
+        BlockEntityDatabase.write({dimension: dimension.id, entityId: entity.id}, location);
     }
 
     export function remove(block: Block) {
-        for (const id of world.getDynamicPropertyIds()) {
-            const [type, dimension, entityId] = id.split('/');
-            if (type != "block_entity" ||
-                dimension != block.dimension.id
-            ) continue;
-
-            const location = world.getDynamicProperty(id) as Vector3;
-            if (Vec3.equal(block.location, location)) {
-                world.getEntity(entityId)?.remove();
-                return world.setDynamicProperty(id);
-            }
+        const match = BlockEntityDatabase.findAll(field => {
+            return field.dimension == block.dimension.id;
+        }).find(match => {
+            return Vec3.equal(block.location, match.value as Vector3);
+        });
+        if (match?.field.entityId) {
+            world.getEntity(match.field.entityId)?.remove();
+            BlockEntityDatabase.write(match.field);
         }
     }
 }

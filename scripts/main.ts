@@ -1,15 +1,16 @@
+import { PersistentCooldowns } from "./systems/persistent_cooldowns";
+import custom_command_enums from "./custom_commands/enums";
 import { Player, system, world } from "@minecraft/server";
-import { Vec3 } from "@madlad3718/mcveclib";
 import block_components from "./block_components/export";
 import item_components from "./item_components/export";
 import custom_commands from "./custom_commands/export";
-import custom_command_enums from "./custom_commands/enums";
+import { WaypointManager } from "./systems/waypoints";
 import { FactionRegistry } from "./systems/factions";
 import { NameRegistry } from "./systems/names";
-import { PersistentCooldowns } from "./systems/persistent_cooldowns";
+import { Vec3 } from "@madlad3718/mcveclib";
+import "./player_movement/export";
 import "./entity_events/export";
 import "./block_events/export";
-import "./player_movement/export";
 import "./extensions/export";
 
 system.beforeEvents.startup.subscribe(({blockComponentRegistry, itemComponentRegistry, customCommandRegistry}) => {
@@ -38,7 +39,7 @@ world.afterEvents.playerSpawn.subscribe(event => {
     const faction = FactionRegistry.getFaction(player);
     if (faction) {
         player.nameTag = player.name + `\n§${faction.colour}${faction.name}§r`;
-        FactionRegistry.updateWaypoints();
+        WaypointManager.refreshFactionWaypoints();
     }
 
     player.removeTag("tcsmp:is_being_dragged");
