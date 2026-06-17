@@ -1,4 +1,5 @@
 import { Player, world } from "@minecraft/server";
+import { FactionWaypoint } from "./waypoints";
 
 export enum FactionColour {
     quartz = 'h',
@@ -55,6 +56,20 @@ export namespace FactionRegistry {
         return undefined;
     }
 
+    export function getFactionFromId(playerId: string): FactionRegister | undefined {
+        for (const id of world.getDynamicPropertyIds()) {
+            const [type, name, colour, owner] = id.split('/');
+            if (type != "faction") continue;
+
+            const players = (world.getDynamicProperty(id) as string).split('/');
+
+            if (owner == playerId || players.includes(playerId))
+                return { name, colour: colour as FactionColour, owner, players };
+        }
+
+        return undefined;
+    }
+
     export function nameIsValid(name: string): boolean {
         if (name.length > 24 || name.length == 0) return false;
         if (name.includes('/') || name.includes('§')) return false;
@@ -74,6 +89,7 @@ export namespace FactionRegistry {
             const player = world.getEntity(id) as Player | undefined;
             if (player) player.nameTag = player.name + `\n§${faction.colour}${faction.name}§r`;
         }
+        updateWaypoints();
         return true;
     }
 
@@ -83,6 +99,7 @@ export namespace FactionRegistry {
             const player = world.getEntity(id) as Player | undefined;
             if (player) player.nameTag = player.name;
         }
+        updateWaypoints();
     }
 
     export function addPlayer(faction: FactionRegister, playerId: string): void {
@@ -93,6 +110,7 @@ export namespace FactionRegistry {
         );
         const player = world.getEntity(playerId) as Player | undefined;
         if (player) player.nameTag = player.name + `\n§${faction.colour}${faction.name}§r`;
+        updateWaypoints();
     }
 
     export function removePlayer(faction: FactionRegister, playerId: string): void {
@@ -105,6 +123,7 @@ export namespace FactionRegistry {
         );
         const player = world.getEntity(playerId) as Player | undefined;
         if (player) player.nameTag = player.name;
+        updateWaypoints();
     }
 
     export function sendMessage(faction: FactionRegister, message: string): void {
@@ -116,5 +135,29 @@ export namespace FactionRegistry {
 
     export function invitePlayer(faction: FactionRegister, player: Player): void {
         player.setDynamicProperty("tcsmp:faction_invite", faction.name);
+    }
+
+    export function updateWaypoints(): void {
+        const players = world.getAllPlayers();
+
+        for (const player of players)
+            player.locatorBar.removeAllWaypoints();
+
+        for (const player of players) {
+            const faction = getFaction(player);
+            if (!faction) continue;
+
+            const waypoint = new FactionWaypoint(player);
+
+            for (const memberId of faction.players) {
+                if (memberId == player.id) continue;
+
+                const member = world.getEntity(memberId) as Player;
+                if (!member) continue;
+
+                if (!member.locatorBar.hasWaypoint(waypoint))
+                    member.locatorBar.addWaypoint(waypoint);
+            }
+        }
     }
 }

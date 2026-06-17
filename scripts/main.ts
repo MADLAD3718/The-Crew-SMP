@@ -36,9 +36,10 @@ world.afterEvents.playerSpawn.subscribe(event => {
     NameRegistry.setName(player.id, player.name);
 
     const faction = FactionRegistry.getFaction(player);
-    if (faction)
+    if (faction) {
         player.nameTag = player.name + `\n§${faction.colour}${faction.name}§r`;
-    else player.nameTag = player.name;
+        FactionRegistry.updateWaypoints();
+    }
 
     player.removeTag("tcsmp:is_being_dragged");
 });
