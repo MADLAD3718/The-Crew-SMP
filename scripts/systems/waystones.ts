@@ -4,11 +4,12 @@ import { FactionRegistry } from "./factions";
 import { Vec3 } from "@madlad3718/mcveclib";
 import { within } from "../util";
 
-const WaystoneDatabase = new DynamicPropertyDatabase(world, "waystone", "owner", "dimension", "name");
+const WaystoneDatabase = new DynamicPropertyDatabase(world, "waystone", "owner", "placer", "dimension", "name");
 
 export type WaystoneRegister = {
     name: string,
     owner: string,
+    placer: string,
     dimension: string,
     location: Vector3
 }
@@ -25,6 +26,7 @@ export namespace WaystoneRegistry {
             return {
                 name: match.field.name,
                 owner: match.field.owner,
+                placer: match.field.placer,
                 dimension: match.field.dimension,
                 location: match.value as Vector3
             };
@@ -40,6 +42,7 @@ export namespace WaystoneRegistry {
             return {
                 name: match.field.name,
                 owner: match.field.owner,
+                placer: match.field.placer,
                 dimension: match.field.dimension,
                 location: match.value as Vector3
             };

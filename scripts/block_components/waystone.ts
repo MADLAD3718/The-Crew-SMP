@@ -28,11 +28,15 @@ const waystoneComponent: BlockCustomComponent = {
         const states = permutation.getAllStates();
         const base = states["minecraft:multi_block_part"] === 0 ? block : block.below()!;
         const top = states["minecraft:multi_block_part"] === 0 ? block.above()! : block;
+
         if (!states["tcsmp:active"])
-            setupWaystone(base, top, player!);
-        else if (!player?.isSneaking)
-            useWaystone(base, player!);
-        else editWaystone(WaystoneRegistry.find(base) as WaystoneRegister, player!);
+            return setupWaystone(base, top, player!);
+
+        const waystone = WaystoneRegistry.find(base);
+        if (player?.isSneaking && waystone?.placer == player.id)
+            return editWaystone(waystone, player);
+
+        return useWaystone(base, player!);
     },
 
     // Break is just triggered once for the multi-block part the player broke
@@ -66,6 +70,7 @@ function setupWaystone(base: Block, top: Block, player: Player): void {
             const waystone: WaystoneRegister = {
                 name,
                 owner,
+                placer: player.id,
                 dimension: player.dimension.id,
                 location: base.location
             };
@@ -121,6 +126,7 @@ function editWaystone(waystone: WaystoneRegister, player: Player): void {
             const new_waystone: WaystoneRegister = {
                 name,
                 owner,
+                placer: player.id,
                 dimension: player.dimension.id,
                 location: waystone.location
             };
