@@ -12,6 +12,9 @@
                 "extra_damage": 15
             },
             "tcsmp:durability_fix": {},
+            "tcsmp:auto_lore": {
+                "lore": "lore.knife_backstab"
+            },
             "minecraft:tags": {
                 "tags": [
                     "minecraft:is_sword",

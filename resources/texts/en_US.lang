@@ -35,11 +35,12 @@ item.tcsmp:scroll_of_nausea.name=Scroll of Sulfurous Vapor
 
 ## Lore Entries
 lore.random_damage=\n§r§9+§kg§r§9 Attack Damage§r
-lore.fire_cannonball=§r§cSets Targets On Fire§r
+lore.fire_cannonball=§r§cSets Targets on Fire§r
 lore.lightning_cannonball=§r§cStrikes Lightning§r
 lore.poison_cannonball=§r§cApplies Poison (0:10)§r
 lore.slowness_cannonball=§r§cApplies Slowness (0:10)§r
 lore.wither_cannonball=§r§cApplies Decay (0:10)§r
+lore.knife_backstab=§r§9+15 Backstab Damage§r
 
 ## Record Descriptions
 item.record_balloonpop.desc=George Vide - CRAcK@$
