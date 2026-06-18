@@ -80,7 +80,8 @@
             },
             "minecraft:support": {
                 "shape": "fence"
-            }
+            },
+            "minecraft:light_emission": 7
         },
         "permutations": [
             {

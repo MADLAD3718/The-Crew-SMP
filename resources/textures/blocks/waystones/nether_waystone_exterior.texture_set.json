@@ -1,7 +1,7 @@
 {
-	"format_version": "1.16.100",
+	"format_version": "1.21.30",
 	"minecraft:texture_set": {
 		"color": "nether_waystone_exterior",
-		"metalness_emissive_roughness": "nether_waystone_exterior_mer"
+		"metalness_emissive_roughness_subsurface": "nether_waystone_exterior_mers"
 	}
 }

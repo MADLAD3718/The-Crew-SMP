@@ -79,6 +79,8 @@ function setupWaystone(base: Block, top: Block, player: Player): void {
                     with: [waystone.name]
                 });
 
+            player.dimension.playSound("use.waystone", base.center());
+            
             WaystoneRegistry.add(waystone);
 
             base.setPermutation(base.permutation.withState("tcsmp:active", true));
@@ -131,6 +133,8 @@ function editWaystone(waystone: WaystoneRegister, player: Player): void {
                     translate: waystone.owner ? "info.waystone.preexists.private" : "info.waystone.preexists.global",
                     with: [waystone.name]
                 });
+
+            player.dimension.playSound("use.waystone", Vec3.add(waystone.location, Vec3.from(0.5)));
 
             WaystoneRegistry.remove(waystone);
             WaystoneRegistry.add(new_waystone);
