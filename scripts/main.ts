@@ -88,5 +88,9 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
             itemToDamage.setItem(itemStack?.damage((itemStack.durability?.maxDurability ?? 0) * 6/13));
             console.warn(`Damaged ${itemStack?.typeId}`);
             break;
+        case "tcsmp:biometags":
+            const biome = player.dimension.getBiome(player.location);
+            console.warn(`Biome: ${biome.id}`, `\nTags: ${biome.getTags()}`);
+            break;
     }
 });
