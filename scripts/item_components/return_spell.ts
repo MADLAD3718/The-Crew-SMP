@@ -1,15 +1,20 @@
-import { ItemCustomComponent, world } from "@minecraft/server";
+import { ItemCustomComponent, system, world } from "@minecraft/server";
 import { Vec3 } from "@madlad3718/mcveclib";
 import { WaystoneRegistry } from "../systems/waystones";
 
 world.beforeEvents.itemUse.subscribe(event => {
     const { itemStack, source } = event;
-    if (itemStack.typeId != "tcsmp:scroll_of_return") return;
+    if (!itemStack.hasComponent("tcsmp:return_spell")) return;
+    if (source.getItemCooldown("spell") > 0) return;
 
     const waystones = WaystoneRegistry.get(source);
     if (waystones.length == 0) {
-        source.sendMessage({translate: "info.return_scroll.no_waystones"});
         event.cancel = true;
+        const currentCooldown = source.getItemCooldown("spell");
+        system.run(() => {
+            source.onScreenDisplay.setActionBar({translate: "info.return_scroll.no_waystones"});
+            if (currentCooldown == 0) source.startItemCooldown("spell", 0);
+        });
     }
 });
 

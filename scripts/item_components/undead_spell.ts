@@ -14,7 +14,7 @@ const ValidDimensionIds: Set<string> = new Set([
 
 world.beforeEvents.itemUse.subscribe(event => {
     const { source, itemStack } = event, { dimension } = source;
-    if (!itemStack.getComponent("tcsmp:undead_spell")?.isValid) return;
+    if (!itemStack.hasComponent("tcsmp:undead_spell")) return;
 
     event.cancel = !ValidDimensionIds.has(dimension.id);
 });

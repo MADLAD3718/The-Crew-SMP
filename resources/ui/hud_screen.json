@@ -98,6 +98,10 @@
         ]
       }
     ]
+  },
+
+  "hud_actionbar_text": {
+    "layer": 31
   }
 
 }

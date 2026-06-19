@@ -7,7 +7,7 @@ const BOLT_COUNT = 12;
 
 world.beforeEvents.itemUse.subscribe(event => {
     const { source, itemStack } = event, { dimension } = source;
-    if (!itemStack.getComponent("tcsmp:thunder_spell")?.isValid) return;
+    if (!itemStack.hasComponent("tcsmp:thunder_spell")) return;
     
     event.cancel = dimension.id != MinecraftDimensionTypes.Overworld;
 });
