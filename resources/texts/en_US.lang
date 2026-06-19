@@ -32,6 +32,7 @@ item.tcsmp:roulette_plate.name=Roulette Plate
 item.tcsmp:barnacle_fang.name=Barnacle Fang
 item.tcsmp:tempered_warp_crystal.name=Tempered Warp Crystal
 item.tcsmp:scroll_of_nausea.name=Scroll of Sulfurous Vapor
+item.tcsmp:scroll_of_undead.name=Scroll of the Undead
 
 ## Lore Entries
 lore.random_damage=\n§r§9+§kg§r§9 Attack Damage§r
@@ -39,7 +40,7 @@ lore.fire_cannonball=§r§cSets Targets on Fire§r
 lore.lightning_cannonball=§r§cStrikes Lightning§r
 lore.poison_cannonball=§r§cApplies Poison (0:10)§r
 lore.slowness_cannonball=§r§cApplies Slowness (0:10)§r
-lore.wither_cannonball=§r§cApplies Decay (0:10)§r
+lore.wither_cannonball=§r§cApplies Wither (0:10)§r
 lore.knife_backstab=§r§9+15 Backstab Damage§r
 
 ## Record Descriptions
@@ -82,6 +83,8 @@ entity.tcsmp:seal.name=Seal
 entity.tcsmp:barnacle.name=Barnacle
 entity.tcsmp:lightning_bottle.name=Bottle o' Lightning
 entity.tcsmp:tempered_warp_crystal.name=Tempered Warp Crystal
+entity.tcsmp:faded_zombie.name=Faded Zombie
+entity.tcsmp:faded_skeleton.name=Faded Skeleton
 
 ## Actions
 action.hint.exit.tcsmp:grappling_hook_seat=Crouch or jump to detach
@@ -209,3 +212,9 @@ subtitles.entity.barnacle.ambient=Barnacle swims
 subtitles.entity.barnacle.death=Barnacle dies
 subtitles.entity.barnacle.hurt=Barnacle hurts
 subtitles.entity.barnacle.attack=Barnacle bites
+subtitles.entity.faded_skeleton.ambient=Faded Skeleton rattles
+subtitles.entity.faded_skeleton.death=Faded Skeleton dies
+subtitles.entity.faded_skeleton.hurt=Faded Skeleton hurts
+subtitles.entity.faded_zombie.ambient=Faded Zombie groans
+subtitles.entity.faded_zombie.death=Faded Zombie dies
+subtitles.entity.faded_zombie.hurt=Faded Zombie hurts

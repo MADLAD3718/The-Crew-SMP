@@ -557,6 +557,103 @@
          "min_distance" : null,
          "sounds" : [ "sounds/item/tempered_warp_crystal/whoosh" ],
          "subtitle" : "subtitles.block.portal.travel"
+      },
+      "mob.faded_skeleton.death" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "hostile",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [ "sounds/mob/faded_skeleton/death" ],
+         "subtitle" : "subtitles.entity.faded_skeleton.death"
+      },
+      "mob.faded_skeleton.hurt" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "hostile",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [
+            "sounds/mob/faded_skeleton/hurt1",
+            "sounds/mob/faded_skeleton/hurt2",
+            "sounds/mob/faded_skeleton/hurt3",
+            "sounds/mob/faded_skeleton/hurt4"
+         ],
+         "subtitle" : "subtitles.entity.faded_skeleton.hurt"
+      },
+      "mob.faded_skeleton.say" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "hostile",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [
+            "sounds/mob/faded_skeleton/say1",
+            "sounds/mob/faded_skeleton/say2",
+            {
+               "load_on_low_memory" : true,
+               "name" : "sounds/mob/faded_skeleton/say3"
+            }
+         ],
+         "subtitle" : "subtitles.entity.faded_skeleton.ambient"
+      },
+      "mob.faded_skeleton.step" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "hostile",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [
+            {
+               "load_on_low_memory" : true,
+               "name" : "sounds/mob/faded_skeleton/step1"
+            },
+            "sounds/mob/faded_skeleton/step2",
+            "sounds/mob/faded_skeleton/step3",
+            "sounds/mob/faded_skeleton/step4"
+         ],
+         "subtitle" : "subtitles.block.generic.footsteps"
+      },
+      "mob.faded_zombie.death" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "hostile",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [ "sounds/mob/faded_zombie/death" ],
+         "subtitle" : "subtitles.entity.faded_zombie.death"
+      },
+      "mob.faded_zombie.hurt" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "hostile",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [ "sounds/mob/faded_zombie/hurt1", "sounds/mob/faded_zombie/hurt2" ],
+         "subtitle" : "subtitles.entity.faded_zombie.hurt"
+      },
+      "mob.faded_zombie.say" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "hostile",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [
+            "sounds/mob/faded_zombie/say1",
+            {
+               "load_on_low_memory" : true,
+               "name" : "sounds/mob/faded_zombie/say2"
+            },
+            "sounds/mob/faded_zombie/say3"
+         ],
+         "subtitle" : "subtitles.entity.faded_zombie.ambient"
+      },
+      "mob.faded_zombie.step" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "hostile",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [
+            "sounds/mob/faded_zombie/step1",
+            "sounds/mob/faded_zombie/step2",
+            "sounds/mob/faded_zombie/step3",
+            "sounds/mob/faded_zombie/step4",
+            "sounds/mob/faded_zombie/step5"
+         ],
+         "subtitle" : "subtitles.block.generic.footsteps"
       }
    }
 }

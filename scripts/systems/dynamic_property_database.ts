@@ -1,4 +1,4 @@
-import { Block, Entity, World, world } from "@minecraft/server";
+import { Entity, World } from "@minecraft/server";
 
 /** A database of dynamic properties with identifiers consisting of arbitrary index keys. */
 export class DynamicPropertyDatabase<const T extends string[]> {

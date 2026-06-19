@@ -1,0 +1,261 @@
+{
+  "format_version": "1.26.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "tcsmp:faded_skeleton",
+      "is_summonable": true,
+      "is_spawnable": false,
+      "properties": {
+        "tcsmp:faction_variant": {
+          "type": "int",
+          "range": [0, 11],
+          "default": 0,
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {
+      "tcsmp:melee_attack": {
+        "minecraft:attack": {
+          "damage": 2
+        },
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "event": "tcsmp:ranged_mode",
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "in_water",
+                    "value": false
+                  },
+                  {
+                    "test": "has_ranged_weapon"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "tcsmp:ranged_attack": {
+        "minecraft:behavior.ranged_attack": {
+          "attack_interval_max": 3.0,
+          "attack_interval_min": 3.0,
+          "attack_radius": 15.0,
+          "priority": 0
+        },
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "event": "tcsmp:melee_mode",
+              "filters": {
+                "test": "is_underwater"
+              }
+            },
+            {
+              "event": "tcsmp:melee_mode",
+              "filters": {
+                "test": "has_ranged_weapon",
+                "value": false
+              }
+            }
+          ]
+        },
+        "minecraft:shooter": {
+          "def": "minecraft:arrow",
+          "sound": "bow"
+        }
+      },
+      "tcsmp:about_to_despawn": {
+        "minecraft:is_shaking": {},
+        "minecraft:timer": {
+          "looping": false,
+          "time": 15,
+          "time_down_event": {
+            "event": "tcsmp:instant_despawn"
+          }
+        }
+      },
+      "tcsmp:instant_despawn": {
+        // Handled in scripts
+        // "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:timer": {
+        "looping": false,
+        "time": [90, 105],
+        "time_down_event": {
+          "event": "tcsmp:about_to_despawn"
+        }
+      },
+      "minecraft:behavior.ranged_attack": {
+        "attack_interval_max": 3.0,
+        "attack_interval_min": 3.0,
+        "attack_radius": 15.0,
+        "priority": 0
+      },
+      "minecraft:behavior.owner_hurt_by_target": {
+        "priority": 1
+      },
+      "minecraft:behavior.owner_hurt_target": {
+        "priority": 2
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 3
+      },
+      "minecraft:behavior.equip_item": {
+        "priority": 4
+      },
+      "minecraft:behavior.melee_box_attack": {
+        "speed_multiplier": 1.25,
+        "track_target": true,
+        "priority": 5
+      },
+      "minecraft:behavior.follow_owner": {
+        "priority": 6,
+        "speed_multiplier": 1.0,
+        "start_distance": 6,
+        "stop_distance": 6,
+        "can_teleport": false,
+        "max_distance": 128
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 7
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 8
+      },
+      "minecraft:breathable": {
+        "breathes_water": true,
+        "suffocate_time": 0,
+        "total_supply": 15
+      },
+      "minecraft:can_climb": {},
+      "minecraft:collision_box": {
+        "height": 1.9,
+        "width": 0.6
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "event": "tcsmp:melee_mode",
+            "filters": {
+              "test": "is_underwater"
+            }
+          },
+          {
+            "event": "tcsmp:melee_mode",
+            "filters": {
+              "test": "has_ranged_weapon",
+              "value": false
+            }
+          }
+        ]
+      },
+      "minecraft:equip_item": {
+        "excluded_items": [
+          {
+            "item": "minecraft:banner:15"
+          }
+        ]
+      },
+      "minecraft:equipment": {
+        "table": "loot_tables/entities/faded_skeleton_gear.json",
+        "slot_drop_chance": [
+          {
+            "slot": "slot.weapon.mainhand",
+            "drop_chance": 0.0
+          }
+        ]
+      },
+      "minecraft:health": {
+        "max": 20,
+        "value": 20
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "cause": "lava",
+            "damage_per_tick": 4,
+            "filters": {
+              "test": "in_lava"
+            }
+          }
+        ]
+      },
+      "minecraft:is_hidden_when_invisible": {},
+      "minecraft:jump.static": {},
+      "minecraft:movement": {
+        "value": 0.25
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:nameable": {},
+      "minecraft:navigation.walk": {
+        "is_amphibious": true,
+        "avoid_water": true,
+        "can_jump": true
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable_by_block": {},
+      "minecraft:pushable_by_entity": {},
+      "minecraft:rotation_locked_to_vehicle": {},
+      "minecraft:shooter": {
+        "def": "minecraft:arrow"
+      },
+      "minecraft:type_family": {
+        "family": [
+          "undead",
+          "faded",
+          "mob"
+        ]
+      },
+      "minecraft:tameable": {}
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "tcsmp:ranged_attack"
+          ]
+        }
+      },
+      "tcsmp:melee_mode": {
+        "add": {
+          "component_groups": [
+            "tcsmp:melee_attack"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "tcsmp:ranged_attack"
+          ]
+        }
+      },
+      "tcsmp:ranged_mode": {
+        "add": {
+          "component_groups": [
+            "tcsmp:ranged_attack"
+          ]
+        },
+        "remove": {
+          "component_groups": [
+            "tcsmp:melee_attack"
+          ]
+        }
+      },
+      "tcsmp:about_to_despawn": {
+        "add": {
+          "component_groups": ["tcsmp:about_to_despawn"]
+        }
+      },
+      "tcsmp:instant_despawn": {
+        "add": {
+          "component_groups": ["tcsmp:instant_despawn"]
+        }
+      }
+    }
+  }
+}

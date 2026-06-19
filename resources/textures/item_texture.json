@@ -136,6 +136,9 @@
     },
     "scroll_of_nausea": {
       "textures": "textures/items/spell_scrolls/scroll_of_nausea"
+    },
+    "scroll_of_undead": {
+      "textures": "textures/items/spell_scrolls/scroll_of_undead"
     }
   }
 }

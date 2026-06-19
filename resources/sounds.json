@@ -114,6 +114,37 @@
                 },
                 "pitch" : 1.0,
                 "volume" : 1.0
+            },
+            "tcsmp:faded_skeleton" : {
+                "events" : {
+                    "ambient" : "mob.faded_skeleton.say",
+                    "death" : "mob.faded_skeleton.death",
+                    "hurt" : {
+                        "sound" : "mob.faded_skeleton.hurt",
+                        "volume" : 0.70
+                    },
+                    "step" : {
+                        "pitch" : 1.0,
+                        "sound" : "mob.faded_skeleton.step",
+                        "volume" : 1.0
+                    }
+                },
+                "pitch" : [ 0.80, 1.20 ],
+                "volume" : 1.0
+            },
+            "tcsmp:faded_zombie" : {
+                "events" : {
+                    "ambient" : "mob.faded_zombie.say",
+                    "death" : "mob.faded_zombie.death",
+                    "hurt" : "mob.faded_zombie.hurt",
+                    "step" : {
+                        "pitch" : 1.0,
+                        "sound" : "mob.faded_zombie.step",
+                        "volume" : 0.450
+                    }
+                },
+                "pitch" : [ 0.80, 1.20 ],
+                "volume" : 1.0
             }
         }
     },

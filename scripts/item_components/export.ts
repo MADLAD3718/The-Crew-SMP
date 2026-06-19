@@ -15,6 +15,7 @@ import globalCooldownComponent from "./global_cooldown";
 import autoLoreComponent from "./auto_lore";
 import durabilityFixComponent from "./durability_fix";
 import nauseaSpellComponent from "./nausea_spell";
+import undeadSpellComponent from "./undead_spell";
 import "./tnt_shield";
 
 type ItemComponentRegister = {
@@ -87,6 +88,10 @@ const ItemComponents: ItemComponentRegister[] = [
     {
         name: "tcsmp:nausea_spell",
         component: nauseaSpellComponent
+    },
+    {
+        name: "tcsmp:undead_spell",
+        component: undeadSpellComponent
     }
 ]
 

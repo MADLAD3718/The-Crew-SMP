@@ -1,0 +1,31 @@
+{
+    "format_version": "1.26.30",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "tcsmp:scroll_of_undead_zombie"
+        },
+        "tags": [ "inscription_table" ],
+        "pattern": [
+            "LLL",
+            "LPL",
+            "LSL"
+        ],
+        "key": {
+            "L": {
+                "item": "minecraft:lapis_lazuli"
+            },
+            "P": {
+                "item": "minecraft:paper"
+            },
+            "S": {
+                "item": "minecraft:zombie_head"
+            }
+        },
+        "unlock": [{
+            "item": "tcsmp:inscription_table"
+        }],
+        "result": {
+            "item": "tcsmp:scroll_of_undead"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "format_version": "1.26.30",
+  "render_controllers": {
+    "controller.render.sigil": {
+      "geometry": "Geometry.sigil",
+      "materials": [ { "*": "Material.default" } ],
+      "part_visibility": [
+        { "*": "q.property('tcsmp:faction_variant') > 0"}
+      ],
+      "arrays": {
+        "textures": {
+          "Array.sigil_material": [
+            "Texture.sigil_quartz",
+            "Texture.sigil_iron",
+            "Texture.sigil_netherite",
+            "Texture.sigil_redstone",
+            "Texture.sigil_copper",
+            "Texture.sigil_gold",
+            "Texture.sigil_emerald",
+            "Texture.sigil_diamond",
+            "Texture.sigil_lapis",
+            "Texture.sigil_amethyst",
+            "Texture.sigil_resin"
+          ]
+        }
+      },
+      "textures": [ "Array.sigil_material[q.property('tcsmp:faction_variant') - 1]" ]
+    }
+  }
+}

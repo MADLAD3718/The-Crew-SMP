@@ -92,7 +92,7 @@
         "value": [
           {
             "binding_type": "view",
-            "source_property_name": "(not (('%.21s' * #text = '§U§N§I§C§O§R§N') or ('%.18s' * #text = '§C§A§N§N§O§N') or ('%.18s' * #text = '§G§E§R§B§I§L')))",
+            "source_property_name": "(not (('%.21s' * #text = '§U§N§I§C§O§R§N') or ('%.18s' * #text = '§C§A§N§N§O§N') or ('%.18s' * #text = '§G§E§R§B§I§L') or ('%.7s' * #text = 'Unknown')))",
             "target_property_name": "#visible"
           }
         ]
