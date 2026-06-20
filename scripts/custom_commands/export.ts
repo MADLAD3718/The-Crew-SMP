@@ -1,5 +1,5 @@
 import { CustomCommand, CustomCommandOrigin, CustomCommandResult } from "@minecraft/server";
-import factionSetOwnerCommand from "./factions/set_owner";
+import factionTransferCommand from "./factions/transfer";
 import factionMessageCommand from "./factions/message";
 import factionCreateCommand from "./factions/create";
 import factionRenameCommand from "./factions/rename";
@@ -9,6 +9,12 @@ import factionLeaveCommand from "./factions/leave";
 import factionJoinCommand from "./factions/join";
 import factionKickCommand from "./factions/kick";
 import factionListCommand from "./factions/list";
+import dynamicPropertiesCommand from "./admin/dynamicproperties";
+import dimensionInfoCommand from "./admin/dimensioninfo";
+import damageItemCommand from "./admin/damageitem";
+import biomeInfoCommand from "./admin/biomeinfo";
+import blockInfoCommand from "./admin/blockinfo";
+import itemInfoCommand from "./admin/iteminfo";
 
 type CustomCommandRegister = {
     command: CustomCommand,
@@ -20,12 +26,18 @@ const CustomCommands: CustomCommandRegister[] = [
     factionRenameCommand,
     factionInviteCommand,
     factionLeaveCommand,
-    factionSetOwnerCommand,
+    factionTransferCommand,
     factionDeleteCommand,
     factionMessageCommand,
     factionJoinCommand,
     factionKickCommand,
-    factionListCommand
+    factionListCommand,
+    biomeInfoCommand,
+    damageItemCommand,
+    blockInfoCommand,
+    itemInfoCommand,
+    dimensionInfoCommand,
+    dynamicPropertiesCommand
 ];
 
 export default CustomCommands;

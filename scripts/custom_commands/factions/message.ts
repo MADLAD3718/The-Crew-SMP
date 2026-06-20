@@ -2,7 +2,7 @@ import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomComma
 import { FactionRegistry } from "../../systems/factions";
 
 const factionMessageCommand: CustomCommand = {
-    name: "tcsmp:faction_message",
+    name: "tcsmp:messagefaction",
     description: "Send a message to your faction.",
     permissionLevel: CommandPermissionLevel.Any,
     cheatsRequired: false,

@@ -2,8 +2,8 @@ import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomComma
 import { FactionRegistry } from "../../systems/factions";
 import Config from "../config";
 
-const factionSetOwnerCommand: CustomCommand = {
-    name: "tcsmp:faction_setowner",
+const factionTransferCommand: CustomCommand = {
+    name: "tcsmp:transferfaction",
     description: "Transfer ownership of your faction.",
     permissionLevel: CommandPermissionLevel.Any,
     cheatsRequired: false,
@@ -19,7 +19,7 @@ const factionSetOwnerCommand: CustomCommand = {
 };
 
 type SelectorType = (typeof Config.use_string_selectors) extends true ? string : Player[];
-function factionSetOwnerCallback(origin: CustomCommandOrigin, input: SelectorType): CustomCommandResult {
+function factionTransferCallback(origin: CustomCommandOrigin, input: SelectorType): CustomCommandResult {
     if (!(origin.sourceEntity instanceof Player)) return {
         status: CustomCommandStatus.Failure,
         message: `Non-player entities cannot transfer faction ownership.`
@@ -67,4 +67,4 @@ function factionSetOwnerCallback(origin: CustomCommandOrigin, input: SelectorTyp
     };
 }
 
-export default {command: factionSetOwnerCommand, callback: factionSetOwnerCallback};
+export default {command: factionTransferCommand, callback: factionTransferCallback};

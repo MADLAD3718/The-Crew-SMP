@@ -3,7 +3,7 @@ import { FactionRegistry } from "../../systems/factions";
 import { NameRegistry } from "../../systems/names";
 
 const factionListCommand: CustomCommand = {
-    name: "tcsmp:faction_list",
+    name: "tcsmp:listfaction",
     description: "Lists the players currently in your faction.",
     permissionLevel: CommandPermissionLevel.Any,
     cheatsRequired: false

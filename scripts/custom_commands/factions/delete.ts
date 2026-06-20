@@ -2,7 +2,7 @@ import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomComma
 import { FactionRegistry } from "../../systems/factions";
 
 const factionDeleteCommand: CustomCommand = {
-    name: "tcsmp:faction_delete",
+    name: "tcsmp:deletefaction",
     description: "Deletes your faction.",
     permissionLevel: CommandPermissionLevel.Any,
     cheatsRequired: false

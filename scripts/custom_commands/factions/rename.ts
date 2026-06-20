@@ -2,7 +2,7 @@ import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomComma
 import { FactionColour, FactionRegistry } from "../../systems/factions";
 
 const renameFactionCommand: CustomCommand = {
-    name: "tcsmp:faction_rename",
+    name: "tcsmp:renamefaction",
     description: "Renames your faction.",
     permissionLevel: CommandPermissionLevel.Any,
     cheatsRequired: false,

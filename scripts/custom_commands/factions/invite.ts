@@ -3,7 +3,7 @@ import { FactionRegistry } from "../../systems/factions";
 import Config from "../config";
 
 const factionInviteCommand: CustomCommand = {
-    name: "tcsmp:faction_invite",
+    name: "tcsmp:invitefaction",
     description: "Invites a player to your faction.",
     permissionLevel: CommandPermissionLevel.Any,
     cheatsRequired: false,

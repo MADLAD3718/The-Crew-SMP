@@ -3,7 +3,7 @@ import { FactionRegistry } from "../../systems/factions";
 import Config from "../config";
 
 const factionKickCommand: CustomCommand = {
-    name: "tcsmp:faction_kick",
+    name: "tcsmp:kickfaction",
     description: "Kicks a player from your faction.",
     permissionLevel: CommandPermissionLevel.Any,
     cheatsRequired: false,
