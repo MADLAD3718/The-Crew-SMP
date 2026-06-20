@@ -5,3 +5,4 @@ import "./wolf";
 import "./spawn_death";
 import "./barnacle";
 import "./tempered_warp_crystal";
+import "./faded_death";

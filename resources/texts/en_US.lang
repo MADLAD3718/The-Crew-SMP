@@ -56,6 +56,8 @@ item.spawn_egg.entity.tcsmp:gerbil.name=Gerbil Spawn Egg
 item.spawn_egg.entity.tcsmp:unicorn.name=Unicorn Spawn Egg
 item.spawn_egg.entity.tcsmp:seal.name=Seal Spawn Egg
 item.spawn_egg.entity.tcsmp:barnacle.name=Barnacle Spawn Egg
+item.spawn_egg.entity.tcsmp:faded_skeleton.name=Faded Skeleton Spawn Egg
+item.spawn_egg.entity.tcsmp:faded_zombie.name=Faded Zombie Spawn Egg
 
 ## Blocks
 tile.tcsmp:overworld_waystone.name=Overworld Waystone
@@ -213,6 +215,8 @@ subtitles.entity.barnacle.attack=Barnacle bites
 subtitles.entity.faded_skeleton.ambient=Faded Skeleton rattles
 subtitles.entity.faded_skeleton.death=Faded Skeleton dies
 subtitles.entity.faded_skeleton.hurt=Faded Skeleton hurts
+subtitles.entity.faded_skeleton.wilter=Faded Skeleton wilters
 subtitles.entity.faded_zombie.ambient=Faded Zombie groans
 subtitles.entity.faded_zombie.death=Faded Zombie dies
 subtitles.entity.faded_zombie.hurt=Faded Zombie hurts
+subtitles.entity.faded_zombie.wilter=Faded Zombie wilters

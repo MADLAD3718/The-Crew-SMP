@@ -11,6 +11,7 @@ import factionKickCommand from "./factions/kick";
 import factionListCommand from "./factions/list";
 import dynamicPropertiesCommand from "./admin/dynamicproperties";
 import dimensionInfoCommand from "./admin/dimensioninfo";
+import resetCooldownCommand from "./admin/resetcooldown";
 import damageItemCommand from "./admin/damageitem";
 import biomeInfoCommand from "./admin/biomeinfo";
 import blockInfoCommand from "./admin/blockinfo";
@@ -37,7 +38,8 @@ const CustomCommands: CustomCommandRegister[] = [
     blockInfoCommand,
     itemInfoCommand,
     dimensionInfoCommand,
-    dynamicPropertiesCommand
+    dynamicPropertiesCommand,
+    resetCooldownCommand
 ];
 
 export default CustomCommands;

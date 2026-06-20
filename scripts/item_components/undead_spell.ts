@@ -19,20 +19,6 @@ world.beforeEvents.itemUse.subscribe(event => {
     event.cancel = !ValidDimensionIds.has(dimension.id);
 });
 
-world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity }) => {
-    const { location, dimension } = entity;
-    const molang = new MolangVariableMap();
-    molang.setVector3("aabb", entity.getAABB().extent);
-    dimension.spawnParticle("tcsmp:faded_death_explosion", location, molang);
-    entity.remove();
-}, {
-    eventTypes: ["tcsmp:instant_despawn"],
-    entityTypes: [
-        "tcsmp:faded_skeleton",
-        "tcsmp:faded_zombie"
-    ]
-});
-
 const undeadSpellComponent: ItemCustomComponent = {
     onUse({ source }) {
         const { dimension, location } = source;

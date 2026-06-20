@@ -139,6 +139,12 @@
     },
     "scroll_of_undead": {
       "textures": "textures/items/spell_scrolls/scroll_of_undead"
+    },
+    "spawn_egg_faded_skeleton": {
+      "textures": "textures/items/spawn_eggs/spawn_egg_faded_skeleton"
+    },
+    "spawn_egg_faded_zombie": {
+      "textures": "textures/items/spawn_eggs/spawn_egg_faded_zombie"
     }
   }
 }

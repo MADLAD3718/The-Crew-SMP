@@ -610,6 +610,14 @@
          ],
          "subtitle" : "subtitles.block.generic.footsteps"
       },
+      "mob.faded_skeleton.wilter" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "hostile",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [ "sounds/mob/faded_wilter" ],
+         "subtitle" : "subtitles.entity.faded_skeleton.wilter"
+      },
       "mob.faded_zombie.death" : {
          "__use_legacy_max_distance" : "true",
          "category" : "hostile",
@@ -654,6 +662,14 @@
             "sounds/mob/faded_zombie/step5"
          ],
          "subtitle" : "subtitles.block.generic.footsteps"
+      },
+      "mob.faded_zombie.wilter" : {
+         "__use_legacy_max_distance" : "true",
+         "category" : "hostile",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [ "sounds/mob/faded_wilter" ],
+         "subtitle" : "subtitles.entity.faded_zombie.wilter"
       }
    }
 }
