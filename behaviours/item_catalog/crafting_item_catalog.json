@@ -62,7 +62,7 @@
                             "name": "minecraft:itemGroup.name.sword"
                         },
                         "items": [
-                            "tcsmp:knife",
+                            "tcsmp:prismarine_blade",
                             "tcsmp:katana",
                             "tcsmp:lucks_bane"
                         ]

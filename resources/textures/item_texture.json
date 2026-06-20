@@ -83,8 +83,8 @@
     "lucks_bane": {
       "textures": "textures/items/lucks_bane"
     },
-    "knife": {
-      "textures": "textures/items/knife"
+    "prismarine_blade": {
+      "textures": "textures/items/prismarine_blade"
     },
     "spawn_egg_gerbil": {
       "textures": "textures/items/spawn_eggs/spawn_egg_gerbil"

@@ -24,7 +24,7 @@ item.tcsmp:tnt_shield.name=TNT Shield
 item.tcsmp:faction_invite.name=Faction Invite
 item.tcsmp:big_sandwich.name=Big Sandwich
 item.tcsmp:lucks_bane.name=Luck's Bane
-item.tcsmp:knife.name=Knife
+item.tcsmp:prismarine_blade.name=Prismarine Blade
 item.tcsmp:gerbil.name=Gerbil
 item.tcsmp:tomato.name=Tomato
 item.tcsmp:slime_boots.name=Slime Boots
@@ -41,7 +41,7 @@ lore.lightning_cannonball=§r§cStrikes Lightning§r
 lore.poison_cannonball=§r§cApplies Poison (0:10)§r
 lore.slowness_cannonball=§r§cApplies Slowness (0:10)§r
 lore.wither_cannonball=§r§cApplies Wither (0:10)§r
-lore.knife_backstab=§r§9+15 Backstab Damage§r
+lore.prismarine_blade_backstab=§r§9+7 Backstab Damage§r
 
 ## Record Descriptions
 item.record_balloonpop.desc=George Vide - CRAcK@$
