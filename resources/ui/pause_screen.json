@@ -1,0 +1,20 @@
+{
+  "namespace": "pause",
+
+  "menu_background/button_panel/buy_button": {
+    "ignored": true
+  },
+
+  "menu_background/button_panel/buy": {
+    "ignored": true
+  },
+
+  "menu_background/button_panel/store_button_panel": {
+    "ignored": true
+  },
+
+  "menu_background/button_panel/store_button_panel_padding": {
+    "ignored": true
+  }
+  
+}
