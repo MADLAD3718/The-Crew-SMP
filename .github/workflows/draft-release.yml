@@ -1,4 +1,4 @@
-name: build
+name: Draft Release
 run-name: Build requested from ${{ github.actor }}.
 on: workflow_dispatch
 
