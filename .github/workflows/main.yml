@@ -1,0 +1,13 @@
+name: build
+run-name: Build requested from ${{ github.actor }}.
+on: workflow_dispatch
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - run: npm install -g tsup
+      - run: tsup -v
