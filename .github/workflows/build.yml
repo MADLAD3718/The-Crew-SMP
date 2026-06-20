@@ -10,4 +10,5 @@ jobs:
         with:
           node-version: '24'
       - run: npm i -g tsup
+      - run: npm i -g typescript
       - run: npm run build
