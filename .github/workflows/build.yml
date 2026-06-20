@@ -1,9 +1,14 @@
 name: build
 run-name: Build requested from ${{ github.actor }}.
 on: workflow_dispatch
+
+permissions:
+  contents: write
+
 jobs:
-  compile-typescript-scripts:
+  build-and-release:
     runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -11,3 +16,29 @@ jobs:
           node-version: '24'
       - run: npm ci
       - run: npm run build
+
+      - name: Create MCAddon Package
+        run: zip -r "The Crew SMP.mcaddon" resources behaviours
+
+      - name: Get Addon Version
+        id: version
+        run: |
+          if [ -f resources/manifest.json ]; then
+            MANIFEST="resources/manifest.json"
+          elif [ -f behaviours/manifest.json ]; then
+            MANIFEST="behaviours/manifest.json"
+          else
+            echo "No manifest.json found in resources/ or behaviours/" >&2
+            exit 1
+          fi
+          VERSION=$(jq -r 'if (.header.version | type) == "array" then (.header.version | join(".")) else .header.version end' "$MANIFEST")
+          echo "Found version $VERSION in $MANIFEST"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Create Draft Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          draft: true
+          generate_release_notes: true
+          files: "The Crew SMP.mcaddon"
