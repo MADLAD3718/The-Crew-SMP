@@ -18,7 +18,7 @@ jobs:
       - run: npm run build
 
       - name: Create MCAddon Package
-        run: zip -r "The Crew SMP.mcaddon" resources behaviours
+        run: zip -r "The-Crew-SMP.mcaddon" resources behaviours
 
       - name: Get Addon Version
         id: version
