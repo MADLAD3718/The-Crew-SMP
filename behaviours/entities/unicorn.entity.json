@@ -295,7 +295,9 @@
         "avoid_water": true,
         "avoid_damage_blocks": true
       },
-      "minecraft:movement.basic": {},
+      "minecraft:movement.basic": {
+        "max_turn": 60
+      },
       "minecraft:jump.static": {},
       "minecraft:nameable": {},
       "minecraft:horse.jump_strength": {
