@@ -1,5 +1,5 @@
 {
-    "format_version": "1.26.20",
+    "format_version": "1.26.30",
     "minecraft:spawn_rules": {
         "description": {
             "identifier": "tcsmp:seal",
@@ -8,7 +8,11 @@
         "conditions": [
             {
                 "minecraft:spawns_on_surface": {},
-                "minecraft:spawns_on_block_filter": "minecraft:sand",
+                "minecraft:spawns_on_block_filter": [
+                    "minecraft:sand",
+                    "minecraft:gravel",
+                    "minecraft:stone"
+                ],
                 "minecraft:brightness_filter": {
                     "min": 7,
                     "max": 15,
@@ -16,7 +20,7 @@
                 },
                 "minecraft:height_filter": {
                     "min": 60,
-                    "max": 67
+                    "max": 75
                 },
                 "minecraft:weight": {
                     "default": 8
@@ -26,32 +30,8 @@
                     "max_size": 6
                 },
                 "minecraft:biome_filter": [
-                    {"test": "has_biome_tag", "operator": "==", "value": "beach" },
-                    {"test": "has_biome_tag", "operator": "==", "value": "warm"}
-                ]
-            },
-            {
-                "minecraft:spawns_on_surface": {},
-                "minecraft:spawns_on_block_filter": "minecraft:ice",
-                "minecraft:brightness_filter": {
-                    "min": 7,
-                    "max": 15,
-                    "adjust_for_weather": false
-                },
-                "minecraft:height_filter": {
-                    "min": 60,
-                    "max": 67
-                },
-                "minecraft:weight": {
-                    "default": 8
-                },
-                "minecraft:herd": {
-                    "min_size": 2,
-                    "max_size": 6
-                },
-                "minecraft:biome_filter": [
-                    {"test": "has_biome_tag", "operator": "==", "value": "beach" },
-                    {"test": "has_biome_tag", "operator": "==", "value": "cold" }
+                    {"test": "has_biome_tag", "value": "beach" },
+                    {"test": "has_biome_tag", "operator": "not", "value": "cold"}
                 ]
             }
         ]

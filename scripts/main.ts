@@ -1,13 +1,12 @@
 import { PersistentCooldowns } from "./systems/persistent_cooldowns";
 import custom_command_enums from "./custom_commands/enums";
-import { Player, system, world } from "@minecraft/server";
+import { system, world } from "@minecraft/server";
 import block_components from "./block_components/export";
 import item_components from "./item_components/export";
 import custom_commands from "./custom_commands/export";
 import { WaypointManager } from "./systems/waypoints";
 import { FactionRegistry } from "./systems/factions";
 import { NameRegistry } from "./systems/names";
-import { Vec3 } from "@madlad3718/mcveclib";
 import "./player_movement/export";
 import "./entity_events/export";
 import "./block_events/export";

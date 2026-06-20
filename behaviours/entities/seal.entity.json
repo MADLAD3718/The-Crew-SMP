@@ -1,17 +1,17 @@
 {
-  "format_version": "1.21.70",
+  "format_version": "1.26.30",
   "minecraft:entity": {
     "description": {
       "identifier": "tcsmp:seal",
-      "spawn_category": "water_creature",
+      "spawn_category": "creature",
       "is_spawnable": true,
       "is_summonable": true,
-      "is_experimental": false,
       "properties": {
-        "tcsmp:ridden": {
-          "type": "bool",
-          "client_sync": false,
-          "default": false
+        "tcsmp:seal_state": {
+          "type": "enum",
+          "values": ["strolling", "returning", "hunting", "tired", "sleeping"],
+          "default": "returning",
+          "client_sync": true
         }
       }
     },
@@ -22,11 +22,11 @@
           "duration": 1200,
           "feed_items": [
             "minecraft:cod",
-            "minecraft:salmon"
+            "minecraft:salmon",
+            "minecraft:tropical_fish"
           ],
           "grow_up": {
-            "event": "tcsmp:grow_up",
-            "target": "self"
+            "event": "tcsmp:grow_up"
           }
         },
         "minecraft:behavior.follow_parent": {
@@ -45,268 +45,193 @@
         "minecraft:scale": {
           "value": 1.2
         },
-        "minecraft:behavior.breed": {
-          "priority": 1,
-          "speed_multiplier": 1.0
-        },
-        "minecraft:breedable": {
-          "require_tame": false,
-          "inherit_tamed": false,
-          "breeds_with": [
-            {
-              "mate_type": "tcsmp:seal",
-              "baby_type": "tcsmp:seal",
-              "breed_event": {
-                "event": "minecraft:entity_born",
-                "target": "baby"
-              }
-            }
-          ],
-          "breed_items": [
-            "minecraft:cod",
-            "minecraft:salmon"
-          ]
-        },
         "minecraft:spawn_egg_interaction": {}
       },
-      "tcsmp:unmounted_movement": {
-        "minecraft:underwater_movement": {
-          "value": 0.19
-        },
-        "minecraft:behavior.panic": {
-          "priority": 0,
-          "prefer_water": true,
-          "speed_multiplier": 1.1
-        }
-      },
-      "tcsmp:mounted_movement": {
-        "minecraft:underwater_movement": {
-          "value": 0.075
-        }
-      },
-      "tcsmp:rideable": {
-        "minecraft:rideable": {
-          "family_types": ["player"],
-          "interact_text": "action.interact.ride.seal",
-          "seats": [{
-            "position": [0, -0.15, 0.4]
-          }]
-        },
-        "minecraft:input_ground_controlled": {}
-      },
-      "tcsmp:in_water": {
+      "tcsmp:strolling": {
         "minecraft:timer": {
           "looping": false,
-          "randomInterval": true,
-          "time": [20, 40],
+          "time": [10, 15],
           "time_down_event": {
-            "event": "tcsmp:become_tired"
+            "event": "tcsmp:start_returning"
+          }
+        },
+        "minecraft:breedable": {
+          "breed_items": [
+            "minecraft:cod",
+            "minecraft:salmon",
+            "minecraft:tropical_fish"
+          ],
+          "breeds_with": {
+            "tcsmp:seal": {}
+          }
+        },
+        "minecraft:behavior.breed": {
+          "priority": 0,
+          "speed_multiplier": 1.0
+        },
+        "minecraft:behavior.tempt": {
+          "priority": 1,
+          "speed_multiplier": 1.1,
+          "can_tempt_vertically": true,
+          "items": [
+            "minecraft:cod",
+            "minecraft:salmon",
+            "minecraft:tropical_fish"
+          ]
+        },
+        "minecraft:behavior.beg": {
+          "priority": 2,
+          "control_flags": ["look", "move", "jump"],
+          "items": [
+            "minecraft:cod",
+            "minecraft:salmon",
+            "minecraft:tropical_fish"
+          ]
+        },
+        "minecraft:behavior.random_look_around": {
+          "priority": 3
+        },
+        "minecraft:behavior.random_stroll": {
+          "priority": 4,
+          "speed_multiplier": 1
+        }
+      },
+      "tcsmp:hunting": {
+        "minecraft:timer": {
+          "looping": false,
+          "time": [50, 60],
+          "time_down_event": {
+            "event": "tcsmp:tire_out"
+          }
+        },
+        "minecraft:behavior.melee_box_attack": {
+          "priority": 1,
+          "control_flags": ["look"],
+          "track_target": true,
+          "on_kill": {
+            "event": "tcsmp:on_kill"
           }
         },
         "minecraft:behavior.nearest_attackable_target": {
-          "priority": 4,
+          "priority": 2,
+          "control_flags": ["look", "move", "jump"],
+          "must_reach": true,
           "must_see": true,
           "reselect_targets": true,
-          "within_radius": 20.0,
-          "must_see_forget_duration": 17.0,
           "entity_types": [
             {
               "filters": {
-                "all_of": [
-                  { "test": "in_water", "subject": "other", "value": true },
-                  { "test": "has_component", "subject": "self", "operator": "!=", "value": "minecraft:attack_cooldown" },
-                  { "test": "is_family", "subject": "other", "value": "fish" }
-                ]
-              },
-              "max_dist": 8
+                "test": "is_family",
+                "subject": "other",
+                "value": "fish"
+              }
             }
           ]
         },
-        "minecraft:behavior.melee_box_attack": {
+        "minecraft:behavior.random_swim": {
+          "priority": 3,
+          "speed_multiplier": 1.5,
+          "xz_dist": 16,
+          "y_dist": 4,
+          "interval": 0
+        },
+        "minecraft:behavior.swim_wander": {
+          "priority": 4,
+          "interval": 10,
+          "look_ahead": 2.0,
+          "speed_multiplier": 1.5,
+          "wander_time": 5.0
+        },
+        "minecraft:behavior.swim_idle": {
           "priority": 5,
-          "on_kill": {
-            "event": "tcsmp:stop_hunting"
-          }
-        },
-        "minecraft:environment_sensor": {
-          "triggers": [
-            {
-              "filters": {
-                "test": "in_water",
-                "value": false
-              },
-              "event": "tcsmp:surface"
-            },
-            {
-              "filters": {
-                "all_of": [
-                  {
-                    "test": "rider_count",
-                    "value": 1
-                  },
-                  {
-                    "test": "bool_property",
-                    "domain": "tcsmp:ridden",
-                    "value": false
-                  }
-                ]
-              },
-              "event": "tcsmp:mounted"
-            },
-            {
-              "filters": {
-                "all_of": [
-                  {
-                    "test": "rider_count",
-                    "value": 0
-                  },
-                  {
-                    "test": "bool_property",
-                    "domain": "tcsmp:ridden",
-                    "value": true
-                  }
-                ]
-              },
-              "event": "tcsmp:dismounted"
-            }
-          ]
+          "idle_time": 5,
+          "success_rate": 0.1
         }
       },
       "tcsmp:tired": {
         "minecraft:behavior.move_to_land": {
-          "priority": 4,
-          "search_count": 80,
-          "search_height": 20,
-          "search_range": 30,
-          "goal_radius": 0.1
-        }
-      },
-      "tcsmp:attack_cooldown": {
-        "minecraft:attack_cooldown": {
-          "attack_cooldown_time": 30.0,
-          "attack_cooldown_complete_event": {
-            "event": "tcsmp:go_hunting"
+          "priority": 1,
+          "control_flags": ["look", "move", "jump"],
+          "search_count": 256,
+          "search_height": 32,
+          "search_range": 32
+        },
+        "minecraft:behavior.move_towards_home_restriction": {
+          "priority": 3,
+          "control_flags": ["look", "move", "jump"]
+        },
+        "minecraft:environment_sensor": {
+          "triggers": {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "home_distance",
+                  "operator": "<=",
+                  "value": 5
+                },
+                {
+                  "test": "in_water",
+                  "value": false
+                }
+              ]
+            },
+            "event": "tcsmp:on_return_home"
           }
         }
       },
-      "tcsmp:in_air": {
+      "tcsmp:sleeping": {
         "minecraft:timer": {
           "looping": false,
-          "randomInterval": true,
-          "time": [3, 5],
+          "time": [30, 60],
           "time_down_event": {
-            "event": "tcsmp:go_to_sleep"
+            "event": "tcsmp:wake_up"
           }
         },
-        "minecraft:behavior.look_at_player": {
-          "priority": 6,
-          "angle_of_view_horizontal": 30,
-          "angle_of_view_vertical": 25,
-          "min_look_time": 1,
-          "max_look_time": 5,
-          "probability": 1.0
-        },
-        "minecraft:environment_sensor": {
-          "triggers": [{
-            "filters": {
-              "test": "in_water",
-              "value": true
-            },
-            "event": "tcsmp:submerge"
-          }]
-        }
-      },
-      "tcsmp:strolling": {
-        "minecraft:behavior.random_stroll": {
-          "priority": 5,
-          "interval": 1
-        }
-      },
-      "tcsmp:sleepy": {
-        "minecraft:sittable": {},
-        "minecraft:behavior.random_look_around_and_sit": {
-          "priority": 3,
-          "continue_sitting_on_reload": true,
-          "min_angle_of_view_horizontal": 0,
-          "max_angle_of_view_horizontal": 0,
-          "max_look_count": 1,
-          "min_look_count": 1,
-          "min_look_time": 400,
-          "max_look_time": 700,
-          "probability": 1.0,
-          "random_look_around_cooldown": 60
-        },
-        "minecraft:behavior.move_to_water": {
-          "priority": 4,
-          "search_count": 80,
-          "search_height": 20,
-          "search_range": 30,
-          "goal_radius": 0.1
-        },
         "minecraft:damage_sensor": {
-          "triggers": [{
+          "triggers": {
             "cause": "all",
+            "deals_damage": "yes",
             "on_damage": {
-              "filters": {
-                "test": "is_sitting"
-              },
-              "event": "tcsmp:force_awake"
+              "event": "tcsmp:wake_up"
             }
-          }]
-        },
-        "minecraft:environment_sensor": {
-          "triggers": [
-            {
-              "filters": {
-                "all_of": [
-                  { "test": "is_sitting" },
-                  { "test": "in_water", "value": false },
-                  { "test": "in_water_or_rain" }
-                ]
-              },
-              "event": "tcsmp:force_awake"
-            },
-            {
-              "filters": {
-                "test": "in_water",
-                "value": true
-              },
-              "event": "tcsmp:submerge"
-            }
-          ]
+          }
         },
         "minecraft:entity_sensor": {
           "find_players_only": true,
+          "relative_range": true,
           "subsensors": [{
-            "event": "tcsmp:force_awake",
-            "cooldown": 0.2,
-            "range": [ 3.5, 2.0 ],
-            "minimum_count": 1,
+            "range": [3.5, 2.0],
             "event_filters": {
               "any_of": [
-                { "test": "is_sprinting", "subject": "other" },
-                { "test": "is_riding", "subject": "other" }
+                {
+                  "test": "is_sprinting",
+                  "subject": "other"
+                },
+                {
+                  "test": "is_riding",
+                  "subject": "other"
+                }
               ]
-            }
+            },
+            "event": "tcsmp:wake_up"
           }]
         }
       },
-      "tcsmp:retreating": {
+      "tcsmp:returning": {
         "minecraft:behavior.move_to_water": {
-          "priority": 4,
-          "search_count": 80,
-          "search_height": 20,
-          "search_range": 30,
-          "goal_radius": 0.1
+          "priority": 1,
+          "control_flags": ["jump", "look", "move"],
+          "search_count": 128,
+          "search_height": 16,
+          "search_range": 32
         },
         "minecraft:environment_sensor": {
-          "triggers": [{
+          "triggers": {
             "filters": {
-              "test": "in_water",
-              "value": true
+              "test": "in_water"
             },
-            "event": "tcsmp:submerge"
-          }]
+            "event": "tcsmp:on_enter_water"
+          }
         }
       }
     },
@@ -360,15 +285,9 @@
       },
       "minecraft:nameable": {},
       "minecraft:physics": {},
-      "minecraft:pushable": {
-        "is_pushable": true,
-        "is_pushable_by_piston": true
-      },
-      "minecraft:leashable": {
-        "soft_distance": 4.0,
-        "hard_distance": 6.0,
-        "max_distance": 10.0
-      },
+      "minecraft:pushable_by_block": {},
+      "minecraft:pushable_by_entity": {},
+      "minecraft:leashable": {},
       "minecraft:conditional_bandwidth_optimization": {},
       "minecraft:navigation.generic": {
         "is_amphibious": true,
@@ -379,11 +298,14 @@
         "can_breach": true,
         "can_path_from_air": true
       },
-      "minecraft:movement.amphibious": {
+      "minecraft:movement.generic": {
         "max_turn": 15.0
       },
       "minecraft:movement": {
         "value": 0.3
+      },
+      "minecraft:underwater_movement": {
+        "value": 0.17
       },
       "minecraft:jump.static": {
         "jump_power": 0.48
@@ -397,192 +319,119 @@
         "regeneration_duration": 5
       },
       "minecraft:home": {
-        "home_block_list": [
-          "minecraft:sand",
-          "minecraft:ice"
-        ],
-        "restriction_radius": 24,
-        "restriction_type": "all_movement"
+        "restriction_radius": 5,
+        "restriction_type": "random_movement"
       },
-      "minecraft:behavior.tempt": {
-        "priority": 2,
-        "speed_multiplier": 1.1,
-        "can_tempt_vertically": true,
-        "items": [
-          "minecraft:cod",
-          "minecraft:salmon"
-        ]
+      "minecraft:follow_range": {
+        "value": 32
       },
-      "minecraft:behavior.beg": {
-        "priority": 2,
-        "look_distance": 8,
-        "look_time": [ 2, 4 ],
-        "items": [
-          "minecraft:cod",
-          "minecraft:salmon"
-        ]
-      },
-      "minecraft:behavior.move_towards_home_restriction": {
-        "priority": 3
+      "minecraft:offspring": {
+        "offspring_pairs": {
+          "tcsmp:seal": "tscmp:seal"
+        }
       }
     },
     "events": {
       "minecraft:entity_spawned": {
-        "sequence": [
+        "randomize": [
           {
+            "weight": 9,
             "add": {
               "component_groups": [
-                "tcsmp:in_air",
-                "tcsmp:strolling",
-                "tcsmp:unmounted_movement"
+                "tcsmp:adult",
+                "tcsmp:returning"
               ]
             }
           },
           {
-            "randomize": [
-              {
-                "weight": 9,
-                "add": {
-                  "component_groups": ["tcsmp:adult"]
-                }
-              },
-              {
-                "weight": 1,
-                "add": {
-                  "component_groups": ["tcsmp:baby"]
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "minecraft:entity_born": {
-        "add": {
-          "component_groups": [
-            "tcsmp:in_air",
-            "tcsmp:baby",
-            "tcsmp:strolling",
-            "tcsmp:unmounted_movement"
-          ]
-        }
-      },
-      "tcsmp:submerge": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "is_baby",
-              "value": false
-            },
+            "weight": 1,
             "add": {
-              "component_groups": ["tcsmp:rideable"]
-            }
-          },
-          {
-            "remove": {
-              "component_groups": [
-                "tcsmp:in_air",
-                "tcsmp:sleepy",
-                "tcsmp:retreating",
-                "tcsmp:tired"
-              ]
-            },
-            "add": {
-              "component_groups": [
-                "tcsmp:in_water",
-                "tcsmp:strolling"
-              ]
-            },
-            "set_property": {
-              "tcsmp:ridden": false
+              "component_groups": ["tcsmp:baby"]
             }
           }
-        ]
+        ],
+        "set_home_position": {}
       },
-      "tcsmp:surface": {
+      "tcsmp:grow_up": {
         "remove": {
-          "component_groups": [
-            "tcsmp:in_water",
-            "tcsmp:rideable",
-            "tcsmp:mounted_movement"
-          ]
+          "component_groups": ["tcsmp:baby"]
         },
         "add": {
           "component_groups": [
-            "tcsmp:in_air",
-            "tcsmp:strolling",
-            "tcsmp:unmounted_movement"
+            "tcsmp:adult",
+            "tcsmp:returning"
           ]
+        }
+      },
+      "tcsmp:on_enter_water": {
+        "trigger": "tcsmp:start_hunting"
+      },
+      "tcsmp:start_hunting": {
+        "remove": {
+          "component_groups": [
+            "tcsmp:returning",
+            "tcsmp:sleeping"
+          ]
+        },
+        "add": {
+          "component_groups": ["tcsmp:hunting"]
         },
         "set_property": {
-          "tcsmp:ridden": false
+          "tcsmp:seal_state": "hunting"
         }
       },
-      "tcsmp:stop_hunting": {
-        "add": {
-          "component_groups": ["tcsmp:attack_cooldown"]
-        }
+      "tcsmp:on_kill": {
+        "trigger": "tcsmp:tire_out"
       },
-      "tcsmp:go_hunting": {
+      "tcsmp:tire_out": {
         "remove": {
-          "component_groups": ["tcsmp:attack_cooldown"]
-        }
-      },
-      "tcsmp:go_to_sleep": {
-        "add": {
-          "component_groups": ["tcsmp:sleepy"]
+          "component_groups": ["tcsmp:hunting"]
         },
-        "remove": {
-          "component_groups": ["tcsmp:strolling"]
-        }
-      },
-      "tcsmp:force_awake": {
-        "remove": {
-          "component_groups": ["tcsmp:sleepy"]
-        },
-        "add": {
-          "component_groups": ["tcsmp:retreating"]
-        }
-      },
-      "tcsmp:become_tired": {
         "add": {
           "component_groups": ["tcsmp:tired"]
-        }
-      },
-      "tcsmp:mounted": {
-        "remove": {
-          "component_groups": [
-            "tcsmp:strolling",
-            "tcsmp:unmounted_movement"
-          ]
-        },
-        "add": {
-          "component_groups": ["tcsmp:mounted_movement"]
         },
         "set_property": {
-          "tcsmp:ridden": true
+          "tcsmp:seal_state": "tired"
         }
       },
-      "tcsmp:dismounted": {
-        "sequence": [
-          {
-            "filters": { "test": "in_water" },
-            "trigger": "tcsmp:become_tired"
-          },
-          {
-            "remove": {
-              "component_groups": ["tcsmp:mounted_movement"]
-            },
-            "add": {
-              "component_groups": [
-                "tcsmp:strolling",
-                "tcsmp:unmounted_movement"
-              ]
-            },
-            "set_property": {
-              "tcsmp:ridden": false
-            }
-          }
-        ]
+      "tcsmp:on_return_home": {
+        "trigger": "tcsmp:go_to_sleep"
+      },
+      "tcsmp:go_to_sleep": {
+        "remove": {
+          "component_groups": ["tcsmp:tired"]
+        },
+        "add": {
+          "component_groups": ["tcsmp:sleeping"]
+        },
+        "set_property": {
+          "tcsmp:seal_state": "sleeping"
+        }
+      },
+      "tcsmp:wake_up": {
+        "trigger": "tcsmp:start_strolling"
+      },
+      "tcsmp:start_strolling": {
+        "remove": {
+          "component_groups": ["tcsmp:sleeping"]
+        },
+        "add": {
+          "component_groups": ["tcsmp:strolling"]
+        },
+        "set_property": {
+          "tcsmp:seal_state": "strolling"
+        }
+      },
+      "tcsmp:start_returning": {
+        "remove": {
+          "component_groups": ["tcsmp:strolling"]
+        },
+        "add": {
+          "component_groups": ["tcsmp:returning"]
+        },
+        "set_property": {
+          "tcsmp:seal_state": "returning"
+        }
       }
     }
   }
