@@ -145,6 +145,18 @@
                 },
                 "pitch" : [ 0.80, 1.20 ],
                 "volume" : 1.0
+            },
+            "tcsmp:seal": {
+                "events": {
+                    "ambient": "mob.seal.say",
+                    "hurt": {
+                        "sound": "mob.seal.hurt",
+                        "pitch": [0.8, 1.2]
+                    },
+                    "death": "mob.seal.death"
+                },
+                "pitch": 1.0,
+                "volume": 0.5
             }
         }
     },

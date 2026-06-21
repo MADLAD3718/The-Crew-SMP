@@ -670,6 +670,36 @@
          "min_distance" : null,
          "sounds" : [ "sounds/mob/faded_wilter" ],
          "subtitle" : "subtitles.entity.faded_zombie.wilter"
+      },
+      "mob.seal.say": {
+         "__use_legacy_max_distance" : "true",
+         "category": "neutral",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds": [
+            "sounds/mob/seal/idle1",
+            "sounds/mob/seal/idle2",
+            "sounds/mob/seal/idle3",
+            "sounds/mob/seal/idle4",
+            "sounds/mob/seal/idle5"
+         ],
+         "subtitle": "subtitles.entity.seal.ambient"
+      },
+      "mob.seal.hurt": {
+         "__use_legacy_max_distance" : "true",
+         "category": "neutral",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds": [ "sounds/mob/seal/hurt" ],
+         "subtitle": "subtitles.entity.seal.hurt"
+      },
+      "mob.seal.death": {
+         "__use_legacy_max_distance" : "true",
+         "category": "neutral",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds": [ "sounds/mob/seal/death" ],
+         "subtitle": "subtitles.entity.seal.death"
       }
    }
 }

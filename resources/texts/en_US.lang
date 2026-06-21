@@ -220,3 +220,6 @@ subtitles.entity.faded_zombie.ambient=Faded Zombie groans
 subtitles.entity.faded_zombie.death=Faded Zombie dies
 subtitles.entity.faded_zombie.hurt=Faded Zombie hurts
 subtitles.entity.faded_zombie.wilter=Faded Zombie wilters
+subtitles.entity.seal.ambient=Seal barks
+subtitles.entity.seal.hurt=Seal hurts
+subtitles.entity.seal.death=Seal dies
