@@ -28,11 +28,12 @@ world.afterEvents.entityHitEntity.subscribe(event => {
     const block_below = barnacle.dimension.getBlockBelow(
         barnacle.location, { maxDistance: 3 }
     );
-    if (block_below || (hitEntity.hasTag("tcsmp:is_being_dragged") &&
-        barnacle.getDynamicProperty("draggedEntityId") != hitEntity.id))
+    if (block_below || barnacle.getDynamicProperty("draggedEntityId") != hitEntity.id)
         return barnacle.triggerEvent("tcsmp:start_consuming");
 
     const draggedEntity = hitEntity.entityRidingOn ?? hitEntity;
+    if (draggedEntity.hasTag("tcsmp:is_being_dragged"))
+        return barnacle.triggerEvent("tcsmp:start_consuming");
 
     if (draggedEntity instanceof Player)
         draggedEntity.onScreenDisplay.setTitle("overlay: tongue");
