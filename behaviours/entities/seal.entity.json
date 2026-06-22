@@ -180,6 +180,10 @@
         }
       },
       "tcsmp:sleeping": {
+        // Disables ambient sounds while sleeping
+        "minecraft:ambient_sound_interval": {
+          "event_name": ""
+        },
         "minecraft:timer": {
           "looping": false,
           "time": [30, 60],
