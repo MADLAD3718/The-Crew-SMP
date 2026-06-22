@@ -1,0 +1,7 @@
+{
+    "format_version": "1.21.30",
+    "minecraft:texture_set": {
+        "color": "tempered_warp_crystal",
+        "metalness_emissive_roughness_subsurface": "tempered_warp_crystal_mers"
+    }
+}
