@@ -1,0 +1,7 @@
+﻿{
+    "format_version": "1.21.30",
+    "minecraft:texture_set": {
+        "color": "scroll_of_return",
+        "metalness_emissive_roughness_subsurface": "scroll_of_return_mers"
+    }
+}
