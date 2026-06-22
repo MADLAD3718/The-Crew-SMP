@@ -1,5 +1,5 @@
 {
-    "format_version": "1.26.20",
+    "format_version": "1.26.30",
     "minecraft:item": {
         "description": {
             "identifier": "tcsmp:big_sandwich",
@@ -8,6 +8,7 @@
             }
         },
         "components": {
+            "minecraft:max_stack_size": 16,
             "minecraft:display_name": {
                 "value": "item.tcsmp:big_sandwich.name"
             },
