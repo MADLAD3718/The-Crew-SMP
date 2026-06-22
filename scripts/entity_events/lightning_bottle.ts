@@ -24,5 +24,5 @@ function lightningBottleHit(
     splash_molang.setFloat("splash_range", 1.0);
     splash_molang.setFloat("splash_power", 1.0);
     splash_molang.setColorRGBA("color", {red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0});
-    dimension.spawnParticle("minecraft:splash_spell_emitter", location, splash_molang);
+    dimension.spawnParticle("tcsmp:lightning_bottle_splash", location, splash_molang);
 }
