@@ -46,10 +46,12 @@ const gerbilComponent: ItemCustomComponent = {
 
         const tameable = gerbil.getComponent(EntityComponentTypes.Tameable);
         tameable!.tame(source);
+
+        const head = source.getHeadLocation();
+        gerbil.lookAt(head);
         
         source.equipment.getEquipmentSlot(EquipmentSlot.Mainhand).setItem();
 
-        const head = source.getHeadLocation();
         source.dimension.playSound("random.pop", head, {
             pitch: randomRange(0.55, 0.75), volume: 0.3
         });
