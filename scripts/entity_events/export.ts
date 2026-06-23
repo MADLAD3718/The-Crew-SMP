@@ -8,3 +8,4 @@ import "./tempered_warp_crystal";
 import "./faded_death";
 import "./zombie";
 import "./villager";
+import "./player";

@@ -14,17 +14,8 @@
 			}
 		},
 		{
-			"label": "reload",
-			"type": "process",
-			"command": "echo ${command:minecraft-debugger.minecraftReload}",
-			"problemMatcher": []
-		},
-		{
 			"label": "build",
-			"dependsOn": [
-				"compile",
-				"reload"
-			],
+			"dependsOn": [ "compile" ],
 			"dependsOrder": "sequence",
 			"group": {
 				"kind": "build",
