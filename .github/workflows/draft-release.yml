@@ -8,12 +8,12 @@ permissions:
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
-          node-version: '24'
+          node-version: "24"
       - run: npm ci
       - run: npm run build
 
@@ -47,3 +47,16 @@ jobs:
           files: |
             The-Crew-SMP.mcaddon
             The-Crew-SMP.zip
+
+      - name: Prepare CDN Directory
+        run: |
+          mkdir -p cdn
+          cp "The-Crew-SMP.zip" cdn/
+
+      - name: Upload to Github Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./cdn
+          destination_dir: packs/v${{ steps.version.outputs.version }}
+          keep_files: true
