@@ -162,6 +162,30 @@
       { "8@hud.heart_outline": { "offset": [ 64, 0 ] } },
       { "9@hud.heart_outline": { "offset": [ 72, 0 ] } }
     ]
+  },
+
+  "full_progress_bar": {
+    "type": "image",
+    "texture": "textures/ui/experience_bar_full",
+    "clip_direction": "left",
+    "clip_pixelperfect": true,
+    "bindings": [
+      {
+        "binding_type": "global",
+        "binding_name": "#exp_progress",
+        "binding_name_override": "#clip_ratio"
+      }
+    ]
+  },
+
+  "empty_progress_bar": {
+    "type": "image",
+    "texture": "textures/ui/experience_bar_empty"
+  },
+
+  "progress_bar_nub": {
+    "type": "image",
+    "texture": "textures/ui/empty"
   }
 
 }
