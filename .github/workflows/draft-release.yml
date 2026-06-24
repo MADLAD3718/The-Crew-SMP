@@ -18,10 +18,10 @@ jobs:
       - run: npm run build
 
       - name: Create Zip Package
-        run: zip -r "The-Crew-SMP.zip" resources behaviours
-
-      - name: Copy Zip to MCAddon
-        run: cp "The-Crew-SMP.zip" "The-Crew-SMP.mcaddon"
+        run: |
+          zip -r "resources.zip" resources
+          zip -r "behaviours.zip" behaviours
+          zip -r "The-Crew-SMP.mcaddon" "resources.zip" "behaviours.zip"
 
       - name: Get Addon Version
         id: version
@@ -46,17 +46,17 @@ jobs:
           generate_release_notes: true
           files: |
             The-Crew-SMP.mcaddon
-            The-Crew-SMP.zip
 
       - name: Prepare CDN Directory
         run: |
           mkdir -p cdn
-          cp "The-Crew-SMP.zip" cdn/
+          mv "resources.zip" cdn/
 
       - name: Upload to Github Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./cdn
-          destination_dir: packs/v${{ steps.version.outputs.version }}
+          destination_dir: cdn/v${{ steps.version.outputs.version }}
           keep_files: true
+          publish_branch: site
