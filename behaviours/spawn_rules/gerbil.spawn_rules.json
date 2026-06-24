@@ -62,9 +62,7 @@
         "minecraft:spawns_on_block_filter": [
           { "name": "minecraft:grass_block" },
           { "name": "minecraft:sand" },
-          { "name": "minecraft:sandstone" },
           { "name": "minecraft:red_sand" },
-          { "name": "minecraft:red_sandstone" },
           { "name": "minecraft:coarse_dirt" }
         ],
         "minecraft:brightness_filter": {
