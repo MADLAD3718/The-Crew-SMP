@@ -19,9 +19,9 @@ jobs:
 
       - name: Create Zip Package
         run: |
-          zip -r "resources.zip" resources
-          zip -r "behaviours.zip" behaviours
-          zip -r "The-Crew-SMP.mcaddon" "resources.zip" "behaviours.zip"
+          cd resources && zip -r ../resources.zip . && cd ..
+          cd behaviours && zip -r ../behaviours.zip . && cd ..
+          zip -r The-Crew-SMP.mcaddon resources.zip behaviours.zip
 
       - name: Get Addon Version
         id: version
