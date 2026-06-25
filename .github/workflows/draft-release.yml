@@ -47,16 +47,35 @@ jobs:
           files: |
             The-Crew-SMP.mcaddon
 
+      - name: Checkout existing CDN state
+        uses: actions/checkout@v6
+        continue-on-error: true
+        with:
+          ref: site
+          path: site-existing
+
       - name: Prepare CDN Directory
         run: |
-          mkdir -p cdn
-          mv "resources.zip" cdn/
+          VERSION="${{ steps.version.outputs.version }}"
+          mkdir -p "cdn/v$VERSION"
+          mv "resources.zip" "cdn/v$VERSION"
+        
+      - name: Build versions manifest
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          EXISTING=$(ls -d site-existing/cdn/v*/ 2>/dev/null | sed -E 's#.*/v([^/]+)/$#\1#')
+          ALL=$(printf '%s\n%s\n' "$EXISTING" "$VERSION" | grep -v '^$' | sort -u -t. -k1,1n -k2,2n -k3,3n)
+          LATEST=$(echo "$ALL" | tail -n1)
+          jq -n --arg latest "$LATEST" \
+                --argjson versions "$(echo "$ALL" | jq -R -s -c 'split("\n") | map(select(length > 0))')" \
+                '{versions: $versions, latest: $latest}' > cdn/versions.json
+          cat cdn/versions.json
 
       - name: Upload to Github Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./cdn
-          destination_dir: cdn/v${{ steps.version.outputs.version }}
+          destination_dir: cdn
           keep_files: true
           publish_branch: site
