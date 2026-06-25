@@ -1,6 +1,9 @@
-import { EntityComponentTypes, EquipmentSlot, system, world } from "@minecraft/server";
+import { EntityComponentTypes, EquipmentSlot, system, TicksPerSecond, world } from "@minecraft/server";
 import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
 import { Vec3 } from "@madlad3718/mcveclib";
+
+const PET_DELAY = 0.5 * TicksPerSecond;
+const PetTimes: Record<string, number> = {};
 
 world.beforeEvents.playerInteractWithEntity.subscribe(event => {
     const { player, target } = event;
@@ -13,6 +16,10 @@ world.beforeEvents.playerInteractWithEntity.subscribe(event => {
         !player.isSneaking
     ) return;
     event.cancel = true;
+
+    if (system.currentTick - (PetTimes[target.id] ?? 0) < PET_DELAY) return;
+    PetTimes[target.id] = system.currentTick;
+
     const { dimension } = player;
 
     system.run(() => {
