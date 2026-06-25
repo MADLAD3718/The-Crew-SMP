@@ -9,7 +9,7 @@ const factionInviteCommand: CustomCommand = {
     cheatsRequired: false,
     mandatoryParameters: [
         {
-            name: Config.use_string_selectors ? 
+            name: Config.use_string_selectors ?
                 "playerName" : "player",
             type: Config.use_string_selectors ?
                 CustomCommandParamType.String :
@@ -32,7 +32,7 @@ function factionInviteCallback(origin: CustomCommandOrigin, input: SelectorType)
     };
 
     const players = (typeof input == "string") ?
-        world.getPlayers({name: input}) : input;
+        world.getPlayers({ name: input }) : input;
 
     const invited: string[] = [];
     for (const player of players) {
@@ -42,7 +42,7 @@ function factionInviteCallback(origin: CustomCommandOrigin, input: SelectorType)
             continue;
         };
 
-        player.sendMessage(`You've been invited to join §${faction.colour}${faction.name}§r. Use §7/faction_join§r to accept.`);
+        player.sendMessage(`You've been invited to join §${faction.colour}${faction.name}§r. Use §7/joinfaction§r to accept.`);
         FactionRegistry.invitePlayer(faction, player);
 
         invited.push(player.name);
@@ -58,4 +58,4 @@ function factionInviteCallback(origin: CustomCommandOrigin, input: SelectorType)
     };
 }
 
-export default {command: factionInviteCommand, callback: factionInviteCallback};
+export default { command: factionInviteCommand, callback: factionInviteCallback };

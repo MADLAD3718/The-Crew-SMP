@@ -35,6 +35,11 @@ function renameFactionCallback(origin: CustomCommandOrigin, name: string, colour
         message: `Unable to rename faction, ownership required.`
     };
 
+    if (!(colour in FactionColour)) return {
+        status: CustomCommandStatus.Failure,
+        message: `Faction colour ${colour} is invalid.`
+    };
+
     if (name != faction.name && !FactionRegistry.nameIsValid(name)) return {
         status: CustomCommandStatus.Failure,
         message: `Faction name §${FactionColour[colour]}${name}§c is invalid.`
@@ -49,11 +54,11 @@ function renameFactionCallback(origin: CustomCommandOrigin, name: string, colour
             players: faction.players
         });
     });
-    
+
     return {
         status: CustomCommandStatus.Success,
         message: `Renamed faction to §${FactionColour[colour]}${name}§r.`
     };
 }
 
-export default {command: renameFactionCommand, callback: renameFactionCallback};
+export default { command: renameFactionCommand, callback: renameFactionCallback };

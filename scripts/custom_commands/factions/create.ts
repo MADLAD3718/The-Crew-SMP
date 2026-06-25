@@ -29,6 +29,11 @@ function createFactionCallback(origin: CustomCommandOrigin, name: string, colour
         message: `Cannot create a faction while already part of one.`
     };
 
+    if (!(colour in FactionColour)) return {
+        status: CustomCommandStatus.Failure,
+        message: `Faction colour ${colour} is invalid.`
+    };
+
     if (!FactionRegistry.nameIsValid(name)) return {
         status: CustomCommandStatus.Failure,
         message: `Faction name ${name} is invalid.`
@@ -40,11 +45,11 @@ function createFactionCallback(origin: CustomCommandOrigin, name: string, colour
         owner: origin.sourceEntity!.id,
         players: [origin.sourceEntity!.id]
     }));
-    
+
     return {
         status: CustomCommandStatus.Success,
         message: `Successfully created faction §${FactionColour[colour]}${name}§r.`
     };
 }
 
-export default {command: createFactionCommand, callback: createFactionCallback};
+export default { command: createFactionCommand, callback: createFactionCallback };
