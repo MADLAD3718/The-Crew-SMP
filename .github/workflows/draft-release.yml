@@ -59,6 +59,7 @@ jobs:
           VERSION="${{ steps.version.outputs.version }}"
           mkdir -p "cdn/v$VERSION"
           mv "resources.zip" "cdn/v$VERSION"
+          mv "behaviours.zip" "cdn/v$VERSION"
         
       - name: Build versions manifest
         run: |
