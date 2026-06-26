@@ -21,14 +21,14 @@ world.beforeEvents.entityHurt.subscribe(event => {
 
 world.afterEvents.projectileHitEntity.subscribe(event => {
     const hitEntity = event.getEntityHit().entity!;
-    if (!isUsingTNTShield(hitEntity)) return;
+    if (!hitEntity.isValid || !isUsingTNTShield(hitEntity)) return;
 
     hitTNTShield(hitEntity, event.hitVector);
 });
 
 world.afterEvents.entityHitEntity.subscribe(event => {
     const { hitEntity, damagingEntity } = event;
-    if (!isUsingTNTShield(hitEntity)) return;
+    if (!hitEntity.isValid || !isUsingTNTShield(hitEntity)) return;
 
     const toHolder = Vec3.normalize(Vec3.sub(hitEntity.location, damagingEntity.location));
     hitTNTShield(hitEntity, toHolder);
