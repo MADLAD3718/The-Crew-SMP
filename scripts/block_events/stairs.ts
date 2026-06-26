@@ -7,7 +7,7 @@ function weirdoToVector(weirdoDir: number): Vector3 {
 
 world.beforeEvents.playerInteractWithBlock.subscribe(event => {
     const { player, block, itemStack, isFirstEvent, blockFace } = event;
-    if (player.location.y < block.location.y) return;
+    if (block.location.y - player.location.y > 0.5) return;
     if (!block.typeId.endsWith("stairs")) return;
     if (itemStack || !isFirstEvent) return;
     
