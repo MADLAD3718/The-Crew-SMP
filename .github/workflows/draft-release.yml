@@ -17,12 +17,6 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Create Zip Package
-        run: |
-          cd resources && zip -r ../resources.zip . && cd ..
-          cd behaviours && zip -r ../behaviours.zip . && cd ..
-          zip -r The-Crew-SMP.mcaddon resources.zip behaviours.zip
-
       - name: Get Addon Version
         id: version
         run: |
@@ -37,6 +31,23 @@ jobs:
           VERSION=$(jq -r 'if (.header.version | type) == "array" then (.header.version | join(".")) else .header.version end' "$MANIFEST")
           echo "Found version $VERSION in $MANIFEST"
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Check for Existing Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          if gh release view "v$VERSION" --repo "${{ github.repository }}" >/dev/null 2>&1; then
+            echo "::error::Release v$VERSION already exists (draft or published). Bump the version in manifest.json before running this workflow again."
+            exit 1
+          fi
+          echo "No existing release found for v$VERSION - proceeding."
+
+      - name: Create Zip Package
+        run: |
+          cd resources && zip -r ../resources.zip . && cd ..
+          cd behaviours && zip -r ../behaviours.zip . && cd ..
+          zip -r The-Crew-SMP.mcaddon resources.zip behaviours.zip
 
       - name: Create Draft Release
         uses: softprops/action-gh-release@v2
@@ -60,7 +71,7 @@ jobs:
           mkdir -p "cdn/v$VERSION"
           mv "resources.zip" "cdn/v$VERSION"
           mv "behaviours.zip" "cdn/v$VERSION"
-        
+
       - name: Build versions manifest
         run: |
           VERSION="${{ steps.version.outputs.version }}"
