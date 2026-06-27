@@ -9,7 +9,7 @@
         "description": "The addon powering The Crew SMP.",
         "uuid": "108ff72e-1db9-4b59-8784-e3d8be08ecf9",
         "pack_scope": "world",
-        "version": "26.6.2",
+        "version": "26.6.3",
         "min_engine_version": "1.26.30"
     },
     "modules": [
@@ -17,13 +17,13 @@
             "description": "The addon powering The Crew SMP.",
             "type": "resources",
             "uuid": "c906d76e-9f7a-4820-913a-644095cea446",
-            "version": "26.6.2"
+            "version": "26.6.3"
         }
     ],
     "dependencies": [
         {
             "uuid": "a6c01a05-4399-4b13-bcc2-ed4a5df2d28c",
-            "version": "26.6.2"
+            "version": "26.6.3"
         }
     ],
     "capabilities":[
