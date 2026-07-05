@@ -1,5 +1,17 @@
-import { EntityComponentTypes, system, world } from "@minecraft/server";
+import { EntityComponentTypes, Player, system, world } from "@minecraft/server";
 import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+import { FactionRegistry } from "../systems/factions";
+
+world.beforeEvents.entityHurt.subscribe(event => {
+    const damagingEntity = event.damageSource.damagingEntity ??
+        event.damageSource.damagingProjectile?.projectile?.owner;
+
+    if (!(damagingEntity instanceof Player)) return;
+    
+    const faction = FactionRegistry.getFaction(damagingEntity);
+    if (faction?.players.includes(event.hurtEntity.id))
+        event.cancel = true;
+}, { entityFilter: { type: MinecraftEntityTypes.Player } });
 
 const FoodTickTimer: Record<string, number> = {};
 
@@ -24,7 +36,7 @@ function* handlePlayerHealing(): Generator<void, void, void> {
 
         const foodTickTimer = FoodTickTimer[player.id] ?? 0;
         FoodTickTimer[player.id] = foodTickTimer + 1;
-        
+
         if (foodTickTimer < 6) {
             if (Math.floor(foodTickTimer / 2) % 2 === 0)
                 player.onScreenDisplay.setTitle("flash: on");
