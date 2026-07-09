@@ -1,5 +1,5 @@
 {
-    "format_version": "1.26.20",
+    "format_version": "1.26.30",
     "minecraft:recipe_shaped": {
         "description": {
             "identifier": "tcsmp:warp_crystal"
@@ -19,7 +19,7 @@
             }
         },
         "unlock": [{
-            "item": "minecraft:ender_pearl"
+            "item": "minecraft:amethyst_shard"
         }],
         "result": {
             "item": "tcsmp:warp_crystal"
