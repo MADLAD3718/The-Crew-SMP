@@ -33,7 +33,7 @@ world.afterEvents.entityHitEntity.subscribe(event => {
 
             const view = player.getViewDirection(), origin = Vec3.above(cannon.location);
             const direction = Vec3.normalize(Vec3.from(view.x, Math.max(view.y, 0), view.z));
-            const velocity = Vec3.mul(direction, 2);
+            const velocity = Vec3.mul(direction, 1.35);
 
             const ball = dimension.spawnEntity(ammo.typeId, Vec3.add(origin, velocity));
             const projectile = ball.projectile!;

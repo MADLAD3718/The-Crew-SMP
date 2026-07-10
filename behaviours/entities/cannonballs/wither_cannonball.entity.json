@@ -1,5 +1,5 @@
 {
-    "format_version": "1.26.20",
+    "format_version": "1.26.30",
     "minecraft:entity": {
         "description": {
             "identifier": "tcsmp:wither_cannonball",
@@ -40,7 +40,6 @@
             "minecraft:projectile": {
                 "gravity": 0.03,
                 "is_dangerous": true,
-                "inertia": 1.0,
                 "on_hit": {
                     "stick_in_ground": {},
                     "definition_event": {
