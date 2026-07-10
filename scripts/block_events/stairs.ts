@@ -21,7 +21,7 @@ world.beforeEvents.playerInteractWithBlock.subscribe(event => {
     if (Vec3.distance(
         Vec3.from(player.location.x, 0, player.location.z),
         Vec3.from(bottomCenter.x, 0, bottomCenter.z)
-    ) >= 1.5) return;
+    ) >= 2.5) return;
 
     const states = block.permutation.getAllStates();
     if (states["upside_down_bit"] || states["minecraft:vertical_half"] == "top")
