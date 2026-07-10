@@ -1,5 +1,5 @@
 {
-  "format_version": "1.26.20",
+  "format_version": "1.26.30",
   "minecraft:entity": {
     "description": {
       "identifier": "tcsmp:unicorn",
@@ -346,7 +346,7 @@
       },
       "minecraft:behavior.float": {
         "priority": 0,
-        "sink_with_passengers": true
+        "time_under_water_to_dismount_passengers": 2.0
       },
       "minecraft:behavior.panic": {
         "priority": 3,
