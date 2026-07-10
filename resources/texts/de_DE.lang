@@ -1,0 +1,210 @@
+item.tcsmp:grappling_hook.name=Enterhaken
+item.tcsmp:empty_grappling_hook.name=Leerer Enterhaken
+item.tcsmp:hook.name=Haken
+item.tcsmp:cannon.name=Kanone
+item.tcsmp:cannonball.name=Kanonenkugel
+item.tcsmp:poison_cannonball.name=Giftige Kanonenkugel
+item.tcsmp:wither_cannonball.name=Vernichtende Kanonenkugel
+item.tcsmp:slowness_cannonball.name=Verlangsamende Kanonenkugel
+item.tcsmp:fire_cannonball.name=Feuerige Kanonenkugel
+item.tcsmp:warp_crystal.name=Warpkristall
+item.tcsmp:overworld_waystone.name=Überwelt-Wegstein
+item.tcsmp:nether_waystone.name=Nether-Wegstein
+item.tcsmp:end_waystone.name=Wegstein beenden
+item.tcsmp:spell_scroll.name=Zauberrolle
+item.tcsmp:scroll_of_growth.name=Schriftrolle des Wachstums
+item.tcsmp:lightning_bottle.name=Flasche Blitz
+item.tcsmp:lightning_cannonball.name=Geladene Kanonenkugel
+item.tcsmp:scroll_of_thunder.name=Rolle des Donners
+item.tcsmp:scroll_of_decay.name=Schriftrolle des Verfalls
+item.tcsmp:scroll_of_return.name=Schriftrolle der Rückkehr
+item.tcsmp:katana.name=Katana
+item.tcsmp:tnt_shield.name=TNT-Schild
+item.tcsmp:faction_invite.name=Fraktionseinladung
+item.tcsmp:big_sandwich.name=Großes Sandwich
+item.tcsmp:lucks_bane.name=Der Fluch des Glücks
+item.tcsmp:prismarine_blade.name=Prismenklinge
+item.tcsmp:gerbil.name=Rennmaus
+item.tcsmp:tomato.name=Tomate
+item.tcsmp:slime_boots.name=Schleimstiefel
+item.tcsmp:roulette_plate.name=Roulette-Platte
+item.tcsmp:barnacle_fang.name=Seepockenfang
+item.tcsmp:tempered_warp_crystal.name=Gehärteter Warpkristall
+item.tcsmp:scroll_of_nausea.name=Schriftrolle des schwefelhaltigen Dampfes
+item.tcsmp:scroll_of_undead.name=Schriftrolle der Untoten
+
+lore.random_damage=\n§r§9+§kg§r§9 Angriffsschaden§r
+lore.fire_cannonball=§r§cSetzt Ziele in Brand§r
+lore.lightning_cannonball=§r§cSchlägt den Blitz ein§r
+lore.poison_cannonball=§r§cGift anwenden (0:10)§r
+lore.slowness_cannonball=§r§cGilt Langsamkeit (0:10)§r
+lore.wither_cannonball=§r§cGilt Wither (0:10)§r
+lore.prismarine_blade_backstab=§r§9+7 Backstab-Schaden§r
+
+item.record_balloonpop.desc=George Vide – CRACK@$
+item.record_open.desc=George Vide – Puma-Hose
+item.record_take_picture.desc=George Vide – Lass es fallen
+item.record_hit.desc=George Vide – BA$ED BOY$
+item.record_reaction.icebomb.desc=George Vide – Obama
+item.record_reaction.bleach.desc=George Vide – Klare Fakten
+
+item.spawn_egg.entity.tcsmp:gerbil.name=Rennmaus-Brut-Ei
+item.spawn_egg.entity.tcsmp:unicorn.name=Einhornbrut-Ei
+item.spawn_egg.entity.tcsmp:seal.name=Siegelbrut-Ei
+item.spawn_egg.entity.tcsmp:barnacle.name=Seepockenbrut-Ei
+item.spawn_egg.entity.tcsmp:faded_skeleton.name=Verblasstes Skelettbrut-Ei
+item.spawn_egg.entity.tcsmp:faded_zombie.name=Verblasstes Zombie-Spawn-Ei
+
+tile.tcsmp:overworld_waystone.name=Überwelt-Wegstein
+tile.tcsmp:nether_waystone.name=Nether-Wegstein
+tile.tcsmp:end_waystone.name=Wegstein beenden
+tile.tcsmp:inscription_table.name=Inschriftentabelle
+tile.tcsmp:cannabis_plant.name=Cannabispflanze
+tile.tcsmp:faction_register.name=Fraktionsregister
+tile.tcsmp:tomato.name=Tomate
+
+entity.tcsmp:grappling_hook_stake.name=Enterhakenpfahl
+entity.tcsmp:grappling_hook_seat.name=Enterhakensitz
+entity.tcsmp:cannon.name=Kanone
+entity.tcsmp:cannonball.name=Kanonenkugel
+entity.tcsmp:poison_cannonball.name=Giftkanonenkugel
+entity.tcsmp:wither_cannonball.name=Wither Cannonball
+entity.tcsmp:slowness_cannonball.name=Langsamkeit Kanonenkugel
+entity.tcsmp:fire_cannonball.name=Feuerkanonenkugel
+entity.tcsmp:warp_crystal.name=Warpkristall
+entity.tcsmp:lightning_cannonball.name=Blitzkanonenkugel
+entity.tcsmp:gerbil.name=Rennmaus
+entity.tcsmp:unicorn.name=Einhorn
+entity.tcsmp:seal.name=Siegel
+entity.tcsmp:barnacle.name=Seepocken
+entity.tcsmp:lightning_bottle.name=Flasche Blitz
+entity.tcsmp:tempered_warp_crystal.name=Gehärteter Warpkristall
+entity.tcsmp:faded_zombie.name=Verblasster Zombie
+entity.tcsmp:faded_skeleton.name=Verblasstes Skelett
+
+action.hint.exit.tcsmp:grappling_hook_seat=Gehen Sie in die Hocke oder springen Sie, um sich zu lösen
+action.hint.exit.tcsmp:cannon=Gehen Sie in die Hocke oder springen Sie, um mit dem Zielen aufzuhören
+action.hint.exit.tcsmp:stair_seat=Gehen Sie in die Hocke oder springen Sie, um aufzustehen
+action.hint.exit.tcsmp:unicorn=Tippen Sie auf Schleichen, um abzusteigen
+action.interact.ride.tcsmp:unicorn=Fahrt
+action.interact.gerbil=Interagieren Sie, um abzuholen
+action.interact.creeper.lightning=Flaschenblitz
+
+container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NInskription
+
+action.setup.faction_invite.title=Fraktionseinladung einrichten
+action.setup.faction_invite.no_factions=Du gehörst keiner Fraktion an!
+action.setup.faction_invite.message=Einladungsnachricht
+action.setup.faction_invite.message_placeholder=Kommen Sie zu %s!
+action.setup.faction_invite.submit=Bestätigen
+action.setup.faction_invite.cancel=Abbrechen
+
+action.join.faction.fail=Du bist bereits in einer Fraktion!
+action.join.faction.invalid=%s existiert nicht mehr!
+action.join.faction.title=Fraktionseinladung
+action.join.faction.accept=Treten Sie §%s%s§r bei
+action.join.faction.reject=Ablehnen
+
+action.create.faction.title=Fraktion erstellen
+action.create.faction.name=Fraktionsname
+action.create.faction.name_placeholder=Maximal 16 Zeichen...
+action.create.faction.submit=Erstellen
+action.create.faction.success=Fraktion §%s%s§r erfolgreich erstellt!
+action.create.faction.fail=Fraktion „§%s%s§r“ ist ungültig, Fraktion konnte nicht erstellt werden
+
+action.manage.faction.title=Fraktion verwalten
+action.manage.faction.body=§%s%s§r verwalten:
+action.manage.faction.edit_name=Namen bearbeiten
+action.manage.faction.edit_players=Spieler bearbeiten
+action.manage.faction.edit_colour=Farbe bearbeiten
+
+action.manage.faction.colour=Fraktionsfarbe
+faction_colour.amethyst.name=Amethyst
+faction_colour.copper.name=Kupfer
+faction_colour.diamond.name=Diamant
+faction_colour.emerald.name=Smaragd
+faction_colour.gold.name=Gold
+faction_colour.iron.name=Eisen
+faction_colour.lapis.name=Lapis
+faction_colour.netherite.name=Netherit
+faction_colour.quartz.name=Quarz
+faction_colour.redstone.name=Redstone
+faction_colour.resin.name=Harz
+
+action.manage.faction.kick=Tritt %s
+action.manage.faction.kick_success=%s aus §%s%s§r gekickt.
+
+action.manage.faction.delete=Fraktion löschen
+action.manage.faction.delete_success=§%s%s§r wurde gelöscht!
+
+action.manage.faction.confirm=Bestätigen
+
+action.manage.faction.info=Fraktion: %s\nBesitzer: %s\nMitglieder: %s
+action.manage.faction.leave=Verlassen Sie §%s%s§r
+action.manage.faction.leave_success=Sie haben §%s%s§r verlassen
+action.manage.faction.leave_message=§%s[%s]§r %s hat die Fraktion verlassen
+
+action.message.faction.title=Nachricht senden
+action.message.faction.message=Nachricht:
+action.message.faction.submit=Senden
+action.message.faction.message_text=§%s[%s]§r <%s> %s
+
+info.faction.no_longer_member=Sie sind nicht mehr in %s
+
+form.setup.waystone.title=Waystone-Setup
+form.setup.waystone.private=Privater Wegstein
+form.setup.waystone.name=Waystone-Name:
+form.setup.waystone.submit=Senden
+
+form.edit.waystone.title=Waystone bearbeiten
+
+form.interact.waystone.title=Waystone-Netzwerk
+form.interact.waystone.private=Besitzer: %s
+form.interact.waystone.global=Global
+
+info.waystone.invalid=„%s“ ist kein gültiger Waystone-Name
+info.waystone.preexists.global=Waystone „%s“ existiert bereits
+info.waystone.preexists.private=Der private Wegstein „%s“ existiert bereits
+
+info.return_scroll.no_waystones=Ihnen stehen keine Wegsteine zur Verfügung, zu denen Sie zurückkehren können
+
+itemGroup.tcsmp:waystones=Wegsteine
+itemGroup.tcsmp:spell_scrolls=Zauberschriftrollen
+itemGroup.tcsmp:cannonballs=Kanonenkugeln
+
+subtitles.entity.wolf.pet=Pelzrüschen
+subtitles.block.waystone.travel=Waystone trillert
+subtitles.item.spell_scroll.cast=Zauberauslöser
+subtitles.item.katana.draw=Katana zeichnet
+subtitles.item.katana.dash=Katana schlägt zu
+subtitles.item.grappling_hook.retract=Enterhaken wird eingefahren
+subtitles.item.grappling_hook.charge=Grappling Hook lädt sich auf
+subtitles.item.grappling_hook.shoot=Grappling Hook feuert
+subtitles.entity.cannon.place=Kanonenwaffen
+subtitles.entity.cannon.break=Kanone entwaffnet
+subtitles.entity.cannon.fire=Kanonenschüsse
+subtitles.entity.cannon.light=Kanonenlichter
+subtitles.entity.gerbil.chirp=Rennmaus zwitschert
+subtitles.entity.gerbil.hurt=Rennmaus tut weh
+subtitles.item.lucks_bane.big_hit=Spielautomat klirrt
+subtitles.item.knife.backstab=Messer-Kriterien
+subtitles.entity.unicorn.gallop=Einhorn galoppiert
+subtitles.entity.unicorn.eat=Einhorn isst
+subtitles.entity.unicorn.trail=Einhorn funkelt
+subtitles.entity.unicorn.death=Einhorn stirbt
+subtitles.entity.barnacle.ambient=Seepocken schwimmt
+subtitles.entity.barnacle.death=Barnacle stirbt
+subtitles.entity.barnacle.hurt=Seepocken tut weh
+subtitles.entity.barnacle.attack=Seepockenbisse
+subtitles.entity.faded_skeleton.ambient=Das verblasste Skelett rasselt
+subtitles.entity.faded_skeleton.death=Verblasstes Skelett stirbt
+subtitles.entity.faded_skeleton.hurt=Verblasstes Skelett tut weh
+subtitles.entity.faded_skeleton.wilter=Das verblasste Skelett verwelkt
+subtitles.entity.faded_zombie.ambient=Der verblasste Zombie stöhnt
+subtitles.entity.faded_zombie.death=Verblasster Zombie stirbt
+subtitles.entity.faded_zombie.hurt=Der verblasste Zombie tut weh
+subtitles.entity.faded_zombie.wilter=Verblasste Zombies verwelken
+subtitles.entity.seal.ambient=Siegel bellt
+subtitles.entity.seal.hurt=Das Siegel tut weh
+subtitles.entity.seal.death=Robbe stirbt
+

@@ -1,0 +1,210 @@
+item.tcsmp:grappling_hook.name=Grijphaak
+item.tcsmp:empty_grappling_hook.name=Lege grijphaak
+item.tcsmp:hook.name=Haak
+item.tcsmp:cannon.name=Kanon
+item.tcsmp:cannonball.name=Kanonskogel
+item.tcsmp:poison_cannonball.name=Giftige kanonskogel
+item.tcsmp:wither_cannonball.name=Vernietigende kanonskogel
+item.tcsmp:slowness_cannonball.name=Vertragende kanonskogel
+item.tcsmp:fire_cannonball.name=Vurige kanonskogel
+item.tcsmp:warp_crystal.name=Warp-kristal
+item.tcsmp:overworld_waystone.name=Overwereld Waystone
+item.tcsmp:nether_waystone.name=Nether Waystone
+item.tcsmp:end_waystone.name=Einde Waystone
+item.tcsmp:spell_scroll.name=Spellen scrollen
+item.tcsmp:scroll_of_growth.name=Rol van groei
+item.tcsmp:lightning_bottle.name=Fles bliksem
+item.tcsmp:lightning_cannonball.name=Opgeladen kanonskogel
+item.tcsmp:scroll_of_thunder.name=Rol van de donder
+item.tcsmp:scroll_of_decay.name=Rol van verval
+item.tcsmp:scroll_of_return.name=Rol van Terugkeer
+item.tcsmp:katana.name=Katana
+item.tcsmp:tnt_shield.name=TNT-schild
+item.tcsmp:faction_invite.name=Factie uitnodigen
+item.tcsmp:big_sandwich.name=Grote boterham
+item.tcsmp:lucks_bane.name=Het geluk is een vloek
+item.tcsmp:prismarine_blade.name=Prismarijn mes
+item.tcsmp:gerbil.name=Gerbil
+item.tcsmp:tomato.name=Tomaat
+item.tcsmp:slime_boots.name=Slijm laarzen
+item.tcsmp:roulette_plate.name=Rouletteplaat
+item.tcsmp:barnacle_fang.name=Barnacle Hoektand
+item.tcsmp:tempered_warp_crystal.name=Gehard warpkristal
+item.tcsmp:scroll_of_nausea.name=Rol van zwavelhoudende damp
+item.tcsmp:scroll_of_undead.name=Rol van de ondoden
+
+lore.random_damage=\n§r§9+§kg§r§9 Aanvalsschade§r
+lore.fire_cannonball=§r§cStel doelen in vuur en vlam§r
+lore.lightning_cannonball=§r§c Blikseminslag§r
+lore.poison_cannonball=§r§cGif toepast (0:10)§r
+lore.slowness_cannonball=§r§cTraagheid toepassen (0:10)§r
+lore.wither_cannonball=§r§cGeldt Wither (0:10)§r
+lore.prismarine_blade_backstab=§r§9+7 Rugsteekschade§r
+
+item.record_balloonpop.desc=George Vide - CRAcK@$
+item.record_open.desc=George Vide - Puma-broek
+item.record_take_picture.desc=George Vide - LAAT HET LAAT KOMEN
+item.record_hit.desc=George Vide - BA$ED BOY$
+item.record_reaction.icebomb.desc=George Vide-Obama
+item.record_reaction.bleach.desc=George Vide - Duidelijke feiten
+
+item.spawn_egg.entity.tcsmp:gerbil.name=Gerbil-broedei
+item.spawn_egg.entity.tcsmp:unicorn.name=Eenhoorn Spawn-ei
+item.spawn_egg.entity.tcsmp:seal.name=Seal Spawn-ei
+item.spawn_egg.entity.tcsmp:barnacle.name=Barnacle Spawn-ei
+item.spawn_egg.entity.tcsmp:faded_skeleton.name=Vervaagd skeletspawn-ei
+item.spawn_egg.entity.tcsmp:faded_zombie.name=Vervaagd Zombie Spawn-ei
+
+tile.tcsmp:overworld_waystone.name=Overwereld Waystone
+tile.tcsmp:nether_waystone.name=Nether Waystone
+tile.tcsmp:end_waystone.name=Einde Waystone
+tile.tcsmp:inscription_table.name=Inscriptietabel
+tile.tcsmp:cannabis_plant.name=Cannabisplant
+tile.tcsmp:faction_register.name=Fractie Register
+tile.tcsmp:tomato.name=Tomaat
+
+entity.tcsmp:grappling_hook_stake.name=Grappling Hook-inzet
+entity.tcsmp:grappling_hook_seat.name=Grijphaakzitting
+entity.tcsmp:cannon.name=Kanon
+entity.tcsmp:cannonball.name=Kanonskogel
+entity.tcsmp:poison_cannonball.name=Gif kanonskogel
+entity.tcsmp:wither_cannonball.name=Verdorren kanonskogel
+entity.tcsmp:slowness_cannonball.name=Traagheid kanonskogel
+entity.tcsmp:fire_cannonball.name=Vuur kanonskogel
+entity.tcsmp:warp_crystal.name=Warp-kristal
+entity.tcsmp:lightning_cannonball.name=Bliksem kanonskogel
+entity.tcsmp:gerbil.name=Gerbil
+entity.tcsmp:unicorn.name=Eenhoorn
+entity.tcsmp:seal.name=Zegel
+entity.tcsmp:barnacle.name=Zeepokken
+entity.tcsmp:lightning_bottle.name=Fles bliksem
+entity.tcsmp:tempered_warp_crystal.name=Gehard warpkristal
+entity.tcsmp:faded_zombie.name=Vervaagde zombie
+entity.tcsmp:faded_skeleton.name=Vervaagd skelet
+
+action.hint.exit.tcsmp:grappling_hook_seat=Hurk of spring om los te komen
+action.hint.exit.tcsmp:cannon=Buig of spring om te stoppen met richten
+action.hint.exit.tcsmp:stair_seat=Hurk of spring om te gaan staan
+action.hint.exit.tcsmp:unicorn=Tik op sluipen om af te stappen
+action.interact.ride.tcsmp:unicorn=Rijden
+action.interact.gerbil=Interactie om op te halen
+action.interact.creeper.lightning=Fles bliksem
+
+container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NInschrijving
+
+action.setup.faction_invite.title=Factie-uitnodiging instellen
+action.setup.faction_invite.no_factions=Je maakt geen deel uit van een factie!
+action.setup.faction_invite.message=Uitnodigingsbericht
+action.setup.faction_invite.message_placeholder=Sluit je aan bij %s!
+action.setup.faction_invite.submit=Bevestig
+action.setup.faction_invite.cancel=Annuleer
+
+action.join.faction.fail=Je zit al in een factie!
+action.join.faction.invalid=%s bestaat niet meer!
+action.join.faction.title=Factie uitnodigen
+action.join.faction.accept=Sluit u aan bij §%s%s§r
+action.join.faction.reject=Afwijzen
+
+action.create.faction.title=Creëer een factie
+action.create.faction.name=Fractienaam
+action.create.faction.name_placeholder=Maximaal 16 tekens...
+action.create.faction.submit=Creëer
+action.create.faction.success=Factie §%s%s§r is succesvol aangemaakt!
+action.create.faction.fail=Factie "§%s%s§r" is ongeldig, kan geen factie aanmaken
+
+action.manage.faction.title=Beheer factie
+action.manage.faction.body=Beheer §%s%s§r:
+action.manage.faction.edit_name=Naam bewerken
+action.manage.faction.edit_players=Spelers bewerken
+action.manage.faction.edit_colour=Kleur bewerken
+
+action.manage.faction.colour=Factie kleur
+faction_colour.amethyst.name=Amethist
+faction_colour.copper.name=Koper
+faction_colour.diamond.name=Diamant
+faction_colour.emerald.name=Smaragd
+faction_colour.gold.name=Goud
+faction_colour.iron.name=Ijzer
+faction_colour.lapis.name=Lapis
+faction_colour.netherite.name=Netheriet
+faction_colour.quartz.name=Kwarts
+faction_colour.redstone.name=Roodsteen
+faction_colour.resin.name=Hars
+
+action.manage.faction.kick=Schop %s
+action.manage.faction.kick_success=%s verwijderd van §%s%s§r.
+
+action.manage.faction.delete=Fractie verwijderen
+action.manage.faction.delete_success=§%s%s§r is verwijderd!
+
+action.manage.faction.confirm=Bevestig
+
+action.manage.faction.info=Factie: %s\nEigenaar: %s\nLeden: %s
+action.manage.faction.leave=Verlaat §%s%s§r
+action.manage.faction.leave_success=Je hebt §%s%s§r verlaten
+action.manage.faction.leave_message=§%s[%s]§r %s heeft de factie verlaten
+
+action.message.faction.title=Bericht verzenden
+action.message.faction.message=Bericht:
+action.message.faction.submit=Verzenden
+action.message.faction.message_text=§%s[%s]§r <%s> %s
+
+info.faction.no_longer_member=Je bent niet langer in %s
+
+form.setup.waystone.title=Waystone-opstelling
+form.setup.waystone.private=Privé Waystone
+form.setup.waystone.name=Waystone-naam:
+form.setup.waystone.submit=Verzenden
+
+form.edit.waystone.title=Waystone bewerken
+
+form.interact.waystone.title=Waystone-netwerk
+form.interact.waystone.private=Eigenaar: %s
+form.interact.waystone.global=Globaal
+
+info.waystone.invalid="%s" is geen geldige waystone-naam
+info.waystone.preexists.global=Waystone "%s" bestaat al
+info.waystone.preexists.private=Privé Waystone "%s" bestaat al
+
+info.return_scroll.no_waystones=Je hebt geen beschikbare wegstenen om naar terug te keren
+
+itemGroup.tcsmp:waystones=Wegstenen
+itemGroup.tcsmp:spell_scrolls=Spelrollen
+itemGroup.tcsmp:cannonballs=Kanonskogels
+
+subtitles.entity.wolf.pet=Bont ruches
+subtitles.block.waystone.travel=Waystone kwetst
+subtitles.item.spell_scroll.cast=Speltriggers
+subtitles.item.katana.draw=Katana tekent
+subtitles.item.katana.dash=Katana snijdt
+subtitles.item.grappling_hook.retract=Grijphaak trekt zich terug
+subtitles.item.grappling_hook.charge=Grappling Hook laadt op
+subtitles.item.grappling_hook.shoot=Grappling Hook vuurt
+subtitles.entity.cannon.place=Kanon armen
+subtitles.entity.cannon.break=Kanon ontwapent
+subtitles.entity.cannon.fire=Kanonschoten
+subtitles.entity.cannon.light=Kanon lichten
+subtitles.entity.gerbil.chirp=Gerbil piept
+subtitles.entity.gerbil.hurt=Gerbil doet pijn
+subtitles.item.lucks_bane.big_hit=Gokautomaat rammelt
+subtitles.item.knife.backstab=Mes kritiek
+subtitles.entity.unicorn.gallop=Eenhoorn galoppeert
+subtitles.entity.unicorn.eat=Eenhoorn eet
+subtitles.entity.unicorn.trail=Eenhoorn schittert
+subtitles.entity.unicorn.death=Eenhoorn sterft
+subtitles.entity.barnacle.ambient=Zeepokken zwemt
+subtitles.entity.barnacle.death=Barnacle sterft
+subtitles.entity.barnacle.hurt=Barnacle doet pijn
+subtitles.entity.barnacle.attack=Zeepokken bijten
+subtitles.entity.faded_skeleton.ambient=Vervaagde skeletrammelaars
+subtitles.entity.faded_skeleton.death=Vervaagd skelet sterft
+subtitles.entity.faded_skeleton.hurt=Vervaagd skelet doet pijn
+subtitles.entity.faded_skeleton.wilter=Vervaagde skeletverwelkingen
+subtitles.entity.faded_zombie.ambient=Vervaagde zombie kreunt
+subtitles.entity.faded_zombie.death=Vervaagde zombie sterft
+subtitles.entity.faded_zombie.hurt=Vervaagde zombie doet pijn
+subtitles.entity.faded_zombie.wilter=Vervaagde zombieverwelkingen
+subtitles.entity.seal.ambient=Zeehonden blaffen
+subtitles.entity.seal.hurt=Zegel doet pijn
+subtitles.entity.seal.death=Zegel sterft
+

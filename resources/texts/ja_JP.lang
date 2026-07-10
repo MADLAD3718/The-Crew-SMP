@@ -1,0 +1,210 @@
+item.tcsmp:grappling_hook.name=グラップリングフック
+item.tcsmp:empty_grappling_hook.name=空のグラップリング フック
+item.tcsmp:hook.name=フック
+item.tcsmp:cannon.name=大砲
+item.tcsmp:cannonball.name=キャノンボール
+item.tcsmp:poison_cannonball.name=毒砲弾
+item.tcsmp:wither_cannonball.name=枯れる砲弾
+item.tcsmp:slowness_cannonball.name=減速する砲弾
+item.tcsmp:fire_cannonball.name=ファイアーキャノンボール
+item.tcsmp:warp_crystal.name=ワープクリスタル
+item.tcsmp:overworld_waystone.name=オーバーワールドウェイストーン
+item.tcsmp:nether_waystone.name=ネザーウェイストーン
+item.tcsmp:end_waystone.name=エンドウェイストーン
+item.tcsmp:spell_scroll.name=スペルスクロール
+item.tcsmp:scroll_of_growth.name=成長の巻物
+item.tcsmp:lightning_bottle.name=ボトル・オ・ライトニング
+item.tcsmp:lightning_cannonball.name=チャージキャノンボール
+item.tcsmp:scroll_of_thunder.name=雷の巻物
+item.tcsmp:scroll_of_decay.name=衰退の巻物
+item.tcsmp:scroll_of_return.name=帰還の巻物
+item.tcsmp:katana.name=カタナ
+item.tcsmp:tnt_shield.name=TNTシールド
+item.tcsmp:faction_invite.name=派閥の招待
+item.tcsmp:big_sandwich.name=ビッグサンドイッチ
+item.tcsmp:lucks_bane.name=幸運の災難
+item.tcsmp:prismarine_blade.name=プリズマリンブレード
+item.tcsmp:gerbil.name=スナネズミ
+item.tcsmp:tomato.name=トマト
+item.tcsmp:slime_boots.name=スライムブーツ
+item.tcsmp:roulette_plate.name=ルーレットプレート
+item.tcsmp:barnacle_fang.name=フジツボの牙
+item.tcsmp:tempered_warp_crystal.name=強化ワープクリスタル
+item.tcsmp:scroll_of_nausea.name=硫黄蒸気の巻物
+item.tcsmp:scroll_of_undead.name=アンデッドの巻物
+
+lore.random_damage=\n§r§9+§kg§r§9 攻撃ダメージ§r
+lore.fire_cannonball=§r§cターゲットに火をつける§r
+lore.lightning_cannonball=§r§c雷撃§r
+lore.poison_cannonball=§r§c毒付与(0:10)§r
+lore.slowness_cannonball=§r§c遅さを適用 (0:10)§r
+lore.wither_cannonball=§r§cウィザーを適用 (0:10)§r
+lore.prismarine_blade_backstab=§r§9+7 バックスタブダメージ§r
+
+item.record_balloonpop.desc=ジョージ・ビデオ - CRAcK@$
+item.record_open.desc=George Vide - プーマ パンツ
+item.record_take_picture.desc=ジョージ・ビデオ - ドロップ・イット
+item.record_hit.desc=George Vide - BA$ED BOY$
+item.record_reaction.icebomb.desc=ジョージ・ヴィデ - オバマ
+item.record_reaction.bleach.desc=ジョージ・ビデオ - 率直な事実
+
+item.spawn_egg.entity.tcsmp:gerbil.name=スナネズミのスポーンエッグ
+item.spawn_egg.entity.tcsmp:unicorn.name=ユニコーンのスポーンエッグ
+item.spawn_egg.entity.tcsmp:seal.name=アザラシのスポーンエッグ
+item.spawn_egg.entity.tcsmp:barnacle.name=フジツボのスポーンエッグ
+item.spawn_egg.entity.tcsmp:faded_skeleton.name=色あせたスケルトンのスポーンエッグ
+item.spawn_egg.entity.tcsmp:faded_zombie.name=色あせたゾンビのスポーンエッグ
+
+tile.tcsmp:overworld_waystone.name=オーバーワールドウェイストーン
+tile.tcsmp:nether_waystone.name=ネザーウェイストーン
+tile.tcsmp:end_waystone.name=エンドウェイストーン
+tile.tcsmp:inscription_table.name=銘板
+tile.tcsmp:cannabis_plant.name=大麻植物
+tile.tcsmp:faction_register.name=派閥登録簿
+tile.tcsmp:tomato.name=トマト
+
+entity.tcsmp:grappling_hook_stake.name=グラップリングフックステーク
+entity.tcsmp:grappling_hook_seat.name=グラップリングフックシート
+entity.tcsmp:cannon.name=大砲
+entity.tcsmp:cannonball.name=キャノンボール
+entity.tcsmp:poison_cannonball.name=ポイズンキャノンボール
+entity.tcsmp:wither_cannonball.name=ウィザーキャノンボール
+entity.tcsmp:slowness_cannonball.name=スローネスキャノンボール
+entity.tcsmp:fire_cannonball.name=ファイヤーキャノンボール
+entity.tcsmp:warp_crystal.name=ワープクリスタル
+entity.tcsmp:lightning_cannonball.name=ライトニングキャノンボール
+entity.tcsmp:gerbil.name=スナネズミ
+entity.tcsmp:unicorn.name=ユニコーン
+entity.tcsmp:seal.name=シール
+entity.tcsmp:barnacle.name=フジツボ
+entity.tcsmp:lightning_bottle.name=ボトル・オ・ライトニング
+entity.tcsmp:tempered_warp_crystal.name=強化ワープクリスタル
+entity.tcsmp:faded_zombie.name=色あせたゾンビ
+entity.tcsmp:faded_skeleton.name=色あせたスケルトン
+
+action.hint.exit.tcsmp:grappling_hook_seat=しゃがむかジャンプして切り離す
+action.hint.exit.tcsmp:cannon=しゃがむかジャンプして照準を止める
+action.hint.exit.tcsmp:stair_seat=しゃがむかジャンプして立つ
+action.hint.exit.tcsmp:unicorn=スニークをタップして降ります
+action.interact.ride.tcsmp:unicorn=乗る
+action.interact.gerbil=対話して受け取ります
+action.interact.creeper.lightning=ボトルライトニング
+
+container.inscription_table=§I§N§S§C§R§I§P§T§I§O§N碑文
+
+action.setup.faction_invite.title=派閥招待の設定
+action.setup.faction_invite.no_factions=あなたはどの派閥にも属していません!
+action.setup.faction_invite.message=招待メッセージ
+action.setup.faction_invite.message_placeholder=%s に参加してください!
+action.setup.faction_invite.submit=確認する
+action.setup.faction_invite.cancel=キャンセル
+
+action.join.faction.fail=あなたはすでに派閥に属しています!
+action.join.faction.invalid=%s はもう存在しません!
+action.join.faction.title=派閥の招待
+action.join.faction.accept=参加§%s%s§r
+action.join.faction.reject=拒否する
+
+action.create.faction.title=派閥の作成
+action.create.faction.name=派閥名
+action.create.faction.name_placeholder=最大16文字...
+action.create.faction.submit=作成
+action.create.faction.success=ファクション§%s%s§r が正常に作成されました!
+action.create.faction.fail=ファクション「§%s%s§r」は無効です。ファクションの作成に失敗しました
+
+action.manage.faction.title=ファクションの管理
+action.manage.faction.body=§%s%s§r を管理:
+action.manage.faction.edit_name=名前の編集
+action.manage.faction.edit_players=選手の編集
+action.manage.faction.edit_colour=色の編集
+
+action.manage.faction.colour=勢力の色
+faction_colour.amethyst.name=アメジスト
+faction_colour.copper.name=銅
+faction_colour.diamond.name=ダイヤモンド
+faction_colour.emerald.name=エメラルド
+faction_colour.gold.name=ゴールド
+faction_colour.iron.name=鉄
+faction_colour.lapis.name=ラピス
+faction_colour.netherite.name=ネザライト
+faction_colour.quartz.name=クォーツ
+faction_colour.redstone.name=レッドストーン
+faction_colour.resin.name=樹脂
+
+action.manage.faction.kick=%sをキック
+action.manage.faction.kick_success=%s を §%s%s§r からキックしました。
+
+action.manage.faction.delete=派閥の削除
+action.manage.faction.delete_success=§%s%s§r は削除されました!
+
+action.manage.faction.confirm=確認する
+
+action.manage.faction.info=派閥: %s\n所有者: %s\nメンバー: %s
+action.manage.faction.leave=§%s%s§r のままにしてください
+action.manage.faction.leave_success=§%s%s§r から退会しました
+action.manage.faction.leave_message=§%s[%s]§r %s は派閥を脱退しました
+
+action.message.faction.title=メッセージを送信する
+action.message.faction.message=メッセージ:
+action.message.faction.submit=送信
+action.message.faction.message_text=§%s[%s]§r <%s> %s
+
+info.faction.no_longer_member=あなたはもう %s にいません
+
+form.setup.waystone.title=ウェイストーンのセットアップ
+form.setup.waystone.private=プライベートウェイストーン
+form.setup.waystone.name=ウェイストーン名:
+form.setup.waystone.submit=送信する
+
+form.edit.waystone.title=ウェイストーンの編集
+
+form.interact.waystone.title=ウェイストーンネットワーク
+form.interact.waystone.private=所有者: %s
+form.interact.waystone.global=グローバル
+
+info.waystone.invalid=「%s」は有効なウェイストーン名ではありません
+info.waystone.preexists.global=ウェイストーン「%s」はすでに存在します
+info.waystone.preexists.private=プライベート ウェイストーン "%s" はすでに存在します
+
+info.return_scroll.no_waystones=戻ることができるウェイストーンがありません
+
+itemGroup.tcsmp:waystones=ウェイストーン
+itemGroup.tcsmp:spell_scrolls=魔法の巻物
+itemGroup.tcsmp:cannonballs=砲弾
+
+subtitles.entity.wolf.pet=ファーフリル
+subtitles.block.waystone.travel=道石のさえずり
+subtitles.item.spell_scroll.cast=スペルトリガー
+subtitles.item.katana.draw=カタナが描く
+subtitles.item.katana.dash=刀斬り
+subtitles.item.grappling_hook.retract=グラップリングフックが引っ込む
+subtitles.item.grappling_hook.charge=グラップリングフックがチャージされる
+subtitles.item.grappling_hook.shoot=グラップリングフック発射
+subtitles.entity.cannon.place=大砲の腕
+subtitles.entity.cannon.break=大砲の武装解除
+subtitles.entity.cannon.fire=大砲の発砲
+subtitles.entity.cannon.light=大砲の灯火
+subtitles.entity.gerbil.chirp=スナネズミが鳴く
+subtitles.entity.gerbil.hurt=スナネズミが痛い
+subtitles.item.lucks_bane.big_hit=スロットマシンのカチカチ音
+subtitles.item.knife.backstab=ナイフクリティカル
+subtitles.entity.unicorn.gallop=ユニコーンのギャロップ
+subtitles.entity.unicorn.eat=ユニコーンが食べる
+subtitles.entity.unicorn.trail=ユニコーンの輝き
+subtitles.entity.unicorn.death=ユニコーンが死ぬ
+subtitles.entity.barnacle.ambient=フジツボが泳ぐ
+subtitles.entity.barnacle.death=フジツボが死ぬ
+subtitles.entity.barnacle.hurt=フジツボが痛い
+subtitles.entity.barnacle.attack=フジツボに刺された
+subtitles.entity.faded_skeleton.ambient=色あせたスケルトンのガラガラ音
+subtitles.entity.faded_skeleton.death=色あせたスケルトンが死ぬ
+subtitles.entity.faded_skeleton.hurt=色あせた骸骨が痛い
+subtitles.entity.faded_skeleton.wilter=色あせた骸骨の萎れ
+subtitles.entity.faded_zombie.ambient=色あせたゾンビのうめき声
+subtitles.entity.faded_zombie.death=色あせたゾンビが死ぬ
+subtitles.entity.faded_zombie.hurt=色褪せたゾンビが痛い
+subtitles.entity.faded_zombie.wilter=色あせたゾンビの萎れ
+subtitles.entity.seal.ambient=アザラシの樹皮
+subtitles.entity.seal.hurt=アザラシが痛い
+subtitles.entity.seal.death=シールダイス
+

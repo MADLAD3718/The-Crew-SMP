@@ -1,0 +1,210 @@
+item.tcsmp:grappling_hook.name=Yakalama Kancası
+item.tcsmp:empty_grappling_hook.name=Boş Kıskaç Kancası
+item.tcsmp:hook.name=Kanca
+item.tcsmp:cannon.name=Top
+item.tcsmp:cannonball.name=Gülle
+item.tcsmp:poison_cannonball.name=Zehirli Gülle
+item.tcsmp:wither_cannonball.name=Solduran Gülle
+item.tcsmp:slowness_cannonball.name=Yavaşlayan Gülle
+item.tcsmp:fire_cannonball.name=Ateşli Gülle
+item.tcsmp:warp_crystal.name=Çarpıtma Kristali
+item.tcsmp:overworld_waystone.name=Overworld Yol Taşı
+item.tcsmp:nether_waystone.name=Nether Yol Taşı
+item.tcsmp:end_waystone.name=Son Yol Taşı
+item.tcsmp:spell_scroll.name=Yazım Kaydırma
+item.tcsmp:scroll_of_growth.name=Büyüme Parşömeni
+item.tcsmp:lightning_bottle.name=Şimşek Şişesi
+item.tcsmp:lightning_cannonball.name=Yüklü Gülle
+item.tcsmp:scroll_of_thunder.name=Gök Gürültüsü Parşömeni
+item.tcsmp:scroll_of_decay.name=Çürüme Parşömeni
+item.tcsmp:scroll_of_return.name=Dönüş Parşömeni
+item.tcsmp:katana.name=Katana
+item.tcsmp:tnt_shield.name=TNT Kalkanı
+item.tcsmp:faction_invite.name=Grup Daveti
+item.tcsmp:big_sandwich.name=Büyük Sandviç
+item.tcsmp:lucks_bane.name=Şansın Felaketi
+item.tcsmp:prismarine_blade.name=Prizmarin Kılıcı
+item.tcsmp:gerbil.name=gerbil
+item.tcsmp:tomato.name=Domates
+item.tcsmp:slime_boots.name=Balçık Çizmeler
+item.tcsmp:roulette_plate.name=Rulet Tabağı
+item.tcsmp:barnacle_fang.name=Midye Dişi
+item.tcsmp:tempered_warp_crystal.name=Temperlenmiş Çözgü Kristali
+item.tcsmp:scroll_of_nausea.name=Kükürtlü Buhar Parşömeni
+item.tcsmp:scroll_of_undead.name=Ölümsüzlerin Parşömeni
+
+lore.random_damage=\n§r§9+§kg§r§9 Saldırı Hasarı§r
+lore.fire_cannonball=§r§cAteş Konusunda Hedefleri Belirler§r
+lore.lightning_cannonball=§r§cYıldırım çarpması§r
+lore.poison_cannonball=§r§cZehir Uygular (0:10)§r
+lore.slowness_cannonball=§r§cYavaşlık Uygular (0:10)§r
+lore.wither_cannonball=§r§cSoldurma Uygulanır (0:10)§r
+lore.prismarine_blade_backstab=§r§9+7 Arkadan Bıçaklama Hasarı§r
+
+item.record_balloonpop.desc=George Vide - CRAcK@$
+item.record_open.desc=George Vide - Puma Pantolon
+item.record_take_picture.desc=George Vide - BIRAK
+item.record_hit.desc=George Vide - BA$ED BOY$
+item.record_reaction.icebomb.desc=George Vide-Obama
+item.record_reaction.bleach.desc=George Vide - Gerçekler
+
+item.spawn_egg.entity.tcsmp:gerbil.name=Gerbil Yumurtlama Yumurtası
+item.spawn_egg.entity.tcsmp:unicorn.name=Tekboynuz Yumurtlama Yumurtası
+item.spawn_egg.entity.tcsmp:seal.name=Fok Yumurtlama Yumurtası
+item.spawn_egg.entity.tcsmp:barnacle.name=Midye Yumurtlama Yumurtası
+item.spawn_egg.entity.tcsmp:faded_skeleton.name=Solmuş İskelet Yumurtası
+item.spawn_egg.entity.tcsmp:faded_zombie.name=Solmuş Zombi Yumurtası
+
+tile.tcsmp:overworld_waystone.name=Overworld Yol Taşı
+tile.tcsmp:nether_waystone.name=Nether Yol Taşı
+tile.tcsmp:end_waystone.name=Son Yol Taşı
+tile.tcsmp:inscription_table.name=Yazı Tablosu
+tile.tcsmp:cannabis_plant.name=Kenevir Bitkisi
+tile.tcsmp:faction_register.name=Fraksiyon Kaydı
+tile.tcsmp:tomato.name=Domates
+
+entity.tcsmp:grappling_hook_stake.name=Grappling Kanca Kazığı
+entity.tcsmp:grappling_hook_seat.name=Kıskaçlı Kancalı Koltuk
+entity.tcsmp:cannon.name=Top
+entity.tcsmp:cannonball.name=Gülle
+entity.tcsmp:poison_cannonball.name=Zehirli Gülle
+entity.tcsmp:wither_cannonball.name=Solmuş Gülle
+entity.tcsmp:slowness_cannonball.name=Yavaşlık Güllesi
+entity.tcsmp:fire_cannonball.name=Ateşli Top Mermisi
+entity.tcsmp:warp_crystal.name=Çarpıtma Kristali
+entity.tcsmp:lightning_cannonball.name=Yıldırım Güllesi
+entity.tcsmp:gerbil.name=gerbil
+entity.tcsmp:unicorn.name=Tek boynuzlu at
+entity.tcsmp:seal.name=Mühür
+entity.tcsmp:barnacle.name=Midye
+entity.tcsmp:lightning_bottle.name=Şimşek Şişesi
+entity.tcsmp:tempered_warp_crystal.name=Temperlenmiş Çözgü Kristali
+entity.tcsmp:faded_zombie.name=Solmuş Zombi
+entity.tcsmp:faded_skeleton.name=Solmuş İskelet
+
+action.hint.exit.tcsmp:grappling_hook_seat=Ayrılmak için çömelin veya atlayın
+action.hint.exit.tcsmp:cannon=Nişan almayı durdurmak için çömelin veya zıplayın
+action.hint.exit.tcsmp:stair_seat=Ayağa kalkmak için çömelin veya zıplayın
+action.hint.exit.tcsmp:unicorn=İnmek için gizlice dokunun
+action.interact.ride.tcsmp:unicorn=yolculuk
+action.interact.gerbil=Almak için etkileşim kurun
+action.interact.creeper.lightning=Şişe yıldırım
+
+container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NYazı
+
+action.setup.faction_invite.title=Fraksiyon Daveti Kur
+action.setup.faction_invite.no_factions=Hiçbir grubun parçası değilsiniz!
+action.setup.faction_invite.message=Davet Mesajı
+action.setup.faction_invite.message_placeholder=Gelin %s'e katılın!
+action.setup.faction_invite.submit=Onayla
+action.setup.faction_invite.cancel=İptal
+
+action.join.faction.fail=Zaten bir gruptasınız!
+action.join.faction.invalid=%s artık mevcut değil!
+action.join.faction.title=Grup Daveti
+action.join.faction.accept=§%s%s§r'ye katılın
+action.join.faction.reject=Reddet
+
+action.create.faction.title=Fraksiyon Oluştur
+action.create.faction.name=Grup Adı
+action.create.faction.name_placeholder=Maksimum 16 karakter...
+action.create.faction.submit=Oluştur
+action.create.faction.success=Grup §%s%s§r başarıyla oluşturuldu!
+action.create.faction.fail="§%s%s§r" grubu geçersiz, grup oluşturulamadı
+
+action.manage.faction.title=Grubu Yönet
+action.manage.faction.body=§%s%s§r'yi yönetin:
+action.manage.faction.edit_name=Adı Düzenle
+action.manage.faction.edit_players=Oyuncuları Düzenle
+action.manage.faction.edit_colour=Rengi Düzenle
+
+action.manage.faction.colour=Grup Rengi
+faction_colour.amethyst.name=Ametist
+faction_colour.copper.name=Bakır
+faction_colour.diamond.name=Elmas
+faction_colour.emerald.name=Zümrüt
+faction_colour.gold.name=Altın
+faction_colour.iron.name=Demir
+faction_colour.lapis.name=Lapis
+faction_colour.netherite.name=Neterit
+faction_colour.quartz.name=Kuvars
+faction_colour.redstone.name=Kızıltaş
+faction_colour.resin.name=Reçine
+
+action.manage.faction.kick=%s'yi at
+action.manage.faction.kick_success=%s, §%s%s§r'den atıldı.
+
+action.manage.faction.delete=Fraksiyonu Sil
+action.manage.faction.delete_success=§%s%s§r silindi!
+
+action.manage.faction.confirm=Onayla
+
+action.manage.faction.info=Grup: %s\nSahip: %s\nÜyeler: %s
+action.manage.faction.leave=§%s%s§r'den ayrılın
+action.manage.faction.leave_success=§%s%s§r'den ayrıldınız
+action.manage.faction.leave_message=§%s[%s]§r %s gruptan ayrıldı
+
+action.message.faction.title=Mesaj Gönder
+action.message.faction.message=Mesaj:
+action.message.faction.submit=Gönder
+action.message.faction.message_text=§%s[%s]§r <%s> %s
+
+info.faction.no_longer_member=Artık %s'de değilsiniz
+
+form.setup.waystone.title=Yol Taşı Kurulumu
+form.setup.waystone.private=Özel Yol Taşı
+form.setup.waystone.name=Yol Taşı Adı:
+form.setup.waystone.submit=Gönder
+
+form.edit.waystone.title=Yol Taşını Düzenle
+
+form.interact.waystone.title=Yol Taşı Ağı
+form.interact.waystone.private=Sahip: %s
+form.interact.waystone.global=Küresel
+
+info.waystone.invalid="%s" geçerli bir yol taşı adı değil
+info.waystone.preexists.global=Yoltaşı "%s" zaten mevcut
+info.waystone.preexists.private=Özel Yol Taşı "%s" zaten mevcut
+
+info.return_scroll.no_waystones=Geri dönebileceğiniz kullanılabilir yol taşınız yok
+
+itemGroup.tcsmp:waystones=Yol taşları
+itemGroup.tcsmp:spell_scrolls=Yazım Parşömenleri
+itemGroup.tcsmp:cannonballs=Gülleler
+
+subtitles.entity.wolf.pet=Kürk fırfırlar
+subtitles.block.waystone.travel=Yol taşı uğultuları
+subtitles.item.spell_scroll.cast=Yazım tetikleyicileri
+subtitles.item.katana.draw=Katana berabere
+subtitles.item.katana.dash=Katana kesikleri
+subtitles.item.grappling_hook.retract=Grappling Hook geri çekiliyor
+subtitles.item.grappling_hook.charge=Grappling Hook şarj oluyor
+subtitles.item.grappling_hook.shoot=Grappling Hook'ta yangınlar
+subtitles.entity.cannon.place=Top kolları
+subtitles.entity.cannon.break=Top silahsızlandırılıyor
+subtitles.entity.cannon.fire=Top ateşleri
+subtitles.entity.cannon.light=Top ışıkları
+subtitles.entity.gerbil.chirp=Gerbil cıvıltıları
+subtitles.entity.gerbil.hurt=Gerbil acıyor
+subtitles.item.lucks_bane.big_hit=Slot makinesi sesleri
+subtitles.item.knife.backstab=Bıçak kritikleri
+subtitles.entity.unicorn.gallop=Tek boynuzlu at dörtnala
+subtitles.entity.unicorn.eat=Tek boynuzlu at yiyor
+subtitles.entity.unicorn.trail=Tek boynuzlu at parıldıyor
+subtitles.entity.unicorn.death=Tek boynuzlu at ölür
+subtitles.entity.barnacle.ambient=Midye yüzüyor
+subtitles.entity.barnacle.death=Midye ölür
+subtitles.entity.barnacle.hurt=Midye acıyor
+subtitles.entity.barnacle.attack=Midye ısırıkları
+subtitles.entity.faded_skeleton.ambient=Solmuş İskelet çıngırakları
+subtitles.entity.faded_skeleton.death=Solmuş İskelet ölür
+subtitles.entity.faded_skeleton.hurt=Solmuş İskelet acıyor
+subtitles.entity.faded_skeleton.wilter=Solmuş İskelet soluyor
+subtitles.entity.faded_zombie.ambient=Solmuş Zombi inliyor
+subtitles.entity.faded_zombie.death=Solmuş Zombi öldü
+subtitles.entity.faded_zombie.hurt=Solmuş Zombi acıtıyor
+subtitles.entity.faded_zombie.wilter=Solmuş Zombi soluyor
+subtitles.entity.seal.ambient=Kabukları mühürleyin
+subtitles.entity.seal.hurt=Mühür acıyor
+subtitles.entity.seal.death=Mühür ölür
+

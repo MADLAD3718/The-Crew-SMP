@@ -1,0 +1,210 @@
+item.tcsmp:grappling_hook.name=Грейферний гак
+item.tcsmp:empty_grappling_hook.name=Порожній грейферний гак
+item.tcsmp:hook.name=Гачок
+item.tcsmp:cannon.name=Гармата
+item.tcsmp:cannonball.name=Гарматне ядро
+item.tcsmp:poison_cannonball.name=Отруйне гарматне ядро
+item.tcsmp:wither_cannonball.name=В'януче гарматне ядро
+item.tcsmp:slowness_cannonball.name=Уповільнення Cannonball
+item.tcsmp:fire_cannonball.name=Вогняне гарматне ядро
+item.tcsmp:warp_crystal.name=Кристал деформації
+item.tcsmp:overworld_waystone.name=Надземний шляховий камінь
+item.tcsmp:nether_waystone.name=Nether Waystone
+item.tcsmp:end_waystone.name=Кінець Waystone
+item.tcsmp:spell_scroll.name=Прокрутка заклинань
+item.tcsmp:scroll_of_growth.name=Сувій зростання
+item.tcsmp:lightning_bottle.name=Bottle o' Lightning
+item.tcsmp:lightning_cannonball.name=Заряджене гарматне ядро
+item.tcsmp:scroll_of_thunder.name=Сувій грому
+item.tcsmp:scroll_of_decay.name=Сувій розпаду
+item.tcsmp:scroll_of_return.name=Сувій повернення
+item.tcsmp:katana.name=Катана
+item.tcsmp:tnt_shield.name=Тротиловий щит
+item.tcsmp:faction_invite.name=Запрошення фракції
+item.tcsmp:big_sandwich.name=Великий бутерброд
+item.tcsmp:lucks_bane.name=Прокляття удачі
+item.tcsmp:prismarine_blade.name=Prismarine Blade
+item.tcsmp:gerbil.name=Піщанка
+item.tcsmp:tomato.name=помідор
+item.tcsmp:slime_boots.name=Слизові чоботи
+item.tcsmp:roulette_plate.name=Тарілка для рулетки
+item.tcsmp:barnacle_fang.name=Вусаче ікло
+item.tcsmp:tempered_warp_crystal.name=Загартований варп-кристал
+item.tcsmp:scroll_of_nausea.name=Сувій сірчаної пари
+item.tcsmp:scroll_of_undead.name=Сувій нежиті
+
+lore.random_damage=\n§r§9+§kg§r§9 Шкода від атаки§r
+lore.fire_cannonball=§r§cУстановлює цілі у вогонь§r
+lore.lightning_cannonball=§r§cБлискавка§r
+lore.poison_cannonball=§r§cЗастосовує отруту (0:10)§r
+lore.slowness_cannonball=§r§cЗастосовує повільність (0:10)§r
+lore.wither_cannonball=§r§cЗастосовується Wither (0:10)§r
+lore.prismarine_blade_backstab=§r§9+7 Пошкодження ударом у спину§r
+
+item.record_balloonpop.desc=Джордж Віде - CRAck@$
+item.record_open.desc=George Vide - штани Puma
+item.record_take_picture.desc=George Vide - DROP IT
+item.record_hit.desc=Джордж Віде - BA$ED BOY$
+item.record_reaction.icebomb.desc=Джордж Віде - Обама
+item.record_reaction.bleach.desc=Джордж Віде - Прямі факти
+
+item.spawn_egg.entity.tcsmp:gerbil.name=Яйце ікри піщанки
+item.spawn_egg.entity.tcsmp:unicorn.name=Яйце відродження єдинорога
+item.spawn_egg.entity.tcsmp:seal.name=Яйце ікри тюленя
+item.spawn_egg.entity.tcsmp:barnacle.name=Яйце ікри вусачів
+item.spawn_egg.entity.tcsmp:faded_skeleton.name=Вицвіле яйце породи скелета
+item.spawn_egg.entity.tcsmp:faded_zombie.name=Вицвіле яйце відродження зомбі
+
+tile.tcsmp:overworld_waystone.name=Надземний шляховий камінь
+tile.tcsmp:nether_waystone.name=Nether Waystone
+tile.tcsmp:end_waystone.name=Кінець Waystone
+tile.tcsmp:inscription_table.name=Таблиця написів
+tile.tcsmp:cannabis_plant.name=Рослина коноплі
+tile.tcsmp:faction_register.name=Реєстр фракцій
+tile.tcsmp:tomato.name=помідор
+
+entity.tcsmp:grappling_hook_stake.name=Захватний крюк
+entity.tcsmp:grappling_hook_seat.name=Сидіння з крюком
+entity.tcsmp:cannon.name=Гармата
+entity.tcsmp:cannonball.name=Гарматне ядро
+entity.tcsmp:poison_cannonball.name=Отруйне гарматне ядро
+entity.tcsmp:wither_cannonball.name=В'яне гарматне ядро
+entity.tcsmp:slowness_cannonball.name=Повільність Cannonball
+entity.tcsmp:fire_cannonball.name=Вогняне гарматне ядро
+entity.tcsmp:warp_crystal.name=Кристал деформації
+entity.tcsmp:lightning_cannonball.name=Блискавка Гарматне ядро
+entity.tcsmp:gerbil.name=Піщанка
+entity.tcsmp:unicorn.name=Єдиноріг
+entity.tcsmp:seal.name=Печатка
+entity.tcsmp:barnacle.name=вусоножка
+entity.tcsmp:lightning_bottle.name=Bottle o' Lightning
+entity.tcsmp:tempered_warp_crystal.name=Загартований варп-кристал
+entity.tcsmp:faded_zombie.name=Вицвілий зомбі
+entity.tcsmp:faded_skeleton.name=Вицвілий скелет
+
+action.hint.exit.tcsmp:grappling_hook_seat=Присідайте або стрибайте, щоб відірватися
+action.hint.exit.tcsmp:cannon=Присідайте або стрибніть, щоб припинити прицілювання
+action.hint.exit.tcsmp:stair_seat=Присідайте або стрибайте, щоб встати
+action.hint.exit.tcsmp:unicorn=Торкніться «крастися», щоб злізти
+action.interact.ride.tcsmp:unicorn=Їздити
+action.interact.gerbil=Взаємодійте, щоб підібрати
+action.interact.creeper.lightning=Пляшкова блискавка
+
+container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NНапис
+
+action.setup.faction_invite.title=Налаштувати запрошення фракції
+action.setup.faction_invite.no_factions=Ви не входите до жодної фракції!
+action.setup.faction_invite.message=Запрошення
+action.setup.faction_invite.message_placeholder=Приєднуйтеся до %s!
+action.setup.faction_invite.submit=Підтвердити
+action.setup.faction_invite.cancel=Скасувати
+
+action.join.faction.fail=Ви вже у фракції!
+action.join.faction.invalid=%s більше не існує!
+action.join.faction.title=Запрошення фракції
+action.join.faction.accept=Приєднайтеся до §%s%s§r
+action.join.faction.reject=Відхиляти
+
+action.create.faction.title=Створити фракцію
+action.create.faction.name=Назва фракції
+action.create.faction.name_placeholder=Максимум 16 символів...
+action.create.faction.submit=Створити
+action.create.faction.success=Фракцію §%s%s§r успішно створено!
+action.create.faction.fail=Фракція "§%s%s§r" недійсна, не вдалося створити фракцію
+
+action.manage.faction.title=Керуйте фракцією
+action.manage.faction.body=Керувати §%s%s§r:
+action.manage.faction.edit_name=Редагувати назву
+action.manage.faction.edit_players=Редагувати гравців
+action.manage.faction.edit_colour=Редагувати колір
+
+action.manage.faction.colour=Колір фракції
+faction_colour.amethyst.name=Аметист
+faction_colour.copper.name=Мідь
+faction_colour.diamond.name=діамант
+faction_colour.emerald.name=Смарагдовий
+faction_colour.gold.name=золото
+faction_colour.iron.name=Залізо
+faction_colour.lapis.name=Ляпіс
+faction_colour.netherite.name=Нетерит
+faction_colour.quartz.name=Кварц
+faction_colour.redstone.name=Редстоун
+faction_colour.resin.name=смола
+
+action.manage.faction.kick=Удар %s
+action.manage.faction.kick_success=Вигнано %s з §%s%s§r.
+
+action.manage.faction.delete=Видалити фракцію
+action.manage.faction.delete_success=§%s%s§r видалено!
+
+action.manage.faction.confirm=Підтвердити
+
+action.manage.faction.info=Фракція: %s\nВласник: %s\nЧлени: %s
+action.manage.faction.leave=Залиште §%s%s§r
+action.manage.faction.leave_success=Ви залишили §%s%s§r
+action.manage.faction.leave_message=§%s[%s]§r %s покинув фракцію
+
+action.message.faction.title=Надіслати повідомлення
+action.message.faction.message=повідомлення:
+action.message.faction.submit=Надіслати
+action.message.faction.message_text=§%s[%s]§r <%s> %s
+
+info.faction.no_longer_member=Ви більше не в %s
+
+form.setup.waystone.title=Налаштування Waystone
+form.setup.waystone.private=Приватний Waystone
+form.setup.waystone.name=Назва Waystone:
+form.setup.waystone.submit=Надіслати
+
+form.edit.waystone.title=Редагувати Waystone
+
+form.interact.waystone.title=Мережа Waystone
+form.interact.waystone.private=Власник: %s
+form.interact.waystone.global=Глобальний
+
+info.waystone.invalid="%s" не є дійсним ім'ям шляху
+info.waystone.preexists.global=Waystone "%s" вже існує
+info.waystone.preexists.private=Приватний Waystone "%s" вже існує
+
+info.return_scroll.no_waystones=У вас немає доступних шляхів, до яких можна повернутися
+
+itemGroup.tcsmp:waystones=Шляхові камені
+itemGroup.tcsmp:spell_scrolls=Сувої заклинань
+itemGroup.tcsmp:cannonballs=Гарматні ядра
+
+subtitles.entity.wolf.pet=Хутряні волани
+subtitles.block.waystone.travel=Waystone warbles
+subtitles.item.spell_scroll.cast=Тригери заклинань
+subtitles.item.katana.draw=Катана малює
+subtitles.item.katana.dash=Катана січе
+subtitles.item.grappling_hook.retract=Грейферний гак втягується
+subtitles.item.grappling_hook.charge=Захватний гак заряджається
+subtitles.item.grappling_hook.shoot=Захоплюючий гак вогонь
+subtitles.entity.cannon.place=Гарматне озброєння
+subtitles.entity.cannon.break=Гармата роззброює
+subtitles.entity.cannon.fire=Гарматні постріли
+subtitles.entity.cannon.light=Гарматні вогні
+subtitles.entity.gerbil.chirp=Піщанка цвірінькає
+subtitles.entity.gerbil.hurt=Піщанка болить
+subtitles.item.lucks_bane.big_hit=Ігровий автомат дзвін
+subtitles.item.knife.backstab=Крити ножем
+subtitles.entity.unicorn.gallop=Єдиноріг скаче
+subtitles.entity.unicorn.eat=Єдиноріг їсть
+subtitles.entity.unicorn.trail=Єдиноріг виблискує
+subtitles.entity.unicorn.death=Єдиноріг гине
+subtitles.entity.barnacle.ambient=Вусач плаває
+subtitles.entity.barnacle.death=Барнакл гине
+subtitles.entity.barnacle.hurt=Вусоподібний болить
+subtitles.entity.barnacle.attack=Укуси вусачів
+subtitles.entity.faded_skeleton.ambient=Вицвілі брязкальця Skeleton
+subtitles.entity.faded_skeleton.death=Вицвілий скелет помирає
+subtitles.entity.faded_skeleton.hurt=Зів'ялий Скелет болить
+subtitles.entity.faded_skeleton.wilter=Зів'ялий скелет
+subtitles.entity.faded_zombie.ambient=Зблідлий зомбі стогне
+subtitles.entity.faded_zombie.death=Вицвілий зомбі вмирає
+subtitles.entity.faded_zombie.hurt=Зблідлому зомбі боляче
+subtitles.entity.faded_zombie.wilter=Зів'ялі зомбі
+subtitles.entity.seal.ambient=Тюлень гавкає
+subtitles.entity.seal.hurt=Ущільнення болить
+subtitles.entity.seal.death=Тюлень гине
+

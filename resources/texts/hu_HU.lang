@@ -1,0 +1,210 @@
+item.tcsmp:grappling_hook.name=Grappling Hook
+item.tcsmp:empty_grappling_hook.name=Üres Grappling Hook
+item.tcsmp:hook.name=Horog
+item.tcsmp:cannon.name=Cannon
+item.tcsmp:cannonball.name=Cannonball
+item.tcsmp:poison_cannonball.name=Mérgező ágyúgolyó
+item.tcsmp:wither_cannonball.name=Withering Cannonball
+item.tcsmp:slowness_cannonball.name=Slowing Cannonball
+item.tcsmp:fire_cannonball.name=Firey Cannonball
+item.tcsmp:warp_crystal.name=Warp Crystal
+item.tcsmp:overworld_waystone.name=Overworld Waystone
+item.tcsmp:nether_waystone.name=Nether Waystone
+item.tcsmp:end_waystone.name=End Waystone
+item.tcsmp:spell_scroll.name=Spell Scroll
+item.tcsmp:scroll_of_growth.name=Scroll of Growth
+item.tcsmp:lightning_bottle.name=Bottle o' Lightning
+item.tcsmp:lightning_cannonball.name=Charged Cannonball
+item.tcsmp:scroll_of_thunder.name=Mennydörgés tekercs
+item.tcsmp:scroll_of_decay.name=Scroll of Decay
+item.tcsmp:scroll_of_return.name=Visszatérés tekercs
+item.tcsmp:katana.name=Katana
+item.tcsmp:tnt_shield.name=TNT Shield
+item.tcsmp:faction_invite.name=Frakciómeghívás
+item.tcsmp:big_sandwich.name=Big Sandwich
+item.tcsmp:lucks_bane.name=Luck's Bane
+item.tcsmp:prismarine_blade.name=Prismarine Blade
+item.tcsmp:gerbil.name=Gerbil
+item.tcsmp:tomato.name=Tomato
+item.tcsmp:slime_boots.name=Slime Boots
+item.tcsmp:roulette_plate.name=Rulettlemez
+item.tcsmp:barnacle_fang.name=Barnacle Fang
+item.tcsmp:tempered_warp_crystal.name=Edzett Warp Crystal
+item.tcsmp:scroll_of_nausea.name=Kéngőz tekercs
+item.tcsmp:scroll_of_undead.name=Tekercs az élőhalottakról
+
+lore.random_damage=\n§r§9+§kg§r§9 Támadás Sebzés§r
+lore.fire_cannonball=§r§cCélokat állít be tűzre§r
+lore.lightning_cannonball=§r§c Villámcsapás§r
+lore.poison_cannonball=§r§cPoison (0:10)§r alkalmazása
+lore.slowness_cannonball=§r§cLassúságot (0:10)§r alkalmaz
+lore.wither_cannonball=§r§cFarva (0:10)§r vonatkozik
+lore.prismarine_blade_backstab=§r§9+7 Hátsó sérülés§r
+
+item.record_balloonpop.desc=George Vide - CRAcK@$
+item.record_open.desc=George Vide - Puma nadrág
+item.record_take_picture.desc=George Vide - DROP IT
+item.record_hit.desc=George Vide – BA$ED BOY$
+item.record_reaction.icebomb.desc=George Vide – Obama
+item.record_reaction.bleach.desc=George Vide – Egyenes tények
+
+item.spawn_egg.entity.tcsmp:gerbil.name=Gerbil Spawn Egg
+item.spawn_egg.entity.tcsmp:unicorn.name=Unicorn Spawn Egg
+item.spawn_egg.entity.tcsmp:seal.name=Seal Spawn Egg
+item.spawn_egg.entity.tcsmp:barnacle.name=Barnacle Spawn Egg
+item.spawn_egg.entity.tcsmp:faded_skeleton.name=Faded Skeleton Spawn Egg
+item.spawn_egg.entity.tcsmp:faded_zombie.name=Faded Zombie Spawn Egg
+
+tile.tcsmp:overworld_waystone.name=Overworld Waystone
+tile.tcsmp:nether_waystone.name=Nether Waystone
+tile.tcsmp:end_waystone.name=Vége a Waystone-nak
+tile.tcsmp:inscription_table.name=Felirat táblázat
+tile.tcsmp:cannabis_plant.name=Cannabis Plant
+tile.tcsmp:faction_register.name=Faction Register
+tile.tcsmp:tomato.name=Paradicsom
+
+entity.tcsmp:grappling_hook_stake.name=Grappling Hook Stake
+entity.tcsmp:grappling_hook_seat.name=Grappling Hook Seat
+entity.tcsmp:cannon.name=Ágyú
+entity.tcsmp:cannonball.name=Cannonball
+entity.tcsmp:poison_cannonball.name=Poison Cannonball
+entity.tcsmp:wither_cannonball.name=Hervadj Ágyúgolyó
+entity.tcsmp:slowness_cannonball.name=Lassúság Ágyúgolyó
+entity.tcsmp:fire_cannonball.name=Tüzelő ágyúgolyó
+entity.tcsmp:warp_crystal.name=Warp Crystal
+entity.tcsmp:lightning_cannonball.name=Villámágyúgolyó
+entity.tcsmp:gerbil.name=Gerbil
+entity.tcsmp:unicorn.name=Unicorn
+entity.tcsmp:seal.name=Pecsét
+entity.tcsmp:barnacle.name=Barnacle
+entity.tcsmp:lightning_bottle.name=Bottle o' Lightning
+entity.tcsmp:tempered_warp_crystal.name=Edzett Warp Crystal
+entity.tcsmp:faded_zombie.name=Faded Zombie
+entity.tcsmp:faded_skeleton.name=Faded Skeleton
+
+action.hint.exit.tcsmp:grappling_hook_seat=Leguggoljon vagy ugorjon a leváláshoz
+action.hint.exit.tcsmp:cannon=Leguggolj vagy ugorj a célzás leállításához
+action.hint.exit.tcsmp:stair_seat=Crouch or jump to stand
+action.hint.exit.tcsmp:unicorn=Tap sneak to dismount
+action.interact.ride.tcsmp:unicorn=Ride
+action.interact.gerbil=Lépjen kapcsolatba a felvételhez
+action.interact.creeper.lightning=Bottle lightning
+
+container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NIfelirat
+
+action.setup.faction_invite.title=Frakciómeghívás beállítása
+action.setup.faction_invite.no_factions=Nem vagy tagja egyetlen frakciónak sem!
+action.setup.faction_invite.message=Meghívó üzenet
+action.setup.faction_invite.message_placeholder=Come join %s!
+action.setup.faction_invite.submit=Erősítse meg
+action.setup.faction_invite.cancel=Mégsem
+
+action.join.faction.fail=Máris egy frakcióban vagy!
+action.join.faction.invalid=%s no longer exists!
+action.join.faction.title=Frakciómeghívás
+action.join.faction.accept=Join §%s%s§r
+action.join.faction.reject=Elutasítás
+
+action.create.faction.title=Create Faction
+action.create.faction.name=Faction Name
+action.create.faction.name_placeholder=Max 16 characters...
+action.create.faction.submit=Create
+action.create.faction.success=A §%s%s§r frakció sikeresen létrehozva!
+action.create.faction.fail=A "§%s%s§r" frakció érvénytelen, nem sikerült létrehozni
+
+action.manage.faction.title=Manage Faction
+action.manage.faction.body=Manage §%s%s§r:
+action.manage.faction.edit_name=Edit Name
+action.manage.faction.edit_players=Szerkessze a játékosokat
+action.manage.faction.edit_colour=Edit Colour
+
+action.manage.faction.colour=Frakció színe
+faction_colour.amethyst.name=Amethyst
+faction_colour.copper.name=Réz
+faction_colour.diamond.name=Gyémánt
+faction_colour.emerald.name=Emerald
+faction_colour.gold.name=Arany
+faction_colour.iron.name=Iron
+faction_colour.lapis.name=Lapis
+faction_colour.netherite.name=Netherite
+faction_colour.quartz.name=Quartz
+faction_colour.redstone.name=Redstone
+faction_colour.resin.name=Resin
+
+action.manage.faction.kick=Rúgd %s
+action.manage.faction.kick_success=Kirúgta %s innen: §%s%s§r.
+
+action.manage.faction.delete=Delete Faction
+action.manage.faction.delete_success=§%s%s§r törölve!
+
+action.manage.faction.confirm=Confirm
+
+action.manage.faction.info=Frakció: %s\nTulajdonos: %s\nTagok: %s
+action.manage.faction.leave=Leave §%s%s§r
+action.manage.faction.leave_success=You have left §%s%s§r
+action.manage.faction.leave_message=§%s[%s]§r %s kilépett a frakcióból
+
+action.message.faction.title=Üzenet küldése
+action.message.faction.message=Üzenet:
+action.message.faction.submit=Küldés
+action.message.faction.message_text=§%s[%s]§r <%s> %s
+
+info.faction.no_longer_member=You are no longer in %s
+
+form.setup.waystone.title=Waystone Setup
+form.setup.waystone.private=Private Waystone
+form.setup.waystone.name=Waystone Name:
+form.setup.waystone.submit=Beküld
+
+form.edit.waystone.title=Edit Waystone
+
+form.interact.waystone.title=Waystone hálózat
+form.interact.waystone.private=Tulajdonos: %s
+form.interact.waystone.global=Global
+
+info.waystone.invalid=A „%s” nem érvényes útkőnév
+info.waystone.preexists.global=A Waystone "%s" már létezik
+info.waystone.preexists.private=A privát Waystone "%s" már létezik
+
+info.return_scroll.no_waystones=Nincsenek elérhető útkövek, amelyekhez visszatérhetne
+
+itemGroup.tcsmp:waystones=Útkövek
+itemGroup.tcsmp:spell_scrolls=Spell Scrolls
+itemGroup.tcsmp:cannonballs=Ágyúgolyók
+
+subtitles.entity.wolf.pet=Szőrmefodrok
+subtitles.block.waystone.travel=Waystone warbles
+subtitles.item.spell_scroll.cast=Varázslat kiváltók
+subtitles.item.katana.draw=Katana húz
+subtitles.item.katana.dash=Katana slashes
+subtitles.item.grappling_hook.retract=Grappling Hook retracts
+subtitles.item.grappling_hook.charge=Grappling Hook feltöltődik
+subtitles.item.grappling_hook.shoot=Grappling Hook tüzel
+subtitles.entity.cannon.place=Ágyú fegyverek
+subtitles.entity.cannon.break=Az ágyú lefegyverzi
+subtitles.entity.cannon.fire=Ágyúlövések
+subtitles.entity.cannon.light=Ágyúfények
+subtitles.entity.gerbil.chirp=Gerbil chirps
+subtitles.entity.gerbil.hurt=Gerbil fáj
+subtitles.item.lucks_bane.big_hit=A pénznyerő automata csörömpöl
+subtitles.item.knife.backstab=Kés kritikák
+subtitles.entity.unicorn.gallop=Unicorn gallops
+subtitles.entity.unicorn.eat=Egyszarvú eszik
+subtitles.entity.unicorn.trail=Egyszarvú csillog
+subtitles.entity.unicorn.death=Unicorn dies
+subtitles.entity.barnacle.ambient=Barnacle úszik
+subtitles.entity.barnacle.death=Barnacle meghal
+subtitles.entity.barnacle.hurt=Barnacle hurts
+subtitles.entity.barnacle.attack=Barnacle harap
+subtitles.entity.faded_skeleton.ambient=Kifakult Csontváz zörög
+subtitles.entity.faded_skeleton.death=A kifakult csontváz meghal
+subtitles.entity.faded_skeleton.hurt=A kifakult csontváz fáj
+subtitles.entity.faded_skeleton.wilter=A kifakult csontváz megfonnyad
+subtitles.entity.faded_zombie.ambient=Faded Zombie groans
+subtitles.entity.faded_zombie.death=Faded Zombie meghal
+subtitles.entity.faded_zombie.hurt=Kifakult Zombi fáj
+subtitles.entity.faded_zombie.wilter=Kifakult Zombi fonnyad
+subtitles.entity.seal.ambient=Fóka ugat
+subtitles.entity.seal.hurt=A fóka fáj
+subtitles.entity.seal.death=Seal dies
+

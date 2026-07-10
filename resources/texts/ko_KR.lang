@@ -1,0 +1,210 @@
+item.tcsmp:grappling_hook.name=갈고리
+item.tcsmp:empty_grappling_hook.name=빈 갈고리
+item.tcsmp:hook.name=후크
+item.tcsmp:cannon.name=대포
+item.tcsmp:cannonball.name=캐논볼
+item.tcsmp:poison_cannonball.name=유독한 대포알
+item.tcsmp:wither_cannonball.name=메마른 대포알
+item.tcsmp:slowness_cannonball.name=느려지는 대포알
+item.tcsmp:fire_cannonball.name=파이어리 캐논볼
+item.tcsmp:warp_crystal.name=워프 크리스탈
+item.tcsmp:overworld_waystone.name=오버월드 웨이스톤
+item.tcsmp:nether_waystone.name=황천의 웨이스톤
+item.tcsmp:end_waystone.name=엔드 웨이스톤
+item.tcsmp:spell_scroll.name=주문 스크롤
+item.tcsmp:scroll_of_growth.name=성장의 두루마리
+item.tcsmp:lightning_bottle.name=보틀 오 라이트닝
+item.tcsmp:lightning_cannonball.name=충전된 대포알
+item.tcsmp:scroll_of_thunder.name=천둥의 두루마리
+item.tcsmp:scroll_of_decay.name=부패의 두루마리
+item.tcsmp:scroll_of_return.name=귀환의 두루마리
+item.tcsmp:katana.name=카타나
+item.tcsmp:tnt_shield.name=TNT 실드
+item.tcsmp:faction_invite.name=세력 초대
+item.tcsmp:big_sandwich.name=빅샌드위치
+item.tcsmp:lucks_bane.name=행운의 베인
+item.tcsmp:prismarine_blade.name=프리즈머린 블레이드
+item.tcsmp:gerbil.name=게르빌
+item.tcsmp:tomato.name=토마토
+item.tcsmp:slime_boots.name=슬라임 부츠
+item.tcsmp:roulette_plate.name=룰렛 플레이트
+item.tcsmp:barnacle_fang.name=따개비 송곳니
+item.tcsmp:tempered_warp_crystal.name=강화된 워프 수정
+item.tcsmp:scroll_of_nausea.name=유황 증기 두루마리
+item.tcsmp:scroll_of_undead.name=언데드의 두루마리
+
+lore.random_damage=\n§r§9+§kg§r§9 공격 피해§r
+lore.fire_cannonball=§r§c목표물에 불을 붙입니다§r
+lore.lightning_cannonball=§r§c번개 공격§r
+lore.poison_cannonball=§r§c독 적용(0:10)§r
+lore.slowness_cannonball=§r§c느림 적용(0:10)§r
+lore.wither_cannonball=§r§c위더 적용(0:10)§r
+lore.prismarine_blade_backstab=§r§9+7 기습 피해§r
+
+item.record_balloonpop.desc=조지 비드 - CRAcK@$
+item.record_open.desc=George Vide - 푸마 바지
+item.record_take_picture.desc=조지 비드 - 그만둬
+item.record_hit.desc=조지 비드(George Vide) - BA$ED BOY$
+item.record_reaction.icebomb.desc=조지 비드 - 오바마
+item.record_reaction.bleach.desc=George Vide-똑바른 사실
+
+item.spawn_egg.entity.tcsmp:gerbil.name=게르빌 산란 알
+item.spawn_egg.entity.tcsmp:unicorn.name=유니콘 산란 알
+item.spawn_egg.entity.tcsmp:seal.name=물개 생성 알
+item.spawn_egg.entity.tcsmp:barnacle.name=따개비 생성 알
+item.spawn_egg.entity.tcsmp:faded_skeleton.name=빛 바랜 해골 생성 알
+item.spawn_egg.entity.tcsmp:faded_zombie.name=빛 바랜 좀비 생성 알
+
+tile.tcsmp:overworld_waystone.name=오버월드 웨이스톤
+tile.tcsmp:nether_waystone.name=황천의 웨이스톤
+tile.tcsmp:end_waystone.name=엔드 웨이스톤
+tile.tcsmp:inscription_table.name=비문 테이블
+tile.tcsmp:cannabis_plant.name=대마초 공장
+tile.tcsmp:faction_register.name=진영 등록
+tile.tcsmp:tomato.name=토마토
+
+entity.tcsmp:grappling_hook_stake.name=그래플링 훅 스테이크
+entity.tcsmp:grappling_hook_seat.name=그래플링 후크 시트
+entity.tcsmp:cannon.name=대포
+entity.tcsmp:cannonball.name=캐논볼
+entity.tcsmp:poison_cannonball.name=포이즌 캐논볼
+entity.tcsmp:wither_cannonball.name=위더 캐논볼
+entity.tcsmp:slowness_cannonball.name=느림 대포알
+entity.tcsmp:fire_cannonball.name=불 대포
+entity.tcsmp:warp_crystal.name=워프 크리스탈
+entity.tcsmp:lightning_cannonball.name=번개 대포
+entity.tcsmp:gerbil.name=게르빌
+entity.tcsmp:unicorn.name=유니콘
+entity.tcsmp:seal.name=인감
+entity.tcsmp:barnacle.name=따개비
+entity.tcsmp:lightning_bottle.name=보틀 오 라이트닝
+entity.tcsmp:tempered_warp_crystal.name=강화된 워프 수정
+entity.tcsmp:faded_zombie.name=빛바랜 좀비
+entity.tcsmp:faded_skeleton.name=빛바랜 해골
+
+action.hint.exit.tcsmp:grappling_hook_seat=분리하려면 웅크리거나 점프하세요.
+action.hint.exit.tcsmp:cannon=조준을 중지하려면 몸을 숙이거나 점프하세요.
+action.hint.exit.tcsmp:stair_seat=웅크리거나 뛰어서 일어선다
+action.hint.exit.tcsmp:unicorn=몰래 탭하여 내리세요
+action.interact.ride.tcsmp:unicorn=타고
+action.interact.gerbil=픽업하려면 상호작용하세요.
+action.interact.creeper.lightning=병 번개
+
+container.inscription_table=§I§N§S§C§R§I§P§T§I§O§N비문
+
+action.setup.faction_invite.title=파벌 초대 설정
+action.setup.faction_invite.no_factions=당신은 어느 세력에도 속해 있지 않습니다!
+action.setup.faction_invite.message=초대 메시지
+action.setup.faction_invite.message_placeholder=%s에 참여하세요!
+action.setup.faction_invite.submit=확인
+action.setup.faction_invite.cancel=취소
+
+action.join.faction.fail=당신은 이미 파벌에 속해 있습니다!
+action.join.faction.invalid=%s은(는) 더 이상 존재하지 않습니다!
+action.join.faction.title=세력 초대
+action.join.faction.accept=§%s%s§r에 가입하세요
+action.join.faction.reject=거부
+
+action.create.faction.title=진영 생성
+action.create.faction.name=세력 이름
+action.create.faction.name_placeholder=최대 16자...
+action.create.faction.submit=만들기
+action.create.faction.success=§%s%s§r 세력이 성공적으로 생성되었습니다!
+action.create.faction.fail=팩션 "§%s%s§r"이 유효하지 않습니다. 팩션을 생성하지 못했습니다.
+
+action.manage.faction.title=진영 관리
+action.manage.faction.body=§%s%s§r 관리:
+action.manage.faction.edit_name=이름 수정
+action.manage.faction.edit_players=플레이어 편집
+action.manage.faction.edit_colour=색상 편집
+
+action.manage.faction.colour=세력 색상
+faction_colour.amethyst.name=자수정
+faction_colour.copper.name=구리
+faction_colour.diamond.name=다이아몬드
+faction_colour.emerald.name=에메랄드
+faction_colour.gold.name=골드
+faction_colour.iron.name=철
+faction_colour.lapis.name=라피스
+faction_colour.netherite.name=네더라이트
+faction_colour.quartz.name=석영
+faction_colour.redstone.name=레드스톤
+faction_colour.resin.name=수지
+
+action.manage.faction.kick=%s 킥
+action.manage.faction.kick_success=%s을(를) §%s%s§r에서 추방했습니다.
+
+action.manage.faction.delete=세력 삭제
+action.manage.faction.delete_success=§%s%s§r이 삭제되었습니다!
+
+action.manage.faction.confirm=확인
+
+action.manage.faction.info=팩션: %s\n소유자: %s\n멤버: %s
+action.manage.faction.leave=떠나기 §%s%s§r
+action.manage.faction.leave_success=§%s%s§r을(를) 떠났습니다.
+action.manage.faction.leave_message=§%s[%s]§r %s님이 진영을 떠났습니다.
+
+action.message.faction.title=메시지 보내기
+action.message.faction.message=메시지:
+action.message.faction.submit=보내기
+action.message.faction.message_text=§%s[%s]§r <%s> %s
+
+info.faction.no_longer_member=당신은 더 이상 %s에 없습니다.
+
+form.setup.waystone.title=웨이스톤 설정
+form.setup.waystone.private=개인 웨이스톤
+form.setup.waystone.name=웨이스톤 이름:
+form.setup.waystone.submit=제출
+
+form.edit.waystone.title=웨이스톤 편집
+
+form.interact.waystone.title=웨이스톤 네트워크
+form.interact.waystone.private=소유자: %s
+form.interact.waystone.global=글로벌
+
+info.waystone.invalid="%s"은(는) 유효한 웨이스톤 이름이 아닙니다.
+info.waystone.preexists.global=웨이스톤 "%s"이(가) 이미 존재합니다.
+info.waystone.preexists.private=개인 Waystone "%s"이(가) 이미 존재합니다.
+
+info.return_scroll.no_waystones=돌아갈 수 있는 웨이스톤이 없습니다.
+
+itemGroup.tcsmp:waystones=웨이스톤
+itemGroup.tcsmp:spell_scrolls=주문 두루마리
+itemGroup.tcsmp:cannonballs=대포알
+
+subtitles.entity.wolf.pet=모피 주름 장식
+subtitles.block.waystone.travel=웨이스톤의 지저귀는 소리
+subtitles.item.spell_scroll.cast=주문 트리거
+subtitles.item.katana.draw=카타나 무승부
+subtitles.item.katana.dash=카타나 슬래시
+subtitles.item.grappling_hook.retract=그래플링 훅이 수납됩니다.
+subtitles.item.grappling_hook.charge=그래플링 훅이 충전됩니다.
+subtitles.item.grappling_hook.shoot=갈고리 발사
+subtitles.entity.cannon.place=대포 팔
+subtitles.entity.cannon.break=대포가 무장 해제됩니다.
+subtitles.entity.cannon.fire=대포 발사
+subtitles.entity.cannon.light=대포 조명
+subtitles.entity.gerbil.chirp=게르빌의 울음소리
+subtitles.entity.gerbil.hurt=게르빌이 아파요
+subtitles.item.lucks_bane.big_hit=슬롯머신이 찰칵 소리를 낸다
+subtitles.item.knife.backstab=칼 치명타
+subtitles.entity.unicorn.gallop=유니콘 질주
+subtitles.entity.unicorn.eat=유니콘이 먹는다
+subtitles.entity.unicorn.trail=유니콘 반짝임
+subtitles.entity.unicorn.death=유니콘이 죽다
+subtitles.entity.barnacle.ambient=따개비 수영
+subtitles.entity.barnacle.death=따개비 사망
+subtitles.entity.barnacle.hurt=따개비 아프다
+subtitles.entity.barnacle.attack=따개비 물림
+subtitles.entity.faded_skeleton.ambient=빛 바랜 해골 딸랑이
+subtitles.entity.faded_skeleton.death=빛바랜 해골 dies
+subtitles.entity.faded_skeleton.hurt=빛바랜 해골이 아프다
+subtitles.entity.faded_skeleton.wilter=빛 바랜 해골이 시들다
+subtitles.entity.faded_zombie.ambient=빛바랜 좀비가 신음소리를 낸다
+subtitles.entity.faded_zombie.death=빛 바랜 좀비 dies
+subtitles.entity.faded_zombie.hurt=빛바랜 좀비는 아프다
+subtitles.entity.faded_zombie.wilter=빛바랜 좀비가 시들다
+subtitles.entity.seal.ambient=바다표범이 짖는다
+subtitles.entity.seal.hurt=씰이 아파요
+subtitles.entity.seal.death=씰 다이
+

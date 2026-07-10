@@ -1,0 +1,210 @@
+item.tcsmp:grappling_hook.name=Γάντζος Grappling
+item.tcsmp:empty_grappling_hook.name=Άδειο άγκιστρο Grappling
+item.tcsmp:hook.name=Γάντζος
+item.tcsmp:cannon.name=Κανόνι
+item.tcsmp:cannonball.name=Κανονοβόλα
+item.tcsmp:poison_cannonball.name=Δηλητηριώδης οβίδα
+item.tcsmp:wither_cannonball.name=Μαραμένη οβίδα
+item.tcsmp:slowness_cannonball.name=Slowing Cannonball
+item.tcsmp:fire_cannonball.name=Πυροβόλο
+item.tcsmp:warp_crystal.name=Κρύσταλλο στημονιού
+item.tcsmp:overworld_waystone.name=Overworld Waystone
+item.tcsmp:nether_waystone.name=Nether Waystone
+item.tcsmp:end_waystone.name=End Waystone
+item.tcsmp:spell_scroll.name=Ορθογραφία κύλιση
+item.tcsmp:scroll_of_growth.name=Κύλινδρος της ανάπτυξης
+item.tcsmp:lightning_bottle.name=Μπουκάλι Lightning
+item.tcsmp:lightning_cannonball.name=Φορτισμένη οβίδα
+item.tcsmp:scroll_of_thunder.name=Scroll of Thunder
+item.tcsmp:scroll_of_decay.name=Scroll of Decay
+item.tcsmp:scroll_of_return.name=Κύλινδρος της Επιστροφής
+item.tcsmp:katana.name=Κατάνα
+item.tcsmp:tnt_shield.name=Ασπίδα TNT
+item.tcsmp:faction_invite.name=Πρόσκληση παράταξης
+item.tcsmp:big_sandwich.name=Μεγάλο Σάντουιτς
+item.tcsmp:lucks_bane.name=Luck's Bane
+item.tcsmp:prismarine_blade.name=Λεπίδα Prismarine
+item.tcsmp:gerbil.name=Gerbil
+item.tcsmp:tomato.name=Ντομάτα
+item.tcsmp:slime_boots.name=Μπότες Slime
+item.tcsmp:roulette_plate.name=Πιάτο Ρουλέτας
+item.tcsmp:barnacle_fang.name=Κυνόδοντας Barnacle
+item.tcsmp:tempered_warp_crystal.name=Μετριασμένο κρύσταλλο στημονιού
+item.tcsmp:scroll_of_nausea.name=Κύλινδρος θειούχων ατμών
+item.tcsmp:scroll_of_undead.name=Scroll of the Undead
+
+lore.random_damage=\n§r§9+§kg§r§9 Ζημιά επίθεσης§r
+lore.fire_cannonball=§r§cΟρίζει στόχους στο Fire§r
+lore.lightning_cannonball=§r§cΧτυπά κεραυνό§r
+lore.poison_cannonball=§r§cΕφαρμόζει Poison (0:10)§r
+lore.slowness_cannonball=§r§cΕφαρμόζει βραδύτητα (0:10)§r
+lore.wither_cannonball=§r§cΕφαρμόζεται Wither (0:10)§r
+lore.prismarine_blade_backstab=§r§9+7 Βλάβη οπίσθιου μαχαιριού§r
+
+item.record_balloonpop.desc=George Vide - CRAcK@$
+item.record_open.desc=George Vide - Puma Pants
+item.record_take_picture.desc=George Vide - ΠΕΣΤΕ ΤΟ
+item.record_hit.desc=George Vide - BA$ED BOY$
+item.record_reaction.icebomb.desc=Τζορτζ Βιντ - Ομπάμα
+item.record_reaction.bleach.desc=George Vide - Straight Facts
+
+item.spawn_egg.entity.tcsmp:gerbil.name=Αυγό ωοτοκίας Gerbil
+item.spawn_egg.entity.tcsmp:unicorn.name=Αυγό ωοτοκίας μονόκερου
+item.spawn_egg.entity.tcsmp:seal.name=Αυγό ωοτοκίας φώκιας
+item.spawn_egg.entity.tcsmp:barnacle.name=Barnacle Spawn Egg
+item.spawn_egg.entity.tcsmp:faded_skeleton.name=Ξεθωριασμένο αυγό ωοτοκίας σκελετού
+item.spawn_egg.entity.tcsmp:faded_zombie.name=Ξεθωριασμένο αυγό ζόμπι
+
+tile.tcsmp:overworld_waystone.name=Overworld Waystone
+tile.tcsmp:nether_waystone.name=Nether Waystone
+tile.tcsmp:end_waystone.name=End Waystone
+tile.tcsmp:inscription_table.name=Πίνακας επιγραφής
+tile.tcsmp:cannabis_plant.name=Φυτό Κάνναβης
+tile.tcsmp:faction_register.name=Μητρώο παράταξης
+tile.tcsmp:tomato.name=Ντομάτα
+
+entity.tcsmp:grappling_hook_stake.name=Πάσσαλο αγκίστρου Grappling
+entity.tcsmp:grappling_hook_seat.name=Κάθισμα Grappling Hook
+entity.tcsmp:cannon.name=Κανόνι
+entity.tcsmp:cannonball.name=Κανονοβόλα
+entity.tcsmp:poison_cannonball.name=Poison Cannonball
+entity.tcsmp:wither_cannonball.name=Αυθηροβολίδα
+entity.tcsmp:slowness_cannonball.name=Κανονοβόλα βραδύτητα
+entity.tcsmp:fire_cannonball.name=Πυροβόλο
+entity.tcsmp:warp_crystal.name=Κρύσταλλο στημονιού
+entity.tcsmp:lightning_cannonball.name=Αστραπιαία οβίδα
+entity.tcsmp:gerbil.name=Gerbil
+entity.tcsmp:unicorn.name=Μονόκερος
+entity.tcsmp:seal.name=Σφραγίδα
+entity.tcsmp:barnacle.name=Barnacle
+entity.tcsmp:lightning_bottle.name=Μπουκάλι Lightning
+entity.tcsmp:tempered_warp_crystal.name=Μετριασμένο κρύσταλλο στημονιού
+entity.tcsmp:faded_zombie.name=Ξεθωριασμένο ζόμπι
+entity.tcsmp:faded_skeleton.name=Ξεθωριασμένος σκελετός
+
+action.hint.exit.tcsmp:grappling_hook_seat=Σκύψτε ή πηδήξτε για να ξεκολλήσετε
+action.hint.exit.tcsmp:cannon=Σκύψτε ή πηδήξτε για να σταματήσετε να στοχεύετε
+action.hint.exit.tcsmp:stair_seat=Σκύψτε ή πηδήξτε για να σταθείτε
+action.hint.exit.tcsmp:unicorn=Πατήστε sneak για αποσυναρμολόγηση
+action.interact.ride.tcsmp:unicorn=Βόλτα
+action.interact.gerbil=Αλληλεπιδράστε για να παραλάβετε
+action.interact.creeper.lightning=Αστραπή μπουκαλιού
+
+container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NIΕπιγραφή
+
+action.setup.faction_invite.title=Ρύθμιση Πρόσκλησης Faction
+action.setup.faction_invite.no_factions=Δεν είσαι μέλος καμίας παράταξης!
+action.setup.faction_invite.message=Μήνυμα πρόσκλησης
+action.setup.faction_invite.message_placeholder=Ελάτε να γίνετε μέλος του %s!
+action.setup.faction_invite.submit=Επιβεβαίωση
+action.setup.faction_invite.cancel=Ακύρωση
+
+action.join.faction.fail=Είσαι ήδη σε παράταξη!
+action.join.faction.invalid=Το %s δεν υπάρχει πλέον!
+action.join.faction.title=Πρόσκληση παράταξης
+action.join.faction.accept=Εγγραφείτε στο §%s%s§r
+action.join.faction.reject=Απόρριψη
+
+action.create.faction.title=Δημιουργία Faction
+action.create.faction.name=Όνομα φατρίας
+action.create.faction.name_placeholder=Μέγιστος αριθμός 16 χαρακτήρων...
+action.create.faction.submit=Δημιουργία
+action.create.faction.success=Η παράταξη §%s%s§r δημιουργήθηκε με επιτυχία!
+action.create.faction.fail=Η παράταξη "§%s%s§r" δεν είναι έγκυρη, απέτυχε η δημιουργία της φατρίας
+
+action.manage.faction.title=Διαχείριση Faction
+action.manage.faction.body=Διαχείριση §%s%s§r:
+action.manage.faction.edit_name=Επεξεργασία ονόματος
+action.manage.faction.edit_players=Επεξεργασία παικτών
+action.manage.faction.edit_colour=Επεξεργασία χρώματος
+
+action.manage.faction.colour=Χρώμα Faction
+faction_colour.amethyst.name=Αμέθυστος
+faction_colour.copper.name=Χαλκός
+faction_colour.diamond.name=Διαμάντι
+faction_colour.emerald.name=Σμαράγδι
+faction_colour.gold.name=Χρυσός
+faction_colour.iron.name=Σίδερο
+faction_colour.lapis.name=Λάπις
+faction_colour.netherite.name=Netherite
+faction_colour.quartz.name=Χαλαζίας
+faction_colour.redstone.name=Redstone
+faction_colour.resin.name=Ρητίνη
+
+action.manage.faction.kick=Κτυπήστε %s
+action.manage.faction.kick_success=Κλώτσησε %s από το §%s%s§r.
+
+action.manage.faction.delete=Διαγραφή Faction
+action.manage.faction.delete_success=Το §%s%s§r έχει διαγραφεί!
+
+action.manage.faction.confirm=Επιβεβαίωση
+
+action.manage.faction.info=Faction: %s\nΙδιοκτήτης: %s\nΜέλη: %s
+action.manage.faction.leave=Αφήστε το §%s%s§r
+action.manage.faction.leave_success=Έχετε αφήσει το §%s%s§r
+action.manage.faction.leave_message=§%s[%s]§r Ο %s αποχώρησε από τη φατρία
+
+action.message.faction.title=Αποστολή μηνύματος
+action.message.faction.message=Μήνυμα:
+action.message.faction.submit=Αποστολή
+action.message.faction.message_text=§%s[%s]§r <%s> %s
+
+info.faction.no_longer_member=Δεν είστε πλέον στο %s
+
+form.setup.waystone.title=Ρύθμιση Waystone
+form.setup.waystone.private=Ιδιωτική Waystone
+form.setup.waystone.name=Όνομα Waystone:
+form.setup.waystone.submit=Υποβολή
+
+form.edit.waystone.title=Επεξεργασία Waystone
+
+form.interact.waystone.title=Δίκτυο Waystone
+form.interact.waystone.private=Κάτοχος: %s
+form.interact.waystone.global=Παγκόσμια
+
+info.waystone.invalid=Το "%s" δεν είναι έγκυρο όνομα waystone
+info.waystone.preexists.global=Το Waystone "%s" υπάρχει ήδη
+info.waystone.preexists.private=Το ιδιωτικό Waystone "%s" υπάρχει ήδη
+
+info.return_scroll.no_waystones=Δεν έχετε διαθέσιμους δρόμους για να επιστρέψετε
+
+itemGroup.tcsmp:waystones=Οδόπετρες
+itemGroup.tcsmp:spell_scrolls=Ορθογραφικοί κύλινδροι
+itemGroup.tcsmp:cannonballs=Βολές
+
+subtitles.entity.wolf.pet=Γούνινα βολάν
+subtitles.block.waystone.travel=τσούχτρες Waystone
+subtitles.item.spell_scroll.cast=Ενεργές ορθογραφίας
+subtitles.item.katana.draw=Ο Κατάνα τραβάει
+subtitles.item.katana.dash=Το Katana κάθετο
+subtitles.item.grappling_hook.retract=Το Grappling Hook ανασύρεται
+subtitles.item.grappling_hook.charge=Αυξάνονται οι χρεώσεις του Grappling Hook
+subtitles.item.grappling_hook.shoot=Φωτιές Grappling Hook
+subtitles.entity.cannon.place=Όπλα κανονιού
+subtitles.entity.cannon.break=Το κανόνι αφοπλίζει
+subtitles.entity.cannon.fire=Πυροβολισμοί κανονιών
+subtitles.entity.cannon.light=Φώτα κανονιού
+subtitles.entity.gerbil.chirp=Γερμπίλ κελαηδάει
+subtitles.entity.gerbil.hurt=Ο Gerbil πονάει
+subtitles.item.lucks_bane.big_hit=Κουλοχέρηδες κουλοχέρηδες
+subtitles.item.knife.backstab=Κριτς μαχαιριών
+subtitles.entity.unicorn.gallop=Ο μονόκερος καλπάζει
+subtitles.entity.unicorn.eat=Ο μονόκερος τρώει
+subtitles.entity.unicorn.trail=Ο μονόκερος αστράφτει
+subtitles.entity.unicorn.death=Ο μονόκερος πεθαίνει
+subtitles.entity.barnacle.ambient=Ο Μπάρνακλ κολυμπά
+subtitles.entity.barnacle.death=Ο Μπάρνακλ πεθαίνει
+subtitles.entity.barnacle.hurt=Ο Μπάρνακλ πονάει
+subtitles.entity.barnacle.attack=Δαγκώματα βαρελιών
+subtitles.entity.faded_skeleton.ambient=Ξεθωριασμένες κουδουνίστρες σκελετών
+subtitles.entity.faded_skeleton.death=Ο ξεθωριασμένος σκελετός πεθαίνει
+subtitles.entity.faded_skeleton.hurt=Ο ξεθωριασμένος σκελετός πονάει
+subtitles.entity.faded_skeleton.wilter=Ο ξεθωριασμένος σκελετός μαραίνεται
+subtitles.entity.faded_zombie.ambient=Το ξεθωριασμένο ζόμπι στενάζει
+subtitles.entity.faded_zombie.death=Το ξεθωριασμένο ζόμπι πεθαίνει
+subtitles.entity.faded_zombie.hurt=Το ξεθωριασμένο ζόμπι πονάει
+subtitles.entity.faded_zombie.wilter=Τα ξεθωριασμένα ζόμπι μαραίνονται
+subtitles.entity.seal.ambient=Φλοιοί φώκιας
+subtitles.entity.seal.hurt=Η φώκια πονάει
+subtitles.entity.seal.death=Η φώκια πεθαίνει
+

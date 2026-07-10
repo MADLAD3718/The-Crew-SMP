@@ -1,0 +1,210 @@
+item.tcsmp:grappling_hook.name=Hak do chwytania
+item.tcsmp:empty_grappling_hook.name=Pusty hak do chwytania
+item.tcsmp:hook.name=Hak
+item.tcsmp:cannon.name=Działo
+item.tcsmp:cannonball.name=Kula armatnia
+item.tcsmp:poison_cannonball.name=Trująca kula armatnia
+item.tcsmp:wither_cannonball.name=Więdnąca kula armatnia
+item.tcsmp:slowness_cannonball.name=Spowalniająca Kula Armatnia
+item.tcsmp:fire_cannonball.name=Ognista Kula Armatnia
+item.tcsmp:warp_crystal.name=Kryształ Osnowy
+item.tcsmp:overworld_waystone.name=Overworld Waystone
+item.tcsmp:nether_waystone.name=Nether Waystone
+item.tcsmp:end_waystone.name=Koniec Waystone’a
+item.tcsmp:spell_scroll.name=Przewijanie zaklęć
+item.tcsmp:scroll_of_growth.name=Zwój Wzrostu
+item.tcsmp:lightning_bottle.name=Butelka Błyskawicy
+item.tcsmp:lightning_cannonball.name=Naładowana Kula Armatnia
+item.tcsmp:scroll_of_thunder.name=Zwój Gromu
+item.tcsmp:scroll_of_decay.name=Zwój Rozpadu
+item.tcsmp:scroll_of_return.name=Zwój Powrotu
+item.tcsmp:katana.name=Katana
+item.tcsmp:tnt_shield.name=Tarcza TNT
+item.tcsmp:faction_invite.name=Zaproszenie do frakcji
+item.tcsmp:big_sandwich.name=Wielka kanapka
+item.tcsmp:lucks_bane.name=Zguba szczęścia
+item.tcsmp:prismarine_blade.name=Prismarynowe Ostrze
+item.tcsmp:gerbil.name=Myszoskoczek
+item.tcsmp:tomato.name=Pomidor
+item.tcsmp:slime_boots.name=Szlamowe Buty
+item.tcsmp:roulette_plate.name=Talerz do ruletki
+item.tcsmp:barnacle_fang.name=Kieł Barnacle'a
+item.tcsmp:tempered_warp_crystal.name=Hartowany Kryształ Osnowy
+item.tcsmp:scroll_of_nausea.name=Zwój Siarkowej Opary
+item.tcsmp:scroll_of_undead.name=Zwój Nieumarłych
+
+lore.random_damage=\n§r§9+§kg§r§9 Obrażenia od ataku§r
+lore.fire_cannonball=§r§cPodpala cele§r
+lore.lightning_cannonball=§r§c Uderza piorun§r
+lore.poison_cannonball=§r§cZastosowuje truciznę (0:10)§r
+lore.slowness_cannonball=§r§cZastosowanie Powolność (0:10)§r
+lore.wither_cannonball=§r§cDotyczy Withera (0:10)§r
+lore.prismarine_blade_backstab=§r§9+7 Obrażenia od dźgnięcia w plecy§r
+
+item.record_balloonpop.desc=George Vide – CRAcK@$
+item.record_open.desc=George Vide – Spodnie Puma
+item.record_take_picture.desc=George Vide – Rzuć to
+item.record_hit.desc=George Vide - ZBACZONY CHŁOPIEC$
+item.record_reaction.icebomb.desc=George Vide-Obama
+item.record_reaction.bleach.desc=George Vide — proste fakty
+
+item.spawn_egg.entity.tcsmp:gerbil.name=Jajo lęgowe myszoskoczka
+item.spawn_egg.entity.tcsmp:unicorn.name=Jajo Spawnujące Jednorożca
+item.spawn_egg.entity.tcsmp:seal.name=Jajo Spawnujące Fok
+item.spawn_egg.entity.tcsmp:barnacle.name=Jajko Spawnujące Pąkli
+item.spawn_egg.entity.tcsmp:faded_skeleton.name=Wyblakłe jajo przyzywające szkielet
+item.spawn_egg.entity.tcsmp:faded_zombie.name=Wyblakłe jajo przyzywające zombie
+
+tile.tcsmp:overworld_waystone.name=Overworld Waystone
+tile.tcsmp:nether_waystone.name=Nether Waystone
+tile.tcsmp:end_waystone.name=Koniec Waystone’a
+tile.tcsmp:inscription_table.name=Tablica z napisami
+tile.tcsmp:cannabis_plant.name=Roślina Konopi
+tile.tcsmp:faction_register.name=Rejestr frakcji
+tile.tcsmp:tomato.name=Pomidor
+
+entity.tcsmp:grappling_hook_stake.name=Kołek haka do chwytania
+entity.tcsmp:grappling_hook_seat.name=Siedzisko z hakiem do chwytania
+entity.tcsmp:cannon.name=Działo
+entity.tcsmp:cannonball.name=Kula armatnia
+entity.tcsmp:poison_cannonball.name=Trująca Kula Armatnia
+entity.tcsmp:wither_cannonball.name=Witherowa Kula Armatnia
+entity.tcsmp:slowness_cannonball.name=Powolność Kula armatnia
+entity.tcsmp:fire_cannonball.name=Ognista Kula Armatnia
+entity.tcsmp:warp_crystal.name=Kryształ Osnowy
+entity.tcsmp:lightning_cannonball.name=Błyskawica Kula Armatnia
+entity.tcsmp:gerbil.name=Myszoskoczek
+entity.tcsmp:unicorn.name=Jednorożec
+entity.tcsmp:seal.name=Pieczęć
+entity.tcsmp:barnacle.name=Pąkla
+entity.tcsmp:lightning_bottle.name=Butelka Błyskawicy
+entity.tcsmp:tempered_warp_crystal.name=Hartowany Kryształ Osnowy
+entity.tcsmp:faded_zombie.name=Wyblakły zombie
+entity.tcsmp:faded_skeleton.name=Wyblakły szkielet
+
+action.hint.exit.tcsmp:grappling_hook_seat=Kucnij lub podskocz, aby się odłączyć
+action.hint.exit.tcsmp:cannon=Kucnij lub podskocz, aby przestać celować
+action.hint.exit.tcsmp:stair_seat=Kucnij lub podskocz, aby wstać
+action.hint.exit.tcsmp:unicorn=Kliknij opcję Skradania się, aby zejść
+action.interact.ride.tcsmp:unicorn=Jeździć
+action.interact.gerbil=Wejdź w interakcję, aby odebrać
+action.interact.creeper.lightning=Butelkowa błyskawica
+
+container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NINapis
+
+action.setup.faction_invite.title=Przygotuj zaproszenie do frakcji
+action.setup.faction_invite.no_factions=Nie należysz do żadnej frakcji!
+action.setup.faction_invite.message=Zaproś wiadomość
+action.setup.faction_invite.message_placeholder=Dołącz do %s!
+action.setup.faction_invite.submit=Potwierdź
+action.setup.faction_invite.cancel=Anuluj
+
+action.join.faction.fail=Jesteś już w frakcji!
+action.join.faction.invalid=%s już nie istnieje!
+action.join.faction.title=Zaproszenie do frakcji
+action.join.faction.accept=Dołącz do §%s%s§r
+action.join.faction.reject=Odrzuć
+
+action.create.faction.title=Utwórz frakcję
+action.create.faction.name=Nazwa frakcji
+action.create.faction.name_placeholder=Maks. 16 znaków...
+action.create.faction.submit=Utwórz
+action.create.faction.success=Frakcja §%s%s§r pomyślnie utworzona!
+action.create.faction.fail=Frakcja „§%s%s§r” jest nieprawidłowa, nie udało się utworzyć frakcji
+
+action.manage.faction.title=Zarządzaj frakcją
+action.manage.faction.body=Zarządzaj §%s%s§r:
+action.manage.faction.edit_name=Edytuj nazwę
+action.manage.faction.edit_players=Edytuj graczy
+action.manage.faction.edit_colour=Edytuj kolor
+
+action.manage.faction.colour=Kolor frakcji
+faction_colour.amethyst.name=Ametyst
+faction_colour.copper.name=Miedź
+faction_colour.diamond.name=Diament
+faction_colour.emerald.name=Szmaragd
+faction_colour.gold.name=Złoto
+faction_colour.iron.name=Żelazo
+faction_colour.lapis.name=Lapis
+faction_colour.netherite.name=Netheryt
+faction_colour.quartz.name=Kwarc
+faction_colour.redstone.name=Redstone
+faction_colour.resin.name=Żywica
+
+action.manage.faction.kick=Kopnij %s
+action.manage.faction.kick_success=Wyrzucono %s z §%s%s§r.
+
+action.manage.faction.delete=Usuń frakcję
+action.manage.faction.delete_success=§%s%s§r został usunięty!
+
+action.manage.faction.confirm=Potwierdź
+
+action.manage.faction.info=Frakcja: %s\nWłaściciel: %s\nCzłonkowie: %s
+action.manage.faction.leave=Opuść §%s%s§r
+action.manage.faction.leave_success=Opuściłeś §%s%s§r
+action.manage.faction.leave_message=§%s[%s]§r %s opuścił frakcję
+
+action.message.faction.title=Wyślij wiadomość
+action.message.faction.message=Wiadomość:
+action.message.faction.submit=Wyślij
+action.message.faction.message_text=§%s[%s]§r <%s> %s
+
+info.faction.no_longer_member=Nie jesteś już w %s
+
+form.setup.waystone.title=Konfiguracja Waystone'a
+form.setup.waystone.private=Prywatny Waystone
+form.setup.waystone.name=Nazwa kamienia Waystone'a:
+form.setup.waystone.submit=Prześlij
+
+form.edit.waystone.title=Edytuj Waystone'a
+
+form.interact.waystone.title=Sieć Waystone'a
+form.interact.waystone.private=Właściciel: %s
+form.interact.waystone.global=Globalny
+
+info.waystone.invalid=„%s” nie jest prawidłową nazwą kamienia orientacyjnego
+info.waystone.preexists.global=Kamień Waystone „%s” już istnieje
+info.waystone.preexists.private=Prywatny kamień nawigacyjny „%s” już istnieje
+
+info.return_scroll.no_waystones=Nie masz dostępnych kamieni milowych, do których możesz wrócić
+
+itemGroup.tcsmp:waystones=Kamienie drogi
+itemGroup.tcsmp:spell_scrolls=Zwoje zaklęć
+itemGroup.tcsmp:cannonballs=Kule armatnie
+
+subtitles.entity.wolf.pet=Falbanki z futra
+subtitles.block.waystone.travel=Waystone świergocze
+subtitles.item.spell_scroll.cast=Wyzwalacze zaklęć
+subtitles.item.katana.draw=Katana rysuje
+subtitles.item.katana.dash=Katana tnie
+subtitles.item.grappling_hook.retract=Hak z hakiem chowa się
+subtitles.item.grappling_hook.charge=Hak z chwytakiem ładuje się
+subtitles.item.grappling_hook.shoot=Hak do chwytania zapala się
+subtitles.entity.cannon.place=Ramiona armatnie
+subtitles.entity.cannon.break=Działo się rozbraja
+subtitles.entity.cannon.fire=Strzela armata
+subtitles.entity.cannon.light=Światła armatnie
+subtitles.entity.gerbil.chirp=Gerbil ćwierka
+subtitles.entity.gerbil.hurt=Gerbil boli
+subtitles.item.lucks_bane.big_hit=Automat do gry brzęczy
+subtitles.item.knife.backstab=Krytyczny nóż
+subtitles.entity.unicorn.gallop=Jednorożec galopuje
+subtitles.entity.unicorn.eat=Jednorożec zjada
+subtitles.entity.unicorn.trail=Jednorożec błyszczy
+subtitles.entity.unicorn.death=Jednorożec umiera
+subtitles.entity.barnacle.ambient=Barnacle pływa
+subtitles.entity.barnacle.death=Barnacle umiera
+subtitles.entity.barnacle.hurt=Barnacle boli
+subtitles.entity.barnacle.attack=Ukąszenia pąkli
+subtitles.entity.faded_skeleton.ambient=Wyblakłe grzechotki szkieletu
+subtitles.entity.faded_skeleton.death=Wyblakły Szkielet umiera
+subtitles.entity.faded_skeleton.hurt=Wyblakły szkielet boli
+subtitles.entity.faded_skeleton.wilter=Wyblakły Szkielet więdnie
+subtitles.entity.faded_zombie.ambient=Wyblakły Zombie jęczy
+subtitles.entity.faded_zombie.death=Wyblakły Zombie umiera
+subtitles.entity.faded_zombie.hurt=Wyblakłe Zombie boli
+subtitles.entity.faded_zombie.wilter=Wyblakłe Zombie więdnie
+subtitles.entity.seal.ambient=Szczekanie fok
+subtitles.entity.seal.hurt=Pieczęć boli
+subtitles.entity.seal.death=Foka umiera
+

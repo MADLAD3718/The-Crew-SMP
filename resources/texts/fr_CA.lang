@@ -1,0 +1,210 @@
+item.tcsmp:grappling_hook.name=Grappin
+item.tcsmp:empty_grappling_hook.name=Grappin vide
+item.tcsmp:hook.name=Crochet
+item.tcsmp:cannon.name=Canon
+item.tcsmp:cannonball.name=Boulet de canon
+item.tcsmp:poison_cannonball.name=Boulet de canon venimeux
+item.tcsmp:wither_cannonball.name=Boulet de canon flétrissant
+item.tcsmp:slowness_cannonball.name=Boulet de canon qui ralentit
+item.tcsmp:fire_cannonball.name=Boulet de canon enflammé
+item.tcsmp:warp_crystal.name=Cristal de distorsion
+item.tcsmp:overworld_waystone.name=Pierre de passage du monde extérieur
+item.tcsmp:nether_waystone.name=Pierre de passage du Néant
+item.tcsmp:end_waystone.name=Pierre de fin
+item.tcsmp:spell_scroll.name=Parchemin de sort
+item.tcsmp:scroll_of_growth.name=Parchemin de croissance
+item.tcsmp:lightning_bottle.name=Bouteille de foudre
+item.tcsmp:lightning_cannonball.name=Boulet de canon chargé
+item.tcsmp:scroll_of_thunder.name=Parchemin du tonnerre
+item.tcsmp:scroll_of_decay.name=Parchemin de décomposition
+item.tcsmp:scroll_of_return.name=Parchemin de retour
+item.tcsmp:katana.name=Katana
+item.tcsmp:tnt_shield.name=Bouclier TNT
+item.tcsmp:faction_invite.name=Invitation de faction
+item.tcsmp:big_sandwich.name=Gros sandwich
+item.tcsmp:lucks_bane.name=Le fléau de la chance
+item.tcsmp:prismarine_blade.name=Lame prismarine
+item.tcsmp:gerbil.name=Gerbille
+item.tcsmp:tomato.name=Tomate
+item.tcsmp:slime_boots.name=Bottes de gelée
+item.tcsmp:roulette_plate.name=Plaque de roulette
+item.tcsmp:barnacle_fang.name=Croc de balane
+item.tcsmp:tempered_warp_crystal.name=Cristal de distorsion trempé
+item.tcsmp:scroll_of_nausea.name=Parchemin de vapeur sulfureuse
+item.tcsmp:scroll_of_undead.name=Parchemin des morts-vivants
+
+lore.random_damage=\n§r§9+§kg§r§9 Dégâts d'attaque§r
+lore.fire_cannonball=§r§cmet le feu aux cibles§r
+lore.lightning_cannonball=§r§cFrappe la foudre§r
+lore.poison_cannonball=§r§cApplique du poison (0:10)§r
+lore.slowness_cannonball=§r§cApplique la lenteur (0:10)§r
+lore.wither_cannonball=§r§cApplique Wither (0:10)§r
+lore.prismarine_blade_backstab=§r§9+7 Dégâts de poignardage§r
+
+item.record_balloonpop.desc=George Vide - CRACK@$
+item.record_open.desc=George Vide - Pantalon Puma
+item.record_take_picture.desc=George Vide - DROP IT
+item.record_hit.desc=George Vide - BA$ED BOY$
+item.record_reaction.icebomb.desc=George Vide - Obama
+item.record_reaction.bleach.desc=George Vide - Faits bruts
+
+item.spawn_egg.entity.tcsmp:gerbil.name=Oeuf de gerbille
+item.spawn_egg.entity.tcsmp:unicorn.name=Oeuf d'apparition de licorne
+item.spawn_egg.entity.tcsmp:seal.name=Œuf de frai de phoque
+item.spawn_egg.entity.tcsmp:barnacle.name=Œuf de frai de balane
+item.spawn_egg.entity.tcsmp:faded_skeleton.name=Œuf d'apparition de squelette fané
+item.spawn_egg.entity.tcsmp:faded_zombie.name=Œuf d'apparition de zombie fané
+
+tile.tcsmp:overworld_waystone.name=Pierre de passage du monde extérieur
+tile.tcsmp:nether_waystone.name=Pierre de passage du Néant
+tile.tcsmp:end_waystone.name=Pierre de fin
+tile.tcsmp:inscription_table.name=Tableau d'inscription
+tile.tcsmp:cannabis_plant.name=Plante De Cannabis
+tile.tcsmp:faction_register.name=Registre des factions
+tile.tcsmp:tomato.name=Tomate
+
+entity.tcsmp:grappling_hook_stake.name=Piquet de grappin
+entity.tcsmp:grappling_hook_seat.name=Siège de grappin
+entity.tcsmp:cannon.name=Canon
+entity.tcsmp:cannonball.name=Boulet de canon
+entity.tcsmp:poison_cannonball.name=Boulet de canon empoisonné
+entity.tcsmp:wither_cannonball.name=Boulet de canon flétri
+entity.tcsmp:slowness_cannonball.name=Boulet de canon de lenteur
+entity.tcsmp:fire_cannonball.name=Boulet de canon de feu
+entity.tcsmp:warp_crystal.name=Cristal de distorsion
+entity.tcsmp:lightning_cannonball.name=Boulet de canon éclair
+entity.tcsmp:gerbil.name=Gerbille
+entity.tcsmp:unicorn.name=Licorne
+entity.tcsmp:seal.name=Sceau
+entity.tcsmp:barnacle.name=Balane
+entity.tcsmp:lightning_bottle.name=Bouteille de foudre
+entity.tcsmp:tempered_warp_crystal.name=Cristal de distorsion trempé
+entity.tcsmp:faded_zombie.name=Zombie fané
+entity.tcsmp:faded_skeleton.name=Squelette fané
+
+action.hint.exit.tcsmp:grappling_hook_seat=Accroupissez-vous ou sautez pour vous détacher
+action.hint.exit.tcsmp:cannon=Accroupissez-vous ou sautez pour arrêter de viser
+action.hint.exit.tcsmp:stair_seat=Accroupissez-vous ou sautez pour vous lever
+action.hint.exit.tcsmp:unicorn=Appuyez sur furtivement pour descendre
+action.interact.ride.tcsmp:unicorn=Balade
+action.interact.gerbil=Interagissez pour récupérer
+action.interact.creeper.lightning=Éclairage de bouteille
+
+container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NIInscription
+
+action.setup.faction_invite.title=Configurer l'invitation à une faction
+action.setup.faction_invite.no_factions=Vous ne faites partie d’aucune faction !
+action.setup.faction_invite.message=Message d'invitation
+action.setup.faction_invite.message_placeholder=Venez rejoindre %s !
+action.setup.faction_invite.submit=Confirmer
+action.setup.faction_invite.cancel=Annuler
+
+action.join.faction.fail=Vous êtes déjà dans une faction !
+action.join.faction.invalid=%s n'existe plus !
+action.join.faction.title=Invitation de faction
+action.join.faction.accept=Rejoignez §%s%s§r
+action.join.faction.reject=Rejeter
+
+action.create.faction.title=Créer une faction
+action.create.faction.name=Nom de la faction
+action.create.faction.name_placeholder=16 caractères maximum...
+action.create.faction.submit=Créer
+action.create.faction.success=Faction §%s%s§r créée avec succès !
+action.create.faction.fail=La faction "§%s%s§r" n'est pas valide, n'a pas réussi à créer la faction
+
+action.manage.faction.title=Gérer les factions
+action.manage.faction.body=Gérer §%s%s§r :
+action.manage.faction.edit_name=Modifier le nom
+action.manage.faction.edit_players=Modifier les joueurs
+action.manage.faction.edit_colour=Modifier la couleur
+
+action.manage.faction.colour=Couleur de faction
+faction_colour.amethyst.name=Améthyste
+faction_colour.copper.name=Cuivre
+faction_colour.diamond.name=Diamant
+faction_colour.emerald.name=Émeraude
+faction_colour.gold.name=Or
+faction_colour.iron.name=Fer
+faction_colour.lapis.name=Lapis-lazuli
+faction_colour.netherite.name=Netherite
+faction_colour.quartz.name=Quartz
+faction_colour.redstone.name=Pierre rouge
+faction_colour.resin.name=Résine
+
+action.manage.faction.kick=Coup de pied %s
+action.manage.faction.kick_success=Expulsé %s de §%s%s§r.
+
+action.manage.faction.delete=Supprimer une faction
+action.manage.faction.delete_success=§%s%s§r a été supprimé !
+
+action.manage.faction.confirm=Confirmer
+
+action.manage.faction.info=Faction : %s\nPropriétaire : %s\nMembres : %s
+action.manage.faction.leave=Quitter §%s%s§r
+action.manage.faction.leave_success=Vous avez quitté §%s%s§r
+action.manage.faction.leave_message=§%s[%s]§r %s a quitté la faction
+
+action.message.faction.title=Envoyer un message
+action.message.faction.message=Message :
+action.message.faction.submit=Envoyer
+action.message.faction.message_text=§%s[%s]§r <%s> %s
+
+info.faction.no_longer_member=Vous n'êtes plus dans %s
+
+form.setup.waystone.title=Configuration de la pierre de cheminement
+form.setup.waystone.private=Pierre de passage privée
+form.setup.waystone.name=Nom de la pierre de passage :
+form.setup.waystone.submit=Soumettre
+
+form.edit.waystone.title=Modifier la pierre de passage
+
+form.interact.waystone.title=Réseau Waystone
+form.interact.waystone.private=Propriétaire : %s
+form.interact.waystone.global=Mondial
+
+info.waystone.invalid="%s" n'est pas un nom de waystone valide
+info.waystone.preexists.global=La pierre de chemin "%s" existe déjà
+info.waystone.preexists.private=La pierre de passage privée "%s" existe déjà
+
+info.return_scroll.no_waystones=Vous n'avez aucune étape disponible vers laquelle revenir
+
+itemGroup.tcsmp:waystones=Pierres de passage
+itemGroup.tcsmp:spell_scrolls=Parchemins de sorts
+itemGroup.tcsmp:cannonballs=Boulets de canon
+
+subtitles.entity.wolf.pet=Volants en fourrure
+subtitles.block.waystone.travel=Gazouillis de Waystone
+subtitles.item.spell_scroll.cast=Déclencheurs de sorts
+subtitles.item.katana.draw=Katana dessine
+subtitles.item.katana.dash=Katana coupe
+subtitles.item.grappling_hook.retract=Le grappin se rétracte
+subtitles.item.grappling_hook.charge=Le grappin se charge
+subtitles.item.grappling_hook.shoot=Incendies de grappin
+subtitles.entity.cannon.place=Armes à canon
+subtitles.entity.cannon.break=Le canon désarme
+subtitles.entity.cannon.fire=Des tirs de canon
+subtitles.entity.cannon.light=Lumières de canon
+subtitles.entity.gerbil.chirp=Les gerbilles gazouillent
+subtitles.entity.gerbil.hurt=La gerbille a mal
+subtitles.item.lucks_bane.big_hit=Les machines à sous cliquent
+subtitles.item.knife.backstab=Critiques au couteau
+subtitles.entity.unicorn.gallop=La licorne galope
+subtitles.entity.unicorn.eat=La licorne mange
+subtitles.entity.unicorn.trail=La licorne scintille
+subtitles.entity.unicorn.death=La licorne meurt
+subtitles.entity.barnacle.ambient=La balane nage
+subtitles.entity.barnacle.death=La balane meurt
+subtitles.entity.barnacle.hurt=La balane fait mal
+subtitles.entity.barnacle.attack=Morsures de bernaches
+subtitles.entity.faded_skeleton.ambient=Hochets squelette fanés
+subtitles.entity.faded_skeleton.death=Le squelette fané meurt
+subtitles.entity.faded_skeleton.hurt=Le squelette fané fait mal
+subtitles.entity.faded_skeleton.wilter=Le squelette fané se flétrit
+subtitles.entity.faded_zombie.ambient=Le zombie fané gémit
+subtitles.entity.faded_zombie.death=Un zombie fané meurt
+subtitles.entity.faded_zombie.hurt=Le zombie fané fait mal
+subtitles.entity.faded_zombie.wilter=Le zombie fané se flétrit
+subtitles.entity.seal.ambient=Écorces de phoque
+subtitles.entity.seal.hurt=Le phoque fait mal
+subtitles.entity.seal.death=Matrices de phoque
+

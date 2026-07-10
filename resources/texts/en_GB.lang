@@ -1,0 +1,210 @@
+item.tcsmp:grappling_hook.name=Grappling Hook
+item.tcsmp:empty_grappling_hook.name=Empty Grappling Hook
+item.tcsmp:hook.name=Hook
+item.tcsmp:cannon.name=Cannon
+item.tcsmp:cannonball.name=Cannonball
+item.tcsmp:poison_cannonball.name=Poisonous Cannonball
+item.tcsmp:wither_cannonball.name=Withering Cannonball
+item.tcsmp:slowness_cannonball.name=Slowing Cannonball
+item.tcsmp:fire_cannonball.name=Firey Cannonball
+item.tcsmp:warp_crystal.name=Warp Crystal
+item.tcsmp:overworld_waystone.name=Overworld Waystone
+item.tcsmp:nether_waystone.name=Nether Waystone
+item.tcsmp:end_waystone.name=End Waystone
+item.tcsmp:spell_scroll.name=Spell Scroll
+item.tcsmp:scroll_of_growth.name=Scroll of Growth
+item.tcsmp:lightning_bottle.name=Bottle o' Lightning
+item.tcsmp:lightning_cannonball.name=Charged Cannonball
+item.tcsmp:scroll_of_thunder.name=Scroll of Thunder
+item.tcsmp:scroll_of_decay.name=Scroll of Decay
+item.tcsmp:scroll_of_return.name=Scroll of Return
+item.tcsmp:katana.name=Katana
+item.tcsmp:tnt_shield.name=TNT Shield
+item.tcsmp:faction_invite.name=Faction Invite
+item.tcsmp:big_sandwich.name=Big Sandwich
+item.tcsmp:lucks_bane.name=Luck's Bane
+item.tcsmp:prismarine_blade.name=Prismarine Blade
+item.tcsmp:gerbil.name=Gerbil
+item.tcsmp:tomato.name=Tomato
+item.tcsmp:slime_boots.name=Slime Boots
+item.tcsmp:roulette_plate.name=Roulette Plate
+item.tcsmp:barnacle_fang.name=Barnacle Fang
+item.tcsmp:tempered_warp_crystal.name=Tempered Warp Crystal
+item.tcsmp:scroll_of_nausea.name=Scroll of Sulfurous Vapor
+item.tcsmp:scroll_of_undead.name=Scroll of the Undead
+
+lore.random_damage=\n§r§9+§kg§r§9 Attack Damage§r
+lore.fire_cannonball=§r§cSets Targets on Fire§r
+lore.lightning_cannonball=§r§cStrikes Lightning§r
+lore.poison_cannonball=§r§cApplies Poison (0:10)§r
+lore.slowness_cannonball=§r§cApplies Slowness (0:10)§r
+lore.wither_cannonball=§r§cApplies Wither (0:10)§r
+lore.prismarine_blade_backstab=§r§9+7 Backstab Damage§r
+
+item.record_balloonpop.desc=George Vide - CRAcK@$
+item.record_open.desc=George Vide - Puma Pants
+item.record_take_picture.desc=George Vide - DROP IT
+item.record_hit.desc=George Vide - BA$ED BOY$
+item.record_reaction.icebomb.desc=George Vide - Obama
+item.record_reaction.bleach.desc=George Vide - Straight Facts
+
+item.spawn_egg.entity.tcsmp:gerbil.name=Gerbil Spawn Egg
+item.spawn_egg.entity.tcsmp:unicorn.name=Unicorn Spawn Egg
+item.spawn_egg.entity.tcsmp:seal.name=Seal Spawn Egg
+item.spawn_egg.entity.tcsmp:barnacle.name=Barnacle Spawn Egg
+item.spawn_egg.entity.tcsmp:faded_skeleton.name=Faded Skeleton Spawn Egg
+item.spawn_egg.entity.tcsmp:faded_zombie.name=Faded Zombie Spawn Egg
+
+tile.tcsmp:overworld_waystone.name=Overworld Waystone
+tile.tcsmp:nether_waystone.name=Nether Waystone
+tile.tcsmp:end_waystone.name=End Waystone
+tile.tcsmp:inscription_table.name=Inscription Table
+tile.tcsmp:cannabis_plant.name=Cannabis Plant
+tile.tcsmp:faction_register.name=Faction Register
+tile.tcsmp:tomato.name=Tomato
+
+entity.tcsmp:grappling_hook_stake.name=Grappling Hook Stake
+entity.tcsmp:grappling_hook_seat.name=Grappling Hook Seat
+entity.tcsmp:cannon.name=Cannon
+entity.tcsmp:cannonball.name=Cannonball
+entity.tcsmp:poison_cannonball.name=Poison Cannonball
+entity.tcsmp:wither_cannonball.name=Wither Cannonball
+entity.tcsmp:slowness_cannonball.name=Slowness Cannonball
+entity.tcsmp:fire_cannonball.name=Fire Cannonball
+entity.tcsmp:warp_crystal.name=Warp Crystal
+entity.tcsmp:lightning_cannonball.name=Lightning Cannonball
+entity.tcsmp:gerbil.name=Gerbil
+entity.tcsmp:unicorn.name=Unicorn
+entity.tcsmp:seal.name=Seal
+entity.tcsmp:barnacle.name=Barnacle
+entity.tcsmp:lightning_bottle.name=Bottle o' Lightning
+entity.tcsmp:tempered_warp_crystal.name=Tempered Warp Crystal
+entity.tcsmp:faded_zombie.name=Faded Zombie
+entity.tcsmp:faded_skeleton.name=Faded Skeleton
+
+action.hint.exit.tcsmp:grappling_hook_seat=Crouch or jump to detach
+action.hint.exit.tcsmp:cannon=Crouch or jump to stop aiming
+action.hint.exit.tcsmp:stair_seat=Crouch or jump to stand
+action.hint.exit.tcsmp:unicorn=Tap sneak to dismount
+action.interact.ride.tcsmp:unicorn=Ride
+action.interact.gerbil=Interact to pick up
+action.interact.creeper.lightning=Bottle lightning
+
+container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NInscription
+
+action.setup.faction_invite.title=Setup Faction Invite
+action.setup.faction_invite.no_factions=You are not part of any faction!
+action.setup.faction_invite.message=Invite Message
+action.setup.faction_invite.message_placeholder=Come join %s!
+action.setup.faction_invite.submit=Confirm
+action.setup.faction_invite.cancel=Cancel
+
+action.join.faction.fail=You are already in a faction!
+action.join.faction.invalid=%s no longer exists!
+action.join.faction.title=Faction Invite
+action.join.faction.accept=Join §%s%s§r
+action.join.faction.reject=Reject
+
+action.create.faction.title=Create Faction
+action.create.faction.name=Faction Name
+action.create.faction.name_placeholder=Max 16 characters...
+action.create.faction.submit=Create
+action.create.faction.success=Faction §%s%s§r successfully created!
+action.create.faction.fail=Faction "§%s%s§r" is invalid, failed to create faction
+
+action.manage.faction.title=Manage Faction
+action.manage.faction.body=Manage §%s%s§r:
+action.manage.faction.edit_name=Edit Name
+action.manage.faction.edit_players=Edit Players
+action.manage.faction.edit_colour=Edit Colour
+
+action.manage.faction.colour=Faction Colour
+faction_colour.amethyst.name=Amethyst
+faction_colour.copper.name=Copper
+faction_colour.diamond.name=Diamond
+faction_colour.emerald.name=Emerald
+faction_colour.gold.name=Gold
+faction_colour.iron.name=Iron
+faction_colour.lapis.name=Lapis
+faction_colour.netherite.name=Netherite
+faction_colour.quartz.name=Quartz
+faction_colour.redstone.name=Redstone
+faction_colour.resin.name=Resin
+
+action.manage.faction.kick=Kick %s
+action.manage.faction.kick_success=Kicked %s from §%s%s§r.
+
+action.manage.faction.delete=Delete Faction
+action.manage.faction.delete_success=§%s%s§r has been deleted!
+
+action.manage.faction.confirm=Confirm
+
+action.manage.faction.info=Faction: %s\nOwner: %s\nMembers: %s
+action.manage.faction.leave=Leave §%s%s§r
+action.manage.faction.leave_success=You have left §%s%s§r
+action.manage.faction.leave_message=§%s[%s]§r %s has left the faction
+
+action.message.faction.title=Send Message
+action.message.faction.message=Message:
+action.message.faction.submit=Send
+action.message.faction.message_text=§%s[%s]§r <%s> %s
+
+info.faction.no_longer_member=You are no longer in %s
+
+form.setup.waystone.title=Waystone Setup
+form.setup.waystone.private=Private Waystone
+form.setup.waystone.name=Waystone Name:
+form.setup.waystone.submit=Submit
+
+form.edit.waystone.title=Edit Waystone
+
+form.interact.waystone.title=Waystone Network
+form.interact.waystone.private=Owner: %s
+form.interact.waystone.global=Global
+
+info.waystone.invalid="%s" is not a valid waystone name
+info.waystone.preexists.global=Waystone "%s" already exists
+info.waystone.preexists.private=Private Waystone "%s" already exists
+
+info.return_scroll.no_waystones=You have no available waystones to return to
+
+itemGroup.tcsmp:waystones=Waystones
+itemGroup.tcsmp:spell_scrolls=Spell Scrolls
+itemGroup.tcsmp:cannonballs=Cannonballs
+
+subtitles.entity.wolf.pet=Fur ruffles
+subtitles.block.waystone.travel=Waystone warbles
+subtitles.item.spell_scroll.cast=Spell triggers
+subtitles.item.katana.draw=Katana draws
+subtitles.item.katana.dash=Katana slashes
+subtitles.item.grappling_hook.retract=Grappling Hook retracts
+subtitles.item.grappling_hook.charge=Grappling Hook charges up
+subtitles.item.grappling_hook.shoot=Grappling Hook fires
+subtitles.entity.cannon.place=Cannon arms
+subtitles.entity.cannon.break=Cannon disarms
+subtitles.entity.cannon.fire=Cannon fires
+subtitles.entity.cannon.light=Cannon lights
+subtitles.entity.gerbil.chirp=Gerbil chirps
+subtitles.entity.gerbil.hurt=Gerbil hurts
+subtitles.item.lucks_bane.big_hit=Slot machine clinks
+subtitles.item.knife.backstab=Knife crits
+subtitles.entity.unicorn.gallop=Unicorn gallops
+subtitles.entity.unicorn.eat=Unicorn eats
+subtitles.entity.unicorn.trail=Unicorn sparkles
+subtitles.entity.unicorn.death=Unicorn dies
+subtitles.entity.barnacle.ambient=Barnacle swims
+subtitles.entity.barnacle.death=Barnacle dies
+subtitles.entity.barnacle.hurt=Barnacle hurts
+subtitles.entity.barnacle.attack=Barnacle bites
+subtitles.entity.faded_skeleton.ambient=Faded Skeleton rattles
+subtitles.entity.faded_skeleton.death=Faded Skeleton dies
+subtitles.entity.faded_skeleton.hurt=Faded Skeleton hurts
+subtitles.entity.faded_skeleton.wilter=Faded Skeleton wilters
+subtitles.entity.faded_zombie.ambient=Faded Zombie groans
+subtitles.entity.faded_zombie.death=Faded Zombie dies
+subtitles.entity.faded_zombie.hurt=Faded Zombie hurts
+subtitles.entity.faded_zombie.wilter=Faded Zombie wilters
+subtitles.entity.seal.ambient=Seal barks
+subtitles.entity.seal.hurt=Seal hurts
+subtitles.entity.seal.death=Seal dies
+

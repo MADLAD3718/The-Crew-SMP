@@ -1,0 +1,210 @@
+item.tcsmp:grappling_hook.name=Абордажный крюк
+item.tcsmp:empty_grappling_hook.name=Пустой крюк
+item.tcsmp:hook.name=Крюк
+item.tcsmp:cannon.name=Пушка
+item.tcsmp:cannonball.name=Пушечное ядро
+item.tcsmp:poison_cannonball.name=Ядовитое пушечное ядро
+item.tcsmp:wither_cannonball.name=Увядающее пушечное ядро
+item.tcsmp:slowness_cannonball.name=Замедляющее пушечное ядро
+item.tcsmp:fire_cannonball.name=Огненное пушечное ядро
+item.tcsmp:warp_crystal.name=Варп-кристалл
+item.tcsmp:overworld_waystone.name=Путевой камень земного мира
+item.tcsmp:nether_waystone.name=Путевой камень Пустоты
+item.tcsmp:end_waystone.name=Конец путевого камня
+item.tcsmp:spell_scroll.name=Свиток заклинаний
+item.tcsmp:scroll_of_growth.name=Свиток роста
+item.tcsmp:lightning_bottle.name=Бутылка с молнией
+item.tcsmp:lightning_cannonball.name=Заряженное пушечное ядро
+item.tcsmp:scroll_of_thunder.name=Свиток Грома
+item.tcsmp:scroll_of_decay.name=Свиток разложения
+item.tcsmp:scroll_of_return.name=Свиток возвращения
+item.tcsmp:katana.name=Катана
+item.tcsmp:tnt_shield.name=ТНТ Щит
+item.tcsmp:faction_invite.name=Приглашение фракции
+item.tcsmp:big_sandwich.name=Большой Сэндвич
+item.tcsmp:lucks_bane.name=Проклятие удачи
+item.tcsmp:prismarine_blade.name=Призмариновый клинок
+item.tcsmp:gerbil.name=Песчанка
+item.tcsmp:tomato.name=Помидор
+item.tcsmp:slime_boots.name=Слизистые сапоги
+item.tcsmp:roulette_plate.name=Рулетка Тарелка
+item.tcsmp:barnacle_fang.name=Ракообразный клык
+item.tcsmp:tempered_warp_crystal.name=Закаленный кристалл деформации
+item.tcsmp:scroll_of_nausea.name=Свиток сернистого пара
+item.tcsmp:scroll_of_undead.name=Свиток нежити
+
+lore.random_damage=\n§r§9+§kg§r§9 Урон от атаки§r
+lore.fire_cannonball=§r§cПоджигает цели§r
+lore.lightning_cannonball=§r§cУдары молний§r
+lore.poison_cannonball=§r§cПрименяет яд (0:10)§r
+lore.slowness_cannonball=§r§cПрименяет замедление (0:10)§r
+lore.wither_cannonball=§r§cПрименяется Увядание (0:10)§r
+lore.prismarine_blade_backstab=§r§9+7 Урон от удара в спину§r
+
+item.record_balloonpop.desc=Джордж Виде - CRAcK@$
+item.record_open.desc=Джордж Виде - Брюки Puma
+item.record_take_picture.desc=Джордж Виде - БРОСЬТЕ ЭТО
+item.record_hit.desc=Джордж Виде - BA$ED BOY$
+item.record_reaction.icebomb.desc=Джордж Виде - Обама
+item.record_reaction.bleach.desc=Джордж Виде - прямые факты
+
+item.spawn_egg.entity.tcsmp:gerbil.name=Яйцо спауна песчанки
+item.spawn_egg.entity.tcsmp:unicorn.name=Яйцо призывания единорога
+item.spawn_egg.entity.tcsmp:seal.name=Яйцо призыва тюленя
+item.spawn_egg.entity.tcsmp:barnacle.name=Яйцо призывания ракушки
+item.spawn_egg.entity.tcsmp:faded_skeleton.name=Яйцо призыва выцветшего скелета
+item.spawn_egg.entity.tcsmp:faded_zombie.name=Яйцо призыва выцветшего зомби
+
+tile.tcsmp:overworld_waystone.name=Путевой камень земного мира
+tile.tcsmp:nether_waystone.name=Путевой камень Пустоты
+tile.tcsmp:end_waystone.name=Конец путевого камня
+tile.tcsmp:inscription_table.name=Стол для надписей
+tile.tcsmp:cannabis_plant.name=Завод конопли
+tile.tcsmp:faction_register.name=Регистрация фракций
+tile.tcsmp:tomato.name=Помидор
+
+entity.tcsmp:grappling_hook_stake.name=Крюк для захвата
+entity.tcsmp:grappling_hook_seat.name=Сиденье с крюком
+entity.tcsmp:cannon.name=Пушка
+entity.tcsmp:cannonball.name=Пушечное ядро
+entity.tcsmp:poison_cannonball.name=Ядовитое пушечное ядро
+entity.tcsmp:wither_cannonball.name=Пушечное ядро-иссушитель
+entity.tcsmp:slowness_cannonball.name=Медлительность
+entity.tcsmp:fire_cannonball.name=Огненное ядро
+entity.tcsmp:warp_crystal.name=Варп-кристалл
+entity.tcsmp:lightning_cannonball.name=Молниеносное ядро
+entity.tcsmp:gerbil.name=Песчанка
+entity.tcsmp:unicorn.name=Единорог
+entity.tcsmp:seal.name=Печать
+entity.tcsmp:barnacle.name=Барнакл
+entity.tcsmp:lightning_bottle.name=Бутылка с молнией
+entity.tcsmp:tempered_warp_crystal.name=Закаленный кристалл деформации
+entity.tcsmp:faded_zombie.name=Выцветший зомби
+entity.tcsmp:faded_skeleton.name=Выцветший скелет
+
+action.hint.exit.tcsmp:grappling_hook_seat=Присядьте или подпрыгните, чтобы оторваться
+action.hint.exit.tcsmp:cannon=Присядьте или подпрыгните, чтобы перестать прицеливаться
+action.hint.exit.tcsmp:stair_seat=Присядьте или подпрыгните, чтобы встать
+action.hint.exit.tcsmp:unicorn=Нажмите «Подкрасться», чтобы спешиться
+action.interact.ride.tcsmp:unicorn=Поездка
+action.interact.gerbil=Взаимодействуйте, чтобы забрать
+action.interact.creeper.lightning=Бутылочная молния
+
+container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NНадпись
+
+action.setup.faction_invite.title=Настройка приглашения фракции
+action.setup.faction_invite.no_factions=Вы не состоите ни в одной фракции!
+action.setup.faction_invite.message=Пригласительное сообщение
+action.setup.faction_invite.message_placeholder=Присоединяйтесь к %s!
+action.setup.faction_invite.submit=Подтвердить
+action.setup.faction_invite.cancel=Отмена
+
+action.join.faction.fail=Вы уже во фракции!
+action.join.faction.invalid=%s больше не существует!
+action.join.faction.title=Приглашение фракции
+action.join.faction.accept=Присоединяйтесь к §%s%s§r
+action.join.faction.reject=Отклонить
+
+action.create.faction.title=Создать фракцию
+action.create.faction.name=Название фракции
+action.create.faction.name_placeholder=Максимум 16 символов...
+action.create.faction.submit=Создать
+action.create.faction.success=Фракция §%s%s§r успешно создана!
+action.create.faction.fail=Фракция "§%s%s§r" недействительна, не удалось создать фракцию.
+
+action.manage.faction.title=Управление фракцией
+action.manage.faction.body=Управление §%s%s§r:
+action.manage.faction.edit_name=Изменить имя
+action.manage.faction.edit_players=Редактировать игроков
+action.manage.faction.edit_colour=Редактировать цвет
+
+action.manage.faction.colour=Цвет фракции
+faction_colour.amethyst.name=Аметист
+faction_colour.copper.name=Медь
+faction_colour.diamond.name=Алмаз
+faction_colour.emerald.name=Изумрудный
+faction_colour.gold.name=Золото
+faction_colour.iron.name=Железо
+faction_colour.lapis.name=Ляпис
+faction_colour.netherite.name=Незерит
+faction_colour.quartz.name=Кварц
+faction_colour.redstone.name=Редстоун
+faction_colour.resin.name=Смола
+
+action.manage.faction.kick=Выгнать %s
+action.manage.faction.kick_success=Выгнал %s из §%s%s§r.
+
+action.manage.faction.delete=Удалить фракцию
+action.manage.faction.delete_success=§%s%s§r удален!
+
+action.manage.faction.confirm=Подтвердить
+
+action.manage.faction.info=Фракция: %s\nВладелец: %s\nЧлены: %s
+action.manage.faction.leave=Покинуть §%s%s§r
+action.manage.faction.leave_success=Вы покинули §%s%s§r
+action.manage.faction.leave_message=§%s[%s]§r %s покинул фракцию
+
+action.message.faction.title=Отправить сообщение
+action.message.faction.message=Сообщение:
+action.message.faction.submit=Отправить
+action.message.faction.message_text=§%s[%s]§r <%s> %s
+
+info.faction.no_longer_member=Вы больше не в %s
+
+form.setup.waystone.title=Настройка путевого камня
+form.setup.waystone.private=Частный Путевой Камень
+form.setup.waystone.name=Имя путевого камня:
+form.setup.waystone.submit=Отправить
+
+form.edit.waystone.title=Редактировать Путевой Камень
+
+form.interact.waystone.title=Сеть Waystone
+form.interact.waystone.private=Владелец: %s
+form.interact.waystone.global=Глобальный
+
+info.waystone.invalid=«%s» не является допустимым именем путевого камня.
+info.waystone.preexists.global=Путевой камень "%s" уже существует.
+info.waystone.preexists.private=Частный путевой камень "%s" уже существует.
+
+info.return_scroll.no_waystones=У вас нет доступных путевых камней, к которым можно вернуться.
+
+itemGroup.tcsmp:waystones=Путевые камни
+itemGroup.tcsmp:spell_scrolls=Свитки заклинаний
+itemGroup.tcsmp:cannonballs=Пушечные ядра
+
+subtitles.entity.wolf.pet=Меховые оборки
+subtitles.block.waystone.travel=Трели путевого камня
+subtitles.item.spell_scroll.cast=Триггеры заклинаний
+subtitles.item.katana.draw=Катана рисует
+subtitles.item.katana.dash=Катана рубит
+subtitles.item.grappling_hook.retract=Абордажный крюк убирается
+subtitles.item.grappling_hook.charge=Абордажный крюк заряжается
+subtitles.item.grappling_hook.shoot=Абордажный крюк стреляет
+subtitles.entity.cannon.place=Пушечное вооружение
+subtitles.entity.cannon.break=Пушка обезоруживает
+subtitles.entity.cannon.fire=Пушка стреляет
+subtitles.entity.cannon.light=Пушки огни
+subtitles.entity.gerbil.chirp=Песчанка щебечет
+subtitles.entity.gerbil.hurt=Песчанка болит
+subtitles.item.lucks_bane.big_hit=Игровой автомат звенит
+subtitles.item.knife.backstab=Критические удары ножом
+subtitles.entity.unicorn.gallop=Единорог скачет
+subtitles.entity.unicorn.eat=Единорог ест
+subtitles.entity.unicorn.trail=Единорог сверкает
+subtitles.entity.unicorn.death=Единорог умирает
+subtitles.entity.barnacle.ambient=Ракушка плавает
+subtitles.entity.barnacle.death=Барнакл умирает
+subtitles.entity.barnacle.hurt=Барнакл болит
+subtitles.entity.barnacle.attack=Укусы ракушки
+subtitles.entity.faded_skeleton.ambient=Выцветший скелет гремит
+subtitles.entity.faded_skeleton.death=Выцветший скелет умирает
+subtitles.entity.faded_skeleton.hurt=Выцветший скелет болит
+subtitles.entity.faded_skeleton.wilter=Выцветший скелет увядает
+subtitles.entity.faded_zombie.ambient=Выцветший зомби стонет
+subtitles.entity.faded_zombie.death=Выцветший зомби умирает
+subtitles.entity.faded_zombie.hurt=Выцветший зомби болит
+subtitles.entity.faded_zombie.wilter=Выцветший зомби чахнет
+subtitles.entity.seal.ambient=Тюлень лает
+subtitles.entity.seal.hurt=Тюлень болит
+subtitles.entity.seal.death=Печать умирает
+

@@ -1,0 +1,210 @@
+item.tcsmp:grappling_hook.name=Grappling Koukku
+item.tcsmp:empty_grappling_hook.name=Empty Grappling Hook
+item.tcsmp:hook.name=Koukku
+item.tcsmp:cannon.name=Tykki
+item.tcsmp:cannonball.name=Cannonball
+item.tcsmp:poison_cannonball.name=Poisonous Cannonball
+item.tcsmp:wither_cannonball.name=Withering Cannonball
+item.tcsmp:slowness_cannonball.name=Hidastuva Cannonball
+item.tcsmp:fire_cannonball.name=Tulinen Cannonball
+item.tcsmp:warp_crystal.name=Warp Crystal
+item.tcsmp:overworld_waystone.name=Overworld Waystone
+item.tcsmp:nether_waystone.name=Nether Waystone
+item.tcsmp:end_waystone.name=End Waystone
+item.tcsmp:spell_scroll.name=Spell Scroll
+item.tcsmp:scroll_of_growth.name=Kasvun rulla
+item.tcsmp:lightning_bottle.name=Salaman pullo
+item.tcsmp:lightning_cannonball.name=Charged Cannonball
+item.tcsmp:scroll_of_thunder.name=Scroll of Thunder
+item.tcsmp:scroll_of_decay.name=Decay-käärö
+item.tcsmp:scroll_of_return.name=Scroll of Return
+item.tcsmp:katana.name=Katana
+item.tcsmp:tnt_shield.name=TNT Shield
+item.tcsmp:faction_invite.name=Ryhmäkutsu
+item.tcsmp:big_sandwich.name=Iso voileipä
+item.tcsmp:lucks_bane.name=Luck's Bane
+item.tcsmp:prismarine_blade.name=Prismarine terä
+item.tcsmp:gerbil.name=Gerbil
+item.tcsmp:tomato.name=Tomato
+item.tcsmp:slime_boots.name=Slime Boots
+item.tcsmp:roulette_plate.name=Rulettilautanen
+item.tcsmp:barnacle_fang.name=Barnacle Fang
+item.tcsmp:tempered_warp_crystal.name=Karkaistu loimikristalli
+item.tcsmp:scroll_of_nausea.name=Rikkipitoisen höyryn kirjakäärö
+item.tcsmp:scroll_of_undead.name=Undead-rulla
+
+lore.random_damage=\n§r§9+§kg§r§9 Attack Damage§r
+lore.fire_cannonball=§r§cAsettaa tavoitteet tulessa§r
+lore.lightning_cannonball=§r§cIskee Salaman§r
+lore.poison_cannonball=§r§cKäyttää Poison (0:10)§r
+lore.slowness_cannonball=§r§cKäyttää hidasta (0:10)§r
+lore.wither_cannonball=§r§cKoskee säröä (0:10)§r
+lore.prismarine_blade_backstab=§r§9+7 Selkäpukotusvaurio§r
+
+item.record_balloonpop.desc=George Vide - CRAcK@$
+item.record_open.desc=George Vide - Puma-housut
+item.record_take_picture.desc=George Vide - DROP IT
+item.record_hit.desc=George Vide - BA$ED BOY$
+item.record_reaction.icebomb.desc=George Vide - Obama
+item.record_reaction.bleach.desc=George Vide - Suorat tosiasiat
+
+item.spawn_egg.entity.tcsmp:gerbil.name=Gerbil Spawn Egg
+item.spawn_egg.entity.tcsmp:unicorn.name=Unicorn Spawn Egg
+item.spawn_egg.entity.tcsmp:seal.name=Seal Spawn Egg
+item.spawn_egg.entity.tcsmp:barnacle.name=Barnacle Spawn Egg
+item.spawn_egg.entity.tcsmp:faded_skeleton.name=Haalistunut Skeleton Spawn Egg
+item.spawn_egg.entity.tcsmp:faded_zombie.name=Faded Zombie Spawn Egg
+
+tile.tcsmp:overworld_waystone.name=Overworld Waystone
+tile.tcsmp:nether_waystone.name=Nether Waystone
+tile.tcsmp:end_waystone.name=Loppu Waystone
+tile.tcsmp:inscription_table.name=Kirjoitustaulukko
+tile.tcsmp:cannabis_plant.name=Kannabis kasvi
+tile.tcsmp:faction_register.name=Ryhmärekisteri
+tile.tcsmp:tomato.name=Tomato
+
+entity.tcsmp:grappling_hook_stake.name=Grappling Hook Stake
+entity.tcsmp:grappling_hook_seat.name=Grappling Hook Seat
+entity.tcsmp:cannon.name=Tykki
+entity.tcsmp:cannonball.name=Tykinkuula
+entity.tcsmp:poison_cannonball.name=Poison Cannonball
+entity.tcsmp:wither_cannonball.name=Wither Cannonball
+entity.tcsmp:slowness_cannonball.name=Hitaus Cannonball
+entity.tcsmp:fire_cannonball.name=Ammu Tykinkuula
+entity.tcsmp:warp_crystal.name=Warp Crystal
+entity.tcsmp:lightning_cannonball.name=Salama Cannonball
+entity.tcsmp:gerbil.name=Gerbil
+entity.tcsmp:unicorn.name=Yksisarvinen
+entity.tcsmp:seal.name=Tiiviste
+entity.tcsmp:barnacle.name=Barnacle
+entity.tcsmp:lightning_bottle.name=Salaman pullo
+entity.tcsmp:tempered_warp_crystal.name=Karkaistu loimikristalli
+entity.tcsmp:faded_zombie.name=Haalistunut zombie
+entity.tcsmp:faded_skeleton.name=Haalistunut luuranko
+
+action.hint.exit.tcsmp:grappling_hook_seat=Crouch or jump to detach
+action.hint.exit.tcsmp:cannon=Kyyristy tai hyppää lopettaaksesi tähtäyksen
+action.hint.exit.tcsmp:stair_seat=Crouch or jump to stand
+action.hint.exit.tcsmp:unicorn=Napauta hiipiä poistuaksesi
+action.interact.ride.tcsmp:unicorn=Ratsastaa
+action.interact.gerbil=Ole vuorovaikutuksessa poimiaksesi
+action.interact.creeper.lightning=Bottle lightning
+
+container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NIkirjoitus
+
+action.setup.faction_invite.title=Määritä ryhmäkutsu
+action.setup.faction_invite.no_factions=Et kuulu mihinkään puolueeseen!
+action.setup.faction_invite.message=Kutsuviesti
+action.setup.faction_invite.message_placeholder=Tule mukaan %s!
+action.setup.faction_invite.submit=Confirm
+action.setup.faction_invite.cancel=Peruuta
+
+action.join.faction.fail=Olet jo ryhmässä!
+action.join.faction.invalid=%s no longer exists!
+action.join.faction.title=Ryhmäkutsu
+action.join.faction.accept=Liity §%s%s§r:iin
+action.join.faction.reject=Hylkää
+
+action.create.faction.title=Luo ryhmä
+action.create.faction.name=Faction Name
+action.create.faction.name_placeholder=Enintään 16 merkkiä...
+action.create.faction.submit=Luo
+action.create.faction.success=Fraktion §%s%s§r luominen onnistui!
+action.create.faction.fail=Fraktio "§%s%s§r" on virheellinen, ryhmän luominen epäonnistui
+
+action.manage.faction.title=Hallitse ryhmää
+action.manage.faction.body=Hallinnoi §%s%s§r:
+action.manage.faction.edit_name=Muokkaa nimeä
+action.manage.faction.edit_players=Edit Players
+action.manage.faction.edit_colour=Muokkaa väriä
+
+action.manage.faction.colour=Faction Colour
+faction_colour.amethyst.name=Amethyst
+faction_colour.copper.name=Copper
+faction_colour.diamond.name=Diamond
+faction_colour.emerald.name=Smaragdi
+faction_colour.gold.name=Kulta
+faction_colour.iron.name=Rauta
+faction_colour.lapis.name=Lapis
+faction_colour.netherite.name=Netherite
+faction_colour.quartz.name=Kvartsi
+faction_colour.redstone.name=Redstone
+faction_colour.resin.name=Resin
+
+action.manage.faction.kick=Kick %s
+action.manage.faction.kick_success=Potkittu %s kohteesta §%s%s§r.
+
+action.manage.faction.delete=Poista ryhmä
+action.manage.faction.delete_success=§%s%s§r on poistettu!
+
+action.manage.faction.confirm=Vahvista
+
+action.manage.faction.info=Fraktio: %s\nOmistaja: %s\nJäsenet: %s
+action.manage.faction.leave=Poistu §%s%s§r
+action.manage.faction.leave_success=Olet poistunut §%s%s§r
+action.manage.faction.leave_message=§%s[%s]§r %s on lähtenyt ryhmästä
+
+action.message.faction.title=Lähetä Viesti
+action.message.faction.message=Viesti:
+action.message.faction.submit=Lähetä
+action.message.faction.message_text=§%s[%s]§r <%s> %s
+
+info.faction.no_longer_member=Et ole enää paikassa %s
+
+form.setup.waystone.title=Waystonen asetukset
+form.setup.waystone.private=Yksityinen Waystone
+form.setup.waystone.name=Waystonen nimi:
+form.setup.waystone.submit=Lähetä
+
+form.edit.waystone.title=Muokkaa Waystonea
+
+form.interact.waystone.title=Waystone verkko
+form.interact.waystone.private=Omistaja: %s
+form.interact.waystone.global=Maailmanlaajuinen
+
+info.waystone.invalid="%s" ei ole kelvollinen reittikiven nimi
+info.waystone.preexists.global=Waystone "%s" on jo olemassa
+info.waystone.preexists.private=Yksityinen Waystone "%s" on jo olemassa
+
+info.return_scroll.no_waystones=Sinulla ei ole käytettävissä olevia polkukiviä, joihin palata
+
+itemGroup.tcsmp:waystones=Reittikiviä
+itemGroup.tcsmp:spell_scrolls=Spell Scrolls
+itemGroup.tcsmp:cannonballs=Tykinkuulat
+
+subtitles.entity.wolf.pet=Turkisröyhelöt
+subtitles.block.waystone.travel=Waystonen kourat
+subtitles.item.spell_scroll.cast=Loitsukäynnistimet
+subtitles.item.katana.draw=Katana piirtää
+subtitles.item.katana.dash=Katana viiltelee
+subtitles.item.grappling_hook.retract=Grappling Hook vetäytyy sisään
+subtitles.item.grappling_hook.charge=Grappling Hook latautuu
+subtitles.item.grappling_hook.shoot=Grappling Hook syttyy
+subtitles.entity.cannon.place=Tykin aseet
+subtitles.entity.cannon.break=Tykki riisuu aseista
+subtitles.entity.cannon.fire=Tykki ampuu
+subtitles.entity.cannon.light=Tykin valot
+subtitles.entity.gerbil.chirp=Gerbiili visertää
+subtitles.entity.gerbil.hurt=Gerbiili sattuu
+subtitles.item.lucks_bane.big_hit=Kolikkoautomaatti kolahtaa
+subtitles.item.knife.backstab=Veitsen kritiikki
+subtitles.entity.unicorn.gallop=Yksisarvinen laukkaa
+subtitles.entity.unicorn.eat=Yksisarvinen syö
+subtitles.entity.unicorn.trail=Yksisarvinen kimaltelee
+subtitles.entity.unicorn.death=Yksisarvinen kuolee
+subtitles.entity.barnacle.ambient=Nakka ui
+subtitles.entity.barnacle.death=Barnacle kuolee
+subtitles.entity.barnacle.hurt=Barnacle sattuu
+subtitles.entity.barnacle.attack=Barnacle puree
+subtitles.entity.faded_skeleton.ambient=Haalistuneet Skeleton helistimet
+subtitles.entity.faded_skeleton.death=Haalistunut luuranko kuolee
+subtitles.entity.faded_skeleton.hurt=Haalistunut luuranko sattuu
+subtitles.entity.faded_skeleton.wilter=Haalistunut luuranko kuihtuu
+subtitles.entity.faded_zombie.ambient=Haalistunut Zombie huokaa
+subtitles.entity.faded_zombie.death=Faded Zombie kuolee
+subtitles.entity.faded_zombie.hurt=Haalistunut Zombie sattuu
+subtitles.entity.faded_zombie.wilter=Haalistunut zombi kuihtuu
+subtitles.entity.seal.ambient=Hylkeen haukkuu
+subtitles.entity.seal.hurt=Sinetti sattuu
+subtitles.entity.seal.death=Tiiviste kuolee
+

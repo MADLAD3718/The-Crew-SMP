@@ -1,0 +1,210 @@
+item.tcsmp:grappling_hook.name=Gripekrok
+item.tcsmp:empty_grappling_hook.name=Tom gripekrok
+item.tcsmp:hook.name=Krok
+item.tcsmp:cannon.name=Kanon
+item.tcsmp:cannonball.name=Kanonkule
+item.tcsmp:poison_cannonball.name=Giftig kanonkule
+item.tcsmp:wither_cannonball.name=Visnende kanonkule
+item.tcsmp:slowness_cannonball.name=Bremse kanonkulen
+item.tcsmp:fire_cannonball.name=Firey Cannonball
+item.tcsmp:warp_crystal.name=Warp Crystal
+item.tcsmp:overworld_waystone.name=Overworld Waystone
+item.tcsmp:nether_waystone.name=Nether Waystone
+item.tcsmp:end_waystone.name=Avslutt Waystone
+item.tcsmp:spell_scroll.name=Stave Rull
+item.tcsmp:scroll_of_growth.name=Scroll of Growth
+item.tcsmp:lightning_bottle.name=Bottle of Lightning
+item.tcsmp:lightning_cannonball.name=Ladet kanonkule
+item.tcsmp:scroll_of_thunder.name=Scroll of Thunder
+item.tcsmp:scroll_of_decay.name=Scroll of Decay
+item.tcsmp:scroll_of_return.name=Rull av retur
+item.tcsmp:katana.name=Katana
+item.tcsmp:tnt_shield.name=TNT Shield
+item.tcsmp:faction_invite.name=Fraksjonsinvitasjon
+item.tcsmp:big_sandwich.name=Stor sandwich
+item.tcsmp:lucks_bane.name=Luck's Bane
+item.tcsmp:prismarine_blade.name=Prismarine blad
+item.tcsmp:gerbil.name=Gerbil
+item.tcsmp:tomato.name=Tomat
+item.tcsmp:slime_boots.name=Slimstøvler
+item.tcsmp:roulette_plate.name=Rulettplate
+item.tcsmp:barnacle_fang.name=Barnacle Fang
+item.tcsmp:tempered_warp_crystal.name=Herdet varpkrystall
+item.tcsmp:scroll_of_nausea.name=Rull av svoveldamp
+item.tcsmp:scroll_of_undead.name=Scroll of the Undead
+
+lore.random_damage=\n§r§9+§kg§r§9 Angrepsskade§r
+lore.fire_cannonball=§r§cSetter mål på brann§r
+lore.lightning_cannonball=§r§c Slår ned lyn§r
+lore.poison_cannonball=§r§cGjelder Gift (0:10)§r
+lore.slowness_cannonball=§r§cGjelder treghet (0:10)§r
+lore.wither_cannonball=§r§cGjelder Wither (0:10)§r
+lore.prismarine_blade_backstab=§r§9+7 Ryggskader§r
+
+item.record_balloonpop.desc=George Vide - CRAcK@$
+item.record_open.desc=George Vide - Puma-bukser
+item.record_take_picture.desc=George Vide - DROP IT
+item.record_hit.desc=George Vide - BA$ED BOY$
+item.record_reaction.icebomb.desc=George Vide - Obama
+item.record_reaction.bleach.desc=George Vide - Rette fakta
+
+item.spawn_egg.entity.tcsmp:gerbil.name=Gerbil Spawn Egg
+item.spawn_egg.entity.tcsmp:unicorn.name=Unicorn Spawn Egg
+item.spawn_egg.entity.tcsmp:seal.name=Seal Spawn Egg
+item.spawn_egg.entity.tcsmp:barnacle.name=Barnacle Spawn Egg
+item.spawn_egg.entity.tcsmp:faded_skeleton.name=Faded Skeleton Spawn Egg
+item.spawn_egg.entity.tcsmp:faded_zombie.name=Faded Zombie Spawn Egg
+
+tile.tcsmp:overworld_waystone.name=Overworld Waystone
+tile.tcsmp:nether_waystone.name=Nether Waystone
+tile.tcsmp:end_waystone.name=Avslutt Waystone
+tile.tcsmp:inscription_table.name=Inskripsjonstabell
+tile.tcsmp:cannabis_plant.name=Cannabisplante
+tile.tcsmp:faction_register.name=Fraksjonsregister
+tile.tcsmp:tomato.name=Tomat
+
+entity.tcsmp:grappling_hook_stake.name=Grappling Hook Stake
+entity.tcsmp:grappling_hook_seat.name=Grappling Hook Sete
+entity.tcsmp:cannon.name=Kanon
+entity.tcsmp:cannonball.name=Kanonkule
+entity.tcsmp:poison_cannonball.name=Giftkanonkule
+entity.tcsmp:wither_cannonball.name=Visne kanonkule
+entity.tcsmp:slowness_cannonball.name=Slowness Cannonball
+entity.tcsmp:fire_cannonball.name=Fyr av kanonkuler
+entity.tcsmp:warp_crystal.name=Warp Crystal
+entity.tcsmp:lightning_cannonball.name=Lynkanonkule
+entity.tcsmp:gerbil.name=Gerbil
+entity.tcsmp:unicorn.name=Enhjørning
+entity.tcsmp:seal.name=Seal
+entity.tcsmp:barnacle.name=Barnacle
+entity.tcsmp:lightning_bottle.name=Bottle of Lightning
+entity.tcsmp:tempered_warp_crystal.name=Herdet varpkrystall
+entity.tcsmp:faded_zombie.name=Falmet zombie
+entity.tcsmp:faded_skeleton.name=Falmet skjelett
+
+action.hint.exit.tcsmp:grappling_hook_seat=Huk eller hopp for å løsne
+action.hint.exit.tcsmp:cannon=Huk eller hopp for å slutte å sikte
+action.hint.exit.tcsmp:stair_seat=Huk eller hopp for å stå
+action.hint.exit.tcsmp:unicorn=Trykk snike for å gå av
+action.interact.ride.tcsmp:unicorn=Ride
+action.interact.gerbil=Samhandle for å hente
+action.interact.creeper.lightning=Flaske lyn
+
+container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NIInskripsjon
+
+action.setup.faction_invite.title=Sett opp fraksjonsinvitasjon
+action.setup.faction_invite.no_factions=Du er ikke en del av noen fraksjon!
+action.setup.faction_invite.message=Invitasjonsmelding
+action.setup.faction_invite.message_placeholder=Bli med %s!
+action.setup.faction_invite.submit=Bekreft
+action.setup.faction_invite.cancel=Avbryt
+
+action.join.faction.fail=Du er allerede i en fraksjon!
+action.join.faction.invalid=%s eksisterer ikke lenger!
+action.join.faction.title=Fraksjonsinvitasjon
+action.join.faction.accept=Bli med i §%s%s§r
+action.join.faction.reject=Avvis
+
+action.create.faction.title=Opprett fraksjon
+action.create.faction.name=Fraksjonsnavn
+action.create.faction.name_placeholder=Maks 16 tegn...
+action.create.faction.submit=Opprett
+action.create.faction.success=Fraksjon §%s%s§r opprettet!
+action.create.faction.fail=Fraksjon "§%s%s§r" er ugyldig, kunne ikke opprette fraksjon
+
+action.manage.faction.title=Administrer fraksjon
+action.manage.faction.body=Administrer §%s%s§r:
+action.manage.faction.edit_name=Rediger navn
+action.manage.faction.edit_players=Rediger spillere
+action.manage.faction.edit_colour=Rediger farge
+
+action.manage.faction.colour=Fraksjonsfarge
+faction_colour.amethyst.name=Ametyst
+faction_colour.copper.name=Kobber
+faction_colour.diamond.name=Diamant
+faction_colour.emerald.name=Smaragd
+faction_colour.gold.name=Gull
+faction_colour.iron.name=Jern
+faction_colour.lapis.name=Lapis
+faction_colour.netherite.name=Netherite
+faction_colour.quartz.name=Kvarts
+faction_colour.redstone.name=Redstone
+faction_colour.resin.name=Harpiks
+
+action.manage.faction.kick=Spark %s
+action.manage.faction.kick_success=Sparket %s fra §%s%s§r.
+
+action.manage.faction.delete=Slett fraksjon
+action.manage.faction.delete_success=§%s%s§r er slettet!
+
+action.manage.faction.confirm=Bekreft
+
+action.manage.faction.info=Fraksjon: %s\nEier: %s\nMedlemmer: %s
+action.manage.faction.leave=Forlat §%s%s§r
+action.manage.faction.leave_success=Du har forlatt §%s%s§r
+action.manage.faction.leave_message=§%s[%s]§r %s har forlatt fraksjonen
+
+action.message.faction.title=Send melding
+action.message.faction.message=Melding:
+action.message.faction.submit=Send
+action.message.faction.message_text=§%s[%s]§r <%s> %s
+
+info.faction.no_longer_member=Du er ikke lenger i %s
+
+form.setup.waystone.title=Waystone-oppsett
+form.setup.waystone.private=Privat Waystone
+form.setup.waystone.name=Waystone navn:
+form.setup.waystone.submit=Send inn
+
+form.edit.waystone.title=Rediger Waystone
+
+form.interact.waystone.title=Waystone-nettverket
+form.interact.waystone.private=Eier: %s
+form.interact.waystone.global=Globalt
+
+info.waystone.invalid="%s" er ikke et gyldig waystone-navn
+info.waystone.preexists.global=Waystone "%s" eksisterer allerede
+info.waystone.preexists.private=Private Waystone "%s" eksisterer allerede
+
+info.return_scroll.no_waystones=Du har ingen tilgjengelige veisteiner å gå tilbake til
+
+itemGroup.tcsmp:waystones=Veisteiner
+itemGroup.tcsmp:spell_scrolls=Stave ruller
+itemGroup.tcsmp:cannonballs=Kanonkuler
+
+subtitles.entity.wolf.pet=Pelsvolanger
+subtitles.block.waystone.travel=Waystone-sanger
+subtitles.item.spell_scroll.cast=Staveutløser
+subtitles.item.katana.draw=Katana tegner
+subtitles.item.katana.dash=Katana skjærer
+subtitles.item.grappling_hook.retract=Gripekroken trekkes tilbake
+subtitles.item.grappling_hook.charge=Grappling Hook lades opp
+subtitles.item.grappling_hook.shoot=Grappling Hook branner
+subtitles.entity.cannon.place=Kanonarmer
+subtitles.entity.cannon.break=Kanonen avvæpnes
+subtitles.entity.cannon.fire=Kanonfyring
+subtitles.entity.cannon.light=Kanonlys
+subtitles.entity.gerbil.chirp=Gerbil kvitrer
+subtitles.entity.gerbil.hurt=Gerbil gjør vondt
+subtitles.item.lucks_bane.big_hit=Spilleautomaten klirrer
+subtitles.item.knife.backstab=Knivkritt
+subtitles.entity.unicorn.gallop=Enhjørning galopperer
+subtitles.entity.unicorn.eat=Unicorn spiser
+subtitles.entity.unicorn.trail=Enhjørning glitrer
+subtitles.entity.unicorn.death=Enhjørning dør
+subtitles.entity.barnacle.ambient=Barnacle svømmer
+subtitles.entity.barnacle.death=Barnacle dør
+subtitles.entity.barnacle.hurt=Barnacle gjør vondt
+subtitles.entity.barnacle.attack=Barnacle biter
+subtitles.entity.faded_skeleton.ambient=Falmet skjelett rasler
+subtitles.entity.faded_skeleton.death=Faded Skeleton dør
+subtitles.entity.faded_skeleton.hurt=Falmet skjelett gjør vondt
+subtitles.entity.faded_skeleton.wilter=Falmet skjelett vilner
+subtitles.entity.faded_zombie.ambient=Falmet zombie stønner
+subtitles.entity.faded_zombie.death=Faded Zombie dør
+subtitles.entity.faded_zombie.hurt=Falmet zombie gjør vondt
+subtitles.entity.faded_zombie.wilter=Blekne zombie visner
+subtitles.entity.seal.ambient=Sel bjeffer
+subtitles.entity.seal.hurt=Selen gjør vondt
+subtitles.entity.seal.death=Segl dør
+

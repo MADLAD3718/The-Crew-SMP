@@ -1,0 +1,210 @@
+item.tcsmp:grappling_hook.name=Gancho de agarre
+item.tcsmp:empty_grappling_hook.name=Gancho de agarre vacío
+item.tcsmp:hook.name=Gancho
+item.tcsmp:cannon.name=Cañón
+item.tcsmp:cannonball.name=bala de cañón
+item.tcsmp:poison_cannonball.name=Bala de cañón venenosa
+item.tcsmp:wither_cannonball.name=Bala de cañón fulminante
+item.tcsmp:slowness_cannonball.name=Bala de cañón lenta
+item.tcsmp:fire_cannonball.name=Bala de cañón de fuego
+item.tcsmp:warp_crystal.name=Cristal de deformación
+item.tcsmp:overworld_waystone.name=Piedra de camino del mundo exterior
+item.tcsmp:nether_waystone.name=Piedra de camino abisal
+item.tcsmp:end_waystone.name=Piedra de camino final
+item.tcsmp:spell_scroll.name=Pergamino de hechizo
+item.tcsmp:scroll_of_growth.name=Pergamino de crecimiento
+item.tcsmp:lightning_bottle.name=Botella de relámpago
+item.tcsmp:lightning_cannonball.name=Bala de cañón cargada
+item.tcsmp:scroll_of_thunder.name=Pergamino del trueno
+item.tcsmp:scroll_of_decay.name=Pergamino de decadencia
+item.tcsmp:scroll_of_return.name=Pergamino de retorno
+item.tcsmp:katana.name=Katana
+item.tcsmp:tnt_shield.name=Escudo TNT
+item.tcsmp:faction_invite.name=Invitación de facción
+item.tcsmp:big_sandwich.name=Sándwich grande
+item.tcsmp:lucks_bane.name=La perdición de la suerte
+item.tcsmp:prismarine_blade.name=Hoja Prismarina
+item.tcsmp:gerbil.name=jerbo
+item.tcsmp:tomato.name=tomate
+item.tcsmp:slime_boots.name=Botas de limo
+item.tcsmp:roulette_plate.name=Plato de ruleta
+item.tcsmp:barnacle_fang.name=Colmillo de percebe
+item.tcsmp:tempered_warp_crystal.name=Cristal de deformación templado
+item.tcsmp:scroll_of_nausea.name=Pergamino de vapor sulfuroso
+item.tcsmp:scroll_of_undead.name=Pergamino de los no muertos
+
+lore.random_damage=\n§r§9+§kg§r§9 Daño de ataque§r
+lore.fire_cannonball=§r§cPrende fuego a los objetivos§r
+lore.lightning_cannonball=§r§cCae un rayo§r
+lore.poison_cannonball=§r§cAplica Veneno (0:10)§r
+lore.slowness_cannonball=§r§cAplica Lentitud (0:10)§r
+lore.wither_cannonball=§r§cAplica Wither (0:10)§r
+lore.prismarine_blade_backstab=§r§9+7 Daño por puñalada por la espalda§r
+
+item.record_balloonpop.desc=George Vide - CRAcK@$
+item.record_open.desc=George Vide - Pantalones Puma
+item.record_take_picture.desc=George Vide - Suéltalo
+item.record_hit.desc=George Vide - BA$ED BOY$
+item.record_reaction.icebomb.desc=George Vide - Obama
+item.record_reaction.bleach.desc=George Vide - Hechos claros
+
+item.spawn_egg.entity.tcsmp:gerbil.name=Huevo de desove de jerbo
+item.spawn_egg.entity.tcsmp:unicorn.name=Huevo de desove de unicornio
+item.spawn_egg.entity.tcsmp:seal.name=Huevo de desove de foca
+item.spawn_egg.entity.tcsmp:barnacle.name=Huevo de desove de percebe
+item.spawn_egg.entity.tcsmp:faded_skeleton.name=Huevo de generación de esqueleto descolorido
+item.spawn_egg.entity.tcsmp:faded_zombie.name=Huevo de generación de zombies descolorido
+
+tile.tcsmp:overworld_waystone.name=Piedra de camino del mundo exterior
+tile.tcsmp:nether_waystone.name=Piedra de camino abisal
+tile.tcsmp:end_waystone.name=Piedra de camino final
+tile.tcsmp:inscription_table.name=Mesa de inscripción
+tile.tcsmp:cannabis_plant.name=Planta de Cannabis
+tile.tcsmp:faction_register.name=Registro de facción
+tile.tcsmp:tomato.name=tomate
+
+entity.tcsmp:grappling_hook_stake.name=Estaca de gancho de agarre
+entity.tcsmp:grappling_hook_seat.name=Asiento con gancho de agarre
+entity.tcsmp:cannon.name=Cañón
+entity.tcsmp:cannonball.name=bala de cañón
+entity.tcsmp:poison_cannonball.name=Bala de cañón venenosa
+entity.tcsmp:wither_cannonball.name=Bala de cañón marchita
+entity.tcsmp:slowness_cannonball.name=Bala de cañón de lentitud
+entity.tcsmp:fire_cannonball.name=bala de cañón de fuego
+entity.tcsmp:warp_crystal.name=Cristal de deformación
+entity.tcsmp:lightning_cannonball.name=Bala de cañón relámpago
+entity.tcsmp:gerbil.name=jerbo
+entity.tcsmp:unicorn.name=unicornio
+entity.tcsmp:seal.name=Sello
+entity.tcsmp:barnacle.name=percebe
+entity.tcsmp:lightning_bottle.name=Botella de relámpago
+entity.tcsmp:tempered_warp_crystal.name=Cristal de deformación templado
+entity.tcsmp:faded_zombie.name=Zombi descolorido
+entity.tcsmp:faded_skeleton.name=Esqueleto descolorido
+
+action.hint.exit.tcsmp:grappling_hook_seat=Agáchate o salta para separarte.
+action.hint.exit.tcsmp:cannon=Agáchate o salta para dejar de apuntar.
+action.hint.exit.tcsmp:stair_seat=Agáchate o salta para pararte
+action.hint.exit.tcsmp:unicorn=Toca furtivamente para desmontar
+action.interact.ride.tcsmp:unicorn=paseo
+action.interact.gerbil=Interactuar para recoger
+action.interact.creeper.lightning=Rayo de botella
+
+container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NInscripción
+
+action.setup.faction_invite.title=Configurar invitación de facción
+action.setup.faction_invite.no_factions=¡No eres parte de ninguna facción!
+action.setup.faction_invite.message=Mensaje de invitación
+action.setup.faction_invite.message_placeholder=¡Únete a %s!
+action.setup.faction_invite.submit=Confirmar
+action.setup.faction_invite.cancel=Cancelar
+
+action.join.faction.fail=¡Ya estás en una facción!
+action.join.faction.invalid=¡%s ya no existe!
+action.join.faction.title=Invitación de facción
+action.join.faction.accept=Únete a §%s%s§r
+action.join.faction.reject=Rechazar
+
+action.create.faction.title=Crear facción
+action.create.faction.name=Nombre de facción
+action.create.faction.name_placeholder=Máximo 16 caracteres...
+action.create.faction.submit=crear
+action.create.faction.success=¡Facción §%s%s§r creada exitosamente!
+action.create.faction.fail=La facción "§%s%s§r" no es válida, no se pudo crear la facción
+
+action.manage.faction.title=Administrar facción
+action.manage.faction.body=Administrar §%s%s§r:
+action.manage.faction.edit_name=Editar nombre
+action.manage.faction.edit_players=Editar jugadores
+action.manage.faction.edit_colour=Editar color
+
+action.manage.faction.colour=Color de facción
+faction_colour.amethyst.name=amatista
+faction_colour.copper.name=Cobre
+faction_colour.diamond.name=diamante
+faction_colour.emerald.name=Esmeralda
+faction_colour.gold.name=oro
+faction_colour.iron.name=hierro
+faction_colour.lapis.name=lapislázuli
+faction_colour.netherite.name=Netherita
+faction_colour.quartz.name=Cuarzo
+faction_colour.redstone.name=piedra roja
+faction_colour.resin.name=resina
+
+action.manage.faction.kick=Patear %s
+action.manage.faction.kick_success=Expulsó a %s de §%s%s§r.
+
+action.manage.faction.delete=Eliminar facción
+action.manage.faction.delete_success=¡§%s%s§r ha sido eliminado!
+
+action.manage.faction.confirm=Confirmar
+
+action.manage.faction.info=Facción: %s\nPropietario: %s\nMiembros: %s
+action.manage.faction.leave=Dejar §%s%s§r
+action.manage.faction.leave_success=Te has ido §%s%s§r
+action.manage.faction.leave_message=§%s[%s]§r %s ha abandonado la facción
+
+action.message.faction.title=Enviar mensaje
+action.message.faction.message=Mensaje:
+action.message.faction.submit=enviar
+action.message.faction.message_text=§%s[%s]§r <%s> %s
+
+info.faction.no_longer_member=Ya no estás en %s
+
+form.setup.waystone.title=Configuración de piedra de paso
+form.setup.waystone.private=Piedra de camino privada
+form.setup.waystone.name=Nombre de piedra de paso:
+form.setup.waystone.submit=Enviar
+
+form.edit.waystone.title=Editar piedra de paso
+
+form.interact.waystone.title=Red de piedra de camino
+form.interact.waystone.private=Propietario: %s
+form.interact.waystone.global=Mundial
+
+info.waystone.invalid="%s" no es un nombre de piedra de paso válido
+info.waystone.preexists.global=La piedra de paso "%s" ya existe
+info.waystone.preexists.private=Waystone privado "%s" ya existe
+
+info.return_scroll.no_waystones=No tienes piedras de ruta disponibles a las que regresar
+
+itemGroup.tcsmp:waystones=Piedras de camino
+itemGroup.tcsmp:spell_scrolls=Pergaminos de hechizos
+itemGroup.tcsmp:cannonballs=balas de cañón
+
+subtitles.entity.wolf.pet=Volantes de piel
+subtitles.block.waystone.travel=La piedra del camino gorjea
+subtitles.item.spell_scroll.cast=Desencadenantes de hechizos
+subtitles.item.katana.draw=Katana dibuja
+subtitles.item.katana.dash=cortes de katana
+subtitles.item.grappling_hook.retract=El gancho de agarre se retrae
+subtitles.item.grappling_hook.charge=El gancho de agarre se carga
+subtitles.item.grappling_hook.shoot=Fuegos de gancho de agarre
+subtitles.entity.cannon.place=Armas de cañón
+subtitles.entity.cannon.break=Cañón se desarma
+subtitles.entity.cannon.fire=Disparos de cañones
+subtitles.entity.cannon.light=luces de cañón
+subtitles.entity.gerbil.chirp=El jerbo chirría
+subtitles.entity.gerbil.hurt=El jerbo duele
+subtitles.item.lucks_bane.big_hit=Tintineos de máquinas tragamonedas
+subtitles.item.knife.backstab=Críticos de cuchillo
+subtitles.entity.unicorn.gallop=Unicornio galopa
+subtitles.entity.unicorn.eat=unicornio come
+subtitles.entity.unicorn.trail=Unicornio brilla
+subtitles.entity.unicorn.death=unicornio muere
+subtitles.entity.barnacle.ambient=El percebe nada
+subtitles.entity.barnacle.death=percebe muere
+subtitles.entity.barnacle.hurt=el percebe duele
+subtitles.entity.barnacle.attack=Picaduras de percebe
+subtitles.entity.faded_skeleton.ambient=Sonajeros de esqueleto descoloridos
+subtitles.entity.faded_skeleton.death=Muere el esqueleto descolorido
+subtitles.entity.faded_skeleton.hurt=El esqueleto descolorido duele
+subtitles.entity.faded_skeleton.wilter=El esqueleto descolorido se marchita
+subtitles.entity.faded_zombie.ambient=Gemidos zombis descoloridos
+subtitles.entity.faded_zombie.death=Muere el zombi descolorido
+subtitles.entity.faded_zombie.hurt=El zombi descolorido duele
+subtitles.entity.faded_zombie.wilter=Zombie descolorido se marchita
+subtitles.entity.seal.ambient=cortezas de foca
+subtitles.entity.seal.hurt=El sello duele
+subtitles.entity.seal.death=El sello muere
+

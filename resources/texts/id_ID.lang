@@ -1,0 +1,210 @@
+item.tcsmp:grappling_hook.name=Pengait Pengait
+item.tcsmp:empty_grappling_hook.name=Kait Penggenggam Kosong
+item.tcsmp:hook.name=Kait
+item.tcsmp:cannon.name=Meriam
+item.tcsmp:cannonball.name=Bola meriam
+item.tcsmp:poison_cannonball.name=Bola Meriam Beracun
+item.tcsmp:wither_cannonball.name=Bola Meriam yang layu
+item.tcsmp:slowness_cannonball.name=Peluru Meriam yang Memperlambat
+item.tcsmp:fire_cannonball.name=Bola Meriam Api
+item.tcsmp:warp_crystal.name=Kristal Warp
+item.tcsmp:overworld_waystone.name=Batu Jalan Dunia Luar
+item.tcsmp:nether_waystone.name=Batu Jalan Nether
+item.tcsmp:end_waystone.name=Akhiri Batu Jalan
+item.tcsmp:spell_scroll.name=Gulir Ejaan
+item.tcsmp:scroll_of_growth.name=Gulungan Pertumbuhan
+item.tcsmp:lightning_bottle.name=Botol o' Lightning
+item.tcsmp:lightning_cannonball.name=Bola Meriam yang Dibebankan
+item.tcsmp:scroll_of_thunder.name=Gulir Guntur
+item.tcsmp:scroll_of_decay.name=Gulungan Pembusukan
+item.tcsmp:scroll_of_return.name=Gulir Kembali
+item.tcsmp:katana.name=Katana
+item.tcsmp:tnt_shield.name=Perisai TNT
+item.tcsmp:faction_invite.name=Undangan Fraksi
+item.tcsmp:big_sandwich.name=Sandwich Besar
+item.tcsmp:lucks_bane.name=Kutukan Keberuntungan
+item.tcsmp:prismarine_blade.name=Pedang Prismarine
+item.tcsmp:gerbil.name=Gerbil
+item.tcsmp:tomato.name=Tomat
+item.tcsmp:slime_boots.name=Sepatu Lendir
+item.tcsmp:roulette_plate.name=Piring Roulette
+item.tcsmp:barnacle_fang.name=Fang Teritip
+item.tcsmp:tempered_warp_crystal.name=Kristal Warp Tempered
+item.tcsmp:scroll_of_nausea.name=Gulungan Uap Belerang
+item.tcsmp:scroll_of_undead.name=Gulir Mayat Hidup
+
+lore.random_damage=\n§r§9+§kg§r§9 Kerusakan Serangan§r
+lore.fire_cannonball=§r§cMenetapkan Target Kebakaran§r
+lore.lightning_cannonball=§r§cMenyambar Petir§r
+lore.poison_cannonball=§r§cMenerapkan Racun (0:10)§r
+lore.slowness_cannonball=§r§cMenerapkan Kelambatan (0:10)§r
+lore.wither_cannonball=§r§cBerlaku Layu (0:10)§r
+lore.prismarine_blade_backstab=§r§9+7 Kerusakan Backstab§r
+
+item.record_balloonpop.desc=George Vide - CRAcK@$
+item.record_open.desc=George Vide - Celana Puma
+item.record_take_picture.desc=George Vide - JATUHKAN
+item.record_hit.desc=George Vide - LAKI-LAKI BA$ED$
+item.record_reaction.icebomb.desc=George Vide - Obama
+item.record_reaction.bleach.desc=George Vide - Fakta Lurus
+
+item.spawn_egg.entity.tcsmp:gerbil.name=Telur Bibit Gerbil
+item.spawn_egg.entity.tcsmp:unicorn.name=Telur Bertelur Unicorn
+item.spawn_egg.entity.tcsmp:seal.name=Segel Telur Bertelur
+item.spawn_egg.entity.tcsmp:barnacle.name=Telur Bertelur Teritip
+item.spawn_egg.entity.tcsmp:faded_skeleton.name=Telur Bertelur Kerangka Pudar
+item.spawn_egg.entity.tcsmp:faded_zombie.name=Telur Bertelur Zombi yang Pudar
+
+tile.tcsmp:overworld_waystone.name=Batu Jalan Dunia Luar
+tile.tcsmp:nether_waystone.name=Batu Jalan Nether
+tile.tcsmp:end_waystone.name=Akhiri Batu Jalan
+tile.tcsmp:inscription_table.name=Tabel Prasasti
+tile.tcsmp:cannabis_plant.name=Tanaman Ganja
+tile.tcsmp:faction_register.name=Daftar Fraksi
+tile.tcsmp:tomato.name=Tomat
+
+entity.tcsmp:grappling_hook_stake.name=Pasak Pengait Grappling
+entity.tcsmp:grappling_hook_seat.name=Kursi Pengait Pengait
+entity.tcsmp:cannon.name=Meriam
+entity.tcsmp:cannonball.name=Bola meriam
+entity.tcsmp:poison_cannonball.name=Bola Meriam Racun
+entity.tcsmp:wither_cannonball.name=Bola Meriam Layu
+entity.tcsmp:slowness_cannonball.name=Kelambatan Peluru Meriam
+entity.tcsmp:fire_cannonball.name=Bola Meriam Api
+entity.tcsmp:warp_crystal.name=Kristal Warp
+entity.tcsmp:lightning_cannonball.name=Bola Meriam Petir
+entity.tcsmp:gerbil.name=Gerbil
+entity.tcsmp:unicorn.name=Unicorn
+entity.tcsmp:seal.name=Segel
+entity.tcsmp:barnacle.name=Teritip
+entity.tcsmp:lightning_bottle.name=Botol o' Lightning
+entity.tcsmp:tempered_warp_crystal.name=Kristal Warp Tempered
+entity.tcsmp:faded_zombie.name=Zombi yang Memudar
+entity.tcsmp:faded_skeleton.name=Kerangka Memudar
+
+action.hint.exit.tcsmp:grappling_hook_seat=Berjongkok atau melompat untuk melepaskan diri
+action.hint.exit.tcsmp:cannon=Berjongkok atau melompat untuk berhenti membidik
+action.hint.exit.tcsmp:stair_seat=Berjongkok atau melompat untuk berdiri
+action.hint.exit.tcsmp:unicorn=Ketuk menyelinap untuk turun
+action.interact.ride.tcsmp:unicorn=Naik
+action.interact.gerbil=Berinteraksi untuk mengambil
+action.interact.creeper.lightning=Petir botol
+
+container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NPrasasti
+
+action.setup.faction_invite.title=Undangan Fraksi Pengaturan
+action.setup.faction_invite.no_factions=Anda bukan bagian dari faksi mana pun!
+action.setup.faction_invite.message=Pesan Undangan
+action.setup.faction_invite.message_placeholder=Ayo bergabung dengan %s!
+action.setup.faction_invite.submit=Konfirmasikan
+action.setup.faction_invite.cancel=Batalkan
+
+action.join.faction.fail=Anda sudah berada di faksi!
+action.join.faction.invalid=%s sudah tidak ada lagi!
+action.join.faction.title=Undangan Fraksi
+action.join.faction.accept=Bergabunglah dengan §%s%s§r
+action.join.faction.reject=Tolak
+
+action.create.faction.title=Buat Fraksi
+action.create.faction.name=Nama Fraksi
+action.create.faction.name_placeholder=Maks 16 karakter...
+action.create.faction.submit=Buat
+action.create.faction.success=Fraksi §%s%s§r berhasil dibuat!
+action.create.faction.fail=Fraksi "§%s%s§r" tidak valid, gagal membuat faksi
+
+action.manage.faction.title=Kelola Fraksi
+action.manage.faction.body=Kelola §%s%s§r:
+action.manage.faction.edit_name=Sunting Nama
+action.manage.faction.edit_players=Sunting Pemain
+action.manage.faction.edit_colour=Sunting Warna
+
+action.manage.faction.colour=Warna Fraksi
+faction_colour.amethyst.name=batu kecubung
+faction_colour.copper.name=Tembaga
+faction_colour.diamond.name=berlian
+faction_colour.emerald.name=Zamrud
+faction_colour.gold.name=Emas
+faction_colour.iron.name=Besi
+faction_colour.lapis.name=Lapis
+faction_colour.netherite.name=orang Belanda
+faction_colour.quartz.name=Kuarsa
+faction_colour.redstone.name=batu merah
+faction_colour.resin.name=Damar
+
+action.manage.faction.kick=Tendang %s
+action.manage.faction.kick_success=Menendang %s dari §%s%s§r.
+
+action.manage.faction.delete=Hapus Fraksi
+action.manage.faction.delete_success=§%s%s§r telah dihapus!
+
+action.manage.faction.confirm=Konfirmasikan
+
+action.manage.faction.info=Fraksi: %s\nPemilik: %s\nAnggota: %s
+action.manage.faction.leave=Tinggalkan §%s%s§r
+action.manage.faction.leave_success=Anda telah meninggalkan §%s%s§r
+action.manage.faction.leave_message=§%s[%s]§r %s telah meninggalkan faksi
+
+action.message.faction.title=Kirim Pesan
+action.message.faction.message=Pesan:
+action.message.faction.submit=Kirim
+action.message.faction.message_text=§%s[%s]§r <%s> %s
+
+info.faction.no_longer_member=Anda tidak lagi berada di %s
+
+form.setup.waystone.title=Pengaturan Batu Jalan
+form.setup.waystone.private=Batu Jalan Pribadi
+form.setup.waystone.name=Nama Batu Jalan:
+form.setup.waystone.submit=Kirim
+
+form.edit.waystone.title=Sunting Batu Jalan
+
+form.interact.waystone.title=Jaringan Batu Jalan
+form.interact.waystone.private=Pemilik: %s
+form.interact.waystone.global=Global
+
+info.waystone.invalid="%s" bukan nama batu jalan yang valid
+info.waystone.preexists.global=Batu jalan "%s" sudah ada
+info.waystone.preexists.private=Waystone Pribadi "%s" sudah ada
+
+info.return_scroll.no_waystones=Anda tidak memiliki batu jalan untuk kembali
+
+itemGroup.tcsmp:waystones=batu jalan
+itemGroup.tcsmp:spell_scrolls=Gulungan Ejaan
+itemGroup.tcsmp:cannonballs=Bola meriam
+
+subtitles.entity.wolf.pet=Kerutan bulu
+subtitles.block.waystone.travel=Kicauan batu jalan
+subtitles.item.spell_scroll.cast=Pemicu mantra
+subtitles.item.katana.draw=Menggambar Katana
+subtitles.item.katana.dash=Tebasan Katana
+subtitles.item.grappling_hook.retract=Grappling Hook ditarik kembali
+subtitles.item.grappling_hook.charge=Grappling Hook terisi daya
+subtitles.item.grappling_hook.shoot=Grappling Hook menyala
+subtitles.entity.cannon.place=Lengan meriam
+subtitles.entity.cannon.break=Meriam dilucuti
+subtitles.entity.cannon.fire=Tembakan meriam
+subtitles.entity.cannon.light=Lampu meriam
+subtitles.entity.gerbil.chirp=Kicauan gerbil
+subtitles.entity.gerbil.hurt=Gerbil sakit
+subtitles.item.lucks_bane.big_hit=Dentingan mesin slot
+subtitles.item.knife.backstab=Kritikus pisau
+subtitles.entity.unicorn.gallop=Unicorn berlari kencang
+subtitles.entity.unicorn.eat=Unicorn makan
+subtitles.entity.unicorn.trail=Unicorn berkilau
+subtitles.entity.unicorn.death=Unicorn mati
+subtitles.entity.barnacle.ambient=Teritip berenang
+subtitles.entity.barnacle.death=Teritip mati
+subtitles.entity.barnacle.hurt=Teritip sakit
+subtitles.entity.barnacle.attack=Gigitan teritip
+subtitles.entity.faded_skeleton.ambient=Kerangka yang Memudar bergetar
+subtitles.entity.faded_skeleton.death=Kerangka Pudar mati
+subtitles.entity.faded_skeleton.hurt=Kerangka yang Memudar terasa sakit
+subtitles.entity.faded_skeleton.wilter=Kerangka yang Memudar layu
+subtitles.entity.faded_zombie.ambient=Zombie yang memudar mengerang
+subtitles.entity.faded_zombie.death=Zombi yang pudar mati
+subtitles.entity.faded_zombie.hurt=Zombie yang memudar itu menyakitkan
+subtitles.entity.faded_zombie.wilter=Zombie yang memudar layu
+subtitles.entity.seal.ambient=Anjing laut menggonggong
+subtitles.entity.seal.hurt=Segelnya sakit
+subtitles.entity.seal.death=Segel mati
+
