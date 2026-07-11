@@ -7,19 +7,19 @@ const EATING_DAMAGE = BarnacleDefinition["minecraft:entity"].component_groups["t
 world.beforeEvents.entityHurt.subscribe(event => {
     const hurtEntity = event.hurtEntity;
     const damagingEntity = event.damageSource.damagingEntity;
-    if (damagingEntity?.matches({type: "tcsmp:barnacle"})) {
+    if (damagingEntity?.matches({ type: "tcsmp:barnacle" })) {
         if (damagingEntity.getProperty("tcsmp:barnacle_state") == "consuming") return;
         const block_below = damagingEntity.dimension.getBlockBelow(
             damagingEntity.location, { maxDistance: 3 }
         );
         if (block_below) event.damage = EATING_DAMAGE;
     }
-    else if (hurtEntity.matches({type: "tcsmp:barnacle"})) {
+    else if (hurtEntity.matches({ type: "tcsmp:barnacle" })) {
         if (hurtEntity.isInvunerable) return event.cancel = true;
         if (hurtEntity.getProperty("tcsmp:barnacle_state") == "dragging")
             event.damage *= 0.25;
     }
-}, {allowedDamageCauses: [EntityDamageCause.entityAttack]});
+}, { allowedDamageCauses: [EntityDamageCause.entityAttack] });
 
 world.afterEvents.entityHitEntity.subscribe(event => {
     const { damagingEntity: barnacle, hitEntity } = event;
@@ -28,7 +28,8 @@ world.afterEvents.entityHitEntity.subscribe(event => {
     const block_below = barnacle.dimension.getBlockBelow(
         barnacle.location, { maxDistance: 3 }
     );
-    if (block_below || barnacle.getDynamicProperty("draggedEntityId") != hitEntity.id)
+    const draggedEntityId = barnacle.getDynamicProperty("draggedEntityId")
+    if (block_below || (draggedEntityId && draggedEntityId != hitEntity.id))
         return barnacle.triggerEvent("tcsmp:start_consuming");
 
     const draggedEntity = hitEntity.entityRidingOn ?? hitEntity;
@@ -55,9 +56,9 @@ world.afterEvents.entityHitEntity.subscribe(event => {
         "dragInterval": interval,
         "draggedEntityId": draggedEntity.id
     });
-}, {entityTypes: ["tcsmp:barnacle"]});
+}, { entityTypes: ["tcsmp:barnacle"] });
 
-world.afterEvents.dataDrivenEntityTrigger.subscribe(({entity}) => {
+world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity }) => {
     const dragInterval = entity.getDynamicProperty("dragInterval") as number | undefined;
     const draggedEntityId = entity.getDynamicProperty("draggedEntityId") as string | undefined;
     if (dragInterval) system.clearRun(dragInterval);
