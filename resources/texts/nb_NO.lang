@@ -48,6 +48,13 @@ item.record_hit.desc=George Vide - BA$ED BOY$
 item.record_reaction.icebomb.desc=George Vide - Obama
 item.record_reaction.bleach.desc=George Vide - Rette fakta
 
+item.record_crackas.desc=George Vide - CRAcK@$
+item.record_puma_pants.desc=George Vide - Puma-bukser
+item.record_drop_it.desc=George Vide - DROP IT
+item.record_based_boys.desc=George Vide - BA$ED BOY$
+item.record_obama.desc=George Vide - Obama
+item.record_straight_facts.desc=George Vide - Rette fakta
+
 item.spawn_egg.entity.tcsmp:gerbil.name=Gerbil Spawn Egg
 item.spawn_egg.entity.tcsmp:unicorn.name=Unicorn Spawn Egg
 item.spawn_egg.entity.tcsmp:seal.name=Seal Spawn Egg
@@ -182,7 +189,7 @@ subtitles.item.grappling_hook.charge=Grappling Hook lades opp
 subtitles.item.grappling_hook.shoot=Grappling Hook branner
 subtitles.entity.cannon.place=Kanonarmer
 subtitles.entity.cannon.break=Kanonen avvæpnes
-subtitles.entity.cannon.fire=Kanonfyring
+subtitles.entity.cannon.fire=Kanonskudd
 subtitles.entity.cannon.light=Kanonlys
 subtitles.entity.gerbil.chirp=Gerbil kvitrer
 subtitles.entity.gerbil.hurt=Gerbil gjør vondt

@@ -42,11 +42,18 @@ lore.wither_cannonball=§r§c위더 적용(0:10)§r
 lore.prismarine_blade_backstab=§r§9+7 기습 피해§r
 
 item.record_balloonpop.desc=조지 비드 - CRAcK@$
-item.record_open.desc=George Vide - 푸마 바지
+item.record_open.desc=George Vide - 푸마 팬츠
 item.record_take_picture.desc=조지 비드 - 그만둬
 item.record_hit.desc=조지 비드(George Vide) - BA$ED BOY$
 item.record_reaction.icebomb.desc=조지 비드 - 오바마
 item.record_reaction.bleach.desc=George Vide-똑바른 사실
+
+item.record_crackas.desc=조지 비드 - CRAcK@$
+item.record_puma_pants.desc=George Vide - 푸마 바지
+item.record_drop_it.desc=조지 비드 - 그만둬
+item.record_based_boys.desc=조지 비드(George Vide) - BA$ED BOY$
+item.record_obama.desc=조지 비드 - 오바마
+item.record_straight_facts.desc=George Vide-똑바른 사실
 
 item.spawn_egg.entity.tcsmp:gerbil.name=게르빌 산란 알
 item.spawn_egg.entity.tcsmp:unicorn.name=유니콘 산란 알

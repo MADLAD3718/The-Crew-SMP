@@ -48,6 +48,13 @@ item.record_hit.desc=George Vide - BA$ED BOY$
 item.record_reaction.icebomb.desc=George Vide-Obama
 item.record_reaction.bleach.desc=George Vide - Gerçekler
 
+item.record_crackas.desc=George Vide - CRAcK@$
+item.record_puma_pants.desc=George Vide - Puma Pantolon
+item.record_drop_it.desc=George Vide - BIRAK
+item.record_based_boys.desc=George Vide - BA$ED BOY$
+item.record_obama.desc=George Vide-Obama
+item.record_straight_facts.desc=George Vide - Gerçekler
+
 item.spawn_egg.entity.tcsmp:gerbil.name=Gerbil Yumurtlama Yumurtası
 item.spawn_egg.entity.tcsmp:unicorn.name=Tekboynuz Yumurtlama Yumurtası
 item.spawn_egg.entity.tcsmp:seal.name=Fok Yumurtlama Yumurtası
@@ -163,7 +170,7 @@ form.interact.waystone.private=Sahip: %s
 form.interact.waystone.global=Küresel
 
 info.waystone.invalid="%s" geçerli bir yol taşı adı değil
-info.waystone.preexists.global=Yoltaşı "%s" zaten mevcut
+info.waystone.preexists.global=Yol taşı "%s" zaten mevcut
 info.waystone.preexists.private=Özel Yol Taşı "%s" zaten mevcut
 
 info.return_scroll.no_waystones=Geri dönebileceğiniz kullanılabilir yol taşınız yok

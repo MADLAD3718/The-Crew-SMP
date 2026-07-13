@@ -48,6 +48,13 @@ item.record_hit.desc=Джордж Виде - BA$ED BOY$
 item.record_reaction.icebomb.desc=Джордж Виде - Обама
 item.record_reaction.bleach.desc=Джордж Виде - прямые факты
 
+item.record_crackas.desc=Джордж Виде - CRAcK@$
+item.record_puma_pants.desc=Джордж Виде - Брюки Puma
+item.record_drop_it.desc=Джордж Виде - БРОСЬТЕ ЭТО
+item.record_based_boys.desc=Джордж Виде - BA$ED BOY$
+item.record_obama.desc=Джордж Виде - Обама
+item.record_straight_facts.desc=Джордж Виде - прямые факты
+
 item.spawn_egg.entity.tcsmp:gerbil.name=Яйцо спауна песчанки
 item.spawn_egg.entity.tcsmp:unicorn.name=Яйцо призывания единорога
 item.spawn_egg.entity.tcsmp:seal.name=Яйцо призыва тюленя
@@ -177,7 +184,7 @@ subtitles.block.waystone.travel=Трели путевого камня
 subtitles.item.spell_scroll.cast=Триггеры заклинаний
 subtitles.item.katana.draw=Катана рисует
 subtitles.item.katana.dash=Катана рубит
-subtitles.item.grappling_hook.retract=Абордажный крюк убирается
+subtitles.item.grappling_hook.retract=Абордажный крюк втягивается
 subtitles.item.grappling_hook.charge=Абордажный крюк заряжается
 subtitles.item.grappling_hook.shoot=Абордажный крюк стреляет
 subtitles.entity.cannon.place=Пушечное вооружение

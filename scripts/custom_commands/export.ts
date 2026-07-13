@@ -1,22 +1,23 @@
 import { CustomCommand, CustomCommandOrigin, CustomCommandResult } from "@minecraft/server";
-import factionTransferCommand from "./factions/transfer";
-import factionMessageCommand from "./factions/message";
-import factionCreateCommand from "./factions/create";
-import factionRenameCommand from "./factions/rename";
-import factionInviteCommand from "./factions/invite";
-import factionDeleteCommand from "./factions/delete";
-import factionLeaveCommand from "./factions/leave";
-import factionJoinCommand from "./factions/join";
-import factionKickCommand from "./factions/kick";
-import factionListCommand from "./factions/list";
-import dynamicPropertiesCommand from "./admin/dynamicproperties";
-import dimensionInfoCommand from "./admin/dimensioninfo";
-import resetCooldownCommand from "./admin/resetcooldown";
-import removeEntityCommand from "./admin/removeentity";
-import damageItemCommand from "./admin/damageitem";
 import biomeInfoCommand from "./admin/biomeinfo";
 import blockInfoCommand from "./admin/blockinfo";
+import damageItemCommand from "./admin/damageitem";
+import dimensionInfoCommand from "./admin/dimensioninfo";
+import dynamicPropertiesCommand from "./admin/dynamicproperties";
 import itemInfoCommand from "./admin/iteminfo";
+import removeEntityCommand from "./admin/removeentity";
+import resetCooldownCommand from "./admin/resetcooldown";
+import serverModeCommand from "./admin/servermode";
+import factionCreateCommand from "./factions/create";
+import factionDeleteCommand from "./factions/delete";
+import factionInviteCommand from "./factions/invite";
+import factionJoinCommand from "./factions/join";
+import factionKickCommand from "./factions/kick";
+import factionLeaveCommand from "./factions/leave";
+import factionListCommand from "./factions/list";
+import factionMessageCommand from "./factions/message";
+import factionRenameCommand from "./factions/rename";
+import factionTransferCommand from "./factions/transfer";
 
 type CustomCommandRegister = {
     command: CustomCommand,
@@ -41,7 +42,8 @@ const CustomCommands: CustomCommandRegister[] = [
     dimensionInfoCommand,
     dynamicPropertiesCommand,
     resetCooldownCommand,
-    removeEntityCommand
+    removeEntityCommand,
+    serverModeCommand
 ];
 
 export default CustomCommands;

@@ -48,6 +48,13 @@ item.record_hit.desc=George Vide - BA$ED BOY$
 item.record_reaction.icebomb.desc=George Vide - Obama
 item.record_reaction.bleach.desc=George Vide - Raka fakta
 
+item.record_crackas.desc=George Vide - CRAcK@$
+item.record_puma_pants.desc=George Vide - Puma Pants
+item.record_drop_it.desc=George Vide - SLIP DET
+item.record_based_boys.desc=George Vide - BA$ED BOY$
+item.record_obama.desc=George Vide - Obama
+item.record_straight_facts.desc=George Vide - Raka fakta
+
 item.spawn_egg.entity.tcsmp:gerbil.name=Gerbil Spawn Egg
 item.spawn_egg.entity.tcsmp:unicorn.name=Unicorn Spawn Egg
 item.spawn_egg.entity.tcsmp:seal.name=Seal Spawn Egg
@@ -190,7 +197,7 @@ subtitles.item.lucks_bane.big_hit=Spelautomater klirrar
 subtitles.item.knife.backstab=Knivkritor
 subtitles.entity.unicorn.gallop=Enhörning galopperar
 subtitles.entity.unicorn.eat=Unicorn äter
-subtitles.entity.unicorn.trail=Enhörningen gnistrar
+subtitles.entity.unicorn.trail=Enhörning gnistrar
 subtitles.entity.unicorn.death=Enhörning dör
 subtitles.entity.barnacle.ambient=Havstulpan simmar
 subtitles.entity.barnacle.death=Barnacle dör

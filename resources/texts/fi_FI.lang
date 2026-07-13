@@ -1,23 +1,23 @@
 item.tcsmp:grappling_hook.name=Grappling Koukku
-item.tcsmp:empty_grappling_hook.name=Empty Grappling Hook
+item.tcsmp:empty_grappling_hook.name=Tyhjä Grappling Koukku
 item.tcsmp:hook.name=Koukku
 item.tcsmp:cannon.name=Tykki
-item.tcsmp:cannonball.name=Cannonball
-item.tcsmp:poison_cannonball.name=Poisonous Cannonball
-item.tcsmp:wither_cannonball.name=Withering Cannonball
+item.tcsmp:cannonball.name=Tykinkuula
+item.tcsmp:poison_cannonball.name=Myrkyllinen kanuunankuula
+item.tcsmp:wither_cannonball.name=Kuihtuva Cannonball
 item.tcsmp:slowness_cannonball.name=Hidastuva Cannonball
 item.tcsmp:fire_cannonball.name=Tulinen Cannonball
 item.tcsmp:warp_crystal.name=Warp Crystal
 item.tcsmp:overworld_waystone.name=Overworld Waystone
 item.tcsmp:nether_waystone.name=Nether Waystone
-item.tcsmp:end_waystone.name=End Waystone
+item.tcsmp:end_waystone.name=Loppu Waystone
 item.tcsmp:spell_scroll.name=Spell Scroll
 item.tcsmp:scroll_of_growth.name=Kasvun rulla
 item.tcsmp:lightning_bottle.name=Salaman pullo
-item.tcsmp:lightning_cannonball.name=Charged Cannonball
-item.tcsmp:scroll_of_thunder.name=Scroll of Thunder
+item.tcsmp:lightning_cannonball.name=Ladattu Cannonball
+item.tcsmp:scroll_of_thunder.name=Thunderin rulla
 item.tcsmp:scroll_of_decay.name=Decay-käärö
-item.tcsmp:scroll_of_return.name=Scroll of Return
+item.tcsmp:scroll_of_return.name=Return-rulla
 item.tcsmp:katana.name=Katana
 item.tcsmp:tnt_shield.name=TNT Shield
 item.tcsmp:faction_invite.name=Ryhmäkutsu
@@ -25,8 +25,8 @@ item.tcsmp:big_sandwich.name=Iso voileipä
 item.tcsmp:lucks_bane.name=Luck's Bane
 item.tcsmp:prismarine_blade.name=Prismarine terä
 item.tcsmp:gerbil.name=Gerbil
-item.tcsmp:tomato.name=Tomato
-item.tcsmp:slime_boots.name=Slime Boots
+item.tcsmp:tomato.name=Tomaatti
+item.tcsmp:slime_boots.name=Slime saappaat
 item.tcsmp:roulette_plate.name=Rulettilautanen
 item.tcsmp:barnacle_fang.name=Barnacle Fang
 item.tcsmp:tempered_warp_crystal.name=Karkaistu loimikristalli
@@ -43,17 +43,24 @@ lore.prismarine_blade_backstab=§r§9+7 Selkäpukotusvaurio§r
 
 item.record_balloonpop.desc=George Vide - CRAcK@$
 item.record_open.desc=George Vide - Puma-housut
-item.record_take_picture.desc=George Vide - DROP IT
+item.record_take_picture.desc=George Vide - PUDOTA
 item.record_hit.desc=George Vide - BA$ED BOY$
 item.record_reaction.icebomb.desc=George Vide - Obama
 item.record_reaction.bleach.desc=George Vide - Suorat tosiasiat
 
-item.spawn_egg.entity.tcsmp:gerbil.name=Gerbil Spawn Egg
+item.record_crackas.desc=George Vide - CRAcK@$
+item.record_puma_pants.desc=George Vide - Puma-housut
+item.record_drop_it.desc=George Vide - PUDOTA
+item.record_based_boys.desc=George Vide - BA$ED BOY$
+item.record_obama.desc=George Vide - Obama
+item.record_straight_facts.desc=George Vide - Suorat tosiasiat
+
+item.spawn_egg.entity.tcsmp:gerbil.name=Gerbiilin muna
 item.spawn_egg.entity.tcsmp:unicorn.name=Unicorn Spawn Egg
 item.spawn_egg.entity.tcsmp:seal.name=Seal Spawn Egg
 item.spawn_egg.entity.tcsmp:barnacle.name=Barnacle Spawn Egg
 item.spawn_egg.entity.tcsmp:faded_skeleton.name=Haalistunut Skeleton Spawn Egg
-item.spawn_egg.entity.tcsmp:faded_zombie.name=Faded Zombie Spawn Egg
+item.spawn_egg.entity.tcsmp:faded_zombie.name=Haalistunut Zombie Spawn Egg
 
 tile.tcsmp:overworld_waystone.name=Overworld Waystone
 tile.tcsmp:nether_waystone.name=Nether Waystone
@@ -61,7 +68,7 @@ tile.tcsmp:end_waystone.name=Loppu Waystone
 tile.tcsmp:inscription_table.name=Kirjoitustaulukko
 tile.tcsmp:cannabis_plant.name=Kannabis kasvi
 tile.tcsmp:faction_register.name=Ryhmärekisteri
-tile.tcsmp:tomato.name=Tomato
+tile.tcsmp:tomato.name=Tomaatti
 
 entity.tcsmp:grappling_hook_stake.name=Grappling Hook Stake
 entity.tcsmp:grappling_hook_seat.name=Grappling Hook Seat
@@ -82,13 +89,13 @@ entity.tcsmp:tempered_warp_crystal.name=Karkaistu loimikristalli
 entity.tcsmp:faded_zombie.name=Haalistunut zombie
 entity.tcsmp:faded_skeleton.name=Haalistunut luuranko
 
-action.hint.exit.tcsmp:grappling_hook_seat=Crouch or jump to detach
+action.hint.exit.tcsmp:grappling_hook_seat=Kyykistyy tai hyppää irti
 action.hint.exit.tcsmp:cannon=Kyyristy tai hyppää lopettaaksesi tähtäyksen
-action.hint.exit.tcsmp:stair_seat=Crouch or jump to stand
+action.hint.exit.tcsmp:stair_seat=Kyykistyy tai hyppää seisomaan
 action.hint.exit.tcsmp:unicorn=Napauta hiipiä poistuaksesi
 action.interact.ride.tcsmp:unicorn=Ratsastaa
 action.interact.gerbil=Ole vuorovaikutuksessa poimiaksesi
-action.interact.creeper.lightning=Bottle lightning
+action.interact.creeper.lightning=Pullon salama
 
 container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NIkirjoitus
 
@@ -96,32 +103,32 @@ action.setup.faction_invite.title=Määritä ryhmäkutsu
 action.setup.faction_invite.no_factions=Et kuulu mihinkään puolueeseen!
 action.setup.faction_invite.message=Kutsuviesti
 action.setup.faction_invite.message_placeholder=Tule mukaan %s!
-action.setup.faction_invite.submit=Confirm
+action.setup.faction_invite.submit=Vahvista
 action.setup.faction_invite.cancel=Peruuta
 
 action.join.faction.fail=Olet jo ryhmässä!
-action.join.faction.invalid=%s no longer exists!
+action.join.faction.invalid=%s ei ole enää olemassa!
 action.join.faction.title=Ryhmäkutsu
 action.join.faction.accept=Liity §%s%s§r:iin
 action.join.faction.reject=Hylkää
 
 action.create.faction.title=Luo ryhmä
-action.create.faction.name=Faction Name
+action.create.faction.name=Ryhmän nimi
 action.create.faction.name_placeholder=Enintään 16 merkkiä...
 action.create.faction.submit=Luo
 action.create.faction.success=Fraktion §%s%s§r luominen onnistui!
 action.create.faction.fail=Fraktio "§%s%s§r" on virheellinen, ryhmän luominen epäonnistui
 
 action.manage.faction.title=Hallitse ryhmää
-action.manage.faction.body=Hallinnoi §%s%s§r:
+action.manage.faction.body=Hallitse §%s%s§r:
 action.manage.faction.edit_name=Muokkaa nimeä
-action.manage.faction.edit_players=Edit Players
+action.manage.faction.edit_players=Muokkaa pelaajia
 action.manage.faction.edit_colour=Muokkaa väriä
 
-action.manage.faction.colour=Faction Colour
-faction_colour.amethyst.name=Amethyst
-faction_colour.copper.name=Copper
-faction_colour.diamond.name=Diamond
+action.manage.faction.colour=Fraktion väri
+faction_colour.amethyst.name=Ametisti
+faction_colour.copper.name=Kupari
+faction_colour.diamond.name=Timantti
 faction_colour.emerald.name=Smaragdi
 faction_colour.gold.name=Kulta
 faction_colour.iron.name=Rauta
@@ -129,9 +136,9 @@ faction_colour.lapis.name=Lapis
 faction_colour.netherite.name=Netherite
 faction_colour.quartz.name=Kvartsi
 faction_colour.redstone.name=Redstone
-faction_colour.resin.name=Resin
+faction_colour.resin.name=Hartsi
 
-action.manage.faction.kick=Kick %s
+action.manage.faction.kick=Potkaise %s
 action.manage.faction.kick_success=Potkittu %s kohteesta §%s%s§r.
 
 action.manage.faction.delete=Poista ryhmä
@@ -158,7 +165,7 @@ form.setup.waystone.submit=Lähetä
 
 form.edit.waystone.title=Muokkaa Waystonea
 
-form.interact.waystone.title=Waystone verkko
+form.interact.waystone.title=Waystone Network
 form.interact.waystone.private=Omistaja: %s
 form.interact.waystone.global=Maailmanlaajuinen
 

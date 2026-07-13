@@ -48,6 +48,13 @@ item.record_hit.desc=George Vide - BA$ED BOY$
 item.record_reaction.icebomb.desc=Джордж Виде - Обама
 item.record_reaction.bleach.desc=Джордж Виде - Прави факти
 
+item.record_crackas.desc=Джордж Виде - CRAck@$
+item.record_puma_pants.desc=George Vide - Панталони Puma
+item.record_drop_it.desc=George Vide - DROP IT
+item.record_based_boys.desc=George Vide - BA$ED BOY$
+item.record_obama.desc=Джордж Виде - Обама
+item.record_straight_facts.desc=Джордж Виде - Прави факти
+
 item.spawn_egg.entity.tcsmp:gerbil.name=Яйце за хайвер на гербил
 item.spawn_egg.entity.tcsmp:unicorn.name=Еднорог Спаун Яйце
 item.spawn_egg.entity.tcsmp:seal.name=Тюленово яйце
@@ -156,7 +163,7 @@ form.setup.waystone.private=Частен Waystone
 form.setup.waystone.name=Име на Waystone:
 form.setup.waystone.submit=Изпратете
 
-form.edit.waystone.title=Редактирайте Waystone
+form.edit.waystone.title=Редактиране на Waystone
 
 form.interact.waystone.title=Waystone Network
 form.interact.waystone.private=Собственик: %s

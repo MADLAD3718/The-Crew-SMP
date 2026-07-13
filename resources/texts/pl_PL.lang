@@ -4,7 +4,7 @@ item.tcsmp:hook.name=Hak
 item.tcsmp:cannon.name=Działo
 item.tcsmp:cannonball.name=Kula armatnia
 item.tcsmp:poison_cannonball.name=Trująca kula armatnia
-item.tcsmp:wither_cannonball.name=Więdnąca kula armatnia
+item.tcsmp:wither_cannonball.name=Więdnąca Kula Armatnia
 item.tcsmp:slowness_cannonball.name=Spowalniająca Kula Armatnia
 item.tcsmp:fire_cannonball.name=Ognista Kula Armatnia
 item.tcsmp:warp_crystal.name=Kryształ Osnowy
@@ -47,6 +47,13 @@ item.record_take_picture.desc=George Vide – Rzuć to
 item.record_hit.desc=George Vide - ZBACZONY CHŁOPIEC$
 item.record_reaction.icebomb.desc=George Vide-Obama
 item.record_reaction.bleach.desc=George Vide — proste fakty
+
+item.record_crackas.desc=George Vide – CRAcK@$
+item.record_puma_pants.desc=George Vide – Spodnie Puma
+item.record_drop_it.desc=George Vide – Rzuć to
+item.record_based_boys.desc=George Vide - ZBACZONY CHŁOPIEC$
+item.record_obama.desc=George Vide-Obama
+item.record_straight_facts.desc=George Vide — proste fakty
 
 item.spawn_egg.entity.tcsmp:gerbil.name=Jajo lęgowe myszoskoczka
 item.spawn_egg.entity.tcsmp:unicorn.name=Jajo Spawnujące Jednorożca
@@ -151,7 +158,7 @@ action.message.faction.message_text=§%s[%s]§r <%s> %s
 
 info.faction.no_longer_member=Nie jesteś już w %s
 
-form.setup.waystone.title=Konfiguracja Waystone'a
+form.setup.waystone.title=Konfiguracja Waystone’a
 form.setup.waystone.private=Prywatny Waystone
 form.setup.waystone.name=Nazwa kamienia Waystone'a:
 form.setup.waystone.submit=Prześlij

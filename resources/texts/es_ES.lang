@@ -48,6 +48,13 @@ item.record_hit.desc=George Vide - BA$ED BOY$
 item.record_reaction.icebomb.desc=George Vide - Obama
 item.record_reaction.bleach.desc=George Vide - Hechos claros
 
+item.record_crackas.desc=George Vide - CRAcK@$
+item.record_puma_pants.desc=George Vide - Pantalones Puma
+item.record_drop_it.desc=George Vide - Suéltalo
+item.record_based_boys.desc=George Vide - BA$ED BOY$
+item.record_obama.desc=George Vide - Obama
+item.record_straight_facts.desc=George Vide - Hechos claros
+
 item.spawn_egg.entity.tcsmp:gerbil.name=Huevo de desove de jerbo
 item.spawn_egg.entity.tcsmp:unicorn.name=Huevo de desove de unicornio
 item.spawn_egg.entity.tcsmp:seal.name=Huevo de desove de foca
@@ -195,7 +202,7 @@ subtitles.entity.unicorn.death=unicornio muere
 subtitles.entity.barnacle.ambient=El percebe nada
 subtitles.entity.barnacle.death=percebe muere
 subtitles.entity.barnacle.hurt=el percebe duele
-subtitles.entity.barnacle.attack=Picaduras de percebe
+subtitles.entity.barnacle.attack=Picaduras de percebes
 subtitles.entity.faded_skeleton.ambient=Sonajeros de esqueleto descoloridos
 subtitles.entity.faded_skeleton.death=Muere el esqueleto descolorido
 subtitles.entity.faded_skeleton.hurt=El esqueleto descolorido duele

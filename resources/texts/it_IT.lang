@@ -48,6 +48,13 @@ item.record_hit.desc=George Vide - BA$ED BOY$
 item.record_reaction.icebomb.desc=George Vide-Obama
 item.record_reaction.bleach.desc=George Vide - Fatti chiari
 
+item.record_crackas.desc=George Vide - CRAcK@$
+item.record_puma_pants.desc=George Vide - Pantaloni Puma
+item.record_drop_it.desc=George Vide - LASCIATELO
+item.record_based_boys.desc=George Vide - BA$ED BOY$
+item.record_obama.desc=George Vide-Obama
+item.record_straight_facts.desc=George Vide - Fatti chiari
+
 item.spawn_egg.entity.tcsmp:gerbil.name=Uovo di generazione del gerbillo
 item.spawn_egg.entity.tcsmp:unicorn.name=Uovo di uova di unicorno
 item.spawn_egg.entity.tcsmp:seal.name=Uovo di foca
@@ -103,7 +110,7 @@ action.join.faction.fail=Sei già in una fazione!
 action.join.faction.invalid=%s non esiste più!
 action.join.faction.title=Invito alla fazione
 action.join.faction.accept=Iscriviti a §%s%s§r
-action.join.faction.reject=Rifiutare
+action.join.faction.reject=Rifiuta
 
 action.create.faction.title=Crea fazione
 action.create.faction.name=Nome della fazione

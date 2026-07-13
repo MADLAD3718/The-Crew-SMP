@@ -48,6 +48,13 @@ item.record_hit.desc=George Vide – BA$ED BOY$
 item.record_reaction.icebomb.desc=George Vide - Obama
 item.record_reaction.bleach.desc=George Vide - Priame fakty
 
+item.record_crackas.desc=George Vide - CRAcK@$
+item.record_puma_pants.desc=George Vide - Nohavice Puma
+item.record_drop_it.desc=George Vide - ODHOĎ TO
+item.record_based_boys.desc=George Vide – BA$ED BOY$
+item.record_obama.desc=George Vide - Obama
+item.record_straight_facts.desc=George Vide - Priame fakty
+
 item.spawn_egg.entity.tcsmp:gerbil.name=Gerbil Egg
 item.spawn_egg.entity.tcsmp:unicorn.name=Výter jednorožca
 item.spawn_egg.entity.tcsmp:seal.name=Tulene rozmnožovacie vajce
@@ -158,7 +165,7 @@ form.setup.waystone.submit=Odoslať
 
 form.edit.waystone.title=Upraviť Waystone
 
-form.interact.waystone.title=Waystone Network
+form.interact.waystone.title=Sieť Waystone
 form.interact.waystone.private=Vlastník: %s
 form.interact.waystone.global=globálne
 

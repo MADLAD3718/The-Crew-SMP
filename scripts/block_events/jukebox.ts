@@ -1,9 +1,9 @@
-import { BlockComponentTypes, world } from "@minecraft/server";
-import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 import { Vec3 } from "@madlad3718/mcveclib";
+import { BlockComponentTypes, system, world } from "@minecraft/server";
+import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
 const RecordMap: Record<string, string> = {};
-const RECORD_SOUNDS: Record<string, string> = {
+const RecordSounds: Record<string, string> = {
     "tcsmp:music_disc_drop_it": "record.drop_it",
     "tcsmp:music_disc_crackas": "record.crackas",
     "tcsmp:music_disc_puma_pants": "record.puma_pants",
@@ -13,13 +13,32 @@ const RECORD_SOUNDS: Record<string, string> = {
 }
 
 world.beforeEvents.playerInteractWithBlock.subscribe(event => {
-    const { block } = event, { location } = block;
+    const { block } = event, { dimension, location } = block;
     if (!block.matches(MinecraftBlockTypes.Jukebox)) return;
 
-    const player = block.getComponent(BlockComponentTypes.RecordPlayer);
-    if (!player?.isPlaying()) return;
+    const recordPlayer = block.getComponent(BlockComponentTypes.RecordPlayer)!;
+    if (!recordPlayer.isPlaying()) {
+        // Actionbar message recreation in place until https://mojira.dev/BDS-23085 is fixed.
+        if (event.itemStack && world.getDynamicProperty("servermode")) {
+            const recordSound = RecordSounds[event.itemStack.typeId];
+            if (!recordSound) return;
 
-    RecordMap[Vec3.toString(location)] = player.getRecord()!.typeId;
+            const descKey = recordSound.replace('.', '_');
+
+            system.run(() => {
+                for (const player of dimension.getPlayers({
+                    location: block.center(), maxDistance: 64
+                })) player.onScreenDisplay.setActionBar([
+                    "§dNow playing: ",
+                    { translate: `item.${descKey}.desc` },
+                    "§r"
+                ]);
+            });
+        }
+        return;
+    }
+
+    RecordMap[Vec3.toString(location)] = recordPlayer.getRecord()!.typeId;
 });
 
 world.afterEvents.playerInteractWithBlock.subscribe(event => {
@@ -30,7 +49,7 @@ world.afterEvents.playerInteractWithBlock.subscribe(event => {
     const player = block.getComponent(BlockComponentTypes.RecordPlayer);
     if (player?.isPlaying()) return;
 
-    const sound = RECORD_SOUNDS[RecordMap[stringLocation] ?? "none"];
+    const sound = RecordSounds[RecordMap[stringLocation] ?? "none"];
     for (const player of dimension.getPlayers({
         location: block.center(), maxDistance: 64
     })) player.stopSound(sound);
@@ -43,14 +62,14 @@ world.beforeEvents.playerBreakBlock.subscribe(event => {
     if (!player?.isPlaying()) return;
 
     RecordMap[Vec3.toString(location)] = player.getRecord()!.typeId;
-}, {blockTypes: [MinecraftBlockTypes.Jukebox]});
+}, { blockTypes: [MinecraftBlockTypes.Jukebox] });
 
 world.afterEvents.playerBreakBlock.subscribe(event => {
     const { block } = event, { dimension, location } = block;
 
     const stringLocation = Vec3.toString(location);
-    const sound = RECORD_SOUNDS[RecordMap[stringLocation]];
+    const sound = RecordSounds[RecordMap[stringLocation]];
     for (const player of dimension.getPlayers({
         location: block.center(), maxDistance: 64
     })) player.stopSound(sound);
-}, {blockTypes: [MinecraftBlockTypes.Jukebox]});
+}, { blockTypes: [MinecraftBlockTypes.Jukebox] });
