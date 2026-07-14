@@ -1,5 +1,5 @@
 {
-    "format_version": "1.26.20",
+    "format_version": "1.26.30",
     "minecraft:item": {
         "description": {
             "identifier": "tcsmp:barnacle_fang",
@@ -15,7 +15,8 @@
                 "textures": {
                     "default": "barnacle_fang"
                 }
-            }
+            },
+            "minecraft:rarity": "uncommon"
         }
     }
 }
