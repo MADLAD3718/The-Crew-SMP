@@ -11,7 +11,7 @@ const EntityAliases: Record<string, string> = {
     "tcsmp:gerbil": "§G§E§R§B§I§L"
 };
 
-world.afterEvents.entitySpawn.subscribe(({entity}) => {
+world.afterEvents.entitySpawn.subscribe(({ entity }) => {
     if (EntityAliases[entity.typeId])
         entity.nameTag = EntityAliases[entity.typeId];
 });
@@ -23,119 +23,119 @@ world.afterEvents.entityDie.subscribe(event => {
     if (deadEntity.nameTag != EntityAliases[deadEntity.typeId]) return;
     const tameableComponent = deadEntity.getComponent(EntityComponentTypes.Tameable);
     const tameMountComponent = deadEntity.getComponent(EntityComponentTypes.TameMount);
-    const tamedToPlayer = tameableComponent?.tamedToPlayer ?? tameMountComponent?.tamedToPlayer;
-    if (!tamedToPlayer) return;
+    const isTamed = tameableComponent?.isTamed ?? tameMountComponent?.isTamed;
+    if (!isTamed) return;
     const entityKey = deadEntity.localizationKey;
     switch (damageSource.cause) {
         case EntityDamageCause.anvil:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.anvil");
+            sendDeathMessage(entityKey, "death.attack.anvil");
             break;
         case EntityDamageCause.blockExplosion:
         case EntityDamageCause.entityExplosion:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.explosion");
+            sendDeathMessage(entityKey, "death.attack.explosion");
             break;
         case EntityDamageCause.campfire:
         case EntityDamageCause.fire:
         case EntityDamageCause.fireTick:
         case EntityDamageCause.soulCampfire:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.inFire");
+            sendDeathMessage(entityKey, "death.attack.inFire");
             break;
         case EntityDamageCause.contact:
             if (damageSource.damagingEntity)
-                sendDeathMessage(tamedToPlayer, entityKey, "death.attack.mob", damageSource.damagingEntity);
+                sendDeathMessage(entityKey, "death.attack.mob", damageSource.damagingEntity);
             // The cactus death message is also sufficient for sweet berries
-            else sendDeathMessage(tamedToPlayer, entityKey, "death.attack.cactus");
+            else sendDeathMessage(entityKey, "death.attack.cactus");
             break;
         case EntityDamageCause.drowning:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.drown");
+            sendDeathMessage(entityKey, "death.attack.drown");
             break;
         case EntityDamageCause.entityAttack:
         case EntityDamageCause.ramAttack:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.mob", damageSource.damagingEntity);
+            sendDeathMessage(entityKey, "death.attack.mob", damageSource.damagingEntity);
             break;
         case EntityDamageCause.fall:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.fall");
+            sendDeathMessage(entityKey, "death.attack.fall");
             break;
         case EntityDamageCause.fallingBlock:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.fallingBlock");
+            sendDeathMessage(entityKey, "death.attack.fallingBlock");
             break;
         case EntityDamageCause.fireworks:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.fireworks");
+            sendDeathMessage(entityKey, "death.attack.fireworks");
             break;
         case EntityDamageCause.flyIntoWall:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.flyIntoWall");
+            sendDeathMessage(entityKey, "death.attack.flyIntoWall");
             break;
         case EntityDamageCause.freezing:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.freeze");
+            sendDeathMessage(entityKey, "death.attack.freeze");
             break;
         case EntityDamageCause.lava:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.lava");
+            sendDeathMessage(entityKey, "death.attack.lava");
             break;
         case EntityDamageCause.lightning:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.lightningBolt");
+            sendDeathMessage(entityKey, "death.attack.lightningBolt");
             break;
         case EntityDamageCause.maceSmash:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.maceSmash.player", damageSource.damagingEntity);
+            sendDeathMessage(entityKey, "death.attack.maceSmash.player", damageSource.damagingEntity);
             break;
         case EntityDamageCause.magic:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.magic");
+            sendDeathMessage(entityKey, "death.attack.magic");
             break;
         case EntityDamageCause.magma:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.magma");
+            sendDeathMessage(entityKey, "death.attack.magma");
             break;
         case EntityDamageCause.none:
         case EntityDamageCause.override:
         case EntityDamageCause.selfDestruct:
         case EntityDamageCause.temperature:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.generic");
+            sendDeathMessage(entityKey, "death.attack.generic");
             break;
         case EntityDamageCause.piston:
         case EntityDamageCause.suffocation:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.inWall");
+            sendDeathMessage(entityKey, "death.attack.inWall");
             break;
         case EntityDamageCause.projectile:
             const entity = damageSource.damagingProjectile!;
             if (entity.typeId == MinecraftEntityTypes.Arrow)
-                sendDeathMessage(tamedToPlayer, entityKey, "death.attack.arrow", entity.projectile!.owner);
+                sendDeathMessage(entityKey, "death.attack.arrow", entity.projectile!.owner);
             else if (entity.typeId == MinecraftEntityTypes.ShulkerBullet)
-                sendDeathMessage(tamedToPlayer, entityKey, "death.attack.bullet", entity.projectile!.owner);
+                sendDeathMessage(entityKey, "death.attack.bullet", entity.projectile!.owner);
             else if (entity.typeId == MinecraftEntityTypes.ThrownTrident)
-                sendDeathMessage(tamedToPlayer, entityKey, "death.attack.trident", entity.projectile!.owner);
-            else sendDeathMessage(tamedToPlayer, entityKey, "death.attack.thrown", entity.projectile!.owner);
+                sendDeathMessage(entityKey, "death.attack.trident", entity.projectile!.owner);
+            else sendDeathMessage(entityKey, "death.attack.thrown", entity.projectile!.owner);
             break;
         case EntityDamageCause.sonicBoom:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.sonicBoom");
+            sendDeathMessage(entityKey, "death.attack.sonicBoom");
             break;
         case EntityDamageCause.stalactite:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.stalagtite");
+            sendDeathMessage(entityKey, "death.attack.stalagtite");
             break;
         case EntityDamageCause.stalagmite:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.stalagmite");
+            sendDeathMessage(entityKey, "death.attack.stalagmite");
             break;
         case EntityDamageCause.starve:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.starve");
+            sendDeathMessage(entityKey, "death.attack.starve");
             break;
         case EntityDamageCause.thorns:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.thorns", damageSource.damagingEntity);
+            sendDeathMessage(entityKey, "death.attack.thorns", damageSource.damagingEntity);
             break;
         case EntityDamageCause.void:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.outOfWorld");
+            sendDeathMessage(entityKey, "death.attack.outOfWorld");
             break;
         case EntityDamageCause.wither:
-            sendDeathMessage(tamedToPlayer, entityKey, "death.attack.wither");
+            sendDeathMessage(entityKey, "death.attack.wither");
             break;
     }
-}, {entityTypes: Object.keys(EntityAliases)});
+}, { entityTypes: Object.keys(EntityAliases) });
 
-function sendDeathMessage(player: Player, entityKey: string, deathKey: string, killer?: Player | Entity): void {
+function sendDeathMessage(entityKey: string, deathKey: string, killer?: Player | Entity): void {
     const message: RawMessage[] = [{ translate: entityKey }];
     if (killer instanceof Player)
-        message.push({ translate: deathKey, with: ["", killer.name]});
+        message.push({ translate: deathKey, with: ["", killer.name] });
     else if (killer)
         message.push(
-            { translate: deathKey, with: ["", ""]},
+            { translate: deathKey, with: ["", ""] },
             { translate: killer.localizationKey }
         );
-    else message.push({ translate: deathKey, with: [""]});
-    return player.sendMessage(message);
+    else message.push({ translate: deathKey, with: [""] });
+    return world.sendMessage(message);
 }
