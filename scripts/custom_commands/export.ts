@@ -18,6 +18,7 @@ import factionListCommand from "./factions/list";
 import factionMessageCommand from "./factions/message";
 import factionRenameCommand from "./factions/rename";
 import factionTransferCommand from "./factions/transfer";
+import toggleAuraCommand from "./toggleaura";
 
 type CustomCommandRegister = {
     command: CustomCommand,
@@ -43,7 +44,8 @@ const CustomCommands: CustomCommandRegister[] = [
     dynamicPropertiesCommand,
     resetCooldownCommand,
     removeEntityCommand,
-    serverModeCommand
+    serverModeCommand,
+    toggleAuraCommand
 ];
 
 export default CustomCommands;

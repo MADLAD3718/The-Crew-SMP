@@ -6,6 +6,11 @@ export enum DynamicPropertiesAction {
     Clear = "clear"
 }
 
+export enum DynamicPropertiesField {
+    Self = "self",
+    World = "world"
+}
+
 const dynamicPropertiesCommand: CustomCommand = {
     name: "tcsmp:dynamicproperties",
     description: "Manages the dynamic properties stored in the world.",
@@ -15,14 +20,20 @@ const dynamicPropertiesCommand: CustomCommand = {
         {
             name: "tcsmp:dynamicproperties_action",
             type: CustomCommandParamType.Enum
+        },
+        {
+            name: "tcsmp:dynamicproperties_field",
+            type: CustomCommandParamType.Enum
         }
     ]
 }
 
-function dynamicPropertiesCallback(origin: CustomCommandOrigin, action: DynamicPropertiesAction): CustomCommandResult {
-    const propertyIds = world.getDynamicPropertyIds();
-    if (propertyIds.length == 0) return {
-        message: "No world dynamic properties currently stored.",
+function dynamicPropertiesCallback(origin: CustomCommandOrigin, action: DynamicPropertiesAction, field: DynamicPropertiesField): CustomCommandResult {
+    const medium = field === DynamicPropertiesField.Self ? origin.sourceEntity! : world;
+
+    const propertyIds = medium.getDynamicPropertyIds();
+    if (propertyIds.length === 0) return {
+        message: `No ${field} dynamic properties currently stored.`,
         status: CustomCommandStatus.Success
     };
 
@@ -30,14 +41,14 @@ function dynamicPropertiesCallback(origin: CustomCommandOrigin, action: DynamicP
     switch (action) {
         case DynamicPropertiesAction.List:
             message = `Dynamic Properties:\n§7${propertyIds.map(id => {
-                const value = world.getDynamicProperty(id);
+                const value = medium.getDynamicProperty(id);
                 const output = Vec3.isVector3(value) ? Vec3.toString(value) : value;
                 return `${id}: ${output}`;
             }).join('\n')}§r`;
             break;
         case DynamicPropertiesAction.Clear:
-            message = "Cleared all world dynamic properties.";
-            world.clearDynamicProperties();
+            message = `Cleared all ${field} dynamic properties.`;
+            medium.clearDynamicProperties();
             break;
     }
 
@@ -47,4 +58,4 @@ function dynamicPropertiesCallback(origin: CustomCommandOrigin, action: DynamicP
     };
 }
 
-export default {command: dynamicPropertiesCommand, callback: dynamicPropertiesCallback};
+export default { command: dynamicPropertiesCommand, callback: dynamicPropertiesCallback };

@@ -1,4 +1,4 @@
-import { DynamicPropertiesAction } from "./admin/dynamicproperties";
+import { DynamicPropertiesAction, DynamicPropertiesField } from "./admin/dynamicproperties";
 import { FactionColour } from "../systems/factions";
 
 type CustomCommandEnum = {
@@ -14,6 +14,10 @@ const CustomCommandEnums: CustomCommandEnum[] = [
     {
         name: "tcsmp:dynamicproperties_action",
         values: Object.values(DynamicPropertiesAction)
+    },
+    {
+        name: "tcsmp:dynamicproperties_field",
+        values: Object.values(DynamicPropertiesField)
     }
 ];
 

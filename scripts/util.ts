@@ -72,23 +72,6 @@ export function randomRange(min: number, max: number): number {
     return min + Math.random() * (max - min);
 }
 
-export function repeatJob(generator: Generator<void, void, void>): void {
-    jobPromise(generator).then(() => repeatJob(generator));
-}
-
-function jobPromise(generator: Generator<void, void, void>): Promise<void> {
-    return new Promise((resolve, reject) => {
-        system.runJob(function* () {
-            while (true) {
-                try {
-                    const { done } = generator.next();
-                    if (done) return resolve();
-                    else yield;
-                }
-                catch (error) {
-                    return reject(error);
-                }
-            }
-        }());
-    });
+export function clamp(x: number, min: number, max: number): number {
+    return Math.max(Math.min(x, max), min);
 }
