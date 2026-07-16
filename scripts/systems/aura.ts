@@ -5,10 +5,18 @@ import { clamp } from "../util";
 export namespace AuraTracking {
     export function initialize(): void {
         world.afterEvents.entityHurt.subscribe(event => {
-            updateAura(event.hurtEntity, -Math.ceil(event.damage));
+            if (event.damageSource.cause === EntityDamageCause.fall)
+                updateAura(event.hurtEntity, -Math.ceil(event.damage));
+            else if (event.damageSource.damagingEntity instanceof Player) {
+                updateAura(event.damageSource.damagingEntity, 1);
+                updateAura(event.hurtEntity, -1);
+            }
         }, {
             entityTypes: [MinecraftEntityTypes.Player],
-            allowedDamageCauses: [EntityDamageCause.fall]
+            allowedDamageCauses: [
+                EntityDamageCause.fall,
+                EntityDamageCause.entityAttack
+            ]
         });
 
         world.afterEvents.entityDie.subscribe(event => {
