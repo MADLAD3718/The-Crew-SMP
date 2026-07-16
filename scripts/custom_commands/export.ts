@@ -8,6 +8,8 @@ import itemInfoCommand from "./admin/iteminfo";
 import removeEntityCommand from "./admin/removeentity";
 import resetCooldownCommand from "./admin/resetcooldown";
 import serverModeCommand from "./admin/servermode";
+import queryAuraCommand from "./aura/queryaura";
+import toggleAuraCommand from "./aura/toggleaura";
 import factionCreateCommand from "./factions/create";
 import factionDeleteCommand from "./factions/delete";
 import factionInviteCommand from "./factions/invite";
@@ -18,7 +20,6 @@ import factionListCommand from "./factions/list";
 import factionMessageCommand from "./factions/message";
 import factionRenameCommand from "./factions/rename";
 import factionTransferCommand from "./factions/transfer";
-import toggleAuraCommand from "./toggleaura";
 
 type CustomCommandRegister = {
     command: CustomCommand,
@@ -45,7 +46,8 @@ const CustomCommands: CustomCommandRegister[] = [
     resetCooldownCommand,
     removeEntityCommand,
     serverModeCommand,
-    toggleAuraCommand
+    toggleAuraCommand,
+    queryAuraCommand
 ];
 
 export default CustomCommands;

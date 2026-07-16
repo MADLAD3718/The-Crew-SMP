@@ -14,7 +14,7 @@ function toggleAuraCallback(origin: CustomCommandOrigin): CustomCommandResult {
     };
 
     const aura = world.scoreboard.getObjective("aura")!;
-    const displayState = aura.hasParticipant(origin.sourceEntity!);
+    const displayState = aura.hasParticipant(origin.sourceEntity);
 
     system.run(() => {
         if (displayState) aura.removeParticipant(origin.sourceEntity!);
