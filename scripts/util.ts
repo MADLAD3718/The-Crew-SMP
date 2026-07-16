@@ -1,6 +1,6 @@
-import { system, Vector2, Vector3 } from "@minecraft/server";
-import { NumberRange } from "@minecraft/common"
 import { Vec3 } from "@madlad3718/mcveclib";
+import { NumberRange } from "@minecraft/common";
+import { Vector2, Vector3 } from "@minecraft/server";
 
 export class MissingComponentError extends Error {
     constructor(component: string) {
