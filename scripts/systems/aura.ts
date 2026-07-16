@@ -1,5 +1,5 @@
 import { Entity, EntityComponentTypes, EntityDamageCause, Player, world } from "@minecraft/server";
-import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+import { MinecraftBlockTypes, MinecraftEntityTypes } from "@minecraft/vanilla-data";
 import { clamp } from "../util";
 
 export namespace AuraTracking {
@@ -23,6 +23,15 @@ export namespace AuraTracking {
 
                 updateAura(player, Math.ceil(killedHealth.effectiveMax / 10));
             }
+        });
+
+        world.afterEvents.playerBreakBlock.subscribe(event => {
+            updateAura(event.player, 5);
+        }, {
+            blockTypes: [
+                MinecraftBlockTypes.DiamondOre,
+                MinecraftBlockTypes.DeepslateDiamondOre
+            ]
         });
     }
 
