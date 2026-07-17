@@ -7,6 +7,9 @@ export namespace AuraTracking {
         world.afterEvents.entityHurt.subscribe(event => {
             switch (event.damageSource.cause) {
                 case EntityDamageCause.fall:
+                    const health = event.hurtEntity.getComponent(EntityComponentTypes.Health)!;
+                    if (health.currentValue <= health.effectiveMin) break;
+
                     updateAura(event.hurtEntity, -Math.ceil(event.damage));
                     break;
                 case EntityDamageCause.entityAttack:
@@ -32,11 +35,7 @@ export namespace AuraTracking {
         });
 
         world.afterEvents.entityDie.subscribe(event => {
-            if (event.deadEntity instanceof Player) {
-                if (event.damageSource.cause === EntityDamageCause.fall) return;
-
-                updateAura(event.deadEntity, -20);
-            }
+            if (event.deadEntity instanceof Player) updateAura(event.deadEntity, -20);
             else if (event.damageSource.damagingEntity instanceof Player) {
                 const player = event.damageSource.damagingEntity;
                 const killedHealth = event.deadEntity.getComponent(EntityComponentTypes.Health)!;
