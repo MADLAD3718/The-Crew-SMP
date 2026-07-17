@@ -49,7 +49,8 @@ export namespace AuraTracking {
         }, {
             blockTypes: [
                 MinecraftBlockTypes.DiamondOre,
-                MinecraftBlockTypes.DeepslateDiamondOre
+                MinecraftBlockTypes.DeepslateDiamondOre,
+                MinecraftBlockTypes.AncientDebris
             ]
         });
     }
