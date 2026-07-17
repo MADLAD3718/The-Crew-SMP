@@ -8,7 +8,7 @@ import itemInfoCommand from "./admin/iteminfo";
 import removeEntityCommand from "./admin/removeentity";
 import resetCooldownCommand from "./admin/resetcooldown";
 import serverModeCommand from "./admin/servermode";
-import queryAuraCommand from "./aura/queryaura";
+import listAuraCommand from "./aura/listaura";
 import toggleAuraCommand from "./aura/toggleaura";
 import factionCreateCommand from "./factions/create";
 import factionDeleteCommand from "./factions/delete";
@@ -47,7 +47,7 @@ const CustomCommands: CustomCommandRegister[] = [
     removeEntityCommand,
     serverModeCommand,
     toggleAuraCommand,
-    queryAuraCommand
+    listAuraCommand
 ];
 
 export default CustomCommands;
