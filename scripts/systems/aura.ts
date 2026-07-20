@@ -13,12 +13,14 @@ export namespace AuraTracking {
                     updateAura(event.hurtEntity, -Math.ceil(event.damage));
                     break;
                 case EntityDamageCause.entityAttack:
-                    updateAura(event.damageSource.damagingEntity!, 1);
-                    updateAura(event.hurtEntity, -1);
+                    if (event.damageSource.damagingEntity instanceof Player) {
+                        updateAura(event.damageSource.damagingEntity, 1);
+                        updateAura(event.hurtEntity, -1);
+                    }
                     break;
                 case EntityDamageCause.projectile:
-                    const entity = event.damageSource.damagingProjectile!;
-                    const owner = entity.projectile!.owner;
+                    const entity = event.damageSource.damagingProjectile;
+                    const owner = entity?.projectile?.owner;
                     if (owner instanceof Player) {
                         updateAura(owner, 2);
                         updateAura(event.hurtEntity, -2);
