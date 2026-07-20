@@ -1,7 +1,6 @@
+import { Matrix3 } from "@madlad3718/mcveclib";
 import { Entity, EntityComponentTypes, EntityInventoryComponent, EntityLeashableComponent, EntityRideableComponent, ItemStack, Player, system, world } from "@minecraft/server";
 import { MissingComponentError } from "../util";
-import { Matrix3 } from "@madlad3718/mcveclib";
-import { worker } from "node:cluster";
 
 declare module "@minecraft/server" {
     interface Player {
@@ -111,6 +110,10 @@ declare module "@minecraft/server" {
          * Whether the entity is invunerable - that is, it has been hurt within the last 10 ticks.
          */
         readonly isInvunerable: boolean;
+        /**
+         * Resets the entity's invunerability timer.
+         */
+        setInvunerable(): void;
     }
 }
 
@@ -119,7 +122,7 @@ Player.prototype.stopSound = function (sound?: string) {
 }
 
 const DamageTimes: Record<string, number> = {};
-world.afterEvents.entityHurt.subscribe(({hurtEntity}) => {
+world.afterEvents.entityHurt.subscribe(({ hurtEntity }) => {
     DamageTimes[hurtEntity.id] = system.currentTick;
 });
 
@@ -211,4 +214,8 @@ Entity.prototype.unleash = function (): void {
     if (!component) throw new MissingComponentError(EntityComponentTypes.Leashable);
 
     return component.unleash();
+}
+
+Entity.prototype.setInvunerable = function (): void {
+    DamageTimes[this.id] = system.currentTick;
 }
