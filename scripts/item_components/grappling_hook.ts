@@ -1,6 +1,6 @@
+import { Vec3 } from "@madlad3718/mcveclib";
 import { EntityProjectileComponent, GameMode, ItemCustomComponent, ItemLockMode, ItemStack, Player, system, TicksPerSecond, world } from "@minecraft/server";
 import Definition from "../../behaviours/items/grappling_hook/grappling_hook.item.json";
-import { Vec3 } from "@madlad3718/mcveclib";
 
 const USE_TIME = TicksPerSecond * Definition["minecraft:item"].components["minecraft:shooter"].max_draw_duration;
 const MAX_DURATION = TicksPerSecond * Definition["minecraft:item"].components["minecraft:use_modifiers"].use_duration;
@@ -59,41 +59,40 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
     stake.setDynamicProperty("interval", interval);
 });
 
-world.afterEvents.projectileHitBlock.subscribe(({projectile: stake}) => {
+world.afterEvents.projectileHitBlock.subscribe(({ projectile: stake }) => {
     if (!stake.isValid) return;
-    if (!stake.matches({type: "tcsmp:grappling_hook_stake"})) return;
+    if (!stake.matches({ type: "tcsmp:grappling_hook_stake" })) return;
     system.clearRun(stake.getDynamicProperty("interval") as number);
 
     const seat = world.getEntity(stake.getDynamicProperty("seat") as string);
     seat?.teleport(Vec3.above(seat.location, 0.1));
 
     const player = stake.projectile?.owner as Player;
-    const seat2 = seat?.getRiders()[0];
-    seat2?.addRider(player);
+    const playerSeat = seat?.getRiders()[0];
+    playerSeat?.addRider(player);
 
     const head = player.getHeadLocation();
     player.dimension.playSound("leashknot.place", head);
     seat?.triggerEvent("tcsmp:retract");
 
-    // New leash mechanics cause the retraction to accelerate much faster, use the shortest sound instead
-    // const dist = Vec3.distance(stake.location, head);
-    // const sound = GRAPPLE_SOUNDS[Math.floor(3 * dist / 48)]
-    const sound = GRAPPLE_SOUNDS[0];
+    const dist = Vec3.distance(stake.location, head);
+    const sound = GRAPPLE_SOUNDS[Math.floor(3 * dist / 48)]
     player.playSound(sound);
 
     const interval = system.runInterval(() => {
-        if (seat2?.getRiders().length ?? 0 > 0) return;
+        if (playerSeat?.isValid && (playerSeat?.getRiders().length ?? 0) > 0) return;
         player.stopSound(sound);
-        seat2?.remove();
-        seat?.remove();
-        stake.remove();
 
-        const slot = player.inventory.container.firstMatch(item => item.typeId == "tcsmp:empty_grappling_hook")!;
+        for (const entity of [playerSeat, seat, stake])
+            if (entity?.isValid) entity.remove();
+
+        const slot = player.inventory.container.firstMatch(item => item.typeId === "tcsmp:empty_grappling_hook");
+        if (!slot) return;
 
         const hook = slot.getItem()!.clone("tcsmp:grappling_hook");
         hook.lockMode = ItemLockMode.none;
         slot.setItem(hook);
-        slot.setItem(player.getGameMode() == GameMode.Creative ? hook : hook.damage());
+        slot.setItem(player.getGameMode() === GameMode.Creative ? hook : hook.damage());
 
         if (!slot?.hasItem())
             player.dimension.playSound(
@@ -111,24 +110,23 @@ world.afterEvents.playerSpawn.subscribe(event => {
     const { player, initialSpawn } = event;
     if (!initialSpawn) return;
 
-    system.runTimeout(() => {    
-        if (!player.entityRidingOn?.matches({type: "tcsmp:grappling_hook_seat"})) return;
-        const seat2 = player.entityRidingOn;
-        const seat = seat2.entityRidingOn;
+    system.runTimeout(() => {
+        if (!player.entityRidingOn?.matches({ type: "tcsmp:grappling_hook_seat" })) return;
+        const playerSeat = player.entityRidingOn;
+        const seat = playerSeat.entityRidingOn;
         const stake = seat?.leashHolder;
-    
-        seat2.ejectRider(player);
-    
-        seat2?.remove();
-        seat?.remove();
-        stake?.remove();
-    
-        const slot = player.inventory.container?.firstMatch(item => item.typeId == "tcsmp:empty_grappling_hook");
-    
+
+        playerSeat.ejectRider(player);
+
+        for (const entity of [playerSeat, seat, stake])
+            if (entity?.isValid) entity.remove();
+
+        const slot = player.inventory.container?.firstMatch(item => item.typeId === "tcsmp:empty_grappling_hook");
+
         let hook = slot?.getItem()?.clone("tcsmp:grappling_hook") as ItemStack;
         hook.lockMode = ItemLockMode.none;
-        slot?.setItem(player.getGameMode() == GameMode.Creative ? hook : hook.damage());
-    
+        slot?.setItem(player.getGameMode() === GameMode.Creative ? hook : hook.damage());
+
         if (!slot?.hasItem())
             player.dimension.playSound("random.break", player.getHeadLocation());
         else player.dimension.playSound("leashknot.break", player.getHeadLocation());
