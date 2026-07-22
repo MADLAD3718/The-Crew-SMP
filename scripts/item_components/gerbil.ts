@@ -1,5 +1,5 @@
-import { EntityComponentTypes, EquipmentSlot, ItemCustomComponent, ItemStack, Player, system, TicksPerSecond, world } from "@minecraft/server";
 import { Vec3 } from "@madlad3718/mcveclib";
+import { EntityComponentTypes, EquipmentSlot, ItemCustomComponent, ItemStack, Player, system, TicksPerSecond, world } from "@minecraft/server";
 import { randomRange } from "../util";
 
 const PICKUP_DELAY = 0.25 * TicksPerSecond;
@@ -7,17 +7,18 @@ const PickupTimes: Record<string, number> = {};
 
 world.afterEvents.playerInteractWithEntity.subscribe(event => {
     const { player, target, itemStack } = event;
-    if (!target.matches({type: "tcsmp:gerbil"})) return;
+    if (!target.isValid || !player.isValid) return;
+    if (!target.matches({ type: "tcsmp:gerbil" })) return;
     if (target.getComponent(EntityComponentTypes.IsBaby)) return;
     if (itemStack) return;
-    
+
     const tameable = target.getComponent(EntityComponentTypes.Tameable);
     if (tameable?.tamedToPlayerId != player.id) return;
 
     const item = new ItemStack("tcsmp:gerbil");
     if (target.nameTag != "§G§E§R§B§I§L")
         item.nameTag = target.nameTag;
-    
+
     target.remove();
     player.equipment.getEquipmentSlot(EquipmentSlot.Mainhand).setItem(item);
 
@@ -40,7 +41,7 @@ const gerbilComponent: ItemCustomComponent = {
         const offset = Vec3.saturate(Vec3.fromDirection(blockFace));
         const target = Vec3.add(block, faceLocation, offset);
         const gerbil = source.dimension.spawnEntity("tcsmp:gerbil", target);
-        
+
         gerbil.nameTag = itemStack.nameTag ?? "§G§E§R§B§I§L";
         gerbil.triggerEvent("tcsmp:grow_up");
 
@@ -49,7 +50,7 @@ const gerbilComponent: ItemCustomComponent = {
 
         const head = source.getHeadLocation();
         gerbil.lookAt(head);
-        
+
         source.equipment.getEquipmentSlot(EquipmentSlot.Mainhand).setItem();
 
         source.dimension.playSound("random.pop", head, {
