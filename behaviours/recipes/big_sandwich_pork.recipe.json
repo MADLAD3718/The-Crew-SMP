@@ -1,8 +1,8 @@
 {
-    "format_version": "1.26.20",
+    "format_version": "1.26.30",
     "minecraft:recipe_shapeless": {
         "description": {
-            "identifier": "tcsmp:big_sandwich"
+            "identifier": "tcsmp:big_sandwich_pork"
         },
         "tags": [ "crafting_table" ],
         "priority": 0,
@@ -12,7 +12,7 @@
                 "count": 2
             },
             {
-                "item": "minecraft:cooked_beef"
+                "item": "minecraft:cooked_porkchop"
             },
             {
                 "item": "minecraft:beetroot"
