@@ -36,6 +36,8 @@ world.afterEvents.worldLoad.subscribe(() => {
         });
 
     AuraTracking.initialize();
+
+    WaypointManager.refreshFactionWaypoints();
 });
 
 world.afterEvents.playerSpawn.subscribe(event => {

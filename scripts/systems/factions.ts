@@ -42,10 +42,9 @@ export namespace FactionRegistry {
     export function getFaction(arg: Player | string): FactionRegister | undefined {
         return FactionDatabase.findAll().filter(match => {
             const players = (match.value as string).split('/');
-            if (arg instanceof Player) {
-                return match.field.owner == arg.id || players.includes(arg.id)
-            }
-            else return (match.field.name == arg);
+            if (arg instanceof Player)
+                return players.includes(arg.id);
+            else return (match.field.name === arg);
         }).map(match => {
             return {
                 name: match.field.name,
