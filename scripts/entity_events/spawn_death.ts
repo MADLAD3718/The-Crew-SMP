@@ -12,6 +12,7 @@ const EntityAliases: Record<string, string> = {
 };
 
 world.afterEvents.entitySpawn.subscribe(({ entity }) => {
+    if (!entity.isValid) return;
     if (EntityAliases[entity.typeId])
         entity.nameTag = EntityAliases[entity.typeId];
 });
