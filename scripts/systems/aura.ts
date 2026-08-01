@@ -10,7 +10,7 @@ export namespace AuraTracking {
                     const health = event.hurtEntity.getComponent(EntityComponentTypes.Health)!;
                     if (health.currentValue <= health.effectiveMin) break;
 
-                    updateAura(event.hurtEntity, -Math.ceil(event.damage));
+                    updateAura(event.hurtEntity, -Math.ceil(event.damage / 2));
                     break;
                 case EntityDamageCause.entityAttack:
                     if (event.damageSource.damagingEntity instanceof Player) {
