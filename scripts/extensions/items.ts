@@ -75,7 +75,7 @@ ItemStack.prototype.damage = function (amount = 1): ItemStack | undefined {
     if (!item.durability) throw new MissingComponentError(ItemComponentTypes.Durability);
 
     const unbreaking = item.enchantable?.getEnchantment(MinecraftEnchantmentTypes.Unbreaking)?.level ?? 0;
-    if (Math.random() > 1 / (unbreaking + 1)) return;
+    if (Math.random() > 1 / (unbreaking + 1)) return item;
 
     if ((item.durability.damage + amount) > item.durability.maxDurability)
         return undefined;
