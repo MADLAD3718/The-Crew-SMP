@@ -1,6 +1,7 @@
 import { Vec3 } from "@madlad3718/mcveclib";
 import { EntityProjectileComponent, GameMode, ItemCustomComponent, ItemLockMode, ItemStack, Player, system, TicksPerSecond, world } from "@minecraft/server";
 import Definition from "../../behaviours/items/grappling_hook/grappling_hook.item.json";
+import { clamp } from "../util";
 
 const USE_TIME = TicksPerSecond * Definition["minecraft:item"].components["minecraft:shooter"].max_draw_duration;
 const MAX_DURATION = TicksPerSecond * Definition["minecraft:item"].components["minecraft:use_modifiers"].use_duration;
@@ -75,7 +76,7 @@ world.afterEvents.projectileHitBlock.subscribe(({ projectile: stake, source: pla
     seat?.triggerEvent("tcsmp:retract");
 
     const dist = Vec3.distance(stake.location, head);
-    const sound = GRAPPLE_SOUNDS[Math.floor(3 * dist / 48)]
+    const sound = GRAPPLE_SOUNDS[clamp(Math.floor(3 * dist / 48), 0, 2)];
     player.playSound(sound);
 
     const interval = system.runInterval(() => {

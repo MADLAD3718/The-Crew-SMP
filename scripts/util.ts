@@ -53,9 +53,9 @@ export function getRectPrism(range: Vector3): Vector3[] {
     const locations = new Array(span.x * span.y * span.z);
     let i = 0;
     for (let x = 0; x <= 2 * range.x; ++x)
-    for (let y = 0; y <= 2 * range.y; ++y)
-    for (let z = 0; z <= 2 * range.z; ++z, ++i)
-        locations[i] = Vec3.sub(Vec3.from(x, y, z), range);
+        for (let y = 0; y <= 2 * range.y; ++y)
+            for (let z = 0; z <= 2 * range.z; ++z, ++i)
+                locations[i] = Vec3.sub(Vec3.from(x, y, z), range);
     return locations;
 }
 
