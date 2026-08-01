@@ -1,11 +1,13 @@
+import "./barnacle";
 import "./cannon";
 import "./fire_cannonball";
 import "./lightning_bottle";
-import "./wolf";
 import "./spawn_death";
-import "./barnacle";
-import "./tempered_warp_crystal";
+import "./wolf";
 import "./faded_death";
-import "./zombie";
-import "./villager";
 import "./player";
+// Temporarily Disabled
+// import "./tempered_warp_crystal";
+import "./villager";
+import "./zombie";
+
