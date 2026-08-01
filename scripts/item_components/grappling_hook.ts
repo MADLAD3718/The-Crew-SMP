@@ -59,15 +59,14 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
     stake.setDynamicProperty("interval", interval);
 });
 
-world.afterEvents.projectileHitBlock.subscribe(({ projectile: stake }) => {
-    if (!stake.isValid) return;
+world.afterEvents.projectileHitBlock.subscribe(({ projectile: stake, source: player }) => {
+    if (!stake.isValid || !(player instanceof Player) || !player.isValid) return;
     if (!stake.matches({ type: "tcsmp:grappling_hook_stake" })) return;
     system.clearRun(stake.getDynamicProperty("interval") as number);
 
     const seat = world.getEntity(stake.getDynamicProperty("seat") as string);
     seat?.teleport(Vec3.above(seat.location, 0.1));
 
-    const player = stake.projectile?.owner as Player;
     const playerSeat = seat?.getRiders()[0];
     playerSeat?.addRider(player);
 
