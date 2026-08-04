@@ -42,8 +42,7 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
             location: source.location,
             maxDistance: 4.5,
             excludeNames: [source.name],
-            excludeTypes: ["minecraft:item"],
-            excludeGameModes: [GameMode.Creative, GameMode.Spectator]
+            excludeTypes: ["minecraft:item"]
         });
 
         for (const entity of entities) {
