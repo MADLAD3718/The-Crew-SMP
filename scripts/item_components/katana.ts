@@ -1,5 +1,5 @@
 import { Vec3 } from "@madlad3718/mcveclib";
-import { Entity, EntityDamageCause, GameMode, ItemComponentTypes, ItemCustomComponent, ItemStack, MolangVariableMap, system, TicksPerSecond, world } from "@minecraft/server";
+import { Entity, EntityDamageCause, GameMode, ItemComponentTypes, ItemCustomComponent, ItemLockMode, ItemStack, MolangVariableMap, system, TicksPerSecond, world } from "@minecraft/server";
 import { MinecraftEnchantmentTypes } from "@minecraft/vanilla-data";
 import KatanaDefinition from "../../behaviours/items/katana.item.json";
 
@@ -35,6 +35,9 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
     molang.setVector3("direction", direction);
     dimension.spawnParticle("tcsmp:katana_dash", source.location, molang);
 
+    const slot = source.inventory.container.getSlot(source.selectedSlotIndex);
+    slot.lockMode = ItemLockMode.slot;
+
     let ticks = 0, hits = 0;
     const hitEntityIds: string[] = [];
     const interval = system.runInterval(() => {
@@ -55,8 +58,8 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
         }
 
         if (ticks === DASH_TIME) {
+            slot.lockMode = ItemLockMode.none;
             if (source.getGameMode() !== GameMode.Creative && hits) {
-                const slot = source.inventory.container.getSlot(source.selectedSlotIndex);
                 slot.setItem(itemStack.damage(hits));
 
                 if (!slot.hasItem()) dimension.playSound(
