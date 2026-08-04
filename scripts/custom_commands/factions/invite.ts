@@ -1,6 +1,5 @@
-import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomCommandParamType, CustomCommandResult, CustomCommandStatus, Player, world } from "@minecraft/server";
+import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomCommandParamType, CustomCommandResult, CustomCommandStatus, Player } from "@minecraft/server";
 import { FactionRegistry } from "../../systems/factions";
-import Config from "../config";
 
 const factionInviteCommand: CustomCommand = {
     name: "tcsmp:invitefaction",
@@ -9,17 +8,13 @@ const factionInviteCommand: CustomCommand = {
     cheatsRequired: false,
     mandatoryParameters: [
         {
-            name: Config.use_string_selectors ?
-                "playerName" : "player",
-            type: Config.use_string_selectors ?
-                CustomCommandParamType.String :
-                CustomCommandParamType.PlayerSelector
+            name: "player",
+            type: CustomCommandParamType.PlayerSelector
         }
     ]
 };
 
-type SelectorType = (typeof Config.use_string_selectors) extends true ? string : Player[];
-function factionInviteCallback(origin: CustomCommandOrigin, input: SelectorType): CustomCommandResult {
+function factionInviteCallback(origin: CustomCommandOrigin, players: Player[]): CustomCommandResult {
     if (!(origin.sourceEntity instanceof Player)) return {
         status: CustomCommandStatus.Failure,
         message: `Non-player entities cannot send faction invites.`
@@ -30,9 +25,6 @@ function factionInviteCallback(origin: CustomCommandOrigin, input: SelectorType)
         status: CustomCommandStatus.Failure,
         message: `Cannot find faction.`
     };
-
-    const players = (typeof input == "string") ?
-        world.getPlayers({ name: input }) : input;
 
     const invited: string[] = [];
     for (const player of players) {

@@ -1,6 +1,5 @@
-import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomCommandParamType, CustomCommandResult, CustomCommandStatus, Player, system, world } from "@minecraft/server";
+import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomCommandParamType, CustomCommandResult, CustomCommandStatus, Player, system } from "@minecraft/server";
 import { FactionRegistry } from "../../systems/factions";
-import Config from "../config";
 
 const factionKickCommand: CustomCommand = {
     name: "tcsmp:kickfaction",
@@ -9,17 +8,13 @@ const factionKickCommand: CustomCommand = {
     cheatsRequired: false,
     mandatoryParameters: [
         {
-            name: Config.use_string_selectors ? 
-                "playerName" : "player",
-            type: Config.use_string_selectors ?
-                CustomCommandParamType.String :
-                CustomCommandParamType.PlayerSelector
+            name: "player",
+            type: CustomCommandParamType.PlayerSelector
         }
     ]
 };
 
-type SelectorType = (typeof Config.use_string_selectors) extends true ? string : Player[];
-function factionKickCallback(origin: CustomCommandOrigin, input: SelectorType): CustomCommandResult {
+function factionKickCallback(origin: CustomCommandOrigin, players: Player[]): CustomCommandResult {
     if (!(origin.sourceEntity instanceof Player)) return {
         status: CustomCommandStatus.Failure,
         message: `Non-player entities cannot create factions.`
@@ -35,9 +30,6 @@ function factionKickCallback(origin: CustomCommandOrigin, input: SelectorType): 
         status: CustomCommandStatus.Failure,
         message: `Cannot kick players, ownership required.`
     }
-
-    const players = (typeof input == "string") ?
-        world.getPlayers({name: input}) : input;
 
     const kicked: string[] = [];
     for (const player of players) {
@@ -68,4 +60,4 @@ function factionKickCallback(origin: CustomCommandOrigin, input: SelectorType): 
     };
 }
 
-export default {command: factionKickCommand, callback: factionKickCallback};
+export default { command: factionKickCommand, callback: factionKickCallback };

@@ -1,6 +1,5 @@
-import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomCommandParamType, CustomCommandResult, CustomCommandStatus, Player, system, world } from "@minecraft/server";
+import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomCommandParamType, CustomCommandResult, CustomCommandStatus, Player, system } from "@minecraft/server";
 import { FactionRegistry } from "../../systems/factions";
-import Config from "../config";
 
 const factionTransferCommand: CustomCommand = {
     name: "tcsmp:transferfaction",
@@ -9,30 +8,23 @@ const factionTransferCommand: CustomCommand = {
     cheatsRequired: false,
     mandatoryParameters: [
         {
-            name: Config.use_string_selectors ? 
-                "playerName" : "player",
-            type: Config.use_string_selectors ?
-                CustomCommandParamType.String :
-                CustomCommandParamType.PlayerSelector
+            name: "player",
+            type: CustomCommandParamType.PlayerSelector
         }
     ]
 };
 
-type SelectorType = (typeof Config.use_string_selectors) extends true ? string : Player[];
-function factionTransferCallback(origin: CustomCommandOrigin, input: SelectorType): CustomCommandResult {
+function factionTransferCallback(origin: CustomCommandOrigin, players: Player[]): CustomCommandResult {
     if (!(origin.sourceEntity instanceof Player)) return {
         status: CustomCommandStatus.Failure,
         message: `Non-player entities cannot transfer faction ownership.`
     };
 
-    const players = (typeof input == "string") ?
-        world.getPlayers({name: input}) : input;
-
     if (players.length > 1) return {
         status: CustomCommandStatus.Failure,
         message: `Cannot transfer faction ownership to multiple players.`
     };
-    
+
     const [player] = players;
     const faction = FactionRegistry.getFaction(origin.sourceEntity);
     if (!faction) return {
@@ -67,4 +59,4 @@ function factionTransferCallback(origin: CustomCommandOrigin, input: SelectorTyp
     };
 }
 
-export default {command: factionTransferCommand, callback: factionTransferCallback};
+export default { command: factionTransferCommand, callback: factionTransferCallback };
