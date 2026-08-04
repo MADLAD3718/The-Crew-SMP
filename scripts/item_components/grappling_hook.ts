@@ -53,6 +53,7 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
 
         const hook = slot?.getItem()?.clone("tcsmp:grappling_hook");
         slot?.setItem(hook);
+        slot.lockMode = ItemLockMode.none;
         source.dimension.playSound("leashknot.break", source.getHeadLocation());
 
         system.clearRun(interval);
