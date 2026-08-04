@@ -1,5 +1,5 @@
 {
-  "format_version": "1.26.30",
+  "format_version": "1.26.40",
   "minecraft:entity": {
     "description": {
       "identifier": "tcsmp:faded_skeleton",
@@ -40,8 +40,10 @@
       },
       "tcsmp:ranged_attack": {
         "minecraft:behavior.ranged_attack": {
-          "attack_interval_max": 3.0,
-          "attack_interval_min": 3.0,
+          "attack_interval": {
+            "min": 3.0,
+            "max": 3.0
+          },
           "attack_radius": 15.0,
           "priority": 0
         },
@@ -91,8 +93,10 @@
         }
       },
       "minecraft:behavior.ranged_attack": {
-        "attack_interval_max": 3.0,
-        "attack_interval_min": 3.0,
+        "attack_interval": {
+          "min": 3.0,
+          "max": 3.0
+        },
         "attack_radius": 15.0,
         "priority": 0
       },
