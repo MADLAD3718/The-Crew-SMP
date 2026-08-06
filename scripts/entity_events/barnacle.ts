@@ -1,6 +1,6 @@
-import BarnacleDefinition from "../../behaviours/entities/barnacle.entity.json";
-import { EntityDamageCause, Player, system, world } from "@minecraft/server";
 import { Vec3 } from "@madlad3718/mcveclib";
+import { EntityDamageCause, Player, system, world } from "@minecraft/server";
+import BarnacleDefinition from "../../behaviours/entities/barnacle.entity.bp.json";
 
 const EATING_DAMAGE = BarnacleDefinition["minecraft:entity"].component_groups["tcsmp:eating_prey"]["minecraft:attack"].damage;
 
