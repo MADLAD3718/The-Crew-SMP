@@ -61,7 +61,8 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
     stake.setDynamicProperty("interval", interval);
 });
 
-world.afterEvents.projectileHitBlock.subscribe(({ projectile: stake, source: player }) => {
+world.afterEvents.projectileHitBlock.subscribe(event => {
+    const { projectile: stake, source: player } = event;
     if (!stake.isValid || !(player instanceof Player) || !player.isValid) return;
     if (!stake.matches({ type: "tcsmp:grappling_hook_stake" })) return;
     system.clearRun(stake.getDynamicProperty("interval") as number);
