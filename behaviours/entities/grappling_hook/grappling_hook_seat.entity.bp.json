@@ -22,7 +22,7 @@
             "effect": "slow_falling",
             "duration": 999999,
             "amplifier": 0,
-            "visible": 0
+            "visible": false
           }]
         },
         "minecraft:leashable": {
