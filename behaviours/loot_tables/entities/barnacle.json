@@ -7,8 +7,8 @@
                 },
                 {
                     "condition": "random_chance_with_looting",
-                    "chance": 0.0,
-                    // Chance = 1/6 such that looting 3 yields 50%
+                    "chance": 0.5,
+                    // Chance = 1/6 such that looting 3 yields 100%
                     "looting_multiplier": 0.16666666666666666
                 }
             ],
