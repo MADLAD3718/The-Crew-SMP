@@ -14,17 +14,13 @@ const removeEntityCommand: CustomCommand = {
 }
 
 function removeEntityCallback(origin: CustomCommandOrigin, entities: Entity[]): CustomCommandResult {
-    let count = 0;
-    for (const entity of entities) {
-        system.run(() => {
-            entity.remove()
-        });
-        ++count;
-    }
+    for (const entity of entities) system.run(() => {
+        entity.remove();
+    });
     return {
-        message: `Removed ${count} entit${count == 1 ? 'y' : "ies"}.`,
+        message: `Successfully removed ${entities.length} entit${entities.length === 1 ? 'y' : "ies"}.`,
         status: CustomCommandStatus.Success
     }
 }
 
-export default {command: removeEntityCommand, callback: removeEntityCallback};
+export default { command: removeEntityCommand, callback: removeEntityCallback };
