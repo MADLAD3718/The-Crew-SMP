@@ -1,0 +1,150 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "tcsmp:sailboat",
+      "is_summonable": true,
+      "is_spawnable": false,
+      "properties": {
+        "tcsmp:throttle": {
+          "type": "float",
+          "default": 0.0,
+          "range": [0.0, 1.0],
+          "client_sync": true
+        }
+      }
+    },
+    "component_groups": {},
+    "components": {
+      "minecraft:buoyant": {
+        "apply_gravity": true,
+        "base_buoyancy": 0.75,
+        "big_wave_probability": 0.03,
+        "big_wave_speed": 10.0,
+        "liquid_blocks": [
+          "minecraft:water",
+          "minecraft:flowing_water"
+        ],
+        "movement_type": "waves"
+      },
+      "minecraft:collision_box": {
+        "height": 0.455,
+        "width": 2.4
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "cause": "lava",
+            "damage_per_tick": 4,
+            "filters": {
+              "subject": "self",
+              "test": "in_lava"
+            }
+          }
+        ]
+      },
+      "minecraft:inside_block_notifier": {
+        "block_list": [
+          {
+            "block": {
+              "name": "minecraft:bubble_column",
+              "states": {
+                "drag_down": true
+              }
+            },
+            "entered_block_event": {
+              "event": "minecraft:entered_bubble_column_down",
+              "target": "self"
+            },
+            "exited_block_event": {
+              "event": "minecraft:exited_bubble_column",
+              "target": "self"
+            }
+          },
+          {
+            "block": {
+              "name": "minecraft:bubble_column",
+              "states": {
+                "drag_down": false
+              }
+            },
+            "entered_block_event": {
+              "event": "minecraft:entered_bubble_column_up",
+              "target": "self"
+            },
+            "exited_block_event": {
+              "event": "minecraft:exited_bubble_column",
+              "target": "self"
+            }
+          }
+        ]
+      },
+      "minecraft:is_collidable": {},
+      "minecraft:is_stackable": {},
+      "minecraft:leashable_to": {},
+      "minecraft:loot": {
+        "table": "loot_tables/entities/boat.json"
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable_by_entity": {
+        "presets": [
+          {
+            "filters": {
+              "all_of": [
+                {
+                  "test": "is_family",
+                  "subject": "other",
+                  "value": "sulfur_cube"
+                },
+                {
+                  "test": "enum_property",
+                  "subject": "other",
+                  "domain": "minecraft:sulfur_cube_archetype",
+                  "operator": "not",
+                  "value": "none"
+                },
+                {
+                  "test": "is_controlling_passenger_family",
+                  "subject": "self",
+                  "value": "player"
+                }
+              ]
+            },
+            "push_mode": "none"
+          },
+          {
+            "push_mode": "legacy_boat",
+            "strength_multiplier": 0.1,
+            "min_distance": 0.55,
+            "push_scale_self": 0.5,
+            "push_scale_other": 0.25
+          }
+        ]
+      },
+      "minecraft:pushable_by_block": {
+      },
+      "minecraft:rideable": {
+        "interact_text": "action.interact.ride.boat",
+        "passenger_max_width": 1.375,
+        "seats": [
+          {
+            "lock_rider_rotation": 90,
+            "min_rider_count": 0,
+            "max_rider_count": 1,
+            "position": [0.0, 0.0, -1.25],
+            "rotate_rider_by": 0
+          }
+        ],
+        "pull_in_entities": true,
+        "seat_count": 2
+      },
+      "minecraft:type_family": {
+        "family": [
+          "boat",
+          "inanimate"
+        ]
+      }
+    },
+    "events": {}
+  }
+}

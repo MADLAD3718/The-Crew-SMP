@@ -1,0 +1,13 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.sailboat.root": {
+			"loop": true,
+			"bones": {
+				"sail": {
+					"scale": [1, "math.lerp(1, 16, v.interp_throttle)", 1]
+				}
+			}
+		}
+	}
+}

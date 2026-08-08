@@ -75,3 +75,11 @@ export function randomRange(min: number, max: number): number {
 export function clamp(x: number, min: number, max: number): number {
     return Math.max(Math.min(x, max), min);
 }
+
+export function saturate(x: number): number {
+    return Math.max(Math.min(x, 1.0), 0.0);
+}
+
+export function mod(value: number, modulus: number): number {
+    return ((value % modulus) + modulus) % modulus;
+}

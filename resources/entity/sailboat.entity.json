@@ -1,0 +1,38 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tcsmp:sailboat",
+      "materials": {
+        "default": "entity"
+      },
+      "geometry": {
+        "default": "geometry.sailboat"
+      },
+      "textures": {
+        "default": "textures/entity/sailboat"
+      },
+      "animations": {
+        "root": "animation.sailboat.root"
+      },
+      "scripts": {
+        "initialize": [
+          "v.prev_throttle = q.property('tcsmp:throttle');",
+          "v.curr_throttle = q.property('tcsmp:throttle');",
+          "v.last_frame_alpha = 0.0;"
+        ],
+        "pre_animation": [
+          "t.is_new_tick = q.frame_alpha < v.last_frame_alpha;",
+          "v.prev_throttle = t.is_new_tick ? v.curr_throttle : v.prev_throttle;",
+          "v.curr_throttle = t.is_new_tick ? q.property('tcsmp:throttle') : v.curr_throttle;",
+          "v.last_frame_alpha = q.frame_alpha;",
+          "v.interp_throttle = math.lerp(v.prev_throttle, v.curr_throttle, q.frame_alpha);"
+        ],
+        "animate": ["root"]
+      },
+      "render_controllers": [
+        "controller.render.sailboat"
+      ]
+    }
+  }
+}
