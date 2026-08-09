@@ -1,5 +1,7 @@
-import { Vec2, Vec3 } from "@madlad3718/mcveclib";
+import { Mat3, Vec2, Vec3 } from "@madlad3718/mcveclib";
 import { Entity, Player, system, world } from "@minecraft/server";
+import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+import { intersect, Plane3, Ray3, viewMatrix } from "../math";
 import { clamp, mod } from "../util";
 
 const TURN_ACCEL = 0.575;
@@ -9,14 +11,48 @@ const THROTTLE_ACCEL = 0.0025;
 const THROTTLE_DECCEL = 0.0025;
 const MAX_THROTTLE = 0.08;
 
-world.afterEvents.playerInteractWithEntity.subscribe(event => {
-    const { target: sailboat, player } = event;
+world.beforeEvents.playerInteractWithEntity.subscribe(event => {
+    const { target: sailboat, player, itemStack } = event;
     if (!player.isValid || !sailboat.isValid ||
         !sailboat.matches({ type: "tcsmp:sailboat" })) return;
-    // This event runs *after* the interaction already took place.
-    if (sailboat.getRiders().length > 1) return;
 
-    new SailboatController(sailboat, player).begin();
+    if (itemStack) {
+        const sailboatMatrix = viewMatrix(sailboat.getViewDirection());
+        const invSailboatMatrix = Mat3.inverse(sailboatMatrix);
+
+        const rayOrigin = Vec3.sub(
+            player.getHeadLocation(),
+            Vec3.above(sailboat.location, 0.1875)
+        );
+        const rayDirection = Mat3.mul(invSailboatMatrix, player.getViewDirection());
+
+        const ray: Ray3 = { origin: rayOrigin, direction: rayDirection };
+        const plane: Plane3 = { origin: Vec3.Zero, normal: Vec3.Up };
+
+        const intersection = intersect(ray, plane);
+        if (!intersection) return;
+
+        // Maps different quadrants of the intersection plane to {0, 1, 2, 3}
+        const quadrant = +(intersection.z < 0) << 1 | +(intersection.x < 0);
+        console.warn(`The quadrant was computed as ${quadrant}`);
+
+        event.cancel = true;
+    }
+});
+
+world.afterEvents.playerInteractWithEntity.subscribe(event => {
+    const { target: sailboat, player, itemStack } = event;
+    if (!player.isValid || !sailboat.isValid ||
+        !sailboat.matches({ type: "tcsmp:sailboat" })) return;
+
+    // The player has attempted to ride
+    if (!itemStack) {
+        // This event runs *after* the interaction already took place.
+        if (sailboat.getRiders()[0].id !== player.id) return;
+
+        new SailboatController(sailboat, player).begin();
+    }
+
 });
 
 class SailboatController {
@@ -27,11 +63,14 @@ class SailboatController {
 
     public begin() {
         const interval = system.runInterval(() => {
-            if (!this.player.isValid || !this.boat.isValid ||
-                this.boat.getRiders().length === 0) {
+            const captain = this.boat.getRiders()[0];
+            if (!captain?.isValid || !this.boat.isValid ||
+                !captain.matches({ type: MinecraftEntityTypes.Player })) {
                 this.boat.resetProperty("tcsmp:throttle");
                 return system.clearRun(interval);
             }
+            if (captain.id !== this.player.id)
+                this.player = captain as Player;
             system.runJob(this.sailboatControl());
         });
     }
