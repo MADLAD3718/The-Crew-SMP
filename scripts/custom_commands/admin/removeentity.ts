@@ -3,7 +3,7 @@ import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomComma
 const removeEntityCommand: CustomCommand = {
     name: "tcsmp:removeentity",
     description: "Removes an entity from the world.",
-    permissionLevel: CommandPermissionLevel.Admin,
+    permissionLevel: CommandPermissionLevel.GameDirectors,
     cheatsRequired: true,
     mandatoryParameters: [
         {
