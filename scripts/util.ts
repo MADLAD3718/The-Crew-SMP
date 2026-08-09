@@ -2,6 +2,10 @@ import { Vec3 } from "@madlad3718/mcveclib";
 import { NumberRange } from "@minecraft/common";
 import { Vector2, Vector3 } from "@minecraft/server";
 
+export function withoutNamespace(typeId: string): string {
+    return typeId.slice(typeId.indexOf(':') + 1);
+}
+
 export class MissingComponentError extends Error {
     constructor(component: string) {
         super(`Object is missing component "${component}".`);

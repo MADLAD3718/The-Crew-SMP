@@ -1,0 +1,57 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.sailboat_chests",
+				"texture_width": 48,
+				"texture_height": 48,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "slot0",
+					"pivot": [10, 3, -15],
+					"rotation": [0, 90, 0],
+					"cubes": [
+						{"origin": [4, 11, -21], "size": [12, 5, 12], "uv": [0, 0]},
+						{"origin": [4, 3, -21], "size": [12, 8, 12], "uv": [0, 17]},
+						{"origin": [9, 9, -22], "size": [2, 4, 1], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "slot1",
+					"pivot": [-10, 3, -15],
+					"rotation": [0, -90, 0],
+					"cubes": [
+						{"origin": [-16, 11, -21], "size": [12, 5, 12], "uv": [0, 0]},
+						{"origin": [-16, 3, -21], "size": [12, 8, 12], "uv": [0, 17]},
+						{"origin": [-11, 9, -22], "size": [2, 4, 1], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "slot2",
+					"pivot": [10, 3, 6],
+					"rotation": [0, 90, 0],
+					"cubes": [
+						{"origin": [4, 11, 0], "size": [12, 5, 12], "uv": [0, 0]},
+						{"origin": [4, 3, 0], "size": [12, 8, 12], "uv": [0, 17]},
+						{"origin": [9, 9, -1], "size": [2, 4, 1], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "slot3",
+					"pivot": [-10, 3, 6],
+					"rotation": [0, -90, 0],
+					"cubes": [
+						{"origin": [-16, 11, 0], "size": [12, 5, 12], "uv": [0, 0]},
+						{"origin": [-16, 3, 0], "size": [12, 8, 12], "uv": [0, 17]},
+						{"origin": [-11, 9, -1], "size": [2, 4, 1], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+  "format_version": "1.26.40",
+  "render_controllers": {
+    "controller.render.sailboat_chests": {
+      "geometry": "Geometry.chests",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.chest" ],
+      "part_visibility": [
+        { "slot0": "q.property('tcsmp:slot_0') == 'chest'" },
+        { "slot1": "q.property('tcsmp:slot_1') == 'chest'" },
+        { "slot2": "q.property('tcsmp:slot_2') == 'chest'" },
+        { "slot3": "q.property('tcsmp:slot_3') == 'chest'" }
+      ]
+    }
+  }
+}

@@ -11,10 +11,531 @@
           "default": 0.0,
           "range": [0.0, 1.0],
           "client_sync": true
+        },
+        "tcsmp:slot_0": {
+          "type": "enum",
+          "values": ["none", "chest"],
+          "default": "none",
+          "client_sync": true
+        },
+        "tcsmp:slot_1": {
+          "type": "enum",
+          "values": ["none", "chest"],
+          "default": "none",
+          "client_sync": true
+        },
+        "tcsmp:slot_2": {
+          "type": "enum",
+          "values": ["none", "chest"],
+          "default": "none",
+          "client_sync": true
+        },
+        "tcsmp:slot_3": {
+          "type": "enum",
+          "values": ["none", "chest"],
+          "default": "none",
+          "client_sync": true
         }
       }
     },
-    "component_groups": {},
+    "component_groups": {
+      "tcsmp:slots_filled_0000": {
+        "minecraft:rideable": {
+          "interact_text": "action.interact.ride.boat",
+          "passenger_max_width": 1.375,
+          "seats": [
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.0, 0.0, -1.5],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.5, 0.0, 1.0],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [-0.5, 0.0, 1.0],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.5, 0.0, -0.3],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [-0.5, 0.0, -0.3],
+              "rotate_rider_by": 0
+            }
+          ],
+          "pull_in_entities": true,
+          "seat_count": 5
+        }
+      },
+      "tcsmp:slots_filled_0001": {
+        "minecraft:rideable": {
+          "interact_text": "action.interact.ride.boat",
+          "passenger_max_width": 1.375,
+          "seats": [
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.0, 0.0, -1.5],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.5, 0.0, 1.0],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [-0.5, 0.0, 1.0],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.5, 0.0, -0.3],
+              "rotate_rider_by": 0
+            }
+          ],
+          "pull_in_entities": true,
+          "seat_count": 4
+        }
+      },
+      "tcsmp:slots_filled_0010": {
+        "minecraft:rideable": {
+          "interact_text": "action.interact.ride.boat",
+          "passenger_max_width": 1.375,
+          "seats": [
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.0, 0.0, -1.5],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.5, 0.0, 1.0],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [-0.5, 0.0, 1.0],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [-0.5, 0.0, -0.3],
+              "rotate_rider_by": 0
+            }
+          ],
+          "pull_in_entities": true,
+          "seat_count": 4
+        }
+      },
+      "tcsmp:slots_filled_0011": {
+        "minecraft:rideable": {
+          "interact_text": "action.interact.ride.boat",
+          "passenger_max_width": 1.375,
+          "seats": [
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.0, 0.0, -1.5],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.5, 0.0, 1.0],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [-0.5, 0.0, 1.0],
+              "rotate_rider_by": 0
+            }
+          ],
+          "pull_in_entities": true,
+          "seat_count": 3
+        }
+      },
+      "tcsmp:slots_filled_0100": {
+        "minecraft:rideable": {
+          "interact_text": "action.interact.ride.boat",
+          "passenger_max_width": 1.375,
+          "seats": [
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.0, 0.0, -1.5],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.5, 0.0, 1.0],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.5, 0.0, -0.3],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [-0.5, 0.0, -0.3],
+              "rotate_rider_by": 0
+            }
+          ],
+          "pull_in_entities": true,
+          "seat_count": 4
+        }
+      },
+      "tcsmp:slots_filled_0101": {
+        "minecraft:rideable": {
+          "interact_text": "action.interact.ride.boat",
+          "passenger_max_width": 1.375,
+          "seats": [
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.0, 0.0, -1.5],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.5, 0.0, 1.0],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.5, 0.0, -0.3],
+              "rotate_rider_by": 0
+            }
+          ],
+          "pull_in_entities": true,
+          "seat_count": 3
+        }
+      },
+      "tcsmp:slots_filled_0110": {
+        "minecraft:rideable": {
+          "interact_text": "action.interact.ride.boat",
+          "passenger_max_width": 1.375,
+          "seats": [
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.0, 0.0, -1.5],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.5, 0.0, 1.0],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [-0.5, 0.0, -0.3],
+              "rotate_rider_by": 0
+            }
+          ],
+          "pull_in_entities": true,
+          "seat_count": 3
+        }
+      },
+      "tcsmp:slots_filled_0111": {
+        "minecraft:rideable": {
+          "interact_text": "action.interact.ride.boat",
+          "passenger_max_width": 1.375,
+          "seats": [
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.0, 0.0, -1.5],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.5, 0.0, 1.0],
+              "rotate_rider_by": 0
+            }
+          ],
+          "pull_in_entities": true,
+          "seat_count": 2
+        }
+      },
+      "tcsmp:slots_filled_1000": {
+        "minecraft:rideable": {
+          "interact_text": "action.interact.ride.boat",
+          "passenger_max_width": 1.375,
+          "seats": [
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.0, 0.0, -1.5],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [-0.5, 0.0, 1.0],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.5, 0.0, -0.3],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [-0.5, 0.0, -0.3],
+              "rotate_rider_by": 0
+            }
+          ],
+          "pull_in_entities": true,
+          "seat_count": 4
+        }
+      },
+      "tcsmp:slots_filled_1001": {
+        "minecraft:rideable": {
+          "interact_text": "action.interact.ride.boat",
+          "passenger_max_width": 1.375,
+          "seats": [
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.0, 0.0, -1.5],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [-0.5, 0.0, 1.0],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.5, 0.0, -0.3],
+              "rotate_rider_by": 0
+            }
+          ],
+          "pull_in_entities": true,
+          "seat_count": 3
+        }
+      },
+      "tcsmp:slots_filled_1010": {
+        "minecraft:rideable": {
+          "interact_text": "action.interact.ride.boat",
+          "passenger_max_width": 1.375,
+          "seats": [
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.0, 0.0, -1.5],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [-0.5, 0.0, 1.0],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [-0.5, 0.0, -0.3],
+              "rotate_rider_by": 0
+            }
+          ],
+          "pull_in_entities": true,
+          "seat_count": 3
+        }
+      },
+      "tcsmp:slots_filled_1011": {
+        "minecraft:rideable": {
+          "interact_text": "action.interact.ride.boat",
+          "passenger_max_width": 1.375,
+          "seats": [
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.0, 0.0, -1.5],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [-0.5, 0.0, 1.0],
+              "rotate_rider_by": 0
+            }
+          ],
+          "pull_in_entities": true,
+          "seat_count": 2
+        }
+      },
+      "tcsmp:slots_filled_1100": {
+        "minecraft:rideable": {
+          "interact_text": "action.interact.ride.boat",
+          "passenger_max_width": 1.375,
+          "seats": [
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.0, 0.0, -1.5],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.5, 0.0, -0.3],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [-0.5, 0.0, -0.3],
+              "rotate_rider_by": 0
+            }
+          ],
+          "pull_in_entities": true,
+          "seat_count": 3
+        }
+      },
+      "tcsmp:slots_filled_1101": {
+        "minecraft:rideable": {
+          "interact_text": "action.interact.ride.boat",
+          "passenger_max_width": 1.375,
+          "seats": [
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.0, 0.0, -1.5],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.5, 0.0, -0.3],
+              "rotate_rider_by": 0
+            }
+          ],
+          "pull_in_entities": true,
+          "seat_count": 2
+        }
+      },
+      "tcsmp:slots_filled_1110": {
+        "minecraft:rideable": {
+          "interact_text": "action.interact.ride.boat",
+          "passenger_max_width": 1.375,
+          "seats": [
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.0, 0.0, -1.5],
+              "rotate_rider_by": 0
+            },
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [-0.5, 0.0, -0.3],
+              "rotate_rider_by": 0
+            }
+          ],
+          "pull_in_entities": true,
+          "seat_count": 2
+        }
+      },
+      "tcsmp:slots_filled_1111": {
+        "minecraft:rideable": {
+          "interact_text": "action.interact.ride.boat",
+          "passenger_max_width": 1.375,
+          "seats": [
+            {
+              "lock_rider_rotation": 90,
+              "min_rider_count": 0,
+              "max_rider_count": 5,
+              "position": [0.0, 0.0, -1.5],
+              "rotate_rider_by": 0
+            }
+          ],
+          "pull_in_entities": true,
+          "seat_count": 1
+        }
+      }
+    },
     "components": {
       "minecraft:buoyant": {
         "apply_gravity": true,
@@ -121,22 +642,32 @@
           }
         ]
       },
-      "minecraft:pushable_by_block": {
-      },
-      "minecraft:rideable": {
-        "interact_text": "action.interact.ride.boat",
-        "passenger_max_width": 1.375,
-        "seats": [
+      "minecraft:pushable_by_block": {},
+      "minecraft:interact": {
+        "interactions": [
           {
-            "lock_rider_rotation": 90,
-            "min_rider_count": 0,
-            "max_rider_count": 1,
-            "position": [0.0, 0.0, -1.25],
-            "rotate_rider_by": 0
+            "use_item": true,
+            "on_interact": {
+              "filters": [
+                { "test": "is_family", "subject": "other", "value": "player" },
+                {
+                  "any_of": [
+                    { "test": "has_equipment", "subject": "other", "value": "minecraft:chest" }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "hurt_item": 1,
+            "on_interact": {
+              "filters": [
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "has_equipment_tag", "subject": "other", "value": "minecraft:is_axe" }
+              ]
+            }
           }
-        ],
-        "pull_in_entities": true,
-        "seat_count": 2
+        ]
       },
       "minecraft:type_family": {
         "family": [
@@ -145,6 +676,220 @@
         ]
       }
     },
-    "events": {}
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": ["tcsmp:slots_filled_0000"]
+        }
+      },
+      "tcsmp:fill_0000": {
+        "remove": {
+          "component_groups": [
+            "tcsmp:slots_filled_0001",
+            "tcsmp:slots_filled_0010",
+            "tcsmp:slots_filled_0100",
+            "tcsmp:slots_filled_1000"
+          ]
+        },
+        "add": {
+          "component_groups": ["tcsmp:slots_filled_0000"]
+        }
+      },
+      "tcsmp:fill_0001": {
+        "remove": {
+          "component_groups": [
+            "tcsmp:slots_filled_0000",
+            "tcsmp:slots_filled_0011",
+            "tcsmp:slots_filled_0101",
+            "tcsmp:slots_filled_1001"
+          ]
+        },
+        "add": {
+          "component_groups": ["tcsmp:slots_filled_0001"]
+        }
+      },
+      "tcsmp:fill_0010": {
+        "remove": {
+          "component_groups": [
+            "tcsmp:slots_filled_0011",
+            "tcsmp:slots_filled_0000",
+            "tcsmp:slots_filled_0110",
+            "tcsmp:slots_filled_1010"
+          ]
+        },
+        "add": {
+          "component_groups": ["tcsmp:slots_filled_0010"]
+        }
+      },
+      "tcsmp:fill_0011": {
+        "remove": {
+          "component_groups": [
+            "tcsmp:slots_filled_0010",
+            "tcsmp:slots_filled_0001",
+            "tcsmp:slots_filled_0111",
+            "tcsmp:slots_filled_1011"
+          ]
+        },
+        "add": {
+          "component_groups": ["tcsmp:slots_filled_0011"]
+        }
+      },
+      "tcsmp:fill_0100": {
+        "remove": {
+          "component_groups": [
+            "tcsmp:slots_filled_0101",
+            "tcsmp:slots_filled_0110",
+            "tcsmp:slots_filled_0000",
+            "tcsmp:slots_filled_1100"
+          ]
+        },
+        "add": {
+          "component_groups": ["tcsmp:slots_filled_0100"]
+        }
+      },
+      "tcsmp:fill_0101": {
+        "remove": {
+          "component_groups": [
+            "tcsmp:slots_filled_0100",
+            "tcsmp:slots_filled_0111",
+            "tcsmp:slots_filled_0001",
+            "tcsmp:slots_filled_1101"
+          ]
+        },
+        "add": {
+          "component_groups": ["tcsmp:slots_filled_0101"]
+        }
+      },
+      "tcsmp:fill_0110": {
+        "remove": {
+          "component_groups": [
+            "tcsmp:slots_filled_0111",
+            "tcsmp:slots_filled_0100",
+            "tcsmp:slots_filled_0010",
+            "tcsmp:slots_filled_1110"
+          ]
+        },
+        "add": {
+          "component_groups": ["tcsmp:slots_filled_0110"]
+        }
+      },
+      "tcsmp:fill_0111": {
+        "remove": {
+          "component_groups": [
+            "tcsmp:slots_filled_0110",
+            "tcsmp:slots_filled_0101",
+            "tcsmp:slots_filled_0011",
+            "tcsmp:slots_filled_1111"
+          ]
+        },
+        "add": {
+          "component_groups": ["tcsmp:slots_filled_0111"]
+        }
+      },
+      "tcsmp:fill_1000": {
+        "remove": {
+          "component_groups": [
+            "tcsmp:slots_filled_1001",
+            "tcsmp:slots_filled_1010",
+            "tcsmp:slots_filled_1100",
+            "tcsmp:slots_filled_0000"
+          ]
+        },
+        "add": {
+          "component_groups": ["tcsmp:slots_filled_1000"]
+        }
+      },
+      "tcsmp:fill_1001": {
+        "remove": {
+          "component_groups": [
+            "tcsmp:slots_filled_1000",
+            "tcsmp:slots_filled_1011",
+            "tcsmp:slots_filled_1101",
+            "tcsmp:slots_filled_0001"
+          ]
+        },
+        "add": {
+          "component_groups": ["tcsmp:slots_filled_1001"]
+        }
+      },
+      "tcsmp:fill_1010": {
+        "remove": {
+          "component_groups": [
+            "tcsmp:slots_filled_1011",
+            "tcsmp:slots_filled_1000",
+            "tcsmp:slots_filled_1110",
+            "tcsmp:slots_filled_0010"
+          ]
+        },
+        "add": {
+          "component_groups": ["tcsmp:slots_filled_1010"]
+        }
+      },
+      "tcsmp:fill_1011": {
+        "remove": {
+          "component_groups": [
+            "tcsmp:slots_filled_1010",
+            "tcsmp:slots_filled_1001",
+            "tcsmp:slots_filled_1111",
+            "tcsmp:slots_filled_0011"
+          ]
+        },
+        "add": {
+          "component_groups": ["tcsmp:slots_filled_1011"]
+        }
+      },
+      "tcsmp:fill_1100": {
+        "remove": {
+          "component_groups": [
+            "tcsmp:slots_filled_1101",
+            "tcsmp:slots_filled_1110",
+            "tcsmp:slots_filled_1000",
+            "tcsmp:slots_filled_0100"
+          ]
+        },
+        "add": {
+          "component_groups": ["tcsmp:slots_filled_1100"]
+        }
+      },
+      "tcsmp:fill_1101": {
+        "remove": {
+          "component_groups": [
+            "tcsmp:slots_filled_1100",
+            "tcsmp:slots_filled_1111",
+            "tcsmp:slots_filled_1001",
+            "tcsmp:slots_filled_0101"
+          ]
+        },
+        "add": {
+          "component_groups": ["tcsmp:slots_filled_1101"]
+        }
+      },
+      "tcsmp:fill_1110": {
+        "remove": {
+          "component_groups": [
+            "tcsmp:slots_filled_1111",
+            "tcsmp:slots_filled_1100",
+            "tcsmp:slots_filled_1010",
+            "tcsmp:slots_filled_0110"
+          ]
+        },
+        "add": {
+          "component_groups": ["tcsmp:slots_filled_1110"]
+        }
+      },
+      "tcsmp:fill_1111": {
+        "remove": {
+          "component_groups": [
+            "tcsmp:slots_filled_1110",
+            "tcsmp:slots_filled_1101",
+            "tcsmp:slots_filled_1011",
+            "tcsmp:slots_filled_0111"
+          ]
+        },
+        "add": {
+          "component_groups": ["tcsmp:slots_filled_1111"]
+        }
+      }
+    }
   }
 }

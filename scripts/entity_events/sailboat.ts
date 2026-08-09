@@ -1,8 +1,8 @@
 import { Mat3, Vec2, Vec3 } from "@madlad3718/mcveclib";
-import { Entity, Player, system, world } from "@minecraft/server";
-import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+import { Entity, ItemStack, Player, system, world } from "@minecraft/server";
+import { MinecraftBlockTypes, MinecraftEntityTypes } from "@minecraft/vanilla-data";
 import { intersect, Plane3, Ray3, viewMatrix } from "../math";
-import { clamp, mod } from "../util";
+import { clamp, mod, withoutNamespace } from "../util";
 
 const TURN_ACCEL = 0.575;
 const MAX_TURN_RATE = 5.75;
@@ -11,19 +11,41 @@ const THROTTLE_ACCEL = 0.0025;
 const THROTTLE_DECCEL = 0.0025;
 const MAX_THROTTLE = 0.08;
 
+const ValidSlotItems = [
+    MinecraftBlockTypes.Chest
+];
+
+const ItemSounds: Record<string, string> = {
+    "minecraft:chest": "dig.wood"
+};
+
+const SlotDrops: Record<string, string> = {
+    "chest": "minecraft:chest"
+};
+
+world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
+    console.warn(event.eventId);
+}, { entityTypes: ["tcsmp:sailboat"] });
+
 world.beforeEvents.playerInteractWithEntity.subscribe(event => {
     const { target: sailboat, player, itemStack } = event;
-    if (!player.isValid || !sailboat.isValid ||
+    if (!player.isValid || !sailboat.isValid || !itemStack ||
         !sailboat.matches({ type: "tcsmp:sailboat" })) return;
 
-    if (itemStack) {
-        const sailboatMatrix = viewMatrix(sailboat.getViewDirection());
+    const isAxe = itemStack.hasTag("minecraft:is_axe");
+    const isSlotItem = ValidSlotItems.some(value => itemStack.typeId === value);
+
+    if (isAxe || isSlotItem) {
+        const sailboatView = sailboat.getViewDirection();
+        const sailboatMatrix = viewMatrix(sailboatView);
         const invSailboatMatrix = Mat3.inverse(sailboatMatrix);
 
-        const rayOrigin = Vec3.sub(
-            player.getHeadLocation(),
-            Vec3.above(sailboat.location, 0.1875)
+        const slotCenter = Vec3.add(
+            Vec3.above(sailboat.location, 0.1875),
+            Vec3.mul(sailboatView, 0.25)
         );
+
+        const rayOrigin = Vec3.sub(player.getHeadLocation(), slotCenter);
         const rayDirection = Mat3.mul(invSailboatMatrix, player.getViewDirection());
 
         const ray: Ray3 = { origin: rayOrigin, direction: rayDirection };
@@ -34,19 +56,56 @@ world.beforeEvents.playerInteractWithEntity.subscribe(event => {
 
         // Maps different quadrants of the intersection plane to {0, 1, 2, 3}
         const quadrant = +(intersection.z < 0) << 1 | +(intersection.x < 0);
-        console.warn(`The quadrant was computed as ${quadrant}`);
 
-        event.cancel = true;
+        const propertyKey = `tcsmp:slot_${quadrant}`;
+        const slotState = sailboat.getProperty(propertyKey) as string;
+
+        const slotLocation = Vec3.add(Mat3.mul(sailboatMatrix, intersection), slotCenter);
+
+        if (isAxe) {
+            if (slotState !== "none") {
+                system.run(() => {
+                    sailboat.setProperty(propertyKey, "none");
+                    const drop = new ItemStack(SlotDrops[slotState]);
+                    sailboat.dimension.spawnItem(drop, slotLocation);
+                    sailboat.dimension.playSound(
+                        ItemSounds[drop.typeId], slotLocation, { pitch: 0.8 });
+                });
+            }
+            else event.cancel = true;
+        }
+
+        else {
+            if (slotState === "none") {
+                const newState = withoutNamespace(itemStack.typeId);
+                system.run(() => {
+                    sailboat.setProperty(propertyKey, newState);
+                    sailboat.dimension.playSound(
+                        ItemSounds[itemStack.typeId], slotLocation, { pitch: 0.8 });
+                });
+            }
+            else event.cancel = true;
+        }
     }
 });
 
 world.afterEvents.playerInteractWithEntity.subscribe(event => {
-    const { target: sailboat, player, itemStack } = event;
+    const { target: sailboat, player, beforeItemStack } = event;
     if (!player.isValid || !sailboat.isValid ||
         !sailboat.matches({ type: "tcsmp:sailboat" })) return;
 
+    if (beforeItemStack) {
+        system.runTimeout(() => {
+            const slot0State = sailboat.getProperty("tcsmp:slot_0") !== "none";
+            const slot1State = sailboat.getProperty("tcsmp:slot_1") !== "none";
+            const slot2State = sailboat.getProperty("tcsmp:slot_2") !== "none";
+            const slot3State = sailboat.getProperty("tcsmp:slot_3") !== "none";
+
+            sailboat.triggerEvent(`tcsmp:fill_${+slot0State}${+slot1State}${+slot2State}${+slot3State}`);
+        }, 1);
+    }
     // The player has attempted to ride
-    if (!itemStack) {
+    else {
         // This event runs *after* the interaction already took place.
         if (sailboat.getRiders()[0].id !== player.id) return;
 

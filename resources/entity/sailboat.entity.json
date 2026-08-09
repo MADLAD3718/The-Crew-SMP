@@ -7,10 +7,12 @@
         "default": "entity"
       },
       "geometry": {
-        "default": "geometry.sailboat"
+        "default": "geometry.sailboat",
+        "chests": "geometry.sailboat_chests"
       },
       "textures": {
-        "default": "textures/entity/sailboat"
+        "default": "textures/entity/sailboat",
+        "chest": "textures/entity/sailboat_chest"
       },
       "animations": {
         "root": "animation.sailboat.root"
@@ -31,7 +33,8 @@
         "animate": ["root"]
       },
       "render_controllers": [
-        "controller.render.sailboat"
+        "controller.render.sailboat",
+        "controller.render.sailboat_chests"
       ]
     }
   }
