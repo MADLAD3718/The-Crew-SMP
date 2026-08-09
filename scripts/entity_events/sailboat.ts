@@ -1,5 +1,5 @@
 import { Mat3, Vec2, Vec3 } from "@madlad3718/mcveclib";
-import { Entity, ItemStack, Player, system, world } from "@minecraft/server";
+import { Entity, GameMode, ItemStack, Player, system, world } from "@minecraft/server";
 import { MinecraftBlockTypes, MinecraftEntityTypes } from "@minecraft/vanilla-data";
 import { intersect, Plane3, Ray3, viewMatrix } from "../math";
 import { clamp, mod, withoutNamespace } from "../util";
@@ -22,10 +22,6 @@ const ItemSounds: Record<string, string> = {
 const SlotDrops: Record<string, string> = {
     "chest": "minecraft:chest"
 };
-
-world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
-    console.warn(event.eventId);
-}, { entityTypes: ["tcsmp:sailboat"] });
 
 world.beforeEvents.playerInteractWithEntity.subscribe(event => {
     const { target: sailboat, player, itemStack } = event;
@@ -67,9 +63,10 @@ world.beforeEvents.playerInteractWithEntity.subscribe(event => {
                 system.run(() => {
                     sailboat.setProperty(propertyKey, "none");
                     const drop = new ItemStack(SlotDrops[slotState]);
-                    sailboat.dimension.spawnItem(drop, slotLocation);
                     sailboat.dimension.playSound(
                         ItemSounds[drop.typeId], slotLocation, { pitch: 0.8 });
+                    if (player.getGameMode() !== GameMode.Creative)
+                        sailboat.dimension.spawnItem(drop, slotLocation);
                 });
             }
             else event.cancel = true;
