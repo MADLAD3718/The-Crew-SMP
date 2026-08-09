@@ -1,5 +1,5 @@
-import { ItemCustomComponent, MolangVariableMap } from "@minecraft/server";
 import { Vec3 } from "@madlad3718/mcveclib";
+import { ItemCustomComponent, MolangVariableMap } from "@minecraft/server";
 import { randomRange } from "../util";
 
 type SpellScrollParameters = {
@@ -8,6 +8,8 @@ type SpellScrollParameters = {
 
 const spellScrollComponent: ItemCustomComponent = {
     onUse({ source }, parameters) {
+        if (!source.isValid) return;
+
         const { params } = parameters as { params: SpellScrollParameters };
         const { dimension } = source;
 

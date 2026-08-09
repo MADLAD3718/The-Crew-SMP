@@ -1,9 +1,12 @@
 // DEPRECATED
-import { BlockRaycastHit, ButtonState, GameMode, InputButton, Player, Vector3, world } from "@minecraft/server";
 import { Vec3 } from "@madlad3718/mcveclib";
+import { BlockRaycastHit, ButtonState, GameMode, InputButton, Player, Vector3, world } from "@minecraft/server";
 
 world.afterEvents.playerButtonInput.subscribe(event => {
-    const { player, button, newButtonState } = event, { dimension, location } = player;
+    const { player, button, newButtonState } = event;
+    if (!player.isValid) return;
+    const { dimension, location } = player;
+
     if (player.getGameMode() == GameMode.Creative) return;
     if (button != InputButton.Jump || newButtonState != ButtonState.Pressed) return;
     if (!player.isSneaking || getHeightFromSurface(player) < 0.5) return;
@@ -25,7 +28,7 @@ world.afterEvents.playerButtonInput.subscribe(event => {
 
     dimension.playSound(
         "player.wall_jump", location,
-        {pitch: 0.9 + 0.2 * Math.random()}
+        { pitch: 0.9 + 0.2 * Math.random() }
     );
     dimension.spawnParticle("tcsmp:wall_jump", location);
 });

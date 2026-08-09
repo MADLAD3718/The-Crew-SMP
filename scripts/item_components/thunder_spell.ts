@@ -1,15 +1,16 @@
+import { Vec2, Vec3 } from "@madlad3718/mcveclib";
 import { ItemCustomComponent, WeatherType, world } from "@minecraft/server";
 import { MinecraftDimensionTypes } from "@minecraft/vanilla-data";
-import { Vec2, Vec3 } from "@madlad3718/mcveclib";
 import { randBoundedDisk } from "../util";
 
 const BOLT_COUNT = 12;
 
 world.beforeEvents.itemUse.subscribe(event => {
-    const { source, itemStack } = event, { dimension } = source;
-    if (!itemStack.hasComponent("tcsmp:thunder_spell")) return;
-    
-    event.cancel = dimension.id != MinecraftDimensionTypes.Overworld;
+    const { source, itemStack } = event;
+    if (!source.isValid ||
+        !itemStack.hasComponent("tcsmp:thunder_spell")) return;
+
+    event.cancel = source.dimension.id !== MinecraftDimensionTypes.Overworld;
 });
 
 const thunderSpellComponent: ItemCustomComponent = {
@@ -24,7 +25,7 @@ const thunderSpellComponent: ItemCustomComponent = {
             const spawn_location = Vec3.above(block.bottomCenter());
             dimension.spawnEntity("minecraft:lightning_bolt", spawn_location);
         }
-    
+
         dimension.setWeather(WeatherType.Thunder);
     }
 }

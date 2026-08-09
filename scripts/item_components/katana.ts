@@ -12,8 +12,11 @@ const DASH_TIME = TicksPerSecond * 0.2;
 const ParticleIntervals: Record<string, number> = {};
 
 world.afterEvents.itemReleaseUse.subscribe(event => {
-    const { source, itemStack, useDuration } = event, { dimension } = source;
-    if (!itemStack?.hasComponent("tcsmp:katana")) return;
+    const { source, itemStack, useDuration } = event;
+    if (!source.isValid ||
+        !itemStack?.hasComponent("tcsmp:katana")) return;
+
+    const { dimension } = source;
 
     const particles = ParticleIntervals[source.id];
     if (particles) system.clearRun(particles);

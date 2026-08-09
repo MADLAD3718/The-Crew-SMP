@@ -8,6 +8,11 @@ const blockInfoCommand: CustomCommand = {
 };
 
 function blockInfoCallback(origin: CustomCommandOrigin): CustomCommandResult {
+    if (!origin.sourceEntity?.isValid) return {
+        status: CustomCommandStatus.Failure,
+        message: `Non-players cannot request block information.`
+    };
+
     const player = origin.sourceEntity as Player;
     const block = player.getBlockFromViewDirection({
         includePassableBlocks: true,
@@ -33,11 +38,11 @@ function blockInfoCallback(origin: CustomCommandOrigin): CustomCommandResult {
     const components = block.getComponents();
     if (components.length > 0)
         message += `\nComponents: §7${components.map(comp => comp.typeId).join(", ")}§r`;
-    
+
     return {
         message,
         status: CustomCommandStatus.Success
     };
 }
 
-export default {command: blockInfoCommand, callback: blockInfoCallback};
+export default { command: blockInfoCommand, callback: blockInfoCallback };

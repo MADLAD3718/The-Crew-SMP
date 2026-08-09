@@ -9,7 +9,7 @@ const factionJoinCommand: CustomCommand = {
 };
 
 function factionJoinCallback(origin: CustomCommandOrigin): CustomCommandResult {
-    if (!(origin.sourceEntity instanceof Player)) return {
+    if (!origin.sourceEntity?.isValid || !(origin.sourceEntity instanceof Player)) return {
         status: CustomCommandStatus.Failure,
         message: `Non-player entities cannot send faction invites.`
     };
@@ -38,4 +38,4 @@ function factionJoinCallback(origin: CustomCommandOrigin): CustomCommandResult {
     };
 }
 
-export default {command: factionJoinCommand, callback: factionJoinCallback};
+export default { command: factionJoinCommand, callback: factionJoinCallback };

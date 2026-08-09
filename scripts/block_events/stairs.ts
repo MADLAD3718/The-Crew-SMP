@@ -1,5 +1,5 @@
-import { Direction, system, Vector3, world } from "@minecraft/server";
 import { Vec3 } from "@madlad3718/mcveclib";
+import { Direction, system, Vector3, world } from "@minecraft/server";
 
 const SittingBlocks: Set<string> = new Set();
 
@@ -9,9 +9,9 @@ function weirdoToVector(weirdoDir: number): Vector3 {
 
 world.beforeEvents.playerInteractWithBlock.subscribe(event => {
     const { player, block, itemStack, isFirstEvent, blockFace } = event;
-    if (block.location.y - player.location.y > 0.5) return;
-    if (!block.typeId.endsWith("stairs")) return;
-    if (itemStack || !isFirstEvent) return;
+    if (!player.isValid || itemStack || isFirstEvent ||
+        block.location.y - player.location.y > 0.5 ||
+        !block.typeId.endsWith("stairs")) return;
 
     const { dimension } = block, { heightRange } = dimension;
     if (SittingBlocks.has(JSON.stringify({ dimension, ...block.location })))
@@ -54,6 +54,7 @@ world.afterEvents.playerBreakBlock.subscribe(event => {
 
 world.beforeEvents.entityRemove.subscribe(({ removedEntity }) => {
     if (removedEntity.typeId !== "tcsmp:stair_seat") return;
+
     const { dimension, location } = removedEntity;
     const blockLocation = Vec3.floor(location);
     SittingBlocks.delete(JSON.stringify({ dimension, ...blockLocation }));

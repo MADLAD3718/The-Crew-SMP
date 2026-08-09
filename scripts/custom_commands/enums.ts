@@ -1,5 +1,5 @@
-import { DynamicPropertiesAction, DynamicPropertiesField } from "./admin/dynamicproperties";
 import { FactionColour } from "../systems/factions";
+import { DynamicPropertiesAction, DynamicPropertiesField } from "./admin/dynamicproperties";
 
 type CustomCommandEnum = {
     name: string,

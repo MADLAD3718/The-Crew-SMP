@@ -1,20 +1,20 @@
-import { ItemCustomComponent } from "@minecraft/server"
-import spellScrollComponent from "./spell_scroll";
-import returnSpellComponent from "./return_spell";
-import thunderSpellComponent from "./thunder_spell";
-import growthSpellComponent from "./growth_spell";
-import decaySpellComponent from "./decay_spell";
-import grapplingHookComponent from "./grappling_hook";
-import katanaComponent from "./katana";
-import randomExpDamageComponent from "./random_exp_damage";
-import lucksBaneComponent from "./lucks_bane";
-import backstabComponent from "./backstab";
-import gerbilComponent from "./gerbil";
-import randomEffectOnHitComponent from "./random_effect_on_hit";
-import globalCooldownComponent from "./global_cooldown";
+import { ItemCustomComponent } from "@minecraft/server";
 import autoLoreComponent from "./auto_lore";
+import backstabComponent from "./backstab";
+import decaySpellComponent from "./decay_spell";
 import durabilityFixComponent from "./durability_fix";
+import gerbilComponent from "./gerbil";
+import globalCooldownComponent from "./global_cooldown";
+import grapplingHookComponent from "./grappling_hook";
+import growthSpellComponent from "./growth_spell";
+import katanaComponent from "./katana";
+import lucksBaneComponent from "./lucks_bane";
 import nauseaSpellComponent from "./nausea_spell";
+import randomEffectOnHitComponent from "./random_effect_on_hit";
+import randomExpDamageComponent from "./random_exp_damage";
+import returnSpellComponent from "./return_spell";
+import spellScrollComponent from "./spell_scroll";
+import thunderSpellComponent from "./thunder_spell";
 import undeadSpellComponent from "./undead_spell";
 import "./tnt_shield";
 

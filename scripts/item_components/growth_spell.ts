@@ -1,6 +1,6 @@
+import { Vec3 } from "@madlad3718/mcveclib";
 import { Block, Dimension, ItemCustomComponent, system, Vector3 } from "@minecraft/server";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
-import { Vec3 } from "@madlad3718/mcveclib";
 import { ellipsoidValue, getRectPrism, randomElement, within } from "../util";
 
 const GROWTH_RANGE = Vec3.from(15, 7, 15);
@@ -49,7 +49,10 @@ const WATER_PLANTS: string[] = [
 
 const growthSpellComponent: ItemCustomComponent = {
     onUse(event) {
-        const { source } = event, { location, dimension } = source;
+        const { source } = event;
+        if (!source.isValid) return;
+
+        const { location, dimension } = source;
         system.runJob(growth(location, dimension));
     }
 }
@@ -71,7 +74,7 @@ function* growth(location: Vector3, dimension: Dimension): Generator<void, void,
 export default growthSpellComponent;
 
 function applyGrowth(block: Block, value: number) {
-    const {dimension, permutation} = block, {heightRange} = dimension;
+    const { dimension, permutation } = block, { heightRange } = dimension;
     const rand = Math.random();
 
     const place = value * rand < 0.5;
@@ -83,7 +86,7 @@ function applyGrowth(block: Block, value: number) {
     switch (block.typeId) {
         case MinecraftBlockTypes.Dirt:
             if (block.y == heightRange.max) break;
-            
+
             const above = block.above(), is_deadbush = above?.matches(MinecraftBlockTypes.Deadbush);
             if (!above?.matches(MinecraftBlockTypes.Air) && !is_deadbush) break;
 

@@ -42,7 +42,7 @@ world.afterEvents.worldLoad.subscribe(() => {
 
 world.afterEvents.playerSpawn.subscribe(event => {
     const { initialSpawn, player } = event;
-    if (!initialSpawn) return;
+    if (!player.isValid || !initialSpawn) return;
 
     player.setDynamicProperty("tcsmp:faction_invite");
     NameRegistry.setName(player.id, player.name);

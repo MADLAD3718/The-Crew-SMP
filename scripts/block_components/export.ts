@@ -1,7 +1,7 @@
 import { BlockCustomComponent } from "@minecraft/server";
-import waystoneComponent from "./waystone";
-import tickParticleComponent from "./tick_particle";
 import cropComponent from "./crop";
+import tickParticleComponent from "./tick_particle";
+import waystoneComponent from "./waystone";
 
 type BlockComponentRegister = {
     name: string

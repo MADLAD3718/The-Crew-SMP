@@ -1,10 +1,10 @@
-import { CustomForm, ObservableString, ObservableBoolean } from "@minecraft/server-ui";
-import { Block, BlockCustomComponent, Player } from "@minecraft/server";
 import { Vec3 } from "@madlad3718/mcveclib";
+import { Block, BlockCustomComponent, Player } from "@minecraft/server";
+import { CustomForm, ObservableBoolean, ObservableString } from "@minecraft/server-ui";
 
-import { WaystoneRegister, WaystoneRegistry } from "../systems/waystones";
 import { BlockEntityRegistry } from "../systems/block_entities";
 import { NameRegistry } from "../systems/names";
+import { WaystoneRegister, WaystoneRegistry } from "../systems/waystones";
 
 type WaystoneParameters = {
     dimension: string
@@ -18,6 +18,8 @@ const waystoneComponent: BlockCustomComponent = {
     },
 
     onPlayerInteract({ block, player, dimension }, parameters) {
+        if (!player?.isValid) return;
+
         const { params } = parameters as { params: WaystoneParameters };
 
         if (dimension.id != params.dimension) return;
@@ -30,10 +32,10 @@ const waystoneComponent: BlockCustomComponent = {
         const top = states["minecraft:multi_block_part"] === 0 ? block.above()! : block;
 
         if (!states["tcsmp:active"])
-            return setupWaystone(base, top, player!);
+            return setupWaystone(base, top, player);
 
         const waystone = WaystoneRegistry.find(base);
-        if (player?.isSneaking && waystone?.placer == player.id)
+        if (player.isSneaking && waystone?.placer === player.id)
             return editWaystone(waystone, player);
 
         return useWaystone(base, player!);
@@ -56,12 +58,12 @@ const waystoneComponent: BlockCustomComponent = {
 export default waystoneComponent;
 
 function setupWaystone(base: Block, top: Block, player: Player): void {
-    const name_input = new ObservableString("", {clientWritable: true});
-    const is_private = new ObservableBoolean(false, {clientWritable: true});
-    const form = new CustomForm(player, {translate: "form.setup.waystone.title"})
-        .textField({translate: "form.setup.waystone.name"}, name_input)
-        .toggle({translate: "form.setup.waystone.private"}, is_private)
-        .divider().button({translate: "form.setup.waystone.submit"}, () => {
+    const name_input = new ObservableString("", { clientWritable: true });
+    const is_private = new ObservableBoolean(false, { clientWritable: true });
+    const form = new CustomForm(player, { translate: "form.setup.waystone.title" })
+        .textField({ translate: "form.setup.waystone.name" }, name_input)
+        .toggle({ translate: "form.setup.waystone.private" }, is_private)
+        .divider().button({ translate: "form.setup.waystone.submit" }, () => {
             form.close();
 
             const name = name_input.getData();
@@ -76,7 +78,7 @@ function setupWaystone(base: Block, top: Block, player: Player): void {
             };
 
             if (!WaystoneRegistry.valid(waystone))
-                return player.onScreenDisplay.setActionBar({translate: "info.waystone.invalid", with: [waystone.name]});
+                return player.onScreenDisplay.setActionBar({ translate: "info.waystone.invalid", with: [waystone.name] });
 
             if (WaystoneRegistry.has(player, waystone))
                 return player.onScreenDisplay.setActionBar({
@@ -85,7 +87,7 @@ function setupWaystone(base: Block, top: Block, player: Player): void {
                 });
 
             player.dimension.playSound("use.waystone", base.center());
-            
+
             WaystoneRegistry.add(waystone);
 
             base.setPermutation(base.permutation.withState("tcsmp:active", true));
@@ -95,7 +97,7 @@ function setupWaystone(base: Block, top: Block, player: Player): void {
 }
 
 function useWaystone(base: Block, player: Player): void {
-    const form = new CustomForm(player, {translate: "form.interact.waystone.title"});
+    const form = new CustomForm(player, { translate: "form.interact.waystone.title" });
 
     const registry = WaystoneRegistry.get(player);
     for (const waystone of registry) {
@@ -103,21 +105,23 @@ function useWaystone(base: Block, player: Player): void {
         form.button(waystone.name, () => {
             form.close();
             teleportToWaystone(player, waystone);
-        }, { tooltip: {
-            translate: waystone.owner ? "form.interact.waystone.private" : "form.interact.waystone.global",
-            with: [NameRegistry.getName(waystone.owner) ?? ""]
-        }});
+        }, {
+            tooltip: {
+                translate: waystone.owner ? "form.interact.waystone.private" : "form.interact.waystone.global",
+                with: [NameRegistry.getName(waystone.owner) ?? ""]
+            }
+        });
     }
     form.show();
 }
 
 function editWaystone(waystone: WaystoneRegister, player: Player): void {
-    const name_input = new ObservableString(waystone.name, {clientWritable: true});
-    const is_private = new ObservableBoolean(!!waystone.owner, {clientWritable: true});
-    const form = new CustomForm(player, {translate: "form.edit.waystone.title"})
-        .textField({translate: "form.setup.waystone.name"}, name_input)
-        .toggle({translate: "form.setup.waystone.private"}, is_private)
-        .divider().button({translate: "form.setup.waystone.submit"}, () => {
+    const name_input = new ObservableString(waystone.name, { clientWritable: true });
+    const is_private = new ObservableBoolean(!!waystone.owner, { clientWritable: true });
+    const form = new CustomForm(player, { translate: "form.edit.waystone.title" })
+        .textField({ translate: "form.setup.waystone.name" }, name_input)
+        .toggle({ translate: "form.setup.waystone.private" }, is_private)
+        .divider().button({ translate: "form.setup.waystone.submit" }, () => {
             form.close();
 
             const name = name_input.getData();
@@ -132,7 +136,7 @@ function editWaystone(waystone: WaystoneRegister, player: Player): void {
             };
 
             if (!WaystoneRegistry.valid(new_waystone))
-                return player.onScreenDisplay.setActionBar({translate: "info.waystone.invalid", with: [waystone.name]});
+                return player.onScreenDisplay.setActionBar({ translate: "info.waystone.invalid", with: [waystone.name] });
 
             if (WaystoneRegistry.has(player, new_waystone))
                 return player.onScreenDisplay.setActionBar({
@@ -151,7 +155,7 @@ function editWaystone(waystone: WaystoneRegister, player: Player): void {
 function teleportToWaystone(player: Player, waystone: WaystoneRegister): void {
     player.playSound("waystone.teleport");
     player.camera.fade({
-        fadeColor: {red: 0.914, green: 0.882, blue: 0.851},
+        fadeColor: { red: 0.914, green: 0.882, blue: 0.851 },
         fadeTime: {
             fadeInTime: 0.0,
             holdTime: 1.0,

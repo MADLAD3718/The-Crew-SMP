@@ -10,7 +10,7 @@ const factionListCommand: CustomCommand = {
 }
 
 function factionListCallback(origin: CustomCommandOrigin): CustomCommandResult {
-    if (!(origin.sourceEntity instanceof Player)) return {
+    if (!origin.sourceEntity?.isValid || !(origin.sourceEntity instanceof Player)) return {
         status: CustomCommandStatus.Failure,
         message: `Non-player entities cannot list faction members.`
     };
@@ -33,4 +33,4 @@ function factionListCallback(origin: CustomCommandOrigin): CustomCommandResult {
     };
 }
 
-export default {command: factionListCommand, callback: factionListCallback};
+export default { command: factionListCommand, callback: factionListCallback };

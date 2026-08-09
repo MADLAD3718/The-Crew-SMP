@@ -14,6 +14,11 @@ const damageItemCommand: CustomCommand = {
 };
 
 function damageItemCallback(origin: CustomCommandOrigin, amount: number): CustomCommandResult {
+    if (!origin.sourceEntity?.isValid) return {
+        status: CustomCommandStatus.Failure,
+        message: `Non-players cannot damage held items.`
+    };
+
     const player = origin.sourceEntity as Player;
     const itemToDamage = player.inventory.container.getSlot(player.selectedSlotIndex);
     const itemStack = itemToDamage.getItem();
@@ -31,7 +36,7 @@ function damageItemCallback(origin: CustomCommandOrigin, amount: number): Custom
     system.run(() => {
         const damagedItem = itemStack.damage(amount);
         itemToDamage.setItem(damagedItem);
-    
+
         if (!damagedItem) player.dimension.playSound(
             "random.break",
             player.getHeadLocation(),
@@ -45,4 +50,4 @@ function damageItemCallback(origin: CustomCommandOrigin, amount: number): Custom
     };
 }
 
-export default {command: damageItemCommand, callback: damageItemCallback};
+export default { command: damageItemCommand, callback: damageItemCallback };

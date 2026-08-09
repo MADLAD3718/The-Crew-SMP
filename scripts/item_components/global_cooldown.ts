@@ -3,7 +3,8 @@ import { ItemComponentTypes, ItemCustomComponent, world } from "@minecraft/serve
 const globalCooldownComponent: ItemCustomComponent = {
     onUse(event) {
         const cooldown = event.itemStack?.getComponent(ItemComponentTypes.Cooldown);
-        for (const player of world.getAllPlayers()) cooldown?.startCooldown(player);
+        for (const player of world.getAllPlayers())
+            if (player.isValid) cooldown?.startCooldown(player);
     }
 };
 

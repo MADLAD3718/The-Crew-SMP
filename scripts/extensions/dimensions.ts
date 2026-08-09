@@ -1,5 +1,5 @@
-import { Dimension, Vector3 } from "@minecraft/server";
 import { Vec3 } from "@madlad3718/mcveclib";
+import { Dimension, Vector3 } from "@minecraft/server";
 
 declare module "@minecraft/server" {
     interface Dimension {

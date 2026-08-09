@@ -28,10 +28,8 @@ world.beforeEvents.playerInteractWithBlock.subscribe(event => {
             system.run(() => {
                 for (const player of dimension.getPlayers({
                     location: block.center(), maxDistance: 64
-                })) player.onScreenDisplay.setActionBar([
-                    "§dNow playing: ",
-                    { translate: `item.${descKey}.desc` },
-                    "§r"
+                })) if (player.isValid) player.onScreenDisplay.setActionBar([
+                    "§dNow playing: ", { translate: `item.${descKey}.desc` }, "§r"
                 ]);
             });
         }
@@ -46,22 +44,22 @@ world.afterEvents.playerInteractWithBlock.subscribe(event => {
     if (!block.matches(MinecraftBlockTypes.Jukebox)) return;
 
     const stringLocation = Vec3.toString(location);
-    const player = block.getComponent(BlockComponentTypes.RecordPlayer);
-    if (player?.isPlaying()) return;
+    const recordPlayer = block.getComponent(BlockComponentTypes.RecordPlayer);
+    if (recordPlayer?.isPlaying()) return;
 
     const sound = RecordSounds[RecordMap[stringLocation] ?? "none"];
     for (const player of dimension.getPlayers({
         location: block.center(), maxDistance: 64
-    })) player.stopSound(sound);
+    })) if (player.isValid) player.stopSound(sound);
 });
 
 world.beforeEvents.playerBreakBlock.subscribe(event => {
     const { block } = event, { location } = block;
 
-    const player = block.getComponent(BlockComponentTypes.RecordPlayer);
-    if (!player?.isPlaying()) return;
+    const recordPlayer = block.getComponent(BlockComponentTypes.RecordPlayer);
+    if (!recordPlayer?.isPlaying()) return;
 
-    RecordMap[Vec3.toString(location)] = player.getRecord()!.typeId;
+    RecordMap[Vec3.toString(location)] = recordPlayer.getRecord()!.typeId;
 }, { blockTypes: [MinecraftBlockTypes.Jukebox] });
 
 world.afterEvents.playerBreakBlock.subscribe(event => {
@@ -71,5 +69,5 @@ world.afterEvents.playerBreakBlock.subscribe(event => {
     const sound = RecordSounds[RecordMap[stringLocation]];
     for (const player of dimension.getPlayers({
         location: block.center(), maxDistance: 64
-    })) player.stopSound(sound);
+    })) if (player.isValid) player.stopSound(sound);
 }, { blockTypes: [MinecraftBlockTypes.Jukebox] });

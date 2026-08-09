@@ -8,6 +8,11 @@ const biomeInfoCommand: CustomCommand = {
 };
 
 function biomeInfoCallback(origin: CustomCommandOrigin): CustomCommandResult {
+    if (!origin.sourceEntity?.isValid) return {
+        status: CustomCommandStatus.Failure,
+        message: `Non-players cannot request biome information.`
+    };
+
     const biome = origin.sourceEntity!.dimension.getBiome(origin.sourceEntity!.location);
     return {
         message: `Biome: §7${biome.id}§r\nTags: §7${biome.getTags().join(", ")}§r`,
@@ -15,4 +20,4 @@ function biomeInfoCallback(origin: CustomCommandOrigin): CustomCommandResult {
     };
 }
 
-export default {command: biomeInfoCommand, callback: biomeInfoCallback};
+export default { command: biomeInfoCommand, callback: biomeInfoCallback };

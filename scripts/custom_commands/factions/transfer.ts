@@ -15,7 +15,7 @@ const factionTransferCommand: CustomCommand = {
 };
 
 function factionTransferCallback(origin: CustomCommandOrigin, players: Player[]): CustomCommandResult {
-    if (!(origin.sourceEntity instanceof Player)) return {
+    if (!origin.sourceEntity?.isValid || !(origin.sourceEntity instanceof Player)) return {
         status: CustomCommandStatus.Failure,
         message: `Non-player entities cannot transfer faction ownership.`
     };
@@ -30,6 +30,11 @@ function factionTransferCallback(origin: CustomCommandOrigin, players: Player[])
     if (!faction) return {
         status: CustomCommandStatus.Failure,
         message: `Cannot find faction.`
+    };
+
+    if (!player.isValid) return {
+        status: CustomCommandStatus.Failure,
+        message: `Cannot find player.`
     };
 
     if (faction.owner != origin.sourceEntity.id) return {

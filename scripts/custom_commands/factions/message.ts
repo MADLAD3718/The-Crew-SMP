@@ -15,7 +15,7 @@ const factionMessageCommand: CustomCommand = {
 };
 
 function factionMessageCallback(origin: CustomCommandOrigin, message: string): CustomCommandResult {
-    if (!(origin.sourceEntity instanceof Player)) return {
+    if (!origin.sourceEntity?.isValid || !(origin.sourceEntity instanceof Player)) return {
         status: CustomCommandStatus.Failure,
         message: `Non-player entities cannot send faction messages.`
     };
@@ -25,7 +25,7 @@ function factionMessageCallback(origin: CustomCommandOrigin, message: string): C
         status: CustomCommandStatus.Failure,
         message: `Cannot find faction.`
     };
-    
+
     FactionRegistry.sendMessage(faction, `<${origin.sourceEntity.name}> ${message}`);
 
     return {
@@ -33,4 +33,4 @@ function factionMessageCallback(origin: CustomCommandOrigin, message: string): C
     };
 }
 
-export default {command: factionMessageCommand, callback: factionMessageCallback};
+export default { command: factionMessageCommand, callback: factionMessageCallback };

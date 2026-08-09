@@ -8,6 +8,11 @@ const resetCooldownCommand: CustomCommand = {
 };
 
 function resetCooldownCallback(origin: CustomCommandOrigin): CustomCommandResult {
+    if (!origin.sourceEntity?.isValid) return {
+        status: CustomCommandStatus.Failure,
+        message: `Non-players cannot reset cooldowns.`
+    };
+
     const player = origin.sourceEntity as Player;
     const itemSlot = player.inventory.container.getSlot(player.selectedSlotIndex);
     const itemStack = itemSlot.getItem();
@@ -22,7 +27,7 @@ function resetCooldownCallback(origin: CustomCommandOrigin): CustomCommandResult
         status: CustomCommandStatus.Failure
     };
 
-    system.run(() => {    
+    system.run(() => {
         const cooldown = itemStack.getComponent(ItemComponentTypes.Cooldown)!;
         player.startItemCooldown(cooldown.cooldownCategory, 0);
     });
@@ -33,4 +38,4 @@ function resetCooldownCallback(origin: CustomCommandOrigin): CustomCommandResult
     };
 }
 
-export default {command: resetCooldownCommand, callback: resetCooldownCallback};
+export default { command: resetCooldownCommand, callback: resetCooldownCallback };

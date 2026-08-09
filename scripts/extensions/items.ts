@@ -66,7 +66,7 @@ ItemStack.prototype.clone = function (type?: string): ItemStack {
         if (!item.enchantable) throw new MissingComponentError(ItemComponentTypes.Enchantable);
         item.enchantable.addEnchantments(this.enchantable.getEnchantments());
     }
-    
+
     return item;
 }
 

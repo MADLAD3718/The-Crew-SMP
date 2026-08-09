@@ -21,7 +21,9 @@ world.afterEvents.entitySpawn.subscribe(({ entity }) => {
 // as "Unknown" in their death messages when unnamed. [MCPE-38136]
 world.afterEvents.entityDie.subscribe(event => {
     const { deadEntity, damageSource } = event;
-    if (deadEntity.nameTag != EntityAliases[deadEntity.typeId]) return;
+    if (!deadEntity.isValid ||
+        deadEntity.nameTag != EntityAliases[deadEntity.typeId]) return;
+
     const tameableComponent = deadEntity.getComponent(EntityComponentTypes.Tameable);
     const tameMountComponent = deadEntity.getComponent(EntityComponentTypes.TameMount);
     const isTamed = tameableComponent?.isTamed ?? tameMountComponent?.isTamed;
@@ -42,7 +44,7 @@ world.afterEvents.entityDie.subscribe(event => {
             sendDeathMessage(entityKey, "death.attack.inFire");
             break;
         case EntityDamageCause.contact:
-            if (damageSource.damagingEntity)
+            if (damageSource.damagingEntity?.isValid)
                 sendDeathMessage(entityKey, "death.attack.mob", damageSource.damagingEntity);
             // The cactus death message is also sufficient for sweet berries
             else sendDeathMessage(entityKey, "death.attack.cactus");
@@ -52,7 +54,9 @@ world.afterEvents.entityDie.subscribe(event => {
             break;
         case EntityDamageCause.entityAttack:
         case EntityDamageCause.ramAttack:
-            sendDeathMessage(entityKey, "death.attack.mob", damageSource.damagingEntity);
+            if (damageSource.damagingEntity?.isValid)
+                sendDeathMessage(entityKey, "death.attack.mob", damageSource.damagingEntity);
+            else sendDeathMessage(entityKey, "death.attack.generic");
             break;
         case EntityDamageCause.fall:
             sendDeathMessage(entityKey, "death.attack.fall");
@@ -76,7 +80,9 @@ world.afterEvents.entityDie.subscribe(event => {
             sendDeathMessage(entityKey, "death.attack.lightningBolt");
             break;
         case EntityDamageCause.maceSmash:
-            sendDeathMessage(entityKey, "death.attack.maceSmash.player", damageSource.damagingEntity);
+            if (damageSource.damagingEntity?.isValid)
+                sendDeathMessage(entityKey, "death.attack.maceSmash.player", damageSource.damagingEntity);
+            else sendDeathMessage(entityKey, "death.attack.generic");
             break;
         case EntityDamageCause.magic:
             sendDeathMessage(entityKey, "death.attack.magic");
@@ -95,14 +101,17 @@ world.afterEvents.entityDie.subscribe(event => {
             sendDeathMessage(entityKey, "death.attack.inWall");
             break;
         case EntityDamageCause.projectile:
-            const entity = damageSource.damagingProjectile!;
-            if (entity.typeId == MinecraftEntityTypes.Arrow)
-                sendDeathMessage(entityKey, "death.attack.arrow", entity.projectile!.owner);
-            else if (entity.typeId == MinecraftEntityTypes.ShulkerBullet)
-                sendDeathMessage(entityKey, "death.attack.bullet", entity.projectile!.owner);
-            else if (entity.typeId == MinecraftEntityTypes.ThrownTrident)
-                sendDeathMessage(entityKey, "death.attack.trident", entity.projectile!.owner);
-            else sendDeathMessage(entityKey, "death.attack.thrown", entity.projectile!.owner);
+            const projectile = damageSource.damagingProjectile;
+            if (projectile?.isValid) {
+                if (projectile.typeId == MinecraftEntityTypes.Arrow)
+                    sendDeathMessage(entityKey, "death.attack.arrow", projectile.projectile!.owner);
+                else if (projectile.typeId == MinecraftEntityTypes.ShulkerBullet)
+                    sendDeathMessage(entityKey, "death.attack.bullet", projectile.projectile!.owner);
+                else if (projectile.typeId == MinecraftEntityTypes.ThrownTrident)
+                    sendDeathMessage(entityKey, "death.attack.trident", projectile.projectile!.owner);
+                else sendDeathMessage(entityKey, "death.attack.thrown", projectile.projectile!.owner);
+            }
+            else sendDeathMessage(entityKey, "death.attack.generic");
             break;
         case EntityDamageCause.sonicBoom:
             sendDeathMessage(entityKey, "death.attack.sonicBoom");
@@ -117,7 +126,9 @@ world.afterEvents.entityDie.subscribe(event => {
             sendDeathMessage(entityKey, "death.attack.starve");
             break;
         case EntityDamageCause.thorns:
-            sendDeathMessage(entityKey, "death.attack.thorns", damageSource.damagingEntity);
+            if (damageSource.damagingEntity?.isValid)
+                sendDeathMessage(entityKey, "death.attack.thorns", damageSource.damagingEntity);
+            else sendDeathMessage(entityKey, "death.attack.generic");
             break;
         case EntityDamageCause.void:
             sendDeathMessage(entityKey, "death.attack.outOfWorld");

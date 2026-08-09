@@ -1,10 +1,11 @@
-import { ItemCustomComponent, system, world } from "@minecraft/server";
 import { Vec3 } from "@madlad3718/mcveclib";
+import { ItemCustomComponent, system, world } from "@minecraft/server";
 import { WaystoneRegistry } from "../systems/waystones";
 
 world.beforeEvents.itemUse.subscribe(event => {
     const { itemStack, source } = event;
-    if (!itemStack.hasComponent("tcsmp:return_spell")) return;
+    if (!source.isValid ||
+        !itemStack.hasComponent("tcsmp:return_spell")) return;
     if (source.getItemCooldown("spell") > 0) return;
 
     const waystones = WaystoneRegistry.get(source);
@@ -12,7 +13,7 @@ world.beforeEvents.itemUse.subscribe(event => {
         event.cancel = true;
         const currentCooldown = source.getItemCooldown("spell");
         system.run(() => {
-            source.onScreenDisplay.setActionBar({translate: "info.return_scroll.no_waystones"});
+            source.onScreenDisplay.setActionBar({ translate: "info.return_scroll.no_waystones" });
             if (currentCooldown == 0) source.startItemCooldown("spell", 0);
         });
     }
@@ -28,7 +29,7 @@ const returnSpellComponent: ItemCustomComponent = {
 
         source.playSound("waystone.teleport");
         source.camera.fade({
-            fadeColor: {red: 0.914, green: 0.882, blue: 0.851},
+            fadeColor: { red: 0.914, green: 0.882, blue: 0.851 },
             fadeTime: {
                 fadeInTime: 0.0,
                 holdTime: 1.0,

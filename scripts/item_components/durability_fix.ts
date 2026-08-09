@@ -23,8 +23,8 @@ const EntityAttackCost: Record<string, number> = {
 
 world.afterEvents.playerBreakBlock.subscribe(event => {
     const { itemStackBeforeBreak, player, dimension } = event;
-    if (!itemStackBeforeBreak?.hasComponent("tcsmp:durability_fix")) return;
-    if (player.getGameMode() == GameMode.Creative) return;
+    if (!player.isValid || player.getGameMode() == GameMode.Creative ||
+        !itemStackBeforeBreak?.hasComponent("tcsmp:durability_fix")) return;
 
     const toolTag = itemStackBeforeBreak.getTags().find(tag => !!BlockBreakCost[tag]);
     const damage = toolTag ? BlockBreakCost[toolTag] : 2;
@@ -43,8 +43,10 @@ world.afterEvents.playerBreakBlock.subscribe(event => {
 const durabilityFixComponent: ItemCustomComponent = {
     onBeforeDurabilityDamage(event) {
         const { itemStack, hitEntity } = event;
-        const unbreaking = itemStack?.enchantable?.getEnchantment(MinecraftEnchantmentTypes.Unbreaking)?.level ?? 0;
-        const toolTag = itemStack?.getTags().find(tag => !!BlockBreakCost[tag]);
+        if (!itemStack || !hitEntity.isValid) return;
+
+        const unbreaking = itemStack.enchantable?.getEnchantment(MinecraftEnchantmentTypes.Unbreaking)?.level ?? 0;
+        const toolTag = itemStack.getTags().find(tag => !!BlockBreakCost[tag]);
         const damage = toolTag ? EntityAttackCost[toolTag] : 0;
 
         event.durabilityDamage = (Math.random() >= 1 / (unbreaking + 1) || hitEntity.isInvunerable) ? 0 : damage;

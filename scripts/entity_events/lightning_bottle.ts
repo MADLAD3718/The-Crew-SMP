@@ -1,6 +1,6 @@
+import { Vec3 } from "@madlad3718/mcveclib";
 import { MolangVariableMap, ProjectileHitBlockAfterEvent, ProjectileHitEntityAfterEvent, world } from "@minecraft/server";
 import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
-import { Vec3 } from "@madlad3718/mcveclib";
 
 world.afterEvents.projectileHitBlock.subscribe(lightningBottleHit);
 world.afterEvents.projectileHitEntity.subscribe(lightningBottleHit);

@@ -1,6 +1,6 @@
+import { Vec3 } from "@madlad3718/mcveclib";
 import { Block, Dimension, ItemCustomComponent, system, Vector3 } from "@minecraft/server";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
-import { Vec3 } from "@madlad3718/mcveclib";
 
 import { ellipsoidValue, getRectPrism, within } from "../util";
 
@@ -12,8 +12,11 @@ const DECAY_VOLUME = getRectPrism(DECAY_RANGE).filter(u => {
 });
 
 const decaySpellComponent: ItemCustomComponent = {
-    onUse(event) { 
-        const { source } = event, { location, dimension } = source;
+    onUse(event) {
+        const { source } = event;
+        if (!source.isValid) return;
+
+        const { location, dimension } = source;
         system.runJob(decay(location, dimension));
     }
 }
@@ -35,7 +38,7 @@ function* decay(location: Vector3, dimension: Dimension): Generator<void, void, 
 export default decaySpellComponent;
 
 function applyDecay(block: Block, value: number) {
-    const {dimension, permutation} = block, {heightRange} = dimension;
+    const { dimension, permutation } = block, { heightRange } = dimension;
     const rand = Math.random();
 
     const coarse = value * rand < 0.08;

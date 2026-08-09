@@ -7,10 +7,9 @@ const PickupTimes: Record<string, number> = {};
 
 world.afterEvents.playerInteractWithEntity.subscribe(event => {
     const { player, target, itemStack } = event;
-    if (!target.isValid || !player.isValid) return;
-    if (!target.matches({ type: "tcsmp:gerbil" })) return;
-    if (target.getComponent(EntityComponentTypes.IsBaby)) return;
-    if (itemStack) return;
+    if (!target.isValid || !player.isValid || !itemStack ||
+        !target.matches({ type: "tcsmp:gerbil" }) ||
+        target.getComponent(EntityComponentTypes.IsBaby)) return;
 
     const tameable = target.getComponent(EntityComponentTypes.Tameable);
     if (tameable?.tamedToPlayerId != player.id) return;
@@ -33,7 +32,7 @@ world.afterEvents.playerInteractWithEntity.subscribe(event => {
 const gerbilComponent: ItemCustomComponent = {
     onUseOn(event) {
         const { source, itemStack, faceLocation, block, blockFace } = event;
-        if (!(source instanceof Player)) return;
+        if (!source.isValid || !(source instanceof Player)) return;
 
         const lastPickedUpTime = PickupTimes[source.id] ?? 0;
         if (system.currentTick - lastPickedUpTime < PICKUP_DELAY) return;

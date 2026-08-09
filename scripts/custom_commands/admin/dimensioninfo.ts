@@ -8,12 +8,16 @@ const dimensionInfoCommand: CustomCommand = {
 };
 
 function dimensionInfoCallback(origin: CustomCommandOrigin): CustomCommandResult {
-    const dimension = origin.sourceEntity!.dimension;
-    dimension.heightRange
+    if (!origin.sourceEntity?.isValid) return {
+        status: CustomCommandStatus.Failure,
+        message: `Non-players cannot request dimension information.`
+    };
+
+    const dimension = origin.sourceEntity.dimension;
     return {
         message: `Dimension: §7${dimension.id}§r\nMaximum Height: §7${dimension.heightRange.max}§r\nMinimum Height: §7${dimension.heightRange.min}§r`,
         status: CustomCommandStatus.Success
     };
 }
 
-export default {command: dimensionInfoCommand, callback: dimensionInfoCallback};
+export default { command: dimensionInfoCommand, callback: dimensionInfoCallback };

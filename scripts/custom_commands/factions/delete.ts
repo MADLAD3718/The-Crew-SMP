@@ -9,7 +9,7 @@ const factionDeleteCommand: CustomCommand = {
 };
 
 function factionDeleteCallback(origin: CustomCommandOrigin): CustomCommandResult {
-    if (!(origin.sourceEntity instanceof Player)) return {
+    if (!origin.sourceEntity?.isValid || !(origin.sourceEntity instanceof Player)) return {
         status: CustomCommandStatus.Failure,
         message: `Non-player entities cannot send faction invites.`
     };
@@ -35,4 +35,4 @@ function factionDeleteCallback(origin: CustomCommandOrigin): CustomCommandResult
     };
 }
 
-export default {command :factionDeleteCommand, callback: factionDeleteCallback};
+export default { command: factionDeleteCommand, callback: factionDeleteCallback };

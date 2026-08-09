@@ -8,6 +8,11 @@ const itemInfoCommand: CustomCommand = {
 };
 
 function itemInfoCallback(origin: CustomCommandOrigin): CustomCommandResult {
+    if (!origin.sourceEntity?.isValid) return {
+        status: CustomCommandStatus.Failure,
+        message: `Non-players cannot request item information.`
+    };
+
     const player = origin.sourceEntity as Player;
     const itemStack = player.inventory.container.getItem(player.selectedSlotIndex);
 
@@ -32,4 +37,4 @@ function itemInfoCallback(origin: CustomCommandOrigin): CustomCommandResult {
     };
 }
 
-export default {command: itemInfoCommand, callback: itemInfoCallback};
+export default { command: itemInfoCommand, callback: itemInfoCallback };

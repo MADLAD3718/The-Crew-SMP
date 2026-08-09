@@ -1,8 +1,11 @@
-import { Entity, EntityDamageCause, EquipmentSlot, GameMode, Player, Vector3, world } from "@minecraft/server";
 import { Vec3 } from "@madlad3718/mcveclib";
+import { Entity, EntityDamageCause, EquipmentSlot, GameMode, Player, Vector3, world } from "@minecraft/server";
 
 world.beforeEvents.entityHurt.subscribe(event => {
     const { damageSource, hurtEntity } = event;
+    if (!hurtEntity.isValid ||
+        (!damageSource.damagingEntity?.isValid &&
+            !damageSource.damagingProjectile?.isValid)) return;
 
     const view = hurtEntity.getViewDirection();
     const hview = Vec3.normalize(Vec3.from(view.x, 0, view.z));
@@ -14,14 +17,16 @@ world.beforeEvents.entityHurt.subscribe(event => {
     if (Vec3.dot(hdirection, hview) > -0.5 || !hurtEntity.isSneaking) return;
 
     event.cancel = isUsingTNTShield(event.hurtEntity);
-}, {allowedDamageCauses: [
-    EntityDamageCause.entityAttack,
-    EntityDamageCause.projectile
-]});
+}, {
+    allowedDamageCauses: [
+        EntityDamageCause.entityAttack,
+        EntityDamageCause.projectile
+    ]
+});
 
 world.afterEvents.projectileHitEntity.subscribe(event => {
-    const hitEntity = event.getEntityHit().entity!;
-    if (!hitEntity.isValid || !isUsingTNTShield(hitEntity)) return;
+    const hitEntity = event.getEntityHit().entity;
+    if (!hitEntity?.isValid || !isUsingTNTShield(hitEntity)) return;
 
     hitTNTShield(hitEntity, event.hitVector);
 });

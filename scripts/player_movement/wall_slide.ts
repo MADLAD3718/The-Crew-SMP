@@ -1,15 +1,15 @@
 // DEPRECATED
 // If revisiting ensure the sliding logic is migrated to
 // the player entity definition file instead (less jank).
-import { GameMode, Player, system, TicksPerSecond, world } from "@minecraft/server";
 import { Mat3, Vec2, Vec3 } from "@madlad3718/mcveclib";
+import { GameMode, Player, system, TicksPerSecond, world } from "@minecraft/server";
 
 const SlideStartTimes: Record<string, number> = {};
 const MAX_SLIDE_TIME = 0.25 * TicksPerSecond;
 
 system.runInterval(() => {
     for (const player of world.getAllPlayers()) {
-        if (!isSliding(player)) {
+        if (!player.isValid || !isSliding(player)) {
             SlideStartTimes[player.id] = system.currentTick;
             continue;
         }
@@ -28,7 +28,7 @@ function isSliding(player: Player): boolean {
 
     const movement = inputInfo.getMovementVector();
     if (Vec2.equal(movement, Vec2.Zero)) return false;
-    
+
     const view = player.getViewDirection();
     const viewXZ = Vec3.normalize(Vec3.from(view.x, 0, view.z));
     const viewMatrix = Mat3.buildTNB(viewXZ);

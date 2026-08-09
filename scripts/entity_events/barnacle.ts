@@ -7,7 +7,9 @@ const EATING_DAMAGE = BarnacleDefinition["minecraft:entity"].component_groups["t
 world.beforeEvents.entityHurt.subscribe(event => {
     const hurtEntity = event.hurtEntity;
     const damagingEntity = event.damageSource.damagingEntity;
-    if (damagingEntity?.matches({ type: "tcsmp:barnacle" })) {
+    if (!hurtEntity.isValid || !damagingEntity?.isValid) return;
+
+    if (damagingEntity.matches({ type: "tcsmp:barnacle" })) {
         if (damagingEntity.getProperty("tcsmp:barnacle_state") == "consuming") return;
         const block_below = damagingEntity.dimension.getBlockBelow(
             damagingEntity.location, { maxDistance: 3 }
@@ -23,6 +25,8 @@ world.beforeEvents.entityHurt.subscribe(event => {
 
 world.afterEvents.entityHitEntity.subscribe(event => {
     const { damagingEntity: barnacle, hitEntity } = event;
+    if (!barnacle.isValid || !hitEntity.isValid) return;
+
     if (barnacle.getProperty("tcsmp:barnacle_state") == "consuming") return;
     // Prevents incorrect dragging behaviour from sea floor
     const block_below = barnacle.dimension.getBlockBelow(
@@ -58,9 +62,11 @@ world.afterEvents.entityHitEntity.subscribe(event => {
     });
 }, { entityTypes: ["tcsmp:barnacle"] });
 
-world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity }) => {
-    const dragInterval = entity.getDynamicProperty("dragInterval") as number | undefined;
-    const draggedEntityId = entity.getDynamicProperty("draggedEntityId") as string | undefined;
+world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity: barnacle }) => {
+    if (!barnacle.isValid) return;
+
+    const dragInterval = barnacle.getDynamicProperty("dragInterval") as number | undefined;
+    const draggedEntityId = barnacle.getDynamicProperty("draggedEntityId") as string | undefined;
     if (dragInterval) system.clearRun(dragInterval);
     if (!draggedEntityId) return;
     const draggedEntity = world.getEntity(draggedEntityId);

@@ -6,7 +6,9 @@ type RandomExpDamageParameters = {
 }
 
 world.beforeEvents.entityHurt.subscribe(event => {
-    const { damageSource } = event, damagingEntity = damageSource.damagingEntity!;
+    const { damageSource } = event, damagingEntity = damageSource.damagingEntity;
+    if (!damagingEntity?.isValid) return;
+
     const damagingItem = damagingEntity.equipment?.getEquipment(EquipmentSlot.Mainhand);
     const component = damagingItem?.getComponent("tcsmp:random_exp_damage");
     if (!component) return;

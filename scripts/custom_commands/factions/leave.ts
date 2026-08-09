@@ -9,7 +9,7 @@ const factionLeaveCommand: CustomCommand = {
 };
 
 function factionLeaveCallback(origin: CustomCommandOrigin): CustomCommandResult {
-    if (!(origin.sourceEntity instanceof Player)) return {
+    if (!origin.sourceEntity?.isValid || !(origin.sourceEntity instanceof Player)) return {
         status: CustomCommandStatus.Failure,
         message: "Non-player entities cannot leave factions."
     };
@@ -35,4 +35,4 @@ function factionLeaveCallback(origin: CustomCommandOrigin): CustomCommandResult 
     };
 }
 
-export default {command: factionLeaveCommand, callback: factionLeaveCallback};
+export default { command: factionLeaveCommand, callback: factionLeaveCallback };

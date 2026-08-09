@@ -1,8 +1,8 @@
-import { DynamicPropertyDatabase } from "./dynamic_property_database";
-import { Block, Player, Vector3, world } from "@minecraft/server";
-import { FactionRegistry } from "./factions";
 import { Vec3 } from "@madlad3718/mcveclib";
+import { Block, Player, Vector3, world } from "@minecraft/server";
 import { within } from "../util";
+import { DynamicPropertyDatabase } from "./dynamic_property_database";
+import { FactionRegistry } from "./factions";
 
 const WaystoneDatabase = new DynamicPropertyDatabase(world, "waystone", "owner", "placer", "dimension", "name");
 

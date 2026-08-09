@@ -17,6 +17,7 @@ function removeEntityCallback(origin: CustomCommandOrigin, entities: Entity[]): 
     for (const entity of entities) system.run(() => {
         entity.remove();
     });
+
     return {
         message: `Successfully removed ${entities.length} entit${entities.length === 1 ? 'y' : "ies"}.`,
         status: CustomCommandStatus.Success

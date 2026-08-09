@@ -9,11 +9,12 @@ const GRAPPLE_SOUNDS = [
     "grappling_hook.retract.short",
     "grappling_hook.retract.medium",
     "grappling_hook.retract.long",
-]
+];
 
 world.afterEvents.itemReleaseUse.subscribe(event => {
     const { itemStack, source, useDuration } = event;
-    if (itemStack?.typeId != "tcsmp:grappling_hook") return;
+    if (!source.isValid ||
+        itemStack?.typeId != "tcsmp:grappling_hook") return;
 
     source.stopSound("grappling_hook.loading.start");
     if (MAX_DURATION - useDuration < USE_TIME) return;
@@ -63,8 +64,9 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
 
 world.afterEvents.projectileHitBlock.subscribe(event => {
     const { projectile: stake, source: player } = event;
-    if (!stake.isValid || !(player instanceof Player) || !player.isValid) return;
-    if (!stake.matches({ type: "tcsmp:grappling_hook_stake" })) return;
+    if (!stake.isValid || !player?.isValid || !(player instanceof Player) ||
+        !stake.matches({ type: "tcsmp:grappling_hook_stake" })) return;
+
     system.clearRun(stake.getDynamicProperty("interval") as number);
 
     const seat = world.getEntity(stake.getDynamicProperty("seat") as string);
@@ -110,7 +112,7 @@ world.afterEvents.projectileHitBlock.subscribe(event => {
 
 world.afterEvents.playerSpawn.subscribe(event => {
     const { player, initialSpawn } = event;
-    if (!initialSpawn) return;
+    if (!player.isValid || !initialSpawn) return;
 
     system.runTimeout(() => {
         if (!player.entityRidingOn?.matches({ type: "tcsmp:grappling_hook_seat" })) return;
@@ -137,8 +139,9 @@ world.afterEvents.playerSpawn.subscribe(event => {
 
 const grapplingHookComponent: ItemCustomComponent = {
     onUse({ source }) {
-        const { dimension } = source;
-        dimension.playSound("grappling_hook.loading.start", source.getHeadLocation());
+        if (!source.isValid) return;
+
+        source.dimension.playSound("grappling_hook.loading.start", source.getHeadLocation());
     }
 }
 

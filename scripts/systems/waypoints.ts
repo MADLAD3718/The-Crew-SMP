@@ -54,10 +54,10 @@ export namespace WaypointManager {
     export function refreshFactionWaypoints(): void {
         const players = world.getAllPlayers();
 
-        for (const player of players)
+        for (const player of players) if (player.isValid)
             player.locatorBar.removeAllWaypoints();
 
-        for (const player of players) {
+        for (const player of players) if (player.isValid) {
             const faction = FactionRegistry.getFaction(player);
             if (!faction) continue;
 

@@ -5,25 +5,31 @@ import { clamp } from "../util";
 export namespace AuraTracking {
     export function initialize(): void {
         world.afterEvents.entityHurt.subscribe(event => {
-            switch (event.damageSource.cause) {
+            const { damage, damageSource, hurtEntity } = event;
+            if (!hurtEntity.isValid) return;
+
+            switch (damageSource.cause) {
                 case EntityDamageCause.fall:
-                    const health = event.hurtEntity.getComponent(EntityComponentTypes.Health)!;
+                    const health = hurtEntity.getComponent(EntityComponentTypes.Health)!;
                     if (health.currentValue <= health.effectiveMin) break;
 
-                    updateAura(event.hurtEntity, -Math.ceil(event.damage / 2));
+                    updateAura(hurtEntity, -Math.ceil(damage / 2));
                     break;
                 case EntityDamageCause.entityAttack:
-                    if (event.damageSource.damagingEntity instanceof Player) {
-                        updateAura(event.damageSource.damagingEntity, 1);
-                        updateAura(event.hurtEntity, -1);
+                    if (damageSource.damagingEntity?.isValid &&
+                        damageSource.damagingEntity instanceof Player) {
+                        updateAura(damageSource.damagingEntity, 1);
+                        updateAura(hurtEntity, -1);
                     }
                     break;
                 case EntityDamageCause.projectile:
-                    const entity = event.damageSource.damagingProjectile;
-                    const owner = entity?.projectile?.owner;
+                    const entity = damageSource.damagingProjectile;
+                    if (!entity?.isValid) break;
+
+                    const owner = entity.projectile?.owner;
                     if (owner instanceof Player) {
                         updateAura(owner, 2);
-                        updateAura(event.hurtEntity, -2);
+                        updateAura(hurtEntity, -2);
                     }
                     break;
             }
@@ -37,16 +43,23 @@ export namespace AuraTracking {
         });
 
         world.afterEvents.entityDie.subscribe(event => {
-            if (event.deadEntity instanceof Player) updateAura(event.deadEntity, -20);
-            else if (event.damageSource.damagingEntity instanceof Player) {
-                const player = event.damageSource.damagingEntity;
-                const killedHealth = event.deadEntity.getComponent(EntityComponentTypes.Health)!;
+            const { deadEntity, damageSource } = event;
+            if (!deadEntity.isValid) return;
+
+            if (deadEntity instanceof Player) updateAura(deadEntity, -20);
+            else if (damageSource.damagingEntity?.isValid &&
+                damageSource.damagingEntity instanceof Player) {
+                const player = damageSource.damagingEntity;
+                const killedHealth = deadEntity.getComponent(EntityComponentTypes.Health)!;
 
                 updateAura(player, Math.ceil(killedHealth.effectiveMax / 10));
             }
         });
 
         world.afterEvents.playerBreakBlock.subscribe(event => {
+            const { player } = event;
+            if (!player.isValid) return;
+
             updateAura(event.player, 5);
         }, {
             blockTypes: [

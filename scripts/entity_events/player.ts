@@ -3,22 +3,26 @@ import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
 import { FactionRegistry } from "../systems/factions";
 
 world.beforeEvents.entityHurt.subscribe(event => {
-    const damagingEntity = event.damageSource.damagingEntity ??
-        event.damageSource.damagingProjectile?.projectile?.owner;
+    const { hurtEntity, damageSource } = event;
+    if (!hurtEntity.isValid) return;
 
-    if (event.damageSource.cause === EntityDamageCause.fireTick
-        && event.hurtEntity.isInvunerable) {
+    if (damageSource.cause === EntityDamageCause.fireTick
+        && hurtEntity.isInvunerable) {
         event.cancel = true;
         system.run(() => {
-            event.hurtEntity.extinguishFire(false);
+            hurtEntity.extinguishFire(false);
         });
     }
 
-    if (!(damagingEntity instanceof Player)) return;
+    const damagingEntity = damageSource.damagingEntity ??
+        damageSource.damagingProjectile?.projectile?.owner;
+
+    if (!damagingEntity?.isValid ||
+        !(damagingEntity instanceof Player)) return;
 
     const faction = FactionRegistry.getFaction(damagingEntity);
-    if (faction?.players.includes(event.hurtEntity.id)) {
-        event.hurtEntity.setInvunerable();
+    if (faction?.players.includes(hurtEntity.id)) {
+        hurtEntity.setInvunerable();
         event.cancel = true;
     }
 }, { entityFilter: { type: MinecraftEntityTypes.Player } });
@@ -37,7 +41,7 @@ world.afterEvents.worldLoad.subscribe(() => {
 });
 
 function* handlePlayerHealing(): Generator<void, void, void> {
-    for (const player of world.getAllPlayers()) {
+    for (const player of world.getAllPlayers()) if (player.isValid) {
         const health = player.getComponent(EntityComponentTypes.Health)!;
         if (health.currentValue === health.effectiveMin) {
             FoodTickTimer[player.id] = Infinity;

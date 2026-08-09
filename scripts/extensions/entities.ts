@@ -123,6 +123,7 @@ Player.prototype.stopSound = function (sound?: string) {
 
 const DamageTimes: Record<string, number> = {};
 world.afterEvents.entityHurt.subscribe(({ hurtEntity }) => {
+    if (!hurtEntity.isValid) return;
     DamageTimes[hurtEntity.id] = system.currentTick;
 });
 

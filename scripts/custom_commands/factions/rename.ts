@@ -1,4 +1,4 @@
-import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomCommandParamType, CustomCommandResult, CustomCommandStatus, Player, system } from "@minecraft/server"
+import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomCommandParamType, CustomCommandResult, CustomCommandStatus, Player, system } from "@minecraft/server";
 import { FactionColour, FactionRegistry } from "../../systems/factions";
 
 const renameFactionCommand: CustomCommand = {
@@ -19,7 +19,7 @@ const renameFactionCommand: CustomCommand = {
 };
 
 function renameFactionCallback(origin: CustomCommandOrigin, name: string, colour: keyof typeof FactionColour): CustomCommandResult {
-    if (!(origin.sourceEntity instanceof Player)) return {
+    if (!origin.sourceEntity?.isValid || !(origin.sourceEntity instanceof Player)) return {
         status: CustomCommandStatus.Failure,
         message: `Non-player entities cannot rename factions.`
     };

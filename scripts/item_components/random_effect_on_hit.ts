@@ -5,8 +5,8 @@ const randomEffectOnHitComponent: ItemCustomComponent = {}
 
 world.afterEvents.entityHitEntity.subscribe(event => {
     const { hitEntity } = event;
-    if (!hitEntity.equipment) return;
-    
+    if (!hitEntity.isValid || !hitEntity.equipment) return;
+
     const armour = [
         hitEntity.equipment.getEquipment(EquipmentSlot.Head),
         hitEntity.equipment.getEquipment(EquipmentSlot.Chest),
@@ -24,9 +24,8 @@ world.afterEvents.entityHitEntity.subscribe(event => {
 
 world.afterEvents.projectileHitEntity.subscribe(event => {
     const hitEntity = event.getEntityHit().entity;
-    if (!hitEntity?.isValid) return;
+    if (!hitEntity?.isValid || !hitEntity.equipment) return;
 
-    if (!hitEntity.equipment) return;
     const armour = [
         hitEntity.equipment.getEquipment(EquipmentSlot.Head),
         hitEntity.equipment.getEquipment(EquipmentSlot.Chest),

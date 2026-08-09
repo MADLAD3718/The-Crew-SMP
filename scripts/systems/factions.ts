@@ -1,5 +1,5 @@
-import { DynamicPropertyDatabase } from "./dynamic_property_database";
 import { Player, world } from "@minecraft/server";
+import { DynamicPropertyDatabase } from "./dynamic_property_database";
 import { WaypointManager } from "./waypoints";
 
 const FactionDatabase = new DynamicPropertyDatabase(world, "faction", "owner", "name", "colour");
@@ -69,7 +69,7 @@ export namespace FactionRegistry {
         FactionDatabase.write(faction, faction.players.join('/'));
         for (const id of faction.players) {
             const player = world.getEntity(id) as Player | undefined;
-            if (player) player.nameTag = player.name + `\n§${faction.colour}${faction.name}§r`;
+            if (player?.isValid) player.nameTag = player.name + `\n§${faction.colour}${faction.name}§r`;
         }
         WaypointManager.refreshFactionWaypoints();
         return true;
@@ -79,7 +79,7 @@ export namespace FactionRegistry {
         FactionDatabase.write(faction);
         for (const id of faction.players) {
             const player = world.getEntity(id) as Player | undefined;
-            if (player) player.nameTag = player.name;
+            if (player?.isValid) player.nameTag = player.name;
         }
         WaypointManager.refreshFactionWaypoints();
     }
@@ -88,7 +88,7 @@ export namespace FactionRegistry {
         faction.players.push(playerId);
         FactionDatabase.write(faction, faction.players.join('/'));
         const player = world.getEntity(playerId) as Player | undefined;
-        if (player) player.nameTag = player.name + `\n§${faction.colour}${faction.name}§r`;
+        if (player?.isValid) player.nameTag = player.name + `\n§${faction.colour}${faction.name}§r`;
         WaypointManager.refreshFactionWaypoints();
     }
 
@@ -98,7 +98,7 @@ export namespace FactionRegistry {
         });
         FactionDatabase.write(faction, faction.players.join('/'));
         const player = world.getEntity(playerId) as Player | undefined;
-        if (player) player.nameTag = player.name;
+        if (player?.isValid) player.nameTag = player.name;
         WaypointManager.refreshFactionWaypoints();
     }
 

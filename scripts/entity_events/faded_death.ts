@@ -2,6 +2,7 @@ import { MolangVariableMap, world } from "@minecraft/server";
 import { randomRange } from "../util";
 
 world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity, eventId }) => {
+    if (!entity.isValid) return;
     const { location, dimension } = entity;
 
     if (eventId == "tcsmp:about_to_despawn") {
@@ -20,13 +21,13 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(({ entity, eventId }) => {
         const molang = new MolangVariableMap();
         molang.setVector3("aabb", entity.getAABB().extent);
         dimension.spawnParticle("tcsmp:faded_death_explosion", location, molang);
-    
+
         const sound = entity.typeId == "tcsmp:faded_zombie" ?
             "mob.faded_zombie.death" : "mob.faded_skeleton.death"
         dimension.playSound(sound, location, {
             pitch: randomRange(0.8, 1.2)
         });
-    
+
         entity.remove();
     }
 }, {
