@@ -16,7 +16,8 @@
       },
       "animations": {
         "sail": "animation.sailboat.sail",
-        "wobble": "animation.sailboat.wobble"
+        "wobble": "animation.sailboat.wobble",
+        "ropes": "animation.sailboat.ropes"
       },
       "scripts": {
         "initialize": [
@@ -34,7 +35,7 @@
 
           "v.last_frame_alpha = q.frame_alpha;"
         ],
-        "animate": ["sail"]
+        "animate": ["sail", "ropes"]
       },
       "render_controllers": [
         "controller.render.sailboat",

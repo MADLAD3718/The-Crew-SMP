@@ -643,7 +643,7 @@
           {
             "push_mode": "legacy_boat",
             "strength_multiplier": 0.1,
-            "min_distance": 0.55,
+            "min_distance": 1.05,
             "push_scale_self": 0.5,
             "push_scale_other": 0.25
           }

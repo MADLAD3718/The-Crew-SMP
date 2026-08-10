@@ -6,6 +6,10 @@
 			"bones": {
 				"sail": {
 					"scale": [1, "math.lerp(1, 16, v.throttle_interp)", 1]
+				},
+				"back": {
+					"rotation": [0, 0, "61 - math.atan2(41 - 30 * v.throttle_interp, 22.5)"],
+					"scale": [1, "math.sqrt(22.5 * 22.5 + math.pow(41 - 30 * v.throttle_interp, 2)) / 47", 1]
 				}
 			}
 		},
@@ -14,6 +18,20 @@
 			"bones": {
 				"boat": {
 					"rotation": [0, 0, "(1 - q.property('tcsmp:last_hit_health') / q.max_health) * 15 * math.sin(q.anim_time * 180 * 6) * (1 - q.anim_time)"]
+				}
+			}
+		},
+		"animation.sailboat.ropes": {
+			"loop": true,
+			"bones": {
+				"mast_rope": {
+					"rotation": [0, "90 + q.rotation_to_camera(1) - q.body_y_rotation", 0]
+				},
+				"left_rope": {
+					"rotation": [0, "90 + q.rotation_to_camera(1) - q.body_y_rotation", 0]
+				},
+				"right_rope": {
+					"rotation": [0, "90 + q.rotation_to_camera(1) - q.body_y_rotation", 0]
 				}
 			}
 		}
