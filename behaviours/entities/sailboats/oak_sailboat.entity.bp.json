@@ -55,35 +55,35 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.0, 0.0, -1.5],
+              "position": [0.0, 0.3, -1.6],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.5, 0.0, 1.0],
+              "position": [0.4, 0.1, 0.8],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.5, 0.0, 1.0],
+              "position": [-0.4, 0.1, 0.8],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.5, 0.0, -0.3],
+              "position": [0.55, 0.1, -0.2],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.5, 0.0, -0.3],
+              "position": [-0.55, 0.1, -0.2],
               "rotate_rider_by": 0
             }
           ],
@@ -94,34 +94,35 @@
       "tcsmp:slots_filled_0001": {
         "minecraft:rideable": {
           "interact_text": "action.interact.ride.boat",
+          "dismount_mode": "on_top_center",
           "passenger_max_width": 1.375,
           "seats": [
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.0, 0.0, -1.5],
+              "position": [0.0, 0.3, -1.6],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.5, 0.0, 1.0],
+              "position": [0.4, 0.1, 0.8],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.5, 0.0, 1.0],
+              "position": [-0.4, 0.1, 0.8],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.5, 0.0, -0.3],
+              "position": [0.55, 0.1, -0.2],
               "rotate_rider_by": 0
             }
           ],
@@ -132,34 +133,35 @@
       "tcsmp:slots_filled_0010": {
         "minecraft:rideable": {
           "interact_text": "action.interact.ride.boat",
+          "dismount_mode": "on_top_center",
           "passenger_max_width": 1.375,
           "seats": [
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.0, 0.0, -1.5],
+              "position": [0.0, 0.3, -1.6],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.5, 0.0, 1.0],
+              "position": [0.4, 0.1, 0.8],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.5, 0.0, 1.0],
+              "position": [-0.4, 0.1, 0.8],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.5, 0.0, -0.3],
+              "position": [-0.55, 0.1, -0.2],
               "rotate_rider_by": 0
             }
           ],
@@ -170,27 +172,28 @@
       "tcsmp:slots_filled_0011": {
         "minecraft:rideable": {
           "interact_text": "action.interact.ride.boat",
+          "dismount_mode": "on_top_center",
           "passenger_max_width": 1.375,
           "seats": [
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.0, 0.0, -1.5],
+              "position": [0.0, 0.3, -1.6],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.5, 0.0, 1.0],
+              "position": [0.4, 0.1, 0.8],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.5, 0.0, 1.0],
+              "position": [-0.4, 0.1, 0.8],
               "rotate_rider_by": 0
             }
           ],
@@ -201,34 +204,35 @@
       "tcsmp:slots_filled_0100": {
         "minecraft:rideable": {
           "interact_text": "action.interact.ride.boat",
+          "dismount_mode": "on_top_center",
           "passenger_max_width": 1.375,
           "seats": [
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.0, 0.0, -1.5],
+              "position": [0.0, 0.3, -1.6],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.5, 0.0, 1.0],
+              "position": [0.4, 0.1, 0.8],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.5, 0.0, -0.3],
+              "position": [0.55, 0.1, -0.2],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.5, 0.0, -0.3],
+              "position": [-0.55, 0.1, -0.2],
               "rotate_rider_by": 0
             }
           ],
@@ -239,27 +243,28 @@
       "tcsmp:slots_filled_0101": {
         "minecraft:rideable": {
           "interact_text": "action.interact.ride.boat",
+          "dismount_mode": "on_top_center",
           "passenger_max_width": 1.375,
           "seats": [
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.0, 0.0, -1.5],
+              "position": [0.0, 0.3, -1.6],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.5, 0.0, 1.0],
+              "position": [0.4, 0.1, 0.8],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.5, 0.0, -0.3],
+              "position": [0.55, 0.1, -0.2],
               "rotate_rider_by": 0
             }
           ],
@@ -270,27 +275,28 @@
       "tcsmp:slots_filled_0110": {
         "minecraft:rideable": {
           "interact_text": "action.interact.ride.boat",
+          "dismount_mode": "on_top_center",
           "passenger_max_width": 1.375,
           "seats": [
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.0, 0.0, -1.5],
+              "position": [0.0, 0.3, -1.6],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.5, 0.0, 1.0],
+              "position": [0.4, 0.1, 0.8],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.5, 0.0, -0.3],
+              "position": [-0.55, 0.1, -0.2],
               "rotate_rider_by": 0
             }
           ],
@@ -301,20 +307,21 @@
       "tcsmp:slots_filled_0111": {
         "minecraft:rideable": {
           "interact_text": "action.interact.ride.boat",
+          "dismount_mode": "on_top_center",
           "passenger_max_width": 1.375,
           "seats": [
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.0, 0.0, -1.5],
+              "position": [0.0, 0.3, -1.6],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.5, 0.0, 1.0],
+              "position": [0.4, 0.1, 0.8],
               "rotate_rider_by": 0
             }
           ],
@@ -325,34 +332,35 @@
       "tcsmp:slots_filled_1000": {
         "minecraft:rideable": {
           "interact_text": "action.interact.ride.boat",
+          "dismount_mode": "on_top_center",
           "passenger_max_width": 1.375,
           "seats": [
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.0, 0.0, -1.5],
+              "position": [0.0, 0.3, -1.6],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.5, 0.0, 1.0],
+              "position": [-0.4, 0.1, 0.8],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.5, 0.0, -0.3],
+              "position": [0.55, 0.1, -0.2],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.5, 0.0, -0.3],
+              "position": [-0.55, 0.1, -0.2],
               "rotate_rider_by": 0
             }
           ],
@@ -363,27 +371,28 @@
       "tcsmp:slots_filled_1001": {
         "minecraft:rideable": {
           "interact_text": "action.interact.ride.boat",
+          "dismount_mode": "on_top_center",
           "passenger_max_width": 1.375,
           "seats": [
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.0, 0.0, -1.5],
+              "position": [0.0, 0.3, -1.6],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.5, 0.0, 1.0],
+              "position": [-0.4, 0.1, 0.8],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.5, 0.0, -0.3],
+              "position": [0.55, 0.1, -0.2],
               "rotate_rider_by": 0
             }
           ],
@@ -394,27 +403,28 @@
       "tcsmp:slots_filled_1010": {
         "minecraft:rideable": {
           "interact_text": "action.interact.ride.boat",
+          "dismount_mode": "on_top_center",
           "passenger_max_width": 1.375,
           "seats": [
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.0, 0.0, -1.5],
+              "position": [0.0, 0.3, -1.6],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.5, 0.0, 1.0],
+              "position": [-0.4, 0.1, 0.8],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.5, 0.0, -0.3],
+              "position": [-0.55, 0.1, -0.2],
               "rotate_rider_by": 0
             }
           ],
@@ -425,20 +435,21 @@
       "tcsmp:slots_filled_1011": {
         "minecraft:rideable": {
           "interact_text": "action.interact.ride.boat",
+          "dismount_mode": "on_top_center",
           "passenger_max_width": 1.375,
           "seats": [
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.0, 0.0, -1.5],
+              "position": [0.0, 0.3, -1.6],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.5, 0.0, 1.0],
+              "position": [-0.4, 0.1, 0.8],
               "rotate_rider_by": 0
             }
           ],
@@ -449,27 +460,28 @@
       "tcsmp:slots_filled_1100": {
         "minecraft:rideable": {
           "interact_text": "action.interact.ride.boat",
+          "dismount_mode": "on_top_center",
           "passenger_max_width": 1.375,
           "seats": [
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.0, 0.0, -1.5],
+              "position": [0.0, 0.3, -1.6],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.5, 0.0, -0.3],
+              "position": [0.55, 0.1, -0.2],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.5, 0.0, -0.3],
+              "position": [-0.55, 0.1, -0.2],
               "rotate_rider_by": 0
             }
           ],
@@ -480,20 +492,21 @@
       "tcsmp:slots_filled_1101": {
         "minecraft:rideable": {
           "interact_text": "action.interact.ride.boat",
+          "dismount_mode": "on_top_center",
           "passenger_max_width": 1.375,
           "seats": [
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.0, 0.0, -1.5],
+              "position": [0.0, 0.3, -1.6],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.5, 0.0, -0.3],
+              "position": [0.55, 0.1, -0.2],
               "rotate_rider_by": 0
             }
           ],
@@ -504,20 +517,21 @@
       "tcsmp:slots_filled_1110": {
         "minecraft:rideable": {
           "interact_text": "action.interact.ride.boat",
+          "dismount_mode": "on_top_center",
           "passenger_max_width": 1.375,
           "seats": [
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.0, 0.0, -1.5],
+              "position": [0.0, 0.3, -1.6],
               "rotate_rider_by": 0
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.5, 0.0, -0.3],
+              "position": [-0.55, 0.1, -0.2],
               "rotate_rider_by": 0
             }
           ],
@@ -528,13 +542,14 @@
       "tcsmp:slots_filled_1111": {
         "minecraft:rideable": {
           "interact_text": "action.interact.ride.boat",
+          "dismount_mode": "on_top_center",
           "passenger_max_width": 1.375,
           "seats": [
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.0, 0.0, -1.5],
+              "position": [0.0, 0.3, -1.6],
               "rotate_rider_by": 0
             }
           ],
