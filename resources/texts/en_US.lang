@@ -95,6 +95,7 @@ entity.tcsmp:lightning_bottle.name=Bottle o' Lightning
 entity.tcsmp:tempered_warp_crystal.name=Tempered Warp Crystal
 entity.tcsmp:faded_zombie.name=Faded Zombie
 entity.tcsmp:faded_skeleton.name=Faded Skeleton
+entity.tcsmp:sailboat.name=Sailboat
 
 ## Actions
 action.hint.exit.tcsmp:grappling_hook_seat=Crouch or jump to detach

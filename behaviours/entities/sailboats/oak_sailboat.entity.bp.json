@@ -24,6 +24,11 @@
           "range": [-2.25, 2.25],
           "client_sync": true
         },
+        "tcsmp:strength": {
+          "type": "int",
+          "range": [0, 2],
+          "default": 0
+        },
         "tcsmp:slot_0": {
           "type": "enum",
           "values": ["none", "chest"],
@@ -51,6 +56,24 @@
       }
     },
     "component_groups": {
+      "tcsmp:strength_0": {
+        "minecraft:inventory": {
+          "container_type": "inventory",
+          "inventory_size": 9
+        }
+      },
+      "tcsmp:strength_1": {
+        "minecraft:inventory": {
+          "container_type": "inventory",
+          "inventory_size": 27
+        }
+      },
+      "tcsmp:strength_2": {
+        "minecraft:inventory": {
+          "container_type": "inventory",
+          "inventory_size": 54
+        }
+      },
       "tcsmp:slots_filled_0000": {
         "minecraft:rideable": {
           "interact_text": "action.interact.ride.boat",
@@ -728,7 +751,43 @@
     "events": {
       "minecraft:entity_spawned": {
         "add": {
-          "component_groups": ["tcsmp:slots_filled_0000"]
+          "component_groups": [
+            "tcsmp:slots_filled_0000",
+            "tcsmp:strength_0"
+          ]
+        }
+      },
+      "tcsmp:set_strength_0": {
+        "set_property": {
+          "tcsmp:strength": 0
+        },
+        "add": {
+          "component_groups": ["tcsmp:strength_0"]
+        },
+        "remove": {
+          "component_groups": ["tcsmp:strength_1"]
+        }
+      },
+      "tcsmp:set_strength_1": {
+        "set_property": {
+          "tcsmp:strength": 1
+        },
+        "remove": {
+          "component_groups": ["tcsmp:strength_2"]
+        },
+        "add": {
+          "component_groups": ["tcsmp:strength_1"]
+        }
+      },
+      "tcsmp:set_strength_2": {
+        "set_property": {
+          "tcsmp:strength": 2
+        },
+        "remove": {
+          "component_groups": ["tcsmp:strength_1"]
+        },
+        "add": {
+          "component_groups": ["tcsmp:strength_2"]
         }
       },
       "tcsmp:fill_0000": {

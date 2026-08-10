@@ -12,7 +12,12 @@
 			},
 			"bones": [
 				{
+					"name": "boat",
+					"pivot": [0, 8, 0]
+				},
+				{
 					"name": "slot0",
+					"parent": "boat",
 					"pivot": [7, 5, -16],
 					"cubes": [
 						{"origin": [1, 13, -22], "size": [12, 5, 12], "uv": [0, 0]},
@@ -22,6 +27,7 @@
 				},
 				{
 					"name": "slot1",
+					"parent": "boat",
 					"pivot": [-7, 5, -16],
 					"cubes": [
 						{"origin": [-13, 13, -22], "size": [12, 5, 12], "uv": [0, 0]},
@@ -31,6 +37,7 @@
 				},
 				{
 					"name": "slot2",
+					"parent": "boat",
 					"pivot": [9, 5, 2],
 					"cubes": [
 						{"origin": [3, 13, -4], "size": [12, 5, 12], "uv": [0, 0]},
@@ -40,6 +47,7 @@
 				},
 				{
 					"name": "slot3",
+					"parent": "boat",
 					"pivot": [-9, 5, 2],
 					"cubes": [
 						{"origin": [-15, 13, -4], "size": [12, 5, 12], "uv": [0, 0]},

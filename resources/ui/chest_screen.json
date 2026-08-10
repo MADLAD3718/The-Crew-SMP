@@ -1,6 +1,11 @@
 {
   "namespace": "chest",
 
+  "chest_label": {
+    "$new_container_title|default": "$container_title",
+    "text": "$new_container_title"
+  },
+
   "small_chest_screen@common.inventory_screen_common": {
     "$title": "$container_title",
     "$new_container_title|default": "$container_title",
@@ -21,13 +26,53 @@
         "$container_size": 9
       },
       {
-        "requires": "(($desktop_screen) and (not ($title = '§C§A§N§N§O§N')))",
+        "requires": "(($desktop_screen) and ($title = '§S§A§I§L§B§O§A§T§0'))",
+        "$screen_content": "redstone.dispenser_screen",
+        "$screen_bg_content": "common.screen_background",
+        "$screen_background_alpha": 0.2,
+        "$new_container_title": "entity.tcsmp:sailboat.name"
+      },
+      {
+        "requires": "(($pocket_screen) and ($title = '§S§A§I§L§B§O§A§T§0'))",
+        "$use_custom_pocket_toast": true,
+        "$screen_content": "pocket_containers.panel",
+        "$new_container_title": "entity.tcsmp:sailboat.name",
+        "$container_size": 9
+      },
+      {
+        "requires": "(($desktop_screen) and ($title = '§S§A§I§L§B§O§A§T§1'))",
+        "$screen_content": "chest.small_chest_panel",
+        "$screen_bg_content": "common.screen_background",
+        "$new_container_title": "entity.tcsmp:sailboat.name",
+        "$screen_background_alpha": 0.4
+      },
+      {
+        "requires": "(($pocket_screen) and ($title = '§S§A§I§L§B§O§A§T§1'))",
+        "$use_custom_pocket_toast": true,
+        "$screen_content": "pocket_containers.small_chest_panel",
+        "$new_container_title": "entity.tcsmp:sailboat.name"
+      },
+      {
+        "requires": "(($desktop_screen) and ($title = '§S§A§I§L§B§O§A§T§2'))",
+        "$screen_content": "chest.large_chest_panel",
+        "$screen_bg_content": "common.screen_background",
+        "$new_container_title": "entity.tcsmp:sailboat.name",
+        "$screen_background_alpha": 0.4
+      },
+      {
+        "requires": "(($pocket_screen) and ($title = '§S§A§I§L§B§O§A§T§2'))",
+        "$use_custom_pocket_toast": true,
+        "$screen_content": "pocket_containers.large_chest_panel",
+        "$new_container_title": "entity.tcsmp:sailboat.name"
+      },
+      {
+        "requires": "(($desktop_screen) and (($title - '§') = $title))",
         "$screen_content": "chest.small_chest_panel",
         "$screen_bg_content": "common.screen_background",
         "$screen_background_alpha": 0.4
       },
       {
-        "requires": "(($pocket_screen) and (not ($title = '§C§A§N§N§O§N')))",
+        "requires": "(($pocket_screen) and (($title - '§') = $title))",
         "$use_custom_pocket_toast": true,
         "$screen_content": "pocket_containers.small_chest_panel"
       }

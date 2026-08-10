@@ -4,6 +4,8 @@ import { MinecraftBlockTypes, MinecraftEntityTypes } from "@minecraft/vanilla-da
 import { intersect, Plane3, Ray3, viewMatrix } from "../math";
 import { clamp, mod, withoutNamespace } from "../util";
 
+const InventorySizes = [9, 27, 54];
+
 const TURN_ACCEL = 0.25;
 const MAX_TURN_RATE = 2.25;
 
@@ -32,6 +34,10 @@ world.beforeEvents.playerInteractWithEntity.subscribe(event => {
     const isSlotItem = ValidSlotItems.some(value => itemStack.typeId === value);
 
     if (isAxe || isSlotItem) {
+        const strength = sailboat.getProperty("tcsmp:strength") as number;
+        if (strength === 2 && itemStack.typeId === MinecraftBlockTypes.Chest)
+            return event.cancel = true;
+
         const sailboatView = sailboat.getViewDirection();
         const sailboatMatrix = viewMatrix(sailboatView);
         const invSailboatMatrix = Mat3.inverse(sailboatMatrix);
@@ -53,20 +59,31 @@ world.beforeEvents.playerInteractWithEntity.subscribe(event => {
         // Maps different quadrants of the intersection plane to {0, 1, 2, 3}
         const quadrant = +(intersection.z < 0) << 1 | +(intersection.x < 0);
 
-        const propertyKey = `tcsmp:slot_${quadrant}`;
-        const slotState = sailboat.getProperty(propertyKey) as string;
+        const slotPropertyKey = `tcsmp:slot_${quadrant}`;
+        const slotState = sailboat.getProperty(slotPropertyKey) as string;
 
         const slotLocation = Vec3.add(Mat3.mul(sailboatMatrix, intersection), slotCenter);
 
         if (isAxe) {
             if (slotState !== "none") {
                 system.run(() => {
-                    sailboat.setProperty(propertyKey, "none");
+                    sailboat.setProperty(slotPropertyKey, "none");
                     const drop = new ItemStack(SlotDrops[slotState]);
                     sailboat.dimension.playSound(
                         ItemSounds[drop.typeId], slotLocation, { pitch: 0.8 });
                     if (player.getGameMode() !== GameMode.Creative)
                         sailboat.dimension.spawnItem(drop, slotLocation);
+
+                    if (slotState === "chest") {
+                        const container = sailboat.inventory!.container;
+                        for (let i = InventorySizes[strength] - 1; i >= InventorySizes[strength - 1]; --i) {
+                            const item = container.getItem(i);
+                            if (item) sailboat.dimension.spawnItem(item, slotLocation);
+                        }
+
+                        sailboat.triggerEvent(`tcsmp:set_strength_${strength - 1}`);
+                        sailboat.nameTag = `§S§A§I§L§B§O§A§T§${strength - 1}`;
+                    }
                 });
             }
             else event.cancel = true;
@@ -76,9 +93,14 @@ world.beforeEvents.playerInteractWithEntity.subscribe(event => {
             if (slotState === "none") {
                 const newState = withoutNamespace(itemStack.typeId);
                 system.run(() => {
-                    sailboat.setProperty(propertyKey, newState);
+                    sailboat.setProperty(slotPropertyKey, newState);
                     sailboat.dimension.playSound(
                         ItemSounds[itemStack.typeId], slotLocation, { pitch: 0.8 });
+
+                    if (newState === "chest") {
+                        sailboat.triggerEvent(`tcsmp:set_strength_${strength + 1}`);
+                        sailboat.nameTag = `§S§A§I§L§B§O§A§T§${strength + 1}`;
+                    }
                 });
             }
             else event.cancel = true;
@@ -196,10 +218,25 @@ world.beforeEvents.entityHurt.subscribe(event => {
 
     const health = sailboat.getComponent(EntityComponentTypes.Health)!;
     system.run(() => {
-        if (creativeDestroy) sailboat.remove();
+        if (creativeDestroy) {
+            sailboat.dropInventory();
+            sailboat.remove();
+        }
         else if (damage >= health.currentValue) {
             const drop = new ItemStack(sailboat.typeId);
             sailboat.dimension.spawnItem(drop, sailboat.location);
+
+            for (let i = 0; i < 4; ++i) {
+                const slotState = sailboat.getProperty(`tcsmp:slot_${i}`) as string;
+                if (slotState === "none") continue;
+
+                const slotDrop = new ItemStack(SlotDrops[slotState]);
+                sailboat.dimension.playSound(
+                    ItemSounds[slotDrop.typeId], sailboat.location, { pitch: 0.8 });
+                sailboat.dimension.spawnItem(slotDrop, sailboat.location);
+            }
+
+            sailboat.dropInventory();
             sailboat.remove();
         }
         else {
@@ -211,3 +248,12 @@ world.beforeEvents.entityHurt.subscribe(event => {
         }
     });
 }, { entityFilter: { families: ["sailboat"] } });
+
+world.afterEvents.entitySpawn.subscribe(({ entity: sailboat }) => {
+    if (!sailboat.isValid ||
+        !sailboat.matches({ families: ["sailboat"] })) return;
+
+    // Number at the end here used to communicate
+    // inventory size to ui.
+    sailboat.nameTag = "§S§A§I§L§B§O§A§T§0";
+});
