@@ -609,6 +609,22 @@
       },
       "minecraft:is_collidable": {},
       "minecraft:is_stackable": {},
+      "minecraft:leashable": {
+        "presets": [
+          {
+            "filter": {
+              "subject": "other",
+              "test": "is_family",
+              "value": "happy_ghast"
+            },
+            "spring_type": "quad_dampened"
+          },
+          {
+            "hard_distance": 4.0,
+            "soft_distance": 2.0
+          }
+        ]
+      },
       "minecraft:leashable_to": {},
       "minecraft:loot": {
         "table": "loot_tables/entities/boat.json"

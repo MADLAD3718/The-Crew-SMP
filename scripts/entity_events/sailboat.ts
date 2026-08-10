@@ -103,8 +103,9 @@ world.afterEvents.playerInteractWithEntity.subscribe(event => {
     }
     // The player has attempted to ride
     else {
+        const riders = sailboat.getRiders();
         // This event runs *after* the interaction already took place.
-        if (sailboat.getRiders()[0].id !== player.id) return;
+        if (riders.length === 0 || riders[0].id !== player.id) return;
 
         new SailboatController(sailboat, player).begin();
     }
