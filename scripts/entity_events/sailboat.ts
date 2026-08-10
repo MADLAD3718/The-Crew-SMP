@@ -38,7 +38,7 @@ world.beforeEvents.playerInteractWithEntity.subscribe(event => {
 
         const slotCenter = Vec3.add(
             Vec3.above(sailboat.location, 0.1875),
-            Vec3.mul(sailboatView, 0.25)
+            Vec3.mul(sailboatView, 0.5)
         );
 
         const rayOrigin = Vec3.sub(player.getHeadLocation(), slotCenter);
