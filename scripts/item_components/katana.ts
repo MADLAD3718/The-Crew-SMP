@@ -13,13 +13,13 @@ const ParticleIntervals: Record<string, number> = {};
 
 world.afterEvents.itemReleaseUse.subscribe(event => {
     const { source, itemStack, useDuration } = event;
+    const particles = ParticleIntervals[source.id];
+    if (particles) system.clearRun(particles);
+
     if (!source.isValid ||
         !itemStack?.hasComponent("tcsmp:katana")) return;
 
     const { dimension } = source;
-
-    const particles = ParticleIntervals[source.id];
-    if (particles) system.clearRun(particles);
 
     if (MAX_DURATION - useDuration < USE_TIME)
         return source.stopSound("katana.draw");
@@ -115,6 +115,7 @@ const katanaComponent: ItemCustomComponent = {
 
         const { dimension } = source;
         ParticleIntervals[source.id] = system.runInterval(() => {
+            if (!source.isValid) return system.clearRun(ParticleIntervals[source.id]);
             dimension.spawnParticle("tcsmp:katana_charge", source.location);
         }, 2);
     }
