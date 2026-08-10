@@ -4,12 +4,12 @@ import { MinecraftBlockTypes, MinecraftEntityTypes } from "@minecraft/vanilla-da
 import { intersect, Plane3, Ray3, viewMatrix } from "../math";
 import { clamp, mod, withoutNamespace } from "../util";
 
-const TURN_ACCEL = 0.575;
-const MAX_TURN_RATE = 5.75;
+const TURN_ACCEL = 0.25;
+const MAX_TURN_RATE = 2.25;
 
 const THROTTLE_ACCEL = 0.0025;
 const THROTTLE_DECCEL = 0.0025;
-const MAX_THROTTLE = 0.08;
+const MAX_THROTTLE = 0.075;
 
 const ValidSlotItems = [
     MinecraftBlockTypes.Chest
@@ -123,6 +123,7 @@ class SailboatController {
             const captain = this.boat.getRiders()[0];
             if (!captain?.isValid || !this.boat.isValid ||
                 !captain.matches({ type: MinecraftEntityTypes.Player })) {
+                this.boat.resetProperty("tcsmp:rotation_rate");
                 this.boat.resetProperty("tcsmp:throttle");
                 return system.clearRun(interval);
             }
@@ -139,6 +140,8 @@ class SailboatController {
             this.turnRate = clamp(this.turnRate - TURN_ACCEL * Math.round(input.x), -MAX_TURN_RATE, MAX_TURN_RATE);
         else if (this.turnRate !== 0)
             this.turnRate = Math.sign(this.turnRate) * Math.max(Math.abs(this.turnRate) - TURN_ACCEL, 0);
+
+        this.boat.setProperty("tcsmp:rotation_rate", this.turnRate);
 
         if (this.turnRate !== 0) {
             const rotation = this.boat.getRotation();

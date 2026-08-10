@@ -17,14 +17,18 @@
       "animations": {
         "sail": "animation.sailboat.sail",
         "wobble": "animation.sailboat.wobble",
-        "ropes": "animation.sailboat.ropes"
+        "ropes": "animation.sailboat.ropes",
+        "rudder": "animation.sailboat.rudder"
       },
       "scripts": {
         "initialize": [
           "v.last_frame_alpha = 0.0;",
           
           "v.throttle_prev = q.property('tcsmp:throttle');",
-          "v.throttle_curr = q.property('tcsmp:throttle');"
+          "v.throttle_curr = q.property('tcsmp:throttle');",
+
+          "v.turnrate_prev = q.property('tcsmp:rotation_rate');",
+          "v.turnrate_curr = q.property('tcsmp:rotation_rate');"
         ],
         "pre_animation": [
           "t.is_new_tick = q.frame_alpha < v.last_frame_alpha;",
@@ -33,9 +37,13 @@
           "v.throttle_curr = t.is_new_tick ? q.property('tcsmp:throttle') : v.throttle_curr;",
           "v.throttle_interp = math.lerp(v.throttle_prev, v.throttle_curr, q.frame_alpha);",
 
+          "v.turnrate_prev = t.is_new_tick ? v.turnrate_curr : v.turnrate_prev;",
+          "v.turnrate_curr = t.is_new_tick ? q.property('tcsmp:rotation_rate') : v.turnrate_curr;",
+          "v.turnrate_interp = math.lerp(v.turnrate_prev, v.turnrate_curr, q.frame_alpha);",
+
           "v.last_frame_alpha = q.frame_alpha;"
         ],
-        "animate": ["sail", "ropes"]
+        "animate": ["sail", "ropes", "rudder"]
       },
       "render_controllers": [
         "controller.render.sailboat",

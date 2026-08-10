@@ -18,6 +18,12 @@
           "range": [0.0, 1.0],
           "client_sync": true
         },
+        "tcsmp:rotation_rate": {
+          "type": "float",
+          "default": 0.0,
+          "range": [-2.25, 2.25],
+          "client_sync": true
+        },
         "tcsmp:slot_0": {
           "type": "enum",
           "values": ["none", "chest"],

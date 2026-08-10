@@ -34,6 +34,14 @@
 					"rotation": [0, "90 + q.rotation_to_camera(1) - q.body_y_rotation", 0]
 				}
 			}
+		},
+		"animation.sailboat.rudder": {
+			"loop": true,
+			"bones": {
+				"rudder": {
+					"rotation": [0, "-30 * v.turnrate_interp / 2.25", 0]
+				}
+			}
 		}
 	}
 }
