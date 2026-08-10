@@ -1,0 +1,45 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tcsmp:oak_sailboat",
+      "materials": {
+        "default": "entity"
+      },
+      "geometry": {
+        "default": "geometry.sailboat",
+        "chests": "geometry.sailboat_chests"
+      },
+      "textures": {
+        "default": "textures/entity/sailboats/oak_sailboat",
+        "chest": "textures/entity/sailboat_chest"
+      },
+      "animations": {
+        "sail": "animation.sailboat.sail",
+        "wobble": "animation.sailboat.wobble"
+      },
+      "scripts": {
+        "initialize": [
+          "v.last_frame_alpha = 0.0;",
+          
+          "v.throttle_prev = q.property('tcsmp:throttle');",
+          "v.throttle_curr = q.property('tcsmp:throttle');"
+        ],
+        "pre_animation": [
+          "t.is_new_tick = q.frame_alpha < v.last_frame_alpha;",
+
+          "v.throttle_prev = t.is_new_tick ? v.throttle_curr : v.throttle_prev;",
+          "v.throttle_curr = t.is_new_tick ? q.property('tcsmp:throttle') : v.throttle_curr;",
+          "v.throttle_interp = math.lerp(v.throttle_prev, v.throttle_curr, q.frame_alpha);",
+
+          "v.last_frame_alpha = q.frame_alpha;"
+        ],
+        "animate": ["sail"]
+      },
+      "render_controllers": [
+        "controller.render.sailboat",
+        "controller.render.sailboat_chests"
+      ]
+    }
+  }
+}

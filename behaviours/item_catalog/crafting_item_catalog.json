@@ -19,6 +19,15 @@
                         ]
                     },
                     {
+                        "group_identifier": {
+                            "icon": "tcsmp:oak_sailboat",
+                            "name": "itemGroup.tcsmp:sailboats"
+                        },
+                        "items": [
+                            "tcsmp:oak_sailboat"
+                        ]
+                    },
+                    {
                         "items": [
                             "tcsmp:inscription_table",
                             "tcsmp:barnacle_fang",

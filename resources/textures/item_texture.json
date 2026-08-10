@@ -145,6 +145,9 @@
     },
     "spawn_egg_faded_zombie": {
       "textures": "textures/items/spawn_eggs/spawn_egg_faded_zombie"
+    },
+    "sailboat_oak": {
+      "textures": "textures/items/sailboats/sailboat_oak"
     }
   }
 }

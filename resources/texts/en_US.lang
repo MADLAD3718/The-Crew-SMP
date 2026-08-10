@@ -33,6 +33,7 @@ item.tcsmp:barnacle_fang.name=Barnacle Fang
 item.tcsmp:tempered_warp_crystal.name=Tempered Warp Crystal
 item.tcsmp:scroll_of_nausea.name=Scroll of Sulfurous Vapor
 item.tcsmp:scroll_of_undead.name=Scroll of the Undead
+item.tcsmp:oak_sailboat.name=Oak Sailboat
 
 ## Lore Entries
 lore.random_damage=\n§r§9+§kg§r§9 Attack Damage§r
@@ -103,6 +104,7 @@ action.hint.exit.tcsmp:unicorn=Tap sneak to dismount
 action.interact.ride.tcsmp:unicorn=Ride
 action.interact.gerbil=Interact to pick up
 action.interact.creeper.lightning=Bottle lightning
+action.hint.exit.tcsmp:oak_sailboat=Press :_input_key.jump: to exit the sailboat
 
 ## Containers
 ## Custom containers are tagged for UI triggers
@@ -193,6 +195,7 @@ info.return_scroll.no_waystones=You have no available waystones to return to
 itemGroup.tcsmp:waystones=Waystones
 itemGroup.tcsmp:spell_scrolls=Spell Scrolls
 itemGroup.tcsmp:cannonballs=Cannonballs
+itemGroup.tcsmp:sailboats=Sailboats
 
 ## Subtitles
 subtitles.entity.wolf.pet=Fur ruffles

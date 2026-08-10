@@ -1,5 +1,5 @@
 import { Mat3, Vec2, Vec3 } from "@madlad3718/mcveclib";
-import { Entity, GameMode, ItemStack, Player, system, world } from "@minecraft/server";
+import { DimensionTypes, Entity, EntityComponentTypes, GameMode, ItemStack, Player, system, world } from "@minecraft/server";
 import { MinecraftBlockTypes, MinecraftEntityTypes } from "@minecraft/vanilla-data";
 import { intersect, Plane3, Ray3, viewMatrix } from "../math";
 import { clamp, mod, withoutNamespace } from "../util";
@@ -26,7 +26,7 @@ const SlotDrops: Record<string, string> = {
 world.beforeEvents.playerInteractWithEntity.subscribe(event => {
     const { target: sailboat, player, itemStack } = event;
     if (!player.isValid || !sailboat.isValid || !itemStack ||
-        !sailboat.matches({ type: "tcsmp:sailboat" })) return;
+        !sailboat.matches({ families: ["sailboat"] })) return;
 
     const isAxe = itemStack.hasTag("minecraft:is_axe");
     const isSlotItem = ValidSlotItems.some(value => itemStack.typeId === value);
@@ -89,7 +89,7 @@ world.beforeEvents.playerInteractWithEntity.subscribe(event => {
 world.afterEvents.playerInteractWithEntity.subscribe(event => {
     const { target: sailboat, player, beforeItemStack } = event;
     if (!player.isValid || !sailboat.isValid ||
-        !sailboat.matches({ type: "tcsmp:sailboat" })) return;
+        !sailboat.matches({ families: ["sailboat"] })) return;
 
     if (beforeItemStack) {
         system.runTimeout(() => {
@@ -158,3 +158,52 @@ class SailboatController {
         yield;
     }
 }
+
+world.afterEvents.worldLoad.subscribe(() => {
+    system.runInterval(() => {
+        system.runJob(handleSailboatHealing());
+    });
+});
+
+function* handleSailboatHealing(): Generator<void, void, void> {
+    const dimensions = DimensionTypes.getAll().map(dim => world.getDimension(dim.typeId));
+    const sailboats = dimensions.reduce((entities, dim) =>
+        entities.concat(dim.getEntities({ families: ["sailboat"] })),
+        new Array<Entity>);
+
+    for (const sailboat of sailboats) if (sailboat.isValid) {
+        const health = sailboat.getComponent(EntityComponentTypes.Health)!;
+        if (health.currentValue < health.effectiveMax)
+            health.setCurrentValue(Math.min(health.currentValue + 0.1, health.effectiveMax));
+
+        yield;
+    }
+}
+
+world.beforeEvents.entityHurt.subscribe(event => {
+    const { damage, damageSource, hurtEntity: sailboat } = event;
+    if (!sailboat.isValid) return;
+    event.cancel = true;
+
+    const player = damageSource.damagingEntity;
+    const creativeDestroy = player?.isValid &&
+        player instanceof Player &&
+        player.getGameMode() === GameMode.Creative;
+
+    const health = sailboat.getComponent(EntityComponentTypes.Health)!;
+    system.run(() => {
+        if (creativeDestroy) sailboat.remove();
+        else if (damage >= health.currentValue) {
+            const drop = new ItemStack(sailboat.typeId);
+            sailboat.dimension.spawnItem(drop, sailboat.location);
+            sailboat.remove();
+        }
+        else {
+            const newHealthValue = health.currentValue - damage;
+
+            health.setCurrentValue(newHealthValue);
+            sailboat.setProperty("tcsmp:last_hit_health", newHealthValue);
+            sailboat.playAnimation("wobble");
+        }
+    });
+}, { entityFilter: { families: ["sailboat"] } });

@@ -1,11 +1,19 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.sailboat.root": {
+		"animation.sailboat.sail": {
 			"loop": true,
 			"bones": {
 				"sail": {
-					"scale": [1, "math.lerp(1, 16, v.interp_throttle)", 1]
+					"scale": [1, "math.lerp(1, 16, v.throttle_interp)", 1]
+				}
+			}
+		},
+		"animation.sailboat.wobble": {
+			"animation_length": 1,
+			"bones": {
+				"boat": {
+					"rotation": [0, 0, "(1 - q.property('tcsmp:last_hit_health') / q.max_health) * 15 * math.sin(q.anim_time * 180 * 6) * (1 - q.anim_time)"]
 				}
 			}
 		}

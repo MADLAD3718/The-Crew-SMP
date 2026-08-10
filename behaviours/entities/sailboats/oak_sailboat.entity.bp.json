@@ -2,10 +2,16 @@
   "format_version": "1.26.40",
   "minecraft:entity": {
     "description": {
-      "identifier": "tcsmp:sailboat",
+      "identifier": "tcsmp:oak_sailboat",
       "is_summonable": true,
       "is_spawnable": false,
       "properties": {
+        "tcsmp:last_hit_health": {
+          "type": "float",
+          "default": 8.0,
+          "range": [0.0, 8.0],
+          "client_sync": true
+        },
         "tcsmp:throttle": {
           "type": "float",
           "default": 0.0,
@@ -42,6 +48,7 @@
       "tcsmp:slots_filled_0000": {
         "minecraft:rideable": {
           "interact_text": "action.interact.ride.boat",
+          "dismount_mode": "on_top_center",
           "passenger_max_width": 1.375,
           "seats": [
             {
@@ -672,8 +679,13 @@
       "minecraft:type_family": {
         "family": [
           "boat",
-          "inanimate"
+          "inanimate",
+          "sailboat"
         ]
+      },
+      "minecraft:health": {
+        "value": 8,
+        "max": 8
       }
     },
     "events": {
