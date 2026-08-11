@@ -1,0 +1,31 @@
+{
+    "format_version": "1.26.40",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "tcsmp:spruce_sailboat"
+        },
+        "tags": ["crafting_table"],
+        "pattern": [
+            "WWW",
+            "PBP",
+            "PPP"
+        ],
+        "key": {
+            "W": {
+                "tag": "minecraft:wool"
+            },
+            "B": {
+                "item": "minecraft:spruce_boat"
+            },
+            "P": {
+                "item": "minecraft:spruce_planks"
+            }
+        },
+        "unlock": [{
+            "item": "minecraft:spruce_boat"
+        }],
+        "result": {
+            "item": "tcsmp:spruce_sailboat"
+        }
+    }
+}

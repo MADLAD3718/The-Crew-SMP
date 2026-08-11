@@ -148,6 +148,30 @@
     },
     "sailboat_oak": {
       "textures": "textures/items/sailboats/sailboat_oak"
+    },
+    "sailboat_spruce": {
+      "textures": "textures/items/sailboats/sailboat_spruce"
+    },
+    "sailboat_birch": {
+      "textures": "textures/items/sailboats/sailboat_birch"
+    },
+    "sailboat_jungle": {
+      "textures": "textures/items/sailboats/sailboat_jungle"
+    },
+    "sailboat_acacia": {
+      "textures": "textures/items/sailboats/sailboat_acacia"
+    },
+    "sailboat_dark_oak": {
+      "textures": "textures/items/sailboats/sailboat_dark_oak"
+    },
+    "sailboat_mangrove": {
+      "textures": "textures/items/sailboats/sailboat_mangrove"
+    },
+    "sailboat_cherry": {
+      "textures": "textures/items/sailboats/sailboat_cherry"
+    },
+    "sailboat_pale_oak": {
+      "textures": "textures/items/sailboats/sailboat_pale_oak"
     }
   }
 }

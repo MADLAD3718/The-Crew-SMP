@@ -24,7 +24,15 @@
                             "name": "itemGroup.tcsmp:sailboats"
                         },
                         "items": [
-                            "tcsmp:oak_sailboat"
+                            "tcsmp:oak_sailboat",
+                            "tcsmp:spruce_sailboat",
+                            "tcsmp:birch_sailboat",
+                            "tcsmp:jungle_sailboat",
+                            "tcsmp:acacia_sailboat",
+                            "tcsmp:dark_oak_sailboat",
+                            "tcsmp:mangrove_sailboat",
+                            "tcsmp:cherry_sailboat",
+                            "tcsmp:pale_oak_sailboat"
                         ]
                     },
                     {

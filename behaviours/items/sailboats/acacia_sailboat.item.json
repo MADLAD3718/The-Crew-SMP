@@ -1,0 +1,26 @@
+{
+    "format_version": "1.26.40",
+    "minecraft:item": {
+        "description": {
+            "identifier": "tcsmp:acacia_sailboat",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            "minecraft:max_stack_size": 1,
+            "minecraft:display_name": {
+                "value": "item.tcsmp:acacia_sailboat.name"
+            },
+            "minecraft:icon": {
+                "textures": {
+                    "default": "sailboat_acacia"
+                }
+            },
+            "minecraft:entity_placer": {
+                "entity": "tcsmp:acacia_sailboat"
+            },
+            "minecraft:liquid_clipped": true
+        }
+    }
+}

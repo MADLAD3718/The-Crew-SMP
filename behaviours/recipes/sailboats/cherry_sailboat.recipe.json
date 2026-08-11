@@ -1,0 +1,31 @@
+{
+    "format_version": "1.26.40",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "tcsmp:cherry_sailboat"
+        },
+        "tags": ["crafting_table"],
+        "pattern": [
+            "WWW",
+            "PBP",
+            "PPP"
+        ],
+        "key": {
+            "W": {
+                "tag": "minecraft:wool"
+            },
+            "B": {
+                "item": "minecraft:cherry_boat"
+            },
+            "P": {
+                "item": "minecraft:cherry_planks"
+            }
+        },
+        "unlock": [{
+            "item": "minecraft:cherry_boat"
+        }],
+        "result": {
+            "item": "tcsmp:cherry_sailboat"
+        }
+    }
+}

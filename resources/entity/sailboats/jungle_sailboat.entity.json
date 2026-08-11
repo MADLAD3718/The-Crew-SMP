@@ -1,0 +1,76 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "tcsmp:jungle_sailboat",
+      "materials": {
+        "default": "entity",
+        "cannon": "entity_alphatest"
+      },
+      "geometry": {
+        "default": "geometry.sailboat",
+        "chests": "geometry.sailboat_chests",
+        "cannons": "geometry.sailboat_cannons",
+        "sail": "geometry.sailboat_sail"
+      },
+      "textures": {
+        "default": "textures/entity/sailboats/jungle_sailboat",
+        "chest": "textures/entity/sailboats/sailboat_chest",
+        "cannon": "textures/entity/sailboats/sailboat_cannon",
+        "sail_white": "textures/entity/sailboats/sail_white",
+        "sail_orange": "textures/entity/sailboats/sail_orange",
+        "sail_magenta": "textures/entity/sailboats/sail_magenta",
+        "sail_light_blue": "textures/entity/sailboats/sail_light_blue",
+        "sail_yellow": "textures/entity/sailboats/sail_yellow",
+        "sail_lime": "textures/entity/sailboats/sail_lime",
+        "sail_pink": "textures/entity/sailboats/sail_pink",
+        "sail_gray": "textures/entity/sailboats/sail_gray",
+        "sail_light_gray": "textures/entity/sailboats/sail_light_gray",
+        "sail_cyan": "textures/entity/sailboats/sail_cyan",
+        "sail_purple": "textures/entity/sailboats/sail_purple",
+        "sail_blue": "textures/entity/sailboats/sail_blue",
+        "sail_brown": "textures/entity/sailboats/sail_brown",
+        "sail_green": "textures/entity/sailboats/sail_green",
+        "sail_red": "textures/entity/sailboats/sail_red",
+        "sail_black": "textures/entity/sailboats/sail_black"
+      },
+      "animations": {
+        "sail": "animation.sailboat.sail",
+        "wobble": "animation.sailboat.wobble",
+        "ropes": "animation.sailboat.ropes",
+        "rudder": "animation.sailboat.rudder"
+      },
+      "scripts": {
+        "initialize": [
+          "v.last_frame_alpha = 0.0;",
+          
+          "v.throttle_prev = q.property('tcsmp:throttle');",
+          "v.throttle_curr = q.property('tcsmp:throttle');",
+
+          "v.turnrate_prev = q.property('tcsmp:rotation_rate');",
+          "v.turnrate_curr = q.property('tcsmp:rotation_rate');"
+        ],
+        "pre_animation": [
+          "t.is_new_tick = q.frame_alpha < v.last_frame_alpha;",
+
+          "v.throttle_prev = t.is_new_tick ? v.throttle_curr : v.throttle_prev;",
+          "v.throttle_curr = t.is_new_tick ? q.property('tcsmp:throttle') : v.throttle_curr;",
+          "v.throttle_interp = math.lerp(v.throttle_prev, v.throttle_curr, q.frame_alpha);",
+
+          "v.turnrate_prev = t.is_new_tick ? v.turnrate_curr : v.turnrate_prev;",
+          "v.turnrate_curr = t.is_new_tick ? q.property('tcsmp:rotation_rate') : v.turnrate_curr;",
+          "v.turnrate_interp = math.lerp(v.turnrate_prev, v.turnrate_curr, q.frame_alpha);",
+
+          "v.last_frame_alpha = q.frame_alpha;"
+        ],
+        "animate": ["sail", "ropes", "rudder"]
+      },
+      "render_controllers": [
+        "controller.render.sailboat",
+        "controller.render.sailboat_sail",
+        "controller.render.sailboat_chests",
+        "controller.render.sailboat_cannons"
+      ]
+    }
+  }
+}

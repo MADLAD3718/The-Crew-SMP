@@ -1,0 +1,31 @@
+{
+    "format_version": "1.26.40",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "tcsmp:jungle_sailboat"
+        },
+        "tags": ["crafting_table"],
+        "pattern": [
+            "WWW",
+            "PBP",
+            "PPP"
+        ],
+        "key": {
+            "W": {
+                "tag": "minecraft:wool"
+            },
+            "B": {
+                "item": "minecraft:jungle_boat"
+            },
+            "P": {
+                "item": "minecraft:jungle_planks"
+            }
+        },
+        "unlock": [{
+            "item": "minecraft:jungle_boat"
+        }],
+        "result": {
+            "item": "tcsmp:jungle_sailboat"
+        }
+    }
+}

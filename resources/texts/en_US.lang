@@ -34,6 +34,14 @@ item.tcsmp:tempered_warp_crystal.name=Tempered Warp Crystal
 item.tcsmp:scroll_of_nausea.name=Scroll of Sulfurous Vapor
 item.tcsmp:scroll_of_undead.name=Scroll of the Undead
 item.tcsmp:oak_sailboat.name=Oak Sailboat
+item.tcsmp:spruce_sailboat.name=Spruce Sailboat
+item.tcsmp:birch_sailboat.name=Birch Sailboat
+item.tcsmp:jungle_sailboat.name=Jungle Sailboat
+item.tcsmp:acacia_sailboat.name=Acacia Sailboat
+item.tcsmp:dark_oak_sailboat.name=Dark Oak Sailboat
+item.tcsmp:mangrove_sailboat.name=Mangrove Sailboat
+item.tcsmp:cherry_sailboat.name=Cherry Sailboat
+item.tcsmp:pale_oak_sailboat.name=Pale Oak Sailboat
 
 ## Lore Entries
 lore.random_damage=\n§r§9+§kg§r§9 Attack Damage§r
@@ -106,6 +114,14 @@ action.interact.ride.tcsmp:unicorn=Ride
 action.interact.gerbil=Interact to pick up
 action.interact.creeper.lightning=Bottle lightning
 action.hint.exit.tcsmp:oak_sailboat=Press :_input_key.jump: to exit the sailboat
+action.hint.exit.tcsmp:spruce_sailboat=Press :_input_key.jump: to exit the sailboat
+action.hint.exit.tcsmp:birch_sailboat=Press :_input_key.jump: to exit the sailboat
+action.hint.exit.tcsmp:jungle_sailboat=Press :_input_key.jump: to exit the sailboat
+action.hint.exit.tcsmp:acacia_sailboat=Press :_input_key.jump: to exit the sailboat
+action.hint.exit.tcsmp:dark_oak_sailboat=Press :_input_key.jump: to exit the sailboat
+action.hint.exit.tcsmp:mangrove_sailboat=Press :_input_key.jump: to exit the sailboat
+action.hint.exit.tcsmp:cherry_sailboat=Press :_input_key.jump: to exit the sailboat
+action.hint.exit.tcsmp:pale_oak_sailboat=Press :_input_key.jump: to exit the sailboat
 
 ## Containers
 ## Custom containers are tagged for UI triggers
