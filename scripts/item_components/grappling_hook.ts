@@ -85,10 +85,11 @@ world.afterEvents.projectileHitBlock.subscribe(event => {
 
     const interval = system.runInterval(() => {
         if (playerSeat?.isValid && (playerSeat?.getRiders().length ?? 0) > 0) return;
-        player.stopSound(sound);
-
         for (const entity of [playerSeat, seat, stake])
             if (entity?.isValid) entity.remove();
+
+        if (!player.isValid) return system.clearRun(interval);
+        player.stopSound(sound);
 
         const slot = player.inventory.container.firstMatch(item => item.typeId === "tcsmp:empty_grappling_hook");
         if (!slot) return;
