@@ -24,6 +24,12 @@
           "range": [-2.25, 2.25],
           "client_sync": true
         },
+        "tcsmp:sail_variant": {
+          "type": "int",
+          "default": 0,
+          "range": [0, 15],
+          "client_sync": true
+        },
         "tcsmp:strength": {
           "type": "int",
           "range": [0, 2],
@@ -719,7 +725,23 @@
                 { "test": "is_family", "subject": "other", "value": "player" },
                 {
                   "any_of": [
-                    { "test": "has_equipment", "subject": "other", "value": "minecraft:chest" }
+                    { "test": "has_equipment", "subject": "other", "value": "minecraft:chest" },
+                    { "test": "has_equipment", "subject": "other", "value": "minecraft:white_dye" },
+                    { "test": "has_equipment", "subject": "other", "value": "minecraft:light_gray_dye" },
+                    { "test": "has_equipment", "subject": "other", "value": "minecraft:gray_dye" },
+                    { "test": "has_equipment", "subject": "other", "value": "minecraft:black_dye" },
+                    { "test": "has_equipment", "subject": "other", "value": "minecraft:brown_dye" },
+                    { "test": "has_equipment", "subject": "other", "value": "minecraft:red_dye" },
+                    { "test": "has_equipment", "subject": "other", "value": "minecraft:orange_dye" },
+                    { "test": "has_equipment", "subject": "other", "value": "minecraft:yellow_dye" },
+                    { "test": "has_equipment", "subject": "other", "value": "minecraft:lime_dye" },
+                    { "test": "has_equipment", "subject": "other", "value": "minecraft:green_dye" },
+                    { "test": "has_equipment", "subject": "other", "value": "minecraft:cyan_dye" },
+                    { "test": "has_equipment", "subject": "other", "value": "minecraft:light_blue_dye" },
+                    { "test": "has_equipment", "subject": "other", "value": "minecraft:blue_dye" },
+                    { "test": "has_equipment", "subject": "other", "value": "minecraft:purple_dye" },
+                    { "test": "has_equipment", "subject": "other", "value": "minecraft:magenta_dye" },
+                    { "test": "has_equipment", "subject": "other", "value": "minecraft:pink_dye" }
                   ]
                 }
               ]

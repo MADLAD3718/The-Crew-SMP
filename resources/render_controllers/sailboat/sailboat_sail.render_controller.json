@@ -1,0 +1,49 @@
+{
+  "format_version": "1.26.40",
+  "render_controllers": {
+    "controller.render.sailboat_sail": {
+      "arrays": {
+        "textures": {
+          "Array.sail_textures": [
+            "Texture.sail_white",
+            "Texture.sail_orange",
+            "Texture.sail_magenta",
+            "Texture.sail_light_blue",
+            "Texture.sail_yellow",
+            "Texture.sail_lime",
+            "Texture.sail_pink",
+            "Texture.sail_gray",
+            "Texture.sail_light_gray",
+            "Texture.sail_cyan",
+            "Texture.sail_purple",
+            "Texture.sail_blue",
+            "Texture.sail_brown",
+            "Texture.sail_green",
+            "Texture.sail_red",
+            "Texture.sail_black"
+          ]
+        }
+      },
+      "geometry": "Geometry.sail",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Array.sail_textures[q.property('tcsmp:sail_variant')]" ],
+      "part_visibility": [
+        { "bottom": "v.throttle_interp >= 0.0625" },
+        { "sail1": "v.throttle_interp >= 0.125" },
+        { "sail2": "v.throttle_interp >= 0.1875" },
+        { "sail3": "v.throttle_interp >= 0.25" },
+        { "sail4": "v.throttle_interp >= 0.3125" },
+        { "sail5": "v.throttle_interp >= 0.375" },
+        { "sail6": "v.throttle_interp >= 0.4375" },
+        { "sail7": "v.throttle_interp >= 0.5" },
+        { "sail8": "v.throttle_interp >= 0.5625" },
+        { "sail9": "v.throttle_interp >= 0.625" },
+        { "sail10": "v.throttle_interp >= 0.6875" },
+        { "sail11": "v.throttle_interp >= 0.75" },
+        { "sail12": "v.throttle_interp >= 0.8125" },
+        { "sail13": "v.throttle_interp >= 0.875" },
+        { "sail14": "v.throttle_interp >= 0.9375" }
+      ]
+    }
+  }
+}

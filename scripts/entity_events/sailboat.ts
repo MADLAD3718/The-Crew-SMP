@@ -1,10 +1,28 @@
 import { Mat3, Vec2, Vec3 } from "@madlad3718/mcveclib";
 import { DimensionTypes, Entity, EntityComponentTypes, GameMode, ItemStack, Player, system, world } from "@minecraft/server";
-import { MinecraftBlockTypes, MinecraftEntityTypes } from "@minecraft/vanilla-data";
+import { MinecraftBlockTypes, MinecraftEntityTypes, MinecraftItemTypes } from "@minecraft/vanilla-data";
 import { intersect, Plane3, Ray3, viewMatrix } from "../math";
 import { clamp, mod, withoutNamespace } from "../util";
 
 const InventorySizes = [9, 27, 54];
+const SailVariants: Record<string, number>  = {
+    [MinecraftItemTypes.WhiteDye]:      0,
+    [MinecraftItemTypes.OrangeDye]:     1,
+    [MinecraftItemTypes.MagentaDye]:    2,
+    [MinecraftItemTypes.LightBlueDye]:  3,
+    [MinecraftItemTypes.YellowDye]:     4,
+    [MinecraftItemTypes.LimeDye]:       5,
+    [MinecraftItemTypes.PinkDye]:       6,
+    [MinecraftItemTypes.GrayDye]:       7,
+    [MinecraftItemTypes.LightGrayDye]:  8,
+    [MinecraftItemTypes.CyanDye]:       9,
+    [MinecraftItemTypes.PurpleDye]:     10,
+    [MinecraftItemTypes.BlueDye]:       11,
+    [MinecraftItemTypes.BrownDye]:      12,
+    [MinecraftItemTypes.GreenDye]:      13,
+    [MinecraftItemTypes.RedDye]:        14,
+    [MinecraftItemTypes.BlackDye]:      15
+};
 
 const TURN_ACCEL = 0.25;
 const MAX_TURN_RATE = 2.25;
@@ -30,10 +48,21 @@ world.beforeEvents.playerInteractWithEntity.subscribe(event => {
     if (!player.isValid || !sailboat.isValid || !itemStack ||
         !sailboat.matches({ families: ["sailboat"] })) return;
 
+    const isDye = itemStack.typeId.endsWith("_dye");
     const isAxe = itemStack.hasTag("minecraft:is_axe");
     const isSlotItem = ValidSlotItems.some(value => itemStack.typeId === value);
 
-    if (isAxe || isSlotItem) {
+    if (isDye) {
+        const currentVariant = sailboat.getProperty("tcsmp:sail_variant") as number;
+        const newVariant = SailVariants[itemStack.typeId];
+        if (currentVariant === newVariant) return event.cancel = true;
+        
+        system.run(() => {
+            sailboat.setProperty("tcsmp:sail_variant", newVariant);
+            sailboat.dimension.playSound("sign.dye.use", sailboat.location);
+        });
+    }
+    else if (isAxe || isSlotItem) {
         const strength = sailboat.getProperty("tcsmp:strength") as number;
         if (strength === 2 && itemStack.typeId === MinecraftBlockTypes.Chest)
             return event.cancel = true;
