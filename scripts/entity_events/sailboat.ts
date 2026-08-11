@@ -85,8 +85,6 @@ world.beforeEvents.playerInteractWithEntity.subscribe(event => {
             return event.cancel = true;
 
         const sailboatView = sailboat.getViewDirection();
-        const sailboatMatrix = viewMatrix(sailboatView);
-        const invSailboatMatrix = Mat3.inverse(sailboatMatrix);
 
         const slotCenter = Vec3.add(
             Vec3.above(sailboat.location, 0.1875),
@@ -94,16 +92,18 @@ world.beforeEvents.playerInteractWithEntity.subscribe(event => {
         );
 
         const rayOrigin = Vec3.sub(player.getHeadLocation(), slotCenter);
-        const rayDirection = Mat3.mul(invSailboatMatrix, player.getViewDirection());
-
-        const ray: Ray3 = { origin: rayOrigin, direction: rayDirection };
+        const ray: Ray3 = { origin: rayOrigin, direction: player.getViewDirection() };
         const plane: Plane3 = { origin: Vec3.Zero, normal: Vec3.Up };
 
         const intersection = intersect(ray, plane);
         if (!intersection) return;
 
+        const sailboatMatrix = viewMatrix(sailboatView);
+        const invSailboatMatrix = Mat3.inverse(sailboatMatrix);
+        const transformedIntersection = Mat3.mul(invSailboatMatrix, intersection);
+
         // Maps different quadrants of the intersection plane to {0, 1, 2, 3}
-        const quadrant = +(intersection.z < 0) << 1 | +(intersection.x < 0);
+        const quadrant = +(transformedIntersection.z < 0) << 1 | +(transformedIntersection.x < 0);
 
         const slotPropertyKey = `tcsmp:slot_${quadrant}`;
         const slotState = sailboat.getProperty(slotPropertyKey) as string;
