@@ -203,7 +203,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -313,7 +313,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -352,7 +352,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             },
             {
@@ -398,7 +398,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             }
           ],
@@ -437,14 +437,14 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -554,7 +554,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -618,7 +618,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -650,7 +650,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             },
             {
@@ -689,7 +689,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             }
           ],
@@ -721,14 +721,14 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -859,7 +859,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -969,7 +969,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -1008,7 +1008,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             },
             {
@@ -1054,7 +1054,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             }
           ],
@@ -1093,14 +1093,14 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -1210,7 +1210,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -1274,7 +1274,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -1306,7 +1306,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             },
             {
@@ -1345,7 +1345,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             }
           ],
@@ -1377,14 +1377,14 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -1448,7 +1448,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -1473,7 +1473,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             },
             {
@@ -1505,14 +1505,14 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -1622,7 +1622,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -1686,7 +1686,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -1718,7 +1718,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             },
             {
@@ -1757,7 +1757,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             }
           ],
@@ -1789,14 +1789,14 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -1927,7 +1927,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -2037,7 +2037,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -2076,7 +2076,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             },
             {
@@ -2122,7 +2122,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             }
           ],
@@ -2161,14 +2161,14 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -2278,7 +2278,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -2342,7 +2342,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -2374,7 +2374,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             },
             {
@@ -2413,7 +2413,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             }
           ],
@@ -2445,14 +2445,14 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -2583,7 +2583,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -2693,7 +2693,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -2732,7 +2732,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             },
             {
@@ -2778,7 +2778,7 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             }
           ],
@@ -2817,14 +2817,14 @@
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [0.35, 0.1, 0.1],
+              "position": [0.35, 0.1, -0.125],
               "rotate_rider_by": -90
             },
             {
               "lock_rider_rotation": 90,
               "min_rider_count": 0,
               "max_rider_count": 5,
-              "position": [-0.35, 0.1, 0.1],
+              "position": [-0.35, 0.1, -0.125],
               "rotate_rider_by": 90
             }
           ],
@@ -2869,7 +2869,7 @@
           {
             "width": 0.8,
             "height": 3,
-            "pivot": [0, 1.9, -0.1]
+            "pivot": [0, 1.9, -0.125]
           }
         ]
       },
