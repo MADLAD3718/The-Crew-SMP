@@ -157,7 +157,11 @@ world.afterEvents.playerInteractWithEntity.subscribe(event => {
     if (!player.isValid || !sailboat.isValid ||
         !sailboat.matches({ families: ["sailboat"] })) return;
 
-    if (beforeItemStack) {
+    const isDye = !!beforeItemStack?.typeId.endsWith("_dye");
+    const isAxe = !!beforeItemStack?.hasTag("minecraft:is_axe");
+    const isSlotItem = !!ValidSlotItems.some(value => beforeItemStack?.typeId === value);
+
+    if (isDye || isAxe || isSlotItem) {
         system.runTimeout(() => {
             const slot0State = SlotStates[sailboat.getProperty("tcsmp:slot_0") as keyof typeof SlotStates];
             const slot1State = SlotStates[sailboat.getProperty("tcsmp:slot_1") as keyof typeof SlotStates];
