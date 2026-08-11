@@ -3,6 +3,7 @@
     "minecraft:entity": {
         "description": {
             "identifier": "tcsmp:cannon",
+            "runtime_identifier": "minecraft:warden",
             "is_spawnable": false,
             "is_summonable": true
         },
