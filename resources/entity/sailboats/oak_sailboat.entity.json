@@ -4,16 +4,19 @@
     "description": {
       "identifier": "tcsmp:oak_sailboat",
       "materials": {
-        "default": "entity"
+        "default": "entity",
+        "cannon": "entity_alphatest"
       },
       "geometry": {
         "default": "geometry.sailboat",
         "chests": "geometry.sailboat_chests",
+        "cannons": "geometry.sailboat_cannons",
         "sail": "geometry.sailboat_sail"
       },
       "textures": {
         "default": "textures/entity/sailboats/oak_sailboat",
-        "chest": "textures/entity/sailboat_chest",
+        "chest": "textures/entity/sailboats/sailboat_chest",
+        "cannon": "textures/entity/sailboats/sailboat_cannon",
         "sail_white": "textures/entity/sailboats/sail_white",
         "sail_orange": "textures/entity/sailboats/sail_orange",
         "sail_magenta": "textures/entity/sailboats/sail_magenta",
@@ -65,7 +68,8 @@
       "render_controllers": [
         "controller.render.sailboat",
         "controller.render.sailboat_sail",
-        "controller.render.sailboat_chests"
+        "controller.render.sailboat_chests",
+        "controller.render.sailboat_cannons"
       ]
     }
   }

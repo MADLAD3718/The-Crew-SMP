@@ -6,10 +6,10 @@
       "materials": [ { "*": "Material.default" } ],
       "textures": [ "Texture.chest" ],
       "part_visibility": [
-        { "slot0": "q.property('tcsmp:slot_0') == 'chest'" },
-        { "slot1": "q.property('tcsmp:slot_1') == 'chest'" },
-        { "slot2": "q.property('tcsmp:slot_2') == 'chest'" },
-        { "slot3": "q.property('tcsmp:slot_3') == 'chest'" }
+        { "*0": "q.property('tcsmp:slot_0') == 'chest'" },
+        { "*1": "q.property('tcsmp:slot_1') == 'chest'" },
+        { "*2": "q.property('tcsmp:slot_2') == 'chest'" },
+        { "*3": "q.property('tcsmp:slot_3') == 'chest'" }
       ]
     }
   }

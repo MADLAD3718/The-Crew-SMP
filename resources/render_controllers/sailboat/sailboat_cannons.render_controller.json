@@ -1,0 +1,16 @@
+{
+  "format_version": "1.26.40",
+  "render_controllers": {
+    "controller.render.sailboat_cannons": {
+      "geometry": "Geometry.cannons",
+      "materials": [ { "*": "Material.cannon" } ],
+      "textures": [ "Texture.cannon" ],
+      "part_visibility": [
+        { "*0": "q.property('tcsmp:slot_0') == 'cannon_item'" },
+        { "*1": "q.property('tcsmp:slot_1') == 'cannon_item'" },
+        { "*2": "q.property('tcsmp:slot_2') == 'cannon_item'" },
+        { "*3": "q.property('tcsmp:slot_3') == 'cannon_item'" }
+      ]
+    }
+  }
+}

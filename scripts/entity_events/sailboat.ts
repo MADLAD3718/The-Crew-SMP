@@ -1,27 +1,34 @@
 import { Mat3, Vec2, Vec3 } from "@madlad3718/mcveclib";
-import { DimensionTypes, Entity, EntityComponentTypes, GameMode, ItemStack, Player, system, world } from "@minecraft/server";
+import { DimensionTypes, Entity, EntityComponentTypes, EntityDamageCause, GameMode, ItemStack, Player, system, world } from "@minecraft/server";
 import { MinecraftBlockTypes, MinecraftEntityTypes, MinecraftItemTypes } from "@minecraft/vanilla-data";
 import { intersect, Plane3, Ray3, viewMatrix } from "../math";
 import { clamp, mod, withoutNamespace } from "../util";
 
 const InventorySizes = [9, 27, 54];
-const SailVariants: Record<string, number>  = {
-    [MinecraftItemTypes.WhiteDye]:      0,
-    [MinecraftItemTypes.OrangeDye]:     1,
-    [MinecraftItemTypes.MagentaDye]:    2,
-    [MinecraftItemTypes.LightBlueDye]:  3,
-    [MinecraftItemTypes.YellowDye]:     4,
-    [MinecraftItemTypes.LimeDye]:       5,
-    [MinecraftItemTypes.PinkDye]:       6,
-    [MinecraftItemTypes.GrayDye]:       7,
-    [MinecraftItemTypes.LightGrayDye]:  8,
-    [MinecraftItemTypes.CyanDye]:       9,
-    [MinecraftItemTypes.PurpleDye]:     10,
-    [MinecraftItemTypes.BlueDye]:       11,
-    [MinecraftItemTypes.BrownDye]:      12,
-    [MinecraftItemTypes.GreenDye]:      13,
-    [MinecraftItemTypes.RedDye]:        14,
-    [MinecraftItemTypes.BlackDye]:      15
+
+const SailVariants: Record<string, number> = {
+    [MinecraftItemTypes.WhiteDye]: 0,
+    [MinecraftItemTypes.OrangeDye]: 1,
+    [MinecraftItemTypes.MagentaDye]: 2,
+    [MinecraftItemTypes.LightBlueDye]: 3,
+    [MinecraftItemTypes.YellowDye]: 4,
+    [MinecraftItemTypes.LimeDye]: 5,
+    [MinecraftItemTypes.PinkDye]: 6,
+    [MinecraftItemTypes.GrayDye]: 7,
+    [MinecraftItemTypes.LightGrayDye]: 8,
+    [MinecraftItemTypes.CyanDye]: 9,
+    [MinecraftItemTypes.PurpleDye]: 10,
+    [MinecraftItemTypes.BlueDye]: 11,
+    [MinecraftItemTypes.BrownDye]: 12,
+    [MinecraftItemTypes.GreenDye]: 13,
+    [MinecraftItemTypes.RedDye]: 14,
+    [MinecraftItemTypes.BlackDye]: 15
+};
+
+enum SlotStates {
+    "none",
+    "chest",
+    "cannon_item"
 };
 
 const TURN_ACCEL = 0.25;
@@ -32,15 +39,25 @@ const THROTTLE_DECCEL = 0.0025;
 const MAX_THROTTLE = 0.075;
 
 const ValidSlotItems = [
-    MinecraftBlockTypes.Chest
+    MinecraftBlockTypes.Chest,
+    "tcsmp:cannon_item"
 ];
 
-const ItemSounds: Record<string, string> = {
-    "minecraft:chest": "dig.wood"
+type ItemSound = { place: string, break: string };
+const ItemSounds: Record<string, ItemSound> = {
+    "minecraft:chest": {
+        place: "dig.wood",
+        break: "dig.wood"
+    },
+    "tcsmp:cannon_item": {
+        place: "cannon.place",
+        break: "cannon.break"
+    }
 };
 
 const SlotDrops: Record<string, string> = {
-    "chest": "minecraft:chest"
+    "chest": "minecraft:chest",
+    "cannon_item": "tcsmp:cannon_item"
 };
 
 world.beforeEvents.playerInteractWithEntity.subscribe(event => {
@@ -56,7 +73,7 @@ world.beforeEvents.playerInteractWithEntity.subscribe(event => {
         const currentVariant = sailboat.getProperty("tcsmp:sail_variant") as number;
         const newVariant = SailVariants[itemStack.typeId];
         if (currentVariant === newVariant) return event.cancel = true;
-        
+
         system.run(() => {
             sailboat.setProperty("tcsmp:sail_variant", newVariant);
             sailboat.dimension.playSound("sign.dye.use", sailboat.location);
@@ -98,8 +115,7 @@ world.beforeEvents.playerInteractWithEntity.subscribe(event => {
                 system.run(() => {
                     sailboat.setProperty(slotPropertyKey, "none");
                     const drop = new ItemStack(SlotDrops[slotState]);
-                    sailboat.dimension.playSound(
-                        ItemSounds[drop.typeId], slotLocation, { pitch: 0.8 });
+                    sailboat.dimension.playSound(ItemSounds[drop.typeId].break, slotLocation);
                     if (player.getGameMode() !== GameMode.Creative)
                         sailboat.dimension.spawnItem(drop, slotLocation);
 
@@ -123,8 +139,7 @@ world.beforeEvents.playerInteractWithEntity.subscribe(event => {
                 const newState = withoutNamespace(itemStack.typeId);
                 system.run(() => {
                     sailboat.setProperty(slotPropertyKey, newState);
-                    sailboat.dimension.playSound(
-                        ItemSounds[itemStack.typeId], slotLocation, { pitch: 0.8 });
+                    sailboat.dimension.playSound(ItemSounds[itemStack.typeId].place, slotLocation);
 
                     if (newState === "chest") {
                         sailboat.triggerEvent(`tcsmp:set_strength_${strength + 1}`);
@@ -144,12 +159,12 @@ world.afterEvents.playerInteractWithEntity.subscribe(event => {
 
     if (beforeItemStack) {
         system.runTimeout(() => {
-            const slot0State = sailboat.getProperty("tcsmp:slot_0") !== "none";
-            const slot1State = sailboat.getProperty("tcsmp:slot_1") !== "none";
-            const slot2State = sailboat.getProperty("tcsmp:slot_2") !== "none";
-            const slot3State = sailboat.getProperty("tcsmp:slot_3") !== "none";
+            const slot0State = SlotStates[sailboat.getProperty("tcsmp:slot_0") as keyof typeof SlotStates];
+            const slot1State = SlotStates[sailboat.getProperty("tcsmp:slot_1") as keyof typeof SlotStates];
+            const slot2State = SlotStates[sailboat.getProperty("tcsmp:slot_2") as keyof typeof SlotStates];
+            const slot3State = SlotStates[sailboat.getProperty("tcsmp:slot_3") as keyof typeof SlotStates];
 
-            sailboat.triggerEvent(`tcsmp:fill_${+slot0State}${+slot1State}${+slot2State}${+slot3State}`);
+            sailboat.triggerEvent(`tcsmp:set_slots_${slot0State}${slot1State}${slot2State}${slot3State}`);
         }, 1);
     }
     // The player has attempted to ride
@@ -240,6 +255,8 @@ world.beforeEvents.entityHurt.subscribe(event => {
     if (!sailboat.isValid) return;
     event.cancel = true;
 
+    if (damageSource.cause === EntityDamageCause.fall) return;
+
     const player = damageSource.damagingEntity;
     const creativeDestroy = player?.isValid &&
         player instanceof Player &&
@@ -260,8 +277,7 @@ world.beforeEvents.entityHurt.subscribe(event => {
                 if (slotState === "none") continue;
 
                 const slotDrop = new ItemStack(SlotDrops[slotState]);
-                sailboat.dimension.playSound(
-                    ItemSounds[slotDrop.typeId], sailboat.location, { pitch: 0.8 });
+                sailboat.dimension.playSound(ItemSounds[slotDrop.typeId].break, sailboat.location);
                 sailboat.dimension.spawnItem(slotDrop, sailboat.location);
             }
 
