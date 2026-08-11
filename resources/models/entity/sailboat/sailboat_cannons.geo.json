@@ -47,8 +47,8 @@
 				{
 					"name": "barrel0",
 					"parent": "slot0",
-					"pivot": [8.9, 11.1, -19.4],
-					"rotation": [-12.5, 0, 0],
+					"pivot": [6.9, 11.5, -19.4],
+					"rotation": [-15, 0, 0],
 					"cubes": [
 						{
 							"origin": [3.9, 9.1, -30.9],
@@ -96,8 +96,8 @@
 				{
 					"name": "barrel1",
 					"parent": "slot1",
-					"pivot": [8.9, 11.1, -19.4],
-					"rotation": [-12.5, 0, 0],
+					"pivot": [-9.1, 11.6, -19.4],
+					"rotation": [-15, 0, 0],
 					"cubes": [
 						{
 							"origin": [-12.1, 9.1, -30.9],
@@ -145,8 +145,8 @@
 				{
 					"name": "barrel2",
 					"parent": "slot2",
-					"pivot": [-10.1, 11.1, -0.4],
-					"rotation": [-12.5, 0, 0],
+					"pivot": [-27.9, 11.6, -0.4],
+					"rotation": [-15, 0, 0],
 					"cubes": [
 						{
 							"origin": [-30.9, 9.1, -11.9],
@@ -194,8 +194,8 @@
 				{
 					"name": "barrel3",
 					"parent": "slot3",
-					"pivot": [-6.1, 11.1, -22.4],
-					"rotation": [-12.5, 0, 0],
+					"pivot": [-24.1, 11.6, -22.4],
+					"rotation": [-15, 0, 0],
 					"cubes": [
 						{
 							"origin": [-27.1, 9.1, -33.9],

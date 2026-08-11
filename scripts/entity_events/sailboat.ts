@@ -1,10 +1,17 @@
 import { Mat3, Vec2, Vec3 } from "@madlad3718/mcveclib";
-import { DimensionTypes, Entity, EntityComponentTypes, EntityDamageCause, GameMode, ItemStack, Player, system, world } from "@minecraft/server";
+import { DimensionTypes, Entity, EntityComponentTypes, EntityDamageCause, EntitySwingSource, GameMode, ItemStack, Player, system, world } from "@minecraft/server";
 import { MinecraftBlockTypes, MinecraftEntityTypes, MinecraftItemTypes } from "@minecraft/vanilla-data";
 import { intersect, Plane3, Ray3, viewMatrix } from "../math";
 import { clamp, mod, withoutNamespace } from "../util";
+import { CANNON_COOLDOWN, spawnCannonSmoke } from "./cannon";
 
-const InventorySizes = [9, 27, 54];
+//#region Slots & Interactions
+
+enum SlotState {
+    "none",
+    "chest",
+    "cannon_item"
+};
 
 const SailVariants: Record<string, number> = {
     [MinecraftItemTypes.WhiteDye]: 0,
@@ -24,19 +31,6 @@ const SailVariants: Record<string, number> = {
     [MinecraftItemTypes.RedDye]: 14,
     [MinecraftItemTypes.BlackDye]: 15
 };
-
-enum SlotStates {
-    "none",
-    "chest",
-    "cannon_item"
-};
-
-const TURN_ACCEL = 0.25;
-const MAX_TURN_RATE = 2.25;
-
-const THROTTLE_ACCEL = 0.0025;
-const THROTTLE_DECCEL = 0.0025;
-const MAX_THROTTLE = 0.075;
 
 const ValidSlotItems = [
     MinecraftBlockTypes.Chest,
@@ -59,6 +53,17 @@ const SlotDrops: Record<string, string> = {
     "chest": "minecraft:chest",
     "cannon_item": "tcsmp:cannon_item"
 };
+
+const InventorySizes = [9, 27, 54];
+
+world.afterEvents.entitySpawn.subscribe(({ entity: sailboat }) => {
+    if (!sailboat.isValid ||
+        !sailboat.matches({ families: ["sailboat"] })) return;
+
+    // Number at the end here used to communicate
+    // inventory size to ui.
+    sailboat.nameTag = "§S§A§I§L§B§O§A§T§0";
+});
 
 world.beforeEvents.playerInteractWithEntity.subscribe(event => {
     const { target: sailboat, player, itemStack } = event;
@@ -152,6 +157,17 @@ world.beforeEvents.playerInteractWithEntity.subscribe(event => {
     }
 });
 
+//#endregion
+
+//#region Riding Controller
+
+const TURN_ACCEL = 0.25;
+const MAX_TURN_RATE = 2.25;
+
+const THROTTLE_ACCEL = 0.0025;
+const THROTTLE_DECCEL = 0.0025;
+const MAX_THROTTLE = 0.075;
+
 world.afterEvents.playerInteractWithEntity.subscribe(event => {
     const { target: sailboat, player, beforeItemStack } = event;
     if (!player.isValid || !sailboat.isValid ||
@@ -163,10 +179,10 @@ world.afterEvents.playerInteractWithEntity.subscribe(event => {
 
     if (isDye || isAxe || isSlotItem) {
         system.runTimeout(() => {
-            const slot0State = SlotStates[sailboat.getProperty("tcsmp:slot_0") as keyof typeof SlotStates];
-            const slot1State = SlotStates[sailboat.getProperty("tcsmp:slot_1") as keyof typeof SlotStates];
-            const slot2State = SlotStates[sailboat.getProperty("tcsmp:slot_2") as keyof typeof SlotStates];
-            const slot3State = SlotStates[sailboat.getProperty("tcsmp:slot_3") as keyof typeof SlotStates];
+            const slot0State = SlotState[sailboat.getProperty("tcsmp:slot_0") as keyof typeof SlotState];
+            const slot1State = SlotState[sailboat.getProperty("tcsmp:slot_1") as keyof typeof SlotState];
+            const slot2State = SlotState[sailboat.getProperty("tcsmp:slot_2") as keyof typeof SlotState];
+            const slot3State = SlotState[sailboat.getProperty("tcsmp:slot_3") as keyof typeof SlotState];
 
             sailboat.triggerEvent(`tcsmp:set_slots_${slot0State}${slot1State}${slot2State}${slot3State}`);
         }, 1);
@@ -190,8 +206,10 @@ class SailboatController {
 
     public begin() {
         const interval = system.runInterval(() => {
+            if (!this.boat.isValid) return system.clearRun(interval);
+
             const captain = this.boat.getRiders()[0];
-            if (!captain?.isValid || !this.boat.isValid ||
+            if (!captain?.isValid ||
                 !captain.matches({ type: MinecraftEntityTypes.Player })) {
                 this.boat.resetProperty("tcsmp:rotation_rate");
                 this.boat.resetProperty("tcsmp:throttle");
@@ -204,6 +222,8 @@ class SailboatController {
     }
 
     protected * sailboatControl(): Generator<void, void, void> {
+        if (!this.player.isValid || !this.boat.isValid) return;
+
         const input = this.player.inputInfo.getMovementVector();
 
         if (input.x !== 0.0)
@@ -232,6 +252,10 @@ class SailboatController {
         yield;
     }
 }
+
+//#endregion
+
+//#region Boat Damage
 
 world.afterEvents.worldLoad.subscribe(() => {
     system.runInterval(() => {
@@ -298,11 +322,58 @@ world.beforeEvents.entityHurt.subscribe(event => {
     });
 }, { entityFilter: { families: ["sailboat"] } });
 
-world.afterEvents.entitySpawn.subscribe(({ entity: sailboat }) => {
-    if (!sailboat.isValid ||
+//#endregion
+
+//#region Cannon Firing
+
+type SlotCooldowns = [number, number, number, number];
+const CannonUseTimes: Record<string, SlotCooldowns> = {};
+
+world.afterEvents.playerSwingStart.subscribe(event => {
+    const { player } = event;
+    if (!player.isValid) return;
+
+    const sailboat = player.entityRidingOn, { dimension } = player;
+    if (!sailboat?.isValid ||
         !sailboat.matches({ families: ["sailboat"] })) return;
 
-    // Number at the end here used to communicate
-    // inventory size to ui.
-    sailboat.nameTag = "§S§A§I§L§B§O§A§T§0";
-});
+    const rideable = sailboat.getComponent(EntityComponentTypes.Rideable)!;
+    for (const [seat, rider] of rideable.getRiders().entries()) {
+        if (seat === 0 || rider.id !== player.id) continue;
+
+        const state = sailboat.getProperty(`tcsmp:slot_${seat - 1}`) as keyof typeof SlotState;
+        if (state !== "cannon_item") return;
+
+        const useTimes = CannonUseTimes[sailboat.id] ?? [0, 0, 0, 0];
+        if (system.currentTick - useTimes[seat - 1] < CANNON_COOLDOWN) return;
+
+        useTimes[seat - 1] = system.currentTick;
+        CannonUseTimes[sailboat.id] = useTimes;
+
+        const container = sailboat.inventory!.container;
+        const ammo = container.firstMatch(item => item.hasTag("tcsmp:cannon_ammo"));
+        const fuel = container.firstMatch(item => item.typeId == MinecraftItemTypes.Gunpowder);
+        if (ammo && fuel) {
+            dimension.playSound("cannon.fire", player.location, { pitch: 0.5 * Math.random() + 0.75 });
+
+            const origin = Vec3.above(player.location, 0.8);
+            const direction = Vec3.rotate(
+                Vec3.normalize(Vec3.above(sailboat.getViewDirection(), 0.25)),
+                Vec3.Up, (seat - 1) % 2 === 0 ? 0.5 * Math.PI : -0.5 * Math.PI
+            );
+
+            const velocity = Vec3.mul(direction, 1.35);
+
+            const ball = dimension.spawnEntity(ammo.typeId, Vec3.add(origin, velocity));
+            const projectile = ball.projectile!;
+            projectile.owner = player;
+
+            spawnCannonSmoke({ dimension, ...ball.location }, direction);
+            projectile.shoot(velocity);
+            ammo.decrement();
+            fuel.decrement();
+        } else dimension.playSound("cannon.light", player.location);
+    }
+}, { swingSource: EntitySwingSource.Attack });
+
+//#endregion

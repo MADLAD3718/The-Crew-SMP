@@ -2,8 +2,9 @@ import { Mat3, RandVec, Vec3 } from "@madlad3718/mcveclib";
 import { DimensionLocation, Entity, GameMode, MolangVariableMap, Player, system, TicksPerSecond, Vector3, world } from "@minecraft/server";
 import { MinecraftItemTypes } from "@minecraft/vanilla-data";
 
+export const CANNON_COOLDOWN = 1.0 * TicksPerSecond;
+
 const UseTimes: Record<string, number> = {};
-const USE_COOLDOWN = 1.0 * TicksPerSecond;
 
 world.afterEvents.entityHitEntity.subscribe(event => {
     const { hitEntity: cannon, damagingEntity: player } = event;
@@ -23,7 +24,7 @@ world.afterEvents.entityHitEntity.subscribe(event => {
         cannon.dropInventory();
         cannon.remove();
     }
-    else if (rider.id == player.id && system.currentTick - lastUsedTime >= USE_COOLDOWN) {
+    else if (rider.id == player.id && system.currentTick - lastUsedTime >= CANNON_COOLDOWN) {
         UseTimes[cannon.id] = system.currentTick;
         const container = cannon.inventory?.container;
         const ammo = container?.firstMatch(item => item.hasTag("tcsmp:cannon_ammo"));
@@ -39,7 +40,7 @@ world.afterEvents.entityHitEntity.subscribe(event => {
             const projectile = ball.projectile!;
             projectile.owner = player;
 
-            spawnSmoke({ dimension, ...ball.location }, direction);
+            spawnCannonSmoke({ dimension, ...ball.location }, direction);
             projectile.shoot(velocity);
             ammo.decrement();
             fuel.decrement();
@@ -47,7 +48,7 @@ world.afterEvents.entityHitEntity.subscribe(event => {
     }
 }, { entityTypes: ["minecraft:player"] });
 
-function spawnSmoke(origin: DimensionLocation, direction: Vector3) {
+export function spawnCannonSmoke(origin: DimensionLocation, direction: Vector3) {
     const molang_map = new MolangVariableMap();
     const tnb = Mat3.buildTNB(direction);
     for (let i = 0; i < 3; ++i) {
