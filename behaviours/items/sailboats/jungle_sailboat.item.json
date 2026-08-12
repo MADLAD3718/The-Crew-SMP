@@ -20,7 +20,8 @@
             "minecraft:entity_placer": {
                 "entity": "tcsmp:jungle_sailboat"
             },
-            "minecraft:liquid_clipped": true
+            "minecraft:liquid_clipped": true,
+            "minecraft:fuel": 120
         }
     }
 }
