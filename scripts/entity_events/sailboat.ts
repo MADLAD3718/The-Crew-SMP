@@ -1,5 +1,5 @@
 import { Mat3, Vec2, Vec3 } from "@madlad3718/mcveclib";
-import { DimensionTypes, Entity, EntityComponentTypes, EntityDamageCause, EntitySwingSource, GameMode, ItemStack, Player, system, world } from "@minecraft/server";
+import { DimensionTypes, Entity, EntityComponentTypes, EntityDamageCause, EntitySwingSource, GameMode, ItemStack, Player, Seat, system, world } from "@minecraft/server";
 import { MinecraftBlockTypes, MinecraftEntityTypes, MinecraftItemTypes } from "@minecraft/vanilla-data";
 import { intersect, Plane3, Ray3, viewMatrix } from "../math";
 import { clamp, mod, withoutNamespace } from "../util";
@@ -156,6 +156,13 @@ world.beforeEvents.playerInteractWithEntity.subscribe(event => {
         }
     }
 });
+
+function getSlotStates(sailboat: Entity) {
+    const states: (keyof typeof SlotState)[] = [];
+    for (let i = 0; i < 4; ++i)
+        states.push(sailboat.getProperty(`tcsmp:slot_${i}`) as keyof typeof SlotState)
+    return states;
+}
 
 //#endregion
 
@@ -326,6 +333,42 @@ world.beforeEvents.entityHurt.subscribe(event => {
 
 //#region Cannon Firing
 
+interface SeatState {
+    state: keyof typeof SlotState,
+    seat?: Seat,
+    rider?: Entity
+}
+
+function getSeatStates(sailboat: Entity): SeatState[] {
+    const slotStates = getSlotStates(sailboat);
+    const riders = sailboat.getRiders();
+    const rideable = sailboat.getComponent(EntityComponentTypes.Rideable)!;
+    const seats = rideable.getSeats();
+
+    let replacedSeats = 0;
+    const states: SeatState[] = [{
+        state: "none",
+        seat: seats[0],
+        rider: riders[0]
+    }];
+    for (let slot = 0; slot < 4; ++slot) {
+        const state = slotStates[slot];
+        if (state === "chest") {
+            states.push({ state });
+            ++replacedSeats;
+        }
+        else {
+            states.push({
+                state,
+                seat: seats[slot + 1 - replacedSeats],
+                rider: riders[slot + 1 - replacedSeats]
+            });
+        }
+    }
+
+    return states;
+}
+
 type SlotCooldowns = [number, number, number, number];
 const CannonUseTimes: Record<string, SlotCooldowns> = {};
 
@@ -333,47 +376,74 @@ world.afterEvents.playerSwingStart.subscribe(event => {
     const { player } = event;
     if (!player.isValid) return;
 
-    const sailboat = player.entityRidingOn, { dimension } = player;
+    const sailboat = player.entityRidingOn;
     if (!sailboat?.isValid ||
         !sailboat.matches({ families: ["sailboat"] })) return;
 
-    const rideable = sailboat.getComponent(EntityComponentTypes.Rideable)!;
-    for (const [seat, rider] of rideable.getRiders().entries()) {
-        if (seat === 0 || rider.id !== player.id) continue;
+    const riders = sailboat.getRiders();
+    for (const [seat, rider] of riders.entries()) {
+        if (rider.id !== player.id) continue;
 
-        const state = sailboat.getProperty(`tcsmp:slot_${seat - 1}`) as keyof typeof SlotState;
-        if (state !== "cannon_item") return;
+        if (seat === 0) {
+            const sailboatView = sailboat.getViewDirection();
+            const sailboatMatrix = viewMatrix(sailboatView);
 
-        const useTimes = CannonUseTimes[sailboat.id] ?? [0, 0, 0, 0];
-        if (system.currentTick - useTimes[seat - 1] < CANNON_COOLDOWN) return;
+            const side = +(Vec3.dot(player.getViewDirection(), Mat3.c1(sailboatMatrix)) < 0);
+            const seatStats = getSeatStates(sailboat);
+            for (let slot = side; slot < 4; slot += 2) {
+                if (seatStats[slot + 1].rider?.isValid) continue;
+                fireCannonball(sailboat, slot, player);
+            }
+        }
+        else fireCannonball(sailboat, seat - 1, player);
 
-        useTimes[seat - 1] = system.currentTick;
-        CannonUseTimes[sailboat.id] = useTimes;
-
-        const container = sailboat.inventory!.container;
-        const ammo = container.firstMatch(item => item.hasTag("tcsmp:cannon_ammo"));
-        const fuel = container.firstMatch(item => item.typeId == MinecraftItemTypes.Gunpowder);
-        if (ammo && fuel) {
-            dimension.playSound("cannon.fire", player.location, { pitch: 0.5 * Math.random() + 0.75 });
-
-            const origin = Vec3.above(player.location, 0.8);
-            const direction = Vec3.rotate(
-                Vec3.normalize(Vec3.above(sailboat.getViewDirection(), 0.25)),
-                Vec3.Up, (seat - 1) % 2 === 0 ? 0.5 * Math.PI : -0.5 * Math.PI
-            );
-
-            const velocity = Vec3.mul(direction, 1.35);
-
-            const ball = dimension.spawnEntity(ammo.typeId, Vec3.add(origin, velocity));
-            const projectile = ball.projectile!;
-            projectile.owner = player;
-
-            spawnCannonSmoke({ dimension, ...ball.location }, direction);
-            projectile.shoot(velocity);
-            ammo.decrement();
-            fuel.decrement();
-        } else dimension.playSound("cannon.light", player.location);
+        break;
     }
 }, { swingSource: EntitySwingSource.Attack });
+
+function fireCannonball(sailboat: Entity, slot: number, owner?: Entity) {
+    const seatStates = getSeatStates(sailboat);
+    if (seatStates[slot + 1].state !== "cannon_item") return;
+
+    const useTimes = CannonUseTimes[sailboat.id] ?? [0, 0, 0, 0];
+    if (system.currentTick - useTimes[slot] < CANNON_COOLDOWN) return;
+
+    useTimes[slot] = system.currentTick;
+    CannonUseTimes[sailboat.id] = useTimes;
+
+    const sailboatView = sailboat.getViewDirection();
+    const sailboatMatrix = viewMatrix(sailboatView);
+
+    const seatPosition = Vec3.add(Mat3.mul(
+        sailboatMatrix,
+        seatStates[slot + 1].seat!.position
+    ), sailboat.location);
+
+    const { dimension } = sailboat;
+
+    const container = sailboat.inventory!.container;
+    const ammo = container.firstMatch(item => item.hasTag("tcsmp:cannon_ammo"));
+    const fuel = container.firstMatch(item => item.typeId == MinecraftItemTypes.Gunpowder);
+    if (ammo && fuel) {
+        dimension.playSound("cannon.fire", seatPosition, { pitch: 0.5 * Math.random() + 0.75 });
+
+        const origin = Vec3.above(seatPosition, 0.8);
+        const direction = Vec3.rotate(
+            Vec3.normalize(Vec3.above(sailboat.getViewDirection(), 0.25)),
+            Vec3.Up, slot % 2 === 0 ? 0.5 * Math.PI : -0.5 * Math.PI
+        );
+
+        const velocity = Vec3.mul(direction, 1.35);
+
+        const ball = dimension.spawnEntity(ammo.typeId, Vec3.add(origin, velocity));
+        const projectile = ball.projectile!;
+        projectile.owner = owner;
+
+        spawnCannonSmoke({ dimension, ...ball.location }, direction);
+        projectile.shoot(velocity);
+        ammo.decrement();
+        fuel.decrement();
+    } else dimension.playSound("cannon.light", seatPosition);
+}
 
 //#endregion
