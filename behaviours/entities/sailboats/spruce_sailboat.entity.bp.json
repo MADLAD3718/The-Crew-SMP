@@ -3006,8 +3006,8 @@
             "spring_type": "quad_dampened"
           },
           {
-            "hard_distance": 4.0,
-            "soft_distance": 2.0
+            "hard_distance": 6.0,
+            "soft_distance": 4.0
           }
         ]
       },
