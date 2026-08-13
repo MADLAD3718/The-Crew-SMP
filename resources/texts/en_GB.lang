@@ -32,6 +32,15 @@ item.tcsmp:barnacle_fang.name=Barnacle Fang
 item.tcsmp:tempered_warp_crystal.name=Tempered Warp Crystal
 item.tcsmp:scroll_of_nausea.name=Scroll of Sulfurous Vapor
 item.tcsmp:scroll_of_undead.name=Scroll of the Undead
+item.tcsmp:oak_sailboat.name=Oak Sailboat
+item.tcsmp:spruce_sailboat.name=Spruce Sailboat
+item.tcsmp:birch_sailboat.name=Birch Sailboat
+item.tcsmp:jungle_sailboat.name=Jungle Sailboat
+item.tcsmp:acacia_sailboat.name=Acacia Sailboat
+item.tcsmp:dark_oak_sailboat.name=Dark Oak Sailboat
+item.tcsmp:mangrove_sailboat.name=Mangrove Sailboat
+item.tcsmp:cherry_sailboat.name=Cherry Sailboat
+item.tcsmp:pale_oak_sailboat.name=Pale Oak Sailboat
 
 lore.random_damage=\n§r§9+§kg§r§9 Attack Damage§r
 lore.fire_cannonball=§r§cSets Targets on Fire§r
@@ -40,6 +49,23 @@ lore.poison_cannonball=§r§cApplies Poison (0:10)§r
 lore.slowness_cannonball=§r§cApplies Slowness (0:10)§r
 lore.wither_cannonball=§r§cApplies Wither (0:10)§r
 lore.prismarine_blade_backstab=§r§9+7 Backstab Damage§r
+
+item.sailboat.dyed.white=\n§r§7White Sail
+item.sailboat.dyed.orange=\n§r§7Orange Sail
+item.sailboat.dyed.magenta=\n§r§7Magenta Sail
+item.sailboat.dyed.light_blue=\n§r§7Light Blue Sail
+item.sailboat.dyed.yellow=\n§r§7Yellow Sail
+item.sailboat.dyed.lime=\n§r§7Lime Sail
+item.sailboat.dyed.pink=\n§r§7Pink Sail
+item.sailboat.dyed.gray=\n§r§7Gray Sail
+item.sailboat.dyed.light_gray=\n§r§7Light Gray Sail
+item.sailboat.dyed.cyan=\n§r§7Cyan Sail
+item.sailboat.dyed.purple=\n§r§7Purple Sail
+item.sailboat.dyed.blue=\n§r§7Blue Sail
+item.sailboat.dyed.brown=\n§r§7Brown Sail
+item.sailboat.dyed.green=\n§r§7Green Sail
+item.sailboat.dyed.red=\n§r§7Red Sail
+item.sailboat.dyed.black=\n§r§7Black Sail
 
 item.record_balloonpop.desc=George Vide - CRAcK@$
 item.record_open.desc=George Vide - Puma Pants
@@ -88,6 +114,7 @@ entity.tcsmp:lightning_bottle.name=Bottle o' Lightning
 entity.tcsmp:tempered_warp_crystal.name=Tempered Warp Crystal
 entity.tcsmp:faded_zombie.name=Faded Zombie
 entity.tcsmp:faded_skeleton.name=Faded Skeleton
+entity.tcsmp:sailboat.name=Sailboat
 
 action.hint.exit.tcsmp:grappling_hook_seat=Crouch or jump to detach
 action.hint.exit.tcsmp:cannon=Crouch or jump to stop aiming
@@ -96,6 +123,15 @@ action.hint.exit.tcsmp:unicorn=Tap sneak to dismount
 action.interact.ride.tcsmp:unicorn=Ride
 action.interact.gerbil=Interact to pick up
 action.interact.creeper.lightning=Bottle lightning
+action.hint.exit.tcsmp:oak_sailboat=Press :_input_key.jump: to exit the sailboat
+action.hint.exit.tcsmp:spruce_sailboat=Press :_input_key.jump: to exit the sailboat
+action.hint.exit.tcsmp:birch_sailboat=Press :_input_key.jump: to exit the sailboat
+action.hint.exit.tcsmp:jungle_sailboat=Press :_input_key.jump: to exit the sailboat
+action.hint.exit.tcsmp:acacia_sailboat=Press :_input_key.jump: to exit the sailboat
+action.hint.exit.tcsmp:dark_oak_sailboat=Press :_input_key.jump: to exit the sailboat
+action.hint.exit.tcsmp:mangrove_sailboat=Press :_input_key.jump: to exit the sailboat
+action.hint.exit.tcsmp:cherry_sailboat=Press :_input_key.jump: to exit the sailboat
+action.hint.exit.tcsmp:pale_oak_sailboat=Press :_input_key.jump: to exit the sailboat
 
 container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NInscription
 
@@ -178,6 +214,7 @@ info.return_scroll.no_waystones=You have no available waystones to return to
 itemGroup.tcsmp:waystones=Waystones
 itemGroup.tcsmp:spell_scrolls=Spell Scrolls
 itemGroup.tcsmp:cannonballs=Cannonballs
+itemGroup.tcsmp:sailboats=Sailboats
 
 subtitles.entity.wolf.pet=Fur ruffles
 subtitles.block.waystone.travel=Waystone warbles

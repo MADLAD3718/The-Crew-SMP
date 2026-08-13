@@ -32,6 +32,15 @@ item.tcsmp:barnacle_fang.name=따개비 송곳니
 item.tcsmp:tempered_warp_crystal.name=강화된 워프 수정
 item.tcsmp:scroll_of_nausea.name=유황 증기 두루마리
 item.tcsmp:scroll_of_undead.name=언데드의 두루마리
+item.tcsmp:oak_sailboat.name=오크 범선
+item.tcsmp:spruce_sailboat.name=스프루스 범선
+item.tcsmp:birch_sailboat.name=자작나무 범선
+item.tcsmp:jungle_sailboat.name=정글 범선
+item.tcsmp:acacia_sailboat.name=아카시아 범선
+item.tcsmp:dark_oak_sailboat.name=다크 오크 범선
+item.tcsmp:mangrove_sailboat.name=맹그로브 범선
+item.tcsmp:cherry_sailboat.name=체리 범선
+item.tcsmp:pale_oak_sailboat.name=창백한 참나무 범선
 
 lore.random_damage=\n§r§9+§kg§r§9 공격 피해§r
 lore.fire_cannonball=§r§c목표물에 불을 붙입니다§r
@@ -41,15 +50,32 @@ lore.slowness_cannonball=§r§c느림 적용(0:10)§r
 lore.wither_cannonball=§r§c위더 적용(0:10)§r
 lore.prismarine_blade_backstab=§r§9+7 기습 피해§r
 
+item.sailboat.dyed.white=\n§r§7흰 돛
+item.sailboat.dyed.orange=\n§r§7주황색 돛
+item.sailboat.dyed.magenta=\n§r§7마젠타색 항해
+item.sailboat.dyed.light_blue=\n§r§7하늘색 돛
+item.sailboat.dyed.yellow=\n§r§7노란색 돛
+item.sailboat.dyed.lime=\n§r§7라임 항해
+item.sailboat.dyed.pink=\n§r§7분홍색 돛
+item.sailboat.dyed.gray=\n§r§7회색 돛
+item.sailboat.dyed.light_gray=\n§r§7밝은 회색 돛
+item.sailboat.dyed.cyan=\n§r§7청록색 돛
+item.sailboat.dyed.purple=\n§r§7보라색 돛
+item.sailboat.dyed.blue=\n§r§7파란 돛
+item.sailboat.dyed.brown=\n§r§7갈색 돛
+item.sailboat.dyed.green=\n§r§7녹색 항해
+item.sailboat.dyed.red=\n§r§7빨간 돛
+item.sailboat.dyed.black=\n§r§7검은 돛
+
 item.record_balloonpop.desc=조지 비드 - CRAcK@$
-item.record_open.desc=George Vide - 푸마 팬츠
+item.record_open.desc=George Vide - 푸마 바지
 item.record_take_picture.desc=조지 비드 - 그만둬
 item.record_hit.desc=조지 비드(George Vide) - BA$ED BOY$
 item.record_reaction.icebomb.desc=조지 비드 - 오바마
 item.record_reaction.bleach.desc=George Vide-똑바른 사실
 
 item.record_crackas.desc=조지 비드 - CRAcK@$
-item.record_puma_pants.desc=George Vide - 푸마 바지
+item.record_puma_pants.desc=George Vide - 푸마 팬츠
 item.record_drop_it.desc=조지 비드 - 그만둬
 item.record_based_boys.desc=조지 비드(George Vide) - BA$ED BOY$
 item.record_obama.desc=조지 비드 - 오바마
@@ -88,6 +114,7 @@ entity.tcsmp:lightning_bottle.name=보틀 오 라이트닝
 entity.tcsmp:tempered_warp_crystal.name=강화된 워프 수정
 entity.tcsmp:faded_zombie.name=빛바랜 좀비
 entity.tcsmp:faded_skeleton.name=빛바랜 해골
+entity.tcsmp:sailboat.name=범선
 
 action.hint.exit.tcsmp:grappling_hook_seat=분리하려면 웅크리거나 점프하세요.
 action.hint.exit.tcsmp:cannon=조준을 중지하려면 몸을 숙이거나 점프하세요.
@@ -96,6 +123,15 @@ action.hint.exit.tcsmp:unicorn=몰래 탭하여 내리세요
 action.interact.ride.tcsmp:unicorn=타고
 action.interact.gerbil=픽업하려면 상호작용하세요.
 action.interact.creeper.lightning=병 번개
+action.hint.exit.tcsmp:oak_sailboat=:_input_key.jump를 눌러 범선에서 나가세요.
+action.hint.exit.tcsmp:spruce_sailboat=:_input_key.jump를 눌러 범선에서 나가세요.
+action.hint.exit.tcsmp:birch_sailboat=:_input_key.jump를 눌러 범선에서 나가세요.
+action.hint.exit.tcsmp:jungle_sailboat=:_input_key.jump를 눌러 범선에서 나가세요.
+action.hint.exit.tcsmp:acacia_sailboat=:_input_key.jump를 눌러 범선에서 나가세요.
+action.hint.exit.tcsmp:dark_oak_sailboat=:_input_key.jump를 눌러 범선에서 나가세요.
+action.hint.exit.tcsmp:mangrove_sailboat=:_input_key.jump를 눌러 범선에서 나가세요.
+action.hint.exit.tcsmp:cherry_sailboat=:_input_key.jump를 눌러 범선에서 나가세요.
+action.hint.exit.tcsmp:pale_oak_sailboat=:_input_key.jump를 눌러 범선에서 나가세요.
 
 container.inscription_table=§I§N§S§C§R§I§P§T§I§O§N비문
 
@@ -121,7 +157,7 @@ action.create.faction.fail=팩션 "§%s%s§r"이 유효하지 않습니다. 팩�
 
 action.manage.faction.title=진영 관리
 action.manage.faction.body=§%s%s§r 관리:
-action.manage.faction.edit_name=이름 수정
+action.manage.faction.edit_name=이름 편집
 action.manage.faction.edit_players=플레이어 편집
 action.manage.faction.edit_colour=색상 편집
 
@@ -178,6 +214,7 @@ info.return_scroll.no_waystones=돌아갈 수 있는 웨이스톤이 없습니�
 itemGroup.tcsmp:waystones=웨이스톤
 itemGroup.tcsmp:spell_scrolls=주문 두루마리
 itemGroup.tcsmp:cannonballs=대포알
+itemGroup.tcsmp:sailboats=범선
 
 subtitles.entity.wolf.pet=모피 주름 장식
 subtitles.block.waystone.travel=웨이스톤의 지저귀는 소리

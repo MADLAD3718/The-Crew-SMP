@@ -32,6 +32,15 @@ item.tcsmp:barnacle_fang.name=Barnacle Fang
 item.tcsmp:tempered_warp_crystal.name=Edzett Warp Crystal
 item.tcsmp:scroll_of_nausea.name=Kéngőz tekercs
 item.tcsmp:scroll_of_undead.name=Tekercs az élőhalottakról
+item.tcsmp:oak_sailboat.name=Tölgy vitorlás
+item.tcsmp:spruce_sailboat.name=Lucfenyő vitorlás
+item.tcsmp:birch_sailboat.name=Nyírfa vitorlás
+item.tcsmp:jungle_sailboat.name=Dzsungel vitorlás
+item.tcsmp:acacia_sailboat.name=Akác vitorlás
+item.tcsmp:dark_oak_sailboat.name=Sötét tölgy vitorlás
+item.tcsmp:mangrove_sailboat.name=Mangrove vitorlás
+item.tcsmp:cherry_sailboat.name=Cseresznye vitorlás
+item.tcsmp:pale_oak_sailboat.name=Halványtölgy vitorlás
 
 lore.random_damage=\n§r§9+§kg§r§9 Támadás Sebzés§r
 lore.fire_cannonball=§r§cCélokat állít be tűzre§r
@@ -40,6 +49,23 @@ lore.poison_cannonball=§r§cPoison (0:10)§r alkalmazása
 lore.slowness_cannonball=§r§cLassúságot (0:10)§r alkalmaz
 lore.wither_cannonball=§r§cFarva (0:10)§r vonatkozik
 lore.prismarine_blade_backstab=§r§9+7 Hátsó sérülés§r
+
+item.sailboat.dyed.white=\n§r§7Fehér vitorla
+item.sailboat.dyed.orange=\n§r§7Orange Sail
+item.sailboat.dyed.magenta=\n§r§7Magenta Sail
+item.sailboat.dyed.light_blue=\n§r§7 Világoskék vitorla
+item.sailboat.dyed.yellow=\n§r§7Sárga vitorla
+item.sailboat.dyed.lime=\n§r§7Lime Sail
+item.sailboat.dyed.pink=\n§r§7Rózsaszín vitorla
+item.sailboat.dyed.gray=\n§r§7Szürke vitorla
+item.sailboat.dyed.light_gray=\n§r§7Világszürke vitorla
+item.sailboat.dyed.cyan=\n§r§7Cyan Sail
+item.sailboat.dyed.purple=\n§r§7Purple Sail
+item.sailboat.dyed.blue=\n§r§7Kék vitorla
+item.sailboat.dyed.brown=\n§r§7Barna vitorla
+item.sailboat.dyed.green=\n§r§7Zöld vitorla
+item.sailboat.dyed.red=\n§r§7Red Sail
+item.sailboat.dyed.black=\n§r§7Fekete vitorla
 
 item.record_balloonpop.desc=George Vide – CRAcK@$
 item.record_open.desc=George Vide - Puma nadrág
@@ -88,6 +114,7 @@ entity.tcsmp:lightning_bottle.name=Villám palackja
 entity.tcsmp:tempered_warp_crystal.name=Edzett Warp Crystal
 entity.tcsmp:faded_zombie.name=Kifakult zombi
 entity.tcsmp:faded_skeleton.name=Kifakult csontváz
+entity.tcsmp:sailboat.name=Vitorlás
 
 action.hint.exit.tcsmp:grappling_hook_seat=Leguggoljon vagy ugorjon a leváláshoz
 action.hint.exit.tcsmp:cannon=Leguggolj vagy ugorj a célzás leállításához
@@ -96,6 +123,15 @@ action.hint.exit.tcsmp:unicorn=Koppintson a settenkedésre a leszálláshoz
 action.interact.ride.tcsmp:unicorn=Ride
 action.interact.gerbil=Lépjen kapcsolatba a felvételhez
 action.interact.creeper.lightning=Palackvillám
+action.hint.exit.tcsmp:oak_sailboat=Nyomja meg a :_input_key.jump: gombot, hogy kilépjen a vitorlásból
+action.hint.exit.tcsmp:spruce_sailboat=Nyomja meg a :_input_key.jump: gombot, hogy kilépjen a vitorlásból
+action.hint.exit.tcsmp:birch_sailboat=Nyomja meg a :_input_key.jump: gombot, hogy kilépjen a vitorlásból
+action.hint.exit.tcsmp:jungle_sailboat=Nyomja meg a :_input_key.jump: gombot, hogy kilépjen a vitorlásból
+action.hint.exit.tcsmp:acacia_sailboat=Nyomja meg a :_input_key.jump: gombot, hogy kilépjen a vitorlásból
+action.hint.exit.tcsmp:dark_oak_sailboat=Nyomja meg a :_input_key.jump: gombot, hogy kilépjen a vitorlásból
+action.hint.exit.tcsmp:mangrove_sailboat=Nyomja meg a :_input_key.jump: gombot, hogy kilépjen a vitorlásból
+action.hint.exit.tcsmp:cherry_sailboat=Nyomja meg a :_input_key.jump: gombot, hogy kilépjen a vitorlásból
+action.hint.exit.tcsmp:pale_oak_sailboat=Nyomja meg a :_input_key.jump: gombot, hogy kilépjen a vitorlásból
 
 container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NIfelirat
 
@@ -104,7 +140,7 @@ action.setup.faction_invite.no_factions=Nem vagy tagja egyetlen frakciónak sem!
 action.setup.faction_invite.message=Meghívó üzenet
 action.setup.faction_invite.message_placeholder=Gyere, csatlakozz %s-hoz!
 action.setup.faction_invite.submit=Erősítse meg
-action.setup.faction_invite.cancel=Mégse
+action.setup.faction_invite.cancel=Mégsem
 
 action.join.faction.fail=Máris egy frakcióban vagy!
 action.join.faction.invalid=%s már nem létezik!
@@ -178,6 +214,7 @@ info.return_scroll.no_waystones=Nincsenek elérhető útkövek, amelyekhez vissz
 itemGroup.tcsmp:waystones=Útkövek
 itemGroup.tcsmp:spell_scrolls=Spell Scrolls
 itemGroup.tcsmp:cannonballs=Ágyúgolyók
+itemGroup.tcsmp:sailboats=Vitorlások
 
 subtitles.entity.wolf.pet=Szőrmefodrok
 subtitles.block.waystone.travel=Waystone poszlagok
@@ -212,6 +249,6 @@ subtitles.entity.faded_zombie.death=Faded Zombie meghal
 subtitles.entity.faded_zombie.hurt=Kifakult Zombi fáj
 subtitles.entity.faded_zombie.wilter=Kifakult Zombi fonnyad
 subtitles.entity.seal.ambient=Fóka ugat
-subtitles.entity.seal.hurt=A fóka fáj
+subtitles.entity.seal.hurt=Fóka fáj
 subtitles.entity.seal.death=A pecsét meghal
 

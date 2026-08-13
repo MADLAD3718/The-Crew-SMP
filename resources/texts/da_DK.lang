@@ -32,6 +32,15 @@ item.tcsmp:barnacle_fang.name=Barnacle Fang
 item.tcsmp:tempered_warp_crystal.name=Hærdet Warp Crystal
 item.tcsmp:scroll_of_nausea.name=Rul af svovldamp
 item.tcsmp:scroll_of_undead.name=Scroll of the Undead
+item.tcsmp:oak_sailboat.name=Eg Sejlbåd
+item.tcsmp:spruce_sailboat.name=Sejlbåd af gran
+item.tcsmp:birch_sailboat.name=Birke Sejlbåd
+item.tcsmp:jungle_sailboat.name=Jungle sejlbåd
+item.tcsmp:acacia_sailboat.name=Acacia sejlbåd
+item.tcsmp:dark_oak_sailboat.name=Mørk Eg Sejlbåd
+item.tcsmp:mangrove_sailboat.name=Mangrove sejlbåd
+item.tcsmp:cherry_sailboat.name=Cherry sejlbåd
+item.tcsmp:pale_oak_sailboat.name=Bleg eg sejlbåd
 
 lore.random_damage=\n§r§9+§kg§r§9 Angrebsskade§r
 lore.fire_cannonball=§r§cSæter mål på brand§r
@@ -40,6 +49,23 @@ lore.poison_cannonball=§r§cAnvender Gift (0:10)§r
 lore.slowness_cannonball=§r§cGælder langsomhed (0:10)§r
 lore.wither_cannonball=§r§cGælder Visne (0:10)§r
 lore.prismarine_blade_backstab=§r§9+7 Rygstikskader§r
+
+item.sailboat.dyed.white=\n§r§7Hvidt sejl
+item.sailboat.dyed.orange=\n§r§7Orange sejl
+item.sailboat.dyed.magenta=\n§r§7Magenta Sejl
+item.sailboat.dyed.light_blue=\n§r§7Lyseblåt sejl
+item.sailboat.dyed.yellow=\n§r§7Gult sejl
+item.sailboat.dyed.lime=\n§r§7Kalksejl
+item.sailboat.dyed.pink=\n§r§7Pink Sejl
+item.sailboat.dyed.gray=\n§r§7Grå sejl
+item.sailboat.dyed.light_gray=\n§r§7Lysegrå Sejl
+item.sailboat.dyed.cyan=\n§r§7Cyan Sejl
+item.sailboat.dyed.purple=\n§r§7Lilla sejl
+item.sailboat.dyed.blue=\n§r§7Blå sejl
+item.sailboat.dyed.brown=\n§r§7Brunt sejl
+item.sailboat.dyed.green=\n§r§7Grønt sejl
+item.sailboat.dyed.red=\n§r§7Rødt sejl
+item.sailboat.dyed.black=\n§r§7Sort sejl
 
 item.record_balloonpop.desc=George Vide - CRAcK@$
 item.record_open.desc=George Vide - Puma-bukser
@@ -88,6 +114,7 @@ entity.tcsmp:lightning_bottle.name=Flaske af lyn
 entity.tcsmp:tempered_warp_crystal.name=Hærdet Warp Crystal
 entity.tcsmp:faded_zombie.name=Faldet zombie
 entity.tcsmp:faded_skeleton.name=Faldet skelet
+entity.tcsmp:sailboat.name=Sejlbåd
 
 action.hint.exit.tcsmp:grappling_hook_seat=Læg dig på hug eller spring for at løsne dig
 action.hint.exit.tcsmp:cannon=Læg dig på hug eller hop for at stoppe med at sigte
@@ -96,6 +123,15 @@ action.hint.exit.tcsmp:unicorn=Tryk på snig for at stige af
 action.interact.ride.tcsmp:unicorn=Ride
 action.interact.gerbil=Interager for at afhente
 action.interact.creeper.lightning=Flaske lyn
+action.hint.exit.tcsmp:oak_sailboat=Tryk på :_input_key.jump: for at forlade sejlbåden
+action.hint.exit.tcsmp:spruce_sailboat=Tryk på :_input_key.jump: for at forlade sejlbåden
+action.hint.exit.tcsmp:birch_sailboat=Tryk på :_input_key.jump: for at forlade sejlbåden
+action.hint.exit.tcsmp:jungle_sailboat=Tryk på :_input_key.jump: for at forlade sejlbåden
+action.hint.exit.tcsmp:acacia_sailboat=Tryk på :_input_key.jump: for at forlade sejlbåden
+action.hint.exit.tcsmp:dark_oak_sailboat=Tryk på :_input_key.jump: for at forlade sejlbåden
+action.hint.exit.tcsmp:mangrove_sailboat=Tryk på :_input_key.jump: for at forlade sejlbåden
+action.hint.exit.tcsmp:cherry_sailboat=Tryk på :_input_key.jump: for at forlade sejlbåden
+action.hint.exit.tcsmp:pale_oak_sailboat=Tryk på :_input_key.jump: for at forlade sejlbåden
 
 container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NIInskription
 
@@ -178,6 +214,7 @@ info.return_scroll.no_waystones=Du har ingen tilgængelige vejsten at vende tilb
 itemGroup.tcsmp:waystones=Vejsten
 itemGroup.tcsmp:spell_scrolls=Stave ruller
 itemGroup.tcsmp:cannonballs=Kanonkugler
+itemGroup.tcsmp:sailboats=Sejlbåde
 
 subtitles.entity.wolf.pet=Pelsflæser
 subtitles.block.waystone.travel=Waystone warbles

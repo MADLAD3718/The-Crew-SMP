@@ -32,6 +32,15 @@ item.tcsmp:barnacle_fang.name=Fang Teritip
 item.tcsmp:tempered_warp_crystal.name=Kristal Warp Tempered
 item.tcsmp:scroll_of_nausea.name=Gulungan Uap Belerang
 item.tcsmp:scroll_of_undead.name=Gulir Mayat Hidup
+item.tcsmp:oak_sailboat.name=Perahu Layar Ek
+item.tcsmp:spruce_sailboat.name=Perahu Layar Cemara
+item.tcsmp:birch_sailboat.name=Perahu Layar Birch
+item.tcsmp:jungle_sailboat.name=Perahu Layar Hutan
+item.tcsmp:acacia_sailboat.name=Perahu Layar Akasia
+item.tcsmp:dark_oak_sailboat.name=Perahu Layar Ek Gelap
+item.tcsmp:mangrove_sailboat.name=Perahu Layar Bakau
+item.tcsmp:cherry_sailboat.name=Perahu Layar Ceri
+item.tcsmp:pale_oak_sailboat.name=Perahu Layar Ek Pucat
 
 lore.random_damage=\n§r§9+§kg§r§9 Kerusakan Serangan§r
 lore.fire_cannonball=§r§cMenetapkan Target Kebakaran§r
@@ -40,6 +49,23 @@ lore.poison_cannonball=§r§cMenerapkan Racun (0:10)§r
 lore.slowness_cannonball=§r§cMenerapkan Kelambatan (0:10)§r
 lore.wither_cannonball=§r§cBerlaku Layu (0:10)§r
 lore.prismarine_blade_backstab=§r§9+7 Kerusakan Backstab§r
+
+item.sailboat.dyed.white=\n§r§7Layar Putih
+item.sailboat.dyed.orange=\n§r§7Layar Oranye
+item.sailboat.dyed.magenta=\n§r§7Layar Magenta
+item.sailboat.dyed.light_blue=\n§r§7Layar Biru Muda
+item.sailboat.dyed.yellow=\n§r§7Layar Kuning
+item.sailboat.dyed.lime=\n§r§7Layar Kapur
+item.sailboat.dyed.pink=\n§r§7Layar Merah Muda
+item.sailboat.dyed.gray=\n§r§7Layar Abu-abu
+item.sailboat.dyed.light_gray=\n§r§7 Layar Abu-abu Muda
+item.sailboat.dyed.cyan=\n§r§7Layar Cyan
+item.sailboat.dyed.purple=\n§r§7Layar Ungu
+item.sailboat.dyed.blue=\n§r§7Layar Biru
+item.sailboat.dyed.brown=\n§r§7Layar Coklat
+item.sailboat.dyed.green=\n§r§7Layar Hijau
+item.sailboat.dyed.red=\n§r§7Layar Merah
+item.sailboat.dyed.black=\n§r§7Layar Hitam
 
 item.record_balloonpop.desc=George Vide - CRAcK@$
 item.record_open.desc=George Vide - Celana Puma
@@ -88,6 +114,7 @@ entity.tcsmp:lightning_bottle.name=Botol o' Lightning
 entity.tcsmp:tempered_warp_crystal.name=Kristal Warp Tempered
 entity.tcsmp:faded_zombie.name=Zombi yang Memudar
 entity.tcsmp:faded_skeleton.name=Kerangka Memudar
+entity.tcsmp:sailboat.name=perahu layar
 
 action.hint.exit.tcsmp:grappling_hook_seat=Berjongkok atau melompat untuk melepaskan diri
 action.hint.exit.tcsmp:cannon=Berjongkok atau melompat untuk berhenti membidik
@@ -96,6 +123,15 @@ action.hint.exit.tcsmp:unicorn=Ketuk menyelinap untuk turun
 action.interact.ride.tcsmp:unicorn=Naik
 action.interact.gerbil=Berinteraksi untuk mengambil
 action.interact.creeper.lightning=Petir botol
+action.hint.exit.tcsmp:oak_sailboat=Tekan :_input_key.jump: untuk keluar dari perahu layar
+action.hint.exit.tcsmp:spruce_sailboat=Tekan :_input_key.jump: untuk keluar dari perahu layar
+action.hint.exit.tcsmp:birch_sailboat=Tekan :_input_key.jump: untuk keluar dari perahu layar
+action.hint.exit.tcsmp:jungle_sailboat=Tekan :_input_key.jump: untuk keluar dari perahu layar
+action.hint.exit.tcsmp:acacia_sailboat=Tekan :_input_key.jump: untuk keluar dari perahu layar
+action.hint.exit.tcsmp:dark_oak_sailboat=Tekan :_input_key.jump: untuk keluar dari perahu layar
+action.hint.exit.tcsmp:mangrove_sailboat=Tekan :_input_key.jump: untuk keluar dari perahu layar
+action.hint.exit.tcsmp:cherry_sailboat=Tekan :_input_key.jump: untuk keluar dari perahu layar
+action.hint.exit.tcsmp:pale_oak_sailboat=Tekan :_input_key.jump: untuk keluar dari perahu layar
 
 container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NPrasasti
 
@@ -178,6 +214,7 @@ info.return_scroll.no_waystones=Anda tidak memiliki batu jalan untuk kembali
 itemGroup.tcsmp:waystones=batu jalan
 itemGroup.tcsmp:spell_scrolls=Gulungan Ejaan
 itemGroup.tcsmp:cannonballs=Bola meriam
+itemGroup.tcsmp:sailboats=perahu layar
 
 subtitles.entity.wolf.pet=Kerutan bulu
 subtitles.block.waystone.travel=Kicauan batu jalan

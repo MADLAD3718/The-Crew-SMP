@@ -32,6 +32,15 @@ item.tcsmp:barnacle_fang.name=Presa de Craca
 item.tcsmp:tempered_warp_crystal.name=Cristal Warp Temperado
 item.tcsmp:scroll_of_nausea.name=Pergaminho de Vapor Sulfuroso
 item.tcsmp:scroll_of_undead.name=Pergaminho dos Mortos-vivos
+item.tcsmp:oak_sailboat.name=Veleiro de carvalho
+item.tcsmp:spruce_sailboat.name=Veleiro em abeto
+item.tcsmp:birch_sailboat.name=Veleiro de bétula
+item.tcsmp:jungle_sailboat.name=Veleiro na selva
+item.tcsmp:acacia_sailboat.name=Veleiro de acácia
+item.tcsmp:dark_oak_sailboat.name=Veleiro Carvalho Escuro
+item.tcsmp:mangrove_sailboat.name=Veleiro de mangue
+item.tcsmp:cherry_sailboat.name=Veleiro Cereja
+item.tcsmp:pale_oak_sailboat.name=Veleiro de carvalho claro
 
 lore.random_damage=\n§r§9+§kg§r§9 Dano de Ataque§r
 lore.fire_cannonball=§r§cDefine alvos em chamas§r
@@ -40,6 +49,23 @@ lore.poison_cannonball=§r§cAplica Veneno (0:10)§r
 lore.slowness_cannonball=§r§cAplica Lentidão (0:10)§r
 lore.wither_cannonball=§r§cAplica Murchar (0:10)§r
 lore.prismarine_blade_backstab=§r§9+7 Dano de facada nas costas§r
+
+item.sailboat.dyed.white=\n§r§7Vela Branca
+item.sailboat.dyed.orange=\n§r§7Vela Laranja
+item.sailboat.dyed.magenta=\n§r§7Vela Magenta
+item.sailboat.dyed.light_blue=\n§r§7Vela Azul Claro
+item.sailboat.dyed.yellow=\n§r§7Vela Amarela
+item.sailboat.dyed.lime=\n§r§7Vela Lima
+item.sailboat.dyed.pink=\n§r§7Vela Rosa
+item.sailboat.dyed.gray=\n§r§7Vela Cinzenta
+item.sailboat.dyed.light_gray=\n§r§7Vela Cinza Claro
+item.sailboat.dyed.cyan=\n§r§7Vela Ciana
+item.sailboat.dyed.purple=\n§r§7Vela Roxa
+item.sailboat.dyed.blue=\n§r§7Vela Azul
+item.sailboat.dyed.brown=\n§r§7Vela Marrom
+item.sailboat.dyed.green=\n§r§7Vela Verde
+item.sailboat.dyed.red=\n§r§7Vela Vermelha
+item.sailboat.dyed.black=\n§r§7Vela Negra
 
 item.record_balloonpop.desc=George Vide - CRAcK@$
 item.record_open.desc=George Vide - Calças Puma
@@ -88,6 +114,7 @@ entity.tcsmp:lightning_bottle.name=Garrafa de Relâmpago
 entity.tcsmp:tempered_warp_crystal.name=Cristal Warp Temperado
 entity.tcsmp:faded_zombie.name=Zumbi desbotado
 entity.tcsmp:faded_skeleton.name=Esqueleto desbotado
+entity.tcsmp:sailboat.name=Veleiro
 
 action.hint.exit.tcsmp:grappling_hook_seat=Agache-se ou pule para se soltar
 action.hint.exit.tcsmp:cannon=Agache-se ou pule para parar de mirar
@@ -96,6 +123,15 @@ action.hint.exit.tcsmp:unicorn=Toque em esgueirar-se para desmontar
 action.interact.ride.tcsmp:unicorn=Passeio
 action.interact.gerbil=Interaja para retirar
 action.interact.creeper.lightning=Relâmpago de garrafa
+action.hint.exit.tcsmp:oak_sailboat=Pressione :_input_key.jump: para sair do veleiro
+action.hint.exit.tcsmp:spruce_sailboat=Pressione :_input_key.jump: para sair do veleiro
+action.hint.exit.tcsmp:birch_sailboat=Pressione :_input_key.jump: para sair do veleiro
+action.hint.exit.tcsmp:jungle_sailboat=Pressione :_input_key.jump: para sair do veleiro
+action.hint.exit.tcsmp:acacia_sailboat=Pressione :_input_key.jump: para sair do veleiro
+action.hint.exit.tcsmp:dark_oak_sailboat=Pressione :_input_key.jump: para sair do veleiro
+action.hint.exit.tcsmp:mangrove_sailboat=Pressione :_input_key.jump: para sair do veleiro
+action.hint.exit.tcsmp:cherry_sailboat=Pressione :_input_key.jump: para sair do veleiro
+action.hint.exit.tcsmp:pale_oak_sailboat=Pressione :_input_key.jump: para sair do veleiro
 
 container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NInscrição
 
@@ -170,7 +206,7 @@ form.interact.waystone.private=Proprietário: %s
 form.interact.waystone.global=Globais
 
 info.waystone.invalid="%s" não é um nome de waystone válido
-info.waystone.preexists.global=A pedra de referência "%s" já existe
+info.waystone.preexists.global=A pedra de passagem "%s" já existe
 info.waystone.preexists.private=A Waystone Privada "%s" já existe
 
 info.return_scroll.no_waystones=Você não tem pedras de passagem disponíveis para retornar
@@ -178,6 +214,7 @@ info.return_scroll.no_waystones=Você não tem pedras de passagem disponíveis p
 itemGroup.tcsmp:waystones=Marcos
 itemGroup.tcsmp:spell_scrolls=Pergaminhos de Feitiço
 itemGroup.tcsmp:cannonballs=Balas de canhão
+itemGroup.tcsmp:sailboats=Veleiros
 
 subtitles.entity.wolf.pet=Babados de pele
 subtitles.block.waystone.travel=gorjeios de Waystone

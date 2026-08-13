@@ -32,6 +32,15 @@ item.tcsmp:barnacle_fang.name=Zanna di cirripedi
 item.tcsmp:tempered_warp_crystal.name=Cristallo di ordito temperato
 item.tcsmp:scroll_of_nausea.name=Pergamena di vapori solforosi
 item.tcsmp:scroll_of_undead.name=Pergamena dei non morti
+item.tcsmp:oak_sailboat.name=Barca a vela in quercia
+item.tcsmp:spruce_sailboat.name=Barca a vela in abete rosso
+item.tcsmp:birch_sailboat.name=Barca a vela in betulla
+item.tcsmp:jungle_sailboat.name=Barca a vela nella giungla
+item.tcsmp:acacia_sailboat.name=Barca a vela in acacia
+item.tcsmp:dark_oak_sailboat.name=Barca a vela in rovere scuro
+item.tcsmp:mangrove_sailboat.name=Barca a vela di mangrovie
+item.tcsmp:cherry_sailboat.name=Barca a vela in ciliegio
+item.tcsmp:pale_oak_sailboat.name=Barca a vela in rovere pallido
 
 lore.random_damage=\n§r§9+§kg§r§9 Attacco fisico§r
 lore.fire_cannonball=§r§cIncendia i bersagli§r
@@ -40,6 +49,23 @@ lore.poison_cannonball=§r§cApplica Veleno (0:10)§r
 lore.slowness_cannonball=§r§cApplica Lentezza (0:10)§r
 lore.wither_cannonball=§r§cSi applica Wither (0:10)§r
 lore.prismarine_blade_backstab=§r§9+7 Danno da pugnalata alle spalle§r
+
+item.sailboat.dyed.white=\n§r§7Vela bianca
+item.sailboat.dyed.orange=\n§r§7Vela arancione
+item.sailboat.dyed.magenta=\n§r§7Vela magenta
+item.sailboat.dyed.light_blue=\n§r§7Vela azzurra
+item.sailboat.dyed.yellow=\n§r§7Vela gialla
+item.sailboat.dyed.lime=\n§r§7Vela color lime
+item.sailboat.dyed.pink=\n§r§7Vela rosa
+item.sailboat.dyed.gray=\n§r§7Vela grigia
+item.sailboat.dyed.light_gray=\n§r§7Vela grigio chiaro
+item.sailboat.dyed.cyan=\n§r§7Vela ciano
+item.sailboat.dyed.purple=\n§r§7Vela viola
+item.sailboat.dyed.blue=\n§r§7Vela blu
+item.sailboat.dyed.brown=\n§r§7Vela marrone
+item.sailboat.dyed.green=\n§r§7Vela verde
+item.sailboat.dyed.red=\n§r§7Vela Rossa
+item.sailboat.dyed.black=\n§r§7Vela nera
 
 item.record_balloonpop.desc=George Vide - CRAcK@$
 item.record_open.desc=George Vide - Pantaloni Puma
@@ -88,6 +114,7 @@ entity.tcsmp:lightning_bottle.name=Bottiglia di Fulmine
 entity.tcsmp:tempered_warp_crystal.name=Cristallo di ordito temperato
 entity.tcsmp:faded_zombie.name=Zombie sbiadito
 entity.tcsmp:faded_skeleton.name=Scheletro sbiadito
+entity.tcsmp:sailboat.name=Barca a vela
 
 action.hint.exit.tcsmp:grappling_hook_seat=Accovacciati o salta per staccarti
 action.hint.exit.tcsmp:cannon=Accovacciati o salta per smettere di mirare
@@ -96,6 +123,15 @@ action.hint.exit.tcsmp:unicorn=Tocca furtivo per smontare
 action.interact.ride.tcsmp:unicorn=Cavalca
 action.interact.gerbil=Interagisci per ritirare
 action.interact.creeper.lightning=Lampo di bottiglia
+action.hint.exit.tcsmp:oak_sailboat=Premi :_input_key.jump: per uscire dalla barca a vela
+action.hint.exit.tcsmp:spruce_sailboat=Premi :_input_key.jump: per uscire dalla barca a vela
+action.hint.exit.tcsmp:birch_sailboat=Premi :_input_key.jump: per uscire dalla barca a vela
+action.hint.exit.tcsmp:jungle_sailboat=Premi :_input_key.jump: per uscire dalla barca a vela
+action.hint.exit.tcsmp:acacia_sailboat=Premi :_input_key.jump: per uscire dalla barca a vela
+action.hint.exit.tcsmp:dark_oak_sailboat=Premi :_input_key.jump: per uscire dalla barca a vela
+action.hint.exit.tcsmp:mangrove_sailboat=Premi :_input_key.jump: per uscire dalla barca a vela
+action.hint.exit.tcsmp:cherry_sailboat=Premi :_input_key.jump: per uscire dalla barca a vela
+action.hint.exit.tcsmp:pale_oak_sailboat=Premi :_input_key.jump: per uscire dalla barca a vela
 
 container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NIscrizione
 
@@ -178,6 +214,7 @@ info.return_scroll.no_waystones=Non hai pietre miliari disponibili a cui tornare
 itemGroup.tcsmp:waystones=Pietre miliari
 itemGroup.tcsmp:spell_scrolls=Pergamene di incantesimi
 itemGroup.tcsmp:cannonballs=Palle di cannone
+itemGroup.tcsmp:sailboats=Barche a vela
 
 subtitles.entity.wolf.pet=Volant di pelliccia
 subtitles.block.waystone.travel=Trilli di Waystone

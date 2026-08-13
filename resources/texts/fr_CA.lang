@@ -32,6 +32,15 @@ item.tcsmp:barnacle_fang.name=Croc de balane
 item.tcsmp:tempered_warp_crystal.name=Cristal de distorsion trempé
 item.tcsmp:scroll_of_nausea.name=Parchemin de vapeur sulfureuse
 item.tcsmp:scroll_of_undead.name=Parchemin des morts-vivants
+item.tcsmp:oak_sailboat.name=Voilier en chêne
+item.tcsmp:spruce_sailboat.name=Voilier en épicéa
+item.tcsmp:birch_sailboat.name=Voilier en bouleau
+item.tcsmp:jungle_sailboat.name=Voilier de la jungle
+item.tcsmp:acacia_sailboat.name=Voilier Acacia
+item.tcsmp:dark_oak_sailboat.name=Voilier en chêne foncé
+item.tcsmp:mangrove_sailboat.name=Voilier Mangrove
+item.tcsmp:cherry_sailboat.name=Voilier Cerise
+item.tcsmp:pale_oak_sailboat.name=Voilier en chêne pâle
 
 lore.random_damage=\n§r§9+§kg§r§9 Dégâts d'attaque§r
 lore.fire_cannonball=§r§cmet le feu aux cibles§r
@@ -40,6 +49,23 @@ lore.poison_cannonball=§r§cApplique du poison (0:10)§r
 lore.slowness_cannonball=§r§cApplique la lenteur (0:10)§r
 lore.wither_cannonball=§r§cApplique Wither (0:10)§r
 lore.prismarine_blade_backstab=§r§9+7 Dégâts de poignardage§r
+
+item.sailboat.dyed.white=\n§r§7Voile Blanche
+item.sailboat.dyed.orange=\n§r§7Voile Orange
+item.sailboat.dyed.magenta=\n§r§7Voile Magenta
+item.sailboat.dyed.light_blue=\n§r§7Voile bleu clair
+item.sailboat.dyed.yellow=\n§r§7Voile jaune
+item.sailboat.dyed.lime=\n§r§7Voile Lime
+item.sailboat.dyed.pink=\n§r§7Voile Rose
+item.sailboat.dyed.gray=\n§r§7Voile Grise
+item.sailboat.dyed.light_gray=\n§r§7Voile gris clair
+item.sailboat.dyed.cyan=\n§r§7Voile cyan
+item.sailboat.dyed.purple=\n§r§7Voile violette
+item.sailboat.dyed.blue=\n§r§7Voile Bleue
+item.sailboat.dyed.brown=\n§r§7Voile marron
+item.sailboat.dyed.green=\n§r§7Voile Verte
+item.sailboat.dyed.red=\n§r§7Voile rouge
+item.sailboat.dyed.black=\n§r§7Voile Noire
 
 item.record_balloonpop.desc=George Vide - CRACK@$
 item.record_open.desc=George Vide - Pantalon Puma
@@ -88,6 +114,7 @@ entity.tcsmp:lightning_bottle.name=Bouteille de foudre
 entity.tcsmp:tempered_warp_crystal.name=Cristal de distorsion trempé
 entity.tcsmp:faded_zombie.name=Zombie fané
 entity.tcsmp:faded_skeleton.name=Squelette fané
+entity.tcsmp:sailboat.name=Voilier
 
 action.hint.exit.tcsmp:grappling_hook_seat=Accroupissez-vous ou sautez pour vous détacher
 action.hint.exit.tcsmp:cannon=Accroupissez-vous ou sautez pour arrêter de viser
@@ -96,6 +123,15 @@ action.hint.exit.tcsmp:unicorn=Appuyez sur furtivement pour descendre
 action.interact.ride.tcsmp:unicorn=Balade
 action.interact.gerbil=Interagissez pour récupérer
 action.interact.creeper.lightning=Éclairage de bouteille
+action.hint.exit.tcsmp:oak_sailboat=Appuyez sur :_input_key.jump : pour sortir du voilier
+action.hint.exit.tcsmp:spruce_sailboat=Appuyez sur :_input_key.jump : pour sortir du voilier
+action.hint.exit.tcsmp:birch_sailboat=Appuyez sur :_input_key.jump : pour sortir du voilier
+action.hint.exit.tcsmp:jungle_sailboat=Appuyez sur :_input_key.jump : pour sortir du voilier
+action.hint.exit.tcsmp:acacia_sailboat=Appuyez sur :_input_key.jump : pour sortir du voilier
+action.hint.exit.tcsmp:dark_oak_sailboat=Appuyez sur :_input_key.jump : pour sortir du voilier
+action.hint.exit.tcsmp:mangrove_sailboat=Appuyez sur :_input_key.jump : pour sortir du voilier
+action.hint.exit.tcsmp:cherry_sailboat=Appuyez sur :_input_key.jump : pour sortir du voilier
+action.hint.exit.tcsmp:pale_oak_sailboat=Appuyez sur :_input_key.jump : pour sortir du voilier
 
 container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NIInscription
 
@@ -178,6 +214,7 @@ info.return_scroll.no_waystones=Vous n'avez aucune étape disponible vers laquel
 itemGroup.tcsmp:waystones=Pierres de passage
 itemGroup.tcsmp:spell_scrolls=Parchemins de sorts
 itemGroup.tcsmp:cannonballs=Boulets de canon
+itemGroup.tcsmp:sailboats=Voiliers
 
 subtitles.entity.wolf.pet=Volants en fourrure
 subtitles.block.waystone.travel=Gazouillis de Waystone

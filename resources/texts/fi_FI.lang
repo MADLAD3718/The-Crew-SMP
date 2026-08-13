@@ -32,6 +32,15 @@ item.tcsmp:barnacle_fang.name=Barnacle Fang
 item.tcsmp:tempered_warp_crystal.name=Karkaistu loimikristalli
 item.tcsmp:scroll_of_nausea.name=Rikkipitoisen höyryn kirjakäärö
 item.tcsmp:scroll_of_undead.name=Undead-rulla
+item.tcsmp:oak_sailboat.name=Oak Sailboat
+item.tcsmp:spruce_sailboat.name=Kuusen purjevene
+item.tcsmp:birch_sailboat.name=Koivupurjevene
+item.tcsmp:jungle_sailboat.name=Viidakon purjevene
+item.tcsmp:acacia_sailboat.name=Acacia-purjevene
+item.tcsmp:dark_oak_sailboat.name=Dark Oak Sailboat
+item.tcsmp:mangrove_sailboat.name=Mangrove-purjevene
+item.tcsmp:cherry_sailboat.name=Kirsikkapurjevene
+item.tcsmp:pale_oak_sailboat.name=Vaalean tammisen purjevene
 
 lore.random_damage=\n§r§9+§kg§r§9 Attack Damage§r
 lore.fire_cannonball=§r§cAsettaa tavoitteet tulessa§r
@@ -40,6 +49,23 @@ lore.poison_cannonball=§r§cKäyttää Poison (0:10)§r
 lore.slowness_cannonball=§r§cKäyttää hidasta (0:10)§r
 lore.wither_cannonball=§r§cKoskee säröä (0:10)§r
 lore.prismarine_blade_backstab=§r§9+7 Selkäpukotusvaurio§r
+
+item.sailboat.dyed.white=\n§r§7Valkoinen purje
+item.sailboat.dyed.orange=\n§r§7Orange Sail
+item.sailboat.dyed.magenta=\n§r§7Magenta Sail
+item.sailboat.dyed.light_blue=\n§r§7Vaaleansininen purje
+item.sailboat.dyed.yellow=\n§r§7Keltainen purje
+item.sailboat.dyed.lime=\n§r§7Lime Sail
+item.sailboat.dyed.pink=\n§r§7Pink Sail
+item.sailboat.dyed.gray=\n§r§7Harmaa purje
+item.sailboat.dyed.light_gray=\n§r§7Vaaleanharmaa purje
+item.sailboat.dyed.cyan=\n§r§7Syaanipurje
+item.sailboat.dyed.purple=\n§r§7Purple Sail
+item.sailboat.dyed.blue=\n§r§7Blue Sail
+item.sailboat.dyed.brown=\n§r§7Ruskea purje
+item.sailboat.dyed.green=\n§r§7Vihreä purje
+item.sailboat.dyed.red=\n§r§7Red Sail
+item.sailboat.dyed.black=\n§r§7Musta purje
 
 item.record_balloonpop.desc=George Vide - CRAcK@$
 item.record_open.desc=George Vide - Puma-housut
@@ -88,6 +114,7 @@ entity.tcsmp:lightning_bottle.name=Salaman pullo
 entity.tcsmp:tempered_warp_crystal.name=Karkaistu loimikristalli
 entity.tcsmp:faded_zombie.name=Haalistunut zombie
 entity.tcsmp:faded_skeleton.name=Haalistunut luuranko
+entity.tcsmp:sailboat.name=Purjevene
 
 action.hint.exit.tcsmp:grappling_hook_seat=Kyykistyy tai hyppää irti
 action.hint.exit.tcsmp:cannon=Kyyristy tai hyppää lopettaaksesi tähtäyksen
@@ -96,6 +123,15 @@ action.hint.exit.tcsmp:unicorn=Napauta hiipiä poistuaksesi
 action.interact.ride.tcsmp:unicorn=Ratsastaa
 action.interact.gerbil=Ole vuorovaikutuksessa poimiaksesi
 action.interact.creeper.lightning=Pullon salama
+action.hint.exit.tcsmp:oak_sailboat=Paina :_input_key.jump: poistuaksesi purjeveneestä
+action.hint.exit.tcsmp:spruce_sailboat=Paina :_input_key.jump: poistuaksesi purjeveneestä
+action.hint.exit.tcsmp:birch_sailboat=Paina :_input_key.jump: poistuaksesi purjeveneestä
+action.hint.exit.tcsmp:jungle_sailboat=Paina :_input_key.jump: poistuaksesi purjeveneestä
+action.hint.exit.tcsmp:acacia_sailboat=Paina :_input_key.jump: poistuaksesi purjeveneestä
+action.hint.exit.tcsmp:dark_oak_sailboat=Paina :_input_key.jump: poistuaksesi purjeveneestä
+action.hint.exit.tcsmp:mangrove_sailboat=Paina :_input_key.jump: poistuaksesi purjeveneestä
+action.hint.exit.tcsmp:cherry_sailboat=Paina :_input_key.jump: poistuaksesi purjeveneestä
+action.hint.exit.tcsmp:pale_oak_sailboat=Paina :_input_key.jump: poistuaksesi purjeveneestä
 
 container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NIkirjoitus
 
@@ -108,7 +144,7 @@ action.setup.faction_invite.cancel=Peruuta
 
 action.join.faction.fail=Olet jo ryhmässä!
 action.join.faction.invalid=%s ei ole enää olemassa!
-action.join.faction.title=Ryhmäkutsu
+action.join.faction.title=Ryhmän kutsu
 action.join.faction.accept=Liity §%s%s§r:iin
 action.join.faction.reject=Hylkää
 
@@ -120,7 +156,7 @@ action.create.faction.success=Fraktion §%s%s§r luominen onnistui!
 action.create.faction.fail=Fraktio "§%s%s§r" on virheellinen, ryhmän luominen epäonnistui
 
 action.manage.faction.title=Hallitse ryhmää
-action.manage.faction.body=Hallitse §%s%s§r:
+action.manage.faction.body=Hallinnoi §%s%s§r:
 action.manage.faction.edit_name=Muokkaa nimeä
 action.manage.faction.edit_players=Muokkaa pelaajia
 action.manage.faction.edit_colour=Muokkaa väriä
@@ -178,6 +214,7 @@ info.return_scroll.no_waystones=Sinulla ei ole käytettävissä olevia polkukivi
 itemGroup.tcsmp:waystones=Reittikiviä
 itemGroup.tcsmp:spell_scrolls=Spell Scrolls
 itemGroup.tcsmp:cannonballs=Tykinkuulat
+itemGroup.tcsmp:sailboats=Purjeveneet
 
 subtitles.entity.wolf.pet=Turkisröyhelöt
 subtitles.block.waystone.travel=Waystonen kourat

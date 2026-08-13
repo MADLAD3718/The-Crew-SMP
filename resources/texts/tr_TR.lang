@@ -32,6 +32,15 @@ item.tcsmp:barnacle_fang.name=Midye Dişi
 item.tcsmp:tempered_warp_crystal.name=Temperlenmiş Çözgü Kristali
 item.tcsmp:scroll_of_nausea.name=Kükürtlü Buhar Parşömeni
 item.tcsmp:scroll_of_undead.name=Ölümsüzlerin Parşömeni
+item.tcsmp:oak_sailboat.name=Meşe Yelkenli
+item.tcsmp:spruce_sailboat.name=Ladin Yelkenli
+item.tcsmp:birch_sailboat.name=Huş Yelkenli
+item.tcsmp:jungle_sailboat.name=Orman Yelkenlisi
+item.tcsmp:acacia_sailboat.name=Akasya Yelkenlisi
+item.tcsmp:dark_oak_sailboat.name=Koyu Meşe Yelkenli
+item.tcsmp:mangrove_sailboat.name=Mangrov Yelkenlisi
+item.tcsmp:cherry_sailboat.name=Kiraz Yelkenli
+item.tcsmp:pale_oak_sailboat.name=Soluk Meşe Yelkenli
 
 lore.random_damage=\n§r§9+§kg§r§9 Saldırı Hasarı§r
 lore.fire_cannonball=§r§cAteş Konusunda Hedefleri Belirler§r
@@ -40,6 +49,23 @@ lore.poison_cannonball=§r§cZehir Uygular (0:10)§r
 lore.slowness_cannonball=§r§cYavaşlık Uygular (0:10)§r
 lore.wither_cannonball=§r§cSoldurma Uygulanır (0:10)§r
 lore.prismarine_blade_backstab=§r§9+7 Arkadan Bıçaklama Hasarı§r
+
+item.sailboat.dyed.white=\n§r§7Beyaz Yelken
+item.sailboat.dyed.orange=\n§r§7Turuncu Yelken
+item.sailboat.dyed.magenta=\n§r§7Macenta Yelken
+item.sailboat.dyed.light_blue=\n§r§7Açık Mavi Yelken
+item.sailboat.dyed.yellow=\n§r§7Sarı Yelken
+item.sailboat.dyed.lime=\n§r§7Kireç Yelkeni
+item.sailboat.dyed.pink=\n§r§7Pembe Yelken
+item.sailboat.dyed.gray=\n§r§7Gri Yelken
+item.sailboat.dyed.light_gray=\n§r§7Açık Gri Yelken
+item.sailboat.dyed.cyan=\n§r§7Mavi Yelken
+item.sailboat.dyed.purple=\n§r§7Mor Yelken
+item.sailboat.dyed.blue=\n§r§7Mavi Yelken
+item.sailboat.dyed.brown=\n§r§7Kahverengi Yelken
+item.sailboat.dyed.green=\n§r§7Yeşil Yelken
+item.sailboat.dyed.red=\n§r§7Kırmızı Yelken
+item.sailboat.dyed.black=\n§r§7Kara Yelken
 
 item.record_balloonpop.desc=George Vide - CRAcK@$
 item.record_open.desc=George Vide - Puma Pantolon
@@ -88,6 +114,7 @@ entity.tcsmp:lightning_bottle.name=Şimşek Şişesi
 entity.tcsmp:tempered_warp_crystal.name=Temperlenmiş Çözgü Kristali
 entity.tcsmp:faded_zombie.name=Solmuş Zombi
 entity.tcsmp:faded_skeleton.name=Solmuş İskelet
+entity.tcsmp:sailboat.name=Yelkenli
 
 action.hint.exit.tcsmp:grappling_hook_seat=Ayrılmak için çömelin veya atlayın
 action.hint.exit.tcsmp:cannon=Nişan almayı durdurmak için çömelin veya zıplayın
@@ -96,6 +123,15 @@ action.hint.exit.tcsmp:unicorn=İnmek için gizlice dokunun
 action.interact.ride.tcsmp:unicorn=yolculuk
 action.interact.gerbil=Almak için etkileşim kurun
 action.interact.creeper.lightning=Şişe yıldırım
+action.hint.exit.tcsmp:oak_sailboat=Yelkenliden çıkmak için :_input_key.jump: tuşuna basın
+action.hint.exit.tcsmp:spruce_sailboat=Yelkenliden çıkmak için :_input_key.jump: tuşuna basın
+action.hint.exit.tcsmp:birch_sailboat=Yelkenliden çıkmak için :_input_key.jump: tuşuna basın
+action.hint.exit.tcsmp:jungle_sailboat=Yelkenliden çıkmak için :_input_key.jump: tuşuna basın
+action.hint.exit.tcsmp:acacia_sailboat=Yelkenliden çıkmak için :_input_key.jump: tuşuna basın
+action.hint.exit.tcsmp:dark_oak_sailboat=Yelkenliden çıkmak için :_input_key.jump: tuşuna basın
+action.hint.exit.tcsmp:mangrove_sailboat=Yelkenliden çıkmak için :_input_key.jump: tuşuna basın
+action.hint.exit.tcsmp:cherry_sailboat=Yelkenliden çıkmak için :_input_key.jump: tuşuna basın
+action.hint.exit.tcsmp:pale_oak_sailboat=Yelkenliden çıkmak için :_input_key.jump: tuşuna basın
 
 container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NYazı
 
@@ -178,6 +214,7 @@ info.return_scroll.no_waystones=Geri dönebileceğiniz kullanılabilir yol taş�
 itemGroup.tcsmp:waystones=Yol taşları
 itemGroup.tcsmp:spell_scrolls=Yazım Parşömenleri
 itemGroup.tcsmp:cannonballs=Gülleler
+itemGroup.tcsmp:sailboats=Yelkenli tekneler
 
 subtitles.entity.wolf.pet=Kürk fırfırlar
 subtitles.block.waystone.travel=Yol taşı uğultuları

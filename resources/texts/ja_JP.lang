@@ -32,6 +32,15 @@ item.tcsmp:barnacle_fang.name=フジツボの牙
 item.tcsmp:tempered_warp_crystal.name=強化ワープクリスタル
 item.tcsmp:scroll_of_nausea.name=硫黄蒸気の巻物
 item.tcsmp:scroll_of_undead.name=アンデッドの巻物
+item.tcsmp:oak_sailboat.name=オークヨット
+item.tcsmp:spruce_sailboat.name=スプルースヨット
+item.tcsmp:birch_sailboat.name=白樺の帆船
+item.tcsmp:jungle_sailboat.name=ジャングルヨット
+item.tcsmp:acacia_sailboat.name=アカシアヨット
+item.tcsmp:dark_oak_sailboat.name=ダークオークのヨット
+item.tcsmp:mangrove_sailboat.name=マングローブヨット
+item.tcsmp:cherry_sailboat.name=チェリーヨット
+item.tcsmp:pale_oak_sailboat.name=ペールオークのヨット
 
 lore.random_damage=\n§r§9+§kg§r§9 攻撃ダメージ§r
 lore.fire_cannonball=§r§cターゲットに火をつける§r
@@ -40,6 +49,23 @@ lore.poison_cannonball=§r§c毒付与(0:10)§r
 lore.slowness_cannonball=§r§c遅さを適用 (0:10)§r
 lore.wither_cannonball=§r§cウィザーを適用 (0:10)§r
 lore.prismarine_blade_backstab=§r§9+7 バックスタブダメージ§r
+
+item.sailboat.dyed.white=\n§r§7白い帆
+item.sailboat.dyed.orange=\n§r§7オレンジセイル
+item.sailboat.dyed.magenta=\n§r§7マゼンタの帆
+item.sailboat.dyed.light_blue=\n§r§7ライトブルーセイル
+item.sailboat.dyed.yellow=\n§r§7イエローセイル
+item.sailboat.dyed.lime=\n§r§7ライムセイル
+item.sailboat.dyed.pink=\n§r§7ピンクセイル
+item.sailboat.dyed.gray=\n§r§7灰色の帆
+item.sailboat.dyed.light_gray=\n§r§7ライトグレーの帆
+item.sailboat.dyed.cyan=\n§r§7シアンセイル
+item.sailboat.dyed.purple=\n§r§7パープルセイル
+item.sailboat.dyed.blue=\n§r§7ブルーセイル
+item.sailboat.dyed.brown=\n§r§7ブラウンセイル
+item.sailboat.dyed.green=\n§r§7グリーンセイル
+item.sailboat.dyed.red=\n§r§7赤い帆
+item.sailboat.dyed.black=\n§r§7ブラックセイル
 
 item.record_balloonpop.desc=ジョージ・ビデオ - CRAcK@$
 item.record_open.desc=George Vide - プーマ パンツ
@@ -88,6 +114,7 @@ entity.tcsmp:lightning_bottle.name=ボトル・オ・ライトニング
 entity.tcsmp:tempered_warp_crystal.name=強化ワープクリスタル
 entity.tcsmp:faded_zombie.name=色あせたゾンビ
 entity.tcsmp:faded_skeleton.name=色あせたスケルトン
+entity.tcsmp:sailboat.name=ヨット
 
 action.hint.exit.tcsmp:grappling_hook_seat=しゃがむかジャンプして切り離す
 action.hint.exit.tcsmp:cannon=しゃがむかジャンプして照準を止める
@@ -96,6 +123,15 @@ action.hint.exit.tcsmp:unicorn=スニークをタップして降ります
 action.interact.ride.tcsmp:unicorn=乗る
 action.interact.gerbil=対話して受け取ります
 action.interact.creeper.lightning=ボトルライトニング
+action.hint.exit.tcsmp:oak_sailboat=:_input_key.jump: を押してヨットから降ります
+action.hint.exit.tcsmp:spruce_sailboat=:_input_key.jump: を押してヨットから降ります
+action.hint.exit.tcsmp:birch_sailboat=:_input_key.jump: を押してヨットから降ります
+action.hint.exit.tcsmp:jungle_sailboat=:_input_key.jump: を押してヨットから降ります
+action.hint.exit.tcsmp:acacia_sailboat=:_input_key.jump: を押してヨットから降ります
+action.hint.exit.tcsmp:dark_oak_sailboat=:_input_key.jump: を押してヨットから降ります
+action.hint.exit.tcsmp:mangrove_sailboat=:_input_key.jump: を押してヨットから降ります
+action.hint.exit.tcsmp:cherry_sailboat=:_input_key.jump: を押してヨットから降ります
+action.hint.exit.tcsmp:pale_oak_sailboat=:_input_key.jump: を押してヨットから降ります
 
 container.inscription_table=§I§N§S§C§R§I§P§T§I§O§N碑文
 
@@ -115,7 +151,7 @@ action.join.faction.reject=拒否する
 action.create.faction.title=派閥の作成
 action.create.faction.name=派閥名
 action.create.faction.name_placeholder=最大16文字...
-action.create.faction.submit=作成
+action.create.faction.submit=作成する
 action.create.faction.success=ファクション§%s%s§r が正常に作成されました!
 action.create.faction.fail=ファクション「§%s%s§r」は無効です。ファクションの作成に失敗しました
 
@@ -178,6 +214,7 @@ info.return_scroll.no_waystones=戻ることができるウェイストーンが
 itemGroup.tcsmp:waystones=ウェイストーン
 itemGroup.tcsmp:spell_scrolls=魔法の巻物
 itemGroup.tcsmp:cannonballs=砲弾
+itemGroup.tcsmp:sailboats=ヨット
 
 subtitles.entity.wolf.pet=ファーフリル
 subtitles.block.waystone.travel=道石のさえずり

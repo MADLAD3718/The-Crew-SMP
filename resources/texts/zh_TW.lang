@@ -32,6 +32,15 @@ item.tcsmp:barnacle_fang.name=藤壶尖牙
 item.tcsmp:tempered_warp_crystal.name=淬火扭曲水晶
 item.tcsmp:scroll_of_nausea.name=硫磺蒸气卷轴
 item.tcsmp:scroll_of_undead.name=亡灵卷轴
+item.tcsmp:oak_sailboat.name=橡木帆船
+item.tcsmp:spruce_sailboat.name=云杉帆船
+item.tcsmp:birch_sailboat.name=桦木帆船
+item.tcsmp:jungle_sailboat.name=丛林帆船
+item.tcsmp:acacia_sailboat.name=相思帆船
+item.tcsmp:dark_oak_sailboat.name=深色橡木帆船
+item.tcsmp:mangrove_sailboat.name=红树林帆船
+item.tcsmp:cherry_sailboat.name=樱桃帆船
+item.tcsmp:pale_oak_sailboat.name=淡橡木帆船
 
 lore.random_damage=\n§r§9+§kg§r§9攻击力§r
 lore.fire_cannonball=§r§c点燃目标§r
@@ -40,6 +49,23 @@ lore.poison_cannonball=§r§c施加毒药 (0:10)§r
 lore.slowness_cannonball=§r§c应用缓慢 (0:10)§r
 lore.wither_cannonball=§r§c应用枯萎 (0:10)§r
 lore.prismarine_blade_backstab=§r§9+7 背刺伤害§r
+
+item.sailboat.dyed.white=\n§r§7白帆
+item.sailboat.dyed.orange=\n§r§7橙帆
+item.sailboat.dyed.magenta=\n§r§7洋红色帆
+item.sailboat.dyed.light_blue=\n§r§7浅蓝色帆
+item.sailboat.dyed.yellow=\n§r§7黄帆
+item.sailboat.dyed.lime=\n§r§7石灰帆
+item.sailboat.dyed.pink=\n§r§7粉红帆
+item.sailboat.dyed.gray=\n§r§7灰帆
+item.sailboat.dyed.light_gray=\n§r§7浅灰色帆
+item.sailboat.dyed.cyan=\n§r§7青帆
+item.sailboat.dyed.purple=\n§r§7紫帆
+item.sailboat.dyed.blue=\n§r§7蓝帆
+item.sailboat.dyed.brown=\n§r§7棕色帆
+item.sailboat.dyed.green=\n§r§7绿帆
+item.sailboat.dyed.red=\n§r§7红帆
+item.sailboat.dyed.black=\n§r§7黑帆
 
 item.record_balloonpop.desc=乔治·维德 - CRAcK@$
 item.record_open.desc=George Vide - 彪马裤子
@@ -88,6 +114,7 @@ entity.tcsmp:lightning_bottle.name=闪电瓶
 entity.tcsmp:tempered_warp_crystal.name=淬火扭曲水晶
 entity.tcsmp:faded_zombie.name=褪色的僵尸
 entity.tcsmp:faded_skeleton.name=褪色的骷髅
+entity.tcsmp:sailboat.name=帆船
 
 action.hint.exit.tcsmp:grappling_hook_seat=蹲下或跳跃以分离
 action.hint.exit.tcsmp:cannon=蹲下或跳跃以停止瞄准
@@ -96,6 +123,15 @@ action.hint.exit.tcsmp:unicorn=点击潜行即可下马
 action.interact.ride.tcsmp:unicorn=骑行
 action.interact.gerbil=互动领取
 action.interact.creeper.lightning=瓶子闪电
+action.hint.exit.tcsmp:oak_sailboat=按 :_input_key.jump: 退出帆船
+action.hint.exit.tcsmp:spruce_sailboat=按 :_input_key.jump: 退出帆船
+action.hint.exit.tcsmp:birch_sailboat=按 :_input_key.jump: 退出帆船
+action.hint.exit.tcsmp:jungle_sailboat=按 :_input_key.jump: 退出帆船
+action.hint.exit.tcsmp:acacia_sailboat=按 :_input_key.jump: 退出帆船
+action.hint.exit.tcsmp:dark_oak_sailboat=按 :_input_key.jump: 退出帆船
+action.hint.exit.tcsmp:mangrove_sailboat=按 :_input_key.jump: 退出帆船
+action.hint.exit.tcsmp:cherry_sailboat=按 :_input_key.jump: 退出帆船
+action.hint.exit.tcsmp:pale_oak_sailboat=按 :_input_key.jump: 退出帆船
 
 container.inscription_table=§I§N§S§C§R§I§P§T§I§O§N铭文
 
@@ -178,6 +214,7 @@ info.return_scroll.no_waystones=您没有可用的路标可供返回
 itemGroup.tcsmp:waystones=路石
 itemGroup.tcsmp:spell_scrolls=法术卷轴
 itemGroup.tcsmp:cannonballs=炮弹
+itemGroup.tcsmp:sailboats=帆船
 
 subtitles.entity.wolf.pet=毛皮褶边
 subtitles.block.waystone.travel=路石颤音

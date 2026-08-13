@@ -32,6 +32,15 @@ item.tcsmp:barnacle_fang.name=Ракообразный клык
 item.tcsmp:tempered_warp_crystal.name=Закаленный кристалл деформации
 item.tcsmp:scroll_of_nausea.name=Свиток сернистого пара
 item.tcsmp:scroll_of_undead.name=Свиток нежити
+item.tcsmp:oak_sailboat.name=Дуб Парусник
+item.tcsmp:spruce_sailboat.name=Еловый парусник
+item.tcsmp:birch_sailboat.name=Березовый парусник
+item.tcsmp:jungle_sailboat.name=Джунгли Парусник
+item.tcsmp:acacia_sailboat.name=Акация Парусник
+item.tcsmp:dark_oak_sailboat.name=Парусник из темного дуба
+item.tcsmp:mangrove_sailboat.name=Мангровый парусник
+item.tcsmp:cherry_sailboat.name=Вишневый парусник
+item.tcsmp:pale_oak_sailboat.name=Парусник из бледного дуба
 
 lore.random_damage=\n§r§9+§kg§r§9 Урон от атаки§r
 lore.fire_cannonball=§r§cПоджигает цели§r
@@ -40,6 +49,23 @@ lore.poison_cannonball=§r§cПрименяет яд (0:10)§r
 lore.slowness_cannonball=§r§cПрименяет замедление (0:10)§r
 lore.wither_cannonball=§r§cПрименяется Увядание (0:10)§r
 lore.prismarine_blade_backstab=§r§9+7 Урон от удара в спину§r
+
+item.sailboat.dyed.white=\n§r§7Белый парус
+item.sailboat.dyed.orange=\n§r§7Оранжевый парус
+item.sailboat.dyed.magenta=\n§r§7Пурпурный парус
+item.sailboat.dyed.light_blue=\n§r§7Светло-синий парус
+item.sailboat.dyed.yellow=\n§r§7Желтый парус
+item.sailboat.dyed.lime=\n§r§7Лаймовый парус
+item.sailboat.dyed.pink=\n§r§7Розовый парус
+item.sailboat.dyed.gray=\n§r§7Серый парус
+item.sailboat.dyed.light_gray=\n§r§7Светло-серый парус
+item.sailboat.dyed.cyan=\n§r§7Голубой парус
+item.sailboat.dyed.purple=\n§r§7Фиолетовый парус
+item.sailboat.dyed.blue=\n§r§7Синий парус
+item.sailboat.dyed.brown=\n§r§7Коричневый парус
+item.sailboat.dyed.green=\n§r§7Зеленый парус
+item.sailboat.dyed.red=\n§r§7Красный парус
+item.sailboat.dyed.black=\n§r§7Черный парус
 
 item.record_balloonpop.desc=Джордж Виде - CRAcK@$
 item.record_open.desc=Джордж Виде - Брюки Puma
@@ -88,6 +114,7 @@ entity.tcsmp:lightning_bottle.name=Бутылка с молнией
 entity.tcsmp:tempered_warp_crystal.name=Закаленный кристалл деформации
 entity.tcsmp:faded_zombie.name=Выцветший зомби
 entity.tcsmp:faded_skeleton.name=Выцветший скелет
+entity.tcsmp:sailboat.name=Парусник
 
 action.hint.exit.tcsmp:grappling_hook_seat=Присядьте или подпрыгните, чтобы оторваться
 action.hint.exit.tcsmp:cannon=Присядьте или подпрыгните, чтобы перестать прицеливаться
@@ -96,6 +123,15 @@ action.hint.exit.tcsmp:unicorn=Нажмите «Подкрасться», что
 action.interact.ride.tcsmp:unicorn=Поездка
 action.interact.gerbil=Взаимодействуйте, чтобы забрать
 action.interact.creeper.lightning=Бутылочная молния
+action.hint.exit.tcsmp:oak_sailboat=Нажмите :_input_key.jump:, чтобы выйти из парусника.
+action.hint.exit.tcsmp:spruce_sailboat=Нажмите :_input_key.jump:, чтобы выйти из парусника.
+action.hint.exit.tcsmp:birch_sailboat=Нажмите :_input_key.jump:, чтобы выйти из парусника.
+action.hint.exit.tcsmp:jungle_sailboat=Нажмите :_input_key.jump:, чтобы выйти из парусника.
+action.hint.exit.tcsmp:acacia_sailboat=Нажмите :_input_key.jump:, чтобы выйти из парусника.
+action.hint.exit.tcsmp:dark_oak_sailboat=Нажмите :_input_key.jump:, чтобы выйти из парусника.
+action.hint.exit.tcsmp:mangrove_sailboat=Нажмите :_input_key.jump:, чтобы выйти из парусника.
+action.hint.exit.tcsmp:cherry_sailboat=Нажмите :_input_key.jump:, чтобы выйти из парусника.
+action.hint.exit.tcsmp:pale_oak_sailboat=Нажмите :_input_key.jump:, чтобы выйти из парусника.
 
 container.inscription_table=§I§N§S§C§R§I§P§T§I§O§NНадпись
 
@@ -178,6 +214,7 @@ info.return_scroll.no_waystones=У вас нет доступных путевы
 itemGroup.tcsmp:waystones=Путевые камни
 itemGroup.tcsmp:spell_scrolls=Свитки заклинаний
 itemGroup.tcsmp:cannonballs=Пушечные ядра
+itemGroup.tcsmp:sailboats=Парусники
 
 subtitles.entity.wolf.pet=Меховые оборки
 subtitles.block.waystone.travel=Трели путевого камня
