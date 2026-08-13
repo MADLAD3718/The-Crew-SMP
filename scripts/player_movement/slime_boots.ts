@@ -19,7 +19,8 @@ system.runInterval(() => {
 
         if (!player.isSneaking && player.isOnGround && !player.isInWater
             && lastVelocity < -0.375 && !wasRiding &&
-            !below_block?.matches(MinecraftBlockTypes.Slime)
+            !below_block?.matches(MinecraftBlockTypes.Slime) &&
+            !below_block?.matches(MinecraftBlockTypes.Bed)
         ) {
             const boots = equipment.getEquipment(EquipmentSlot.Feet);
             if (boots?.typeId == "tcsmp:slime_boots") {
