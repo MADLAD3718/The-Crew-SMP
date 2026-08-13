@@ -1,5 +1,6 @@
 import { Vec3 } from "@madlad3718/mcveclib";
 import { EntityDamageCause, Player, system, world } from "@minecraft/server";
+import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import BarnacleDefinition from "../../behaviours/entities/barnacle.entity.bp.json";
 
 const EATING_DAMAGE = BarnacleDefinition["minecraft:entity"].component_groups["tcsmp:eating_prey"]["minecraft:attack"].damage;
@@ -8,13 +9,14 @@ world.beforeEvents.entityHurt.subscribe(event => {
     const hurtEntity = event.hurtEntity;
     const damagingEntity = event.damageSource.damagingEntity;
     if (!hurtEntity.isValid || !damagingEntity?.isValid) return;
+    const resistance = hurtEntity.getEffect(MinecraftEffectTypes.Resistance)?.amplifier ?? 0;
 
     if (damagingEntity.matches({ type: "tcsmp:barnacle" })) {
         if (damagingEntity.getProperty("tcsmp:barnacle_state") == "consuming") return;
         const block_below = damagingEntity.dimension.getBlockBelow(
             damagingEntity.location, { maxDistance: 3 }
         );
-        if (block_below) event.damage = EATING_DAMAGE;
+        if (block_below) event.damage = EATING_DAMAGE * Math.max(0, 1 - 0.2 * resistance);
     }
     else if (hurtEntity.matches({ type: "tcsmp:barnacle" })) {
         if (hurtEntity.isInvunerable) return event.cancel = true;
