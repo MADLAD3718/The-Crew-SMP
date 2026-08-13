@@ -148,12 +148,30 @@
          "max_distance" : 20.0,
          "min_distance" : 10.0,
          "sounds" : [
-            "sounds/item/katana/dash_0",
-            "sounds/item/katana/dash_1",
-            "sounds/item/katana/dash_2",
-            "sounds/item/katana/dash_3",
-            "sounds/item/katana/dash_4",
-            "sounds/item/katana/dash_5"
+            {
+               "name": "sounds/item/katana/dash_0",
+               "volume": 0.5
+            },
+            {
+               "name": "sounds/item/katana/dash_1",
+               "volume": 0.5
+            },
+            {
+               "name": "sounds/item/katana/dash_2",
+               "volume": 0.5
+            },
+            {
+               "name": "sounds/item/katana/dash_3",
+               "volume": 0.5
+            },
+            {
+               "name": "sounds/item/katana/dash_4",
+               "volume": 0.5
+            },
+            {
+               "name": "sounds/item/katana/dash_5",
+               "volume": 0.5
+            }
          ],
          "subtitle": "subtitles.item.katana.dash"
       },

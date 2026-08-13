@@ -12,62 +12,63 @@ const DASH_TIME = TicksPerSecond * 0.2;
 const ParticleIntervals: Record<string, number> = {};
 
 world.afterEvents.itemReleaseUse.subscribe(event => {
-    const { source, itemStack, useDuration } = event;
-    const particles = ParticleIntervals[source.id];
+    const { source: player, itemStack, useDuration } = event;
+    const particles = ParticleIntervals[player.id];
     if (particles) system.clearRun(particles);
 
-    if (!source.isValid ||
+    if (!player.isValid || player.isGliding ||
         !itemStack?.hasComponent("tcsmp:katana")) return;
 
-    const { dimension } = source;
+    const { dimension } = player;
 
     if (MAX_DURATION - useDuration < USE_TIME)
-        return source.stopSound("katana.draw");
+        return player.stopSound("katana.draw");
 
-    const head = source.getHeadLocation();
-    source.dimension.playSound("katana.dash", head);
 
-    const view = source.getViewDirection();
+    const head = player.getHeadLocation();
+    player.dimension.playSound("katana.dash", head);
+
+    const view = player.getViewDirection();
     const direction = Vec3.normalize(Vec3.from(view.x, 0, view.z));
-    if (!source.isOnGround || source.isInWater)
-        return source.applyImpulse(Vec3.mul(direction, AIR_DASH_SPEED));
+    if (!player.isOnGround || player.isInWater)
+        return player.applyImpulse(Vec3.mul(direction, AIR_DASH_SPEED));
 
-    source.applyImpulse(Vec3.mul(direction, DASH_SPEED));
+    player.applyImpulse(Vec3.mul(direction, DASH_SPEED));
 
     const molang = new MolangVariableMap();
     molang.setVector3("direction", direction);
-    dimension.spawnParticle("tcsmp:katana_dash", source.location, molang);
+    dimension.spawnParticle("tcsmp:katana_dash", player.location, molang);
 
-    const slot = source.inventory.container.getSlot(source.selectedSlotIndex);
+    const slot = player.inventory.container.getSlot(player.selectedSlotIndex);
     slot.lockMode = ItemLockMode.slot;
 
     let ticks = 0, hits = 0;
     const hitEntityIds: string[] = [];
     const interval = system.runInterval(() => {
         const entities = dimension.getEntities({
-            location: source.location,
+            location: player.location,
             maxDistance: 4.5,
-            excludeNames: [source.name],
+            excludeNames: [player.name],
             excludeTypes: ["minecraft:item"]
         });
 
         for (const entity of entities) {
             if (hitEntityIds.find(id => id === entity.id)) continue;
-            const to_entity = Vec3.sub(entity.location, source.location);
+            const to_entity = Vec3.sub(entity.location, player.location);
             if (Vec3.dot(to_entity, direction) < 0) continue;
 
-            hits += +applyKatanaDamage(itemStack, source, entity);
+            hits += +applyKatanaDamage(itemStack, player, entity);
             hitEntityIds.push(entity.id);
         }
 
         if (ticks === DASH_TIME) {
             slot.lockMode = ItemLockMode.none;
-            if (source.getGameMode() !== GameMode.Creative && hits) {
+            if (player.getGameMode() !== GameMode.Creative && hits) {
                 slot.setItem(itemStack.damage(hits));
 
                 if (!slot.hasItem()) dimension.playSound(
                     "random.break",
-                    source.getHeadLocation(),
+                    player.getHeadLocation(),
                     { pitch: 0.9 }
                 );
             }
@@ -105,18 +106,21 @@ function applyKatanaDamage(katana: ItemStack, attacker: Entity, target: Entity):
 }
 
 const katanaComponent: ItemCustomComponent = {
-    onUse({ source }) {
-        // Why are we stopping this?
-        source.stopSound("katana.draw");
-        source.playSound("katana.draw");
+    onUse({ source: player }) {
+        if (!player.isValid || player.isGliding) return;
 
-        const particles = ParticleIntervals[source.id];
+        // Restart the sound in case it didn't
+        // finish playing in the previous use
+        player.stopSound("katana.draw");
+        player.playSound("katana.draw");
+
+        const particles = ParticleIntervals[player.id];
         if (particles) system.clearRun(particles);
 
-        const { dimension } = source;
-        ParticleIntervals[source.id] = system.runInterval(() => {
-            if (!source.isValid) return system.clearRun(ParticleIntervals[source.id]);
-            dimension.spawnParticle("tcsmp:katana_charge", source.location);
+        const { dimension } = player;
+        ParticleIntervals[player.id] = system.runInterval(() => {
+            if (!player.isValid) return system.clearRun(ParticleIntervals[player.id]);
+            dimension.spawnParticle("tcsmp:katana_charge", player.location);
         }, 2);
     }
 }
