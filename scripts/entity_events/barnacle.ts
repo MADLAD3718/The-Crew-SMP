@@ -45,9 +45,14 @@ world.afterEvents.entityHitEntity.subscribe(event => {
 
     draggedEntity.addTag("tcsmp:is_being_dragged");
     const interval = system.runInterval(() => {
-        // Check if target is still valid (accounts for player leave)
+        // Check if target is still valid (accounts for player leave or barnacle kill)
         if (!draggedEntity.isValid || !barnacle.isValid) {
-            if (draggedEntity.isValid) draggedEntity.removeTag("tcsmp:is_being_dragged");
+            if (draggedEntity.isValid) {
+                draggedEntity.removeTag("tcsmp:is_being_dragged");
+
+                if (draggedEntity instanceof Player)
+                    draggedEntity.onScreenDisplay.setTitle("overlay: none");
+            }
             return system.clearRun(interval);
         }
         // Move target into position
