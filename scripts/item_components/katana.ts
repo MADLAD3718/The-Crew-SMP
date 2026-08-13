@@ -24,7 +24,6 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
     if (MAX_DURATION - useDuration < USE_TIME)
         return player.stopSound("katana.draw");
 
-
     const head = player.getHeadLocation();
     player.dimension.playSound("katana.dash", head);
 
@@ -120,7 +119,8 @@ const katanaComponent: ItemCustomComponent = {
         const { dimension } = player;
         ParticleIntervals[player.id] = system.runInterval(() => {
             if (!player.isValid) return system.clearRun(ParticleIntervals[player.id]);
-            dimension.spawnParticle("tcsmp:katana_charge", player.location);
+            if (dimension.isChunkLoaded(player.location))
+                dimension.spawnParticle("tcsmp:katana_charge", player.location);
         }, 2);
     }
 }
