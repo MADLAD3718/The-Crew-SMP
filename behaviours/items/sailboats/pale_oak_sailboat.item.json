@@ -21,7 +21,10 @@
                 "entity": "tcsmp:pale_oak_sailboat"
             },
             "minecraft:liquid_clipped": true,
-            "minecraft:fuel": 120
+            "minecraft:fuel": 120,
+            "minecraft:tags": {
+                "tags": ["tcsmp:sailboat"]
+            }
         }
     }
 }

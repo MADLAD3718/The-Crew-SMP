@@ -56,6 +56,20 @@ const SlotDrops: Record<string, string> = {
 
 const InventorySizes = [9, 27, 54];
 
+world.beforeEvents.playerInteractWithBlock.subscribe(event => {
+    const { block, blockFace, itemStack, player } = event;
+    if (!player.isValid || !itemStack?.hasTag("tcsmp:sailboat") ||
+        !block.dimension.isChunkLoaded(block.location)) return;
+
+    system.run(() => {
+        const sailboat = block.dimension.getEntitiesAtBlockLocation(
+            Vec3.add(block.location, Vec3.fromDirection(blockFace))
+        )[0] as Entity | undefined;
+        const sailVariant = itemStack.getDynamicProperty("sail_colour") as number | undefined ?? 0
+        sailboat?.setProperty("tcsmp:sail_variant", sailVariant);
+    });
+});
+
 world.afterEvents.entitySpawn.subscribe(({ entity: sailboat }) => {
     if (!sailboat.isValid ||
         !sailboat.matches({ families: ["sailboat"] })) return;
@@ -285,6 +299,25 @@ function* handleSailboatHealing(): Generator<void, void, void> {
     }
 }
 
+const SailVariantLore: Array<string> = [
+    "item.sailboat.dyed.white",
+    "item.sailboat.dyed.orange",
+    "item.sailboat.dyed.magenta",
+    "item.sailboat.dyed.light_blue",
+    "item.sailboat.dyed.yellow",
+    "item.sailboat.dyed.lime",
+    "item.sailboat.dyed.pink",
+    "item.sailboat.dyed.gray",
+    "item.sailboat.dyed.light_gray",
+    "item.sailboat.dyed.cyan",
+    "item.sailboat.dyed.purple",
+    "item.sailboat.dyed.blue",
+    "item.sailboat.dyed.brown",
+    "item.sailboat.dyed.green",
+    "item.sailboat.dyed.red",
+    "item.sailboat.dyed.black",
+];
+
 world.beforeEvents.entityHurt.subscribe(event => {
     const { damage, damageSource, hurtEntity: sailboat } = event;
     if (!sailboat.isValid) return;
@@ -305,6 +338,10 @@ world.beforeEvents.entityHurt.subscribe(event => {
         }
         else if (damage >= health.currentValue) {
             const drop = new ItemStack(sailboat.typeId);
+
+            const sailVariant = sailboat.getProperty("tcsmp:sail_variant") as number;
+            drop.setDynamicProperty("sail_colour", sailVariant);
+            drop.setLore([{ translate: SailVariantLore[sailVariant] }]);
             sailboat.dimension.spawnItem(drop, sailboat.location);
 
             for (let i = 0; i < 4; ++i) {

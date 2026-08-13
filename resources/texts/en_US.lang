@@ -52,6 +52,23 @@ lore.slowness_cannonball=§r§cApplies Slowness (0:10)§r
 lore.wither_cannonball=§r§cApplies Wither (0:10)§r
 lore.prismarine_blade_backstab=§r§9+7 Backstab Damage§r
 
+item.sailboat.dyed.white=\n§r§7White Sail
+item.sailboat.dyed.orange=\n§r§7Orange Sail
+item.sailboat.dyed.magenta=\n§r§7Magenta Sail
+item.sailboat.dyed.light_blue=\n§r§7Light Blue Sail
+item.sailboat.dyed.yellow=\n§r§7Yellow Sail
+item.sailboat.dyed.lime=\n§r§7Lime Sail
+item.sailboat.dyed.pink=\n§r§7Pink Sail
+item.sailboat.dyed.gray=\n§r§7Gray Sail
+item.sailboat.dyed.light_gray=\n§r§7Light Gray Sail
+item.sailboat.dyed.cyan=\n§r§7Cyan Sail
+item.sailboat.dyed.purple=\n§r§7Purple Sail
+item.sailboat.dyed.blue=\n§r§7Blue Sail
+item.sailboat.dyed.brown=\n§r§7Brown Sail
+item.sailboat.dyed.green=\n§r§7Green Sail
+item.sailboat.dyed.red=\n§r§7Red Sail
+item.sailboat.dyed.black=\n§r§7Black Sail
+
 ## Record Descriptions
 item.record_balloonpop.desc=George Vide - CRAcK@$
 item.record_open.desc=George Vide - Puma Pants
