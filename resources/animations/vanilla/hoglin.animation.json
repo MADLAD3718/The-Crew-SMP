@@ -1,0 +1,17 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.hoglin.baby_scaling": {
+      "loop": true,
+      "bones": {
+        "mane": {
+          "position": [ 0.0, 0.0, 4.0 ]
+        },
+        "head": {
+          "position": [ 0.0, "math.lerp((1.0 - math.abs(10.0 - 16.0 * variable.attack_time) / 10.0), 2.0, 5.0)", 2.338181 ],
+          "scale": 1.577777
+        }
+      }
+    }
+  }
+}

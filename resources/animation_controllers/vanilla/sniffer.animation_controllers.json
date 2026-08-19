@@ -1,0 +1,53 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.sniffer.walk": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "walking": "query.modified_move_speed * (query.is_baby ? 0.23 / 0.35 : 1.0)"
+            }
+          ],
+          "blend_transition": 0.2
+        },
+        "walking": {
+          "animations": [
+            {
+              "walk": "variable.moving"
+            }
+          ],
+          "transitions": [
+            {
+              "default": "query.modified_move_speed * (query.is_baby ? 0.23 / 0.35 : 1.0) < 0"
+            }
+          ],
+          "blend_transition": 0.2
+        }
+      }
+    },
+    "controller.animation.sniffer.sniffsniff": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "sniffsniff": "query.modified_move_speed * (query.is_baby ? 0.65714 : 1.0) > 0.005 && !query.is_searching && !query.is_digging && !query.timer_flag_1 && !query.timer_flag_2"
+            }
+          ],
+          "blend_transition": 0.2
+        },
+        "sniffsniff": {
+          "animations": [ "sniffsniff" ],
+          "transitions": [
+            {
+              "default": "query.modified_move_speed * (query.is_baby ? 0.65714 : 1.0) < 0.005"
+            }
+          ],
+          "blend_transition": 0.2
+        }
+      }
+    }
+  }
+}

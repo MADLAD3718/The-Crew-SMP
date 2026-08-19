@@ -1,0 +1,84 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.humanoid.attack": {
+      "initial_state": "default",
+      "states": {
+        "attacking": {
+          "animations": [ "attack.rotations" ],
+          "transitions": [
+            {
+              "default": "variable.attack_time <= 0.0"
+            }
+          ]
+        },
+        "default": {
+          "transitions": [
+            {
+              "attacking": "variable.attack_time > 0.0"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.humanoid.look_at_target": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [ "look_at_target_default" ],
+          "transitions": [
+            {
+              "gliding": "query.is_gliding"
+            },
+            {
+              "swimming": "variable.swim_amount > 0.0"
+            }
+          ]
+        },
+        "gliding": {
+          "animations": [ "look_at_target_gliding" ],
+          "transitions": [
+            {
+              "swimming": "variable.swim_amount > 0.0"
+            },
+            {
+              "default": "!query.is_gliding"
+            }
+          ]
+        },
+        "swimming": {
+          "animations": [ "look_at_target_swimming" ],
+          "transitions": [
+            {
+              "gliding": "query.is_gliding"
+            },
+            {
+              "default": "variable.swim_amount <= 0.0"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.humanoid.melee_spear": {
+      "initial_state": "hold",
+      "states": {
+        "hold": {
+          "animations": [ "melee_spear_hold" ],
+          "transitions": [
+            {
+              "use": "variable.item_use_normalized > 0.0"
+            }
+          ]
+        },
+        "use": {
+          "animations": [ "melee_spear_hold", "melee_spear_use" ],
+          "transitions": [
+            {
+              "hold": "variable.item_use_normalized == 0.0"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

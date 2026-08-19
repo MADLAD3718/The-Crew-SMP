@@ -1,0 +1,48 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.bow.wield": {
+      "loop": true,
+      "bones": {
+        "rightitem": {
+          "position": [ "c.is_first_person ? -1.13 : 1.0", "c.is_first_person ? 3.2 : -0.5", "c.is_first_person ? 1.13 : -1.0" ],
+          "rotation": [
+            { "x": "c.is_first_person ? -90.0 : 80.0" },
+            { "z": "c.is_first_person ? -90.0 : -80.0" },
+            { "y": "c.is_first_person ? 25.0 : -40.0" }
+          ],
+          "scale": "c.is_first_person ? 0.68 : 0.9"
+        }
+      }
+    },
+    "animation.bow.wield_offhand": {
+      "loop": true,
+      "bones": {
+        "rightitem": {
+          "position": [ "c.is_first_person ? 1.13 : -1.0", "c.is_first_person ? 3.2 : -0.5", "c.is_first_person ? 1.13 : -1.0" ],
+          "rotation": [
+            { "x": "c.is_first_person ? -90.0 : 80.0" },
+            { "z": "c.is_first_person ? -90.0 : -100.0" },
+            { "y": "c.is_first_person ? 25.0 : -40.0" }
+          ],
+          "scale": "c.is_first_person ? 0.68 : 0.9"
+        }
+      }
+    },
+    "animation.bow.wield_first_person_pull": {
+      "loop": true,
+      "override_previous_animation": true,
+      "bones": {
+        "rightitem": {
+          "position": [ 0.0, 3.2, 1.5980613254 ],
+          "rotation": [
+            { "x": -90.0 },
+            { "z": -45.0 },
+            { "y": 25.0 }
+          ],
+          "scale": 0.68
+        }
+      }
+    }
+  }
+}

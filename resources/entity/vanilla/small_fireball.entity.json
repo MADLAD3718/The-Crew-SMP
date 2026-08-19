@@ -1,0 +1,11 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:small_fireball",
+      "scripts": {
+        "scale": "0.375"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "minecraft:spyglass",
+      "scripts": {
+        "parent_setup": "c.item_slot == 'main_hand' ? { v.use_attachable_animations_main_hand = 1.0; } : { v.use_attachable_animations_off_hand = 1.0; };",
+        "initialize": [
+          "variable.is_in_offhand = c.item_slot == 'off_hand';"
+        ],
+        "pre_animation": [
+          "variable.is_first_person = c.is_first_person;"
+        ],
+        "animate": [
+          {
+            "holding": "q.main_hand_item_use_duration <= 0.0f || variable.is_in_offhand"
+          },
+          {
+            "scoping": "q.main_hand_item_use_duration > 0.0f && !c.is_first_person && !variable.is_in_offhand"
+          }
+        ]
+      }
+    }
+  }
+}

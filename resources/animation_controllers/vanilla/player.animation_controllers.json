@@ -1,0 +1,484 @@
+{
+    "format_version": "1.26.20",
+    "animation_controllers": {
+        "controller.animation.player.melee_spear": {
+            "initial_state": "hold",
+            "states": {
+                "hold": {
+                    "animations": [
+                        "third_person_melee_spear_hold"
+                    ],
+                    "transitions": [
+                        {
+                            "use": "variable.item_use_normalized > 0.0"
+                        },
+                        {
+                            "attack": "variable.attack_time > 0.0"
+                        }
+                    ]
+                },
+                "use": {
+                    "animations": [
+                        "third_person_melee_spear_hold",
+                        "third_person_melee_spear_use"
+                    ],
+                    "transitions": [
+                        {
+                            "hold": "variable.item_use_normalized == 0.0"
+                        }
+                    ]
+                },
+                "attack": {
+                    "animations": [
+                        "third_person_melee_spear_hold",
+                        "third_person_melee_spear_attack"
+                    ],
+                    "transitions": [
+                        {
+                            "hold": "variable.attack_time == 0.0"
+                        },
+                        {
+                            // Allow transitioning from attack to use for smoother animation, since a spear can be used while its attack
+                            // animation is still playing. The reverse transition is unnecessary, as attacking while using is not possible.
+                            "use": "variable.item_use_normalized > 0.0"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.player.first_person_attack": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "animations": [
+                        "first_person_attack_rotation"
+                    ],
+                    "transitions": [
+                        {
+                            "vr_attack": "variable.is_using_vr"
+                        }
+                    ]
+                },
+                "vr_attack": {
+                    "animations": [
+                        "first_person_vr_attack_rotation"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!variable.is_using_vr"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.player.first_person_item_main_hand": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "animations": [
+                        "first_person_default_main_hand",
+                        {
+                            "first_person_attack_rotation_default": "!(query.is_item_name_any('slot.weapon.mainhand', 'minecraft:trident') && query.can_damage_nearby_mobs) && !variable.melee_spear_equipped"
+                        }
+                    ],
+                    "transitions": [
+                        {
+                            "attachable": "variable.use_attachable_animations_main_hand"
+                        }
+                    ]
+                },
+                "attachable": {
+                    "animations": [
+                        "first_person_item_main_hand",
+                        {
+                            "first_person_attack_rotation_item": "!(query.is_item_name_any('slot.weapon.mainhand', 'minecraft:trident') && query.can_damage_nearby_mobs) && !variable.melee_spear_equipped"
+                        }
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!variable.use_attachable_animations_main_hand"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.player.first_person_item_off_hand": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "animations": [
+                        "first_person_default_off_hand"
+                    ],
+                    "transitions": [
+                        {
+                            "attachable": "variable.use_attachable_animations_off_hand"
+                        }
+                    ]
+                },
+                "attachable": {
+                    "animations": [
+                        "first_person_item_off_hand"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!variable.use_attachable_animations_off_hand"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.player.grappling_hook": {
+            "initial_state": "default",
+            "states": {
+                "charge": {
+                    "animations": [
+                        "third_person_grappling_hook_equipped"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "q.get_equipped_item_name != 'grappling_hook' || q.main_hand_item_use_duration == 0.0"
+                        },
+                        {
+                            "hold": "v.grappling_hook_is_charged"
+                        }
+                    ]
+                },
+                "default": {
+                    "transitions": [
+                        {
+                            "hold": "v.grappling_hook_is_charged"
+                        },
+                        {
+                            "charge": "v.grappling_hook_is_charging"
+                        }
+                    ]
+                },
+                "hold": {
+                    "animations": [
+                        "crossbow_hold"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "q.get_equipped_item_name != 'grappling_hook' || q.main_hand_item_use_duration == 0.0"
+                        },
+                        {
+                            "charge": "v.grappling_hook_is_charging"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.player.katana": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "animations": [
+                        "move.arms"
+                    ],
+                    "transitions": [
+                        {
+                            "charging": "v.katana_is_charging"
+                        }
+                    ]
+                },
+                "charging": {
+                    "animations": [
+                        "third_person_katana_charge"
+                    ],
+                    "transitions": [
+                        {
+                            "dashing": "q.main_hand_item_use_duration == 0.0"
+                        }
+                    ]
+                },
+                "dashing": {
+                    "animations": [
+                        "third_person_katana_dash"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "q.any_animation_finished || q.get_equipped_item_name != 'katana'"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.player.first_person_map": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "one_hand": "v.off_hand_map_equipped || v.off_hand_shield_equipped"
+                        },
+                        {
+                            "two_hand": "!v.off_hand_map_equipped && !v.off_hand_shield_equipped"
+                        }
+                    ]
+                },
+                "one_hand": {
+                    "animations": [
+                        {
+                            "first_person_map_hold_main_hand": "v.main_hand_map_equipped"
+                        },
+                        {
+                            "first_person_map_hold_off_hand": "v.off_hand_map_equipped"
+                        }
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!v.main_hand_map_equipped && !v.off_hand_map_equipped"
+                        },
+                        {
+                            "two_hand": "!v.off_hand_map_equipped && !v.off_hand_shield_equipped"
+                        }
+                    ]
+                },
+                "two_hand": {
+                    "animations": [
+                        "first_person_map_hold",
+                        "first_person_map_hold_attack"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "!v.main_hand_map_equipped && !v.off_hand_map_equipped"
+                        },
+                        {
+                            "one_hand": "v.off_hand_map_equipped || v.off_hand_shield_equipped"
+                        }
+                    ]
+                }
+            }
+        },
+        "controller.animation.player.root": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "paperdoll": "v.is_paperdoll"
+                        },
+                        {
+                            "map_player": "v.map_face_icon"
+                        },
+                        {
+                            "first_person": "v.is_first_person"
+                        },
+                        {
+                            "third_person": "!v.is_first_person"
+                        }
+                    ]
+                },
+                "first_person": {
+                    "animations": [
+                        "first_person_base_pose",
+                        {
+                            "first_person_attack_controller": "!v.main_hand_map_equipped"
+                        },
+                        {
+                            "first_person_empty_hand": "!v.main_hand_map_equipped"
+                        },
+                        {
+                            "first_person_item_main_hand_controller": "v.main_hand_item_equipped && !v.main_hand_map_equipped"
+                        },
+                        {
+                            "first_person_item_off_hand_controller": "v.off_hand_item_equipped && !v.off_hand_map_equipped"
+                        },
+                        {
+                            "first_person_breathing_bob": "v.bob_animation"
+                        },
+                        {
+                            "first_person_map_controller": "v.main_hand_map_equipped || v.off_hand_map_equipped"
+                        },
+                        {
+                            "first_person_bow_equipped": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow') && v.item_use_normalized > 0"
+                        },
+                        {
+                            "first_person_crossbow_equipped": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow') && q.item_remaining_use_duration > 0.0"
+                        },
+                        {
+                            "first_person_crossbow_hold": "!v.off_hand_shield_equipped && v.attack_time == 0 && ((q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow') && q.item_is_charged) || (q.is_item_name_any('slot.weapon.mainhand', 'tcsmp:grappling_hook') && v.grappling_hook_is_charged))"
+                        },
+                        {
+                            "first_person_trident_equipped": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:trident') && v.item_use_normalized > 0"
+                        },
+                        {
+                            "first_person_melee_spear_controller": "v.melee_spear_equipped && v.main_hand_item_equipped"
+                        },
+                        {
+                            "first_person_swap_item": "!q.blocking"
+                        },
+                        {
+                            "first_person_shield_block": "q.blocking"
+                        },
+                        {
+                            "first_person_walk": "v.bob_animation"
+                        },
+                        {
+                            "first_person_grappling_hook_equipped": "q.is_item_name_any('slot.weapon.mainhand', 'tcsmp:grappling_hook') && v.grappling_hook_is_charging"
+                        },
+                        {
+                            "first_person_weild_katana": "q.get_equipped_item_name == 'katana' && v.item_use_normalized > 0 && !q.is_gliding"
+                        }
+                    ],
+                    "transitions": [
+                        {
+                            "paperdoll": "v.is_paperdoll"
+                        },
+                        {
+                            "map_player": "v.map_face_icon"
+                        },
+                        {
+                            "third_person": "!v.is_first_person"
+                        }
+                    ]
+                },
+                "map_player": {
+                    "transitions": [
+                        {
+                            "paperdoll": "v.is_paperdoll"
+                        },
+                        {
+                            "first_person": "v.is_first_person"
+                        },
+                        {
+                            "third_person": "!v.map_face_icon && !v.is_first_person"
+                        }
+                    ]
+                },
+                "paperdoll": {
+                    "animations": [
+                        "humanoid_base_pose",
+                        "look_at_target_ui",
+                        "move.arms",
+                        "move.legs",
+                        "cape"
+                    ],
+                    "transitions": [
+                        {
+                            "first_person": "!v.is_paperdoll && v.is_first_person"
+                        },
+                        {
+                            "map_player": "v.map_face_icon"
+                        },
+                        {
+                            "third_person": "!v.is_paperdoll && !v.is_first_person"
+                        }
+                    ]
+                },
+                "third_person": {
+                    "animations": [
+                        "humanoid_base_pose",
+                        {
+                            "look_at_target": "!q.is_sleeping && !q.is_emoting"
+                        },
+                        "move.arms",
+                        "move.legs",
+                        "cape",
+                        {
+                            "riding.root": "q.is_riding"
+                        },
+                        {
+                            "riding.arms": "q.is_riding"
+                        },
+                        {
+                            "riding.legs": "q.is_riding"
+                        },
+                        "holding",
+                        {
+                            // Refers to Trident-like items, for the Spear, see "melee_spear" animations.
+                            "brandish_spear": "v.is_brandishing_spear"
+                        },
+                        {
+                            "holding_spyglass": "v.is_holding_spyglass"
+                        },
+                        {
+                            "charging": "q.is_charging"
+                        },
+                        {
+                            "third_person_melee_spear_controller": "v.melee_spear_equipped"
+                        },
+                        {
+                            "sneaking": "q.is_sneaking && !q.is_sleeping && v.swim_amount <= 0.0 && !q.is_emoting"
+                        },
+                        "bob",
+                        {
+                            "damage_nearby_mobs": "v.damage_nearby_mobs"
+                        },
+                        {
+                            "swimming": "v.swim_amount > 0.0 && q.is_in_water && !v.melee_spear_equipped"
+                        },
+                        {
+                            "swimming.no_right_arm": "v.swim_amount > 0.0 && q.is_in_water && v.melee_spear_equipped"
+                        },
+                        {
+                            "swimming.legs": "v.swim_amount > 0.0 && q.is_in_water"
+                        },
+                        {
+                            "crawling": "v.swim_amount > 0.0 && !q.is_in_water && !v.melee_spear_equipped"
+                        },
+                        {
+                            "crawling.no_right_arm": "v.swim_amount > 0.0 && !q.is_in_water && v.melee_spear_equipped"
+                        },
+                        {
+                            "crawling.legs": "v.swim_amount > 0.0 && !q.is_in_water"
+                        },
+                        {
+                            "use_item_progress": "( v.use_item_interval_progress > 0.0 ) || ( v.use_item_startup_progress > 0.0 ) && !v.is_brandishing_spear && !v.is_holding_spyglass && !v.is_tooting_goat_horn && !v.is_using_brush && !q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow')"
+                        },
+                        {
+                            "sleeping": "q.is_sleeping && q.is_alive"
+                        },
+                        {
+                            "attack.positions": "v.attack_time > 0.0 && !v.melee_spear_equipped"
+                        },
+                        {
+                            "attack.rotations": "v.attack_time > 0.0 && !v.melee_spear_equipped"
+                        },
+                        {
+                            "shield_block_main_hand": "q.blocking && v.main_hand_shield_equipped && !v.off_hand_shield_equipped"
+                        },
+                        {
+                            "shield_block_off_hand": "q.blocking && v.off_hand_shield_equipped"
+                        },
+                        {
+                            "crossbow_controller": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow')"
+                        },
+                        {
+                            "third_person_bow_equipped": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow') && v.item_use_normalized > 0 && v.item_use_normalized < 1.0"
+                        },
+                        {
+                            "tooting_goat_horn": "v.is_tooting_goat_horn"
+                        },
+                        {
+                            "holding_brush": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:brush')"
+                        },
+                        {
+                            "brushing": "v.is_using_brush"
+                        },
+                        {
+                            "holding_heavy_core": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:heavy_core')"
+                        },
+                        {
+                            "grappling_hook_controller": "q.get_equipped_item_name == 'grappling_hook'"
+                        },
+                        {
+                            "katana_controller": "q.get_equipped_item_name == 'katana' && !q.is_gliding"
+                        }
+                    ],
+                    "transitions": [
+                        {
+                            "paperdoll": "v.is_paperdoll"
+                        },
+                        {
+                            "first_person": "v.is_first_person"
+                        },
+                        {
+                            "map_player": "v.map_face_icon"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

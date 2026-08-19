@@ -1,0 +1,13 @@
+{
+  "format_version": "1.10",
+  "render_controllers": {
+    "controller.render.spyglass": {
+      "geometry": "geometry.default",
+      "materials": [ { "*": "variable.is_enchanted ? material.enchanted : material.default" } ],
+      "textures": [ "texture.default", "texture.enchanted" ],
+      "part_visibility": [
+        { "spyglass": "variable.is_first_person ? (!query.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map', 'minecraft:map') && (query.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow', 'minecraft:crossbow') ? !(query.main_hand_item_use_duration > 0.0 || query.item_is_charged) : 1.0)) : 1.0" }
+      ]
+    }
+  }
+}

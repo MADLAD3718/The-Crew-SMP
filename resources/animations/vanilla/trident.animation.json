@@ -1,0 +1,61 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.trident.wield_first_person": {
+      "loop": true,
+      "bones": {
+        "pole": {
+          "position": [ "c.item_slot == 'main_hand' ? -5.0 : 5.0", 7.2748993968, -3.2921344641 ],
+          "rotation": [ 90.0, -65.0, -90.0 ]
+        }
+      }
+    },
+    "animation.trident.wield_first_person_raise": {
+      "loop": true,
+      "override_previous_animation": true,
+      "bones": {
+        "pole": {
+          "position": [ -5.8634245100, 7.2748993968, 1.2076433017 ],
+          "rotation": [
+            { "y": -45.0 },
+            { "z": -25.0 }
+          ]
+        }
+      }
+    },
+    "animation.trident.wield_first_person_riptide": {
+      "loop": true,
+      "override_previous_animation": true,
+      "bones": {
+        "pole": {
+          "position": [ 6.1367131418, 8.4530757698, -3.5544742702 ],
+          "rotation": [
+            { "y": -65.0 },
+            { "z": -85.0 },
+            { "y": -90.0 },
+            { "z": -25.0 }
+          ]
+        }
+      }
+    },
+    "animation.trident.wield_third_person": {
+      "loop": true,
+      "bones": {
+        "pole": {
+          "position": [ 0.0, -2.0, -13.0 ],
+          "rotation": [ 90.0, 0.0, "c.item_slot == 'main_hand' ? 120.0 : -120.0" ]
+        }
+      }
+    },
+    "animation.trident.wield_third_person_raise": {
+      "loop": true,
+      "override_previous_animation": true,
+      "bones": {
+        "pole": {
+          "position": [ 0.0, -2.0, 7.0 ],
+          "rotation": [ 90.0, 180.0, 90.0 ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:splash_potion",
+      "geometry": {
+        "moveSlowdown": "geometry.potion_bottle_splash_moveSlowdown",
+        "moveSpeed": "geometry.potion_bottle_splash_moveSpeed",
+        "digSlowdown": "geometry.potion_bottle_splash_digSlowdown",
+        "digSpeed": "geometry.potion_bottle_splash_digSpeed",
+        "damageBoost": "geometry.potion_bottle_splash_damageBoost",
+        "heal": "geometry.potion_bottle_splash_heal",
+        "harm": "geometry.potion_bottle_splash_harm",
+        "jump": "geometry.potion_bottle_splash_jump",
+        "confusion": "geometry.potion_bottle_splash_confusion",
+        "regeneration": "geometry.potion_bottle_splash_regeneration",
+        "resistance": "geometry.potion_bottle_splash_resistance",
+        "fireResistance": "geometry.potion_bottle_splash_fireResistance",
+        "waterBreathing": "geometry.potion_bottle_splash_waterBreathing",
+        "invisibility": "geometry.potion_bottle_splash_invisibility",
+        "blindness": "geometry.potion_bottle_splash_blindness",
+        "nightVision": "geometry.potion_bottle_splash_nightVision",
+        "hunger": "geometry.potion_bottle_splash_hunger",
+        "weakness": "geometry.potion_bottle_splash_weakness",
+        "poison": "geometry.potion_bottle_splash_poison",
+        "wither": "geometry.potion_bottle_splash_wither",
+        "healthBoost": "geometry.potion_bottle_splash_healthBoost",
+        "absorption": "geometry.potion_bottle_splash_absorption",
+        "saturation": "geometry.potion_bottle_splash_saturation",
+        "levitation": "geometry.potion_bottle_splash_levitation",
+        "turtleMaster": "geometry.potion_bottle_splash_turtleMaster",
+        "slowFall": "geometry.potion_bottle_splash_slowFall",
+        "windCharged": "geometry.potion_bottle_splash_windCharged",
+        "weaving": "geometry.potion_bottle_splash_weaving",
+        "oozing": "geometry.potion_bottle_splash_oozing",
+        "infested": "geometry.potion_bottle_splash_infested",
+        "default": "geometry.potion_bottle_splash"
+      }
+    }
+  }
+} 

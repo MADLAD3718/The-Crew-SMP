@@ -1,0 +1,241 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.humanoid.attack.rotations": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [ 0.0, "math.sin(math.sqrt(variable.attack_time) * 360.0) * 11.46", 0.0 ]
+        },
+        "leftarm": {
+          "rotation": [ "math.sin(math.sqrt(variable.attack_time) * 360.0) * 11.46", 0.0, 0.0 ]
+        },
+        "rightarm": {
+          "rotation": [ "math.sin(1.0 - math.pow(1.0 - variable.attack_time, 3.0) * 180.0) * 68.75 - math.sin(variable.attack_time * 180.0) * -(query.target_x_rotation - 40.10) * 0.75", "math.sin(math.sqrt(variable.attack_time) * 360.0) * 22.92", "math.sin(variable.attack_time * 180.0) * -22.92" ]
+        }
+      }
+    },
+    "animation.humanoid.base_pose": {
+      "loop": true,
+      "bones": {
+        "waist": {
+          "rotation": [ 0.0, 0.0, "variable.is_upside_down = 0.0; variable.inversion_factor = 1.0; return 0.0;" ]
+        }
+      }
+    },
+    "animation.humanoid.bob": {
+      "loop": true,
+      "bones": {
+        "leftarm": {
+          "rotation": [ "-math.sin(query.life_time * 76.776372) * 2.865", 0.0, "-(math.cos(query.life_time * 103.13244) * 2.865 + 2.865)" ]
+        },
+        "rightarm": {
+          "rotation": [ "math.sin(query.life_time * 76.776372) * 2.865", 0.0, "math.cos(query.life_time * 103.13244) * 2.865 + 2.865" ]
+        }
+      }
+    },
+    "animation.humanoid.bow_and_arrow": {
+      "loop": true,
+      "bones": {
+        "leftarm": {
+          "rotation": [ "query.target_x_rotation - 90.0 - math.sin(query.life_time * 76.776372) * 2.865 - this", "28.65 + math.clamp(query.target_y_rotation, -45, 45)", 0.0 ]
+        },
+        "rightarm": {
+          "rotation": [ "query.target_x_rotation - 90.0 + math.sin(query.life_time * 76.776372) * 2.865 - this", "-5.73 + math.clamp(query.target_y_rotation, -45, 45)", 0.0 ]
+        }
+      }
+    },
+    "animation.humanoid.brandish_spear": {
+      "loop": true,
+      "bones": {
+        "rightarm": {
+          "rotation": [ "(variable.swim_amount <= 0.0 ? (this - math.sin(query.life_time * 76.776372) * 2.865) * -0.5 - math.sin(query.life_time * 76.776372) * 2.865 : -this - 9.0) - 143.5 - 22.5 * variable.charge_amount", "-this", "variable.swim_amount <= 0.0 ? -(math.cos(query.life_time * 103.13244) * 2.865 + 2.865) : -this" ]
+        }
+      }
+    },
+    "animation.humanoid.brushing": {
+      "loop": true,
+      "bones": {
+        "rightarm": {
+          "rotation": [ "(variable.swim_amount <= 0.0 ? -math.sin(query.life_time * 76.776372) * 2.865 : -this - 18.0) -50 + math.clamp(math.lerp(query.target_x_rotation, -45.0, math.clamp(variable.swim_amount + query.is_gliding, 0.0, 1.0)) * variable.inversion_factor, -43, 14)", "(variable.swim_amount > 0.0 ? -this) + math.clamp(query.target_y_rotation * variable.inversion_factor, -37, 43)", "(variable.swim_amount <= 0.0 ? -(math.cos(query.life_time * 103.13244) * 2.865 + 2.865) : -this) + 5.0" ]
+        },
+        "rightitem": {
+          "position": {
+            "0.125": {
+              "pre": [ 0, 0, 0 ],
+              "post": [ 1.5, 0, -3 ]
+            },
+            "0.25": {
+              "pre": [ 1.5, 0, -3 ],
+              "post": [ 0, 0, 0 ]
+            },
+            "0.375": {
+              "pre": [ 0, 0, 0 ],
+              "post": [ 1.5, 0, 3 ]
+            },
+            "0.5": {
+              "pre": [ 1.5, 0, 3 ],
+              "post": [ 0, 0, 0 ]
+            }
+          },
+          "rotation": {
+            "0.125": {
+              "pre": [ 0, 0, 0 ],
+              "post": [ 0, -30, 0 ]
+            },
+            "0.25": {
+              "pre": [ 0, -30, 0 ],
+              "post": [ 0, 0, 0 ]
+            },
+            "0.375": {
+              "pre": [ 0, 0, 0 ],
+              "post": [ 0, 30, 0 ]
+            },
+            "0.5": {
+              "pre": [ 0, 30, 0 ],
+              "post": [ 0, 0, 0 ]
+            }
+          }
+        }
+      }
+    },
+    "animation.humanoid.damage_nearby_mobs": {
+      "loop": true,
+      "bones": {
+        "leftarm": {
+          "rotation": [ "-45.0-this", "-this", "-this" ]
+        },
+        "leftleg": {
+          "rotation": [ "45.0-this", "-0.1-this", "-0.1-this" ]
+        },
+        "rightarm": {
+          "rotation": [ "45.0-this", "-this", "-this" ]
+        },
+        "rightleg": {
+          "rotation": [ "-45.0-this", "0.1-this", "0.1-this" ]
+        }
+      }
+    },
+    "animation.humanoid.holding_spyglass": {
+      "loop": true,
+      "bones": {
+        "rightarm": {
+          "rotation": [ "-this - 18.0 + math.clamp(math.lerp(query.target_x_rotation, -45.0, math.clamp(variable.swim_amount + query.is_gliding, 0.0, 1.0)) * variable.inversion_factor - 105 + (variable.swim_amount <= 0.0 ? query.is_sneaking * 5.72957), -170, 180)", "-this + math.clamp(query.target_y_rotation * variable.inversion_factor - 15, -60, 90)", "-this + 5.0" ]
+        }
+      }
+    },
+    "animation.humanoid.look_at_target.gliding": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "relative_to": {
+            "rotation": "entity"
+          },
+          "rotation": [ -45.0, "query.target_y_rotation", 0.0 ]
+        }
+      }
+    },
+    "animation.humanoid.look_at_target.swimming": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [ "math.lerp(query.target_x_rotation, -45.0, variable.swim_amount)", "query.target_y_rotation - (variable.attack_body_rot_y ?? 0.0)", 0.0 ]
+        }
+      }
+    },
+    "animation.humanoid.tooting_goat_horn": {
+      "loop": true,
+      "bones": {
+        "rightarm": {
+          "rotation": [ "-this - 93.0 + math.clamp(math.lerp(query.target_x_rotation, -45.0, math.clamp(variable.swim_amount + query.is_gliding, 0.0, 1.0)) * variable.inversion_factor + (variable.swim_amount <= 0.0 ? query.is_sneaking * 5.72957), -43, 14)", "-this + math.clamp(query.target_y_rotation * variable.inversion_factor, -37, 43) - 30", "-this + 5.0" ]
+        },
+        "rightitem": {
+          "rotation": [ 15, 0, 100 ],
+          "position": [ 4, 0, 1 ]
+        }
+      }
+    },
+    "animation.humanoid.use_item_progress": {
+      "loop": true,
+      "bones": {
+        "rightarm": {
+          "rotation": [ "(variable.swim_amount <= 0.0 ? -60.0 : -this - 78.0) * variable.use_item_startup_progress + variable.use_item_interval_progress * 11.25", "(variable.swim_amount <= 0.0 ? -22.5 : -this - 22.5) * variable.use_item_startup_progress + variable.use_item_interval_progress * 11.25", "(variable.swim_amount <= 0.0 ? -5.625 : -this - 5.625) * variable.use_item_startup_progress + variable.use_item_interval_progress * 11.25" ]
+        }
+      }
+    },
+    "animation.humanoid.melee_spear_hold": {
+      "loop": true,
+      "bones": {
+        "rightarm": {
+          "rotation": [ "math.clamp(v.tp_melee_spear_base_arm_rotation_x + q.target_x_rotation, -120.0, 30.0) - this", "math.clamp(q.target_y_rotation - 5.73, -60.0, 60.0) - this", 0.0 ]
+        }
+      }
+    },
+    // Same as "animation.humanoid.melee_spear_hold", but with the "leftarm" always matching the rotation of "rightarm". 
+    "animation.zombie.melee_spear_hold": {
+      "loop": true,
+      "bones": {
+        "leftarm": {
+          "rotation": [ "math.clamp(v.tp_melee_spear_base_arm_rotation_x + q.target_x_rotation, -120.0, 30.0) - this", "math.clamp(q.target_y_rotation + 5.73, -60.0, 60.0) - this", 0.0 ]
+        },
+        "rightarm": {
+          "rotation": [ "math.clamp(v.tp_melee_spear_base_arm_rotation_x + q.target_x_rotation, -120.0, 30.0) - this", "math.clamp(q.target_y_rotation - 5.73, -60.0, 60.0) - this", 0.0 ]
+        }
+      }
+    },
+    "animation.humanoid.melee_spear_use": {
+      "loop": true,
+      "bones": {
+        "rightarm": {
+          "rotation": [
+            "v.melee_spear_use_raise_progress_start * -40.0 + v.melee_spear_use_raise_progress_middle * 30.0 + v.melee_spear_use_raise_progress_end * -20.0 + v.melee_spear_use_lower_progress * 20.0 + v.melee_spear_use_raise_back_progress * 10.0 + v.melee_spear_use_sway_scale_slow * 0.6",
+            "-v.melee_spear_use_sway_scale_fast",
+            "-v.melee_spear_use_sway_scale_slow * 0.5"
+          ]
+        },
+        "rightitem": {
+          "position": [
+            "v.tp_melee_spear_use_item_rotation_x = 70.0 * (v.melee_spear_use_raise_progress - v.melee_spear_use_raise_back_progress); v.tp_melee_spear_use_item_rotation_z = -90.0 * (v.melee_spear_use_raise_progress - v.melee_spear_use_sway_progress); return math.sin(v.tp_melee_spear_use_item_rotation_z);",
+            "16.0 * (-v.kinetic_weapon_forward_movement * (math.ease_in_back(0.0, 1.0, v.melee_spear_use_raise_progress) - v.melee_spear_use_raise_back_progress) + v.melee_spear_use_hit_feedback_amount) - 1.0 + math.cos(v.tp_melee_spear_use_item_rotation_x) * math.cos(v.tp_melee_spear_use_item_rotation_z) + math.sin(v.tp_melee_spear_use_item_rotation_x) * 2.5",
+            "6.4 * v.melee_spear_use_hit_feedback_amount - 2.5 - math.sin(v.tp_melee_spear_use_item_rotation_x) * math.cos(v.tp_melee_spear_use_item_rotation_z) + math.cos(v.tp_melee_spear_use_item_rotation_x) * 2.5"
+          ],
+          "rotation": [
+            { "x": "v.tp_melee_spear_use_item_rotation_x" },
+            { "z": "v.tp_melee_spear_use_item_rotation_z" }
+          ]
+        }
+      }
+    },
+    // Same as "animation.humanoid.melee_spear_use", but with the "leftarm" always matching the rotation of "rightarm". 
+    "animation.zombie.melee_spear_use": {
+      "loop": true,
+      "bones": {
+        "leftarm": {
+          "rotation": [
+            "v.melee_spear_use_raise_progress_start * -40.0 + v.melee_spear_use_raise_progress_middle * 30.0 + v.melee_spear_use_raise_progress_end * -20.0 + v.melee_spear_use_lower_progress * 20.0 + v.melee_spear_use_raise_back_progress * 10.0 + v.melee_spear_use_sway_scale_slow * 0.6",
+            "v.melee_spear_use_sway_scale_fast",
+            "-v.melee_spear_use_sway_scale_slow * 0.5"
+          ]
+        },
+        "rightarm": {
+          "rotation": [
+            "v.melee_spear_use_raise_progress_start * -40.0 + v.melee_spear_use_raise_progress_middle * 30.0 + v.melee_spear_use_raise_progress_end * -20.0 + v.melee_spear_use_lower_progress * 20.0 + v.melee_spear_use_raise_back_progress * 10.0 + v.melee_spear_use_sway_scale_slow * 0.6",
+            "-v.melee_spear_use_sway_scale_fast",
+            "-v.melee_spear_use_sway_scale_slow * 0.5"
+          ]
+        },
+        "rightitem": {
+          "position": [
+            "v.tp_melee_spear_use_item_rotation_x = v.melee_spear_use_raise_progress * 70.0 + v.melee_spear_use_raise_back_progress * -70.0; v.tp_melee_spear_use_item_rotation_z = v.melee_spear_use_raise_progress * -90.0 - v.melee_spear_use_sway_progress * -90.0; return math.sin(v.tp_melee_spear_use_item_rotation_z);",
+            "16.0 * (-v.kinetic_weapon_forward_movement * (math.ease_in_back(0.0, 1.0, v.melee_spear_use_raise_progress) - v.melee_spear_use_raise_back_progress) + v.melee_spear_use_hit_feedback_amount) - 1.0 + math.cos(v.tp_melee_spear_use_item_rotation_x) * math.cos(v.tp_melee_spear_use_item_rotation_z) + math.sin(v.tp_melee_spear_use_item_rotation_x) * 2.5",
+            "6.4 * v.melee_spear_use_hit_feedback_amount - 2.5 - math.sin(v.tp_melee_spear_use_item_rotation_x) * math.cos(v.tp_melee_spear_use_item_rotation_z) + math.cos(v.tp_melee_spear_use_item_rotation_x) * 2.5"
+          ],
+          "rotation": [
+            { "x": "v.tp_melee_spear_use_item_rotation_x" },
+            { "z": "v.tp_melee_spear_use_item_rotation_z" }
+          ]
+        }
+      }
+    }
+  }
+}

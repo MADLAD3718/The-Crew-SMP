@@ -1,0 +1,24 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "minecraft:elytra",
+      "scripts": {
+        "parent_setup": "variable.chest_layer_visible = 0.0;",
+        "initialize": [
+          "variable.glide_ratio = 0.0;",
+          "variable.sneak_ratio = 0.0;"
+        ],
+        "pre_animation": [
+          "variable.previous_glide_ratio = variable.glide_ratio;",
+          "variable.previous_sneak_ratio = variable.sneak_ratio;",
+          "variable.glide_ratio = math.clamp(math.lerp(variable.previous_glide_ratio, query.is_gliding ? (query.position_delta(1) < 0.0 ? 1.0 - math.pow(-query.movement_direction(1), 1.5) : 1.0), query.delta_time * 6.0), 0.0, 1.0);",
+          "variable.sneak_ratio = math.clamp(math.lerp(variable.previous_sneak_ratio, query.is_sneaking && !(query.is_gliding || query.swim_amount > 0.0), query.delta_time * 6.0), 0.0, 1.0);"
+        ],
+        "animate": [
+          "default_controller"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "format_version": "1.8.0",
+  "geometry.cape": {
+    "texturewidth": 64,
+    "textureheight": 32,
+    "bones": [
+      {
+        "name": "root",
+        "pivot": [ 0.0, 0.0, 0.0 ]
+      },
+      {
+        "name": "body",
+        "pivot": [ 0.0, 24.0, 0.0 ],
+        "parent": "waist"
+      },
+      {
+        "name": "waist",
+        "parent": "root",
+        "neverRender": true,
+        "pivot": [ 0.0, 12.0, 0.0 ]
+      },
+      {
+        "name": "cape",
+        "parent": "body",
+        "pivot": [ 0.0, 24.0, 2.0 ],
+        "bind_pose_rotation": [0.0, 180.0, 0.0],
+        "rotation": [0.0, 180.0, 0.0],
+        "cubes": [
+          {
+            "origin": [ -5.0, 8.0, 1.0 ],
+            "size": [ 10, 16, 1 ],
+            "uv": [ 0, 0 ]
+          }
+        ]
+      }
+    ]
+  }
+}

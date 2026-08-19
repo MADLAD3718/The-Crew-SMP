@@ -1,0 +1,58 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.armor_stand.riposte_pose": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [ "-this", "-this", "-this" ]
+        },
+        "head": {
+          "rotation": [ "-this + 16", "-this + 20", "-this" ]
+        },
+        "leftarm": {
+          "rotation": [ "-this + 4", "-this + 8", "-this + 237" ]
+        },
+        "leftleg": {
+          "rotation": [ "-this - 14", "-this - 18", "-this - 16" ]
+        },
+        "rightarm": {
+          "rotation": [ "-this + 246", "-this", "-this + 89" ]
+        },
+        "rightitem": {
+          "position": [ "query.is_item_name_any('slot.weapon.mainhand', 'minecraft:shield') ? 1 : 0", 0, "query.get_equipped_item_name == 'shield' ? -1 : 0" ],
+          "rotation": [ "-this", "query.is_item_name_any('slot.weapon.mainhand', 'minecraft:shield') ? -this + 90 : -this + 180", "-this" ]
+        },
+        "rightleg": {
+          "rotation": [ "-this + 8", "-this + 20", "-this + 4" ]
+        }
+      }
+    },
+    "animation.armor_stand.no_pose": {
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [ "-this", "-this", "-this" ]
+        },
+        "head": {
+          "rotation": [ "-this", "-this", "-this" ]
+        },
+        "leftarm": {
+          "rotation": [ "-this", "-this", "-this" ]
+        },
+        "leftleg": {
+          "rotation": [ "-this", "-this - 0.1", "-this - 0.1" ]
+        },
+        "rightarm": {
+          "rotation": [ "-this", "-this", "-this" ]
+        },
+        "rightitem": {
+          "rotation": [ "-this", "-this", "-this" ]
+        },
+        "rightleg": {
+          "rotation": [ "-this", "-this + 0.1", "-this + 0.1" ]
+        }
+      }
+    }
+  }
+}

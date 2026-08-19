@@ -1,0 +1,39 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.persona_animated_32x32.first_person": {
+      "rebuild_animation_matrices": true,
+      "geometry": "Geometry.animated_32x32",
+      "materials": [ { "*": "Material.animated" } ],
+      "textures": [ "Texture.animated_32x32" ],
+      "part_visibility": [
+        { "*": false },
+        { "rightArm": "!v.main_hand_item_equipped || v.main_hand_map_equipped" },
+        { "rightSleeve": "!v.main_hand_item_equipped || v.main_hand_map_equipped" },
+        { "leftArm": "(v.off_hand_map_equipped && query.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map', 'minecraft:map') && (q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow', 'minecraft:crossbow') ? !(v.item_use_normalized > 0 || q.item_is_charged) : 1.0)) || (v.main_hand_map_equipped && !v.off_hand_map_equipped && !v.off_hand_shield_equipped) || (q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow') && v.item_use_normalized > 0 && v.item_use_normalized < 1)" },
+        { "leftSleeve": "(v.off_hand_map_equipped && query.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map', 'minecraft:map') && (q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow', 'minecraft:crossbow') ? !(v.item_use_normalized > 0 || q.item_is_charged) : 1.0)) || (v.main_hand_map_equipped && !v.off_hand_map_equipped && !v.off_hand_shield_equipped) || (q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow') && v.item_use_normalized > 0 && v.item_use_normalized < 1)" }
+      ],
+      "uv_anim": {
+        "offset": [ 0.0, "Math.mod(Math.floor(query.life_time * 7),variable.animation_frames_32x32)/variable.animation_frames_32x32" ],
+        "scale": [ 1.0, 1.0 ]
+      }
+    },
+    "controller.render.persona_animated_128x128.first_person": {
+      "rebuild_animation_matrices": true,
+      "geometry": "Geometry.animated_128x128",
+      "materials": [ { "*": "Material.animated" } ],
+      "textures": [ "Texture.animated_128x128" ],
+      "part_visibility": [
+        { "*": false },
+        { "rightArm": "!v.main_hand_item_equipped || v.main_hand_map_equipped" },
+        { "rightSleeve": "!v.main_hand_item_equipped || v.main_hand_map_equipped" },
+        { "leftArm": "(v.off_hand_map_equipped && (q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow', 'minecraft:crossbow') ? !(v.item_use_normalized > 0 || q.item_is_charged) : 1.0)) || (v.main_hand_map_equipped && !v.off_hand_map_equipped && !(v.off_hand_item_equipped && q.is_item_name_any('slot.weapon.offhand', 'minecraft:shield'))) || (q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow') && v.item_use_normalized > 0 && v.item_use_normalized < 1)" },
+        { "leftSleeve": "(v.off_hand_map_equipped && (q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow', 'minecraft:crossbow') ? !(v.item_use_normalized > 0 || q.item_is_charged) : 1.0)) || (v.main_hand_map_equipped && !v.off_hand_map_equipped && !(v.off_hand_item_equipped && q.is_item_name_any('slot.weapon.offhand', 'minecraft:shield'))) || (q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow') && v.item_use_normalized > 0 && v.item_use_normalized < 1)" }
+      ],
+      "uv_anim": {
+        "offset": [ 0.0, "Math.mod(Math.floor(query.life_time * 7),variable.animation_frames_128x128)/variable.animation_frames_128x128" ],
+        "scale": [ 1.0, 1.0 ]
+      }
+    }
+  }
+}

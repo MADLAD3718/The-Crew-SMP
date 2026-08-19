@@ -1,0 +1,15 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.shulker.facing": {
+      "anim_time_update": "query.modified_distance_moved",
+      "loop": true,
+      "bones": {
+        "base": {
+          "position": [ "variable.shulker.xoffset", "variable.shulker.yoffset - 0.12", "variable.shulker.zoffset" ],
+          "rotation": [ "variable.shulker.xprerotation", 0.0, "variable.shulker.zprerotation" ]
+        }
+      }
+    }
+  }
+}

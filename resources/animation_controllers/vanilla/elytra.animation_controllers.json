@@ -1,0 +1,55 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.elytra.default": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [ "default" ],
+          "transitions": [
+            { "sleeping": "query.is_sleeping" },
+            { "swimming": "query.swim_amount > 0.0" },
+            { "sneaking": "query.is_sneaking" },
+            { "gliding": "query.is_gliding" }
+          ]
+        },
+        "gliding": {
+          "animations": [ "gliding" ],
+          "transitions": [
+            { "sleeping": "query.is_sleeping" },
+            { "swimming": "query.swim_amount > 0.0" },
+            { "sneaking": "query.is_sneaking" },
+            { "default": "!query.is_gliding" }
+          ]
+        },
+        "sneaking": {
+          "animations": [ "sneaking" ],
+          "transitions": [
+            { "sleeping": "query.is_sleeping" },
+            { "swimming": "query.swim_amount > 0.0" },
+            { "gliding": "query.is_gliding && !query.is_sneaking" },
+            { "default": "!query.is_sneaking" }
+          ]
+        },
+        "sleeping": {
+          "animations": [ "sleeping" ],
+          "transitions": [
+            { "swimming": "query.swim_amount > 0.0" },
+            { "sneaking": "query.is_sneaking" },
+            { "gliding": "query.is_gliding" },
+            { "default": "!query.is_sleeping" }
+          ]
+        },
+        "swimming": {
+          "animations": [ "swimming" ],
+          "transitions": [
+            { "sleeping": "query.is_sleeping" },
+            { "sneaking": "query.is_sneaking && query.swim_amount <= 0.0" },
+            { "gliding": "query.is_gliding" },
+            { "default": "query.swim_amount <= 0.0" }
+          ]
+        }
+      }
+    }
+  }
+}

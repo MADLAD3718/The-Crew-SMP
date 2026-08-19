@@ -1,0 +1,28 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.horse.v3.walk": {
+      "loop": true,
+      "bones": {
+        "bagl": {
+          "rotation": [ "variable.leg_x_rot_anim / 5.0", 0.0, 0.0 ]
+        },
+        "bagr": {
+          "rotation": [ "-variable.leg_x_rot_anim / 5.0", 0.0, 0.0 ]
+        },
+        "legbl": {
+          "rotation": [ "(-variable.leg_stand_factor * 28.6 * query.modified_move_speed * (query.is_baby ? 0.23 / 0.35 : 1.0)) * (1.0 - variable.stand_anim)", 0.0, 0.0 ]
+        },
+        "legbr": {
+          "rotation": [ "(variable.leg_stand_factor * 28.6 * query.modified_move_speed * (query.is_baby ? 0.23 / 0.35 : 1.0)) * (1.0 - variable.stand_anim)", 0.0, 0.0 ]
+        },
+        "legfl": {
+          "rotation": [ "variable.leg_x_rot_anim * (1.0 - variable.stand_anim)", 0.0, 0.0 ]
+        },
+        "legfr": {
+          "rotation": [ "-variable.leg_x_rot_anim * (1.0 - variable.stand_anim)", 0.0, 0.0 ]
+        }
+      }
+    }
+  }
+}

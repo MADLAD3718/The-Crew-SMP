@@ -1,0 +1,120 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.ocelot.sit": {
+      "loop": true,
+      "bones": {
+        "backlegl": {
+          "position": [ 0.0, "-4.94975 - this", "13.43503 - this" ],
+          "rotation": [ "-45.0 - this", 0.0, 0.0 ]
+        },
+        "backlegr": {
+          "position": [ 0.0, "-4.94975 - this", "13.43503 - this" ],
+          "rotation": [ "-45.0 - this", 0.0, 0.0 ]
+        },
+        "body": {
+          "position": [ 0.0, 4.0, 5.0 ],
+          "rotation": [ "-45.0 - this", 0.0, 0.0 ]
+        },
+        "frontlegl": {
+          "position": [ 0.0, "-7.14177 - this", "4.31336 - this" ],
+          "rotation": [ "36.0 - this", 0.0, 0.0 ]
+        },
+        "frontlegr": {
+          "position": [ 0.0, "-7.14177 - this", "4.31336 - this" ],
+          "rotation": [ "36.0 - this", 0.0, 0.0 ]
+        },
+        "head": {
+          "position": [ 0.0, -1.73761, -0.50502 ]
+        },
+        "tail1": {
+          "position": [ 0.0, 0.17157, 0.38477 ],
+          "rotation": [ "144.0 - this", 0.0, 0.0 ]
+        },
+        "tail2": {
+          "position": [ 0.0, -2.26779, -6.13863 ],
+          "rotation": [ "54.0 - this", 0.0, 0.0 ]
+        }
+      }
+    },
+    "animation.ocelot.sneak": {
+      "loop": true,
+      "bones": {
+        "backlegl": {
+          "position": [ 0.0, 1.0, 0.0 ],
+          "rotation": [ "math.cos(query.modified_distance_moved / (query.model_scale * 16.0) * 38.17) * 57.3 * query.modified_move_speed * (query.is_baby ? 0.23 / 0.35 : 1.0) - this", 0.0, 0.0 ]
+        },
+        "backlegr": {
+          "position": [ 0.0, 1.0, 0.0 ],
+          "rotation": [ "math.cos(query.modified_distance_moved / (query.model_scale * 16.0) * 38.17 + 180.0) * 57.3 * query.modified_move_speed * (query.is_baby ? 0.23 / 0.35 : 1.0) - this", 0.0, 0.0 ]
+        },
+        "body": {
+          "position": [ 0.0, -1.0, 0.0 ]
+        },
+        "frontlegl": {
+          "position": [ 0.0, 1.0, 0.0 ],
+          "rotation": [ "math.cos(query.modified_distance_moved / (query.model_scale * 16.0) * 38.17 + 180.0) * 57.3 * query.modified_move_speed * (query.is_baby ? 0.23 / 0.35 : 1.0) - this", 0.0, 0.0 ]
+        },
+        "frontlegr": {
+          "position": [ 0.0, 1.0, 0.0 ],
+          "rotation": [ "math.cos(query.modified_distance_moved / (query.model_scale * 16.0) * 38.17) * 57.3 * query.modified_move_speed * (query.is_baby ? 0.23 / 0.35 : 1.0) - this", 0.0, 0.0 ]
+        },
+        "head": {
+          "position": [ 0.0, -1.0, 0.0 ]
+        },
+        "tail1": {
+          "rotation": [ "90.0 - this", 0.0, 0.0 ]
+        },
+        "tail2": {
+          "position": [ 0.0, -3.0, -6.0 ],
+          "rotation": [ "9.0 + math.cos(query.modified_distance_moved / (query.model_scale * 16.0) * 57.3) * 27.0 * query.modified_move_speed * (query.is_baby ? 0.23 / 0.35 : 1.0) - this", 0.0, 0.0 ]
+        }
+      }
+    },
+    "animation.ocelot.sprint": {
+      "loop": true,
+      "bones": {
+        "backlegl": {
+          "rotation": [ "math.cos(query.modified_distance_moved / (query.model_scale * 16.0) * 38.17) * 57.3 * query.modified_move_speed * (query.is_baby ? 0.23 / 0.35 : 1.0) - this", 0.0, 0.0 ]
+        },
+        "backlegr": {
+          "rotation": [ "math.cos(query.modified_distance_moved / (query.model_scale * 16.0) * 38.17 + 17.19) * 57.3 * query.modified_move_speed * (query.is_baby ? 0.23 / 0.35 : 1.0) - this", 0.0, 0.0 ]
+        },
+        "frontlegl": {
+          "rotation": [ "math.cos(query.modified_distance_moved / (query.model_scale * 16.0) * 38.17 + 197.19) * 57.3 * query.modified_move_speed * (query.is_baby ? 0.23 / 0.35 : 1.0) - this", 0.0, 0.0 ]
+        },
+        "frontlegr": {
+          "rotation": [ "math.cos(query.modified_distance_moved / (query.model_scale * 16.0) * 38.17 + 180.0) * 57.3 * query.modified_move_speed * (query.is_baby ? 0.23 / 0.35 : 1.0) - this", 0.0, 0.0 ]
+        },
+        "tail1": {
+          "rotation": [ "90.0 - this", 0.0, 0.0 ]
+        },
+        "tail2": {
+          "position": [ 0.0, -3.0, -6.0 ],
+          "rotation": [ "9.0 + math.cos(query.modified_distance_moved / (query.model_scale * 16.0) * 57.3) * 18.0 * query.modified_move_speed * (query.is_baby ? 0.23 / 0.35 : 1.0) - this", 0.0, 0.0 ]
+        }
+      }
+    },
+    "animation.ocelot.walk": {
+      "loop": true,
+      "bones": {
+        "backlegl": {
+          "rotation": [ "math.cos(query.modified_distance_moved / (query.model_scale * 16.0) * 38.17) * 57.3 * query.modified_move_speed * (query.is_baby ? 0.23 / 0.35 : 1.0) - this", 0.0, 0.0 ]
+        },
+        "backlegr": {
+          "rotation": [ "math.cos(query.modified_distance_moved / (query.model_scale * 16.0) * 38.17 + 180.0) * 57.3 * query.modified_move_speed * (query.is_baby ? 0.23 / 0.35 : 1.0) - this", 0.0, 0.0 ]
+        },
+        "frontlegl": {
+          "rotation": [ "math.cos(query.modified_distance_moved / (query.model_scale * 16.0) * 38.17 + 180.0) * 57.3 * query.modified_move_speed * (query.is_baby ? 0.23 / 0.35 : 1.0) - this", 0.0, 0.0 ]
+        },
+        "frontlegr": {
+          "rotation": [ "math.cos(query.modified_distance_moved / (query.model_scale * 16.0) * 38.17) * 57.3 * query.modified_move_speed * (query.is_baby ? 0.23 / 0.35 : 1.0) - this", 0.0, 0.0 ]
+        },
+        "tail2": {
+          "position": [ 0.0, -2.80799, -6.18749 ],
+          "rotation": [ "47.43 + math.cos(query.modified_distance_moved / (query.model_scale * 16.0) * 57.3) * 45.0 * query.modified_move_speed * (query.is_baby ? 0.23 / 0.35 : 1.0) - this", 0.0, 0.0 ]
+        }
+      }
+    }
+  }
+}

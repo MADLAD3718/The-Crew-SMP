@@ -1,0 +1,26 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.drowned.attack.rotations": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [ "zombie_attack_bare_hand" ],
+          "transitions": [
+            {
+              "spear_attack": "variable.is_brandishing_spear"
+            }
+          ]
+        },
+        "spear_attack": {
+          "animations": [ "zombie_attack_bare_hand", "attack_rotations" ],
+          "transitions": [
+            {
+              "default": "!variable.is_brandishing_spear"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

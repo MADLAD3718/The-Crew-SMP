@@ -1,0 +1,19 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.shulker.facing.v1.0": {
+      "anim_time_update": "query.modified_distance_moved",
+      "loop": true,
+      "bones": {
+        "base": {
+          "position": [ "variable.shulker.xoffset", "variable.shulker.yoffset - 0.12", "variable.shulker.zoffset" ],
+          "rotation": [ "variable.shulker.xprerotation", 0.0, "variable.shulker.zprerotation" ]
+        },
+        "lid": {
+          "position": [ "(variable.shulker.eastfacing - variable.shulker.westfacing) * 8", "(variable.shulker.northfacing + variable.shulker.southfacing + variable.shulker.eastfacing + variable.shulker.westfacing) * 8 + (variable.shulker.upfacing) * 16", "(variable.shulker.northfacing - variable.shulker.southfacing) * 8" ],
+          "rotation": [ "variable.shulker.xprerotation", 0.0, "variable.shulker.zprerotation" ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:zombie_villager_v2",
+      "textures": {
+        "level_stone": "textures/entity/zombie_villager2/levels/level_stone",
+        "level_iron": "textures/entity/zombie_villager2/levels/level_iron",
+        "level_gold": "textures/entity/zombie_villager2/levels/level_gold",
+        "level_emerald": "textures/entity/zombie_villager2/levels/level_emerald",
+        "level_diamond": "textures/entity/zombie_villager2/levels/level_diamond"
+      },
+      "scripts": {
+        "initialize": [
+          // Baby Armor for all mobs with a separate baby geo
+          "v.use_dedicated_baby_armor = true;",
+
+          // Melee spear
+          "v.kinetic_weapon_forward_movement = 0.38;",
+          "v.melee_spear_attack_raise_end = 0.05;",
+          "v.melee_spear_attack_thrust_end = 0.2;",
+          "v.melee_spear_attack_recover_start = 0.4;",
+          "v.tp_melee_spear_base_arm_rotation_x = -44.16;"
+        ],
+        "pre_animation": [
+          // Profession
+          "v.num_professions = 15;",
+          "v.profession_index = ((q.variant < v.num_professions) ? q.variant : 0);",
+          "v.level_index = q.trade_tier;",
+
+          // Body
+          "v.tcos0 = (Math.cos(q.modified_distance_moved * 38.17) * q.modified_move_speed * (q.is_baby ? 0.65714 : 1.0) / v.gliding_speed_value) * 57.3;",
+
+          // Items
+          "v.item_use_duration = q.is_using_item ? ((v.item_use_duration ?? 0.0) + q.delta_time * 20.0) : 0.0;",
+          "v.item_use_normalized = v.item_use_duration / q.main_hand_item_max_duration;",
+
+          // Melee spear
+          "v.melee_spear_equipped = q.equipped_item_any_tag('slot.weapon.mainhand', 'minecraft:is_spear');",
+          "(v.melee_spear_equipped) ? {",
+          "  t.melee_spear_use_finish_raise_tick = q.kinetic_weapon_delay;",
+          "  t.melee_spear_use_finish_sway_tick = t.melee_spear_use_finish_raise_tick + q.kinetic_weapon_dismount_duration;",
+          "  t.melee_spear_use_start_sway_tick = t.melee_spear_use_finish_sway_tick - 20.0;",
+          "  t.melee_spear_use_finish_lower_tick = t.melee_spear_use_finish_raise_tick + q.kinetic_weapon_knockback_duration;",
+          "  t.melee_spear_use_start_lower_tick = t.melee_spear_use_finish_lower_tick - 40.0;",
+          "  t.melee_spear_use_finish_raise_back_tick = t.melee_spear_use_finish_raise_tick + q.kinetic_weapon_damage_duration;",
+          "  v.melee_spear_use_raise_progress = math.clamp(math.inverse_lerp(0.0, t.melee_spear_use_finish_raise_tick, v.item_use_duration), 0.0, 1.0);",
+          "  v.melee_spear_use_raise_progress_start = math.clamp(math.inverse_lerp(0.0, 0.5, v.melee_spear_use_raise_progress), 0.0, 1.0);",
+          "  v.melee_spear_use_raise_progress_middle = math.clamp(math.inverse_lerp(0.5, 0.8, v.melee_spear_use_raise_progress), 0.0, 1.0);",
+          "  v.melee_spear_use_raise_progress_end = math.clamp(math.inverse_lerp(0.8, 1.0, v.melee_spear_use_raise_progress), 0.0, 1.0);",
+          "  v.melee_spear_use_sway_progress = math.clamp(math.inverse_lerp(t.melee_spear_use_start_sway_tick, t.melee_spear_use_finish_sway_tick, v.item_use_duration), 0.0, 1.0);",
+          "  v.melee_spear_use_lower_progress = math.ease_out_cubic(0.0, 1.0, math.ease_in_out_elastic(0.0, 1.0, math.clamp(math.inverse_lerp(t.melee_spear_use_start_lower_tick, t.melee_spear_use_finish_lower_tick, v.item_use_duration - 20.0), 0.0, 1.0)));",
+          "  v.melee_spear_use_raise_back_progress = math.clamp(math.inverse_lerp(t.melee_spear_use_finish_raise_back_tick - 5.0, t.melee_spear_use_finish_raise_back_tick, v.item_use_duration), 0.0, 1.0);",
+          "  v.melee_spear_use_sway_intensity = math.ease_out_circ(0.0, 2.0, v.melee_spear_use_sway_progress) + math.ease_in_circ(0.0, -2.0, v.melee_spear_use_raise_back_progress);",
+          "  v.melee_spear_use_sway_scale_slow = math.sin(v.item_use_duration * 19.0) * v.melee_spear_use_sway_intensity;",
+          "  v.melee_spear_use_sway_scale_fast = math.sin(v.item_use_duration * 30.0) * v.melee_spear_use_sway_intensity;",
+          "  v.melee_spear_use_hit_feedback_amount = q.ticks_since_last_kinetic_weapon_hit >= 10.0 ? 0.0 : math.ease_out_quart(0.0, 0.4, math.clamp(math.inverse_lerp(1.0, 3.0, q.ticks_since_last_kinetic_weapon_hit + q.frame_alpha), 0.0, 1.0)) - math.ease_out_sine(0.0, 0.4, math.clamp(math.inverse_lerp(3.0, 10.0, q.ticks_since_last_kinetic_weapon_hit + q.frame_alpha), 0.0, 1.0));",
+          "};"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.zombie_villager_v3_base",
+        "controller.render.zombie_villager_v3_masked",
+        "controller.render.zombie_villager_v3_level"
+      ]
+    }
+  }
+}

@@ -1,0 +1,625 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_moveSlowdown",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "moveSlowdown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_moveSpeed",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "moveSpeed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_digSlowdown",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "digSlowdown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_digSpeed",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "digSpeed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_damageBoost",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "damageBoost"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_heal",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "heal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_harm",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "harm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_jump",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "jump"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_confusion",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "confusion"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_regeneration",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "regeneration"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_resistance",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "resistance"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_fireResistance",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "fireResistance"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_waterBreathing",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "waterBreathing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_invisibility",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "invisibility"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_blindness",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "blindness"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_nightVision",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "nightVision"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_hunger",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "hunger"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_weakness",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "weakness"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_poison",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "poison"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_wither",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "wither"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_healthBoost",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "healthBoost"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_absorption",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "absorption"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_saturation",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "saturation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_levitation",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "levitation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_turtleMaster",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "turtleMaster"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_slowFall",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "slowFall"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_windCharged",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "windCharged"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_weaving",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "weaving"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_oozing",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "oozing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering_infested",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "infested"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.potion_bottle_lingering",
+        "texture_width": 16.0,
+        "texture_height": 16.0
+      },
+      "bones": [
+        {
+          "name": "body",
+          "pivot": [ 0.0, 0.0, 0.0 ],
+          "texture_meshes": [
+            {
+              "position": [ -4.0, -0.25, -6.0 ],
+              "scale": [ 0.5, 0.5, 0.5 ],
+              "texture": "default"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

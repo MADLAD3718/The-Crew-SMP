@@ -1,0 +1,80 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.elytra.default": {
+      "loop": true,
+      "bones": {
+        "left_wing": {
+          "position": [ 5.0, 4.0, 2.0 ],
+          "rotation": [ "math.lerp(math.lerp(15.0, 40.0, variable.sneak_ratio), 20.0, variable.glide_ratio)", "math.lerp(0.0, 5.0, variable.sneak_ratio)", "math.lerp(math.lerp(-15.0, -45.0, variable.sneak_ratio), -90.0, variable.glide_ratio)" ]
+        },
+        "right_wing": {
+          "position": [ -5.0, 4.0, 2.0 ],
+          "rotation": [ "math.lerp(math.lerp(15.0, 40.0, variable.sneak_ratio), 20.0, variable.glide_ratio)", "math.lerp(0.0, -5.0, variable.sneak_ratio)", "math.lerp(math.lerp(15.0, 45.0, variable.sneak_ratio), 90.0, variable.glide_ratio)" ]
+        }
+      }
+    },
+    "animation.elytra.gliding": {
+      "loop": true,
+      "bones": {
+        "left_wing": {
+          "position": [ 5.0, 4.0, 2.0 ],
+          "rotation": [ "math.lerp(math.lerp(15.0, 40.0, variable.sneak_ratio), 20.0, variable.glide_ratio)", "math.lerp(0.0, 5.0, variable.sneak_ratio)", "math.lerp(math.lerp(-15.0, -45.0, variable.sneak_ratio), -90.0, variable.glide_ratio)" ]
+        },
+        "right_wing": {
+          "position": [ -5.0, 4.0, 2.0 ],
+          "rotation": [ "math.lerp(math.lerp(15.0, 40.0, variable.sneak_ratio), 20.0, variable.glide_ratio)", "math.lerp(0.0, -5.0, variable.sneak_ratio)", "math.lerp(math.lerp(15.0, 45.0, variable.sneak_ratio), 90.0, variable.glide_ratio)" ]
+        }
+      }
+    },
+    "animation.elytra.sleeping": {
+      "loop": true,
+      "bones": {
+        "left_wing": {
+          "position": [ 5.0, 4.0, 2.0 ],
+          "rotation": [ 0.0, "math.lerp(0.0, 5.0, variable.sneak_ratio)", "math.lerp(math.lerp(-15.0, -45.0, variable.sneak_ratio), -90.0, variable.glide_ratio)" ]
+        },
+        "right_wing": {
+          "position": [ -5.0, 4.0, 2.0 ],
+          "rotation": [ 0.0, "math.lerp(0.0, -5.0, variable.sneak_ratio)", "math.lerp(math.lerp(15.0, 45.0, variable.sneak_ratio), 90.0, variable.glide_ratio)" ]
+        }
+      }
+    },
+    "animation.elytra.sneaking": {
+      "loop": true,
+      "bones": {
+        "left_wing": {
+          "position": [ 5.0, 3.04115, 1.75517 ],
+          "rotation": [
+            { "x": -28.64788 },
+            { "z": "math.lerp(math.lerp(-15.0, -45.0, variable.sneak_ratio), -90.0, variable.glide_ratio)" },
+            { "y": "math.lerp(0.0, 5.0, variable.sneak_ratio)" },
+            { "x": "math.lerp(math.lerp(15.0, 40.0, variable.sneak_ratio), 20.0, variable.glide_ratio)" }
+          ]
+        },
+        "right_wing": {
+          "position": [ -5.0, 3.04115, 1.75517 ],
+          "rotation": [
+            { "x": -28.64788 },
+            { "z": "math.lerp(math.lerp(15.0, 45.0, variable.sneak_ratio), 90.0, variable.glide_ratio)" },
+            { "y": "math.lerp(0.0, -5.0, variable.sneak_ratio)" },
+            { "x": "math.lerp(math.lerp(15.0, 40.0, variable.sneak_ratio), 20.0, variable.glide_ratio)" }
+          ]
+        }
+      }
+    },
+    "animation.elytra.swimming": {
+      "loop": true,
+      "bones": {
+        "left_wing": {
+          "position": [ 5.0, 4.0, 2.0 ],
+          "rotation": [ "math.lerp(math.lerp(15.0, 40.0, variable.sneak_ratio), 20.0, variable.glide_ratio)", "math.lerp(0.0, 5.0, variable.sneak_ratio)", "math.lerp(math.lerp(-15.0, -45.0, variable.sneak_ratio), -90.0, variable.glide_ratio)" ]
+        },
+        "right_wing": {
+          "position": [ -5.0, 4.0, 2.0 ],
+          "rotation": [ "math.lerp(math.lerp(15.0, 40.0, variable.sneak_ratio), 20.0, variable.glide_ratio)", "math.lerp(0.0, -5.0, variable.sneak_ratio)", "math.lerp(math.lerp(15.0, 45.0, variable.sneak_ratio), 90.0, variable.glide_ratio)" ]
+        }
+      }
+    }
+  }
+}

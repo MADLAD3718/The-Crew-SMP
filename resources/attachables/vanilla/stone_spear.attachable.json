@@ -1,0 +1,14 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "minecraft:stone_spear",
+      "scripts": {
+        "parent_setup": "c.item_slot == 'main_hand' ? { v.use_attachable_animations_main_hand = 1.0; } : { v.use_attachable_animations_off_hand = 1.0; };",
+        "pre_animation": [
+          "variable.is_first_person = c.is_first_person;"
+        ]
+      }
+    }
+  }
+}

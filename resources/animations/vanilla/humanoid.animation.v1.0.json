@@ -1,0 +1,22 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.humanoid.move.v1.0": {
+      "loop": true,
+      "bones": {
+        "leftarm": {
+          "rotation": [ "variable.tcos0", 0.0, 0.0 ]
+        },
+        "leftleg": {
+          "rotation": [ "variable.tcos0 * -1.4", -0.1, -0.1 ]
+        },
+        "rightarm": {
+          "rotation": [ "-variable.tcos0", 0.0, 0.0 ]
+        },
+        "rightleg": {
+          "rotation": [ "variable.tcos0 * 1.4", 0.1, 0.1 ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,475 @@
+{
+	"format_version": "1.26.40",
+	"animations": {
+		"animation.player.grappling_hook_equipped": {
+			"loop": true,
+			"bones": {
+				"leftarm": {
+					"position": [ 0, 0, 0.5 ],
+					"rotation": [ "-this - 65.0 - v.grappling_hook_use_norm * 5.0", "-this + v.grappling_hook_use_norm * 30.0", "-this + 20.0 + v.grappling_hook_use_norm * 10.0" ]
+				},
+				"rightarm": {
+					"rotation": [ "- 60.0 - this", "- 45.0 - this", "- 2.5 - this" ]
+				}
+			}
+		},
+		"animation.player.katana.charge": {
+			"loop": true,
+			"bones": {
+				"leftArm": {
+					"rotation": [ "-this - 65.0 + v.katana_use_norm * 50.0", "-this", "-this + 35.0 + v.katana_use_norm * 10.0" ],
+					"position": [ 0, 0, 0.5 ]
+				},
+				"rightArm": {
+					"rotation": [ "- 60.0 - this + v.katana_use_norm * 50", "- 15.0 - this", "- 2.5 - this" ]
+				}
+			}
+		},
+		"animation.player.katana.dash": {
+			"loop": true,
+			"animation_length": 0.4,
+			"bones": {
+				"leftarm": {
+					"rotation": [ "v.tcos0", 0.0, 0.0 ]
+				},
+				"rightArm": {
+					"rotation": [ -40, 0, 0 ]
+				},
+				"rightItem": {
+					"rotation": [ 70, 0, 0 ],
+					"position": [ 0, 0, -3 ]
+				}
+			}
+		},
+		"animation.player.pet": {
+			"animation_length": 0.6,
+			"bones": {
+				"rightArm": {
+					"rotation": {
+						"0.0": [
+							"v.is_first_person ? 0 : -80",
+							"v.is_first_person ? 0 : -20",
+							"v.is_first_person ? -45 : 0"
+						],
+						"0.2": [
+							"v.is_first_person ? 0 : -80",
+							"v.is_first_person ? 0 : -50",
+							"v.is_first_person ? -22.5 : 0"
+						],
+						"0.4": [
+							"v.is_first_person ? 0 : -80",
+							"v.is_first_person ? 0 : -20",
+							"v.is_first_person ? -45 : 0"
+						],
+						"0.6": [
+							"v.is_first_person ? 0 : -80",
+							"v.is_first_person ? 0 : -50",
+							"v.is_first_person ? -22.5 : 0"
+						]
+					}
+				}
+			}
+		},
+		"animation.player.riding.seal": {
+			"loop": true,
+			"bones": {
+				"cape": {
+					"rotation": [ "math.lerp(0.0, -32.0, q.cape_flap_amount) - 6.0", 0, 0 ],
+					"position": [ 0, "q.get_root_locator_offset('armor_offset.default_neck', 1)", 0 ]
+				},
+				"root": {
+					"rotation": [ "90 + q.ride_body_x_rotation - 5 * math.sin((q.life_time + 0.2) * 360)", 0, 0 ],
+					"position": [ 0, "7.5 + 17.5 * (1 + math.sin(q.ride_body_x_rotation - 5 * math.sin((q.life_time + 0.2) * 360))) + 2 * math.sin(q.life_time * 360)", "17.5 * math.cos(q.ride_body_x_rotation - 5 * math.sin((q.life_time + 0.2) * 360)) + 8.5 + 1.5 * math.sin((q.life_time + 0.2) * 360)" ]
+				},
+				"seal.geo": {
+					"rotation": [ "q.ride_body_x_rotation + math.sin((q.life_time - 0.25) * 360) * 12", 0, 0 ],
+					"position": [ 0, "10.25 + 2 * math.sin(q.life_time * 360)", 8 ],
+					"scale": 1.26
+				},
+				"leftArm": {
+					"rotation": [ "-115 - q.ride_body_x_rotation - 6.5 * math.sin((q.life_time + 0.2) * 360)", 0, 0 ]
+				},
+				"rightArm": {
+					"rotation": [ "-115 - q.ride_body_x_rotation - 6.5 * math.sin((q.life_time + 0.2) * 360)", 0, 0 ]
+				},
+				"leftLeg": {
+					"rotation": [ "-10 * math.sin((q.life_time - 0.05) * 360)", 0, 0 ]
+				},
+				"rightLeg": {
+					"rotation": [ "-10 * math.sin((q.life_time - 0.0) * 360)", 0, 0 ]
+				}
+			}
+		},
+		"animation.player.attack.positions": {
+			"loop": true,
+			"bones": {
+				"leftarm": {
+					"rotation": [ 0.0, "query.is_sneaking ? variable.attack_body_rot_y", 0.0 ]
+				},
+				"rightarm": {
+					"rotation": [ 0.0, "query.is_sneaking ? variable.attack_body_rot_y", 0.0 ]
+				}
+			}
+		},
+		"animation.player.attack.rotations": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": [ 0.0, "variable.attack_body_rot_y", 0.0 ]
+				},
+				"leftarm": {
+					"rotation": [ "variable.attack_body_rot_y", 0.0, 0.0 ]
+				},
+				"rightarm": {
+					"rotation": [ "math.sin(1.0 - math.pow(1.0 - variable.attack_time, 3.0) * 180.0) * 68.75 - math.sin(variable.attack_time * 180.0) * -((query.is_gliding ? -45.0 : query.target_x_rotation * variable.inversion_factor * (1.0 - variable.swim_amount)) - 40.10) * 0.75", "variable.attack_body_rot_y * 2.0", "math.sin(variable.attack_time * 180.0) * -22.92" ]
+				}
+			}
+		},
+		"animation.player.base_pose.upside_down": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"position": [ 0.0, "4.0 * (query.is_riding || variable.is_paperdoll || query.is_emoting ? -4.0 : -5.0 + math.cos(math.lerp(query.target_x_rotation, 0.0, math.clamp(variable.swim_amount + query.is_gliding, 0.0, 1.0))))", 0.0 ],
+					"rotation": [ 0.0, 0.0, "variable.is_upside_down = 1.0; variable.inversion_factor = -1.0; return 180.0;" ]
+				},
+				"leftarm": {
+					"rotation": [ 0.0, 0.0, "query.is_sneaking ? 180.0" ]
+				},
+				"leftleg": {
+					"position": [ -3.8, "4.0 * (query.is_riding || variable.is_paperdoll || query.is_emoting ? 2.0 : 1.0 + math.cos(math.lerp(query.target_x_rotation, 0.0, math.clamp(variable.swim_amount + query.is_gliding, 0.0, 1.0))))", 0.0 ],
+					"rotation": [ 0.0, 0.0, 180.0 ]
+				},
+				"rightarm": {
+					"rotation": [ 0.0, 0.0, "query.is_sneaking ? 180.0" ]
+				},
+				"rightleg": {
+					"position": [ 3.8, "4.0 * (query.is_riding || variable.is_paperdoll || query.is_emoting ? 2.0 : 1.0 + math.cos(math.lerp(query.target_x_rotation, 0.0, math.clamp(variable.swim_amount + query.is_gliding, 0.0, 1.0))))", 0.0 ],
+					"rotation": [ 0.0, 0.0, 180.0 ]
+				}
+			}
+		},
+		"animation.player.bob": {
+			"loop": true,
+			"bones": {
+				"leftarm": {
+					"rotation": [ "-math.sin(query.life_time * 76.776372) * 2.865", 0.0, "-(math.cos(query.life_time * 103.13244) * 2.865 + 2.865)" ]
+				},
+				"rightarm": {
+					"rotation": [ "math.sin(query.life_time * 76.776372) * 2.865", 0.0, "math.cos(query.life_time * 103.13244) * 2.865 + 2.865" ]
+				}
+			}
+		},
+		"animation.player.bow_equipped": {
+			"loop": true,
+			"bones": {
+				"leftarm": {
+					"rotation": [ "-90.0 + math.lerp(query.target_x_rotation * variable.inversion_factor, -45.0, math.clamp(variable.swim_amount + query.is_gliding, 0.0, 1.0)) - math.sin(query.life_time * 76.776372) * 2.865 - this", "(variable.swim_amount > 0.0 ? -this) + 28.65 + math.clamp(query.target_y_rotation * variable.inversion_factor, -45.0, 45.0)", "variable.swim_amount > 0.0 ? math.lerp(-(math.cos(query.life_time * 103.13244) * 2.865 + 2.865), 0.0, variable.swim_amount) - this" ]
+				},
+				"rightarm": {
+					"rotation": [ "-90.0 + math.lerp(query.target_x_rotation * variable.inversion_factor, -45.0, math.clamp(variable.swim_amount + query.is_gliding, 0.0, 1.0)) + math.sin(query.life_time * 76.776372) * 2.865 - this", "(variable.swim_amount > 0.0 ? -this) - 5.73 + math.clamp(query.target_y_rotation * variable.inversion_factor, -45.0, 45.0)", "variable.swim_amount > 0.0 ? math.lerp(math.cos(query.life_time * 103.13244) * 2.865 + 2.865, 0.0, variable.swim_amount) - this" ]
+				}
+			}
+		},
+		"animation.player.cape": {
+			"loop": true,
+			"bones": {
+				"cape": {
+					"position": [ 0.0, "query.get_root_locator_offset('armor_offset.default_neck', 1) + ((query.armor_texture_slot(1) != -1 && !variable.is_paperdoll) ? 0.85)", "(query.armor_texture_slot(1) != -1 && !variable.is_paperdoll) ? 1.01" ],
+					"rotation": [ "variable.is_paperdoll ? -6.0 : math.lerp(0.0, -106.0, query.cape_flap_amount)", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.player.crossbow_equipped": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"leftarm": {
+					"rotation": [ "math.lerp(-55.62, -90.0, 1.0 - variable.item_use_normalized) - math.sin(query.life_time * 76.776372) * 2.865", "math.lerp(22.92, 48.70, 1.0 - variable.item_use_normalized)", "-math.cos(query.life_time * 103.13244) * 2.865 + 2.865" ]
+				},
+				"rightarm": {
+					"rotation": [ "-55.62 + math.sin(query.life_time * 76.776372) * 2.865", -45.84, "math.cos(query.life_time * 103.13244) * 2.865 + 2.865" ]
+				}
+			}
+		},
+		"animation.player.crossbow_hold": {
+			"loop": true,
+			"bones": {
+				"leftarm": {
+					"rotation": [ "-85.94 + (variable.swim_amount <= 0.0 ? query.is_sneaking * 0.0) + math.lerp(query.target_x_rotation * variable.inversion_factor, -45.0, math.clamp(variable.swim_amount + query.is_gliding, 0.0, 1.0)) - math.sin(query.life_time * 76.776372) * 2.865 - this", "34.38 + math.clamp(query.target_y_rotation * variable.inversion_factor, -45.0, 45.0) + query.is_sneaking * variable.attack_body_rot_y - this", "variable.swim_amount > 0.0 ? math.lerp(-(math.cos(query.life_time * 103.13244) * 2.865 + 2.865), 0.0, variable.swim_amount) - this" ]
+				},
+				"rightarm": {
+					"rotation": [ "-84.27 + (variable.swim_amount <= 0.0 ? query.is_sneaking * 0.0) + math.lerp(query.target_x_rotation * variable.inversion_factor, -45.0, math.clamp(variable.swim_amount + query.is_gliding, 0.0, 1.0)) + math.sin(query.life_time * 76.776372) * 2.865 - this", "-17.19 + math.clamp(query.target_y_rotation * variable.inversion_factor, -45.0, 45.0) + query.is_sneaking * variable.attack_body_rot_y - this", "variable.swim_amount > 0.0 ? math.lerp(math.cos(query.life_time * 103.13244) * 2.865 + 2.865, 0.0, variable.swim_amount) - this" ]
+				}
+			}
+		},
+		"animation.player.melee_spear_attack": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": [ 0.0, "v.attack_body_rot_y", 0.0 ]
+				},
+				"leftarm": {
+					"rotation": [ 0.0, "!query.is_sneaking ? -v.attack_body_rot_y", 0.0 ]
+				},
+				"rightarm": {
+					"rotation": [ "v.melee_spear_attack_raise_scale * 90.0 + v.melee_spear_attack_thrust_scale * -120.0 + v.melee_spear_attack_recover_scale * 30.0", "!query.is_sneaking ? -v.attack_body_rot_y", 0.0 ]
+				},
+				"rightitem": {
+					"position": [ "v.melee_spear_attack_item_rotation_x = 70.0 * (v.melee_spear_attack_thrust_scale - v.melee_spear_attack_recover_scale); return 0.0;", "-1.0 + math.cos(v.melee_spear_attack_item_rotation_x) + math.sin(v.melee_spear_attack_item_rotation_x) * (1.0 - 16.0 * v.kinetic_weapon_forward_movement * (v.melee_spear_attack_thrust_scale - v.melee_spear_attack_recover_scale))", "-1.0 - math.sin(v.melee_spear_attack_item_rotation_x) + math.cos(v.melee_spear_attack_item_rotation_x) * (1.0 - 16.0 * v.kinetic_weapon_forward_movement * (v.melee_spear_attack_thrust_scale - v.melee_spear_attack_recover_scale))" ],
+					"rotation": [ "v.melee_spear_attack_item_rotation_x", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.player.glide": {
+			"loop": true,
+			"bones": {
+				"leftarm": {
+					"rotation": [ "variable.tcos0", 0.0, 0.0 ]
+				},
+				"leftleg": {
+					"rotation": [ "variable.tcos0 * -1.4", -0.1, -0.1 ]
+				},
+				"rightarm": {
+					"rotation": [ "-variable.tcos0", 0.0, 0.0 ]
+				},
+				"rightleg": {
+					"rotation": [ "variable.tcos0 * 1.4", 0.1, 0.1 ]
+				}
+			}
+		},
+		"animation.player.look_at_target.inverted": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"rotation": [ "!variable.is_paperdoll ? math.lerp(-query.target_x_rotation, -45.0, math.clamp(variable.swim_amount + query.is_gliding, 0.0, 1.0)) : -query.target_x_rotation", "-query.target_y_rotation + (!query.is_sneaking || variable.swim_amount > 0.0 ? -variable.attack_body_rot_y)", "query.is_sneaking && variable.swim_amount <= 0.0 ? 180.0" ]
+				}
+			}
+		},
+		"animation.player.move.legs": {
+			"loop": true,
+			"bones": {
+				"leftleg": {
+					"rotation": [ "variable.tcos0 * -1.4", -0.1, -0.1 ]
+				},
+				"rightleg": {
+					"rotation": [ "variable.tcos0 * 1.4", 0.1, 0.1 ]
+				}
+			}
+		},
+		"animation.player.move.legs.inverted": {
+			"loop": true,
+			"bones": {
+				"leftleg": {
+					"rotation": [ "-variable.tcos0", -0.1, -0.1 ]
+				},
+				"rightleg": {
+					"rotation": [ "variable.tcos0", 0.1, 0.1 ]
+				}
+			}
+		},
+		"animation.player.move.legs.single": {
+			"loop": true,
+			"bones": {
+				"leftleg": {
+					"rotation": [ "variable.tcos0", -0.1, -0.1 ]
+				},
+				"rightleg": {
+					"rotation": [ "variable.tcos0", 0.1, 0.1 ]
+				}
+			}
+		},
+		"animation.player.move.legs.stationary": {
+			"loop": true,
+			"bones": {
+				"leftleg": {
+					"rotation": [ 0.0, -0.1, -0.1 ]
+				},
+				"rightleg": {
+					"rotation": [ 0.0, 0.1, 0.1 ]
+				}
+			}
+		},
+		"animation.player.riding.legs": {
+			"loop": true,
+			"bones": {
+				"leftleg": {
+					"rotation": [ "-81.0 - this", "-18.0 - this", "(variable.is_upside_down ? 180.0) - this" ]
+				},
+				"rightleg": {
+					"rotation": [ "-81.0 - this", "18.0 - this", "(variable.is_upside_down ? 180.0) - this" ]
+				}
+			}
+		},
+		"animation.player.shield_block_main_hand": {
+			"loop": true,
+			"bones": {
+				"rightarm": {
+					"rotation": [ "-36.0 + math.clamp(query.target_x_rotation * variable.inversion_factor, -80.0, 25.0)", "-30.0 + math.clamp(query.target_y_rotation * variable.inversion_factor, -30.0, 30.0)", 0.0 ]
+				},
+				"rightitem": {
+					"position": [ 0.8729527007, -3.1449233586, 0.0829987026 ],
+					"rotation": [ { "x": -45.0 }, {
+							"z": -65.0
+						}
+					]
+				}
+			}
+		},
+		"animation.player.shield_block_off_hand": {
+			"loop": true,
+			"bones": {
+				"leftarm": {
+					"rotation": [ "!query.item_is_charged ? -36.0 + math.clamp(query.target_x_rotation * variable.inversion_factor, -80.0, 25.0)", "!query.item_is_charged ? 30.0 + math.clamp(query.target_y_rotation * variable.inversion_factor, -30.0, 30.0)", 0.0 ]
+				},
+				"leftitem": {
+					"position": [ -0.8729527007, "!query.item_is_charged ? -3.1449233586 : -2.5615986005", "!query.item_is_charged ? 0.0829987026 : 0.0" ],
+					"rotation": [ { "x": "!query.item_is_charged ? -45.0" }, {
+							"z": 65.0
+						}
+					]
+				}
+			}
+		},
+		"animation.player.sneaking": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"position": [ 0.0, "variable.body_height = query.get_default_bone_pivot('rightleg',1) == 0.0 || query.get_default_bone_pivot('leftleg',1) == 0.0 ? 12.0 : query.get_default_bone_pivot('body',1) - query.get_default_bone_pivot('rightleg',1); return variable.is_upside_down ? -1.0 : variable.body_height * -0.12241 - 1.53108 + query.get_default_bone_pivot('body',1) / -11.25;", 0.0 ],
+					"rotation": [ 28.64788, 0.0, 0.0 ]
+				},
+				"head": {
+					"relative_to": {
+						"rotation": "entity"
+					},
+					"position": [ 0.0, -0.87758, -0.47942 ]
+				},
+				"leftarm": {
+					"position": [ 0.0, 0.24483, -0.95885 ],
+					"relative_to": {
+						"rotation": "entity"
+					},
+					"rotation": [ 22.91831, 0.0, 0.0 ]
+				},
+				"leftleg": {
+					"position": [ 0.0, "!variable.is_upside_down ? query.get_default_bone_pivot('body',1) / -11.25 : -4.0", "variable.body_height * 0.47942 - 1.75304" ]
+				},
+				"rightarm": {
+					"position": [ 0.0, 0.24483, -0.95885 ],
+					"relative_to": {
+						"rotation": "entity"
+					},
+					"rotation": [ 22.91831, 0.0, 0.0 ]
+				},
+				"rightleg": {
+					"position": [ 0.0, "!variable.is_upside_down ? query.get_default_bone_pivot('body',1) / -11.25 : -4.0", "variable.body_height * 0.47942 - 1.75304" ]
+				}
+			}
+		},
+		"animation.player.swim": {
+			"anim_time_update": "query.modified_distance_moved / 20.0",
+			"animation_length": 1.3,
+			"loop": true,
+			"bones": {
+				"leftarm": {
+					"rotation": [ "math.lerp(0.0, 90.0 * (query.anim_time < 1.1 ? math.clamp((query.anim_time - 0.7) / 0.4, 0.0, 1.0) : (1.3 - query.anim_time) / 0.2) - this, variable.swim_amount)", "math.lerprotate(0.0, 180.0 - this, variable.swim_amount)", "math.lerprotate(0.0, 180.0 + 107.18873 * (query.anim_time < 0.7 ? query.anim_time / 0.7 : math.clamp((1.1 - query.anim_time) / 0.4, 0.0, 1.0)) - this, variable.swim_amount)" ]
+				},
+				"rightarm": {
+					"rotation": [ "math.lerp(0.0, 90.0 * (query.anim_time < 1.1 ? math.clamp((query.anim_time - 0.7) / 0.4, 0.0, 1.0) : (1.3 - query.anim_time) / 0.2) - this, variable.swim_amount)", "math.lerp(0.0, 180.0 - this, variable.swim_amount)", "math.lerprotate(0.0, -180.0 - 107.18873 * (query.anim_time < 0.7 ? query.anim_time / 0.7 : math.clamp((1.1 - query.anim_time) / 0.4, 0.0, 1.0)) - this, variable.swim_amount)" ]
+				},
+				"root": {
+					"position": [ 0.0, "(math.sin(math.lerp(-90.0, query.target_x_rotation * variable.inversion_factor, variable.swim_amount)) + 1.0 - variable.swim_amount) * (variable.is_upside_down ? 21.0 : query.get_default_bone_pivot('body', 1)) / 1.40625 + 5.0 * variable.swim_amount", "math.cos(math.lerp(-90.0, query.target_x_rotation * variable.inversion_factor, variable.swim_amount)) * (variable.is_upside_down ? -21.0 : query.get_default_bone_pivot('body', 1)) / 1.40625" ],
+					"rotation": [ "variable.swim_amount * (90.0 * variable.inversion_factor + query.target_x_rotation)", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.player.swim.no_right_arm": {
+			"anim_time_update": "query.modified_distance_moved / 20.0",
+			"animation_length": 1.3,
+			"loop": true,
+			"bones": {
+				"leftarm": {
+					"rotation": [ "math.lerp(0.0, 90.0 * (query.anim_time < 1.1 ? math.clamp((query.anim_time - 0.7) / 0.4, 0.0, 1.0) : (1.3 - query.anim_time) / 0.2) - this, variable.swim_amount)", "math.lerprotate(0.0, 180.0 - this, variable.swim_amount)", "math.lerprotate(0.0, 180.0 + 107.18873 * (query.anim_time < 0.7 ? query.anim_time / 0.7 : math.clamp((1.1 - query.anim_time) / 0.4, 0.0, 1.0)) - this, variable.swim_amount)" ]
+				},
+				"root": {
+					"position": [ 0.0, "(math.sin(math.lerp(-90.0, query.target_x_rotation * variable.inversion_factor, variable.swim_amount)) + 1.0 - variable.swim_amount) * (variable.is_upside_down ? 21.0 : query.get_default_bone_pivot('body', 1)) / 1.40625 + 5.0 * variable.swim_amount", "math.cos(math.lerp(-90.0, query.target_x_rotation * variable.inversion_factor, variable.swim_amount)) * (variable.is_upside_down ? -21.0 : query.get_default_bone_pivot('body', 1)) / 1.40625" ],
+					"rotation": [ "variable.swim_amount * (90.0 * variable.inversion_factor + query.target_x_rotation)", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.player.swim.legs": {
+			"loop": true,
+			"bones": {
+				"leftleg": {
+					"rotation": [ "math.lerp(0.0, math.cos(query.modified_distance_moved * 19.09859 + 180.0) * 17.18873 - this, variable.swim_amount)", "(-0.1 - this) * variable.swim_amount", "(-0.1 + (variable.is_upside_down ? 180.0) - this) * variable.swim_amount" ]
+				},
+				"rightleg": {
+					"rotation": [ "math.lerp(0.0, math.cos(query.modified_distance_moved * 19.09859) * 17.18873 - this, variable.swim_amount)", "(0.1 - this) * variable.swim_amount", "(0.1 + (variable.is_upside_down ? 180.0) - this) * variable.swim_amount" ]
+				}
+			}
+		},
+		"animation.player.swim.legs.single": {
+			"loop": true,
+			"bones": {
+				"leftleg": {
+					"rotation": [ "math.lerp(0.0, math.cos(query.modified_distance_moved * 19.09859) * 17.18873 - this, variable.swim_amount)", "(-0.1 - this) * variable.swim_amount", "(-0.1 - this) * variable.swim_amount" ]
+				},
+				"rightleg": {
+					"rotation": [ "math.lerp(0.0, math.cos(query.modified_distance_moved * 19.09859) * 17.18873 - this, variable.swim_amount)", "(0.1 - this) * variable.swim_amount", "(0.1 - this) * variable.swim_amount" ]
+				}
+			}
+		},
+		"animation.player.swim.legs.stationary": {
+			"loop": true,
+			"bones": {
+				"leftleg": {
+					"rotation": [ 0.0, "(-0.1 - this) * variable.swim_amount", "(-0.1 - this) * variable.swim_amount" ]
+				},
+				"rightleg": {
+					"rotation": [ 0.0, "(0.1 - this) * variable.swim_amount", "(0.1 - this) * variable.swim_amount" ]
+				}
+			}
+		},
+		"animation.player.crawl": {
+			"anim_time_update": "query.modified_distance_moved / 20.0",
+			"animation_length": 1.3,
+			"loop": true,
+			"bones": {
+				"leftarm": {
+					"rotation": [ "math.lerp(0.0, 90.0 * (query.anim_time < 1.1 ? math.clamp((query.anim_time - 0.7) / 0.4, 0.0, 1.0) : (1.3 - query.anim_time) / 0.2) - this, variable.swim_amount)", "math.lerprotate(0.0, 180.0 - this, variable.swim_amount)", "math.lerprotate(0.0, 180.0 + 107.18873 * (query.anim_time < 0.7 ? query.anim_time / 0.7 : math.clamp((1.1 - query.anim_time) / 0.4, 0.0, 1.0)) - this, variable.swim_amount)" ]
+				},
+				"rightarm": {
+					"rotation": [ "math.lerp(0.0, 90.0 * (query.anim_time < 1.1 ? math.clamp((query.anim_time - 0.7) / 0.4, 0.0, 1.0) : (1.3 - query.anim_time) / 0.2) - this, variable.swim_amount)", "math.lerp(0.0, 180.0 - this, variable.swim_amount)", "math.lerprotate(0.0, -180.0 - 107.18873 * (query.anim_time < 0.7 ? query.anim_time / 0.7 : math.clamp((1.1 - query.anim_time) / 0.4, 0.0, 1.0)) - this, variable.swim_amount)" ]
+				},
+				"root": {
+					"position": [ 0.0, "(math.sin(math.lerp(-90.0, 0.0, variable.swim_amount)) + 1.0 - variable.swim_amount) * (variable.is_upside_down ? 21.0 : query.get_default_bone_pivot('body', 1)) / 1.40625 + 5.0 * variable.swim_amount", "math.cos(math.lerp(-90.0, 0.0, variable.swim_amount)) * (variable.is_upside_down ? -21.0 : query.get_default_bone_pivot('body', 1)) / 1.40625" ],
+					"rotation": [ "variable.swim_amount * 90.0 * variable.inversion_factor", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.player.crawl.no_right_arm": {
+			"anim_time_update": "query.modified_distance_moved / 20.0",
+			"animation_length": 1.3,
+			"loop": true,
+			"bones": {
+				"leftarm": {
+					"rotation": [ "math.lerp(0.0, 90.0 * (query.anim_time < 1.1 ? math.clamp((query.anim_time - 0.7) / 0.4, 0.0, 1.0) : (1.3 - query.anim_time) / 0.2) - this, variable.swim_amount)", "math.lerprotate(0.0, 180.0 - this, variable.swim_amount)", "math.lerprotate(0.0, 180.0 + 107.18873 * (query.anim_time < 0.7 ? query.anim_time / 0.7 : math.clamp((1.1 - query.anim_time) / 0.4, 0.0, 1.0)) - this, variable.swim_amount)" ]
+				},
+				"root": {
+					"position": [ 0.0, "(math.sin(math.lerp(-90.0, 0.0, variable.swim_amount)) + 1.0 - variable.swim_amount) * (variable.is_upside_down ? 21.0 : query.get_default_bone_pivot('body', 1)) / 1.40625 + 5.0 * variable.swim_amount", "math.cos(math.lerp(-90.0, 0.0, variable.swim_amount)) * (variable.is_upside_down ? -21.0 : query.get_default_bone_pivot('body', 1)) / 1.40625" ],
+					"rotation": [ "variable.swim_amount * 90.0 * variable.inversion_factor", 0.0, 0.0 ]
+				}
+			}
+		},
+		"animation.player.crawl.legs": {
+			"loop": true,
+			"bones": {
+				"leftleg": {
+					"rotation": [ "math.lerp(0.0, math.cos(query.modified_distance_moved * 19.09859 + 180.0) * 17.18873 - this, variable.swim_amount)", "(-0.1 - this) * variable.swim_amount", "(-0.1 + (variable.is_upside_down ? 180.0) - this) * variable.swim_amount" ]
+				},
+				"rightleg": {
+					"rotation": [ "math.lerp(0.0, math.cos(query.modified_distance_moved * 19.09859) * 17.18873 - this, variable.swim_amount)", "(0.1 - this) * variable.swim_amount", "(0.1 + (variable.is_upside_down ? 180.0) - this) * variable.swim_amount" ]
+				}
+			}
+		}
+	}
+}

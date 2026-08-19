@@ -1,0 +1,35 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.crossbow": {
+      "arrays": {
+        "textures": {
+          "array.crossbow_texture_frames": [
+            "texture.default",
+            "texture.crossbow_pulling_0",
+            "texture.crossbow_pulling_1",
+            "texture.crossbow_pulling_2",
+            "texture.crossbow_arrow",
+            "texture.crossbow_rocket"
+          ]
+        },
+        "geometries": {
+          "array.crossbow_geo_frames": [
+            "geometry.default",
+            "geometry.crossbow_pulling_0",
+            "geometry.crossbow_pulling_1",
+            "geometry.crossbow_pulling_2",
+            "geometry.crossbow_arrow",
+            "geometry.crossbow_rocket"
+          ]
+        }
+      },
+      "geometry": "array.crossbow_geo_frames[variable.animation_frame]",
+      "materials": [ { "*": "variable.is_enchanted ? material.enchanted : material.default" } ],
+      "textures": [ "array.crossbow_texture_frames[variable.animation_frame]", "texture.enchanted" ],
+      "part_visibility": [
+        { "rightitem": "variable.is_first_person ? (variable.is_in_offhand ? !query.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map', 'minecraft:map') && (query.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow', 'minecraft:crossbow') ? !(query.main_hand_item_use_duration > 0.0 || query.item_is_charged) : 1.0) : 1.0) : 1.0" }
+      ]
+    }
+  }
+}

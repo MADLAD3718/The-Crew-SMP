@@ -1,0 +1,33 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.enderman.base_pose": {
+      "loop": true,
+      "bones": {
+        "waist": {
+          "position": [ "-this", "26.0 - this", "-this" ],
+          "rotation": [ "-this", 0.0, 0.0 ]
+        },
+        "hat": {
+          "position": [ "-this", "0.5 - this", "-this" ],
+          "rotation": [ "-this", "-this", "-this" ]
+        },
+        "head": {
+          "position": [ "-this", "-1.0 - this", "-this" ]
+        },
+        "leftarm": {
+          "position": [ "5.0-this", 0.0, "-this" ]
+        },
+        "leftleg": {
+          "position": [ 0.0, "29.0 - this", 0.0 ]
+        },
+        "rightarm": {
+          "position": [ "-5.0-this", 0.0, "-this" ]
+        },
+        "rightleg": {
+          "position": [ 0.0, "29.0 - this", 0.0 ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:goat",
+      "scripts": {
+        "pre_animation": [
+          "variable.tcos_right_side = (Math.cos(query.modified_distance_moved / (query.model_scale * 16.0) * 38.17) * query.modified_move_speed * (query.is_baby ? 0.23 / 0.35 : 1.0) / variable.gliding_speed_value) * 57.3;",
+          "variable.tcos_left_side = -variable.tcos_right_side;",
+          "variable.attack_head_rot =  Math.sin(variable.attack_time * 180.0) * -37.3;",
+          "variable.ram_head_rot = Math.sin(variable.should_bow_head * 90.0) * 37.3;"
+        ]
+      }
+    }
+  }
+}
+  

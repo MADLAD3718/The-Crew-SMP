@@ -1,0 +1,36 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "minecraft:crossbow",
+      "animations": {
+        "wield": "animation.crossbow.wield",
+        "wield_offhand": "animation.crossbow.wield_offhand",
+        "wield_first_person_pull": "animation.crossbow.wield_first_person_pull",
+        "wield_first_person": "animation.crossbow.wield_first_person"
+      },
+      "scripts": {
+        "parent_setup": "c.item_slot == 'main_hand' ? { v.use_attachable_animations_main_hand = 1.0; } : { v.use_attachable_animations_off_hand = 1.0; };",
+        "initialize": [
+          "variable.is_in_offhand = c.item_slot == 'off_hand';"
+        ],
+        "pre_animation": [
+          "variable.charge_amount = math.clamp((query.main_hand_item_max_duration - (query.main_hand_item_use_duration - query.frame_alpha + 1.0)) / 10.0, 0.0, 1.0f);",
+          "variable.animation_frame = c.item_slot == 'main_hand' ? query.get_animation_frame : 0;",
+          "variable.is_first_person = c.is_first_person;"
+        ],
+        "animate": [
+          {
+            "wield": "c.item_slot == 'main_hand'"
+          },
+          {
+            "wield_offhand": "variable.is_in_offhand"
+          },
+          {
+            "wield_first_person_pull": "query.main_hand_item_use_duration > 0.0f && c.is_first_person && c.item_slot == 'main_hand'"
+          }
+        ]
+      }
+    }
+  }
+}
