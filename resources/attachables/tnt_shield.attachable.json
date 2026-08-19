@@ -24,29 +24,28 @@
         "wield_third_person": "animation.shield.wield_third_person"
       },
       "scripts": {
+        "parent_setup": "c.item_slot == 'main_hand' ? { v.use_attachable_animations_main_hand = 1.0; } : { v.use_attachable_animations_off_hand = 1.0; };",
         "initialize": [
-          "variable.main_hand_first_person_pos_x =  5.3;",
-          "variable.main_hand_first_person_pos_y = 26.0;",
-          "variable.main_hand_first_person_pos_z = 0.4;",
-          "variable.main_hand_first_person_rot_x = 91.0;",
-          "variable.main_hand_first_person_rot_y = 65.0;",
-          "variable.main_hand_first_person_rot_z = -43.0;",
-          "variable.off_hand_first_person_pos_x = -13.5;",
-          "variable.off_hand_first_person_pos_y = -5.8;",
-          "variable.off_hand_first_person_pos_z = 5.1;",
-          "variable.off_hand_first_person_with_bow_pos_z = -25.0;",
-          "variable.off_hand_first_person_rot_x = 1.0;",
-          "variable.off_hand_first_person_rot_y = 176.0;",
-          "variable.off_hand_first_person_rot_z = -2.5;"
+          "v.main_hand_first_person_pos_x = 1.1953128888;",
+          "v.main_hand_first_person_pos_y = -16.1559317111;",
+          "v.main_hand_first_person_pos_z = -0.5;",
+          "v.main_hand_first_person_rot_x = 0.0;",
+          "v.main_hand_first_person_rot_y = 0.0;",
+          "v.main_hand_first_person_rot_z = -5.0;",
+          "v.off_hand_first_person_pos_x = -3.1953128888;",
+          "v.off_hand_first_person_pos_y = -16.1559317111;",
+          "v.off_hand_first_person_pos_z = -0.5;",
+          "v.off_hand_first_person_rot_x = 0.0;",
+          "v.off_hand_first_person_rot_y = 0.0;",
+          "v.off_hand_first_person_rot_z = 5.0;",
+          "v.is_in_offhand = c.item_slot == 'off_hand';"
         ],
         "pre_animation": [
-          "variable.is_blocking_main_hand = query.blocking && !query.is_item_name_any('slot.weapon.offhand', 'tcsmp:tnt_shield', 'minecraft:shield') && query.is_item_name_any('slot.weapon.mainhand', 'tcsmp:tnt_shield');",
-          "variable.is_blocking_off_hand = query.blocking && query.is_item_name_any('slot.weapon.offhand', 'tcsmp:tnt_shield');",
-          "variable.is_using_bow = (query.get_equipped_item_name == 'bow') && (query.main_hand_item_use_duration > 0.0f);"
+          "v.is_blocking_main_hand = q.blocking && !q.is_item_name_any('slot.weapon.offhand', 'minecraft:shield', 'tcsmp:tnt_shield') && q.is_item_name_any('slot.weapon.mainhand', 'tcsmp:tnt_shield');",
+          "v.is_blocking_off_hand = q.blocking && q.is_item_name_any('slot.weapon.offhand', 'tcsmp:tnt_shield');",
+          "v.is_first_person = c.is_first_person;"
         ],
-        "animate": [
-          "wield"
-        ]
+        "animate": ["wield"]
       },
       "render_controllers": [ "controller.render.item_default" ]
     }

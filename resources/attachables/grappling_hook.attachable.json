@@ -21,20 +21,31 @@
         "pulling_2": "geometry.grappling_hook_pulling_2"
       },
       "animations": {
-        "wield": "animation.grappling_hook.wield",
+        "wield": "animation.crossbow.wield",
+        "wield_offhand": "animation.crossbow.wield_offhand",
         "wield_first_person_pull": "animation.grappling_hook.wield_first_person_pull"
       },
       "scripts": {
+        "parent_setup": "c.item_slot == 'main_hand' ? { v.use_attachable_animations_main_hand = 1.0; } : { v.use_attachable_animations_off_hand = 1.0; };",
+        "initialize": [
+          "v.is_in_offhand = c.item_slot == 'off_hand';"
+        ],
         "pre_animation": [
-          "variable.max_use_duration = 1.0;", // Defined in seconds
-          "variable.item_use_normalized = (q.main_hand_item_max_duration - q.main_hand_item_use_duration) / (20 * v.max_use_duration);",
-          "variable.item_is_charged = q.main_hand_item_use_duration != 0.0 && v.item_use_normalized >= 1.0;",
-          "variable.animation_frame = v.item_is_charged ? 3 : math.floor(v.item_use_normalized * 4);"
+          "v.max_use_duration = 1.0;", // Defined in seconds
+          "v.item_use_normalized = (q.main_hand_item_max_duration - q.main_hand_item_use_duration) / (20 * v.max_use_duration);",
+          "v.item_is_charged = q.main_hand_item_use_duration != 0.0 && v.item_use_normalized >= 1.0;",
+          "v.animation_frame = v.item_is_charged ? 3 : math.floor(v.item_use_normalized * 4);",
+          "v.is_first_person = c.is_first_person;"
         ],
         "animate": [
-          "wield",
           {
-            "wield_first_person_pull": "q.main_hand_item_use_duration > 0.0f && c.is_first_person"
+            "wield": "c.item_slot == 'main_hand'"
+          },
+          {
+            "wield_offhand": "v.is_in_offhand"
+          },
+          {
+            "wield_first_person_pull": "q.main_hand_item_use_duration > 0.0f && c.is_first_person && c.item_slot == 'main_hand'"
           }
         ]
       },

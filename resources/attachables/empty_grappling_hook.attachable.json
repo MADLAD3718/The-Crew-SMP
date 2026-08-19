@@ -15,11 +15,24 @@
         "default": "geometry.empty_grappling_hook"
       },
       "animations": {
-        "wield": "animation.grappling_hook.wield"
+        "wield": "animation.crossbow.wield",
+        "wield_offhand": "animation.crossbow.wield_offhand"
       },
       "scripts": {
+        "parent_setup": "c.item_slot == 'main_hand' ? { v.use_attachable_animations_main_hand = 1.0; } : { v.use_attachable_animations_off_hand = 1.0; };",
+        "initialize": [
+          "v.is_in_offhand = c.item_slot == 'off_hand';"
+        ],
+        "pre_animation": [
+          "v.is_first_person = c.is_first_person;"
+        ],
         "animate": [
-          "wield"
+          {
+            "wield": "c.item_slot == 'main_hand'"
+          },
+          {
+            "wield_offhand": "v.is_in_offhand"
+          }
         ]
       },
       "render_controllers": [ "controller.render.empty_grappling_hook" ]

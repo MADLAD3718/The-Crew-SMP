@@ -1,49 +1,62 @@
 {
-	"format_version": "1.26.20",
+	"format_version": "1.26.40",
 	"animations": {
         "animation.player.first_person.crossbow_hold": {
-            "loop": true,
-            "bones": {
-                "rightitem": {
-                    "position": [ "v.is_holding_shield_offhand ? -4.0 : 0.0", 0.0, 0.0 ]
-                }
-            }
-        },
+			"loop": true,
+			"bones": {
+				"rightitem": {
+					"position": [ "-10.269824 * (1.0 - v.is_vertical_splitscreen * 0.5)", 0.0, 0.0 ],
+					"rotation": [ 0.0, -10.0, 0.0 ]
+				}
+			}
+		},
         "animation.player.first_person.swap_item": {
-            "loop": true,
-            "bones": {
-                "leftarm": {
-                    "position": [ 0.0, "(q.get_equipped_item_name('off_hand') == 'filled_map' || v.is_holding_shield_offhand) ? 0.0 : -10.0 * (1.0 - c.player_offhand_arm_height)", 0.0 ]
-                },
-                "rightarm": {
-                    "position": [ 0.0, "-10.0 * (1.0 - v.player_arm_height)", 0.0 ]
-                }
-            }
-        },
+			"loop": true,
+			"bones": {
+				"leftarm": {
+					"position": [ 0.0, "v.off_hand_map_equipped ? 0.0 : (v.main_hand_map_equipped && !v.off_hand_shield_equipped ? -19.2 * (1.0 - v.player_arm_height) : -9.6 * (1.0 - c.player_offhand_arm_height))", 0.0 ]
+				},
+				"leftitem": {
+					"scale": "v.off_hand_item_visible"
+				},
+				"rightarm": {
+					"position": [ 0.0, "(v.main_hand_map_equipped ? -19.2 : -9.6) * (1.0 - v.player_arm_height)", 0.0 ]
+				},
+				"rightitem": {
+					"scale": "v.main_hand_item_visible"
+				}
+			}
+		},
         "animation.player.first_person.shield_block": {
-            "loop": true,
-            "bones": {
-                "leftarm": {
-                    "position": [ 0.0, "-10.0 * (1.0 - c.player_offhand_arm_height)", 0.0 ]
-                },
-                "rightarm": {
-                    "position": [ 0.0, "!v.is_holding_shield_offhand ? -10.0 * (1.0 - v.player_arm_height) : 0.0", 0.0 ]
-                }
-            }
-        },
+			"loop": true,
+			"bones": {
+				"leftarm": {
+					"position": [ 0.0, "v.off_hand_map_equipped ? 0.0 : (v.main_hand_map_equipped && !v.off_hand_shield_equipped ? -19.2 * (1.0 - v.player_arm_height) : -9.6 * (1.0 - c.player_offhand_arm_height))", 0.0 ]
+				},
+				"leftitem": {
+					"scale": "v.off_hand_item_visible"
+				},
+				"rightarm": {
+					"position": [ 0.0, "(v.main_hand_map_equipped ? -19.2 : -9.6) * (1.0 - v.player_arm_height)", 0.0 ]
+				},
+				"rightitem": {
+					"scale": "v.main_hand_item_visible"
+				}
+			}
+		},
 		"animation.player.first_person.grappling_hook_equipped": {
 			"loop": true,
 			"override_previous_animation": true,
 			"bones": {
 				"leftarm": {
-					"position": ["1.5 - (1.0 - v.grappling_hook_use_norm) * 3.5", "-3.799999952316284 + v.short_arm_offset_left", "8.25 - v.grappling_hook_use_norm"],
-					"rotation": [165, -60, 45],
-					"scale": [0.4, 0.4, 0.4]
+					"position": [ "-3.0 + v.grappling_hook_use_norm - this", "-4.0 + v.grappling_hook_use_norm - 9.6 * math.clamp(1.0 - v.item_use_duration * 0.4, 0.0, 1.0) - this", "8.0 - 2.0 * v.grappling_hook_use_norm - this" ],
+					"rotation": [ "30.0 - 30.0 * v.grappling_hook_use_norm", "10.0 * v.grappling_hook_use_norm", -110.0 ],
+					"scale": 0.68
 				},
 				"rightitem": {
-					"position": [0, 2, "2.5 - q.item_remaining_use_duration('main_hand', 1.0) * 1.5"],
-					"rotation": [-20, -15, -30],
-					"scale": [1, "1.15 - q.item_remaining_use_duration('main_hand', 1.0) * 0.15", 1]
+					"position": [ "8.96 - 7.6570912 * (1.0 - v.is_vertical_splitscreen * 0.5) + 0.5814452336 * v.grappling_hook_use_norm + 0.0045450970 * v.grappling_hook_shake_amount - this", "17.689808 - 9.6 * math.clamp(1.0 - v.item_use_duration * 0.4, 0.0, 1.0) + 0.0553060468 * v.grappling_hook_use_norm + 0.0596620190 * v.grappling_hook_shake_amount - this", "10.60295504 - 0.2616537435 * v.grappling_hook_use_norm + 0.0227109131 * v.grappling_hook_shake_amount - this" ],
+					"rotation": [ 16.935, 155.3, 0.0 ],
+					"scale": [ 1.0, 1.0, "1.0 + v.grappling_hook_use_norm * 0.2" ]
 				}
 			}
 		},
