@@ -4,11 +4,11 @@
     "description": {
       "identifier": "minecraft:zombie_villager_v2",
       "textures": {
-        "level_stone": "textures/entity/zombie_villager2/levels/level_stone",
-        "level_iron": "textures/entity/zombie_villager2/levels/level_iron",
-        "level_gold": "textures/entity/zombie_villager2/levels/level_gold",
-        "level_emerald": "textures/entity/zombie_villager2/levels/level_emerald",
-        "level_diamond": "textures/entity/zombie_villager2/levels/level_diamond"
+        "level_stone": "textures/entity/vanilla/zombie_villager/levels/level_stone",
+        "level_iron": "textures/entity/vanilla/zombie_villager/levels/level_iron",
+        "level_gold": "textures/entity/vanilla/zombie_villager/levels/level_gold",
+        "level_emerald": "textures/entity/vanilla/zombie_villager/levels/level_emerald",
+        "level_diamond": "textures/entity/vanilla/zombie_villager/levels/level_diamond"
       },
       "scripts": {
         "initialize": [
