@@ -1,5 +1,5 @@
 {
-  "format_version": "1.26.40",
+  "format_version": "1.26.50",
   "minecraft:entity": {
     "description": {
       "identifier": "tcsmp:lightning_bottle",
@@ -14,12 +14,18 @@
       },
       "minecraft:projectile": {
         "on_hit": {
-          "stick_in_ground": {}
+          "stick_in_ground": {},
+          "spawn_chance": {
+            "first_spawn_chance": 1.0,
+            "first_spawn_count": 1,
+            "spawn_definition": "minecraft:lightning_bolt"
+          }
         },
         "power": 0.5,
         "gravity": 0.05,
         "angle_offset": -20.0,
-        "hit_sound": "glass"
+        "hit_sound": "glass",
+        "isolated_physics": false
       },
       "minecraft:physics": {},
       "minecraft:pushable_by_block": {},

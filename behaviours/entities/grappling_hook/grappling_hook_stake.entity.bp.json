@@ -1,5 +1,5 @@
 {
-  "format_version": "1.26.20",
+  "format_version": "1.26.50",
   "minecraft:entity": {
     "description": {
       "identifier": "tcsmp:grappling_hook_stake",
@@ -25,7 +25,8 @@
           }
         },
         "hit_sound": "bow.hit",
-        "power": 1.6
+        "power": 1.6,
+        "isolated_physics": false
       },
       "minecraft:physics": {
         "has_collision": true,

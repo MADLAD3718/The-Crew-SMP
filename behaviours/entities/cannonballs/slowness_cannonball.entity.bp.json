@@ -1,11 +1,10 @@
 {
-    "format_version": "1.26.30",
+    "format_version": "1.26.50",
     "minecraft:entity": {
         "description": {
             "identifier": "tcsmp:slowness_cannonball",
             "is_spawnable": false,
-            "is_summonable": true,
-            "runtime_identifier": "minecraft:egg"
+            "is_summonable": true
         },
         "component_groups": {
             "tcsmp:has_hit": {
@@ -44,7 +43,6 @@
                     "stick_in_ground": {},
                     "definition_event": {
                         "event_trigger": {
-                            "affect_projectile": true,
                             "event": "tcsmp:hit_ground"
                         }
                     }

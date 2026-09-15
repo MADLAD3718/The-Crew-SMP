@@ -1,26 +1,17 @@
 {
-    "format_version": "1.26.30",
+    "format_version": "1.26.50",
     "minecraft:entity": {
         "description": {
             "identifier": "tcsmp:lightning_cannonball",
             "is_spawnable": false,
-            "is_summonable": true,
-            "runtime_identifier": "minecraft:egg"
+            "is_summonable": true
         },
         "component_groups": {
             "tcsmp:has_hit": {
-                "minecraft:spawn_entity": {
-                    "entities": {
-                        "min_wait_time": 0,
-                        "max_wait_time": 0,
-                        "spawn_entity": "lightning_bolt"
-                    }
-                },
                 "minecraft:explode": {
                     "breaks_blocks": false,
                     "causes_fire": false,
                     "fuse_lit": true,
-                    "fuse_length": 0.05,
                     "power": 4
                 }
             }
@@ -41,9 +32,13 @@
                     "stick_in_ground": {},
                     "definition_event": {
                         "event_trigger": {
-                            "affect_projectile": true,
                             "event": "tcsmp:hit_ground"
                         }
+                    },
+                    "spawn_chance": {
+                        "first_spawn_chance": 1.0,
+                        "first_spawn_count": 1,
+                        "spawn_definition": "minecraft:lightning_bolt"
                     }
                 }
             }
