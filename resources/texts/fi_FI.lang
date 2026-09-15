@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=Purjevene
 
 action.hint.exit.tcsmp:grappling_hook_seat=Kyykistyy tai hyppää irti
 action.hint.exit.tcsmp:cannon=Kyyristy tai hyppää lopettaaksesi tähtäyksen
-action.hint.exit.tcsmp:stair_seat=Kyykistyy tai hyppää seisomaan
 action.hint.exit.tcsmp:unicorn=Napauta hiipiä poistuaksesi
 action.interact.ride.tcsmp:unicorn=Ratsastaa
 action.interact.gerbil=Ole vuorovaikutuksessa poimiaksesi

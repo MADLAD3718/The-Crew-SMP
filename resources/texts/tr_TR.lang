@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=Yelkenli
 
 action.hint.exit.tcsmp:grappling_hook_seat=Ayrılmak için çömelin veya atlayın
 action.hint.exit.tcsmp:cannon=Nişan almayı durdurmak için çömelin veya zıplayın
-action.hint.exit.tcsmp:stair_seat=Ayağa kalkmak için çömelin veya zıplayın
 action.hint.exit.tcsmp:unicorn=İnmek için gizlice dokunun
 action.interact.ride.tcsmp:unicorn=yolculuk
 action.interact.gerbil=Almak için etkileşim kurun

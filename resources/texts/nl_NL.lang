@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=Zeilboot
 
 action.hint.exit.tcsmp:grappling_hook_seat=Hurk of spring om los te komen
 action.hint.exit.tcsmp:cannon=Buig of spring om te stoppen met richten
-action.hint.exit.tcsmp:stair_seat=Hurk of spring om te gaan staan
 action.hint.exit.tcsmp:unicorn=Tik op sluipen om af te stappen
 action.interact.ride.tcsmp:unicorn=Rijden
 action.interact.gerbil=Interactie om op te halen

@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=ヨット
 
 action.hint.exit.tcsmp:grappling_hook_seat=しゃがむかジャンプして切り離す
 action.hint.exit.tcsmp:cannon=しゃがむかジャンプして照準を止める
-action.hint.exit.tcsmp:stair_seat=しゃがむかジャンプして立つ
 action.hint.exit.tcsmp:unicorn=スニークをタップして降ります
 action.interact.ride.tcsmp:unicorn=乗る
 action.interact.gerbil=対話して受け取ります

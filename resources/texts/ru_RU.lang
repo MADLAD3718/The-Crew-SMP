@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=Парусник
 
 action.hint.exit.tcsmp:grappling_hook_seat=Присядьте или подпрыгните, чтобы оторваться
 action.hint.exit.tcsmp:cannon=Присядьте или подпрыгните, чтобы перестать прицеливаться
-action.hint.exit.tcsmp:stair_seat=Присядьте или подпрыгните, чтобы встать
 action.hint.exit.tcsmp:unicorn=Нажмите «Подкрасться», чтобы спешиться
 action.interact.ride.tcsmp:unicorn=Поездка
 action.interact.gerbil=Взаимодействуйте, чтобы забрать

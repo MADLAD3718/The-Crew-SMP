@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=Voilier
 
 action.hint.exit.tcsmp:grappling_hook_seat=Accroupissez-vous ou sautez pour vous détacher
 action.hint.exit.tcsmp:cannon=Accroupissez-vous ou sautez pour arrêter de viser
-action.hint.exit.tcsmp:stair_seat=Accroupissez-vous ou sautez pour vous lever
 action.hint.exit.tcsmp:unicorn=Appuyez sur furtivement pour descendre
 action.interact.ride.tcsmp:unicorn=Balade
 action.interact.gerbil=Interagissez pour récupérer

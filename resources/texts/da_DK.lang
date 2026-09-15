@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=Sejlbåd
 
 action.hint.exit.tcsmp:grappling_hook_seat=Læg dig på hug eller spring for at løsne dig
 action.hint.exit.tcsmp:cannon=Læg dig på hug eller hop for at stoppe med at sigte
-action.hint.exit.tcsmp:stair_seat=Læg dig på hug eller hop op at stå
 action.hint.exit.tcsmp:unicorn=Tryk på snig for at stige af
 action.interact.ride.tcsmp:unicorn=Ride
 action.interact.gerbil=Interager for at afhente

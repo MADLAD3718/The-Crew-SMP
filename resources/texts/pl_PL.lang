@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=Żaglówka
 
 action.hint.exit.tcsmp:grappling_hook_seat=Kucnij lub podskocz, aby się odłączyć
 action.hint.exit.tcsmp:cannon=Kucnij lub podskocz, aby przestać celować
-action.hint.exit.tcsmp:stair_seat=Kucnij lub podskocz, aby wstać
 action.hint.exit.tcsmp:unicorn=Kliknij opcję Skradania się, aby zejść
 action.interact.ride.tcsmp:unicorn=Jeździć
 action.interact.gerbil=Wejdź w interakcję, aby odebrać

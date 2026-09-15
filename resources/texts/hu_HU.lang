@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=Vitorlás
 
 action.hint.exit.tcsmp:grappling_hook_seat=Leguggoljon vagy ugorjon a leváláshoz
 action.hint.exit.tcsmp:cannon=Leguggolj vagy ugorj a célzás leállításához
-action.hint.exit.tcsmp:stair_seat=Leguggolj vagy ugorj állni
 action.hint.exit.tcsmp:unicorn=Koppintson a settenkedésre a leszálláshoz
 action.interact.ride.tcsmp:unicorn=Ride
 action.interact.gerbil=Lépjen kapcsolatba a felvételhez

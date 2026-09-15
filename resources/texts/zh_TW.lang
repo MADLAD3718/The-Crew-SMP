@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=帆船
 
 action.hint.exit.tcsmp:grappling_hook_seat=蹲下或跳跃以分离
 action.hint.exit.tcsmp:cannon=蹲下或跳跃以停止瞄准
-action.hint.exit.tcsmp:stair_seat=蹲下或跳起站立
 action.hint.exit.tcsmp:unicorn=点击潜行即可下马
 action.interact.ride.tcsmp:unicorn=骑行
 action.interact.gerbil=互动领取

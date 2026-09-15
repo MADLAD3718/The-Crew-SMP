@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=Plachetnica
 
 action.hint.exit.tcsmp:grappling_hook_seat=Prikrčením alebo skokom sa odpojíte
 action.hint.exit.tcsmp:cannon=Ak chcete zastaviť mierenie, prikrčte sa alebo skočte
-action.hint.exit.tcsmp:stair_seat=Prikrčte sa alebo vyskočte do stoja
 action.hint.exit.tcsmp:unicorn=Klepnutím na plížiť sa zosadnete
 action.interact.ride.tcsmp:unicorn=Jazdite
 action.interact.gerbil=Interakcia na vyzdvihnutie

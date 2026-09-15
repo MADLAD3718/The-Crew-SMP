@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=Ιστιοπλοϊκό
 
 action.hint.exit.tcsmp:grappling_hook_seat=Σκύψτε ή πηδήξτε για να ξεκολλήσετε
 action.hint.exit.tcsmp:cannon=Σκύψτε ή πηδήξτε για να σταματήσετε να στοχεύετε
-action.hint.exit.tcsmp:stair_seat=Σκύψτε ή πηδήξτε για να σταθείτε
 action.hint.exit.tcsmp:unicorn=Πατήστε sneak για αποσυναρμολόγηση
 action.interact.ride.tcsmp:unicorn=Βόλτα
 action.interact.gerbil=Αλληλεπιδράστε για να παραλάβετε

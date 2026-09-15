@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=범선
 
 action.hint.exit.tcsmp:grappling_hook_seat=분리하려면 웅크리거나 점프하세요.
 action.hint.exit.tcsmp:cannon=조준을 중지하려면 몸을 숙이거나 점프하세요.
-action.hint.exit.tcsmp:stair_seat=웅크리거나 뛰어서 일어선다
 action.hint.exit.tcsmp:unicorn=몰래 탭하여 내리세요
 action.interact.ride.tcsmp:unicorn=타고
 action.interact.gerbil=픽업하려면 상호작용하세요.

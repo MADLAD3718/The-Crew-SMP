@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=Seilbåt
 
 action.hint.exit.tcsmp:grappling_hook_seat=Huk eller hopp for å løsne
 action.hint.exit.tcsmp:cannon=Huk eller hopp for å slutte å sikte
-action.hint.exit.tcsmp:stair_seat=Huk eller hopp for å stå
 action.hint.exit.tcsmp:unicorn=Trykk snike for å gå av
 action.interact.ride.tcsmp:unicorn=Ride
 action.interact.gerbil=Samhandle for å hente

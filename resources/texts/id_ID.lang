@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=perahu layar
 
 action.hint.exit.tcsmp:grappling_hook_seat=Berjongkok atau melompat untuk melepaskan diri
 action.hint.exit.tcsmp:cannon=Berjongkok atau melompat untuk berhenti membidik
-action.hint.exit.tcsmp:stair_seat=Berjongkok atau melompat untuk berdiri
 action.hint.exit.tcsmp:unicorn=Ketuk menyelinap untuk turun
 action.interact.ride.tcsmp:unicorn=Naik
 action.interact.gerbil=Berinteraksi untuk mengambil

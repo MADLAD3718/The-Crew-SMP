@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=Вітрильник
 
 action.hint.exit.tcsmp:grappling_hook_seat=Присідайте або стрибайте, щоб відірватися
 action.hint.exit.tcsmp:cannon=Присідайте або стрибніть, щоб припинити прицілювання
-action.hint.exit.tcsmp:stair_seat=Присідайте або стрибайте, щоб встати
 action.hint.exit.tcsmp:unicorn=Торкніться «крастися», щоб злізти
 action.interact.ride.tcsmp:unicorn=Їздити
 action.interact.gerbil=Взаємодійте, щоб підібрати

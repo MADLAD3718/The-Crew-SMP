@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=Sailboat
 
 action.hint.exit.tcsmp:grappling_hook_seat=Crouch or jump to detach
 action.hint.exit.tcsmp:cannon=Crouch or jump to stop aiming
-action.hint.exit.tcsmp:stair_seat=Crouch or jump to stand
 action.hint.exit.tcsmp:unicorn=Tap sneak to dismount
 action.interact.ride.tcsmp:unicorn=Ride
 action.interact.gerbil=Interact to pick up

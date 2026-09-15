@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=Barca a vela
 
 action.hint.exit.tcsmp:grappling_hook_seat=Accovacciati o salta per staccarti
 action.hint.exit.tcsmp:cannon=Accovacciati o salta per smettere di mirare
-action.hint.exit.tcsmp:stair_seat=Accovacciati o salta per alzarti
 action.hint.exit.tcsmp:unicorn=Tocca furtivo per smontare
 action.interact.ride.tcsmp:unicorn=Cavalca
 action.interact.gerbil=Interagisci per ritirare

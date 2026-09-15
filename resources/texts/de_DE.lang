@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=Segelboot
 
 action.hint.exit.tcsmp:grappling_hook_seat=Gehen Sie in die Hocke oder springen Sie, um sich zu lösen
 action.hint.exit.tcsmp:cannon=Gehen Sie in die Hocke oder springen Sie, um mit dem Zielen aufzuhören
-action.hint.exit.tcsmp:stair_seat=Gehen Sie in die Hocke oder springen Sie, um aufzustehen
 action.hint.exit.tcsmp:unicorn=Tippen Sie auf Schleichen, um abzusteigen
 action.interact.ride.tcsmp:unicorn=Fahrt
 action.interact.gerbil=Interagieren Sie, um abzuholen

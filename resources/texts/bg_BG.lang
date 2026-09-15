@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=платноходка
 
 action.hint.exit.tcsmp:grappling_hook_seat=Приклекнете или скочете, за да се отделите
 action.hint.exit.tcsmp:cannon=Приклекнете или скочете, за да спрете да се прицелвате
-action.hint.exit.tcsmp:stair_seat=Приклекнете или скочете, за да станете
 action.hint.exit.tcsmp:unicorn=Докоснете промъкване, за да слезете
 action.interact.ride.tcsmp:unicorn=Карай
 action.interact.gerbil=Взаимодействайте, за да вземете

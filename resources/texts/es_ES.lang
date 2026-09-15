@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=velero
 
 action.hint.exit.tcsmp:grappling_hook_seat=Agáchate o salta para separarte.
 action.hint.exit.tcsmp:cannon=Agáchate o salta para dejar de apuntar.
-action.hint.exit.tcsmp:stair_seat=Agáchate o salta para pararte
 action.hint.exit.tcsmp:unicorn=Toca furtivamente para desmontar
 action.interact.ride.tcsmp:unicorn=paseo
 action.interact.gerbil=Interactuar para recoger

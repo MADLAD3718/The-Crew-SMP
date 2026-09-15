@@ -118,7 +118,6 @@ entity.tcsmp:sailboat.name=Veleiro
 
 action.hint.exit.tcsmp:grappling_hook_seat=Agache-se ou pule para se soltar
 action.hint.exit.tcsmp:cannon=Agache-se ou pule para parar de mirar
-action.hint.exit.tcsmp:stair_seat=Agache-se ou pule para ficar de pé
 action.hint.exit.tcsmp:unicorn=Toque em esgueirar-se para desmontar
 action.interact.ride.tcsmp:unicorn=Passeio
 action.interact.gerbil=Interaja para retirar
