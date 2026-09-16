@@ -1,5 +1,5 @@
 {
-    "format_version": "1.26.20",
+    "format_version": "1.26.50",
     "minecraft:item": {
         "description": {
             "identifier": "tcsmp:music_disc_drop_it",
@@ -20,7 +20,7 @@
             "minecraft:record": {
 				"comparator_signal": 12,
 				"duration": 145,
-				"sound_event": "camera.take_picture"
+				"sound_event": "lt.reaction.epaste2"
 			},
 			"minecraft:rarity": "uncommon",
             "minecraft:tags": {

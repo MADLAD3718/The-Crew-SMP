@@ -1,5 +1,5 @@
 {
-   "format_version": "1.26.20",
+   "format_version": "1.26.50",
    "sound_definitions": {
       "cannon.place": {
          "__use_legacy_max_distance" : "true",
@@ -262,7 +262,8 @@
                "stream" : true,
                "volume" : 0.50
             }
-         ]
+         ],
+         "broadcast_range": 64.0
       },
       "record.crackas": {
          "__use_legacy_max_distance" : "true",

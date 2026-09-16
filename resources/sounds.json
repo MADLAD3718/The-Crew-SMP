@@ -162,7 +162,7 @@
     },
     "individual_event_sounds": {
         "events": {
-            "camera.take_picture": {
+            "lt.reaction.epaste2": {
                 "sound": "record.drop_it",
                 "pitch": 1.0,
                 "volume": 1.0

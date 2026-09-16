@@ -18,11 +18,15 @@ world.beforeEvents.playerInteractWithBlock.subscribe(event => {
 
     const recordPlayer = block.getComponent(BlockComponentTypes.RecordPlayer)!;
     if (!recordPlayer.isPlaying()) {
-        // Actionbar message recreation in place until https://mojira.dev/BDS-23085 is fixed.
-        if (event.itemStack && world.getDynamicProperty("servermode")) {
-            const recordSound = RecordSounds[event.itemStack.typeId];
-            if (!recordSound) return;
+        if (!event.itemStack) return;
 
+        const recordSound = RecordSounds[event.itemStack.typeId];
+        if (!recordSound) return;
+
+        RecordMap[Vec3.toString(location)] = event.itemStack.typeId;
+
+        // Actionbar message recreation in place until https://mojira.dev/BDS-23085 is fixed.
+        if (world.getDynamicProperty("servermode")) {
             const descKey = recordSound.replace('.', '_');
 
             system.run(() => {
@@ -33,10 +37,8 @@ world.beforeEvents.playerInteractWithBlock.subscribe(event => {
                 ]);
             });
         }
-        return;
     }
-
-    RecordMap[Vec3.toString(location)] = recordPlayer.getRecord()!.typeId;
+    else RecordMap[Vec3.toString(location)] = recordPlayer.getRecord()!.typeId;
 });
 
 world.afterEvents.playerInteractWithBlock.subscribe(event => {
@@ -45,12 +47,14 @@ world.afterEvents.playerInteractWithBlock.subscribe(event => {
 
     const stringLocation = Vec3.toString(location);
     const recordPlayer = block.getComponent(BlockComponentTypes.RecordPlayer);
-    if (recordPlayer?.isPlaying()) return;
-
     const sound = RecordSounds[RecordMap[stringLocation] ?? "none"];
-    for (const player of dimension.getPlayers({
-        location: block.center(), maxDistance: 64
-    })) if (player.isValid) player.stopSound(sound);
+    if (recordPlayer?.isPlaying())
+        dimension.playSound(sound, block.center());
+    else {
+        for (const player of dimension.getPlayers({
+            location: block.center(), maxDistance: 64
+        })) if (player.isValid) player.stopSound(sound);
+    }
 });
 
 world.beforeEvents.playerBreakBlock.subscribe(event => {
