@@ -54,26 +54,31 @@ function warpCrystalHit(dimension: Dimension, location: Vector3, projectile: Ent
     const target_dimension = world.getDimension(target_dimension_id);
 
     const entities = dimension.getEntities({ location, maxDistance: 2.0 });
-    for (const entity of entities) if (entity instanceof Player) entity.playSound("portal.trigger");
+    if (entities.length <= 0) return;
+    
     const loadVolume = new ListBlockVolume(entities.map(entity => entity.location));
-    if (entities.length > 0)
-        world.tickingAreaManager.createTickingArea(
-            "tcsmp:tempered_warp_crystal", {
+    world.tickingAreaManager.createTickingArea(
+        "tcsmp:tempered_warp_crystal", {
             dimension: target_dimension,
             from: convertLocation(loadVolume.getMin()),
             to: convertLocation(loadVolume.getMax())
         }
-        ).then(() => {
-            for (const entity of entities) {
-                const new_location = convertLocation(entity.location);
-                const minHeight = target_dimension.heightRange.max - 1;
-                const safe_block = target_dimension.getTopmostBlock(new_location, minHeight);
-                if (safe_block) entity.teleport(
-                    Vec3.above(safe_block.bottomCenter()),
-                    { dimension: target_dimension }
-                );
-            }
-        }).finally(() => {
-            world.tickingAreaManager.removeTickingArea("tcsmp:tempered_warp_crystal");
-        });
+    ).then(() => {
+        for (const entity of entities) {
+            entity.entityRidingOn?.ejectRiders();
+
+            if (entity instanceof Player)
+                entity.playSound("portal.trigger");
+
+            const new_location = convertLocation(entity.location);
+            const minHeight = target_dimension.heightRange.max - 1;
+            const safe_block = target_dimension.getTopmostBlock(new_location, minHeight);
+            if (safe_block) entity.teleport(
+                Vec3.above(safe_block.bottomCenter()),
+                { dimension: target_dimension }
+            );
+        }
+    }).finally(() => {
+        world.tickingAreaManager.removeTickingArea("tcsmp:tempered_warp_crystal");
+    });
 }
