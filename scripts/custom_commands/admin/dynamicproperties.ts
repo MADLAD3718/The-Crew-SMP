@@ -1,5 +1,5 @@
 import { Vec3 } from "@madlad3718/mcveclib";
-import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomCommandParamType, CustomCommandResult, CustomCommandStatus, world } from "@minecraft/server";
+import { CommandPermissionLevel, CustomCommand, CustomCommandOrigin, CustomCommandParamType, CustomCommandResult, CustomCommandStatus, Entity, ItemStack, Player, World, world } from "@minecraft/server";
 
 export enum DynamicPropertiesAction {
     List = "list",
@@ -8,7 +8,8 @@ export enum DynamicPropertiesAction {
 
 export enum DynamicPropertiesField {
     Self = "self",
-    World = "world"
+    World = "world",
+    Item = "item"
 }
 
 const dynamicPropertiesCommand: CustomCommand = {
@@ -29,7 +30,22 @@ const dynamicPropertiesCommand: CustomCommand = {
 }
 
 function dynamicPropertiesCallback(origin: CustomCommandOrigin, action: DynamicPropertiesAction, field: DynamicPropertiesField): CustomCommandResult {
-    const medium = field === DynamicPropertiesField.Self ? origin.sourceEntity! : world;
+    if (!(origin.sourceEntity instanceof Player)) return {
+        status: CustomCommandStatus.Failure,
+        message: "Only players can run the dynamicproperties command."
+    };
+
+    const itemStack = origin.sourceEntity.inventory.container.getItem(origin.sourceEntity.selectedSlotIndex);
+    const PropertyMediums: Record<DynamicPropertiesField, undefined | ItemStack | Entity | World> = {
+        [DynamicPropertiesField.Item]: itemStack,
+        [DynamicPropertiesField.Self]: origin.sourceEntity,
+        [DynamicPropertiesField.World]: world
+    }
+    const medium = PropertyMediums[field];
+    if (!medium) return {
+        status: CustomCommandStatus.Failure,
+        message: "Specified dynamic properties medium could not be found."
+    };
 
     const propertyIds = medium.getDynamicPropertyIds();
     if (propertyIds.length === 0) return {
