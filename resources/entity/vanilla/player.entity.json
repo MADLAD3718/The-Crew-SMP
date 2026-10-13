@@ -178,7 +178,7 @@
 
           // Grappling Hook
           "v.grappling_hook_max_use = 1.0;", // Must match grappling_hook.attachable.json
-          "v.grappling_hook_use_norm = math.clamp((q.main_hand_item_max_duration - q.main_hand_item_use_duration) / (20 * v.grappling_hook_max_use), 0.0, 1.0);",
+          "v.grappling_hook_use_norm = math.clamp((q.main_hand_item_max_duration - (q.main_hand_item_use_duration - q.frame_alpha + 1.0)) / (20 * v.grappling_hook_max_use), 0.0, 1.0);",
           "v.grappling_hook_shake_amount = v.grappling_hook_use_norm > 0.1 ? math.sin((v.item_use_duration - 0.1) * 74.484513367) * (v.grappling_hook_use_norm - 0.1) : 0.0;",
           "v.grappling_hook_is_charging = q.main_hand_item_use_duration != 0.0 && v.grappling_hook_use_norm < 1.0;",
           "v.grappling_hook_is_charged = q.main_hand_item_use_duration != 0.0 && v.grappling_hook_use_norm == 1.0;",
