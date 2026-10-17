@@ -1,0 +1,35 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.katana.wield": {
+      "loop": true,
+      "bones": {
+        "katana": {
+          "position": [ "c.is_first_person ? -1.13 : 0.0", "c.is_first_person ? 3.2 : -1.0", "c.is_first_person ? 1.13 : -6.75" ],
+          "rotation": [
+            { "z": "c.is_first_person ? 0.0 : -5.0" },
+            { "x": "c.is_first_person ? -90.0 : 75.0" },
+            { "z": "-90.0" },
+            { "y": "c.is_first_person ? 25.0 : -40.0" }
+          ],
+          "scale": "c.is_first_person ? 0.68 : 0.94"
+        }
+      }
+    },
+    "animation.katana.wield_offhand": {
+      "loop": true,
+      "bones": {
+        "katana": {
+          "position": [ "c.is_first_person ? 1.13 : 0.0", "c.is_first_person ? 3.2 : -1.0", "c.is_first_person ? 1.13 : -6.75" ],
+          "rotation": [
+            { "z": "c.is_first_person ? 0.0 : 5.0" },
+            { "x": "c.is_first_person ? -90.0 : 75.0" },
+            { "z": "-90.0" },
+            { "y": "c.is_first_person ? 25.0 : -40.0" }
+          ],
+          "scale": "c.is_first_person ? 0.68 : 0.94"
+        }
+      }
+    }
+  }
+}

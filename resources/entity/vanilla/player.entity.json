@@ -185,7 +185,7 @@
 
           // Katana
           "v.katana_max_use = 0.5;", // Must match katana.ts
-          "v.katana_use_norm = math.clamp((q.main_hand_item_max_duration - q.main_hand_item_use_duration) / (20 * v.katana_max_use), 0.0, 1.0);",
+          "v.katana_use_norm = math.clamp((q.main_hand_item_max_duration - (q.main_hand_item_use_duration - q.frame_alpha + 1.0)) / (20 * v.katana_max_use), 0.0, 1.0);",
           "v.katana_is_charging = q.main_hand_item_use_duration != 0.0 && v.katana_use_norm < 1.0;",
           "v.katana_is_charged = q.main_hand_item_use_duration != 0.0 && v.katana_use_norm == 1.0;"
         ],
@@ -280,8 +280,11 @@
         "third_person_grappling_hook_equipped": "animation.player.grappling_hook_equipped",
         "first_person_grappling_hook_equipped": "animation.player.first_person.grappling_hook_equipped",
 
-        "katana_controller": "controller.animation.player.katana",
+        "first_person_katana_controller": "controller.animation.player.first_person_katana",
         "first_person_weild_katana": "animation.player.first_person.katana.weild",
+        "first_person_weild_katana_leftarm": "animation.player.first_person.katana.weild_leftarm",
+        "first_person_katana_dash": "animation.player.first_person.katana.dash",
+        "katana_controller": "controller.animation.player.katana",
         "third_person_katana_charge": "animation.player.katana.charge",
         "third_person_katana_dash": "animation.player.katana.dash",
         

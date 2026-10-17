@@ -203,6 +203,42 @@
                 }
             }
         },
+        "controller.animation.player.first_person_katana": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "animations": [
+                        "first_person_weild_katana_leftarm"
+                    ],
+                    "transitions": [
+                        {
+                            "charging": "v.katana_is_charging"
+                        }
+                    ]
+                },
+                "charging": {
+                    "animations": [
+                        "first_person_weild_katana",
+                        "first_person_weild_katana_leftarm"
+                    ],
+                    "transitions": [
+                        {
+                            "dashing": "q.main_hand_item_use_duration == 0.0"
+                        }
+                    ]
+                },
+                "dashing": {
+                    "animations": [
+                        "first_person_katana_dash"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "q.any_animation_finished || q.get_equipped_item_name != 'katana' || q.main_hand_item_use_duration != 0.0"
+                        }
+                    ]
+                }
+            }
+        },
         "controller.animation.player.first_person_map": {
             "initial_state": "default",
             "states": {
@@ -318,7 +354,7 @@
                             "first_person_grappling_hook_equipped": "q.is_item_name_any('slot.weapon.mainhand', 'tcsmp:grappling_hook') && v.grappling_hook_is_charging"
                         },
                         {
-                            "first_person_weild_katana": "q.get_equipped_item_name == 'katana' && v.item_use_normalized > 0 && !q.is_gliding"
+                            "first_person_katana_controller": "q.get_equipped_item_name == 'katana' && !q.is_gliding"
                         }
                     ],
                     "transitions": [
@@ -350,7 +386,9 @@
                     "animations": [
                         "humanoid_base_pose",
                         "look_at_target_ui",
-                        "move.arms",
+                        {
+                            "move.arms": "q.get_equipped_item_name != 'katana' || q.is_gliding"
+                        },
                         "move.legs",
                         "cape"
                     ],
@@ -372,7 +410,9 @@
                         {
                             "look_at_target": "!q.is_sleeping && !q.is_emoting"
                         },
-                        "move.arms",
+                        {
+                            "move.arms": "q.get_equipped_item_name != 'katana' || q.is_gliding"
+                        },
                         "move.legs",
                         "cape",
                         {

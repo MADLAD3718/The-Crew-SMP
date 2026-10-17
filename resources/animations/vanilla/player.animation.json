@@ -36,8 +36,8 @@
 					"rotation": [ -40, 0, 0 ]
 				},
 				"rightItem": {
-					"rotation": [ 70, 0, 0 ],
-					"position": [ 0, 0, -3 ]
+					"rotation": [ 65, 0, 0 ],
+					"position": [ 0, -2, -2 ]
 				}
 			}
 		},

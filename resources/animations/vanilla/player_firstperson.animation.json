@@ -106,20 +106,46 @@
     },
     "animation.player.first_person.katana.weild": {
       "loop": true,
+      "bones": {
+        "rightitem": {
+          "position": [
+            0,
+            "-2 * v.katana_use_norm",
+            0
+          ],
+          "rotation": [
+            "65 * v.katana_use_norm",
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "animation.player.first_person.katana.weild_leftarm": {
+      "loop": true,
       "override_previous_animation": true,
       "bones": {
         "leftArm": {
-          "rotation": [
-            "145 + 10 * v.katana_use_norm",
-            "-60 - 30 * v.katana_use_norm",
-            45
-          ],
           "position": [
-            "1.0 - (1.0 - v.katana_use_norm) * 1.5",
-            "-3.5 + v.short_arm_offset_left - v.katana_use_norm",
-            "9.25 - v.katana_use_norm"
+            "-3.0 + v.katana_use_norm - this",
+            "-4.0 + v.katana_use_norm - 9.6 * math.clamp(1.0 - v.item_use_duration * 0.4, 0.0, 1.0) - this",
+            "7.75 - 2.0 * v.katana_use_norm - this"
           ],
-          "scale": 0.4
+          "rotation": [
+            "30.0 - 30.0 * v.katana_use_norm",
+            "10.0 * v.katana_use_norm",
+            -85.0
+          ],
+          "scale": 0.68
+        }
+      }
+    },
+    "animation.player.first_person.katana.dash": {
+      "animation_length": 0.5,
+      "bones": {
+        "rightitem": {
+          "position": [ 0, 0, 2 ],
+          "rotation": [ 90, 0, 0 ]
         }
       }
     },

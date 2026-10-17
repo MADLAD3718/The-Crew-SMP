@@ -1,0 +1,43 @@
+{
+    "format_version": "1.26.50",
+    "minecraft:attachable": {
+        "description": {
+            "identifier": "tcsmp:katana",
+            "geometry": {
+                "default": "geometry.katana"
+            },
+            "materials": {
+                "default": "entity",
+                "enchanted": "entity_glint"
+            },
+            "textures": {
+                "default": "textures/items/katana",
+                "enchanted": "textures/misc/enchanted_item_glint"
+            },
+            "animations": {
+                "wield": "animation.katana.wield",
+                "wield_offhand": "animation.katana.wield_offhand"
+            },
+            "scripts": {
+                "parent_setup": "c.item_slot == 'main_hand' ? { v.use_attachable_animations_main_hand = 1.0; } : { v.use_attachable_animations_off_hand = 1.0; };",
+                "initialize": [
+                    "variable.is_in_offhand = c.item_slot == 'off_hand';"
+                ],
+                "pre_animation": [
+                    "variable.is_first_person = c.is_first_person;"
+                ],
+                "animate": [
+                    {
+                        "wield": "c.item_slot == 'main_hand'"
+                    },
+                    {
+                        "wield_offhand": "variable.is_in_offhand"
+                    }
+                ]
+            },
+            "render_controllers": [
+                "controller.render.item_default"
+            ]
+        }
+    }
+}
