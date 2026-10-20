@@ -22,10 +22,20 @@
         "on_hit": {
           "stick_in_ground": {
             "shake_time": 0.35
+          },
+          "impact_damage": {
+            "damage": {
+              "max":0,
+              "min":0
+            },
+            "min_critical_damage": 0,
+            "max_critical_damage": 0,
+            "power_multiplier": 0
           }
         },
         "hit_sound": "bow.hit",
         "power": 1.6,
+        "should_bounce": "if_no_damage_dealt",
         "isolated_physics": false
       },
       "minecraft:physics": {

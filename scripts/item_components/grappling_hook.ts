@@ -1,5 +1,5 @@
 import { Vec3 } from "@madlad3718/mcveclib";
-import { EntityProjectileComponent, GameMode, ItemCustomComponent, ItemLockMode, ItemStack, Player, system, TicksPerSecond, world } from "@minecraft/server";
+import { EntityDamageCause, EntityProjectileComponent, GameMode, ItemCustomComponent, ItemLockMode, ItemStack, Player, system, TicksPerSecond, world } from "@minecraft/server";
 import Definition from "../../behaviours/items/grappling_hook/grappling_hook.item.json";
 import { clamp } from "../util";
 
@@ -61,6 +61,14 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
     });
     stake.setDynamicProperty("interval", interval);
 });
+
+world.beforeEvents.entityHurt.subscribe(event => {
+    const { damageSource } = event, { damagingEntity: stake } = damageSource;
+    if (!stake?.isValid ||
+        !stake.matches({ type: "tcsmp:grappling_hook_stake" })) return;
+
+    event.cancel = true;
+}, { allowedDamageCauses: [EntityDamageCause.projectile] });
 
 world.afterEvents.projectileHitBlock.subscribe(event => {
     const { projectile: stake, source: player } = event;
